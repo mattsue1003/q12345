@@ -15,7 +15,7 @@
   --font:"Microsoft JhengHei","PingFang TC","Noto Sans TC","Heiti TC",system-ui,sans-serif;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.75;overflow-x:hidden}
 img,svg{max-width:100%}
 a{color:var(--teal)}
@@ -50,6 +50,16 @@ nav.toc .wrap{display:flex;gap:8px;overflow-x:auto;padding-top:10px;padding-bott
 nav.toc .wrap::-webkit-scrollbar{display:none}
 nav.toc a{flex:0 0 auto;text-decoration:none;color:var(--ink);background:var(--teal-50);padding:6px 14px;border-radius:999px;font-size:.95rem;font-weight:700;white-space:nowrap}
 nav.toc a.on{background:var(--teal);color:#fff}
+nav.toc .toc-g{flex:0 0 auto;align-self:center;font-size:.8rem;font-weight:800;color:#fff;background:var(--ink);padding:3px 9px;border-radius:6px;margin-left:6px;letter-spacing:.05em}
+nav.toc .toc-g:first-child{margin-left:0}
+nav.toc .toc-search{padding-top:0;padding-bottom:10px;overflow:visible;flex-wrap:wrap;align-items:center}
+nav.toc .toc-search input{flex:1 1 240px;min-width:0;padding:8px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.95rem;font-family:inherit;background:#fff}
+nav.toc .toc-search input:focus{outline:2px solid var(--teal);border-color:var(--teal)}
+nav.toc #qCount{font-size:.9rem;color:var(--muted);min-width:4.5em;white-space:nowrap}
+.qbtn{background:var(--teal-50);border:0;border-radius:8px;padding:7px 11px;font-family:inherit;font-weight:700;color:var(--ink);cursor:pointer;font-size:.9rem}
+.qbtn:hover{background:var(--teal);color:#fff}
+mark.hit{background:#FFE08A;color:inherit;padding:0 2px;border-radius:3px}
+mark.hit.cur{background:var(--orange);color:#fff}
 
 /* sections */
 section{padding:56px 0 8px}
@@ -229,20 +239,33 @@ footer a{color:var(--amber)}
 
 <nav class="toc" aria-label="章節導覽">
   <div class="wrap">
+    <span class="toc-g">基礎</span>
     <a href="#s1">認識 AI</a>
+    <span class="toc-g">語音</span>
     <a href="#s2">Typeless</a>
     <a href="#s3">Gemini 桌面版</a>
     <a href="#s14">ChatGPT 桌面版</a>
     <a href="#s4">Chrome 裡的 Gemini</a>
-    <a href="#s13">AI 生簡報</a>
     <a href="#s5">三種語音比較</a>
-    <a href="#s6">資安三不原則</a>
+    <span class="toc-g">簡報</span>
+    <a href="#s13">AI 生簡報</a>
+    <span class="toc-g">資安</span>
+    <a href="#s6">三不原則</a>
     <a href="#s7">去識別化</a>
+    <span class="toc-g">轉譯</span>
     <a href="#s8">提示語六要素</a>
     <a href="#s9">衛教單張轉譯</a>
     <a href="#s10">多語與回譯</a>
     <a href="#s11">範本庫</a>
+    <span class="toc-g">課後</span>
     <a href="#s12">課後任務</a>
+  </div>
+  <div class="wrap toc-search">
+    <input id="q" type="search" placeholder="搜尋講義關鍵字：例如 快捷鍵、回譯、去識別化、DeckEdit" aria-label="搜尋講義">
+    <span id="qCount"></span>
+    <button class="qbtn" id="qPrev" title="上一個">▲</button>
+    <button class="qbtn" id="qNext" title="下一個">▼</button>
+    <button class="qbtn" id="qClear">清除</button>
   </div>
 </nav>
 
@@ -901,9 +924,41 @@ footer a{color:var(--amber)}
   </div>
 </section>
 
+<!-- 5 compare -->
+<section id="s5">
+  <div class="sec-head"><div class="num">6</div><div><h2>三種語音輸入，怎麼選？</h2><p>不用三個都裝，挑一個最順手的天天用，就會越講越快。</p></div></div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th></th><th>Typeless</th><th>Gemini 桌面版</th><th>Chrome 裡的 Gemini</th></tr></thead>
+      <tbody>
+        <tr><td>適合做什麼</td><td>在任何軟體裡「把話變成整理好的文字」</td><td>邊看檔案邊問 AI、口述指令</td><td>針對網頁內容提問、比較分頁</td></tr>
+        <tr><td>語音輸入方式</td><td>按一下快捷鍵開始，再按一下結束</td><td>對話框麥克風；Mac 按住 fn 可在任何軟體聽打</td><td>側邊欄輸入框的麥克風</td></tr>
+        <tr><td>要安裝嗎</td><td>要</td><td>要</td><td>不用，更新 Chrome 即可</td></tr>
+        <tr><td>費用</td><td>免費版每週約 2,000 字</td><td>免費可用</td><td>免費可用</td></tr>
+        <tr><td>資料提醒</td><td colspan="3">三者都在雲端處理，<b>一律不輸入可識別的病人資料</b>（見第 8 節「三不原則」）。ChatGPT 桌面版的輸入框麥克風也是聽寫，用法同 Gemini。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card" style="margin-top:18px">
+    <h3>裝機檢核表</h3>
+    <div class="progress"><i id="bar"></i></div>
+    <div class="check" id="checklist">
+      <label><input type="checkbox" data-k="c1"><span>Typeless 已安裝、登入，並授權麥克風</span></label>
+      <label><input type="checkbox" data-k="c2"><span>能用快捷鍵在記事本講出一段話</span></label>
+      <label><input type="checkbox" data-k="c7"><span>手機也裝好 Typeless，能在 LINE 切換成 Typeless 鍵盤說話</span></label>
+      <label><input type="checkbox" data-k="c3"><span>個人字典已加入 3 個科內常用詞</span></label>
+      <label><input type="checkbox" data-k="c4"><span>Gemini 桌面版已安裝，快捷鍵能叫出對話框</span></label>
+      <label><input type="checkbox" data-k="c8"><span>（Mac）按住 fn 能聽打、同時按兩顆 ⌘ 能截圖詢問</span></label>
+      <label><input type="checkbox" data-k="c9"><span>ChatGPT 桌面版已安裝，快捷鍵能叫出小視窗</span></label>
+      <label><input type="checkbox" data-k="c5"><span>Chrome 已登入，右上角看得到 Gemini 圖示</span></label>
+      <label><input type="checkbox" data-k="c6"><span>用側邊欄成功摘要一篇衛教網頁</span></label>
+    </div>
+  </div>
+</section>
+
 <!-- slides -->
 <section id="s13">
-  <div class="sec-head"><div class="num">6</div><div><h2>AI 生簡報：Gemini、ChatGPT，再用 Canva 修</h2><p>同一份衛教主題，用的「模式」不同，做出來的簡報差很多。先選對模式，再補圖，最後用 Canva 或 DeckEdit 微調。</p></div></div>
+  <div class="sec-head"><div class="num">7</div><div><h2>AI 生簡報：Gemini、ChatGPT，再用 Canva 修</h2><p>同一份衛教主題，用的「模式」不同，做出來的簡報差很多。先選對模式，再補圖，最後用 Canva 或 DeckEdit 微調。</p></div></div>
 
   <div class="card">
     <h3><span class="pill">Gemini</span>不要在「對話」裡做，開「任務」再做</h3>
@@ -1032,38 +1087,6 @@ footer a{color:var(--amber)}
 規則：標題 36pt 以上、內文 24pt 以上；一頁只講一件事；不用英文縮寫；色系醫院藍綠、淺色背景。
 做簡報的流程固定為：① 先用表格列出每頁的頁碼、標題、核心訊息、建議畫面，等我確認 → ② 逐頁產出，每頁生成一張扁平插畫風、亞洲長者、無文字的插圖 → ③ 打包成 PPTX 並附逐頁講稿。
 不新增我給的資料以外的醫療建議；不確定的數字用【？】標出。<button class="copy">複製</button></div>
-</section>
-
-<!-- 5 compare -->
-<section id="s5">
-  <div class="sec-head"><div class="num">7</div><div><h2>三種語音輸入，怎麼選？</h2><p>不用三個都裝，挑一個最順手的天天用，就會越講越快。</p></div></div>
-  <div class="tbl">
-    <table>
-      <thead><tr><th></th><th>Typeless</th><th>Gemini 桌面版</th><th>Chrome 裡的 Gemini</th></tr></thead>
-      <tbody>
-        <tr><td>適合做什麼</td><td>在任何軟體裡「把話變成整理好的文字」</td><td>邊看檔案邊問 AI、口述指令</td><td>針對網頁內容提問、比較分頁</td></tr>
-        <tr><td>語音輸入方式</td><td>按一下快捷鍵開始，再按一下結束</td><td>對話框麥克風；Mac 按住 fn 可在任何軟體聽打</td><td>側邊欄輸入框的麥克風</td></tr>
-        <tr><td>要安裝嗎</td><td>要</td><td>要</td><td>不用，更新 Chrome 即可</td></tr>
-        <tr><td>費用</td><td>免費版每週約 2,000 字</td><td>免費可用</td><td>免費可用</td></tr>
-        <tr><td>資料提醒</td><td colspan="3">三者都在雲端處理，<b>一律不輸入可識別的病人資料</b>（見下一節）。ChatGPT 桌面版的輸入框麥克風也是聽寫，用法同 Gemini。</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="card" style="margin-top:18px">
-    <h3>裝機檢核表</h3>
-    <div class="progress"><i id="bar"></i></div>
-    <div class="check" id="checklist">
-      <label><input type="checkbox" data-k="c1"><span>Typeless 已安裝、登入，並授權麥克風</span></label>
-      <label><input type="checkbox" data-k="c2"><span>能用快捷鍵在記事本講出一段話</span></label>
-      <label><input type="checkbox" data-k="c7"><span>手機也裝好 Typeless，能在 LINE 切換成 Typeless 鍵盤說話</span></label>
-      <label><input type="checkbox" data-k="c3"><span>個人字典已加入 3 個科內常用詞</span></label>
-      <label><input type="checkbox" data-k="c4"><span>Gemini 桌面版已安裝，快捷鍵能叫出對話框</span></label>
-      <label><input type="checkbox" data-k="c8"><span>（Mac）按住 fn 能聽打、同時按兩顆 ⌘ 能截圖詢問</span></label>
-      <label><input type="checkbox" data-k="c9"><span>ChatGPT 桌面版已安裝，快捷鍵能叫出小視窗</span></label>
-      <label><input type="checkbox" data-k="c5"><span>Chrome 已登入，右上角看得到 Gemini 圖示</span></label>
-      <label><input type="checkbox" data-k="c6"><span>用側邊欄成功摘要一篇衛教網頁</span></label>
-    </div>
-  </div>
 </section>
 
 <!-- 6 three no -->
@@ -1324,6 +1347,7 @@ footer a{color:var(--amber)}
         <li>挑一份科內<b>已公開</b>的衛教單張，用六要素做出長者大字版。</li>
         <li>選一種語言做翻譯＋回譯，記下 AI 最常出錯的地方。</li>
         <li>把覺得好用的提示語存起來，下次上課分享。</li>
+        <li><b>下次要教 AI Agent（AI 代理）</b>：請先到 <a href="https://opencode.ai/zht" target="_blank" rel="noopener">opencode.ai</a> 下載安裝 OpenCode（見右下方說明）。</li>
       </ol>
     </div>
     <div class="card">
@@ -1335,6 +1359,36 @@ footer a{color:var(--amber)}
         <li>用一句話產出圖表，並學會驗算</li>
       </ul>
       <p style="color:var(--muted)">請先確認 Google 帳號可正常登入 Gemini。</p>
+    </div>
+  </div>
+  <div class="card tool" style="margin-top:18px">
+    <div class="tool-top">
+      <div class="logo" style="background:#111">O</div>
+      <div style="flex:1;min-width:220px">
+        <h3 style="margin:0">課前準備：安裝 OpenCode｜下次教 AI Agent</h3>
+        <div><span class="pill">Mac</span><span class="pill">Windows</span><span class="pill">開源、免費</span></div>
+      </div>
+      <a class="btn o" href="https://opencode.ai/zht" target="_blank" rel="noopener">前往 OpenCode 下載（繁體中文）</a>
+    </div>
+    <div class="grid2">
+      <div>
+        <h4>它是什麼</h4>
+        <ul>
+          <li>一個<b>開源的 AI Agent 工具</b>：你用一句話交辦，它會自己拆步驟、讀檔案、執行、回報，不像對話一問一答。</li>
+          <li>下次上課會用它示範：把一份衛教單張自動做成民眾版＋長者版＋多語版、整理一整個資料夾的紀錄、把重複的文書流程交給它跑。</li>
+          <li>可以接 Gemini、ChatGPT 等不同模型；今天先裝好就好，<b>帳號與模型設定上課時一起做</b>。</li>
+        </ul>
+      </div>
+      <div>
+        <h4>安裝步驟（約 3 分鐘）</h4>
+        <ol class="steps">
+          <li>點上方按鈕打開官網（繁體中文頁面），依你的系統選 Mac 或 Windows 下載。</li>
+          <li>Mac：打開下載的檔案，拖進「應用程式」；Windows：雙擊安裝檔，依畫面完成。若出現安全性提醒，確認來源是 opencode.ai 後選「仍要執行／打開」。</li>
+          <li>開啟一次，看到畫面能正常打開就可以關掉；不用登入、不用設定。</li>
+          <li>院內公務電腦不能裝軟體的同仁，請帶個人筆電，或上課用手機看示範。</li>
+        </ol>
+        <div class="note red" style="margin:10px 0 0;font-size:.95rem"><b>提醒：</b>Agent 會讀取你指定的資料夾並自己執行動作，和今天講的「任務」模式一樣，<b>病人資料一律先去識別化</b>，不要指向有病歷的資料夾。</div>
+      </div>
     </div>
   </div>
   <div class="note teal">本課程全程使用合成個案資料，不涉及真實病人資料；工具以免費版本可完成為原則，實際採用範圍依本院相關規範辦理。</div>
@@ -1732,6 +1786,20 @@ footer{color:var(--muted);font-size:.9rem;margin-top:30px;text-align:center}
     document.getElementById('built').textContent=lines.join('\n');
     document.getElementById('builtBox').style.display='block';
   };
+
+  // search
+  var $=function(id){return document.getElementById(id)};
+  var sIn=$('q'),sCnt=$('qCount'),marks=[],cur=-1,sT;
+  function clearMarks(){marks.forEach(function(m){var p=m.parentNode;if(!p)return;p.replaceChild(document.createTextNode(m.textContent),m);p.normalize()});marks=[];cur=-1;sCnt.textContent=''}
+  function doSearch(){clearMarks();var q=sIn.value.trim();if(!q)return;var lq=q.toLowerCase();var main=document.querySelector('main');var w=document.createTreeWalker(main,NodeFilter.SHOW_TEXT,{acceptNode:function(n){if(!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;var p=n.parentNode;if(!p||p.closest('script,style,textarea,select,option,button,.copy'))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}});var nodes=[];while(w.nextNode())nodes.push(w.currentNode);
+    nodes.forEach(function(n){var t=n.nodeValue,lt=t.toLowerCase(),i=lt.indexOf(lq);if(i<0)return;var frag=document.createDocumentFragment(),last=0;while(i>=0){frag.appendChild(document.createTextNode(t.slice(last,i)));var m=document.createElement('mark');m.className='hit';m.textContent=t.slice(i,i+q.length);frag.appendChild(m);marks.push(m);last=i+q.length;i=lt.indexOf(lq,last)}frag.appendChild(document.createTextNode(t.slice(last)));n.parentNode.replaceChild(frag,n)});
+    if(!marks.length){sCnt.textContent='找不到';return}go(0)}
+  function go(i){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(i+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');var d=m.closest('details');while(d){d.open=true;d=d.parentElement&&d.parentElement.closest('details')}var p=m.closest('.panel');if(p&&!p.classList.contains('on')){var g=p.getAttribute('data-g');[].forEach.call(document.querySelectorAll('.panel[data-g="'+g+'"]'),function(x){x.classList.remove('on')});p.classList.add('on');[].forEach.call(document.querySelectorAll('.tab[data-g="'+g+'"]'),function(t){t.classList.toggle('on',t.getAttribute('data-t')===p.id)})}var bb=document.getElementById('builtBox');if(bb&&bb.contains(m))bb.style.display='block';var y=m.getBoundingClientRect().top+window.pageYOffset-150;window.scrollTo({top:y,behavior:'smooth'});sCnt.textContent=(cur+1)+' / '+marks.length}
+  sIn.addEventListener('input',function(){clearTimeout(sT);sT=setTimeout(doSearch,250)});
+  sIn.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();if(marks.length)go(cur+(e.shiftKey?-1:1));else doSearch()}if(e.key==='Escape'){sIn.value='';clearMarks()}});
+  $('qNext').onclick=function(){marks.length?go(cur+1):doSearch()};
+  $('qPrev').onclick=function(){marks.length?go(cur-1):doSearch()};
+  $('qClear').onclick=function(){sIn.value='';clearMarks();sIn.focus()};
 
   // active nav
   var links=[].slice.call(document.querySelectorAll('nav.toc a'));
