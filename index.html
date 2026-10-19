@@ -36,6 +36,13 @@ kbd{display:inline-block;min-width:1.8em;padding:.05em .5em;border:1px solid #B9
 .goals{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:28px;position:relative;z-index:1}
 .goal{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:16px 18px}
 .goal b{display:block;color:var(--amber);font-size:.95rem;margin-bottom:4px}
+.contact{display:flex;flex-wrap:wrap;gap:10px 12px;margin-top:24px;position:relative;z-index:1}
+.contact .btn{padding:12px 20px;font-size:1.05rem;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.btn.line{background:#06C755}
+.btn.mail{background:var(--orange)}
+.btn.fbc{background:#1877F2}
+.contact-hint{margin:12px 0 0;font-size:.95rem;opacity:.92;position:relative;z-index:1}
+.contact-hint b{color:var(--amber)}
 
 /* nav */
 nav.toc{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
@@ -211,6 +218,12 @@ footer a{color:var(--amber)}
       <div class="goal"><b>目標 2</b>掌握醫療場域資料使用界線，能完成去識別化處理。</div>
       <div class="goal"><b>目標 3</b>用提示語六要素，將衛教文本轉譯為民眾版、長者版與多語版本。</div>
     </div>
+    <div class="contact">
+      <a class="btn line" href="https://reurl.cc/4YbrVj" target="_blank" rel="noopener">加入 LINE 學員社群</a>
+      <a class="btn mail" href="mailto:adlotmatt@gmail.com?subject=%E6%A1%83%E5%9C%92%E9%86%AB%E9%99%A2%E7%B3%96%E5%B0%BF%E7%97%85%E4%B8%AD%E5%BF%83%20AI%20%E8%AA%B2%E7%A8%8B%E6%8F%90%E5%95%8F">寫信問講師</a>
+      <a class="btn fbc" href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專</a>
+    </div>
+    <p class="contact-hint">LINE 社群通關密語：<b>桃園醫院糖尿病中心</b>，裡面都是上過課的學員，有問題可以直接討論。對 LINE 有個資或隱私顧慮，請改用信箱聯絡：adlotmatt@gmail.com</p>
   </div>
 </header>
 
@@ -981,14 +994,16 @@ footer a{color:var(--amber)}
         <div class="note" style="margin:10px 0 0;font-size:.95rem">提醒：目前一次只能處理一張圖；介面是中文時若找不到按鈕，先把 Canva 語言切成英文。免費版有每月額度，大量使用需 Pro。字太小、低對比的圖拆層容易缺字。</div>
       </div>
       <div class="b3">
-        <h4>DeckEdit：免費、在瀏覽器裡把 PDF 的字變成可編輯</h4>
-        <p>開啟 PDF 或圖片格式的簡報，用<b>文字辨識（OCR）</b>把每頁的文字框抓出來，直接點、改、換字體，再匯出成可編輯的 PPTX。全程在你的瀏覽器執行，不上傳、不用註冊。</p>
+        <h4>DeckEdit：免費、在瀏覽器裡把簡報的字變成可辨識、可編輯</h4>
+        <p>開啟 PDF 或圖片格式的簡報，用<b>文字辨識（OCR）</b>把每頁的文字框抓出來，直接點、改、換字體，再匯出成可編輯的 PPTX。全程在你的瀏覽器執行，不上傳、不用註冊，有繁體中文介面。</p>
+        <a class="btn" href="https://deckedit.com/zh-Hant" target="_blank" rel="noopener" style="margin:4px 0 10px">打開 DeckEdit（繁體中文）</a>
         <ol class="steps">
-          <li>打開 <a href="https://deckedit.com/" target="_blank" rel="noopener">deckedit.com</a>。</li>
-          <li>拖入 NotebookLM 或 Gemini 匯出的 PDF（或整份投影片圖片）。</li>
-          <li>等它辨識完，點任何一段文字就能改；改完匯出 PPTX。</li>
+          <li>打開 <a href="https://deckedit.com/zh-Hant" target="_blank" rel="noopener">deckedit.com/zh-Hant</a>。</li>
+          <li>拖入簡報檔：NotebookLM／Gemini 匯出的 PDF、ChatGPT 生的整頁圖片，或 <b>Canva 做好的簡報</b>（Canva：分享 → 下載 → PDF 標準）。</li>
+          <li>等它辨識完，每頁的文字會變成可以點選的文字框；點任何一段就能改字、調大、換字體。</li>
+          <li>改完匯出 PPTX，之後在 PowerPoint 或 Google 簡報繼續用。</li>
         </ol>
-        <div class="note teal" style="margin:10px 0 0;font-size:.95rem">適合 NotebookLM 做的簡報「字擠在一起」的狀況：匯出 PDF → DeckEdit 改字、調大 → 存成 PPTX。比重新下提示詞快很多。</div>
+        <div class="note teal" style="margin:10px 0 0;font-size:.95rem">兩個最常用的情境：① NotebookLM 做的簡報「字擠在一起」→ 匯出 PDF → DeckEdit 改字、調大 → 存成 PPTX，比重新下提示詞快很多。② Canva 的簡報要交給同事用 PowerPoint 改 → 下載 PDF → DeckEdit 辨識 → 匯出 PPTX，文字都還能編輯。</div>
       </div>
     </div>
   </div>
@@ -1001,7 +1016,7 @@ footer a{color:var(--amber)}
         <tr><td>內容來源</td><td>@Gemini Notebook 的筆記本</td><td>專案裡的檔案與指示</td></tr>
         <tr><td>圖片</td><td>自動配示意圖，可指定換</td><td>要逐頁說「生成插圖」才有</td></tr>
         <tr><td>輸出</td><td>匯出 Google 簡報</td><td>PPTX 下載</td></tr>
-        <tr><td>後製</td><td colspan="2">匯出圖片／PDF → Canva 魔法圖層改圖、DeckEdit 改字</td></tr>
+        <tr><td>後製</td><td colspan="2">匯出圖片／PDF → Canva 魔法圖層改圖、DeckEdit 把文字辨識成可編輯再改字</td></tr>
         <tr><td>共同原則</td><td colspan="2">內容先去識別化；醫療數值、步驟一律人工覆核；院內送審規範優先。</td></tr>
       </tbody>
     </table>
@@ -1094,7 +1109,7 @@ footer a{color:var(--amber)}
     <p style="margin-top:14px">下面是快速版：貼上一段文字，按「檢查」會標出可能的個資；按「自動替換」產生初步去識別化版本。工具只能抓到格式固定的資料，<b>最後仍要人工逐句確認</b>。</p>
     <div class="field">
       <label for="deidIn">原始文字 <em>（以下為合成的練習個案）</em></label>
-      <textarea id="deidIn" rows="5">陳美玲女士，民國45年3月12日生，68歲，身分證A223456789，病歷號TY0012345，住桃園市桃園區中山路100號，手機0912-345-678。2026/10/05門診HbA1c 8.6%，自述最近常忘記吃藥，夜間曾低血糖兩次，女兒林小芬每週陪同回診。</textarea>
+      <textarea id="deidIn" rows="5">陳美玲女士，民國47年3月12日生，68歲，身分證A223456789，病歷號TY0012345，住桃園市桃園區中山路100號，手機0912-345-678。2026/10/05門診HbA1c 8.6%，自述最近常忘記吃藥，夜間曾低血糖兩次，女兒林小芬每週陪同回診。</textarea>
     </div>
     <div class="row">
       <button class="btn" id="deidCheck">檢查</button>
@@ -1328,13 +1343,18 @@ footer a{color:var(--amber)}
 <section id="s15" style="padding-top:36px">
   <div class="card fb">
     <div class="fb-in">
-      <div class="fb-ico">f</div>
+      <div class="fb-ico">?</div>
       <div style="flex:1;min-width:240px">
-        <h3 style="margin:0 0 4px">有任何問題，到臉書粉專找我</h3>
-        <p style="margin:0">課後想問工具怎麼用、提示語怎麼寫，或想看更多 AI 與長照的應用，點下方按讚追蹤，直接在粉專留言或私訊。</p>
+        <h3 style="margin:0 0 4px">課後有問題，三個地方找得到我</h3>
+        <p style="margin:0">工具怎麼裝、提示語怎麼寫、想看更多 AI 在衛教與長照的應用，都歡迎問。LINE 社群裡都是上過課的學員，可以互相討論；對 LINE 有個資或隱私顧慮，直接寫信。</p>
       </div>
-      <a class="btn o" href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">加入臉書粉專、按讚追蹤 ↗</a>
     </div>
+    <div class="contact" style="margin-top:18px">
+      <a class="btn line" href="https://reurl.cc/4YbrVj" target="_blank" rel="noopener">加入 LINE 學員社群</a>
+      <a class="btn mail" href="mailto:adlotmatt@gmail.com?subject=%E6%A1%83%E5%9C%92%E9%86%AB%E9%99%A2%E7%B3%96%E5%B0%BF%E7%97%85%E4%B8%AD%E5%BF%83%20AI%20%E8%AA%B2%E7%A8%8B%E6%8F%90%E5%95%8F">寫信問講師</a>
+      <a class="btn fbc" href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專，按讚追蹤</a>
+    </div>
+    <p class="contact-hint">LINE 社群通關密語：<b>桃園醫院糖尿病中心</b>｜公務信箱：adlotmatt@gmail.com</p>
   </div>
 </section>
 
@@ -1342,8 +1362,8 @@ footer a{color:var(--amber)}
 
 <footer>
   <div class="wrap">
-    <p><b style="color:#fff">糖尿病衛教團隊 AI 工具專業賦能與臨床實務應用工作坊｜第 1 堂</b><br>授課講師：鍾孟修 職能治療師｜<a href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專</a></p>
-    <p>工具資訊參考：<a href="https://www.typeless.com/help/installation-and-setup" target="_blank" rel="noopener">Typeless 安裝說明</a>、<a href="https://gemini.google/desktop/" target="_blank" rel="noopener">Gemini 桌面版</a>、<a href="https://chatgpt.com/download/" target="_blank" rel="noopener">ChatGPT 桌面版</a>、<a href="https://help.openai.com/en/articles/11487532-chatgpt-record" target="_blank" rel="noopener">ChatGPT Record 說明</a>、<a href="https://blog.google/intl/zh-tw/products/android-chrome-play/gemini-in-chrome/" target="_blank" rel="noopener">Google 台灣：Chrome 全新 AI 功能</a>。各工具功能與方案會更新，請以官方最新說明為準。</p>
+    <p><b style="color:#fff">糖尿病衛教團隊 AI 工具專業賦能與臨床實務應用工作坊｜第 1 堂</b><br>授課講師：鍾孟修 職能治療師｜<a href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專</a>｜<a href="https://reurl.cc/4YbrVj" target="_blank" rel="noopener">LINE 學員社群</a>｜<a href="mailto:adlotmatt@gmail.com">adlotmatt@gmail.com</a></p>
+    <p>工具資訊參考：<a href="https://www.typeless.com/help/installation-and-setup" target="_blank" rel="noopener">Typeless 安裝說明</a>、<a href="https://gemini.google/desktop/" target="_blank" rel="noopener">Gemini 桌面版</a>、<a href="https://chatgpt.com/download/" target="_blank" rel="noopener">ChatGPT 桌面版</a>、<a href="https://help.openai.com/en/articles/11487532-chatgpt-record" target="_blank" rel="noopener">ChatGPT Record 說明</a>、<a href="https://blog.google/intl/zh-tw/products/android-chrome-play/gemini-in-chrome/" target="_blank" rel="noopener">Google 台灣：Chrome 全新 AI 功能</a>、<a href="https://deckedit.com/zh-Hant" target="_blank" rel="noopener">DeckEdit</a>。各工具功能與方案會更新，請以官方最新說明為準。</p>
   </div>
 </footer>
 
@@ -1602,7 +1622,7 @@ footer{color:var(--muted);font-size:.9rem;margin-top:30px;text-align:center}
   $('toSrc').onclick=function(){$('src').value=lastResult;showToast('已放回左邊')};
   $('clear').onclick=function(){$('src').value='';$('names').value='';outEl.textContent='結果會顯示在這裡';statsEl.innerHTML='';mapBody.innerHTML='';modeEl.textContent='按「檢查」或「替換」後顯示';lastResult='';enable(false)};
   $('sample').onclick=function(){
-    $('src').value='個案陳美玲女士，民國45年3月12日生，68歲，身分證A223456789，病歷號TY0012345，健保卡號 0000 1234 5678，住桃園市桃園區中山路100號5樓，手機0912-345-678，Email meiling@example.com。退休前為大同國小校長。2026/10/05門診HbA1c 8.6%，自述最近常忘記吃藥，夜間曾低血糖兩次。女兒林小芬每週陪同回診，印尼籍看護 Siti 負責備餐；主治為王大明醫師，個管師為李雅婷。';
+    $('src').value='個案陳美玲女士，民國47年3月12日生，68歲，身分證A223456789，病歷號TY0012345，健保卡號 0000 1234 5678，住桃園市桃園區中山路100號5樓，手機0912-345-678，Email meiling@example.com。退休前為大同國小校長。2026/10/05門診HbA1c 8.6%，自述最近常忘記吃藥，夜間曾低血糖兩次。女兒林小芬每週陪同回診，印尼籍看護 Siti 負責備餐；主治為王大明醫師，個管師為李雅婷。';
     $('names').value='Siti';
     showToast('已載入範例，按「替換」試試');
   };
