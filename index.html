@@ -890,63 +890,133 @@ footer a{color:var(--amber)}
 
 <!-- slides -->
 <section id="s13">
-  <div class="sec-head"><div class="num">6</div><div><h2>AI 生簡報：ChatGPT 與 Gemini 兩條路</h2><p>同樣一份衛教主題，兩個工具做出來的簡報長得很不一樣。先知道差別，再選工具。</p></div></div>
-  <div class="grid2">
-    <div class="card">
-      <h3><span class="pill o">ChatGPT</span>快、能下載 PPTX，但預設是「字卡」</h3>
-      <p>直接說「幫我做一份低血糖衛教簡報」，ChatGPT 會產出可下載的 PowerPoint 檔。優點是能在 PowerPoint 裡改字；缺點是版面偏「AI 生成的字卡」，一頁標題加幾點條列，<b>不會主動放圖</b>。</p>
-      <h4>要有圖，提示語裡要明講</h4>
-      <ol class="steps">
-        <li>先要大綱：「列出 8 頁的頁碼、標題、核心訊息、這頁要配什麼畫面」，確認順序再往下。</li>
-        <li>訂視覺規範：「色系用醫院藍綠、字體清楚、長者友善、不用英文縮寫」。</li>
-        <li><b>指定要生圖的頁面與畫面內容</b>：「第 3 頁生成一張插圖：長者坐著喝含糖飲料，扁平插畫風，無文字」。沒有這句，就只有文字。</li>
-        <li>最後說「把以上打包成 PPTX 給我下載」。</li>
-      </ol>
-      <div class="note" style="margin-bottom:0"><b>另一種玩法：</b>請 ChatGPT「一頁投影片生成一張 16:9 圖片」，每批最多 10 張，最後打包成 PPTX。畫面精緻、中文字幾乎不出錯，但<b>文字無法再編輯</b>，要改只能重生那一頁。適合定稿的衛教圖卡，不適合常改的教材。</div>
+  <div class="sec-head"><div class="num">6</div><div><h2>AI 生簡報：Gemini、ChatGPT，再用 Canva 修</h2><p>同一份衛教主題，用的「模式」不同，做出來的簡報差很多。先選對模式，再補圖，最後用 Canva 或 DeckEdit 微調。</p></div></div>
+
+  <div class="card">
+    <h3><span class="pill">Gemini</span>不要在「對話」裡做，開「任務」再做</h3>
+    <div class="grid2">
+      <div>
+        <h4>為什麼要用「任務」</h4>
+        <ul>
+          <li>對話模式一次只回一輪，做簡報常常只給大綱或做到一半就停。</li>
+          <li><b>任務</b>會把「規劃 → 寫內容 → 排版 → 配圖」拆成多步驟自己跑完，做出來的版面精緻，會自動產生示意圖。</li>
+          <li>做好後右上角可「匯出成簡報」到 Google 雲端硬碟，用 Google 簡報繼續改。</li>
+        </ul>
+        <h4 style="margin-top:14px">操作步驟</h4>
+        <ol class="steps">
+          <li>Gemini 對話框 → 工具 → 開啟<b>任務</b>（部分版本顯示為 Canvas）。</li>
+          <li>先把衛教資料整理進 <b>Gemini Notebook</b>（NotebookLM）：上傳單張 PDF、指引、科內投影片。</li>
+          <li>在任務裡輸入 <kbd>@Gemini Notebook</kbd>，選到那本筆記本，再說「根據這本筆記本做 8 頁給長者看的簡報」。這樣內容只會來自你的資料，不會亂編。</li>
+          <li>看預覽，直接說「第 4 頁換成量血糖的圖」「整體改成暖色」。</li>
+          <li>滿意後「匯出成簡報」。</li>
+        </ol>
+      </div>
+      <div>
+        <h4>Gemini Notebook 自己也能做簡報，但⋯</h4>
+        <div class="note" style="margin-top:0">
+          <ul style="margin:0">
+            <li>NotebookLM 裡按「簡報」也能直接產出，速度快、內容忠於資料。</li>
+            <li>缺點是<b>文字呈現有時不清楚</b>：字太小、一頁塞太多、標題和內文分不開。</li>
+            <li>要改只能再下提示詞請 AI 重做，一來一回很花時間；要精修版面，不如回到任務模式，或匯出後用 Canva、DeckEdit 改（見下方）。</li>
+          </ul>
+        </div>
+        <h4 style="margin-top:14px">兩條路怎麼選</h4>
+        <div class="tbl">
+          <table style="min-width:0">
+            <thead><tr><th></th><th>任務 + @Notebook</th><th>Notebook 直接做</th></tr></thead>
+            <tbody>
+              <tr><td>版面</td><td>精緻、會配圖</td><td>陽春、文字常擠</td></tr>
+              <tr><td>內容來源</td><td>筆記本資料</td><td>筆記本資料</td></tr>
+              <tr><td>修改</td><td>說一句就改</td><td>要重新下提示詞重做</td></tr>
+              <tr><td>適合</td><td>團衛、對外教材</td><td>快速看資料能做成什麼</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3><span class="pill">Gemini</span>開「任務／Canvas」再生成，版面精緻、會自動配圖</h3>
-      <p>在 Gemini 對話框點「工具」，開啟 <b>Canvas</b>（部分版本顯示為「任務」），再說「做一份低血糖衛教簡報」。Gemini 會做出完整的簡報預覽，<b>依內容自動產生 AI 示意圖</b>，版面比字卡精緻許多。</p>
-      <h4>操作步驟</h4>
-      <ol class="steps">
-        <li>對話框 → 工具 → <b>Canvas／任務</b>。</li>
-        <li>貼上衛教單張內容或上傳 PDF，說「做成 8 頁、給長者看的簡報，字大、一頁一重點」。</li>
-        <li>看預覽，不滿意直接說「第 4 頁的圖換成量血糖的畫面」「整體改成暖色」。</li>
-        <li>右上角「匯出成簡報」→ 存到 Google 雲端硬碟，用 Google 簡報繼續改；或「下載」原始檔。</li>
-      </ol>
-      <div class="note" style="margin-bottom:0"><b>生圖提醒：</b>衛教圖請指定「無文字、扁平插畫、亞洲長者」，避免 AI 在圖裡亂寫字；真人照片風的病人圖像不要用在對外素材，肖像與版權在第 3 堂會細講。</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="pill o">ChatGPT</span>用「工作」模式，不要用一般對話；要圖就用生圖</h3>
+    <div class="grid2">
+      <div>
+        <h4>為什麼要用「工作」（Projects／Tasks）</h4>
+        <ul>
+          <li>一般對話做簡報，流程長一點就容易中途斷掉，或只給你文字版。</li>
+          <li><b>工作</b>模式跑的流程比較長，可以多步驟進行：先大綱、再逐頁、再生圖、最後打包成 PPTX，中間比較不會中斷。</li>
+          <li>專案裡的指示會一直記得（對象、色系、字級），下次做同系列簡報不用重講。</li>
+        </ul>
+        <h4 style="margin-top:14px">操作步驟</h4>
+        <ol class="steps">
+          <li>側欄「工作」→ 新增專案，把衛教單張、院內模板丟進去，在專案指示寫對象與版面規則。</li>
+          <li>說「先列 8 頁大綱表格給我確認」。</li>
+          <li>確認後說「逐頁產出，並<b>每頁生成一張插圖</b>」。</li>
+          <li>最後說「打包成 PPTX 給我下載」。</li>
+        </ol>
+      </div>
+      <div>
+        <h4>「大字流」vs「大圖流」</h4>
+        <div class="grid2" style="gap:12px">
+          <div class="b3"><span class="pill a">只下簡報提示詞</span><h4 style="margin-top:8px">大字流</h4><p style="margin:0">標題＋條列、滿版文字，像講稿不像簡報；長者看了很累。</p></div>
+          <div class="b3" style="border-color:var(--orange)"><span class="pill o">加上生圖</span><h4 style="margin-top:8px">大圖流</h4><p style="margin:0">一頁一張圖、一句話，看圖就懂；適合團衛投影、候診區輪播。</p></div>
+        </div>
+        <div class="note" style="margin:12px 0 0"><b>生圖要在提示語裡明講：</b>「第 3 頁生成一張插圖：長者坐著喝半杯含糖飲料，扁平插畫風、亞洲長者、無文字」。沒有這句，ChatGPT 就只給文字。衛教圖一律指定<b>無文字</b>，避免 AI 在圖裡亂寫字。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="pill">修圖與修字</span>AI 做好的簡報，用 Canva 魔法圖層和 DeckEdit 再修</h3>
+    <p>AI 產出的簡報常見兩個問題：圖裡有錯字、或整頁是一張圖改不了字。這兩個工具各解一個。</p>
+    <div class="grid2">
+      <div class="b3">
+        <h4>Canva 魔法圖層（Magic Layers）</h4>
+        <p>把一張「整片是圖」的投影片，自動拆成背景、人物、文字等圖層，每一層都能單獨搬動、刪除、改字。</p>
+        <ol class="steps">
+          <li>把 AI 做好的簡報<b>匯出成圖片或 PDF</b>（PowerPoint：另存為 PNG；Gemini／NotebookLM：下載 PDF）。</li>
+          <li>開 Canva → 建立簡報 → 上傳這些圖片放到各頁。</li>
+          <li>選取圖片 → 編輯圖片 → <b>Magic Layers</b>，等它拆層。</li>
+          <li>點錯字的那一層刪掉，用 Canva 文字方塊重打；想換的插圖直接刪層再放新的。</li>
+        </ol>
+        <div class="note" style="margin:10px 0 0;font-size:.95rem">提醒：目前一次只能處理一張圖；介面是中文時若找不到按鈕，先把 Canva 語言切成英文。免費版有每月額度，大量使用需 Pro。字太小、低對比的圖拆層容易缺字。</div>
+      </div>
+      <div class="b3">
+        <h4>DeckEdit：免費、在瀏覽器裡把 PDF 的字變成可編輯</h4>
+        <p>開啟 PDF 或圖片格式的簡報，用<b>文字辨識（OCR）</b>把每頁的文字框抓出來，直接點、改、換字體，再匯出成可編輯的 PPTX。全程在你的瀏覽器執行，不上傳、不用註冊。</p>
+        <ol class="steps">
+          <li>打開 <a href="https://deckedit.com/" target="_blank" rel="noopener">deckedit.com</a>。</li>
+          <li>拖入 NotebookLM 或 Gemini 匯出的 PDF（或整份投影片圖片）。</li>
+          <li>等它辨識完，點任何一段文字就能改；改完匯出 PPTX。</li>
+        </ol>
+        <div class="note teal" style="margin:10px 0 0;font-size:.95rem">適合 NotebookLM 做的簡報「字擠在一起」的狀況：匯出 PDF → DeckEdit 改字、調大 → 存成 PPTX。比重新下提示詞快很多。</div>
+      </div>
     </div>
   </div>
 
   <div class="tbl" style="margin-top:4px">
     <table>
-      <thead><tr><th></th><th>ChatGPT</th><th>Gemini（Canvas／任務）</th></tr></thead>
+      <thead><tr><th></th><th>Gemini 任務 + @Notebook</th><th>ChatGPT 工作 + 生圖</th></tr></thead>
       <tbody>
-        <tr><td>預設長相</td><td>字卡式，標題＋條列</td><td>有版面設計、自動配圖</td></tr>
-        <tr><td>圖片</td><td>要在提示語裡逐頁指定才會生</td><td>自動生示意圖，可指定換圖</td></tr>
-        <tr><td>輸出</td><td>PPTX 下載，可在 PowerPoint 改字</td><td>匯出 Google 簡報，或下載原始檔</td></tr>
-        <tr><td>適合</td><td>要在 PowerPoint 裡大改、院內有固定模板</td><td>要快速有一份好看的初稿、團衛用</td></tr>
+        <tr><td>要用的模式</td><td>任務（不是對話）</td><td>工作／專案（不是對話）</td></tr>
+        <tr><td>內容來源</td><td>@Gemini Notebook 的筆記本</td><td>專案裡的檔案與指示</td></tr>
+        <tr><td>圖片</td><td>自動配示意圖，可指定換</td><td>要逐頁說「生成插圖」才有</td></tr>
+        <tr><td>輸出</td><td>匯出 Google 簡報</td><td>PPTX 下載</td></tr>
+        <tr><td>後製</td><td colspan="2">匯出圖片／PDF → Canva 魔法圖層改圖、DeckEdit 改字</td></tr>
         <tr><td>共同原則</td><td colspan="2">內容先去識別化；醫療數值、步驟一律人工覆核；院內送審規範優先。</td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="prompt"><span class="label">範本：ChatGPT 做有圖的衛教簡報</span>你是糖尿病衛教師，請做一份給 70 歲以上長者看的「低血糖怎麼辦」簡報，共 8 頁。
-步驟一：先用表格列出每頁的頁碼、標題、核心訊息（20 字內）、建議畫面，等我確認。
-確認後：
-- 每頁字要大（標題 36pt 以上、內文 24pt 以上），一頁只講一件事，不用英文縮寫
-- 第 2、4、6 頁各生成一張插圖：扁平插畫風、亞洲長者、無任何文字，畫面分別是「手抖冒冷汗」「坐著喝半杯含糖飲料」「15 分鐘後再量血糖」
-- 色系：醫院藍綠，背景淺色
-- 最後打包成 PPTX 給我下載，並附逐頁講稿<button class="copy">複製</button></div>
-  <div class="prompt"><span class="label">範本：Gemini Canvas／任務 做簡報</span>請根據我貼上的衛教單張，做成 8 頁給長者看的簡報：
-- 對象是 70 歲以上、第一次確診的糖尿病長者與家屬
+  <div class="prompt"><span class="label">範本：Gemini 任務 + @Gemini Notebook</span>@Gemini Notebook（選「糖尿病衛教資料」筆記本）
+請根據這本筆記本的內容，做一份 8 頁、給 70 歲以上長者看的「低血糖怎麼辦」簡報：
 - 一頁一個重點，字大、留白多，不用英文縮寫
 - 每頁配一張扁平插畫風的示意圖，亞洲長者，圖中不要有文字
-- 保留原文所有數字與步驟，不新增醫療建議
-- 最後一頁是「什麼時候要回診或聯絡衛教師」
-
-【衛教單張內容】
-（貼上）<button class="copy">複製</button></div>
+- 只用筆記本裡的數字與步驟，不新增醫療建議
+- 最後一頁是「什麼時候要回診或聯絡衛教師」<button class="copy">複製</button></div>
+  <div class="prompt"><span class="label">範本：ChatGPT 工作模式（專案指示）</span>你是糖尿病衛教師，這個專案所有簡報的對象都是 70 歲以上長者與家屬。
+規則：標題 36pt 以上、內文 24pt 以上；一頁只講一件事；不用英文縮寫；色系醫院藍綠、淺色背景。
+做簡報的流程固定為：① 先用表格列出每頁的頁碼、標題、核心訊息、建議畫面，等我確認 → ② 逐頁產出，每頁生成一張扁平插畫風、亞洲長者、無文字的插圖 → ③ 打包成 PPTX 並附逐頁講稿。
+不新增我給的資料以外的醫療建議；不確定的數字用【？】標出。<button class="copy">複製</button></div>
 </section>
 
 <!-- 5 compare -->
