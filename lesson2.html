@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第2堂 ChatGPT 精通與 Claude、Gemini 對照</title>
+<meta name="description" content="衛福部桃園醫院糖尿病中心 AI 賦能工作坊 第2堂講義：以 ChatGPT 精通影片為主線，對照 Claude 與 Gemini 的操作位置，學會四招提示詞、製圖、寫作區塊、學習模式、排程、外掛、深度工作與專案，並實作品質指標報表。">
+<style>
+:root{
+  --orange:#E8552D; --amber:#F4A93C; --teal:#028090; --ink:#12343B;
+  --teal-50:#E6F4F5; --orange-50:#FDEEE9; --amber-50:#FEF6E8;
+  --bg:#F7F9F9; --card:#FFFFFF; --line:#DCE6E7; --muted:#4F6B70;
+  --ok:#1E8E5A; --warn:#C0392B;
+  --radius:16px;
+  --font:"Microsoft JhengHei","PingFang TC","Noto Sans TC","Heiti TC",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.75;overflow-x:hidden}
+img,svg{max-width:100%}
+a{color:var(--teal)}
+h1,h2,h3,h4{line-height:1.35;margin:0 0 .5em}
+h2{font-size:clamp(1.5rem,3.2vw,2rem)}
+h3{font-size:1.25rem}
+p{margin:.4em 0 .8em}
+kbd{display:inline-block;min-width:1.8em;padding:.05em .5em;border:1px solid #B9C9CB;border-bottom-width:3px;border-radius:7px;background:#fff;font-family:inherit;font-size:.92em;font-weight:700;text-align:center;line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* hero */
+.hero{background:linear-gradient(135deg,var(--ink) 0%,#0B4F58 55%,var(--teal) 100%);color:#fff;padding:56px 0 64px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(244,169,60,.45),rgba(244,169,60,0) 70%)}
+.hero .tag{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);padding:4px 14px;border-radius:999px;font-size:.9rem;margin-bottom:14px}
+.hero h1{font-size:clamp(1.8rem,5vw,3rem);margin-bottom:.3em}
+.hero h1 span{color:var(--amber)}
+.hero .sub{font-size:clamp(1rem,2.2vw,1.2rem);opacity:.92;max-width:760px}
+.goals{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:28px;position:relative;z-index:1}
+.goal{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:16px 18px}
+.goal b{display:block;color:var(--amber);font-size:.95rem;margin-bottom:4px}
+.contact{display:flex;flex-wrap:wrap;gap:10px 12px;margin-top:24px;position:relative;z-index:1}
+.contact .btn{padding:12px 20px;font-size:1.05rem;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.btn.line{background:#06C755}
+.btn.mail{background:var(--orange)}
+.btn.fbc{background:#1877F2}
+.contact-hint{margin:12px 0 0;font-size:.95rem;opacity:.92;position:relative;z-index:1}
+.contact-hint b{color:var(--amber)}
+
+.lessons{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;position:relative;z-index:1}
+.lessons a{color:#fff;text-decoration:none;font-weight:800;padding:5px 16px;border-radius:999px;border:1.5px solid rgba(255,255,255,.45);font-size:.95rem}
+.lessons a:hover{background:rgba(255,255,255,.14)}
+.lessons a.on{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+
+/* nav */
+nav.toc{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:8px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
+nav.toc .wrap::-webkit-scrollbar{display:none}
+nav.toc a{flex:0 0 auto;text-decoration:none;color:var(--ink);background:var(--teal-50);padding:6px 14px;border-radius:999px;font-size:.95rem;font-weight:700;white-space:nowrap}
+nav.toc a.on{background:var(--teal);color:#fff}
+nav.toc .toc-g{flex:0 0 auto;align-self:center;font-size:.8rem;font-weight:800;color:#fff;background:var(--ink);padding:3px 9px;border-radius:6px;margin-left:6px;letter-spacing:.05em}
+nav.toc .toc-g:first-child{margin-left:0}
+nav.toc .toc-search{padding-top:0;padding-bottom:10px;overflow:visible;flex-wrap:wrap;align-items:center}
+nav.toc .toc-search input{flex:1 1 240px;min-width:0;padding:8px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.95rem;font-family:inherit;background:#fff}
+nav.toc .toc-search input:focus{outline:2px solid var(--teal);border-color:var(--teal)}
+nav.toc #qCount{font-size:.9rem;color:var(--muted);min-width:4.5em;white-space:nowrap}
+.qbtn{background:var(--teal-50);border:0;border-radius:8px;padding:7px 11px;font-family:inherit;font-weight:700;color:var(--ink);cursor:pointer;font-size:.9rem}
+.qbtn:hover{background:var(--teal);color:#fff}
+mark.hit{background:#FFE08A;color:inherit;padding:0 2px;border-radius:3px}
+mark.hit.cur{background:var(--orange);color:#fff}
+
+/* sections */
+section{padding:56px 0 8px}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.num{flex:0 0 auto;width:52px;height:52px;border-radius:14px;background:var(--orange);color:#fff;display:grid;place-items:center;font-size:1.4rem;font-weight:800}
+.sec-head p{margin:0;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin-bottom:18px;box-shadow:0 2px 0 rgba(18,52,59,.03)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.grid2>.card,.grid3>.card{margin-bottom:0}
+.pill{display:inline-block;font-size:.8rem;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--teal-50);color:var(--teal);margin-right:6px;vertical-align:middle}
+.pill.o{background:var(--orange-50);color:var(--orange)}
+.pill.a{background:var(--amber-50);color:#A86A0B}
+.note{border-left:5px solid var(--amber);background:var(--amber-50);padding:14px 18px;border-radius:0 12px 12px 0;margin:14px 0}
+.note.red{border-color:var(--warn);background:#FDECEA}
+.note.teal{border-color:var(--teal);background:var(--teal-50)}
+ul,ol{padding-left:1.4em;margin:.4em 0 .8em}
+li{margin:.25em 0}
+
+/* tool cards */
+.tool{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+.tool>*,.grid2>*,.grid3>*{min-width:0}
+.tool-top{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.logo{width:60px;height:60px;border-radius:16px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:1.5rem;flex:0 0 auto}
+.btn{display:inline-flex;align-items:center;gap:6px;background:var(--teal);color:#fff;text-decoration:none;font-weight:700;padding:10px 18px;border-radius:12px;border:0;cursor:pointer;font-family:inherit;font-size:1rem}
+.btn.o{background:var(--orange)}
+.btn.ghost{background:#fff;color:var(--teal);border:2px solid var(--teal)}
+.btn:hover{filter:brightness(1.07)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding:10px 0 10px 50px;border-bottom:1px dashed var(--line)}
+.steps li:last-child{border-bottom:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:800}
+.keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.key{background:var(--teal-50);border-radius:12px;padding:12px 14px}
+.key .k{font-size:1.15rem;margin-bottom:4px}
+
+/* checklist */
+.check label{display:flex;gap:12px;align-items:flex-start;padding:8px 0;cursor:pointer}
+.check input{width:22px;height:22px;margin-top:5px;accent-color:var(--teal);flex:0 0 auto}
+.check input:checked+span{color:var(--muted);text-decoration:line-through}
+.progress{height:10px;background:var(--line);border-radius:99px;overflow:hidden;margin:8px 0 4px}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--amber));transition:width .3s}
+
+/* tables */
+.tbl{overflow-x:auto;border-radius:12px;border:1px solid var(--line);background:#fff}
+table{border-collapse:collapse;width:100%;min-width:640px}
+th,td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--ink);color:#fff;font-weight:700}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:700;white-space:nowrap}
+
+/* three no */
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.no{background:#fff;border:2px solid var(--orange);border-radius:var(--radius);padding:22px;position:relative}
+.no .big{font-size:2.6rem;font-weight:900;color:var(--orange);line-height:1}
+.no h3{margin-top:8px}
+
+/* prompt boxes */
+.prompt{position:relative;background:#0F2C32;color:#E9F5F6;border-radius:14px;padding:18px 20px 18px;margin:12px 0;font-size:1rem;line-height:1.75;white-space:pre-wrap;word-break:break-word}
+.prompt .copy{position:absolute;top:10px;right:10px;background:var(--amber);color:var(--ink);border:0;border-radius:9px;padding:5px 12px;font-weight:800;cursor:pointer;font-family:inherit;font-size:.9rem}
+.prompt .label{display:block;color:var(--amber);font-weight:800;margin-bottom:6px;padding-right:80px}
+
+/* six elements */
+.six{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:18px}
+.el{background:#fff;border:1px solid var(--line);border-top:6px solid var(--teal);border-radius:14px;padding:14px 16px}
+.el:nth-child(2){border-top-color:var(--orange)}.el:nth-child(3){border-top-color:var(--amber)}
+.el:nth-child(4){border-top-color:var(--ink)}.el:nth-child(5){border-top-color:#5B8E7D}.el:nth-child(6){border-top-color:var(--warn)}
+.el b{font-size:1.25rem;display:block}
+.el small{color:var(--muted);font-size:.92rem;display:block;line-height:1.5}
+
+/* forms */
+.field{margin-bottom:12px}
+.field label{display:block;font-weight:800;margin-bottom:4px}
+.field label em{font-style:normal;font-weight:400;color:var(--muted);font-size:.9rem}
+textarea,select,input[type=text]{width:100%;font-family:inherit;font-size:1rem;padding:10px 12px;border:1px solid #B9C9CB;border-radius:10px;background:#fff;color:var(--ink);line-height:1.6}
+textarea{resize:vertical}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+
+/* de-id */
+.deid-out{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-height:90px;white-space:pre-wrap;word-break:break-word}
+mark{background:#FFD9CC;color:var(--ink);border-radius:5px;padding:0 3px;font-weight:700}
+mark[data-t]::after{content:attr(data-t);font-size:.7em;background:var(--orange);color:#fff;border-radius:4px;padding:0 4px;margin-left:3px;vertical-align:super}
+.found{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.found span{background:var(--orange-50);color:var(--orange);border-radius:999px;padding:2px 12px;font-weight:700;font-size:.92rem}
+
+/* compare */
+.ba{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.ba .card h3{display:flex;align-items:center;gap:8px}
+.elder{font-size:1.45rem;line-height:1.8}
+.elder p{margin:.2em 0 .6em}
+.elder .em{color:var(--orange);font-weight:900}
+.tr-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.tr-box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}
+.tr-box b{display:block;color:var(--teal);margin-bottom:4px}
+.diff{background:#FDECEA;border-radius:5px;padding:0 3px;font-weight:700;color:var(--warn)}
+
+/* flow */
+.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;margin:14px 0}
+.flow div{flex:1 1 150px;background:var(--teal);color:#fff;border-radius:12px;padding:12px 14px;font-weight:700;position:relative}
+.flow div small{display:block;font-weight:400;opacity:.9;line-height:1.5}
+.flow div:nth-child(2){background:#0B6C78}.flow div:nth-child(3){background:var(--ink)}.flow div:nth-child(4){background:var(--orange)}
+
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 16px}
+.tab{font-family:inherit;font-size:1rem;font-weight:800;padding:8px 16px;border-radius:999px;border:2px solid var(--teal);background:#fff;color:var(--teal);cursor:pointer}
+.tab.on{background:var(--teal);color:#fff}
+.panel{display:none}.panel.on{display:block}
+@media print{.panel{display:block!important}.tabs{display:none}}
+details.risk{border-left:6px solid var(--orange);padding:14px 20px}
+details.risk summary{font-size:1.1rem}
+.risk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:6px}
+.r-bad,.r-good{border-radius:12px;padding:14px 16px}
+.r-bad{background:#FDECEA}.r-good{background:var(--teal-50)}
+.r-bad>b,.r-good>b{display:block;margin-bottom:4px}
+.r-bad>b{color:var(--warn)}.r-good>b{color:var(--teal)}
+.r-bad ul,.r-good ul{margin:0}
+.shortcut-box{background:#fff;border:2px solid var(--teal);border-radius:var(--radius);padding:18px 20px;margin:18px 0}
+.shortcut-box h3{color:var(--teal)}
+.shortcut-box td small{color:var(--muted);font-weight:400}
+.shortcut-box td:nth-child(2),.shortcut-box td:nth-child(3){white-space:nowrap}
+.btn3 .b3{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.b3-ico{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:1.3rem;margin-bottom:8px;color:#fff}
+.b3 h4{margin:0 0 6px;font-size:1.1rem}
+.b3 ul{margin:0;padding-left:1.2em}
+.card.alt{border:2px solid var(--amber);background:#FFFDF8}
+.sm-link{font-size:.85rem;padding:5px 12px;border-radius:9px;vertical-align:middle}
+.deid-cta{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;justify-content:space-between;background:var(--teal-50);border:1px solid #BFE0E3;border-radius:12px;padding:14px 16px}
+.deid-cta>div:first-child{flex:1 1 320px;min-width:0}
+.card.fb{background:linear-gradient(120deg,var(--ink),#0B4F58);color:#fff;border:0}
+.fb-in{display:flex;flex-wrap:wrap;gap:16px 22px;align-items:center}
+.fb-ico{width:56px;height:56px;border-radius:14px;background:#1877F2;color:#fff;font-weight:900;font-size:2rem;display:grid;place-items:center;flex:0 0 auto}
+.example{background:var(--amber-50);border:1px dashed var(--amber);border-radius:12px;padding:12px 16px;margin:10px 0}
+details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+details summary{cursor:pointer;font-weight:800}
+details[open] summary{margin-bottom:8px}
+
+footer{margin-top:60px;background:var(--ink);color:#CFE3E5;padding:36px 0;font-size:.95rem}
+footer a{color:var(--amber)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(80px);background:var(--ink);color:#fff;padding:10px 20px;border-radius:999px;font-weight:700;transition:transform .25s;z-index:99}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+@media (max-width:640px){
+  body{font-size:17px}
+  .wrap{padding:0 16px}
+  .card{padding:18px}
+  .hero{padding:40px 0 44px}
+  .num{width:44px;height:44px;font-size:1.2rem}
+  .elder{font-size:1.3rem}
+  .prompt{font-size:.95rem}
+}
+@media print{
+  nav.toc,.copy,.row .btn,.toast{display:none!important}
+  .hero{background:var(--ink)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  section{break-inside:avoid-page}
+}
+
+/* ---- lesson 2 additions ---- */
+.lessons{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;position:relative;z-index:1}
+.lessons a{color:#fff;text-decoration:none;font-weight:800;padding:5px 16px;border-radius:999px;border:1.5px solid rgba(255,255,255,.45);font-size:.95rem}
+.lessons a:hover{background:rgba(255,255,255,.14)}
+.lessons a.on{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+.t{display:inline-block;font-size:.8rem;font-weight:800;padding:2px 10px;border-radius:999px;color:#fff;margin-right:6px;vertical-align:middle;white-space:nowrap;line-height:1.6}
+.t.gpt{background:#0E8A6B}.t.cl{background:#B4532F}.t.ge{background:#2F62D0}
+th .t{font-size:.9rem}
+.tri{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:18px}
+.tri>.card,.grid3>.card{margin-bottom:0;min-width:0}
+.gpt-c{border-top:5px solid #0E8A6B}.cl-c{border-top:5px solid #B4532F}.ge-c{border-top:5px solid #2F62D0}
+.tri ul,.tri ol{margin-bottom:0}
+.tri .steps li{padding:8px 0 8px 42px}.tri .steps li::before{width:30px;height:30px;top:8px}
+.b3{background:var(--teal-50);border-radius:14px;padding:14px 16px}
+.b3 h4{margin:0 0 6px;font-size:1.1rem}
+.video{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.chap{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:6px}
+.chap a{text-decoration:none;color:var(--ink);background:var(--teal-50);border-radius:9px;padding:6px 10px;font-size:.95rem;line-height:1.5}
+.chap a i{font-style:normal;font-weight:800;color:var(--teal);margin-right:8px;font-variant-numeric:tabular-nums}
+.chap a:hover{background:var(--teal);color:#fff}.chap a:hover i{color:#fff}
+.yt{display:inline-block;margin-left:8px;font-size:.85rem;font-weight:800;color:#fff;background:#D32F2F;padding:0 9px;border-radius:7px;text-decoration:none;white-space:nowrap;vertical-align:middle}
+.flow div:nth-child(4){background:var(--orange)}
+.vgrid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:18px;margin-bottom:18px}
+.vgrid>.card{margin-bottom:0;min-width:0}
+.vgrid .chap{grid-template-columns:1fr 1fr}
+@media (max-width:900px){.vgrid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:480px){.vgrid .chap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="lessons"><a href="./">第 1 堂</a><a class="on" href="lesson2.html">第 2 堂</a></div>
+    <span class="tag">衛福部桃園醫院 糖尿病中心｜AI 賦能工作坊 第 2 堂（11/02）</span>
+    <h1>一支影片學會 ChatGPT，<br>同一招搬到 <span>Claude</span> 與 <span>Gemini</span></h1>
+    <p class="sub">以腦哥〈給我 40 分鐘，我給你 1 萬小時 ChatGPT 的精通實力〉為主線，十一個章節逐一拆解：影片教的是 ChatGPT，我們每一招都對照「在 Claude 按哪裡、在 Gemini 按哪裡」，並換成衛教師每天真的會遇到的情境。</p>
+    <div class="goals">
+      <div class="goal"><b>目標 1</b>理解 AI 的底層邏輯，知道為什麼會有「AI 味」與幻覺，以及怎麼用設定擋掉。</div>
+      <div class="goal"><b>目標 2</b>熟練四招提示詞：讓 AI 懂你、人事時地物＋Why、碎念法、AMA 反問法。</div>
+      <div class="goal"><b>目標 3</b>會用製圖、寫作區塊、學習、排程、外掛、深度工作、專案七大功能，並知道三個工具各在哪裡。</div>
+    </div>
+    <div class="contact">
+      <a class="btn line" href="https://reurl.cc/4YbrVj" target="_blank" rel="noopener">加入 LINE 學員社群</a>
+      <a class="btn mail" href="mailto:adlotmatt@gmail.com?subject=%E6%A1%83%E5%9C%92%E9%86%AB%E9%99%A2%E7%B3%96%E5%B0%BF%E7%97%85%E4%B8%AD%E5%BF%83%20AI%20%E8%AA%B2%E7%A8%8B%E6%8F%90%E5%95%8F">寫信問講師</a>
+      <a class="btn fbc" href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專</a>
+    </div>
+    <p class="contact-hint">LINE 社群通關密語：<b>桃園醫院糖尿病中心</b>。第 1 堂的資安三不原則與去識別化，今天每一個練習都適用。</p>
+  </div>
+</header>
+
+<nav class="toc" aria-label="章節導覽">
+  <div class="wrap">
+    <span class="toc-g">開場</span>
+    <a href="#s0">影片與地圖</a>
+    <span class="toc-g">基礎</span>
+    <a href="#s1">AI 底層邏輯</a>
+    <a href="#s2">方案怎麼選</a>
+    <a href="#s3">介面導覽</a>
+    <span class="toc-g">提示詞</span>
+    <a href="#s4">讓 AI 懂你</a>
+    <a href="#s5">人事時地物＋Why</a>
+    <a href="#s6">碎念法</a>
+    <a href="#s7">AMA 反問法</a>
+    <span class="toc-g">功能</span>
+    <a href="#s8">製圖</a>
+    <a href="#s9">寫作區塊</a>
+    <a href="#s10">學習模式</a>
+    <a href="#s11">排程自動化</a>
+    <a href="#s12">外掛連接</a>
+    <a href="#s13">深度工作</a>
+    <a href="#s14">專案</a>
+    <span class="toc-g">收尾</span>
+    <a href="#s15">三工具對照表</a>
+    <a href="#s16">實作：品質指標</a>
+    <a href="#s17">課後任務</a>
+  </div>
+  <div class="wrap toc-search">
+    <input id="q" type="search" placeholder="搜尋講義關鍵字：例如 自訂指示、Canvas、排程、Gem、專案" aria-label="搜尋講義">
+    <span id="qCount"></span>
+    <button class="qbtn" id="qPrev" title="上一個">▲</button>
+    <button class="qbtn" id="qNext" title="下一個">▼</button>
+    <button class="qbtn" id="qClear">清除</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- 0 -->
+<section id="s0">
+  <div class="sec-head"><div class="num">0</div><div><h2>今天的主線影片與學習地圖</h2><p>影片 42 分鐘，課堂上我們邊看邊做；每一章都附「直接跳到影片這一段」。</p></div></div>
+  <div class="vgrid">
+    <div class="card">
+      <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/RANcz05xai0" title="給我 40 分鐘，我給你 1 萬小時 ChatGPT 的精通實力" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <p style="margin-top:10px;font-size:.95rem;color:var(--muted)">影片作者：腦哥 Chill 塊鏈（YouTube）。本講義為課堂導讀與延伸整理，影片中的投資、幣圈內容與推薦連結與本課程無關。</p>
+    </div>
+    <div class="card">
+      <h3>章節速查（點時間跳到該段）</h3>
+      <div class="chap">
+        <a href="https://youtu.be/RANcz05xai0?t=71" target="_blank" rel="noopener"><i>01:11</i>認識 AI 底層邏輯</a>
+        <a href="https://youtu.be/RANcz05xai0?t=136" target="_blank" rel="noopener"><i>02:16</i>費用與方案</a>
+        <a href="https://youtu.be/RANcz05xai0?t=216" target="_blank" rel="noopener"><i>03:36</i>功能導覽</a>
+        <a href="https://youtu.be/RANcz05xai0?t=418" target="_blank" rel="noopener"><i>06:58</i>讓 AI 成為懂你的人</a>
+        <a href="https://youtu.be/RANcz05xai0?t=601" target="_blank" rel="noopener"><i>10:01</i>人事時地物＋Why</a>
+        <a href="https://youtu.be/RANcz05xai0?t=849" target="_blank" rel="noopener"><i>14:09</i>碎念法</a>
+        <a href="https://youtu.be/RANcz05xai0?t=932" target="_blank" rel="noopener"><i>15:32</i>AMA 法</a>
+        <a href="https://youtu.be/RANcz05xai0?t=1021" target="_blank" rel="noopener"><i>17:01</i>製圖功能</a>
+        <a href="https://youtu.be/RANcz05xai0?t=1338" target="_blank" rel="noopener"><i>22:18</i>寫作區塊</a>
+        <a href="https://youtu.be/RANcz05xai0?t=1483" target="_blank" rel="noopener"><i>24:43</i>學習模式</a>
+        <a href="https://youtu.be/RANcz05xai0?t=1670" target="_blank" rel="noopener"><i>27:50</i>自動化排程</a>
+        <a href="https://youtu.be/RANcz05xai0?t=1862" target="_blank" rel="noopener"><i>31:02</i>外掛程式</a>
+        <a href="https://youtu.be/RANcz05xai0?t=2005" target="_blank" rel="noopener"><i>33:25</i>工作 Work</a>
+        <a href="https://youtu.be/RANcz05xai0?t=2292" target="_blank" rel="noopener"><i>38:12</i>專案功能</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>影片的三段式升級路線</h3>
+    <div class="flow">
+      <div>會下提示詞<small>四招提示詞，贏過 80% 的使用者</small></div>
+      <div>會用功能<small>製圖、寫作區塊、學習模式，贏過 95%</small></div>
+      <div>讓 AI 自己動<small>排程、外掛、Work、專案：AI 變成「人生外掛」</small></div>
+      <div>衛教落地<small>每一招都換成衛教師的情境，再對照 Claude、Gemini</small></div>
+    </div>
+    <p>三個工具的顏色標記：<span class="t gpt">ChatGPT</span><span class="t cl">Claude</span><span class="t ge">Gemini</span>　介面按鈕名稱以 2026 年 10 月為準，三家改版很快，找不到時直接在對話框說「我要用 ○○ 功能」通常也能叫出來。</p>
+  </div>
+</section>
+
+<!-- 1 -->
+<section id="s1">
+  <div class="sec-head"><div class="num">1</div><div><h2>AI 底層邏輯：它不是 Google，是「接下一句」的高手</h2><p>懂原理，才知道為什麼會有 AI 味、為什麼會一本正經地講錯。<a class="yt" href="https://youtu.be/RANcz05xai0?t=71" target="_blank" rel="noopener">▶ 01:11</a></p></div></div>
+  <div class="grid2">
+    <div class="card">
+      <h3><span class="pill">搜尋引擎</span>Google</h3>
+      <p>拿你的問題去網路上<b>找現成的網頁</b>，給你連結，你自己判斷。</p>
+      <h3 style="margin-top:14px"><span class="pill o">生成式 AI</span>ChatGPT／Claude／Gemini</h3>
+      <p>根據訓練時學到的大量文字，<b>預測「最合理的下一個字」</b>。你說「床前明月光」，它自然接「疑是地上霜」，就算你沒叫它接。</p>
+    </div>
+    <div class="card">
+      <h3>兩個直接後果</h3>
+      <ol>
+        <li><b>AI 味（影片稱「芭樂味」）：</b>大家問一樣籠統的問題，它就給最安全、最平均的答案。問題不是 AI，是你給的資訊太少。</li>
+        <li><b>幻覺：</b>它的目標是「說得通順」，不是「說得正確」。劑量、指引年份、給付規定這類數字，最容易被編得很像真的。</li>
+      </ol>
+      <div class="note teal" style="margin-bottom:0"><b>衛教師翻譯：</b>AI 是打草稿很快的實習生（第 1 堂的比喻）。今天學的每一招，都是在「多給它背景」與「逼它說實話」。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section id="s2">
+  <div class="sec-head"><div class="num">2</div><div><h2>方案怎麼選：先免費，用到卡住再升級</h2><p>影片結論：大部分功能免費版就用得到。本課程也以免費版能完成為原則。<a class="yt" href="https://youtu.be/RANcz05xai0?t=136" target="_blank" rel="noopener">▶ 02:16</a></p></div></div>
+  <div class="tbl">
+    <table>
+      <tr><th>層級</th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th></tr>
+      <tr><td>免費</td><td>免費版：對話、生圖、語音、有限的深度研究；可能出現廣告</td><td>Free：對話、專案、Artifacts、部分連接器；每日額度較少</td><td>免費版：快速模型、生圖、Canvas、引導式學習、Gems</td></tr>
+      <tr><td>入門付費</td><td>Go：功能同免費，額度約多 10 倍，仍可能有廣告</td><td>—</td><td>Google AI Plus：較高額度＋雲端空間，可家庭共享</td></tr>
+      <tr><td>主力付費</td><td>Plus：頂級模型、完整 Work、無廣告</td><td>Pro（約 US$20／月）：更高額度、研究、桌面版 Cowork 與排程</td><td>Google AI Pro：Pro 模型、深入研究、排定動作、較高額度</td></tr>
+      <tr><td>重度使用</td><td>Pro：最強模型與最深思考，額度一般人用不完</td><td>Max（US$100／200 月）：Pro 的 5～20 倍額度</td><td>Google AI Ultra：最高額度與實驗功能</td></tr>
+    </table>
+  </div>
+  <div class="note"><b>建議：</b>三個都先註冊免費版，比較哪一個最順手；真的每天用到額度不夠，再只升級那一個。價格與內容常調整、台灣售價也會變，付款前請看官方方案頁。</div>
+</section>
+
+<!-- 3 -->
+<section id="s3">
+  <div class="sec-head"><div class="num">3</div><div><h2>介面導覽：同樣的五個按鈕，三家都有</h2><p>網頁版、桌面版、手機 App 都能用免費帳號；手機 App 一定要裝，走路就能用說的。<a class="yt" href="https://youtu.be/RANcz05xai0?t=216" target="_blank" rel="noopener">▶ 03:36</a></p></div></div>
+  <div class="tbl">
+    <table>
+      <tr><th>你要做的事</th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th></tr>
+      <tr><td>上傳檔案、圖片</td><td>對話框「＋」</td><td>對話框「＋」或直接拖進來</td><td>對話框「＋」，可直接選雲端硬碟</td></tr>
+      <tr><td>讓它想久一點</td><td>選「推理強度」，平常用中或高即可</td><td>模型選單開「延伸思考」</td><td>模型選單切「思考型」或 Pro</td></tr>
+      <tr><td>用說的</td><td>麥克風聽寫；右側按鈕開語音對話</td><td>麥克風聽寫；語音模式</td><td>麥克風聽寫；Gemini Live 即時對話</td></tr>
+      <tr><td>不留記錄、不受記憶影響</td><td>右上「暫時對話」</td><td>右上「無痕」聊天</td><td>「臨時對話」</td></tr>
+      <tr><td>找以前的對話</td><td>左側歷史，可改名、刪除</td><td>左側「聊天」，可搜尋、加星號</td><td>左側對話清單，可釘選、改名</td></tr>
+    </table>
+  </div>
+  <div class="note teal"><b>小提醒：</b>語音輸入出現簡體字，是電腦或手機系統的輸入設定造成的，不是 AI 的問題。AI「回答」要用繁體中文，下一章的自訂指示一次搞定。第 1 堂教的 Typeless 也可以直接用在這三個工具裡。</div>
+</section>
+
+<!-- 4 -->
+<section id="s4">
+  <div class="sec-head"><div class="num">4</div><div><h2>第一招：讓 AI 成為「懂你的人」</h2><p>最聰明的人不如最懂你的人。兩個設定：記憶＝你是誰；自訂指示＝你要它變成誰。<a class="yt" href="https://youtu.be/RANcz05xai0?t=418" target="_blank" rel="noopener">▶ 06:58</a></p></div></div>
+  <div class="tri">
+    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>影片做法</h3>
+      <ol class="steps"><li>左下頭像 →「個人化」</li><li>「記憶」：按「管理」可貼上、刪除</li><li>「自訂指示」：每次回答都會遵守</li></ol></div>
+    <div class="card cl-c"><h3><span class="t cl">Claude</span>對應做法</h3>
+      <ol class="steps"><li>左下名稱 →「設定」→「一般」</li><li>「個人偏好設定」欄位：貼上自訂指示（每個對話都套用）</li><li>「設定」→「功能」：開啟記憶，讓它記得過去對話</li></ol></div>
+    <div class="card ge-c"><h3><span class="t ge">Gemini</span>對應做法</h3>
+      <ol class="steps"><li>左下「設定與說明」→「個人背景資訊」</li><li>「給 Gemini 的指示」（舊名「已儲存的資訊」）：逐條新增</li><li>同頁可開啟「參考過往對話」</li></ol></div>
+  </div>
+  <div class="card">
+    <h3>步驟一：用語音做 3 分鐘自我介紹，請 AI 整理成記憶</h3>
+    <p>開新對話、打開語音，照下面的問題講出來；整理好的文字再貼到上面的記憶／偏好欄位。</p>
+    <div class="prompt"><span class="label">自我介紹提示詞</span>我想讓你更完整地認識我。以下是我的自我介紹，請整理成適合放進「記憶／個人偏好」的條列，讓我可以直接複製貼上。
+
+1. 我的職業與單位：（例：桃園地區醫院糖尿病中心衛教師，護理背景 10 年）
+2. 我每天主要的工作：（例：門診衛教、團體衛教、胰島素注射指導、品質指標報表）
+3. 我服務的對象：（例：多為 60 歲以上長者，也有新住民與移工照顧者）
+4. 我最常需要 AI 幫忙的事：（例：衛教單張改寫、簡報、Excel 統計、英文文獻摘要）
+5. 我的程度與偏好：（例：不熟 Excel 公式，喜歡條列、有範例的說明）</div>
+    <div class="note red"><b>不要放進記憶的：</b>病人姓名、病歷號、生日、任何個案細節；院內帳號密碼。記憶是存在雲端的。</div>
+  </div>
+  <div class="card">
+    <h3>步驟二：貼上自訂指示（衛教師版）</h3>
+    <p>前五條改寫自影片作者公開的自訂指示，第六條是醫療場域加的。第二、三條是擋幻覺的關鍵：直接說「不要有幻覺」沒有用，要告訴它<b>不確定時該怎麼做</b>。</p>
+    <div class="prompt"><span class="label">自訂指示（三個工具都可貼）</span>1. 所有中文一律使用繁體中文與台灣用語。
+2. 如果你不確定或資訊不足，直接說不知道；寧可答案不完整，也不要用看似合理的內容填補。
+3. 把「已查證的事實」和「你的推論或猜測」分開標示。
+4. 涉及臨床指引、藥物劑量、健保給付、政策與研究等會變動的資訊，先查證再回答，不要憑記憶，並附上來源網址與年份。
+5. 如果我的前提有錯，直接指出，不要空泛稱讚、不要重複我說過的話。
+6. 我不會提供可識別病人的資料；若你發現我貼上的內容疑似含有姓名、病歷號、身分證或生日，請先提醒我去識別化再繼續。</div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section id="s5">
+  <div class="sec-head"><div class="num">5</div><div><h2>第二招：人事時地物＋Why</h2><p>小學就學過的檢查清單。問題裡塞滿這幾項，AI 就不會在你不需要的地方用力。<a class="yt" href="https://youtu.be/RANcz05xai0?t=601" target="_blank" rel="noopener">▶ 10:01</a></p></div></div>
+  <div class="six">
+    <div class="el"><b>人</b><small>給誰看？誰要用？<br>例：糖尿病中心主任</small></div>
+    <div class="el"><b>事</b><small>要做什麼？<br>例：品質指標季報</small></div>
+    <div class="el"><b>時</b><small>什麼期間？何時要？<br>例：2026 Q3 對比 Q2</small></div>
+    <div class="el"><b>地</b><small>什麼場域、範圍？<br>例：本院門診共照個案</small></div>
+    <div class="el"><b>物</b><small>交出什麼形式？<br>例：8 頁簡報＋一頁摘要</small></div>
+    <div class="el"><b>Why</b><small>為什麼要做？<br>例：決定明年衛教人力配置</small></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3><span class="pill o">一句話版</span>得到「看起來有模有樣」</h3>
+      <div class="prompt"><span class="label">❌ 太籠統</span>幫我做一份糖尿病照護品質的報告。</div>
+      <p>結果：一份很平均、哪裡都適用、主任看了不知道要幹嘛的報告。</p>
+    </div>
+    <div class="card">
+      <h3><span class="pill">補齊版</span>得到「主任真正要的」</h3>
+      <div class="prompt"><span class="label">✅ 人事時地物＋Why</span>請幫我做一份糖尿病照護品質指標的季報。這份報告是給糖尿病中心主任在品管會議上看的（人），目的是決定明年衛教人力要優先投入哪一個年齡層（Why）。範圍是本院門診共照網個案（地），比較 2026 年第 3 季與第 2 季（時），指標包含 HbA1c &lt; 7% 達標率、眼底檢查率、足部檢查率（事）。請整理成 8 頁左右的簡報與一頁摘要，不要太學術，數字要能讓主任 30 秒看懂（物）。我會上傳去識別化的合成資料檔。</div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>人事時地物＋Why 組合器</h3>
+    <p>填完按「組合」，複製到任何一個 AI 都能用。和第 1 堂的「提示語六要素」是同一件事的兩種記法，挑你記得住的那一個。</p>
+    <div class="row">
+      <select id="wPreset" style="max-width:380px">
+        <option value="">— 選擇範例帶入 —</option>
+        <option value="qi">品質指標季報（給主任）</option>
+        <option value="group">足部照護團體衛教（給長者）</option>
+        <option value="poster">研討會英文海報摘要（給審稿人）</option>
+      </select>
+    </div>
+    <div class="grid3">
+      <div class="field"><label>人 <em>給誰看／誰使用</em></label><textarea id="w1" rows="2"></textarea></div>
+      <div class="field"><label>事 <em>要做什麼</em></label><textarea id="w2" rows="2"></textarea></div>
+      <div class="field"><label>時 <em>期間、期限</em></label><textarea id="w3" rows="2"></textarea></div>
+      <div class="field"><label>地 <em>場域、範圍</em></label><textarea id="w4" rows="2"></textarea></div>
+      <div class="field"><label>物 <em>交付形式</em></label><textarea id="w5" rows="2"></textarea></div>
+      <div class="field"><label>Why <em>目的</em></label><textarea id="w6" rows="2"></textarea></div>
+    </div>
+    <div class="row"><button class="btn" id="wBuild">組合</button></div>
+    <div class="prompt" id="wBox" style="display:none"><span class="label">組合好的提示詞</span><span id="wOut"></span><button class="copy" data-src="wOut">複製</button></div>
+  </div>
+  <div class="note teal"><b>為什麼 Why 最重要：</b>AI 很聰明，不要只把它當成「一個口令一個動作」的人。告訴它背後的目的，它常會幫你想到你沒問、但其實需要的東西。</div>
+</section>
+
+<!-- 6 -->
+<section id="s6">
+  <div class="sec-head"><div class="num">6</div><div><h2>第三招：碎念法</h2><p>懶得整理問題？開語音碎碎念 3 分鐘，把想到的全丟給它。對人很失禮，對 AI 反而資訊最完整。<a class="yt" href="https://youtu.be/RANcz05xai0?t=849" target="_blank" rel="noopener">▶ 14:09</a></p></div></div>
+  <div class="grid2">
+    <div class="card">
+      <h3>怎麼開始</h3>
+      <ul>
+        <li><span class="t gpt">ChatGPT</span>手機 App 按麥克風，或開語音對話</li>
+        <li><span class="t cl">Claude</span>手機或桌面版按麥克風聽寫</li>
+        <li><span class="t ge">Gemini</span>按麥克風；或用 Gemini Live 邊走邊講</li>
+        <li>電腦上：用第 1 堂的 Typeless 快捷鍵，講完自動變文字</li>
+      </ul>
+      <p>最後補一句「<b>請先整理我的狀況，再給建議</b>」，讓它先確認理解對不對。</p>
+    </div>
+    <div class="card">
+      <h3>衛教師碎念示範（已去識別化）</h3>
+      <div class="example">「我有一個七十幾歲的阿伯，最近兩次 HbA1c 從 7.2 升到 8.5，他說都有打針，可是女兒說他晚上會怕低血糖所以自己少打兩單位，然後他最近膝蓋痛比較少走路，啊他又很愛吃早餐店的蛋餅配奶茶，我上次講飲食他好像有點不耐煩，下次回診只有十分鐘，我不知道要先處理哪一個……請先幫我整理他的狀況，再建議我下次十分鐘衛教要講的前三件事。」</div>
+      <p style="margin-bottom:0">AI 會把「怕低血糖自行減量」這種你順口帶過、其實很關鍵的線索抓出來。</p>
+    </div>
+  </div>
+  <div class="note red"><b>碎念也要守三不：</b>講年齡層、不講年齡生日；講「阿伯」、不講名字；講數值趨勢、不講病歷號。這樣的描述才能丟進任何一個雲端 AI。</div>
+</section>
+
+<!-- 7 -->
+<section id="s7">
+  <div class="sec-head"><div class="num">7</div><div><h2>第四招：AMA 反問法（最省力、最耐用）</h2><p>任何問題最後加一句魔法句，讓 AI 負責想它需要哪些資訊，你只要回答就好。<a class="yt" href="https://youtu.be/RANcz05xai0?t=932" target="_blank" rel="noopener">▶ 15:32</a></p></div></div>
+  <div class="card">
+    <div class="prompt"><span class="label">魔法句（三個工具通用）</span>在你回答我之前，盡量問我問題，來幫助你更好地回答我。</div>
+    <div class="prompt"><span class="label">衛教範例</span>幫我設計一場 30 分鐘的糖尿病足部照護團體衛教，對象是社區長者。在你回答我之前，盡量問我問題，來幫助你更好地回答我。</div>
+    <div class="grid3" style="margin-top:14px">
+      <div class="b3"><h4>它問太多？</h4><p style="margin:0">回「<b>你建議就好</b>」，它會自己幫你做合理的預設。</p></div>
+      <div class="b3"><h4>某題不重要？</h4><p style="margin:0">直接說「<b>這題你決定</b>」，只回答你在意的。</p></div>
+      <div class="b3"><h4>用說的回答</h4><p style="margin:0">開語音一題一題講，比打字快很多。</p></div>
+    </div>
+  </div>
+  <div class="note teal"><b>小差異：</b><span class="t cl">Claude</span>有時會用可點選的選項卡片反問你；<span class="t ge">Gemini</span>在「深入研究」開始前會先列出研究計畫讓你修改，這也是同一個精神：先對齊需求再動手。</div>
+  <div class="note"><b>到這裡：</b>四招提示詞學完，影片說你已經比 80% 的使用者更會用 AI。接下來是「功能」。</div>
+</section>
+
+<!-- 8 -->
+<section id="s8">
+  <div class="sec-head"><div class="num">8</div><div><h2>製圖：先生成，再「局部修改」</h2><p>現在厲害的不是會畫，而是畫完能指定位置小修，不會整張毀掉重來。<a class="yt" href="https://youtu.be/RANcz05xai0?t=1021" target="_blank" rel="noopener">▶ 17:01</a></p></div></div>
+  <div class="tri">
+    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>影片做法</h3>
+      <ul><li>對話框「＋」→「建立圖像」，或第一句說「請直接生成一張圖片」</li><li>點圖片左下「編輯」：圈選區域、在特定位置留言要它改哪裡</li><li>可上傳參考圖，要求「用這個設計感」</li></ul></div>
+    <div class="card ge-c"><h3><span class="t ge">Gemini</span>強項，免費就能用</h3>
+      <ul><li>「工具」→「建立圖像」（Nano Banana 模型）</li><li>圖片生成後直接講「把右上角小字刪掉、背景改淺綠」，它會只改那一處</li><li>中文字與資訊圖卡排版表現好，適合衛教圖卡初稿</li></ul></div>
+    <div class="card cl-c"><h3><span class="t cl">Claude</span>不生照片，改做「圖表型」圖卡</h3>
+      <ul><li>Claude 沒有內建照片式生圖</li><li>請它「做成一張可下載的資訊圖卡（HTML／SVG）」，用 Artifacts 產生，文字百分之百正確、可再改</li><li>連接 Canva 後，可請它直接在 Canva 建立設計</li></ul></div>
+  </div>
+  <div class="card">
+    <h3>去掉 AI 味的三個技巧（影片心得＋衛教改編）</h3>
+    <ol>
+      <li><b>一次只改一處：</b>先出初稿，再「圈哪裡、改哪裡」，比一開始寫一長串限制有效。</li>
+      <li><b>指定色系與參考：</b>給院內 CI 色碼或過去自己做的單張當風格參考；影片作者的經驗是「要求用大自然的顏色」會比純黑黃金屬風自然。</li>
+      <li><b>刪掉莫名其妙的小字：</b>AI 很愛在角落塞看不懂的小字，這是 AI 味最大的來源，衛教圖卡尤其不能有錯字。</li>
+    </ol>
+    <div class="prompt"><span class="label">衛教圖卡提示詞</span>請生成一張直式衛教圖卡，主題是「低血糖 15-15 法則」。對象是 70 歲長者，字要大、最多 4 個步驟，每步一個簡單圖示。配色用柔和的大自然色（淺綠、米白），不要金屬感、不要任何裝飾性小字。右下角放小字「AI 協力製作，衛教師審訂」。</div>
+    <div class="note red"><b>版權與送審：</b>影片提到「找網路上的無版權海報當風格參考」，在醫院請更保守：只用院內自有素材或確認授權的圖當參考；人物照片不要用真實病人。圖卡上的醫療內容一律由衛教師核對後再送院內審查（第 3 堂會細講肖像與版權）。</div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section id="s9">
+  <div class="sec-head"><div class="num">9</div><div><h2>寫作區塊：在 AI 的稿子上直接動手改</h2><p>不用再說「太抽象了，再改一次」。直接刪、直接補、打個問號，AI 會幫你圓回去。<a class="yt" href="https://youtu.be/RANcz05xai0?t=1338" target="_blank" rel="noopener">▶ 22:18</a></p></div></div>
+  <div class="tri">
+    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>Canvas 寫作區塊</h3>
+      <ul><li>提示詞最後加「用寫作區塊」</li><li>可在右側直接打字、刪除；改完請它「依我的修改調整整篇」</li><li>改過的地方會標色</li></ul></div>
+    <div class="card ge-c"><h3><span class="t ge">Gemini</span>Canvas</h3>
+      <ul><li>「工具」→「Canvas」或說「用 Canvas 寫」</li><li>可直接編輯，反白一段文字請它「改白話一點」</li><li>一鍵「匯出至 Google 文件」，最適合要交出去的稿子</li></ul></div>
+    <div class="card cl-c"><h3><span class="t cl">Claude</span>Artifacts</h3>
+      <ul><li>說「做成文件（Artifact）」，內容會出現在右側獨立視窗</li><li>指定「只改第 3 段」，它會只更新那一段</li><li>可下載或複製；長文寫作是 Claude 的強項（影片作者也這樣認為）</li></ul></div>
+  </div>
+  <div class="card">
+    <h3>練習：衛教單張的「半自動」改稿</h3>
+    <div class="prompt"><span class="label">先請它寫進寫作區塊</span>用 400 字介紹「什麼是糖化血色素（HbA1c）」，對象是剛確診的民眾，盡量條列，放在寫作區塊（Canvas／Artifact）裡。</div>
+    <p>接著<b>直接在稿子上</b>：刪掉你覺得多餘的句子；在想補的地方打「：（這裡補充多久驗一次）」；最後請它「依照我的修改，把整篇順過一次，改過的地方標出來」。</p>
+  </div>
+</section>
+
+<!-- 10 -->
+<section id="s10">
+  <div class="sec-head"><div class="num">10</div><div><h2>學習模式：讓 AI 當你的家教，不是給答案的機器</h2><p>先確認你懂到哪裡，再用蘇格拉底式提問一步步帶你想。影片稱這是最被低估的功能。<a class="yt" href="https://youtu.be/RANcz05xai0?t=1483" target="_blank" rel="noopener">▶ 24:43</a></p></div></div>
+  <div class="tri">
+    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>學習模式</h3><p>對話框輸入「@study」或「＋」→「學習」；叫不出來就直接說「我想進入學習模式」。</p></div>
+    <div class="card cl-c"><h3><span class="t cl">Claude</span>學習風格</h3><p>對話框「＋」→ 樣式選「學習」（Learning）；沒有這個選項時，用下方提示詞也能達到同樣效果。</p></div>
+    <div class="card ge-c"><h3><span class="t ge">Gemini</span>引導式學習</h3><p>「工具」→「引導式學習」（Guided Learning），免費版即可用，會穿插圖解與小測驗。</p></div>
+  </div>
+  <div class="card">
+    <h3>衛教師的三個學習題目</h3>
+    <div class="grid3">
+      <div class="b3"><h4>看懂統計</h4><p style="margin:0">「我想學會比較兩季的達標率差異是不是有意義，我只會算百分比。」</p></div>
+      <div class="b3"><h4>追新指引</h4><p style="margin:0">「帶我讀懂最新 ADA 照護標準中，長者血糖目標的改變。」（請它附出處）</p></div>
+      <div class="b3"><h4>醫學英文</h4><p style="margin:0">「我下個月要在研討會用英文報告海報，陪我練 3 分鐘口說。」</p></div>
+    </div>
+    <div class="prompt"><span class="label">任何工具都能用的「家教」提示詞</span>請當我的家教，用學習模式教我：（主題）。
+先問我 2～3 個問題確認我目前的程度，不要直接給完整答案；
+每次只教一個小概念，用臨床衛教的例子說明，教完出一題讓我回答，答對再往下。</div>
+    <p style="margin-bottom:0">學到一半想岔題問別的也沒關係，它通常會在回答後把你帶回原本的進度。</p>
+  </div>
+</section>
+
+<!-- 11 -->
+<section id="s11">
+  <div class="sec-head"><div class="num">11</div><div><h2>排程自動化：交代一次，它每天自己做</h2><p>前面所有功能都是「你開口它才動」。排程讓 AI 第一次主動為你工作。<a class="yt" href="https://youtu.be/RANcz05xai0?t=1670" target="_blank" rel="noopener">▶ 27:50</a></p></div></div>
+  <div class="tri">
+    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>排程任務</h3><ul><li>左側「時鐘」圖示 → 新增任務</li><li>設定頻率、時間，在雲端自動執行</li><li>免費版可設少量任務</li></ul></div>
+    <div class="card cl-c"><h3><span class="t cl">Claude</span>Cowork 排程</h3><ul><li>Claude 桌面版 → Cowork 分頁</li><li>輸入「/schedule」或在側欄「排程」新增</li><li>需付費方案（Pro 以上）</li></ul></div>
+    <div class="card ge-c"><h3><span class="t ge">Gemini</span>排定動作</h3><ul><li>直接在對話裡說「每週一早上 8 點幫我…」</li><li>到「設定」→「排定的動作」管理、暫停</li><li>需 Google AI 付費方案</li></ul></div>
+  </div>
+  <div class="card">
+    <h3>影片的關鍵技巧：排程的提示詞也要用 AMA</h3>
+    <p>只寫一句「每天整理英文單字」，晚上收到的東西多半不是你要的。先加上「在你建立任務前，盡量問我問題」，問太多就回「你建議就好」。</p>
+    <div class="prompt"><span class="label">衛教師排程範例：每週文獻與指引快報</span>每週一早上 7:30，幫我整理過去一週與「糖尿病衛教、第 2 型糖尿病自我管理、長者血糖控制」相關的新指引、重要研究與台灣衛福部／國健署公告。
+每則 3 行以內：重點、對衛教的影響、來源網址與日期。沒有新東西就直接說沒有，不要湊數。
+在你建立任務前，盡量問我問題來讓內容更符合我的需求。</div>
+    <div class="prompt"><span class="label">個人學習排程</span>每天晚上 8 點，根據我今天和你對話中出現的英文醫學詞彙，整理 10 個適合複習的單字與例句，並出 3 題小測驗。</div>
+    <div class="note red" style="margin-bottom:0"><b>不要排程：</b>任何會讀取或寄送病人資料的任務。排程是在雲端無人看管時執行的。</div>
+  </div>
+</section>
+
+<!-- 12 -->
+<section id="s12">
+  <div class="sec-head"><div class="num">12</div><div><h2>外掛連接：讓 AI 從「出主意」變成「動手做」</h2><p>連上信箱、行事曆、雲端硬碟，一句話就幫你查、排、整理。<a class="yt" href="https://youtu.be/RANcz05xai0?t=1862" target="_blank" rel="noopener">▶ 31:02</a></p></div></div>
+  <div class="tri">
+    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>外掛程式</h3><ul><li>左側「外掛程式」→ 按「＋」安裝 → 確認授權</li><li>Google 系列、Canva、GitHub、Notion 等</li></ul></div>
+    <div class="card cl-c"><h3><span class="t cl">Claude</span>連接器</h3><ul><li>「設定」→「連接器」，或對話框「＋」→ 連接器</li><li>Gmail、Google 日曆、雲端硬碟、Canva、Notion 等</li><li>免費版也能用部分連接器</li></ul></div>
+    <div class="card ge-c"><h3><span class="t ge">Gemini</span>應用程式（原生最強）</h3><ul><li>Google 帳號內建：Gmail、日曆、雲端硬碟、Keep、YouTube、地圖</li><li>在「設定」→「應用程式」開啟</li><li>對話中打「@Gmail」「@Google 雲端硬碟」指定</li></ul></div>
+  </div>
+  <div class="card">
+    <h3>影片示範的情境，換成衛教版</h3>
+    <div class="grid2">
+      <div><div class="prompt"><span class="label">截圖 → 行事曆</span>（貼上糖尿病衛教學會研習公告截圖）幫我把這場研習加到行事曆，提醒時間設前一天晚上。</div></div>
+      <div><div class="prompt"><span class="label">整理行程</span>幫我整理下個月所有衛教研習與學分課程，標出哪幾天太密、哪幾天比較空，並提醒報名截止日。</div></div>
+    </div>
+    <p>不用說「請用 Google 日曆外掛」，它會自己判斷要用哪一個。</p>
+    <div class="note red" style="margin-bottom:0"><b>醫院場域界線：</b>只連<b>個人</b>帳號處理個人行程與學習資料；院內公務信箱、含病人資料的雲端資料夾，請依本院資訊安全規範，未經核准不要授權給任何 AI。</div>
+  </div>
+</section>
+
+<!-- 13 -->
+<section id="s13">
+  <div class="sec-head"><div class="num">13</div><div><h2>深度工作：從 80 分作業到 120 分研究報告</h2><p>讓 AI 花 10～20 分鐘拆解任務、查資料、做出檔案。影片作者認為這是目前最強的用法。<a class="yt" href="https://youtu.be/RANcz05xai0?t=2005" target="_blank" rel="noopener">▶ 33:25</a></p></div></div>
+  <div class="tri">
+    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>Work（工作）</h3><ul><li>對話上方從「對話」切到「工作」</li><li>可指定專案、強制使用的檔案、串接外掛</li><li>直接產出文件、試算表、簡報、網站</li></ul></div>
+    <div class="card cl-c"><h3><span class="t cl">Claude</span>研究＋Cowork</h3><ul><li>網頁版：對話框開「研究」，會搜尋數十個來源並附引用</li><li>桌面版 Cowork：交代一件長任務，它在你電腦的資料夾裡產出 Excel、Word、PowerPoint 檔</li></ul></div>
+    <div class="card ge-c"><h3><span class="t ge">Gemini</span>深入研究</h3><ul><li>「工具」→「深入研究」，先給你研究計畫可修改</li><li>完成後按「建立」：轉成網頁、資訊圖表、測驗或語音摘要</li><li>報告可匯出成 Google 文件</li></ul></div>
+  </div>
+  <div class="card">
+    <h3>影片的祕技：兩段式提示詞</h3>
+    <div class="flow">
+      <div>① 一般對話<small>講出你模糊的想法，請它「幫我設計一個完整的提示詞，我要拿去做深度研究」</small></div>
+      <div>② 修改提示詞<small>看它補了哪些面向，刪掉不要的、補上你的 Why</small></div>
+      <div>③ 丟給深度工具<small>Work／研究／深入研究，等它跑 10～20 分鐘</small></div>
+      <div>④ 再要求視覺化<small>「數字太多，請多用趨勢圖、對照圖做成簡報」</small></div>
+    </div>
+    <div class="prompt"><span class="label">第一段：請它幫你寫研究提示詞</span>我想做一份深度研究：台灣近 10 年第 2 型糖尿病照護品質指標（HbA1c 達標率、眼底與足部檢查率、腎病變篩檢率）的變化，以及和國際比較，最後要找出我們中心最值得投入的改善方向。
+我只有一個模糊的印象：長者的達標率好像沒有明顯進步，但不確定。
+請幫我設計一個完整、可直接拿去「深入研究／研究模式」使用的提示詞，要求所有數據附來源與年份，並區分官方統計與單一研究。</div>
+    <div class="note"><b>驗證不能省：</b>報告做得再漂亮，數字仍要抽查 3～5 個回到原始來源核對。報告寫「研究顯示」卻沒有出處的句子，一律當作還沒查證。</div>
+  </div>
+</section>
+
+<!-- 14 -->
+<section id="s14">
+  <div class="sec-head"><div class="num">14</div><div><h2>專案：一件長期正事，一個獨立的記憶空間</h2><p>放進這件事需要的資料，每次對話都會參考；而其他對話不會被它干擾。<a class="yt" href="https://youtu.be/RANcz05xai0?t=2292" target="_blank" rel="noopener">▶ 38:12</a></p></div></div>
+  <div class="tri">
+    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>專案</h3><ul><li>左側「專案」→ 建立</li><li>上傳來源檔案、設定專案指示</li><li>專案有自己獨立的記憶</li></ul></div>
+    <div class="card cl-c"><h3><span class="t cl">Claude</span>專案（Projects）</h3><ul><li>左側「專案」→「建立專案」</li><li>「專案知識」上傳檔案；「設定專案指示」貼固定規則</li><li>免費版即可建立</li></ul></div>
+    <div class="card ge-c"><h3><span class="t ge">Gemini</span>Gem／筆記本</h3><ul><li><b>Gem：</b>「Gem 管理工具」→ 新增 Gem，寫指示＋上傳知識檔，像一個專屬小助手</li><li><b>筆記本：</b>把對話與資料歸在同一個專案資料夾，可與 NotebookLM 同步</li></ul></div>
+  </div>
+  <div class="card">
+    <h3>建議建立的第一個專案：「衛教單張改寫室」</h3>
+    <ol class="steps">
+      <li>建立專案（Gemini 用 Gem），名稱：衛教單張改寫室</li>
+      <li>上傳：院內<b>已公開</b>的衛教單張、單位用語表（例如統一說「血糖機」而不是「血糖儀」）</li>
+      <li>專案指示貼上第 1 堂的六要素與今天的自訂指示</li>
+      <li>以後每次改寫單張都在這個專案裡開新對話，不必再交代一次背景</li>
+    </ol>
+    <div class="prompt"><span class="label">專案指示範本</span>你是本院糖尿病中心的資深衛教師助理。
+1. 改寫衛教內容時，以專案知識中的院內單張與用語表為準，不新增原文沒有的醫療建議。
+2. 預設對象為 65 歲以上長者：每句 20 字內、條列、避免英文縮寫。
+3. 每次改寫後，列出與原文意思可能不同的句子讓我核對。
+4. 專案知識找不到答案時，直接說「資料中沒有」，不要自己補。</div>
+    <div class="note teal" style="margin-bottom:0"><b>預告第 4 堂：</b>這個專案就是「科室知識庫助手」的雛形，第 4 堂會再加上驗證題庫與出處標註。</div>
+  </div>
+</section>
+
+<!-- 15 -->
+<section id="s15">
+  <div class="sec-head"><div class="num">15</div><div><h2>三工具對照表：同一招，在哪裡按？</h2><p>印這一頁就夠了。名稱若改版，記住「功能」比記住按鈕重要。</p></div></div>
+  <div class="tbl">
+    <table>
+      <tr><th>影片章節</th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th></tr>
+      <tr><td>讓 AI 懂你</td><td>個人化 → 記憶／自訂指示</td><td>設定 → 個人偏好設定；記憶</td><td>個人背景資訊 → 給 Gemini 的指示</td></tr>
+      <tr><td>想久一點</td><td>推理強度</td><td>延伸思考</td><td>思考型／Pro 模型</td></tr>
+      <tr><td>不留記錄</td><td>暫時對話</td><td>無痕聊天</td><td>臨時對話</td></tr>
+      <tr><td>製圖</td><td>建立圖像＋編輯圈選</td><td>Artifacts 圖卡（HTML／SVG）、Canva 連接器</td><td>建立圖像（Nano Banana）</td></tr>
+      <tr><td>寫作區塊</td><td>Canvas</td><td>Artifacts</td><td>Canvas（可匯出 Google 文件）</td></tr>
+      <tr><td>學習模式</td><td>學習模式（@study）</td><td>學習樣式</td><td>引導式學習</td></tr>
+      <tr><td>排程</td><td>排程任務</td><td>Cowork 排程（付費）</td><td>排定動作（付費）</td></tr>
+      <tr><td>外掛</td><td>外掛程式</td><td>連接器</td><td>應用程式（Google 全家桶）</td></tr>
+      <tr><td>深度工作</td><td>Work</td><td>研究、Cowork</td><td>深入研究</td></tr>
+      <tr><td>專案</td><td>專案</td><td>專案</td><td>Gem、筆記本</td></tr>
+    </table>
+  </div>
+  <div class="grid3" style="margin-top:18px">
+    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>什麼時候用</h3><p style="margin:0">中文語音對話最自然；生圖後局部修改最順手；要一口氣做出整份檔案時用 Work。</p></div>
+    <div class="card cl-c"><h3><span class="t cl">Claude</span>什麼時候用</h3><p style="margin:0">長文寫作、改稿語氣、分析 Excel 與報表、做互動小工具（第 5 堂）。影片作者也是「工作用 Claude」。</p></div>
+    <div class="card ge-c"><h3><span class="t ge">Gemini</span>什麼時候用</h3><p style="margin:0">已在用 Google 帳號、Chrome、雲端硬碟；衛教圖卡初稿；深入研究後一鍵轉成資訊圖表。</p></div>
+  </div>
+  <div class="note"><b>影片作者的提醒：</b>三家的差距大概是 95 分和 98 分。與其糾結哪個最強，不如挑一個每天用，提示詞基本功在哪一個都一樣。</div>
+</section>
+
+<!-- 16 -->
+<section id="s16">
+  <div class="sec-head"><div class="num">16</div><div><h2>課堂實作：用今天的招式做品質指標報表</h2><p>把四招提示詞用在真實工作：上傳合成資料，讓 AI 算達標率、畫圖、自己驗算。</p></div></div>
+  <div class="card">
+    <div class="deid-cta">
+      <div><b>練習檔：糖尿病照護品質指標報表與個案回饋單（合成資料）</b><br><span style="color:var(--muted)">60 位虛構個案、4 季資料，只有代號沒有任何真實病人資訊。也可以當作之後每季可重複套用的模板。</span></div>
+      <a class="btn" href="lesson2-template.xlsx" download>下載 Excel 練習檔</a>
+    </div>
+  </div>
+  <div class="tabs">
+    <button class="tab on" data-g="hw" data-t="hw-cl">Claude</button>
+    <button class="tab" data-g="hw" data-t="hw-ge">Gemini</button>
+    <button class="tab" data-g="hw" data-t="hw-gpt">ChatGPT</button>
+  </div>
+  <div class="panel on" id="hw-cl" data-g="hw"><div class="card"><ol class="steps"><li>開一個新專案「品質指標」，或直接開新對話</li><li>拖入 Excel 檔，貼上下方提示詞 ①</li><li>它會實際跑計算並給你表格；要圖時說「做成圖表 Artifact」</li></ol></div></div>
+  <div class="panel" id="hw-ge" data-g="hw"><div class="card"><ol class="steps"><li>對話框「＋」上傳 Excel（或從雲端硬碟選）</li><li>貼上提示詞 ①，結果可要求「匯出到 Google 試算表」</li><li>也可以在 Google 試算表裡直接開右側 Gemini 面板提問</li></ol></div></div>
+  <div class="panel" id="hw-gpt" data-g="hw"><div class="card"><ol class="steps"><li>對話框「＋」上傳 Excel</li><li>貼上提示詞 ①，它會用內建分析工具計算</li><li>要正式報表時改用 Work，指定輸出成簡報</li></ol></div></div>
+  <div class="prompt"><span class="label">① 先檢查資料（AMA＋查核）</span>這是去識別化的合成資料。請先不要計算，先告訴我：
+1. 每個欄位的意思與資料型態；
+2. 有沒有空白、重複的個案代號、或不合理的數值（例如 HbA1c 超過 20）；
+3. 在你開始分析之前，盡量問我問題，確認指標的定義。</div>
+  <div class="prompt"><span class="label">② 計算與比較（人事時地物＋Why）</span>這份分析是給糖尿病中心主任在品管會議看的，目的是決定明年衛教人力優先投入哪個年齡層。
+請計算最近一季與前一季的 HbA1c &lt; 7% 達標率，按年齡組與衛教師分組，整理成一張比較表，並指出變化最大的兩組。</div>
+  <div class="prompt"><span class="label">③ 圖表與驗算</span>請選最適合的圖表呈現上面的比較，說明為什麼選這種圖。
+接著自我驗算：隨機挑 2 組，列出分子、分母與計算過程，讓我能回到 Excel 手動核對。</div>
+  <div class="note red"><b>真實資料的規則不變：</b>回到工作上要用真實資料時，先用第 1 堂的去識別化小幫手處理，並確認符合本院規範；個案代號不能回推到病人。</div>
+</section>
+
+<!-- 17 -->
+<section id="s17">
+  <div class="sec-head"><div class="num">17</div><div><h2>課後任務</h2><p>勾選會自動記在這台電腦的瀏覽器裡，下次打開還在。</p></div></div>
+  <div class="card check" id="checklist">
+    <div class="progress"><i id="bar"></i></div>
+    <label><input type="checkbox" data-k="a"><span>三個工具（ChatGPT、Claude、Gemini）都註冊並裝好手機 App</span></label>
+    <label><input type="checkbox" data-k="b"><span>至少在一個工具貼上「衛教師版自訂指示」，並用語音完成自我介紹記憶</span></label>
+    <label><input type="checkbox" data-k="c"><span>用「人事時地物＋Why」改寫一個你本週真的要交的工作</span></label>
+    <label><input type="checkbox" data-k="d"><span>用 AMA 魔法句設計一場團體衛教，並用「你建議就好」收尾</span></label>
+    <label><input type="checkbox" data-k="e"><span>在 Gemini 或 ChatGPT 生成一張衛教圖卡，並至少做一次局部修改</span></label>
+    <label><input type="checkbox" data-k="f"><span>用學習模式／引導式學習學一個統計或指引概念</span></label>
+    <label><input type="checkbox" data-k="g"><span>建立「衛教單張改寫室」專案（或 Gem），放入一份已公開的院內單張</span></label>
+    <label><input type="checkbox" data-k="h"><span>完成品質指標實作 ①②③，並手動驗算其中一組數字</span></label>
+  </div>
+  <div class="card fb"><div class="fb-in"><div class="fb-ico">→</div><div style="flex:1 1 300px"><b style="font-size:1.15rem">下一堂（11/09）：多媒體衛教微劇本、圖卡、短影音與簡報</b><br>今天的製圖局部修改與寫作區塊，下週會直接用在衛教圖卡與短影音腳本上。</div></div></div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b style="color:#fff">糖尿病衛教團隊 AI 工具專業賦能與臨床實務應用工作坊｜第 2 堂</b><br>授課講師：鍾孟修 職能治療師｜<a href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專</a>｜<a href="https://reurl.cc/4YbrVj" target="_blank" rel="noopener">LINE 學員社群</a>｜<a href="mailto:adlotmatt@gmail.com">adlotmatt@gmail.com</a></p>
+    <p>主線影片：<a href="https://youtu.be/RANcz05xai0" target="_blank" rel="noopener">腦哥〈給我 40 分鐘，我給你 1 萬小時 ChatGPT 的精通實力〉</a>。工具說明參考：<a href="https://help.openai.com/" target="_blank" rel="noopener">ChatGPT 說明中心</a>、<a href="https://support.claude.com/" target="_blank" rel="noopener">Claude 說明中心</a>、<a href="https://support.google.com/gemini/" target="_blank" rel="noopener">Gemini 說明中心</a>。各工具功能、方案與按鈕名稱更新頻繁，請以官方最新說明為準。課程練習全程使用合成資料。</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast">已複製</div>
+
+<script>
+(function(){
+  var toast=document.getElementById('toast');
+  function showToast(t){toast.textContent=t||'已複製';toast.classList.add('show');setTimeout(function(){toast.classList.remove('show')},1400)}
+  function copyText(txt){
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(function(){showToast()},fallback)}else{fallback()}
+    function fallback(){var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');showToast()}catch(e){showToast('請手動複製')}document.body.removeChild(ta)}
+  }
+  // copy buttons: add one to every prompt box that lacks it
+  document.querySelectorAll('.prompt').forEach(function(p){if(!p.querySelector('.copy')){var b=document.createElement('button');b.className='copy';b.textContent='複製';p.appendChild(b)}});
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.copy');if(!b)return;
+    var box=b.parentElement,txt;
+    if(b.dataset.src){txt=document.getElementById(b.dataset.src).textContent}
+    else{var c=box.cloneNode(true);c.querySelectorAll('.copy,.label').forEach(function(n){n.remove()});txt=c.textContent.trim()}
+    copyText(txt);
+  });
+
+  // tabs
+  document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){var g=t.dataset.g;document.querySelectorAll('.tab[data-g="'+g+'"]').forEach(function(x){x.classList.toggle('on',x===t)});document.querySelectorAll('.panel[data-g="'+g+'"]').forEach(function(x){x.classList.toggle('on',x.id===t.dataset.t)})})});
+
+  // checklist
+  var boxes=[].slice.call(document.querySelectorAll('#checklist input')),bar=document.getElementById('bar');
+  function upd(){var n=boxes.filter(function(b){return b.checked}).length;bar.style.width=(n/boxes.length*100)+'%'}
+  boxes.forEach(function(b){
+    try{b.checked=localStorage.getItem('tyai2-'+b.dataset.k)==='1'}catch(e){}
+    b.addEventListener('change',function(){try{localStorage.setItem('tyai2-'+b.dataset.k,b.checked?'1':'0')}catch(e){}upd()});
+  });
+  upd();
+
+  // 人事時地物＋Why builder
+  var W={
+    qi:['糖尿病中心主任，在品管會議上看','糖尿病照護品質指標季報：HbA1c < 7% 達標率、眼底與足部檢查率','比較 2026 年第 3 季與第 2 季','本院門診共照網個案（去識別化合成資料）','8 頁左右簡報＋一頁摘要，數字 30 秒看得懂，不要太學術','決定明年衛教人力要優先投入哪一個年齡層'],
+    group:['社區 65 歲以上長者與陪同家屬，多數國小學歷','設計一場糖尿病足部照護團體衛教','30 分鐘，下個月社區據點活動','社區關懷據點，有投影但沒有網路','流程表（含時間分配）＋3 個互動活動＋一張帶回家的提醒單','讓長者回家後每天會自己檢查腳'],
+    poster:['國際研討會的審稿人與海報區聽眾','把我的中文研究摘要改寫成英文海報摘要','下週五截止','糖尿病衛教相關國際研討會','250 字以內英文摘要，分 Background、Methods、Results、Conclusion，另附 3 個關鍵字','提高被接受的機會，讓非華語讀者一眼看懂重點']
+  };
+  document.getElementById('wPreset').onchange=function(){var v=W[this.value];if(!v)return;for(var i=0;i<6;i++)document.getElementById('w'+(i+1)).value=v[i]};
+  document.getElementById('wBuild').onclick=function(){
+    var lab=['對象（人）：','任務（事）：','時間（時）：','場域（地）：','交付形式（物）：','目的（Why）：'],lines=[];
+    for(var i=0;i<6;i++){var v=document.getElementById('w'+(i+1)).value.trim();if(v)lines.push(lab[i]+v)}
+    if(!lines.length){showToast('請先填寫或選擇範例');return}
+    lines.push('','如果還有不清楚的地方，在你回答我之前，盡量問我問題。');
+    document.getElementById('wOut').textContent=lines.join('\n');
+    document.getElementById('wBox').style.display='block';
+  };
+
+  // search
+  var $=function(id){return document.getElementById(id)};
+  var sIn=$('q'),sCnt=$('qCount'),marks=[],cur=-1,sT;
+  function clearMarks(){marks.forEach(function(m){var p=m.parentNode;if(!p)return;p.replaceChild(document.createTextNode(m.textContent),m);p.normalize()});marks=[];cur=-1;sCnt.textContent=''}
+  function doSearch(){clearMarks();var q=sIn.value.trim();if(!q)return;var lq=q.toLowerCase();var main=document.querySelector('main');var w=document.createTreeWalker(main,NodeFilter.SHOW_TEXT,{acceptNode:function(n){if(!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;var p=n.parentNode;if(!p||p.closest('script,style,textarea,select,option,button,.copy'))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}});var nodes=[];while(w.nextNode())nodes.push(w.currentNode);
+    nodes.forEach(function(n){var t=n.nodeValue,lt=t.toLowerCase(),i=lt.indexOf(lq);if(i<0)return;var frag=document.createDocumentFragment(),last=0;while(i>=0){frag.appendChild(document.createTextNode(t.slice(last,i)));var m=document.createElement('mark');m.className='hit';m.textContent=t.slice(i,i+q.length);frag.appendChild(m);marks.push(m);last=i+q.length;i=lt.indexOf(lq,last)}frag.appendChild(document.createTextNode(t.slice(last)));n.parentNode.replaceChild(frag,n)});
+    if(!marks.length){sCnt.textContent='找不到';return}go(0)}
+  function go(i){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(i+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');var d=m.closest('details');while(d){d.open=true;d=d.parentElement&&d.parentElement.closest('details')}var p=m.closest('.panel');if(p&&!p.classList.contains('on')){var g=p.getAttribute('data-g');[].forEach.call(document.querySelectorAll('.panel[data-g="'+g+'"]'),function(x){x.classList.remove('on')});p.classList.add('on');[].forEach.call(document.querySelectorAll('.tab[data-g="'+g+'"]'),function(t){t.classList.toggle('on',t.getAttribute('data-t')===p.id)})}var bb=document.getElementById('wBox');if(bb&&bb.contains(m))bb.style.display='block';var y=m.getBoundingClientRect().top+window.pageYOffset-150;window.scrollTo({top:y,behavior:'smooth'});sCnt.textContent=(cur+1)+' / '+marks.length}
+  sIn.addEventListener('input',function(){clearTimeout(sT);sT=setTimeout(doSearch,250)});
+  sIn.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();if(marks.length)go(cur+(e.shiftKey?-1:1));else doSearch()}if(e.key==='Escape'){sIn.value='';clearMarks()}});
+  $('qNext').onclick=function(){marks.length?go(cur+1):doSearch()};
+  $('qPrev').onclick=function(){marks.length?go(cur-1):doSearch()};
+  $('qClear').onclick=function(){sIn.value='';clearMarks();sIn.focus()};
+
+  // active nav
+  var links=[].slice.call(document.querySelectorAll('nav.toc a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){var i=secs.indexOf(en.target);links.forEach(function(l){l.classList.remove('on')});if(links[i]){links[i].classList.add('on');var nv=links[i].parentElement;nv.scrollLeft=links[i].offsetLeft-nv.clientWidth/2+links[i].offsetWidth/2}}})},{rootMargin:'-40% 0px -55% 0px'});
+    secs.forEach(function(s){if(s)io.observe(s)});
+  }
+})();
+
+</script>
+</body>
+</html>

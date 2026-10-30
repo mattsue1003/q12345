@@ -44,6 +44,11 @@ kbd{display:inline-block;min-width:1.8em;padding:.05em .5em;border:1px solid #B9
 .contact-hint{margin:12px 0 0;font-size:.95rem;opacity:.92;position:relative;z-index:1}
 .contact-hint b{color:var(--amber)}
 
+.lessons{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;position:relative;z-index:1}
+.lessons a{color:#fff;text-decoration:none;font-weight:800;padding:5px 16px;border-radius:999px;border:1.5px solid rgba(255,255,255,.45);font-size:.95rem}
+.lessons a:hover{background:rgba(255,255,255,.14)}
+.lessons a.on{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+
 /* nav */
 nav.toc{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 nav.toc .wrap{display:flex;gap:8px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
@@ -220,6 +225,7 @@ footer a{color:var(--amber)}
 
 <header class="hero">
   <div class="wrap">
+    <div class="lessons"><a class="on" href="./">第 1 堂</a><a href="lesson2.html">第 2 堂</a></div>
     <span class="tag">衛福部桃園醫院 糖尿病中心｜AI 賦能工作坊 第 1 堂（10/19）</span>
     <h1>AI 基礎素養工具、資安界線<br>與<span>衛教文本轉譯</span></h1>
     <p class="sub">先把工具裝好、用「說的」取代打字；再守住資料界線，最後用一套固定的提示語結構，把一份衛教單張變成民眾版、長者大字版與多語版本。</p>
