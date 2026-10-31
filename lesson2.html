@@ -425,7 +425,7 @@ th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
       <tr><td>找以前的對話</td><td>左側歷史，可改名、刪除</td><td>左側「聊天」，可搜尋、加星號</td><td>左側對話清單，可釘選、改名</td></tr>
     </table>
   </div>
-  <div class="note teal"><b>上週的麥克風問題：</b>用麥克風講話，Gemini 轉出來的文字效果不錯，ChatGPT 卻常跑出簡體字。這個用「記憶」設定就能改善，下一節第一張卡直接教。第 1 堂教的 Typeless 也可以直接用在這三個工具裡。</div>
+  <div class="note teal"><b>上週的麥克風問題：</b>用麥克風講話，Gemini 轉出來的文字效果不錯，ChatGPT 卻常跑出簡體字。聽寫的字要改「語音 → 主要語言」，回覆要改「自訂指示」，下一節第一張卡三個工具一起教。第 1 堂教的 Typeless 也可以直接用在這三個工具裡。</div>
 </section>
 
 <!-- oc -->
@@ -472,29 +472,39 @@ th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
 <section id="s4">
   <div class="sec-head"><div class="num">4</div><div><h2>第一招：讓 AI 成為「懂你的人」</h2><p>最聰明的人不如最懂你的人。兩個設定：記憶＝你是誰；自訂指示＝你要它變成誰。</p></div></div>
   <div class="card alt">
-    <h3>先解決上週的問題：ChatGPT 跑出簡體字</h3>
-    <p>上週用麥克風測試，Gemini 轉出來的文字比較好，ChatGPT 會產生簡體字。解法是在 ChatGPT 的「記憶」裡加一條規則，之後回覆就會是繁體中文。兩種做法，選一種就好：</p>
-    <div class="grid2">
-      <div>
-        <h4 style="margin:0 0 6px"><span class="pill">做法 A</span>直接跟它說（最快）</h4>
+    <h3>先解決上週的問題：麥克風講中文，ChatGPT 跑出簡體字</h3>
+    <p>上週測試：Gemini 轉出來的文字正常，ChatGPT 會出現簡體字。要徹底解決，先弄清楚三個設定各管什麼，因為「記憶」和「自訂指示」只管 ChatGPT 的<b>回覆</b>，管不到麥克風<b>聽寫出來的字</b>。</p>
+    <div class="tbl"><table>
+      <tr><th>設定</th><th>管什麼</th><th>位置（ChatGPT）</th></tr>
+      <tr><td>語音 → 主要語言</td><td>麥克風<b>聽寫出來的文字</b>用什麼語言、什麼字體</td><td>設定 → 語音 → 主要語言：把「自動偵測」改成中文（繁體）；若只有「中文」就選它</td></tr>
+      <tr><td>自訂指示</td><td>ChatGPT <b>每一次回覆</b>都遵守的規則</td><td>設定 → 個人化 → 自訂指示 →「希望 ChatGPT 如何回應」</td></tr>
+      <tr><td>記憶</td><td>它對你的了解，<b>覺得相關時才參考</b>，不是每次</td><td>設定 → 個人化 → 記憶；或在對話裡說「請記住…」</td></tr>
+    </table></div>
+    <p style="margin-top:12px"><b>為什麼上週改了記憶會「覺得有改善」？</b>因為回覆變繁體了，畫面看起來正常很多；但自己講的話被轉出來的那段，很可能還是簡體。聽寫、回覆兩邊都要設。</p>
+    <div class="tri">
+      <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>三步都做</h3>
         <ol class="steps">
-          <li>開一個新對話</li>
-          <li>貼上下面這句話送出</li>
-          <li>看到它回「已更新記憶」就完成；可以到「設定 → 個人化 → 管理記憶」確認那一條有存進去</li>
-        </ol>
-        <div class="prompt"><span class="label">貼給 ChatGPT</span>請記住：回覆如果是中文，都請用繁體中文（台灣用語），不要使用簡體字。這條規則適用於之後所有對話。</div>
-      </div>
-      <div>
-        <h4 style="margin:0 0 6px"><span class="pill o">做法 B</span>到設定裡填（最穩）</h4>
+          <li><b>聽寫變繁體：</b>左下頭像 →「設定」→「語音」→「主要語言」→ 選中文（繁體）</li>
+          <li><b>回覆變繁體：</b>「設定」→「個人化」→「自訂指示」→ 在「希望 ChatGPT 如何回應」貼上下面那句 → 儲存</li>
+          <li><b>存一份保險：</b>開新對話，說「請記住：回覆如果是中文都用繁體中文，不要用簡體字」，看到「已更新記憶」即可</li>
+          <li><b>測一次：</b>開新對話按麥克風講一段話，看「轉出的字」和「回覆」是不是都繁體</li>
+        </ol></div>
+      <div class="card ge-c"><h3><span class="t ge">Gemini</span>上週為什麼正常</h3>
+        <p>Gemini 跟著 <b>Google 帳號的語言</b>走，台灣帳號預設就是繁體中文，所以聽寫和回覆都對。不是模型比較聰明，是設定剛好對。</p>
         <ol class="steps">
-          <li>左下角點自己的頭像 →「設定」</li>
-          <li>「個人化」→ 確認「記憶」是開啟的</li>
-          <li>同一頁往下找「自訂指示」→ 在「希望 ChatGPT 如何回應」欄位貼上：<b>回覆如果是中文，都請用繁體中文，不要使用簡體字</b> → 儲存</li>
-          <li>開新對話測一次：按麥克風講一段話，看它回的是不是繁體</li>
-        </ol>
-      </div>
+          <li><b>確認帳號語言：</b>myaccount.google.com →「個人資訊」→「語言」→ 中文（台灣）</li>
+          <li><b>回覆規則也貼一份：</b>Gemini 左下「設定與說明」→「個人背景資訊」→「給 Gemini 的指示」→ 貼上同一句</li>
+          <li>同事如果用的是中國大陸或英文介面的帳號，第 1 步改過來就好</li>
+        </ol></div>
+      <div class="card cl-c"><h3><span class="t cl">Claude</span>一個欄位搞定回覆</h3>
+        <ol class="steps">
+          <li>左下名稱 →「設定」→「一般」</li>
+          <li>「個人偏好設定」欄位貼上同一句 → 儲存，之後每個對話都套用</li>
+          <li>Claude 的麥克風聽寫跟著手機或電腦的<b>系統語言</b>，系統是繁體中文就不會有問題</li>
+        </ol></div>
     </div>
-    <div class="note" style="margin-bottom:0"><b>為什麼要分兩層：</b>「記憶」是它對你的了解，有關時才會翻；「自訂指示」是每次回答都會遵守。繁體中文這種每次都要的規則，兩邊都放最保險。這也是本節自訂指示的第 1 條。Gemini 和 Claude 用同樣的話貼到各自的設定欄位即可，做法在下面三張卡。</div>
+    <div class="prompt"><span class="label">三個工具都貼這一句</span>回覆如果是中文，都請用繁體中文（台灣用語），不要使用簡體字。這條規則適用於之後所有對話。</div>
+    <div class="note" style="margin-bottom:0"><b>記起來的原則：</b>「聽寫語言」是語音設定；「回覆語言」是個人化設定。繁體中文這種每次都要的規則，放在每次都會讀的「自訂指示／個人偏好／給 Gemini 的指示」，不能只靠「記憶」。這也是本節自訂指示的第 1 條。</div>
   </div>
   <div class="tri">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>做法</h3>
