@@ -236,7 +236,12 @@ th .t{font-size:.9rem}
 .b3{background:var(--teal-50);border-radius:14px;padding:14px 16px}
 .b3 h4{margin:0 0 6px;font-size:1.1rem}
 .flow div:nth-child(4){background:var(--orange)}
- </style>
+ .video{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vgrid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:18px;margin-bottom:18px}
+.vgrid>.card{margin-bottom:0;min-width:0}
+@media (max-width:900px){.vgrid{grid-template-columns:minmax(0,1fr)}}
+</style>
 </head>
 <body>
 
@@ -262,6 +267,8 @@ th .t{font-size:.9rem}
 
 <nav class="toc" aria-label="章節導覽">
   <div class="wrap">
+    <span class="toc-g">課前</span>
+    <a href="#pre">Napkin 圖表</a>
     <span class="toc-g">開場</span>
     <a href="#s0">學習地圖</a>
     <span class="toc-g">基礎</span>
@@ -296,6 +303,59 @@ th .t{font-size:.9rem}
 </nav>
 
 <main class="wrap">
+
+<!-- pre -->
+<section id="pre">
+  <div class="sec-head"><div class="num" style="background:var(--teal)">前</div><div><h2>課前補充：Napkin AI，貼上文字秒變圖表</h2><p>衛教單張、上課簡報、家屬說明都用得到。3 分半的教學，建議上課前先看、先註冊。</p></div></div>
+  <div class="vgrid">
+    <div class="card">
+      <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/ngUtNiZ4N6E" title="Napkin AI 免費教學" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <div class="row" style="margin-top:12px"><a class="btn" href="https://www.napkin.ai/" target="_blank" rel="noopener">開啟 Napkin AI</a><a class="btn ghost" href="https://youtu.be/ngUtNiZ4N6E" target="_blank" rel="noopener">在 YouTube 觀看</a></div>
+    </div>
+    <div class="card">
+      <h3>Napkin 是什麼</h3>
+      <p>把一段文字貼進去，它會自動畫成流程圖、步驟圖、比較表、心智圖等視覺圖，可以換風格、改字、加圖示，再匯出成圖片放進單張或簡報。不用會設計、不用會畫圖。</p>
+      <h3 style="margin-top:14px">免費版</h3>
+      <ul style="margin-bottom:0">
+        <li>每週 500 點數，一般衛教用途夠用</li>
+        <li>可匯出 PNG、PDF，或直接複製到剪貼簿</li>
+        <li>匯出的圖會有小小的 Napkin 浮水印</li>
+      </ul>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>六步驟（跟著影片做）</h3>
+      <ol class="steps">
+        <li><b>註冊：</b>用 Google 帳號登入 napkin.ai</li>
+        <li><b>貼上文字：</b>新增文件，把衛教重點貼進去（先去識別化）</li>
+        <li><b>產生圖：</b>反白段落，按藍色閃電，挑一張喜歡的</li>
+        <li><b>換風格：</b>右側面板換配色、換版型</li>
+        <li><b>編輯：</b>增減項目、改字、換圖示</li>
+        <li><b>匯出：</b>PNG 放單張、PDF 列印，或複製貼到簡報</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>先用 AI 整理文字，再丟給 Napkin</h3>
+      <p>Napkin 畫得好不好，取決於你貼的文字有沒有結構。先請 ChatGPT／Claude／Gemini 整理成條列，再貼過去。</p>
+      <div class="prompt"><span class="label">整理成 Napkin 吃得下的格式</span>請把下面的衛教內容整理成適合畫成流程圖的文字：
+一個標題，3～5 個步驟，每個步驟一句話、20 字以內，步驟之間有先後順序。
+不要新增原文沒有的醫療建議。
+
+【原文】
+（貼上衛教文字）</div>
+      <p style="margin-bottom:0"><b>適合畫成圖的衛教主題：</b>低血糖 15-15 法則、胰島素注射步驟、足部檢查流程、回診前準備清單、飲食餐盤比例。</p>
+    </div>
+  </div>
+  <div class="card alt">
+    <h3>三個提醒</h3>
+    <div class="grid3">
+      <div class="b3"><h4>① 個資</h4><p style="margin:0">貼進去的文字一樣會上雲端。只貼衛教內容，不貼任何病人資料。</p></div>
+      <div class="b3"><h4>② 隱私設定</h4><p style="margin:0">設定裡的 Data Privacy 可以關閉「用你的內容訓練模型」，註冊後先去關。</p></div>
+      <div class="b3"><h4>③ 核對</h4><p style="margin:0">數據圖它也能畫，但數字、順序要自己對過原文，圖越漂亮越容易被相信。</p></div>
+    </div>
+  </div>
+</section>
 
 <!-- 0 -->
 <section id="s0">
