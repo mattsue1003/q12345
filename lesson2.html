@@ -264,7 +264,7 @@ th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
       <a class="btn mail" href="mailto:adlotmatt@gmail.com?subject=%E6%A1%83%E5%9C%92%E9%86%AB%E9%99%A2%E7%B3%96%E5%B0%BF%E7%97%85%E4%B8%AD%E5%BF%83%20AI%20%E8%AA%B2%E7%A8%8B%E6%8F%90%E5%95%8F">寫信問講師</a>
       <a class="btn fbc" href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專</a>
     </div>
-    <p class="contact-hint">LINE 社群通關密語：<b>桃園醫院糖尿病中心</b>。第 1 堂的資安三不原則與去識別化，今天每一個練習都適用。</p>
+    <p class="contact-hint">LINE 社群通關密語：<b>桃園醫院糖尿病中心</b>。第 1 堂的資安三不原則與去識別化，今天每一個練習都適用；整份檔案要先清乾淨，用 <a href="https://mattsue1003.github.io/ltc-deid-workbench/" target="_blank" rel="noopener" style="color:var(--amber)">去識別化工作台</a>。</p>
   </div>
 </header>
 
@@ -294,7 +294,7 @@ th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
     <a href="#s14">專案</a>
     <span class="toc-g">收尾</span>
     <a href="#s15">四工具對照表</a>
-    <a href="#s16">實作：品質指標</a>
+    <a href="#s16">實作：數據與報表</a>
     <a href="#s17">課後任務</a>
   </div>
   <div class="wrap toc-search">
@@ -332,7 +332,7 @@ th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
       <h3>六步驟（跟著影片做）</h3>
       <ol class="steps">
         <li><b>註冊：</b>用 Google 帳號登入 napkin.ai</li>
-        <li><b>貼上文字：</b>新增文件，把衛教重點貼進去（先去識別化）</li>
+        <li><b>貼上文字：</b>新增文件，把衛教重點貼進去（有個案內容先過去識別化工作台）</li>
         <li><b>產生圖：</b>反白段落，按藍色閃電，挑一張喜歡的</li>
         <li><b>換風格：</b>右側面板換配色、換版型</li>
         <li><b>編輯：</b>增減項目、改字、換圖示</li>
@@ -777,32 +777,78 @@ th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
 
 <!-- 16 -->
 <section id="s16">
-  <div class="sec-head"><div class="num">16</div><div><h2>課堂實作：用今天的招式做品質指標報表</h2><p>把四招提示詞用在真實工作：上傳合成資料，讓 AI 算達標率、畫圖、自己驗算。</p></div></div>
+  <div class="sec-head"><div class="num">16</div><div><h2>課堂實作：個案照護數據整理、品質指標與報表自動化</h2><p>把前面學的招式用在課綱要求的五件事上。一份合成資料的 Excel 模板，從檢查到回饋單一路走完。</p></div></div>
   <div class="card">
     <div class="deid-cta">
-      <div><b>練習檔：糖尿病照護品質指標報表與個案回饋單（合成資料）</b><br><span style="color:var(--muted)">60 位虛構個案、4 季資料，只有代號沒有任何真實病人資訊。也可以當作之後每季可重複套用的模板。</span></div>
+      <div><b>練習檔：糖尿病照護品質指標報表與個案回饋單（合成資料）</b><br><span style="color:var(--muted)">60 位虛構個案、4 季資料，只有代號。五個工作表：使用說明、指標報表、資料檢查、個案回饋單、原始資料（＋指標設定）。以後每季貼新資料就能重複套用。</span></div>
       <a class="btn" href="lesson2-template.xlsx" download>下載 Excel 練習檔</a>
     </div>
   </div>
+
+  <div class="card">
+    <h3>課綱五項，各用哪一招、對到模板哪一頁</h3>
+    <div class="tbl"><table>
+      <tr><th>課綱項目</th><th>用今天的哪一招</th><th>模板對應</th><th>提示詞</th></tr>
+      <tr><td>① 去識別化檢查流程</td><td><a href="https://mattsue1003.github.io/ltc-deid-workbench/" target="_blank" rel="noopener">去識別化工作台</a>（整份檔案）；自訂指示第 6 條</td><td>「原始資料」只有代號欄</td><td>—</td></tr>
+      <tr><td>② 數據清洗、欄位確認、異常值</td><td>AMA 反問法：先問、不算</td><td>「資料檢查」工作表會亮燈</td><td>Ⓐ</td></tr>
+      <tr><td>③ 分組平均、達標率、前後期比較</td><td>人事時地物＋Why</td><td>「指標報表」選季別自動更新</td><td>Ⓑ</td></tr>
+      <tr><td>④ 圖表選擇原則與驗算</td><td>要它說明選圖理由＋列分子分母</td><td>「指標報表」趨勢圖</td><td>Ⓒ</td></tr>
+      <tr><td>⑤ 報表模板與個案趨勢回饋單</td><td>專案／Gem；OpenCode 整件交辦</td><td>「個案回饋單」選代號印 A4</td><td>Ⓓ</td></tr>
+    </table></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>① 上傳前的去識別化檢查（三步）</h3>
+      <ol class="steps">
+        <li><b>整份檔案先過工作台：</b>Word、Excel、PDF、照片、截圖都可以直接丟進「去識別化工作台」，自動標出姓名、病歷號、身分證、生日、電話、地址，換成「個案A」「家屬B」，下載乾淨的版本</li>
+        <li><b>人工再看一遍：</b>自動偵測一定有漏網，簽名、照片要手動遮；代號對照表留在院內電腦</li>
+        <li><b>確認院內規範：</b>合成資料今天隨便用；真實資料依本院規定，不確定就不要上傳</li>
+      </ol>
+      <div class="deid-cta" style="margin-top:12px">
+        <div><b>長照資料去識別化｜個資保護工作台</b><br><span style="color:var(--muted)">全部在你的瀏覽器裡處理：不上傳、沒有伺服器、工具本身不用 AI。可自訂稱呼、年齡組距、日期與地址的粗細。第 1 堂的「去識別化小幫手」處理純文字，這一個處理整份檔案。</span></div>
+        <a class="btn o" href="https://mattsue1003.github.io/ltc-deid-workbench/" target="_blank" rel="noopener">開啟去識別化工作台</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3>④ 圖表選擇原則（口訣）</h3>
+      <div class="tbl" style="border:0"><table style="min-width:0">
+        <tr><th>想說的事</th><th>用什麼圖</th></tr>
+        <tr><td>幾組比大小</td><td>長條圖（分組達標率）</td></tr>
+        <tr><td>隨時間變化</td><td>折線圖（四季趨勢）</td></tr>
+        <tr><td>佔比</td><td>堆疊長條；圓餅圖只在 3 類以內</td></tr>
+        <tr><td>前後期差多少</td><td>並列長條＋標出差異百分點</td></tr>
+      </table></div>
+      <p style="margin:10px 0 0"><b>驗算方法：</b>挑一項指標，用 Excel 篩選自己數分子、分母，和 AI 算的比率一致才交出去。</p>
+    </div>
+  </div>
+
   <div class="tabs">
     <button class="tab on" data-g="hw" data-t="hw-cl">Claude</button>
     <button class="tab" data-g="hw" data-t="hw-ge">Gemini</button>
     <button class="tab" data-g="hw" data-t="hw-gpt">ChatGPT</button>
     <button class="tab" data-g="hw" data-t="hw-oc">OpenCode</button>
   </div>
-  <div class="panel on" id="hw-cl" data-g="hw"><div class="card"><ol class="steps"><li>開一個新專案「品質指標」，或直接開新對話</li><li>拖入 Excel 檔，貼上下方提示詞 ①</li><li>它會實際跑計算並給你表格；要圖時說「做成圖表 Artifact」</li></ol></div></div>
-  <div class="panel" id="hw-ge" data-g="hw"><div class="card"><ol class="steps"><li>對話框「＋」上傳 Excel（或從雲端硬碟選）</li><li>貼上提示詞 ①，結果可要求「匯出到 Google 試算表」</li><li>也可以在 Google 試算表裡直接開右側 Gemini 面板提問</li></ol></div></div>
-  <div class="panel" id="hw-gpt" data-g="hw"><div class="card"><ol class="steps"><li>對話框「＋」上傳 Excel</li><li>貼上提示詞 ①，它會用內建分析工具計算</li><li>要正式報表時改用 Work，指定輸出成簡報</li></ol></div></div>
-  <div class="panel" id="hw-oc" data-g="hw"><div class="card"><ol class="steps"><li>把 Excel 放進練習資料夾，在 OpenCode 打開該資料夾</li><li>把 ①②③ 三段<b>一次</b>貼上，並加一句「每一步做完先回報，等我確認再往下」</li><li>它會把比較表、圖檔與摘要存在資料夾裡；打開檔案核對，再叫它修</li></ol></div></div>
-  <div class="prompt"><span class="label">① 先檢查資料（AMA＋查核）</span>這是去識別化的合成資料。請先不要計算，先告訴我：
+  <div class="panel on" id="hw-cl" data-g="hw"><div class="card"><ol class="steps"><li>開一個新專案「品質指標」，專案指示貼上自訂指示，知識區放「指標設定」表的截圖或文字</li><li>拖入 Excel 檔，依序貼 Ⓐ→Ⓑ→Ⓒ→Ⓓ</li><li>它會實際跑計算；要圖時說「做成圖表 Artifact」</li></ol></div></div>
+  <div class="panel" id="hw-ge" data-g="hw"><div class="card"><ol class="steps"><li>對話框「＋」上傳 Excel（或從雲端硬碟選）</li><li>依序貼 Ⓐ→Ⓑ→Ⓒ→Ⓓ，結果可要求「匯出到 Google 試算表」</li><li>也可以在 Google 試算表裡直接開右側 Gemini 面板提問</li></ol></div></div>
+  <div class="panel" id="hw-gpt" data-g="hw"><div class="card"><ol class="steps"><li>對話框「＋」上傳 Excel</li><li>依序貼 Ⓐ→Ⓑ→Ⓒ→Ⓓ，它會用內建分析工具計算</li><li>要正式報表時改用 Work，指定輸出成簡報</li></ol></div></div>
+  <div class="panel" id="hw-oc" data-g="hw"><div class="card"><ol class="steps"><li>把 Excel 放進練習資料夾，在 OpenCode 打開該資料夾</li><li>把 Ⓐ～Ⓓ <b>一次</b>貼上，並加一句「每一步做完先回報，等我確認再往下」</li><li>它會把比較表、圖檔、摘要與回饋單存在資料夾裡；打開檔案核對，再叫它修</li></ol></div></div>
+
+  <div class="prompt"><span class="label">Ⓐ 資料清洗與異常值（AMA：先問、不算）</span>這是去識別化的合成資料，一位個案一季一列。請先不要計算，先告訴我：
 1. 每個欄位的意思與資料型態；
-2. 有沒有空白、重複的個案代號、或不合理的數值（例如 HbA1c 超過 20）；
-3. 在你開始分析之前，盡量問我問題，確認指標的定義。</div>
-  <div class="prompt"><span class="label">② 計算與比較（人事時地物＋Why）</span>這份分析是給糖尿病中心主任在品管會議看的，目的是決定明年衛教人力優先投入哪個年齡層。
-請計算最近一季與前一季的 HbA1c &lt; 7% 達標率，按年齡組與衛教師分組，整理成一張比較表，並指出變化最大的兩組。</div>
-  <div class="prompt"><span class="label">③ 圖表與驗算</span>請選最適合的圖表呈現上面的比較，說明為什麼選這種圖。
-接著自我驗算：隨機挑 2 組，列出分子、分母與計算過程，讓我能回到 Excel 手動核對。</div>
-  <div class="note red"><b>真實資料的規則不變：</b>回到工作上要用真實資料時，先用第 1 堂的去識別化小幫手處理，並確認符合本院規範；個案代號不能回推到病人。</div>
+2. 代號＋季別重複的列、每一欄的缺漏筆數、超出合理範圍的數值（HbA1c 4–15%、收縮壓 70–250、舒張壓 40–150）；
+3. 在你開始分析之前，盡量問我問題，確認每個指標的分子、分母定義。</div>
+  <div class="prompt"><span class="label">Ⓑ 分組與前後期比較（人事時地物＋Why）</span>這份分析是給糖尿病中心主任在品管會議看的，目的是決定明年衛教人力優先投入哪個年齡層。
+請計算最近一季與前一季的 HbA1c &lt; 7%、血壓 &lt; 130/80、LDL &lt; 100 達標率，按年齡組與衛教師分組，
+表格欄位：指標、分組、分子人數、分母人數、比率（%，小數 1 位）、前後期差異（百分點）。最後指出變化最大的兩組。</div>
+  <div class="prompt"><span class="label">Ⓒ 圖表與驗算</span>請為上面的結果各選一種圖：四季趨勢用什麼圖、分組比較用什麼圖，先說明選圖理由再畫。Y 軸 0–100%，每個點標數值。
+接著自我驗算：隨機挑 2 組，列出分子、分母、篩選條件與計算過程，讓我能回到 Excel 用篩選功能手動核對。</div>
+  <div class="prompt"><span class="label">Ⓓ 個案趨勢回饋單</span>根據下列一位個案近四季的 HbA1c、血壓、LDL、低血糖次數，寫 3 句給個案本人看的回饋：
+先肯定進步，再提醒一件最重要的事，最後給一個下次回診前做得到的小目標。
+用長者聽得懂的口語，每句不超過 30 字，不提供藥物調整建議。
+（貼上「個案回饋單」工作表中該個案的四季數值）</div>
+  <div class="note teal"><b>每季重複套用：</b>新一季資料貼到「原始資料」最下面 → 「指標設定」補季別 → 「指標報表」選季別，指標、前期比較、趨勢圖自動更新；「個案回饋單」選代號就能印 A4。AI 只負責幫你檢查、解釋與寫回饋句，數字以模板公式為準。</div>
+  <div class="note red"><b>真實資料的規則不變：</b>回到工作上要用真實資料時，先完成上面①的三步，並確認符合本院規範；個案代號不能回推到病人。</div>
 </section>
 
 <!-- 17 -->
@@ -817,7 +863,7 @@ th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
     <label><input type="checkbox" data-k="e"><span>在 Gemini 或 ChatGPT 生成一張衛教圖卡，並至少做一次局部修改</span></label>
     <label><input type="checkbox" data-k="f"><span>用學習模式／引導式學習學一個統計或指引概念</span></label>
     <label><input type="checkbox" data-k="g"><span>建立「衛教單張改寫室」專案（或 Gem），放入一份已公開的院內單張</span></label>
-    <label><input type="checkbox" data-k="h"><span>完成品質指標實作 ①②③，並手動驗算其中一組數字</span></label>
+    <label><input type="checkbox" data-k="h"><span>完成品質指標實作 Ⓐ～Ⓓ，手動驗算其中一組數字，並用模板印出一張個案回饋單</span></label>
     <label><input type="checkbox" data-k="i"><span>在 OpenCode 設好模型與練習資料夾，放入 AGENTS.md，完成「第一個交辦」的三個版本</span></label>
   </div>
   <div class="card fb"><div class="fb-in"><div class="fb-ico">→</div><div style="flex:1 1 300px"><b style="font-size:1.15rem">下一堂（11/09）：多媒體衛教微劇本、圖卡、短影音與簡報</b><br>今天的製圖局部修改與寫作區塊，下週會直接用在衛教圖卡與短影音腳本上。</div></div></div>
@@ -828,7 +874,7 @@ th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
 <footer>
   <div class="wrap">
     <p><b style="color:#fff">糖尿病衛教團隊 AI 工具專業賦能與臨床實務應用工作坊｜第 2 堂</b><br>授課講師：鍾孟修 職能治療師｜<a href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專</a>｜<a href="https://reurl.cc/4YbrVj" target="_blank" rel="noopener">LINE 學員社群</a>｜<a href="mailto:adlotmatt@gmail.com">adlotmatt@gmail.com</a></p>
-    <p>工具說明參考：<a href="https://help.openai.com/" target="_blank" rel="noopener">ChatGPT 說明中心</a>、<a href="https://support.claude.com/" target="_blank" rel="noopener">Claude 說明中心</a>、<a href="https://support.google.com/gemini/" target="_blank" rel="noopener">Gemini 說明中心</a>。各工具功能、方案與按鈕名稱更新頻繁，請以官方最新說明為準。課程練習全程使用合成資料。</p>
+    <p>課程配套工具：<a href="https://mattsue1003.github.io/ltc-deid-workbench/" target="_blank" rel="noopener">去識別化工作台</a>、<a href="https://www.napkin.ai/" target="_blank" rel="noopener">Napkin AI</a>、<a href="https://opencode.ai/zht" target="_blank" rel="noopener">OpenCode</a>。工具說明參考：<a href="https://help.openai.com/" target="_blank" rel="noopener">ChatGPT 說明中心</a>、<a href="https://support.claude.com/" target="_blank" rel="noopener">Claude 說明中心</a>、<a href="https://support.google.com/gemini/" target="_blank" rel="noopener">Gemini 說明中心</a>。各工具功能、方案與按鈕名稱更新頻繁，請以官方最新說明為準。課程練習全程使用合成資料。</p>
   </div>
 </footer>
 
