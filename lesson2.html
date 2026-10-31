@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>第2堂 ChatGPT 精通與 Claude、Gemini 對照</title>
-<meta name="description" content="衛福部桃園醫院糖尿病中心 AI 賦能工作坊 第2堂講義：以 ChatGPT 精通影片為主線，對照 Claude 與 Gemini 的操作位置，學會四招提示詞、製圖、寫作區塊、學習模式、排程、外掛、深度工作與專案，並實作品質指標報表。">
+<title>第2堂 ChatGPT、Claude、Gemini 進階操作對照</title>
+<meta name="description" content="衛福部桃園醫院糖尿病中心 AI 賦能工作坊 第2堂講義：從 AI 底層邏輯到進階功能，對照 ChatGPT、Claude 與 Gemini 的操作位置，學會四招提示詞、製圖、寫作區塊、學習模式、排程、外掛、深度工作與專案，並實作品質指標報表。">
 <style>
 :root{
   --orange:#E8552D; --amber:#F4A93C; --teal:#028090; --ink:#12343B;
@@ -235,20 +235,8 @@ th .t{font-size:.9rem}
 .tri .steps li{padding:8px 0 8px 42px}.tri .steps li::before{width:30px;height:30px;top:8px}
 .b3{background:var(--teal-50);border-radius:14px;padding:14px 16px}
 .b3 h4{margin:0 0 6px;font-size:1.1rem}
-.video{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000}
-.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.chap{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:6px}
-.chap a{text-decoration:none;color:var(--ink);background:var(--teal-50);border-radius:9px;padding:6px 10px;font-size:.95rem;line-height:1.5}
-.chap a i{font-style:normal;font-weight:800;color:var(--teal);margin-right:8px;font-variant-numeric:tabular-nums}
-.chap a:hover{background:var(--teal);color:#fff}.chap a:hover i{color:#fff}
-.yt{display:inline-block;margin-left:8px;font-size:.85rem;font-weight:800;color:#fff;background:#D32F2F;padding:0 9px;border-radius:7px;text-decoration:none;white-space:nowrap;vertical-align:middle}
 .flow div:nth-child(4){background:var(--orange)}
-.vgrid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:18px;margin-bottom:18px}
-.vgrid>.card{margin-bottom:0;min-width:0}
-.vgrid .chap{grid-template-columns:1fr 1fr}
-@media (max-width:900px){.vgrid{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:480px){.vgrid .chap{grid-template-columns:1fr}}
-</style>
+ </style>
 </head>
 <body>
 
@@ -256,8 +244,8 @@ th .t{font-size:.9rem}
   <div class="wrap">
     <div class="lessons"><a href="./">第 1 堂</a><a class="on" href="lesson2.html">第 2 堂</a></div>
     <span class="tag">衛福部桃園醫院 糖尿病中心｜AI 賦能工作坊 第 2 堂（11/02）</span>
-    <h1>一支影片學會 ChatGPT，<br>同一招搬到 <span>Claude</span> 與 <span>Gemini</span></h1>
-    <p class="sub">以〈給我 40 分鐘，我給你 1 萬小時 ChatGPT 的精通實力〉為主線，十一個章節逐一拆解：影片教的是 ChatGPT，我們每一招都對照「在 Claude 按哪裡、在 Gemini 按哪裡」，並換成衛教師每天真的會遇到的情境。</p>
+    <h1>ChatGPT 從入門到進階，<br>同一招搬到 <span>Claude</span> 與 <span>Gemini</span></h1>
+    <p class="sub">十一個步驟，從 AI 的底層邏輯、方案選擇、四招提示詞，一路到製圖、寫作區塊、學習模式、排程、外掛、深度工作與專案。每一招都對照「在 ChatGPT、Claude、Gemini 各按哪裡」，並換成衛教師、行政與日常生活真的會遇到的情境。</p>
     <div class="goals">
       <div class="goal"><b>目標 1</b>理解 AI 的底層邏輯，知道為什麼會有「AI 味」與幻覺，以及怎麼用設定擋掉。</div>
       <div class="goal"><b>目標 2</b>熟練四招提示詞：讓 AI 懂你、人事時地物＋Why、碎念法、AMA 反問法。</div>
@@ -275,7 +263,7 @@ th .t{font-size:.9rem}
 <nav class="toc" aria-label="章節導覽">
   <div class="wrap">
     <span class="toc-g">開場</span>
-    <a href="#s0">影片與地圖</a>
+    <a href="#s0">學習地圖</a>
     <span class="toc-g">基礎</span>
     <a href="#s1">AI 底層邏輯</a>
     <a href="#s2">方案怎麼選</a>
@@ -311,42 +299,14 @@ th .t{font-size:.9rem}
 
 <!-- 0 -->
 <section id="s0">
-  <div class="sec-head"><div class="num">0</div><div><h2>今天的主線影片與學習地圖</h2><p>影片 42 分鐘，課堂上我們邊看邊做；每一章都附「直接跳到影片這一段」。</p></div></div>
-  <div class="vgrid">
-    <div class="card">
-      <h3>主線影片</h3>
-      <p><b>〈給我 40 分鐘，我給你 1 萬小時 ChatGPT 的精通實力〉</b>（YouTube，約 42 分鐘）</p>
-      <p>這部影片不能嵌入網頁，請直接在 YouTube 開啟；課堂上會分段播放。右邊的章節時間與各節標題旁的「▶ 時間」都會直接跳到影片的那一段。</p>
-      <a class="btn o" href="https://youtu.be/RANcz05xai0" target="_blank" rel="noopener">在 YouTube 開啟影片</a>
-      <p style="margin-top:14px;font-size:.95rem;color:var(--muted)">本講義是課堂導讀與延伸整理：影片用的是作者自己的工作例子，講義裡全部換成衛教、健康、行政與日常生活的情境；影片中與本課程無關的內容與推薦連結，請略過。</p>
-    </div>
-    <div class="card">
-      <h3>章節速查（點時間跳到該段）</h3>
-      <div class="chap">
-        <a href="https://youtu.be/RANcz05xai0?t=71" target="_blank" rel="noopener"><i>01:11</i>認識 AI 底層邏輯</a>
-        <a href="https://youtu.be/RANcz05xai0?t=136" target="_blank" rel="noopener"><i>02:16</i>費用與方案</a>
-        <a href="https://youtu.be/RANcz05xai0?t=216" target="_blank" rel="noopener"><i>03:36</i>功能導覽</a>
-        <a href="https://youtu.be/RANcz05xai0?t=418" target="_blank" rel="noopener"><i>06:58</i>讓 AI 成為懂你的人</a>
-        <a href="https://youtu.be/RANcz05xai0?t=601" target="_blank" rel="noopener"><i>10:01</i>人事時地物＋Why</a>
-        <a href="https://youtu.be/RANcz05xai0?t=849" target="_blank" rel="noopener"><i>14:09</i>碎念法</a>
-        <a href="https://youtu.be/RANcz05xai0?t=932" target="_blank" rel="noopener"><i>15:32</i>AMA 法</a>
-        <a href="https://youtu.be/RANcz05xai0?t=1021" target="_blank" rel="noopener"><i>17:01</i>製圖功能</a>
-        <a href="https://youtu.be/RANcz05xai0?t=1338" target="_blank" rel="noopener"><i>22:18</i>寫作區塊</a>
-        <a href="https://youtu.be/RANcz05xai0?t=1483" target="_blank" rel="noopener"><i>24:43</i>學習模式</a>
-        <a href="https://youtu.be/RANcz05xai0?t=1670" target="_blank" rel="noopener"><i>27:50</i>自動化排程</a>
-        <a href="https://youtu.be/RANcz05xai0?t=1862" target="_blank" rel="noopener"><i>31:02</i>外掛程式</a>
-        <a href="https://youtu.be/RANcz05xai0?t=2005" target="_blank" rel="noopener"><i>33:25</i>工作 Work</a>
-        <a href="https://youtu.be/RANcz05xai0?t=2292" target="_blank" rel="noopener"><i>38:12</i>專案功能</a>
-      </div>
-    </div>
-  </div>
+  <div class="sec-head"><div class="num">0</div><div><h2>今天的學習地圖</h2><p>十一個步驟分成三段：先會問、再會用功能、最後讓 AI 自己動起來。</p></div></div>
   <div class="card">
-    <h3>影片的三段式升級路線</h3>
+    <h3>三段式升級路線</h3>
     <div class="flow">
       <div>會下提示詞<small>四招提示詞，贏過 80% 的使用者</small></div>
       <div>會用功能<small>製圖、寫作區塊、學習模式，贏過 95%</small></div>
       <div>讓 AI 自己動<small>排程、外掛、Work、專案：AI 變成「人生外掛」</small></div>
-      <div>衛教落地<small>每一招都換成衛教師的情境，再對照 Claude、Gemini</small></div>
+      <div>衛教落地<small>每一招都換成衛教師的情境，三個工具並排對照</small></div>
     </div>
     <p>三個工具的顏色標記：<span class="t gpt">ChatGPT</span><span class="t cl">Claude</span><span class="t ge">Gemini</span>　介面按鈕名稱以 2026 年 10 月為準，三家改版很快，找不到時直接在對話框說「我要用 ○○ 功能」通常也能叫出來。</p>
   </div>
@@ -354,7 +314,7 @@ th .t{font-size:.9rem}
 
 <!-- 1 -->
 <section id="s1">
-  <div class="sec-head"><div class="num">1</div><div><h2>AI 底層邏輯：它不是 Google，是「接下一句」的高手</h2><p>懂原理，才知道為什麼會有 AI 味、為什麼會一本正經地講錯。<a class="yt" href="https://youtu.be/RANcz05xai0?t=71" target="_blank" rel="noopener">▶ 01:11</a></p></div></div>
+  <div class="sec-head"><div class="num">1</div><div><h2>AI 底層邏輯：它不是 Google，是「接下一句」的高手</h2><p>懂原理，才知道為什麼會有 AI 味、為什麼會一本正經地講錯。</p></div></div>
   <div class="grid2">
     <div class="card">
       <h3><span class="pill">搜尋引擎</span>Google</h3>
@@ -365,7 +325,7 @@ th .t{font-size:.9rem}
     <div class="card">
       <h3>兩個直接後果</h3>
       <ol>
-        <li><b>AI 味（影片稱「芭樂味」）：</b>大家問一樣籠統的問題，它就給最安全、最平均的答案。問題不是 AI，是你給的資訊太少。</li>
+        <li><b>AI 味：</b>大家問一樣籠統的問題，它就給最安全、最平均的答案。問題不是 AI，是你給的資訊太少。</li>
         <li><b>幻覺：</b>它的目標是「說得通順」，不是「說得正確」。劑量、指引年份、給付規定這類數字，最容易被編得很像真的。</li>
       </ol>
       <div class="note teal" style="margin-bottom:0"><b>衛教師翻譯：</b>AI 是打草稿很快的實習生（第 1 堂的比喻）。今天學的每一招，都是在「多給它背景」與「逼它說實話」。</div>
@@ -375,7 +335,7 @@ th .t{font-size:.9rem}
 
 <!-- 2 -->
 <section id="s2">
-  <div class="sec-head"><div class="num">2</div><div><h2>方案怎麼選：先免費，用到卡住再升級</h2><p>影片結論：大部分功能免費版就用得到。本課程也以免費版能完成為原則。<a class="yt" href="https://youtu.be/RANcz05xai0?t=136" target="_blank" rel="noopener">▶ 02:16</a></p></div></div>
+  <div class="sec-head"><div class="num">2</div><div><h2>方案怎麼選：先免費，用到卡住再升級</h2><p>大部分功能免費版就用得到。本課程也以免費版能完成為原則。</p></div></div>
   <div class="tbl">
     <table>
       <tr><th>層級</th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th></tr>
@@ -390,7 +350,7 @@ th .t{font-size:.9rem}
 
 <!-- 3 -->
 <section id="s3">
-  <div class="sec-head"><div class="num">3</div><div><h2>介面導覽：同樣的五個按鈕，三家都有</h2><p>網頁版、桌面版、手機 App 都能用免費帳號；手機 App 一定要裝，走路就能用說的。<a class="yt" href="https://youtu.be/RANcz05xai0?t=216" target="_blank" rel="noopener">▶ 03:36</a></p></div></div>
+  <div class="sec-head"><div class="num">3</div><div><h2>介面導覽：同樣的五個按鈕，三家都有</h2><p>網頁版、桌面版、手機 App 都能用免費帳號；手機 App 一定要裝，走路就能用說的。</p></div></div>
   <div class="tbl">
     <table>
       <tr><th>你要做的事</th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th></tr>
@@ -406,9 +366,9 @@ th .t{font-size:.9rem}
 
 <!-- 4 -->
 <section id="s4">
-  <div class="sec-head"><div class="num">4</div><div><h2>第一招：讓 AI 成為「懂你的人」</h2><p>最聰明的人不如最懂你的人。兩個設定：記憶＝你是誰；自訂指示＝你要它變成誰。<a class="yt" href="https://youtu.be/RANcz05xai0?t=418" target="_blank" rel="noopener">▶ 06:58</a></p></div></div>
+  <div class="sec-head"><div class="num">4</div><div><h2>第一招：讓 AI 成為「懂你的人」</h2><p>最聰明的人不如最懂你的人。兩個設定：記憶＝你是誰；自訂指示＝你要它變成誰。</p></div></div>
   <div class="tri">
-    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>影片做法</h3>
+    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>做法</h3>
       <ol class="steps"><li>左下頭像 →「個人化」</li><li>「記憶」：按「管理」可貼上、刪除</li><li>「自訂指示」：每次回答都會遵守</li></ol></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>對應做法</h3>
       <ol class="steps"><li>左下名稱 →「設定」→「一般」</li><li>「個人偏好設定」欄位：貼上自訂指示（每個對話都套用）</li><li>「設定」→「功能」：開啟記憶，讓它記得過去對話</li></ol></div>
@@ -429,7 +389,7 @@ th .t{font-size:.9rem}
   </div>
   <div class="card">
     <h3>步驟二：貼上自訂指示（衛教師版）</h3>
-    <p>前五條改寫自影片作者公開的自訂指示，第六條是醫療場域加的。第二、三條是擋幻覺的關鍵：直接說「不要有幻覺」沒有用，要告訴它<b>不確定時該怎麼做</b>。</p>
+    <p>前五條是通用的「防幻覺」設定，第六條是醫療場域加的。第二、三條是擋幻覺的關鍵：直接說「不要有幻覺」沒有用，要告訴它<b>不確定時該怎麼做</b>。</p>
     <div class="prompt"><span class="label">自訂指示（三個工具都可貼）</span>1. 所有中文一律使用繁體中文與台灣用語。
 2. 如果你不確定或資訊不足，直接說不知道；寧可答案不完整，也不要用看似合理的內容填補。
 3. 把「已查證的事實」和「你的推論或猜測」分開標示。
@@ -441,7 +401,7 @@ th .t{font-size:.9rem}
 
 <!-- 5 -->
 <section id="s5">
-  <div class="sec-head"><div class="num">5</div><div><h2>第二招：人事時地物＋Why</h2><p>小學就學過的檢查清單。問題裡塞滿這幾項，AI 就不會在你不需要的地方用力。<a class="yt" href="https://youtu.be/RANcz05xai0?t=601" target="_blank" rel="noopener">▶ 10:01</a></p></div></div>
+  <div class="sec-head"><div class="num">5</div><div><h2>第二招：人事時地物＋Why</h2><p>小學就學過的檢查清單。問題裡塞滿這幾項，AI 就不會在你不需要的地方用力。</p></div></div>
   <div class="six">
     <div class="el"><b>人</b><small>給誰看？誰要用？<br>例：糖尿病中心主任</small></div>
     <div class="el"><b>事</b><small>要做什麼？<br>例：品質指標季報</small></div>
@@ -488,7 +448,7 @@ th .t{font-size:.9rem}
 
 <!-- 6 -->
 <section id="s6">
-  <div class="sec-head"><div class="num">6</div><div><h2>第三招：碎念法</h2><p>懶得整理問題？開語音碎碎念 3 分鐘，把想到的全丟給它。對人很失禮，對 AI 反而資訊最完整。<a class="yt" href="https://youtu.be/RANcz05xai0?t=849" target="_blank" rel="noopener">▶ 14:09</a></p></div></div>
+  <div class="sec-head"><div class="num">6</div><div><h2>第三招：碎念法</h2><p>懶得整理問題？開語音碎碎念 3 分鐘，把想到的全丟給它。對人很失禮，對 AI 反而資訊最完整。</p></div></div>
   <div class="grid2">
     <div class="card">
       <h3>怎麼開始</h3>
@@ -511,7 +471,7 @@ th .t{font-size:.9rem}
 
 <!-- 7 -->
 <section id="s7">
-  <div class="sec-head"><div class="num">7</div><div><h2>第四招：AMA 反問法（最省力、最耐用）</h2><p>任何問題最後加一句魔法句，讓 AI 負責想它需要哪些資訊，你只要回答就好。<a class="yt" href="https://youtu.be/RANcz05xai0?t=932" target="_blank" rel="noopener">▶ 15:32</a></p></div></div>
+  <div class="sec-head"><div class="num">7</div><div><h2>第四招：AMA 反問法（最省力、最耐用）</h2><p>任何問題最後加一句魔法句，讓 AI 負責想它需要哪些資訊，你只要回答就好。</p></div></div>
   <div class="card">
     <div class="prompt"><span class="label">魔法句（三個工具通用）</span>在你回答我之前，盡量問我問題，來幫助你更好地回答我。</div>
     <div class="prompt"><span class="label">衛教範例</span>幫我設計一場 30 分鐘的糖尿病足部照護團體衛教，對象是社區長者。在你回答我之前，盡量問我問題，來幫助你更好地回答我。</div>
@@ -522,14 +482,14 @@ th .t{font-size:.9rem}
     </div>
   </div>
   <div class="note teal"><b>小差異：</b><span class="t cl">Claude</span>有時會用可點選的選項卡片反問你；<span class="t ge">Gemini</span>在「深入研究」開始前會先列出研究計畫讓你修改，這也是同一個精神：先對齊需求再動手。</div>
-  <div class="note"><b>到這裡：</b>四招提示詞學完，影片說你已經比 80% 的使用者更會用 AI。接下來是「功能」。</div>
+  <div class="note"><b>到這裡：</b>四招提示詞學完，你已經比大多數使用者更會用 AI。接下來是「功能」。</div>
 </section>
 
 <!-- 8 -->
 <section id="s8">
-  <div class="sec-head"><div class="num">8</div><div><h2>製圖：先生成，再「局部修改」</h2><p>現在厲害的不是會畫，而是畫完能指定位置小修，不會整張毀掉重來。<a class="yt" href="https://youtu.be/RANcz05xai0?t=1021" target="_blank" rel="noopener">▶ 17:01</a></p></div></div>
+  <div class="sec-head"><div class="num">8</div><div><h2>製圖：先生成，再「局部修改」</h2><p>現在厲害的不是會畫，而是畫完能指定位置小修，不會整張毀掉重來。</p></div></div>
   <div class="tri">
-    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>影片做法</h3>
+    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>做法</h3>
       <ul><li>對話框「＋」→「建立圖像」，或第一句說「請直接生成一張圖片」</li><li>點圖片左下「編輯」：圈選區域、在特定位置留言要它改哪裡</li><li>可上傳參考圖，要求「用這個設計感」</li></ul></div>
     <div class="card ge-c"><h3><span class="t ge">Gemini</span>強項，免費就能用</h3>
       <ul><li>「工具」→「建立圖像」（Nano Banana 模型）</li><li>圖片生成後直接講「把右上角小字刪掉、背景改淺綠」，它會只改那一處</li><li>中文字與資訊圖卡排版表現好，適合衛教圖卡初稿</li></ul></div>
@@ -537,27 +497,27 @@ th .t{font-size:.9rem}
       <ul><li>Claude 沒有內建照片式生圖</li><li>請它「做成一張可下載的資訊圖卡（HTML／SVG）」，用 Artifacts 產生，文字百分之百正確、可再改</li><li>連接 Canva 後，可請它直接在 Canva 建立設計</li></ul></div>
   </div>
   <div class="card">
-    <h3>去掉 AI 味的三個技巧（影片心得＋衛教改編）</h3>
+    <h3>去掉 AI 味的三個技巧</h3>
     <ol>
       <li><b>一次只改一處：</b>先出初稿，再「圈哪裡、改哪裡」，比一開始寫一長串限制有效。</li>
-      <li><b>指定色系與參考：</b>給院內 CI 色碼或過去自己做的單張當風格參考；影片作者的經驗是「要求用大自然的顏色」會比純黑黃金屬風自然。</li>
+      <li><b>指定色系與參考：</b>給院內 CI 色碼或過去自己做的單張當風格參考；經驗上「要求用大自然的顏色」會比純黑黃金屬風自然。</li>
       <li><b>刪掉莫名其妙的小字：</b>AI 很愛在角落塞看不懂的小字，這是 AI 味最大的來源，衛教圖卡尤其不能有錯字。</li>
     </ol>
     <div class="prompt"><span class="label">衛教圖卡提示詞</span>請生成一張直式衛教圖卡，主題是「低血糖 15-15 法則」。對象是 70 歲長者，字要大、最多 4 個步驟，每步一個簡單圖示。配色用柔和的大自然色（淺綠、米白），不要金屬感、不要任何裝飾性小字。右下角放小字「AI 協力製作，衛教師審訂」。</div>
-    <div class="note red"><b>版權與送審：</b>影片提到「找網路上的無版權海報當風格參考」，在醫院請更保守：只用院內自有素材或確認授權的圖當參考；人物照片不要用真實病人。圖卡上的醫療內容一律由衛教師核對後再送院內審查（第 3 堂會細講肖像與版權）。</div>
+    <div class="note red"><b>版權與送審：</b>網路上常見的做法是「找無版權海報當風格參考」，在醫院請更保守：只用院內自有素材或確認授權的圖當參考；人物照片不要用真實病人。圖卡上的醫療內容一律由衛教師核對後再送院內審查（第 3 堂會細講肖像與版權）。</div>
   </div>
 </section>
 
 <!-- 9 -->
 <section id="s9">
-  <div class="sec-head"><div class="num">9</div><div><h2>寫作區塊：在 AI 的稿子上直接動手改</h2><p>不用再說「太抽象了，再改一次」。直接刪、直接補、打個問號，AI 會幫你圓回去。<a class="yt" href="https://youtu.be/RANcz05xai0?t=1338" target="_blank" rel="noopener">▶ 22:18</a></p></div></div>
+  <div class="sec-head"><div class="num">9</div><div><h2>寫作區塊：在 AI 的稿子上直接動手改</h2><p>不用再說「太抽象了，再改一次」。直接刪、直接補、打個問號，AI 會幫你圓回去。</p></div></div>
   <div class="tri">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>Canvas 寫作區塊</h3>
       <ul><li>提示詞最後加「用寫作區塊」</li><li>可在右側直接打字、刪除；改完請它「依我的修改調整整篇」</li><li>改過的地方會標色</li></ul></div>
     <div class="card ge-c"><h3><span class="t ge">Gemini</span>Canvas</h3>
       <ul><li>「工具」→「Canvas」或說「用 Canvas 寫」</li><li>可直接編輯，反白一段文字請它「改白話一點」</li><li>一鍵「匯出至 Google 文件」，最適合要交出去的稿子</li></ul></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>Artifacts</h3>
-      <ul><li>說「做成文件（Artifact）」，內容會出現在右側獨立視窗</li><li>指定「只改第 3 段」，它會只更新那一段</li><li>可下載或複製；長文寫作是 Claude 的強項（影片作者也這樣認為）</li></ul></div>
+      <ul><li>說「做成文件（Artifact）」，內容會出現在右側獨立視窗</li><li>指定「只改第 3 段」，它會只更新那一段</li><li>可下載或複製；長文寫作是 Claude 的強項</li></ul></div>
   </div>
   <div class="card">
     <h3>練習：衛教單張的「半自動」改稿</h3>
@@ -568,7 +528,7 @@ th .t{font-size:.9rem}
 
 <!-- 10 -->
 <section id="s10">
-  <div class="sec-head"><div class="num">10</div><div><h2>學習模式：讓 AI 當你的家教，不是給答案的機器</h2><p>先確認你懂到哪裡，再用蘇格拉底式提問一步步帶你想。影片稱這是最被低估的功能。<a class="yt" href="https://youtu.be/RANcz05xai0?t=1483" target="_blank" rel="noopener">▶ 24:43</a></p></div></div>
+  <div class="sec-head"><div class="num">10</div><div><h2>學習模式：讓 AI 當你的家教，不是給答案的機器</h2><p>先確認你懂到哪裡，再用蘇格拉底式提問一步步帶你想。這是最被低估的功能。</p></div></div>
   <div class="tri">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>學習模式</h3><p>對話框輸入「@study」或「＋」→「學習」；叫不出來就直接說「我想進入學習模式」。</p></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>學習風格</h3><p>對話框「＋」→ 樣式選「學習」（Learning）；沒有這個選項時，用下方提示詞也能達到同樣效果。</p></div>
@@ -590,14 +550,14 @@ th .t{font-size:.9rem}
 
 <!-- 11 -->
 <section id="s11">
-  <div class="sec-head"><div class="num">11</div><div><h2>排程自動化：交代一次，它每天自己做</h2><p>前面所有功能都是「你開口它才動」。排程讓 AI 第一次主動為你工作。<a class="yt" href="https://youtu.be/RANcz05xai0?t=1670" target="_blank" rel="noopener">▶ 27:50</a></p></div></div>
+  <div class="sec-head"><div class="num">11</div><div><h2>排程自動化：交代一次，它每天自己做</h2><p>前面所有功能都是「你開口它才動」。排程讓 AI 第一次主動為你工作。</p></div></div>
   <div class="tri">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>排程任務</h3><ul><li>左側「時鐘」圖示 → 新增任務</li><li>設定頻率、時間，在雲端自動執行</li><li>免費版可設少量任務</li></ul></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>Cowork 排程</h3><ul><li>Claude 桌面版 → Cowork 分頁</li><li>輸入「/schedule」或在側欄「排程」新增</li><li>需付費方案（Pro 以上）</li></ul></div>
     <div class="card ge-c"><h3><span class="t ge">Gemini</span>排定動作</h3><ul><li>直接在對話裡說「每週一早上 8 點幫我…」</li><li>到「設定」→「排定的動作」管理、暫停</li><li>需 Google AI 付費方案</li></ul></div>
   </div>
   <div class="card">
-    <h3>影片的關鍵技巧：排程的提示詞也要用 AMA</h3>
+    <h3>關鍵技巧：排程的提示詞也要用 AMA</h3>
     <p>只寫一句「每天整理英文單字」，晚上收到的東西多半不是你要的。先加上「在你建立任務前，盡量問我問題」，問太多就回「你建議就好」。</p>
     <div class="prompt"><span class="label">衛教師排程範例：每週文獻與指引快報</span>每週一早上 7:30，幫我整理過去一週與「糖尿病衛教、第 2 型糖尿病自我管理、長者血糖控制」相關的新指引、重要研究與台灣衛福部／國健署公告。
 每則 3 行以內：重點、對衛教的影響、來源網址與日期。沒有新東西就直接說沒有，不要湊數。
@@ -609,14 +569,14 @@ th .t{font-size:.9rem}
 
 <!-- 12 -->
 <section id="s12">
-  <div class="sec-head"><div class="num">12</div><div><h2>外掛連接：讓 AI 從「出主意」變成「動手做」</h2><p>連上信箱、行事曆、雲端硬碟，一句話就幫你查、排、整理。<a class="yt" href="https://youtu.be/RANcz05xai0?t=1862" target="_blank" rel="noopener">▶ 31:02</a></p></div></div>
+  <div class="sec-head"><div class="num">12</div><div><h2>外掛連接：讓 AI 從「出主意」變成「動手做」</h2><p>連上信箱、行事曆、雲端硬碟，一句話就幫你查、排、整理。</p></div></div>
   <div class="tri">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>外掛程式</h3><ul><li>左側「外掛程式」→ 按「＋」安裝 → 確認授權</li><li>Google 系列、Canva、GitHub、Notion 等</li></ul></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>連接器</h3><ul><li>「設定」→「連接器」，或對話框「＋」→ 連接器</li><li>Gmail、Google 日曆、雲端硬碟、Canva、Notion 等</li><li>免費版也能用部分連接器</li></ul></div>
     <div class="card ge-c"><h3><span class="t ge">Gemini</span>應用程式（原生最強）</h3><ul><li>Google 帳號內建：Gmail、日曆、雲端硬碟、Keep、YouTube、地圖</li><li>在「設定」→「應用程式」開啟</li><li>對話中打「@Gmail」「@Google 雲端硬碟」指定</li></ul></div>
   </div>
   <div class="card">
-    <h3>影片示範的情境，換成衛教版</h3>
+    <h3>衛教師的兩個情境</h3>
     <div class="grid2">
       <div><div class="prompt"><span class="label">截圖 → 行事曆</span>（貼上糖尿病衛教學會研習公告截圖）幫我把這場研習加到行事曆，提醒時間設前一天晚上。</div></div>
       <div><div class="prompt"><span class="label">整理行程</span>幫我整理下個月所有衛教研習與學分課程，標出哪幾天太密、哪幾天比較空，並提醒報名截止日。</div></div>
@@ -628,14 +588,14 @@ th .t{font-size:.9rem}
 
 <!-- 13 -->
 <section id="s13">
-  <div class="sec-head"><div class="num">13</div><div><h2>深度工作：從 80 分作業到 120 分研究報告</h2><p>讓 AI 花 10～20 分鐘拆解任務、查資料、做出檔案。影片作者認為這是目前最強的用法。<a class="yt" href="https://youtu.be/RANcz05xai0?t=2005" target="_blank" rel="noopener">▶ 33:25</a></p></div></div>
+  <div class="sec-head"><div class="num">13</div><div><h2>深度工作：從 80 分作業到 120 分研究報告</h2><p>讓 AI 花 10～20 分鐘拆解任務、查資料、做出檔案。這是目前三個工具最強的用法。</p></div></div>
   <div class="tri">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>Work（工作）</h3><ul><li>對話上方從「對話」切到「工作」</li><li>可指定專案、強制使用的檔案、串接外掛</li><li>直接產出文件、試算表、簡報、網站</li></ul></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>研究＋Cowork</h3><ul><li>網頁版：對話框開「研究」，會搜尋數十個來源並附引用</li><li>桌面版 Cowork：交代一件長任務，它在你電腦的資料夾裡產出 Excel、Word、PowerPoint 檔</li></ul></div>
     <div class="card ge-c"><h3><span class="t ge">Gemini</span>深入研究</h3><ul><li>「工具」→「深入研究」，先給你研究計畫可修改</li><li>完成後按「建立」：轉成網頁、資訊圖表、測驗或語音摘要</li><li>報告可匯出成 Google 文件</li></ul></div>
   </div>
   <div class="card">
-    <h3>影片的祕技：兩段式提示詞</h3>
+    <h3>祕技：兩段式提示詞</h3>
     <div class="flow">
       <div>① 一般對話<small>講出你模糊的想法，請它「幫我設計一個完整的提示詞，我要拿去做深度研究」</small></div>
       <div>② 修改提示詞<small>看它補了哪些面向，刪掉不要的、補上你的 Why</small></div>
@@ -651,7 +611,7 @@ th .t{font-size:.9rem}
 
 <!-- 14 -->
 <section id="s14">
-  <div class="sec-head"><div class="num">14</div><div><h2>專案：一件長期正事，一個獨立的記憶空間</h2><p>放進這件事需要的資料，每次對話都會參考；而其他對話不會被它干擾。<a class="yt" href="https://youtu.be/RANcz05xai0?t=2292" target="_blank" rel="noopener">▶ 38:12</a></p></div></div>
+  <div class="sec-head"><div class="num">14</div><div><h2>專案：一件長期正事，一個獨立的記憶空間</h2><p>放進這件事需要的資料，每次對話都會參考；而其他對話不會被它干擾。</p></div></div>
   <div class="tri">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>專案</h3><ul><li>左側「專案」→ 建立</li><li>上傳來源檔案、設定專案指示</li><li>專案有自己獨立的記憶</li></ul></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>專案（Projects）</h3><ul><li>左側「專案」→「建立專案」</li><li>「專案知識」上傳檔案；「設定專案指示」貼固定規則</li><li>免費版即可建立</li></ul></div>
@@ -679,7 +639,7 @@ th .t{font-size:.9rem}
   <div class="sec-head"><div class="num">15</div><div><h2>三工具對照表：同一招，在哪裡按？</h2><p>印這一頁就夠了。名稱若改版，記住「功能」比記住按鈕重要。</p></div></div>
   <div class="tbl">
     <table>
-      <tr><th>影片章節</th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th></tr>
+      <tr><th>步驟</th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th></tr>
       <tr><td>讓 AI 懂你</td><td>個人化 → 記憶／自訂指示</td><td>設定 → 個人偏好設定；記憶</td><td>個人背景資訊 → 給 Gemini 的指示</td></tr>
       <tr><td>想久一點</td><td>推理強度</td><td>延伸思考</td><td>思考型／Pro 模型</td></tr>
       <tr><td>不留記錄</td><td>暫時對話</td><td>無痕聊天</td><td>臨時對話</td></tr>
@@ -694,10 +654,10 @@ th .t{font-size:.9rem}
   </div>
   <div class="grid3" style="margin-top:18px">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>什麼時候用</h3><p style="margin:0">中文語音對話最自然；生圖後局部修改最順手；要一口氣做出整份檔案時用 Work。</p></div>
-    <div class="card cl-c"><h3><span class="t cl">Claude</span>什麼時候用</h3><p style="margin:0">長文寫作、改稿語氣、分析 Excel 與報表、做互動小工具（第 5 堂）。影片作者也是「工作用 Claude」。</p></div>
+    <div class="card cl-c"><h3><span class="t cl">Claude</span>什麼時候用</h3><p style="margin:0">長文寫作、改稿語氣、分析 Excel 與報表、做互動小工具（第 5 堂）。</p></div>
     <div class="card ge-c"><h3><span class="t ge">Gemini</span>什麼時候用</h3><p style="margin:0">已在用 Google 帳號、Chrome、雲端硬碟；衛教圖卡初稿；深入研究後一鍵轉成資訊圖表。</p></div>
   </div>
-  <div class="note"><b>影片作者的提醒：</b>三家的差距大概是 95 分和 98 分。與其糾結哪個最強，不如挑一個每天用，提示詞基本功在哪一個都一樣。</div>
+  <div class="note"><b>提醒：</b>三家的差距大概是 95 分和 98 分。與其糾結哪個最強，不如挑一個每天用，提示詞基本功在哪一個都一樣。</div>
 </section>
 
 <!-- 16 -->
@@ -750,7 +710,7 @@ th .t{font-size:.9rem}
 <footer>
   <div class="wrap">
     <p><b style="color:#fff">糖尿病衛教團隊 AI 工具專業賦能與臨床實務應用工作坊｜第 2 堂</b><br>授課講師：鍾孟修 職能治療師｜<a href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專</a>｜<a href="https://reurl.cc/4YbrVj" target="_blank" rel="noopener">LINE 學員社群</a>｜<a href="mailto:adlotmatt@gmail.com">adlotmatt@gmail.com</a></p>
-    <p>主線影片：<a href="https://youtu.be/RANcz05xai0" target="_blank" rel="noopener">〈給我 40 分鐘，我給你 1 萬小時 ChatGPT 的精通實力〉</a>（YouTube）。工具說明參考：<a href="https://help.openai.com/" target="_blank" rel="noopener">ChatGPT 說明中心</a>、<a href="https://support.claude.com/" target="_blank" rel="noopener">Claude 說明中心</a>、<a href="https://support.google.com/gemini/" target="_blank" rel="noopener">Gemini 說明中心</a>。各工具功能、方案與按鈕名稱更新頻繁，請以官方最新說明為準。課程練習全程使用合成資料。</p>
+    <p>工具說明參考：<a href="https://help.openai.com/" target="_blank" rel="noopener">ChatGPT 說明中心</a>、<a href="https://support.claude.com/" target="_blank" rel="noopener">Claude 說明中心</a>、<a href="https://support.google.com/gemini/" target="_blank" rel="noopener">Gemini 說明中心</a>。各工具功能、方案與按鈕名稱更新頻繁，請以官方最新說明為準。課程練習全程使用合成資料。</p>
   </div>
 </footer>
 
