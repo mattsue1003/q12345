@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>第2堂 ChatGPT、Claude、Gemini 進階操作對照</title>
-<meta name="description" content="衛福部桃園醫院糖尿病中心 AI 賦能工作坊 第2堂講義：從 AI 底層邏輯到進階功能，對照 ChatGPT、Claude 與 Gemini 的操作位置，學會四招提示詞、製圖、寫作區塊、學習模式、排程、外掛、深度工作與專案，並實作品質指標報表。">
+<title>第2堂 ChatGPT、Claude、Gemini 與 OpenCode 操作對照</title>
+<meta name="description" content="衛福部桃園醫院糖尿病中心 AI 賦能工作坊 第2堂講義：從 AI 底層邏輯到進階功能，對照 ChatGPT、Claude、Gemini 與 OpenCode 代理的操作位置，學會四招提示詞、製圖、寫作區塊、學習模式、排程、外掛、深度工作與專案，並實作品質指標報表。">
 <style>
 :root{
   --orange:#E8552D; --amber:#F4A93C; --teal:#028090; --ink:#12343B;
@@ -241,6 +241,9 @@ th .t{font-size:.9rem}
 .vgrid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:18px;margin-bottom:18px}
 .vgrid>.card{margin-bottom:0;min-width:0}
 @media (max-width:900px){.vgrid{grid-template-columns:minmax(0,1fr)}}
+.t.oc{background:#374151}
+th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
+.oc-c{border-top:5px solid #1F2937}
 </style>
 </head>
 <body>
@@ -250,11 +253,11 @@ th .t{font-size:.9rem}
     <div class="lessons"><a href="./">第 1 堂</a><a class="on" href="lesson2.html">第 2 堂</a></div>
     <span class="tag">衛福部桃園醫院 糖尿病中心｜AI 賦能工作坊 第 2 堂（11/02）</span>
     <h1>ChatGPT 從入門到進階，<br>同一招搬到 <span>Claude</span> 與 <span>Gemini</span></h1>
-    <p class="sub">十一個步驟，從 AI 的底層邏輯、方案選擇、四招提示詞，一路到製圖、寫作區塊、學習模式、排程、外掛、深度工作與專案。每一招都對照「在 ChatGPT、Claude、Gemini 各按哪裡」，並換成衛教師、行政與日常生活真的會遇到的情境。</p>
+    <p class="sub">十一個步驟，從 AI 的底層邏輯、方案選擇、四招提示詞，一路到製圖、寫作區塊、學習模式、排程、外掛、深度工作與專案。每一招都對照「在 ChatGPT、Claude、Gemini 各按哪裡」，再加上第 1 堂預告的 OpenCode：同一件事交給 AI Agent 自己做。所有情境都換成衛教師、行政與日常生活真的會遇到的。</p>
     <div class="goals">
       <div class="goal"><b>目標 1</b>理解 AI 的底層邏輯，知道為什麼會有「AI 味」與幻覺，以及怎麼用設定擋掉。</div>
       <div class="goal"><b>目標 2</b>熟練四招提示詞：讓 AI 懂你、人事時地物＋Why、碎念法、AMA 反問法。</div>
-      <div class="goal"><b>目標 3</b>會用製圖、寫作區塊、學習、排程、外掛、深度工作、專案七大功能，並知道三個工具各在哪裡。</div>
+      <div class="goal"><b>目標 3</b>會用製圖、寫作區塊、學習、排程、外掛、深度工作、專案七大功能，知道三個工具各在哪裡，並用 OpenCode 讓 AI 代理自己完成一整件事。</div>
     </div>
     <div class="contact">
       <a class="btn line" href="https://reurl.cc/4YbrVj" target="_blank" rel="noopener">加入 LINE 學員社群</a>
@@ -275,6 +278,7 @@ th .t{font-size:.9rem}
     <a href="#s1">AI 底層邏輯</a>
     <a href="#s2">方案怎麼選</a>
     <a href="#s3">介面導覽</a>
+    <a href="#oc">OpenCode 代理</a>
     <span class="toc-g">提示詞</span>
     <a href="#s4">讓 AI 懂你</a>
     <a href="#s5">人事時地物＋Why</a>
@@ -289,7 +293,7 @@ th .t{font-size:.9rem}
     <a href="#s13">深度工作</a>
     <a href="#s14">專案</a>
     <span class="toc-g">收尾</span>
-    <a href="#s15">三工具對照表</a>
+    <a href="#s15">四工具對照表</a>
     <a href="#s16">實作：品質指標</a>
     <a href="#s17">課後任務</a>
   </div>
@@ -366,9 +370,9 @@ th .t{font-size:.9rem}
       <div>會下提示詞<small>四招提示詞，贏過 80% 的使用者</small></div>
       <div>會用功能<small>製圖、寫作區塊、學習模式，贏過 95%</small></div>
       <div>讓 AI 自己動<small>排程、外掛、Work、專案：AI 變成「人生外掛」</small></div>
-      <div>衛教落地<small>每一招都換成衛教師的情境，三個工具並排對照</small></div>
+      <div>衛教落地<small>每一招都換成衛教師的情境，三個對話工具並排對照，再交給 OpenCode 代理跑一次</small></div>
     </div>
-    <p>三個工具的顏色標記：<span class="t gpt">ChatGPT</span><span class="t cl">Claude</span><span class="t ge">Gemini</span>　介面按鈕名稱以 2026 年 10 月為準，三家改版很快，找不到時直接在對話框說「我要用 ○○ 功能」通常也能叫出來。</p>
+    <p>四個工具的顏色標記：<span class="t gpt">ChatGPT</span><span class="t cl">Claude</span><span class="t ge">Gemini</span><span class="t oc">OpenCode</span>　前三個是「對話」工具，OpenCode 是第 1 堂請大家先安裝的「AI Agent（代理）」：不是一問一答，而是交辦一件事讓它自己做完。介面按鈕名稱以 2026 年 10 月為準，三家改版很快，找不到時直接在對話框說「我要用 ○○ 功能」通常也能叫出來。</p>
   </div>
 </section>
 
@@ -424,6 +428,46 @@ th .t{font-size:.9rem}
   <div class="note teal"><b>小提醒：</b>語音輸入出現簡體字，是電腦或手機系統的輸入設定造成的，不是 AI 的問題。AI「回答」要用繁體中文，下一章的自訂指示一次搞定。第 1 堂教的 Typeless 也可以直接用在這三個工具裡。</div>
 </section>
 
+<!-- oc -->
+<section id="oc">
+  <div class="sec-head"><div class="num" style="background:#1F2937">A</div><div><h2>第四個工具 OpenCode：從「對話」到「代理」</h2><p>第 1 堂請大家先裝好的那一個。今天先學會差別、設定好模型，後面每個功能都會回來用它。</p></div></div>
+  <div class="grid2">
+    <div class="card">
+      <h3>對話工具 vs. AI Agent</h3>
+      <div class="tbl" style="border:0"><table style="min-width:0">
+        <tr><th></th><th>ChatGPT／Claude／Gemini</th><th>OpenCode</th></tr>
+        <tr><td>怎麼互動</td><td>你問一句，它答一句</td><td>你交辦一件事，它自己拆步驟、做完、回報</td></tr>
+        <tr><td>碰得到什麼</td><td>你貼上或上傳的內容</td><td>你指定的整個資料夾：讀檔、建檔、改檔、跑程式</td></tr>
+        <tr><td>適合</td><td>想、寫、改、問</td><td>重複性文書、一次處理很多檔案、要產出檔案的工作</td></tr>
+        <tr><td>用什麼腦</td><td>各家自己的模型</td><td>內建免費模型，或接上你的 Gemini／ChatGPT／Claude 帳號</td></tr>
+      </table></div>
+    </div>
+    <div class="card">
+      <h3>上課一起做的設定（約 5 分鐘）</h3>
+      <ol class="steps">
+        <li>打開 OpenCode（還沒裝的請先到 <a href="https://opencode.ai/zht" target="_blank" rel="noopener">opencode.ai</a>）</li>
+        <li>選模型：先用<b>內建免費模型</b>就能跑；想用熟悉的模型，用「連接供應商」登入你的 Gemini 或 ChatGPT 帳號</li>
+        <li>建立一個練習資料夾，例如「桌面／AI練習」，把合成資料與<b>已公開</b>的衛教單張放進去</li>
+        <li>在 OpenCode 打開這個資料夾，以後所有交辦都只在這個資料夾裡進行</li>
+      </ol>
+      <div class="note red" style="margin-bottom:0"><b>最重要的一條：</b>Agent 會真的讀寫檔案。<b>永遠只指向去識別化的練習資料夾</b>，不要指向桌面、文件或任何有病歷的資料夾。</div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>第一個交辦：把第 1 堂的作業一次做完</h3>
+    <p>第 1 堂我們用六要素，一次改一份單張、一個版本。交給代理，一句話三個版本一起出，而且會存成檔案。</p>
+    <div class="prompt"><span class="label">在 OpenCode 裡輸入（資料夾裡先放一份衛教單張 .docx 或 .txt）</span>你是資深糖尿病衛教師。請讀取這個資料夾裡的「低血糖衛教單張」，產出三個檔案：
+1. 民眾白話版.md：保留所有安全提醒，專有名詞第一次出現加括號說明；
+2. 長者大字版.md：最多 5 步驟、每步 20 字內、不用英文縮寫；
+3. 越南文對照版.md：中越一句一列，數字與時間完整保留。
+限制：不新增原文沒有的醫療建議。
+完成後另外寫一份「改動清單.md」，列出每個版本與原文意思可能不同的句子，讓我核對。
+開始前如果有不清楚的地方，先問我。</div>
+    <p style="margin-bottom:0">注意最後一句：第 7 節的 AMA 反問法，在代理上一樣有用，而且更重要，因為它接下來會真的動手。</p>
+  </div>
+  <div class="note teal"><b>它和後面功能的關係：</b>第 4 節「讓 AI 懂你」在 OpenCode 叫 AGENTS.md；第 12 節「外掛」它天生就有（讀寫檔案、跑指令）；第 13 節「深度工作」是它的主場；第 14 節「專案」就是一個資料夾。每一節都會標出來。</div>
+</section>
+
 <!-- 4 -->
 <section id="s4">
   <div class="sec-head"><div class="num">4</div><div><h2>第一招：讓 AI 成為「懂你的人」</h2><p>最聰明的人不如最懂你的人。兩個設定：記憶＝你是誰；自訂指示＝你要它變成誰。</p></div></div>
@@ -434,6 +478,8 @@ th .t{font-size:.9rem}
       <ol class="steps"><li>左下名稱 →「設定」→「一般」</li><li>「個人偏好設定」欄位：貼上自訂指示（每個對話都套用）</li><li>「設定」→「功能」：開啟記憶，讓它記得過去對話</li></ol></div>
     <div class="card ge-c"><h3><span class="t ge">Gemini</span>對應做法</h3>
       <ol class="steps"><li>左下「設定與說明」→「個人背景資訊」</li><li>「給 Gemini 的指示」（舊名「已儲存的資訊」）：逐條新增</li><li>同頁可開啟「參考過往對話」</li></ol></div>
+    <div class="card oc-c"><h3><span class="t oc">OpenCode</span>對應做法</h3>
+      <ol class="steps"><li>在練習資料夾裡建立一個文字檔，命名 <b>AGENTS.md</b></li><li>把下方「自訂指示」整段貼進去存檔</li><li>之後在這個資料夾開 OpenCode，每次交辦它都會先讀這份規則</li></ol></div>
   </div>
   <div class="card">
     <h3>步驟一：用語音做 3 分鐘自我介紹，請 AI 整理成記憶</h3>
@@ -450,7 +496,7 @@ th .t{font-size:.9rem}
   <div class="card">
     <h3>步驟二：貼上自訂指示（衛教師版）</h3>
     <p>前五條是通用的「防幻覺」設定，第六條是醫療場域加的。第二、三條是擋幻覺的關鍵：直接說「不要有幻覺」沒有用，要告訴它<b>不確定時該怎麼做</b>。</p>
-    <div class="prompt"><span class="label">自訂指示（三個工具都可貼）</span>1. 所有中文一律使用繁體中文與台灣用語。
+    <div class="prompt"><span class="label">自訂指示（三個對話工具都可貼；OpenCode 存成 AGENTS.md）</span>1. 所有中文一律使用繁體中文與台灣用語。
 2. 如果你不確定或資訊不足，直接說不知道；寧可答案不完整，也不要用看似合理的內容填補。
 3. 把「已查證的事實」和「你的推論或猜測」分開標示。
 4. 涉及臨床指引、藥物劑量、健保給付、政策與研究等會變動的資訊，先查證再回答，不要憑記憶，並附上來源網址與年份。
@@ -634,6 +680,7 @@ th .t{font-size:.9rem}
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>外掛程式</h3><ul><li>左側「外掛程式」→ 按「＋」安裝 → 確認授權</li><li>Google 系列、Canva、GitHub、Notion 等</li></ul></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>連接器</h3><ul><li>「設定」→「連接器」，或對話框「＋」→ 連接器</li><li>Gmail、Google 日曆、雲端硬碟、Canva、Notion 等</li><li>免費版也能用部分連接器</li></ul></div>
     <div class="card ge-c"><h3><span class="t ge">Gemini</span>應用程式（原生最強）</h3><ul><li>Google 帳號內建：Gmail、日曆、雲端硬碟、Keep、YouTube、地圖</li><li>在「設定」→「應用程式」開啟</li><li>對話中打「@Gmail」「@Google 雲端硬碟」指定</li></ul></div>
+    <div class="card oc-c"><h3><span class="t oc">OpenCode</span>雙手是內建的</h3><ul><li>不用安裝外掛：讀寫資料夾裡的檔案、執行指令、上網查資料都是基本能力</li><li>可再接 MCP 工具（和 Claude 的連接器是同一套標準）</li><li>差別：對話工具連的是「雲端服務」，OpenCode 動的是「你電腦裡的檔案」</li></ul></div>
   </div>
   <div class="card">
     <h3>衛教師的兩個情境</h3>
@@ -653,6 +700,7 @@ th .t{font-size:.9rem}
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>Work（工作）</h3><ul><li>對話上方從「對話」切到「工作」</li><li>可指定專案、強制使用的檔案、串接外掛</li><li>直接產出文件、試算表、簡報、網站</li></ul></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>研究＋Cowork</h3><ul><li>網頁版：對話框開「研究」，會搜尋數十個來源並附引用</li><li>桌面版 Cowork：交代一件長任務，它在你電腦的資料夾裡產出 Excel、Word、PowerPoint 檔</li></ul></div>
     <div class="card ge-c"><h3><span class="t ge">Gemini</span>深入研究</h3><ul><li>「工具」→「深入研究」，先給你研究計畫可修改</li><li>完成後按「建立」：轉成網頁、資訊圖表、測驗或語音摘要</li><li>報告可匯出成 Google 文件</li></ul></div>
+    <div class="card oc-c"><h3><span class="t oc">OpenCode</span>代理的主場</h3><ul><li>對話工具的深度模式擅長「查資料寫報告」；OpenCode 擅長「處理你手上的檔案」</li><li>例：讀 60 筆合成個案的 Excel → 算達標率 → 畫圖 → 存成報表檔，一次交辦</li><li>它會邊做邊回報每一步，做錯可以叫它改，不用重來</li></ul></div>
   </div>
   <div class="card">
     <h3>祕技：兩段式提示詞</h3>
@@ -665,6 +713,11 @@ th .t{font-size:.9rem}
     <div class="prompt"><span class="label">第一段：請它幫你寫研究提示詞</span>我想做一份深度研究：台灣近 10 年第 2 型糖尿病照護品質指標（HbA1c 達標率、眼底與足部檢查率、腎病變篩檢率）的變化，以及和國際比較，最後要找出我們中心最值得投入的改善方向。
 我只有一個模糊的印象：長者的達標率好像沒有明顯進步，但不確定。
 請幫我設計一個完整、可直接拿去「深入研究／研究模式」使用的提示詞，要求所有數據附來源與年份，並區分官方統計與單一研究。</div>
+    <div class="prompt"><span class="label">同一件事交給 OpenCode（資料夾裡放 lesson2-template.xlsx）</span>請讀取資料夾裡的 Excel「原始資料」工作表，這是去識別化的合成資料。
+1. 先列出欄位與資料筆數，並檢查有沒有空白、重複代號或不合理數值，先回報給我，不要繼續；
+2. 我確認後，計算最近一季與前一季的 HbA1c &lt; 7% 達標率，按年齡組與衛教師分組；
+3. 做成一張比較圖（PNG）和一份「品質指標摘要.md」，列出變化最大的兩組；
+4. 最後把你用的計算方式寫在摘要裡，讓我能手動驗算。</div>
     <div class="note"><b>驗證不能省：</b>報告做得再漂亮，數字仍要抽查 3～5 個回到原始來源核對。報告寫「研究顯示」卻沒有出處的句子，一律當作還沒查證。</div>
   </div>
 </section>
@@ -676,16 +729,17 @@ th .t{font-size:.9rem}
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>專案</h3><ul><li>左側「專案」→ 建立</li><li>上傳來源檔案、設定專案指示</li><li>專案有自己獨立的記憶</li></ul></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>專案（Projects）</h3><ul><li>左側「專案」→「建立專案」</li><li>「專案知識」上傳檔案；「設定專案指示」貼固定規則</li><li>免費版即可建立</li></ul></div>
     <div class="card ge-c"><h3><span class="t ge">Gemini</span>Gem／筆記本</h3><ul><li><b>Gem：</b>「Gem 管理工具」→ 新增 Gem，寫指示＋上傳知識檔，像一個專屬小助手</li><li><b>筆記本：</b>把對話與資料歸在同一個專案資料夾，可與 NotebookLM 同步</li></ul></div>
+    <div class="card oc-c"><h3><span class="t oc">OpenCode</span>一個資料夾就是一個專案</h3><ul><li>開一個資料夾「衛教單張改寫室」，裡面放 AGENTS.md（規則）＋已公開單張（知識）</li><li>在這個資料夾開 OpenCode，就等於進了這個專案</li><li>產出的檔案直接留在資料夾裡，不用再下載</li></ul></div>
   </div>
   <div class="card">
     <h3>建議建立的第一個專案：「衛教單張改寫室」</h3>
     <ol class="steps">
-      <li>建立專案（Gemini 用 Gem），名稱：衛教單張改寫室</li>
+      <li>建立專案（Gemini 用 Gem；OpenCode 開一個同名資料夾），名稱：衛教單張改寫室</li>
       <li>上傳：院內<b>已公開</b>的衛教單張、單位用語表（例如統一說「血糖機」而不是「血糖儀」）</li>
       <li>專案指示貼上第 1 堂的六要素與今天的自訂指示</li>
       <li>以後每次改寫單張都在這個專案裡開新對話，不必再交代一次背景</li>
     </ol>
-    <div class="prompt"><span class="label">專案指示範本</span>你是本院糖尿病中心的資深衛教師助理。
+    <div class="prompt"><span class="label">專案指示範本（OpenCode 就是這個資料夾的 AGENTS.md）</span>你是本院糖尿病中心的資深衛教師助理。
 1. 改寫衛教內容時，以專案知識中的院內單張與用語表為準，不新增原文沒有的醫療建議。
 2. 預設對象為 65 歲以上長者：每句 20 字內、條列、避免英文縮寫。
 3. 每次改寫後，列出與原文意思可能不同的句子讓我核對。
@@ -696,28 +750,29 @@ th .t{font-size:.9rem}
 
 <!-- 15 -->
 <section id="s15">
-  <div class="sec-head"><div class="num">15</div><div><h2>三工具對照表：同一招，在哪裡按？</h2><p>印這一頁就夠了。名稱若改版，記住「功能」比記住按鈕重要。</p></div></div>
+  <div class="sec-head"><div class="num">15</div><div><h2>四工具對照表：同一招，在哪裡按？</h2><p>印這一頁就夠了。名稱若改版，記住「功能」比記住按鈕重要。</p></div></div>
   <div class="tbl">
     <table>
-      <tr><th>步驟</th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th></tr>
-      <tr><td>讓 AI 懂你</td><td>個人化 → 記憶／自訂指示</td><td>設定 → 個人偏好設定；記憶</td><td>個人背景資訊 → 給 Gemini 的指示</td></tr>
-      <tr><td>想久一點</td><td>推理強度</td><td>延伸思考</td><td>思考型／Pro 模型</td></tr>
-      <tr><td>不留記錄</td><td>暫時對話</td><td>無痕聊天</td><td>臨時對話</td></tr>
-      <tr><td>製圖</td><td>建立圖像＋編輯圈選</td><td>Artifacts 圖卡（HTML／SVG）、Canva 連接器</td><td>建立圖像（Nano Banana）</td></tr>
-      <tr><td>寫作區塊</td><td>Canvas</td><td>Artifacts</td><td>Canvas（可匯出 Google 文件）</td></tr>
-      <tr><td>學習模式</td><td>學習模式（@study）</td><td>學習樣式</td><td>引導式學習</td></tr>
-      <tr><td>排程</td><td>排程任務</td><td>Cowork 排程（付費）</td><td>排定動作（付費）</td></tr>
-      <tr><td>外掛</td><td>外掛程式</td><td>連接器</td><td>應用程式（Google 全家桶）</td></tr>
-      <tr><td>深度工作</td><td>Work</td><td>研究、Cowork</td><td>深入研究</td></tr>
-      <tr><td>專案</td><td>專案</td><td>專案</td><td>Gem、筆記本</td></tr>
+      <tr><th>步驟</th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th><th><span class="t oc">OpenCode</span></th></tr>
+      <tr><td>讓 AI 懂你</td><td>個人化 → 記憶／自訂指示</td><td>設定 → 個人偏好設定；記憶</td><td>個人背景資訊 → 給 Gemini 的指示</td><td>資料夾裡的 AGENTS.md</td></tr>
+      <tr><td>想久一點</td><td>推理強度</td><td>延伸思考</td><td>思考型／Pro 模型</td><td>換成較強的模型</td></tr>
+      <tr><td>不留記錄</td><td>暫時對話</td><td>無痕聊天</td><td>臨時對話</td><td>開新 session；資料留在本機</td></tr>
+      <tr><td>製圖</td><td>建立圖像＋編輯圈選</td><td>Artifacts 圖卡（HTML／SVG）、Canva 連接器</td><td>建立圖像（Nano Banana）</td><td>用程式畫數據圖表，存成 PNG</td></tr>
+      <tr><td>寫作區塊</td><td>Canvas</td><td>Artifacts</td><td>Canvas（可匯出 Google 文件）</td><td>直接改資料夾裡的檔案</td></tr>
+      <tr><td>學習模式</td><td>學習模式（@study）</td><td>學習樣式</td><td>引導式學習</td><td>—（用對話工具）</td></tr>
+      <tr><td>排程</td><td>排程任務</td><td>Cowork 排程（付費）</td><td>排定動作（付費）</td><td>—（第 5 堂再談）</td></tr>
+      <tr><td>外掛</td><td>外掛程式</td><td>連接器</td><td>應用程式（Google 全家桶）</td><td>內建讀寫檔案、執行；可接 MCP</td></tr>
+      <tr><td>深度工作</td><td>Work</td><td>研究、Cowork</td><td>深入研究</td><td>主場：交辦整件事</td></tr>
+      <tr><td>專案</td><td>專案</td><td>專案</td><td>Gem、筆記本</td><td>一個資料夾</td></tr>
     </table>
   </div>
   <div class="grid3" style="margin-top:18px">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>什麼時候用</h3><p style="margin:0">中文語音對話最自然；生圖後局部修改最順手；要一口氣做出整份檔案時用 Work。</p></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>什麼時候用</h3><p style="margin:0">長文寫作、改稿語氣、分析 Excel 與報表、做互動小工具（第 5 堂）。</p></div>
     <div class="card ge-c"><h3><span class="t ge">Gemini</span>什麼時候用</h3><p style="margin:0">已在用 Google 帳號、Chrome、雲端硬碟；衛教圖卡初稿；深入研究後一鍵轉成資訊圖表。</p></div>
+    <div class="card oc-c"><h3><span class="t oc">OpenCode</span>什麼時候用</h3><p style="margin:0">一次要處理很多檔案、要產出檔案、同一套流程每季都要跑一次。前提永遠是：資料夾裡只有去識別化的資料。</p></div>
   </div>
-  <div class="note"><b>提醒：</b>三家的差距大概是 95 分和 98 分。與其糾結哪個最強，不如挑一個每天用，提示詞基本功在哪一個都一樣。</div>
+  <div class="note"><b>提醒：</b>三個對話工具的差距大概是 95 分和 98 分。與其糾結哪個最強，不如挑一個每天用；OpenCode 則是另一種用法，不是第四個聊天視窗。提示詞基本功在四個裡都一樣。</div>
 </section>
 
 <!-- 16 -->
@@ -733,10 +788,12 @@ th .t{font-size:.9rem}
     <button class="tab on" data-g="hw" data-t="hw-cl">Claude</button>
     <button class="tab" data-g="hw" data-t="hw-ge">Gemini</button>
     <button class="tab" data-g="hw" data-t="hw-gpt">ChatGPT</button>
+    <button class="tab" data-g="hw" data-t="hw-oc">OpenCode</button>
   </div>
   <div class="panel on" id="hw-cl" data-g="hw"><div class="card"><ol class="steps"><li>開一個新專案「品質指標」，或直接開新對話</li><li>拖入 Excel 檔，貼上下方提示詞 ①</li><li>它會實際跑計算並給你表格；要圖時說「做成圖表 Artifact」</li></ol></div></div>
   <div class="panel" id="hw-ge" data-g="hw"><div class="card"><ol class="steps"><li>對話框「＋」上傳 Excel（或從雲端硬碟選）</li><li>貼上提示詞 ①，結果可要求「匯出到 Google 試算表」</li><li>也可以在 Google 試算表裡直接開右側 Gemini 面板提問</li></ol></div></div>
   <div class="panel" id="hw-gpt" data-g="hw"><div class="card"><ol class="steps"><li>對話框「＋」上傳 Excel</li><li>貼上提示詞 ①，它會用內建分析工具計算</li><li>要正式報表時改用 Work，指定輸出成簡報</li></ol></div></div>
+  <div class="panel" id="hw-oc" data-g="hw"><div class="card"><ol class="steps"><li>把 Excel 放進練習資料夾，在 OpenCode 打開該資料夾</li><li>把 ①②③ 三段<b>一次</b>貼上，並加一句「每一步做完先回報，等我確認再往下」</li><li>它會把比較表、圖檔與摘要存在資料夾裡；打開檔案核對，再叫它修</li></ol></div></div>
   <div class="prompt"><span class="label">① 先檢查資料（AMA＋查核）</span>這是去識別化的合成資料。請先不要計算，先告訴我：
 1. 每個欄位的意思與資料型態；
 2. 有沒有空白、重複的個案代號、或不合理的數值（例如 HbA1c 超過 20）；
@@ -761,6 +818,7 @@ th .t{font-size:.9rem}
     <label><input type="checkbox" data-k="f"><span>用學習模式／引導式學習學一個統計或指引概念</span></label>
     <label><input type="checkbox" data-k="g"><span>建立「衛教單張改寫室」專案（或 Gem），放入一份已公開的院內單張</span></label>
     <label><input type="checkbox" data-k="h"><span>完成品質指標實作 ①②③，並手動驗算其中一組數字</span></label>
+    <label><input type="checkbox" data-k="i"><span>在 OpenCode 設好模型與練習資料夾，放入 AGENTS.md，完成「第一個交辦」的三個版本</span></label>
   </div>
   <div class="card fb"><div class="fb-in"><div class="fb-ico">→</div><div style="flex:1 1 300px"><b style="font-size:1.15rem">下一堂（11/09）：多媒體衛教微劇本、圖卡、短影音與簡報</b><br>今天的製圖局部修改與寫作區塊，下週會直接用在衛教圖卡與短影音腳本上。</div></div></div>
 </section>
