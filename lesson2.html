@@ -1451,6 +1451,24 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
 1. 每個欄位的意思與資料型態；
 2. 代號＋季別重複的列、每一欄的缺漏筆數、超出合理範圍的數值（HbA1c 4–15%、收縮壓 70–250、舒張壓 40–150）；
 3. 在你開始分析之前，盡量問我問題，確認每個指標的分子、分母定義。</div>
+  <div class="card">
+    <h3>Ⓐ 的實際執行畫面（ChatGPT 工作模式，2026 年 11 月）</h3>
+    <p style="margin-top:0">講師把課程模板（合成資料）上傳給 ChatGPT，貼上 Ⓐ。點圖可放大。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="s16g" data-t="s16g-1">① 上傳＋貼提示詞</button>
+      <button class="tab" data-g="s16g" data-t="s16g-2">② 抓到異常值</button>
+      <button class="tab" data-g="s16g" data-t="s16g-3">③ 反問定義</button>
+    </div>
+    <div class="panel on" data-g="s16g" id="s16g-1"><div class="shots">
+      <figure class="shot"><a href="img/l2-s16-upload.jpg" target="_blank" rel="noopener"><img src="img/l2-s16-upload.jpg" alt="上傳模板並貼上提示詞Ⓐ" loading="lazy"></a><figcaption><b class="n">1</b>「工作」模式，「＋」上傳 lesson2-template.xlsx，貼上 Ⓐ 送出。約 2 分鐘完成。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="s16g" id="s16g-2"><div class="shots">
+      <figure class="shot"><a href="img/l2-s16-anomaly.jpg" target="_blank" rel="noopener"><img src="img/l2-s16-anomaly.jpg" alt="ChatGPT 找出兩個異常值" loading="lazy"></a><figcaption><b class="n">1</b>它找出模板裡故意埋的兩個錯誤：HbA1c 75%（應是 7.5%）、收縮壓 1380（應是 138），並寫明「沒有替這兩個值更正或排除」。這就是要你先問、不要先算的原因。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="s16g" id="s16g-3"><div class="shots">
+      <figure class="shot"><a href="img/l2-s16-questions.jpg" target="_blank" rel="noopener"><img src="img/l2-s16-questions.jpg" alt="ChatGPT 反問分子分母定義" loading="lazy"></a><figcaption><b class="n">1</b>它列出 10 個指標的分子、分母草案，再反問：剛好 7.0% 算不算達標？異常值要不要排除？血壓分母是否要兩個值都有？回答完才開始算。</figcaption></figure>
+    </div></div>
+  </div>
   <div class="prompt"><span class="label">Ⓑ 分組與前後期比較（人事時地物＋Why）</span>這份分析是給糖尿病中心主任在品管會議看的，目的是決定明年衛教人力優先投入哪個年齡層。
 請計算最近一季與前一季的 HbA1c &lt; 7%、血壓 &lt; 130/80、LDL &lt; 100 達標率，按年齡組與衛教師分組，
 表格欄位：指標、分組、分子人數、分母人數、比率（%，小數 1 位）、前後期差異（百分點）。最後指出變化最大的兩組。</div>
