@@ -1025,9 +1025,29 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
 <section id="s11">
   <div class="sec-head"><div class="num">11</div><div><h2>排程自動化：交代一次，它每天自己做</h2><p>前面所有功能都是「你開口它才動」。排程讓 AI 第一次主動為你工作。</p></div></div>
   <div class="tri">
-    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>排程任務</h3><ul><li>左側「時鐘」圖示 → 新增任務</li><li>設定頻率、時間，在雲端自動執行</li><li>免費版可設少量任務</li></ul></div>
-    <div class="card cl-c"><h3><span class="t cl">Claude</span>Cowork 排程</h3><ul><li>Claude 桌面版 → Cowork 分頁</li><li>輸入「/schedule」或在側欄「排程」新增</li><li>需付費方案（Pro 以上）</li></ul></div>
-    <div class="card ge-c"><h3><span class="t ge">Gemini</span>排定動作</h3><ul><li>直接在對話裡說「每週一早上 8 點幫我…」</li><li>到「設定」→「排定的動作」管理、暫停</li><li>需 Google AI 付費方案</li></ul></div>
+    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>排程任務</h3><ul><li>左側「已排程」→ 在「排定工作」框描述任務</li><li>設定頻率、時間，在雲端自動執行</li><li>免費版可設少量任務</li></ul></div>
+    <div class="card cl-c"><h3><span class="t cl">Claude</span>排程任務</h3><ul><li>左側「排程任務」→「新增任務」：選「使用 Claude 建立」或「手動設定」</li><li>桌面版 Cowork 也能用「/schedule」</li><li>需付費方案（Pro 以上）</li></ul></div>
+    <div class="card ge-c"><h3><span class="t ge">Gemini</span>排定動作</h3><ul><li>直接在對話裡說「每週一早上 8 點幫我…」</li><li>左側時鐘圖示「已排定」：新增、管理、暫停</li><li>需 Google AI 付費方案</li></ul></div>
+  </div>
+  <div class="card">
+    <h3>實際操作畫面（2026 年 11 月）</h3>
+    <p style="margin-top:0">講師帳號的排程頁面，點圖可放大。截圖時沒有真的建立任務，個人任務清單已裁掉。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="s11g" data-t="s11g-gpt"><span class="t gpt">ChatGPT</span></button>
+      <button class="tab" data-g="s11g" data-t="s11g-cl"><span class="t cl">Claude</span></button>
+      <button class="tab" data-g="s11g" data-t="s11g-ge"><span class="t ge">Gemini</span></button>
+    </div>
+    <div class="panel on" data-g="s11g" id="s11g-gpt"><div class="shots">
+      <figure class="shot"><a href="img/l2-s11-gpt-page.jpg" target="_blank" rel="noopener"><img src="img/l2-s11-gpt-page.jpg" alt="ChatGPT 已排程頁面" loading="lazy"></a><figcaption><b class="n">1</b>左側「已排程」：上方輸入框「排定工作」，下方是推薦範例。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-s11-gpt-typed.jpg" target="_blank" rel="noopener"><img src="img/l2-s11-gpt-typed.jpg" alt="ChatGPT 輸入排程提示詞" loading="lazy"></a><figcaption><b class="n">2</b>把排程提示詞打進去，結尾加 AMA 句，送出後它會先問你問題再建立任務。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="s11g" id="s11g-cl"><div class="shots">
+      <figure class="shot"><a href="img/l2-s11-cl-new.jpg" target="_blank" rel="noopener"><img src="img/l2-s11-cl-new.jpg" alt="Claude 新增任務選單" loading="lazy"></a><figcaption><b class="n">1</b>「排程任務」→「新增任務」：可以用聊天的方式請 Claude 建立，或手動設定。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-s11-cl-form.jpg" target="_blank" rel="noopener"><img src="img/l2-s11-cl-form.jpg" alt="Claude 手動設定排程表單" loading="lazy"></a><figcaption><b class="n">2</b>手動設定：名稱、指示、觸發方式（每日、時間）。注意說明寫著執行時「不會暫停等待核准」，所以不要排程任何會碰病人資料的任務。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="s11g" id="s11g-ge"><div class="shots">
+      <figure class="shot"><a href="img/l2-s11-ge-page.jpg" target="_blank" rel="noopener"><img src="img/l2-s11-ge-page.jpg" alt="Gemini 已排定頁面" loading="lazy"></a><figcaption><b class="n">1</b>左側時鐘圖示「已排定」：在「說明要執行的任務」輸入框描述。太久沒看的任務會被自動暫停。</figcaption></figure>
+    </div></div>
   </div>
   <div class="card">
     <h3>關鍵技巧：排程的提示詞也要用 AMA</h3>
