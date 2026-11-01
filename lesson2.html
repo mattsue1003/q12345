@@ -1731,7 +1731,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
   <div class="card" id="skill">
     <h3>技能（Skill）：怎麼新增、怎麼做一個自己的</h3>
     <div class="grid2">
-      <div class="card gpt-c" style="margin:0"><h3><span class="t gpt">ChatGPT</span>新增技能</h3><ol class="steps"><li>左側「外掛程式」→ 上方切到「<b>技能</b>」分頁</li><li>右上「新增」→ 三選一：<b>透過對話建立</b>（最簡單，用講的）、<b>使用編輯器建立</b>、<b>從電腦上傳</b>（zip）</li><li>編輯器：名稱（小寫英文、數字、連字號，最多 64 字）、說明（500 字內，<b>決定它什麼時候會自動啟動</b>）、指示內文</li><li>建好後出現在「由我建立」，平常自動觸發；也可在對話裡點名「用 ○○ 技能」</li></ol></div>
+      <div class="card gpt-c" style="margin:0"><h3><span class="t gpt">ChatGPT</span>新增技能</h3><ol class="steps"><li>左側「外掛程式」→ 上方切到「<b>技能</b>」分頁</li><li>右上「新增」→ 三選一：<b>透過對話建立</b>（最簡單，用講的）、<b>使用編輯器建立</b>、<b>從電腦上傳</b>（zip）</li><li><b>第四種：用錄影教它（Record &amp; Replay）。</b>只在 <b>Mac 桌面版</b>、切到「工作」模式：輸入框左下「<b>＋</b>」→ 往下捲到「<b>錄製技能</b>」→ 輸入框出現「Record &amp; Replay」→ 先用一句話說目標與會變動的輸入（例：「把 Excel 名單轉成 LINE 群組公告」）→ 送出 → 同意錄製 → 你照平常做一遍 → 選單列或對話說「做完了」→ 它看完錄影草擬一份技能（何時用、要什麼輸入、步驟、怎麼驗收）→ 改一改存起來。下次新對話說「用 ○○ 技能」即可重播。適合「用講的講不清、用做的三分鐘」的例行事，像把報表貼進院內系統固定欄位。<b>錄的時候它看得到視窗內容</b>，先關掉病人資料，示範用去識別化檔案。</li><li>編輯器：名稱（小寫英文、數字、連字號，最多 64 字）、說明（500 字內，<b>決定它什麼時候會自動啟動</b>）、指示內文</li><li>建好後出現在「由我建立」，平常自動觸發；也可在對話裡點名「用 ○○ 技能」</li></ol></div>
       <div class="card cl-c" style="margin:0"><h3><span class="t cl">Claude</span>新增技能</h3><ol class="steps"><li>「設定」→ 左側「自訂」區的 <b>Skills</b> → 右上「新增」：<b>上傳 Skill</b>（zip，含 SKILL.md）、<b>建立 Skill</b>（編輯器）、<b>使用 Claude 建立</b>（用講的）</li><li>「探索」分頁有 Anthropic 與合作夥伴做好的技能，可直接加入</li><li>使用：輸入框打「<b>/</b>」就列出技能，選一個再接你的內容</li></ol></div>
       <div class="card ge-c" style="margin:0"><h3><span class="t ge">Gemini</span>新增技能</h3><ol class="steps"><li>左側「Gem 管理工具」頁最上方的「<b>建立技能</b>」→ 進入「探索／連接器／<b>技能</b>」頁</li><li>右上「建立」→ 三選一：<b>運用 Gemini 建立</b>、<b>手動建立</b>、<b>上傳</b>（zip，含 SKILL.md）</li><li>使用：對話裡打「<b>@</b>」→ 技能區選一個，再接內容。原本的 Gem 於 2026/11/17 自動轉成技能</li></ol><div class="shots" style="margin-top:10px"><figure class="shot"><a href="img/l2-at-ge.jpg" target="_blank" rel="noopener"><img src="img/l2-at-ge.jpg" alt="Gemini @ 選單裡的技能" loading="lazy"></a><figcaption><b class="n">1</b>打「@」後往下捲，「技能」區列出你已建立的技能，點一個再接內容。</figcaption></figure><figure class="shot"><a href="img/l2-ge-gems.jpg" target="_blank" rel="noopener"><img src="img/l2-ge-gems.jpg" alt="Gem 管理工具的轉換公告" loading="lazy"></a><figcaption><b class="n">2</b>Gem 管理工具頁最上方：「2026年11月17日起，Gem 將轉為『技能』」，右邊「建立技能」按鈕。</figcaption></figure><figure class="shot"><a href="img/l2-ge-skills.jpg" target="_blank" rel="noopener"><img src="img/l2-ge-skills.jpg" alt="Gemini 技能頁" loading="lazy"></a><figcaption><b class="n">3</b>技能頁：上方「探索／連接器／技能」分頁，列出已安裝的技能；右上「建立」。</figcaption></figure><figure class="shot"><a href="img/l2-ge-skills-new.jpg" target="_blank" rel="noopener"><img src="img/l2-ge-skills-new.jpg" alt="建立選單" loading="lazy"></a><figcaption><b class="n">4</b>「建立」下拉：運用 Gemini 建立、手動建立、上傳。和 ChatGPT、Claude 的三個選項一一對應。</figcaption></figure></div></div>
     </div>
@@ -1764,6 +1764,7 @@ description 要寫清楚「什麼情況下該啟動」，因為那決定它會�
         <ul>
           <li>寫好的 SKILL.md 存成資料夾 → 壓縮 → ChatGPT「從電腦上傳」、Claude「設定 → 自訂 → Skills → 新增 → 上傳 Skill」、Gemini「技能 → 建立 → 上傳」。</li>
           <li>三家都能上傳同一個 SKILL.md（ChatGPT「從電腦上傳」、Claude「上傳 Skill」、Gemini「建立 → 上傳」）。<b>寫一次，三家都用得到</b>。</li>
+          <li><b>用錄影建技能：</b>ChatGPT Mac 桌面版有「錄製技能」（見上方 ChatGPT 卡第 5 步與畫面）；Codex 桌面版同一個「＋ → Record a skill」。Claude 桌面版 Cowork 也有錄影建技能的做法，但講師尚未實測，上課以 ChatGPT 示範。</li>
           <li>技能裡不要放病人資料與院內未公開文件；那些放專案。</li>
         </ul>
       </div>
@@ -1775,6 +1776,7 @@ description 要寫清楚「什麼情況下該啟動」，因為那決定它會�
     <div class="tabs">
       <button class="tab on" data-g="skillg" data-t="sk1">技能頁</button>
       <button class="tab" data-g="skillg" data-t="sk2">編輯器</button>
+      <button class="tab" data-g="skillg" data-t="sk2r">錄製技能（桌面版）</button>
     </div>
     <div class="panel on" data-g="skillg" id="sk1"><div class="shots">
       <figure class="shot"><a href="img/l2-skill-page.jpg" target="_blank" rel="noopener"><img src="img/l2-skill-page.jpg" alt="ChatGPT 技能頁" loading="lazy"></a><figcaption><b class="n">1</b>左側「外掛程式」→ 上方「技能」分頁。「已安裝」與「由我建立」分開列。</figcaption></figure>
@@ -1782,6 +1784,10 @@ description 要寫清楚「什麼情況下該啟動」，因為那決定它會�
     </div></div>
     <div class="panel" data-g="skillg" id="sk2"><div class="shots">
       <figure class="shot"><a href="img/l2-skill-editor.jpg" target="_blank" rel="noopener"><img src="img/l2-skill-editor.jpg" alt="技能編輯器" loading="lazy"></a><figcaption><b class="n">1</b>左側就是 SKILL.md；右側填名稱（小寫英數連字號）、說明（500 字內）與指示。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="skillg" id="sk2r"><div class="shots">
+      <figure class="shot"><a href="img/l2-skill-record-menu.jpg" target="_blank" rel="noopener"><img src="img/l2-skill-record-menu.jpg" alt="ChatGPT 桌面版＋選單裡的錄製技能" loading="lazy"></a><figcaption><b class="n">1</b>Mac 桌面版「工作」模式 → 輸入框「＋」→ 往下捲：目標、規劃模式之後就是「<b>錄製技能</b>」。網頁版沒有這一項。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-skill-record-chip.jpg" target="_blank" rel="noopener"><img src="img/l2-skill-record-chip.jpg" alt="輸入框出現 Record & Replay" loading="lazy"></a><figcaption><b class="n">2</b>點了之後輸入框掛上「Record &amp; Replay」標籤，預設提示是「把我的操作錄下來做成可重用的技能」。在這裡補上你的目標再送出，接著系統會要求你同意錄製螢幕。</figcaption></figure>
     </div></div>
   </div>
   <div class="card">
