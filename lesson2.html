@@ -2025,7 +2025,7 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
       <h3>Excel 本身的 AI、以及 Google 試算表</h3>
       <ul>
         <li><b>Microsoft 365 Copilot in Excel：</b>在 Excel 右側對話，可直接對選取範圍做公式、分析、圖表。需 Microsoft 365 Copilot 授權（多為企業方案），院內多半沒有；若院內已授權且資安單位核可，資料留在院內租戶，較容易符合規範。</li>
-        <li><b>Google 試算表 ＋ Gemini：</b>右上「Gemini」側欄可問資料、做表；儲存格裡可直接用 <code>=AI("把 A2 的症狀描述分類成 低／中／高 風險")</code> 這類函數；往下拉填入公式後，再選取整欄按「生成並填入」才會批次執行（僅供練習分類，不可取代臨床分級）。免費 Google 帳號可用部分功能。</li>
+        <li><b>Google 試算表 ＋ Gemini：</b>右上「Gemini」側欄可問資料、做表；儲存格裡可直接用 <code>=AI("把 A2 的症狀描述分類成 低／中／高 風險")</code> 這類函數；第一格按「生成並填入」後，往下拉整欄會自動顯示「生成中…」並逐格算出（僅供練習分類，不可取代臨床分級）。免費 Google 帳號可用部分功能。</li>
         <li><b>Excel 沒有 Copilot 時：</b>就是本節的做法：另存一份去識別化的檔，丟給 ChatGPT／Claude／Gemini，再把結果貼回。</li>
       </ul>
     </div>
@@ -2163,7 +2163,7 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
     <div class="tbl"><table style="min-width:960px">
       <tr><th></th><th>Google 試算表（＝Excel）</th><th>Google 文件（＝Word）</th><th>Google 簡報（＝PowerPoint）</th></tr>
       <tr><td><b>入口</b></td><td>右上 ✦ 開 Gemini 側欄；儲存格裡直接打 <code>=AI(...)</code></td><td>右上 ✦ 側欄；空白頁底部的「使用 Gemini 撰寫內容」</td><td>新檔案一開就跳出 Gemini 起始畫面（簡報／投影片／圖片／資訊圖表）；右上 ✦ 側欄</td></tr>
-      <tr><td><b>最有感的功能</b></td><td><code>=AI("把這個症狀描述分成 低、中、高 風險", A2)</code> 往下拉後再按一次「生成並填入」整欄批次分類；側欄「建一個季報範本」會自己建工作表、填範例、寫達標率公式、上格式</td><td>側欄一句話直接寫進文件，含標題樣式與大綱；選取文字後「幫我改寫」</td><td>「簡報」模式先問你風格與核心內容（勾選），列出大綱讓你核准，再生成整份；「圖片」用 Nano Banana Pro 生插圖</td></tr>
+      <tr><td><b>最有感的功能</b></td><td><code>=AI("把這個症狀描述分成 低、中、高 風險", A2)</code> 往下拉整欄會自動逐格生成、批次分類；側欄「建一個季報範本」會自己建工作表、填範例、寫達標率公式、上格式</td><td>側欄一句話直接寫進文件，含標題樣式與大綱；選取文字後「幫我改寫」</td><td>「簡報」模式先問你風格與核心內容（勾選），列出大綱讓你核准，再生成整份；「圖片」用 Nano Banana Pro 生插圖</td></tr>
       <tr><td><b>和 Excel／Word／PPT 路線的差別</b></td><td>不用上傳；公式直接寫進格子；但 =AI() 每格都算一次額度，量大時慢</td><td>不用下載 .docx 再開；產出就是可編輯文件；要給別人 Word 檔再「下載為 .docx」</td><td>產出直接可編輯、每個文字框獨立；版型比 Gemini 任務模式樸素，比 ChatGPT 產 .pptx 快很多（約 2 分鐘 vs 10 分鐘）</td></tr>
       <tr><td><b>實測踩到的坑（2026/11）</b></td><td>=AI() 要按「生成並填入」才會跑；參照錯欄會回「請提供症狀描述」而不是報錯</td><td><b>側欄與「幫我寫」目前不支援中文提示詞</b>（回「目前不支援你輸入的語言」）。解法：用英文下指令、在指令裡寫 in Traditional Chinese，它就會用繁體中文寫進文件</td><td>側欄中文提示詞可以用，但它自己的步驟文字偶爾跳出簡體字（「审核并优化演示文稿」）；生成前的問卷是中英夾雜</td></tr>
       <tr><td><b>資料去哪裡</b></td><td colspan="3">檔案本來就在 Google 雲端硬碟；Gemini 讀的是這個檔和你勾選的來源（雲端硬碟／Gmail／Chat／網頁）。院內資料依資安規定；練習用合成資料。</td></tr>
@@ -2177,7 +2177,8 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
       <button class="tab" data-g="gwsg1" data-t="gw2">側欄建範本</button>
     </div>
     <div class="panel on" data-g="gwsg1" id="gw1"><div class="shots">
-      <figure class="shot"><a href="img/l2-gs-ai.jpg" target="_blank" rel="noopener"><img src="img/l2-gs-ai.jpg" alt="=AI 公式與結果" loading="lazy"></a><figcaption><b class="n">1</b>C2 打 =AI("把這個症狀描述分成 低、中、高 三種風險，只回一個詞", A2)，按「生成並填入」，回「高」。往下拉填入公式後，選取整欄再按一次「生成並填入」才會批次執行。練習用分類，不是臨床分級。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-gs-ai.jpg" target="_blank" rel="noopener"><img src="img/l2-gs-ai.jpg" alt="=AI 公式與結果" loading="lazy"></a><figcaption><b class="n">1</b>C2 打 =AI("把這個症狀描述分成 低、中、高 三種風險，只回一個詞", A2)，按「生成並填入」，回「高」。往下拉整欄會自動顯示「生成中…」並逐格算出（見下方 GIF）。練習用分類，不是臨床分級：圖中三筆都被判「高」，連不痛的小水泡也是，真正的分級要由衛教師判斷。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-gs-ai-filldown.gif" target="_blank" rel="noopener"><img src="img/l2-gs-ai-filldown.gif" alt="=AI 往下拉自動生成的動畫" loading="lazy"></a><figcaption><b class="n">2</b>動畫：在 D1 打公式 → 選 D1 → 拖曳右下角小方塊到 D3 → 三格先顯示「生成中…」再變成結果。全程約 10 秒。</figcaption></figure>
     </div></div>
     <div class="panel" data-g="gwsg1" id="gw2"><div class="shots">
       <figure class="shot"><a href="img/l2-gs-plan.jpg" target="_blank" rel="noopener"><img src="img/l2-gs-plan.jpg" alt="Gemini 的計畫" loading="lazy"></a><figcaption><b class="n">1</b>側欄說「建一個糖尿病個管季報範本，含達標率公式與 5 筆合成資料」。它先列步驟（建立工作表與資料結構 → 視覺化排版與驗證）等你按「核准」。</figcaption></figure>
@@ -2210,6 +2211,7 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
       <button class="tab" data-g="gwsg3" data-t="gw7">② 細節與問卷</button>
       <button class="tab" data-g="gwsg3" data-t="gw8">③ 大綱核准</button>
       <button class="tab" data-g="gwsg3" data-t="gw9">④ 生成結果</button>
+      <button class="tab" data-g="gwsg3" data-t="gw10">▶ 全程動畫</button>
     </div>
     <div class="panel on" data-g="gwsg3" id="gw6"><div class="shots">
       <figure class="shot"><a href="img/l2-gsl-start.jpg" target="_blank" rel="noopener"><img src="img/l2-gsl-start.jpg" alt="Slides 起始畫面" loading="lazy"></a><figcaption><b class="n">1</b>新簡報一開就問：簡報（整份）、投影片（單張）、圖片（Nano Banana Pro）、資訊圖表、匯入、空白。選「簡報」。</figcaption></figure>
@@ -2225,12 +2227,15 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
       <figure class="shot"><a href="img/l2-gsl-grid.jpg" target="_blank" rel="noopener"><img src="img/l2-gsl-grid.jpg" alt="六頁縮圖" loading="lazy"></a><figcaption><b class="n">1</b>核准後約 2 分鐘，六頁全部生成：封面、什麼是低血糖、15-15 法則、第一步補糖、第二步等 15 分鐘、緊急撥打 119。側欄顯示 Your slides are ready。</figcaption></figure>
       <figure class="shot"><a href="img/l2-gsl-slide4.jpg" target="_blank" rel="noopener"><img src="img/l2-gsl-slide4.jpg" alt="第 4 頁編輯畫面" loading="lazy"></a><figcaption><b class="n">2</b>點開第 4 頁：標題、綠色建議方塊、紅色禁忌方塊都是獨立可編輯的文字框；下方還有「美化這張投影片」。版型樸素但直接能用。</figcaption></figure>
     </div></div>
+    <div class="panel" data-g="gwsg3" id="gw10"><div class="shots">
+      <figure class="shot"><a href="img/l2-gsl-flow.gif" target="_blank" rel="noopener"><img src="img/l2-gsl-flow.gif" alt="Google 簡報 Gemini 全程動畫" loading="lazy"></a><figcaption><b class="n">1</b>動畫（約 4 分鐘壓成 50 格）：slides.new → 選「簡報」→ 中文描述主題 → 簡報細節 → 下一張 → 回答問卷 → 下一個 → 核准大綱 → 等待 → 6 頁完成。第二次實測主題換成「每天三件事照顧雙腳」，流程一模一樣。</figcaption></figure>
+    </div></div>
   </div>
   <div class="grid2">
     <div class="card">
       <h3>課堂體驗（10 分鐘）</h3>
       <ol class="steps">
-        <li><b>試算表：</b>sheets.new → A 欄貼 3 句合成症狀描述 → B1 打 <code>=AI("分成 低、中、高 風險，只回一個詞", A1)</code> → 生成並填入 → 往下拉填公式 → 選整欄再按一次生成並填入。</li>
+        <li><b>試算表：</b>sheets.new → A 欄貼 3 句合成症狀描述 → B1 打 <code>=AI("分成 低、中、高 風險，只回一個詞", A1)</code> → 生成並填入 → 往下拉整欄，看它逐格顯示「生成中…」。</li>
         <li><b>文件：</b>docs.new → 右上 ✦ → 用<b>英文</b>說 Write … in Traditional Chinese → 看它直接寫進文件 → 選一段試「幫我改寫」（若回不支援語言，改用英文 Rewrite in Traditional Chinese）。</li>
         <li><b>簡報：</b>slides.new → 選「簡報」→ 中文描述主題 → 回答問卷 → 核准大綱 → 等 2 分鐘 → 點任一文字框確認可編輯。</li>
       </ol>
