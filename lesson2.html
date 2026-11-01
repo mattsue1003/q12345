@@ -244,6 +244,7 @@ th .t{font-size:.9rem}
 .t.oc{background:#374151}
 th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
 .oc-c{border-top:5px solid #1F2937}
+.pill{white-space:nowrap}
 </style>
 </head>
 <body>
@@ -293,6 +294,7 @@ th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
     <a href="#s13">深度工作</a>
     <a href="#s13r">研究輔助</a>
     <a href="#s14">專案</a>
+    <a href="#md">PDF 轉文字</a>
     <span class="toc-g">收尾</span>
     <a href="#s15">四工具對照表</a>
     <a href="#s16">實作：數據與報表</a>
@@ -866,6 +868,100 @@ th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
   </div>
 </section>
 
+<!-- MarkItDown -->
+<section id="md">
+  <div class="sec-head"><div class="num" style="background:#7C5CBF">B</div><div><h2>上傳前先瘦身：用 MarkItDown 把 PDF 轉成文字</h2><p>同一份指引，轉成文字再給 AI，額度用得少、回答更專心，上傳前還能先看一遍有沒有個資。</p></div></div>
+  <div class="grid2">
+    <div class="card">
+      <h3>為什麼要先轉？</h3>
+      <ul>
+        <li><b>一頁算兩份：</b>直接上傳 PDF 時，Claude 會把每一頁轉成圖片看一次、再抽文字讀一次，兩份都算額度。官方估算光文字每頁就約 1,500～3,000 token，圖片另計。</li>
+        <li><b>差距很大：</b>一份 3 頁的文字型 PDF，連圖讀約 7,000 token，只讀文字約 1,000 token，省下七成以上。30 頁的指引直接上傳，可能一次吃掉近 10 萬 token。</li>
+        <li><b>額度用完要等：</b>上傳的附件越大，越快碰到用量上限，只能等重置。</li>
+        <li><b>醫療場域多一個好處：</b>轉成純文字後，你能先打開看一遍、搜尋姓名與病歷號，或貼進去識別化工作台檢查，再交給 AI。</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>MarkItDown 是什麼</h3>
+      <p>微軟推出的免費開源小工具，把 PDF、Word、PowerPoint、Excel 轉成 Markdown 純文字。標題、條列、表格會保留成 AI 好讀的格式。</p>
+      <ul>
+        <li>在<b>自己的電腦</b>上轉檔，檔案不會先傳到雲端</li>
+        <li>PowerPoint 特別值得轉：Claude 的上傳清單不收 .pptx</li>
+        <li>OpenCode 可以直接幫你裝、幫你整個資料夾一起轉</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <h3>哪些檔案該轉？</h3>
+    <div class="tbl"><table>
+      <tr><th>檔案</th><th>建議</th><th>衛教師常見例子</th></tr>
+      <tr><td>文字為主的 PDF</td><td><span class="pill">轉</span></td><td>臨床照護指引、會議記錄、評鑑條文、公文</td></tr>
+      <tr><td>PowerPoint</td><td><span class="pill">轉</span></td><td>院內教育訓練簡報、別人分享的衛教簡報</td></tr>
+      <tr><td>Word、Excel</td><td><span class="pill o">都可以</span></td><td>品質指標模板直接上傳也行</td></tr>
+      <tr><td>圖表很多的 PDF</td><td><span class="pill a">別轉</span></td><td>食物份量圖、衛教圖卡、流程圖：轉了圖就不見</td></tr>
+      <tr><td>掃描的 PDF</td><td><span class="pill a">別轉</span></td><td>紙本掃描的轉診單、舊版單張：預設不辨識圖片裡的字，會轉出空白</td></tr>
+      <tr><td>超過 100 頁</td><td><span class="pill o">差不多</span></td><td>此時 AI 本來就只抽文字，轉不轉差異小</td></tr>
+    </table></div>
+  </div>
+  <div class="card">
+    <h3>三種做法，挑一種</h3>
+    <div class="tabs">
+      <button class="tab on" data-g="md" data-t="md1">① 請 OpenCode／Claude Code 代勞</button>
+      <button class="tab" data-g="md" data-t="md2">② 自己用終端機</button>
+      <button class="tab" data-g="md" data-t="md3">③ 什麼都不裝</button>
+    </div>
+    <div class="panel on" data-g="md" id="md1">
+      <p>最推薦。第 1 堂裝好的 OpenCode，或 Claude 桌面版的 Code 分頁，都能自己裝工具、自己轉檔。網頁版 Claude Code 跑在雲端，裝不到你的電腦上，要用桌面版。</p>
+      <ol class="steps">
+        <li>在練習資料夾開 OpenCode（或 Claude 桌面版 → Code 分頁，選這個資料夾）</li>
+        <li>貼上下面第一段，讓它安裝並測試</li>
+        <li>以後把 PDF 放進資料夾，貼第二段就好</li>
+      </ol>
+      <div class="prompt"><span class="label">安裝（只要做一次）</span>請幫我在這台電腦安裝微軟的 MarkItDown：
+1. 先確認有沒有 uv，沒有就用官方安裝指令裝好。
+2. 用 uv tool install 安裝 markitdown[all]。
+3. 跑 markitdown --version 確認成功；如果出現 command not found，執行 uv tool update-shell 並告訴我要重開終端機。
+每一步執行前先告訴我你要跑什麼指令。</div>
+      <div class="prompt"><span class="label">轉檔（每次用）</span>請把這個資料夾裡所有 PDF 和 PPTX 用 markitdown 轉成同名的 .md 檔，放進「轉檔」子資料夾。
+轉完列一張表：檔名、原始頁數、轉出字數；字數接近 0 的標出來，那多半是掃描檔或圖片檔，不要再給 AI 用文字版。
+最後幫我搜尋所有 .md 裡有沒有像身分證字號、病歷號、電話、姓名的字串，有的話列出位置，先不要修改。</div>
+      <div class="prompt"><span class="label">想讓它以後自動這樣做（寫進 AGENTS.md 或 CLAUDE.md）</span>讀取 PDF 或 PPTX 之前，先用 markitdown 轉成 .md 再讀；若轉出內容幾乎是空的，改讀原檔並提醒我這是掃描檔。</div>
+      <div class="note" style="margin-bottom:0"><b>注意：</b>寫在 AGENTS.md／CLAUDE.md 的規則只在 OpenCode／Claude Code 裡有效，一般聊天視窗不會讀；它偶爾也會忘記，提醒一句即可。</div>
+    </div>
+    <div class="panel" data-g="md" id="md2">
+      <ol class="steps">
+        <li>安裝 uv（Python 工具管理器）</li>
+        <li>用 uv 安裝 MarkItDown，確認版本</li>
+        <li>切到 PDF 所在資料夾，轉檔</li>
+        <li>把 .md 上傳到 AI，或打開全選複製貼上</li>
+      </ol>
+      <div class="prompt"><span class="label">Mac：安裝 uv</span>curl -LsSf https://astral.sh/uv/install.sh | sh</div>
+      <div class="prompt"><span class="label">Windows（PowerShell）：安裝 uv</span>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</div>
+      <div class="prompt"><span class="label">安裝 MarkItDown（Windows 把單引號改雙引號）</span>uv tool install 'markitdown[all]'
+markitdown --version</div>
+      <div class="prompt"><span class="label">轉檔（cd 後面打一個空格，再把資料夾拖進終端機）</span>cd 
+markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
+      <div class="note" style="margin-bottom:0"><b>出現 command not found：</b>執行 <code>uv tool update-shell</code>，關掉終端機重開。少數工具不收 .md，把 -o 後面的副檔名改成 .txt 就好。</div>
+    </div>
+    <div class="panel" data-g="md" id="md3">
+      <p>只用網頁版、免費方案，或院內電腦不能裝軟體時：</p>
+      <ol class="steps">
+        <li>用瀏覽器或 PDF 閱讀器打開 PDF</li>
+        <li>全選（Ctrl／⌘＋A）→ 複製 → 貼進對話框</li>
+        <li>表格可能跑掉，貼完請 AI「先把表格整理回來，給我確認」</li>
+      </ol>
+      <p style="margin:0">效果一樣是「只算文字」，缺點是格式較亂、一次只能一份。</p>
+    </div>
+  </div>
+  <div class="tri">
+    <div class="card cl-c"><h3><span class="t cl">Claude</span>最需要轉</h3><ul><li>PDF 會「圖＋文」雙重計算</li><li>同一份文件要反覆問，放進「專案」，重複內容會被快取，更省額度</li></ul></div>
+    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>看情況</h3><ul><li>多數方案上傳 PDF 以讀文字為主，沒有雙重計算</li><li>反過來說它常看不到圖表，重要的圖另外截圖上傳</li></ul></div>
+    <div class="card ge-c"><h3><span class="t ge">Gemini</span>看情況</h3><ul><li>長文件能力強，一般大小的 PDF 直接上傳即可</li><li>要丟進 NotebookLM 的大量指引，轉成文字更好整理與搜尋</li></ul></div>
+    <div class="card oc-c"><h3><span class="t oc">OpenCode</span>轉檔工廠</h3><ul><li>一次轉整個資料夾、順便查個資字串</li><li>轉好的 .md 直接當專案知識或 AGENTS.md 參考資料</li></ul></div>
+  </div>
+  <div class="note red"><b>個資界線不變：</b>轉成文字不等於去識別化。病歷、轉診單、檢驗報告轉檔後，仍要經過<a href="https://mattsue1003.github.io/ltc-deid-workbench/" target="_blank" rel="noopener">去識別化工作台</a>檢查，才能交給任何雲端 AI。</div>
+</section>
+
 <!-- 15 -->
 <section id="s15">
   <div class="sec-head"><div class="num">15</div><div><h2>四工具對照表：同一招，在哪裡按？</h2><p>印這一頁就夠了。名稱若改版，記住「功能」比記住按鈕重要。</p></div></div>
@@ -882,6 +978,7 @@ th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
       <tr><td>外掛</td><td>外掛程式</td><td>連接器</td><td>應用程式（Google 全家桶）</td><td>內建讀寫檔案、執行；可接 MCP</td></tr>
       <tr><td>深度工作</td><td>Work</td><td>研究、Cowork</td><td>深入研究</td><td>主場：交辦整件事</td></tr>
       <tr><td>專案</td><td>專案</td><td>專案</td><td>Gem、筆記本</td><td>一個資料夾</td></tr>
+      <tr><td>大份 PDF</td><td>讀文字為主，圖表另截圖</td><td>先用 MarkItDown 轉 .md 再上傳</td><td>直接上傳；大量指引轉文字進 NotebookLM</td><td>叫它整個資料夾轉檔</td></tr>
     </table>
   </div>
   <div class="grid3" style="margin-top:18px">
@@ -983,6 +1080,7 @@ th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
     <label><input type="checkbox" data-k="g"><span>建立「衛教單張改寫室」專案（或 Gem），放入一份已公開的院內單張</span></label>
     <label><input type="checkbox" data-k="h"><span>完成品質指標實作 Ⓐ～Ⓓ，手動驗算其中一組數字，並用模板印出一張個案回饋單</span></label>
     <label><input type="checkbox" data-k="i"><span>在 OpenCode 設好模型與練習資料夾，放入 AGENTS.md，完成「第一個交辦」的三個版本</span></label>
+    <label><input type="checkbox" data-k="j"><span>用 OpenCode 裝好 MarkItDown，把一份臨床指引 PDF 轉成 .md，比較直接上傳與上傳文字版的回答</span></label>
   </div>
   <div class="card fb"><div class="fb-in"><div class="fb-ico">→</div><div style="flex:1 1 300px"><b style="font-size:1.15rem">下一堂（11/09）：多媒體衛教微劇本、圖卡、短影音與簡報</b><br>今天的製圖局部修改與寫作區塊，下週會直接用在衛教圖卡與短影音腳本上。</div></div></div>
 </section>
@@ -992,7 +1090,7 @@ th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
 <footer>
   <div class="wrap">
     <p><b style="color:#fff">糖尿病衛教團隊 AI 工具專業賦能與臨床實務應用工作坊｜第 2 堂</b><br>授課講師：鍾孟修 職能治療師｜<a href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專</a>｜<a href="https://reurl.cc/4YbrVj" target="_blank" rel="noopener">LINE 學員社群</a>｜<a href="mailto:adlotmatt@gmail.com">adlotmatt@gmail.com</a></p>
-    <p>課程配套工具：<a href="https://mattsue1003.github.io/ltc-deid-workbench/" target="_blank" rel="noopener">去識別化工作台</a>、<a href="https://www.napkin.ai/" target="_blank" rel="noopener">Napkin AI</a>、<a href="https://opencode.ai/zht" target="_blank" rel="noopener">OpenCode</a>。工具說明參考：<a href="https://help.openai.com/" target="_blank" rel="noopener">ChatGPT 說明中心</a>、<a href="https://support.claude.com/" target="_blank" rel="noopener">Claude 說明中心</a>、<a href="https://support.google.com/gemini/" target="_blank" rel="noopener">Gemini 說明中心</a>。各工具功能、方案與按鈕名稱更新頻繁，請以官方最新說明為準。課程練習全程使用合成資料。</p>
+    <p>課程配套工具：<a href="https://mattsue1003.github.io/ltc-deid-workbench/" target="_blank" rel="noopener">去識別化工作台</a>、<a href="https://www.napkin.ai/" target="_blank" rel="noopener">Napkin AI</a>、<a href="https://opencode.ai/zht" target="_blank" rel="noopener">OpenCode</a>、<a href="https://github.com/microsoft/markitdown" target="_blank" rel="noopener">MarkItDown</a>。工具說明參考：<a href="https://help.openai.com/" target="_blank" rel="noopener">ChatGPT 說明中心</a>、<a href="https://support.claude.com/" target="_blank" rel="noopener">Claude 說明中心</a>、<a href="https://support.google.com/gemini/" target="_blank" rel="noopener">Gemini 說明中心</a>。各工具功能、方案與按鈕名稱更新頻繁，請以官方最新說明為準。課程練習全程使用合成資料。</p>
   </div>
 </footer>
 
