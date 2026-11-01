@@ -765,6 +765,26 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       </div>
     </div>
   </div>
+  <div class="card" id="ocpanels">
+    <h3>OpenCode 桌面版右半邊的四個面板：檢閱、瀏覽器、終端機、開啟檔案</h3>
+    <p style="margin-top:0">左半邊是和 AI 對話，右半邊是「<b>工作台</b>」。點右上角的「＋」會跳出這四個選項（也可以按快捷鍵）。它們的共同點是：<b>AI 做的事你能親眼檢查</b>，不用離開 OpenCode。</p>
+    <div class="tbl"><table style="min-width:900px">
+      <tr><th>面板</th><th>快捷鍵（Mac）</th><th>是什麼</th><th>衛教／行政上怎麼用</th></tr>
+      <tr><td><b>檢閱</b></td><td>⌃ ⌘ R</td><td>列出 AI 這次<b>改了哪些檔案、每一行改了什麼</b>（紅色刪、綠色加），可以逐檔復原。資料夾還沒「建立 Git 儲存庫」時會提示你先建，建了之後才追蹤得到變更。</td><td>請 AI 批次改 20 份衛教單張後，在這裡一份一份看，不對的那份按復原。這是「放心讓 AI 動手」的關鍵畫面。</td></tr>
+      <tr><td><b>瀏覽器</b></td><td>⌃ ⌘ B</td><td>內建網頁瀏覽器，有網址列、上一頁、重新整理。AI 的 @browser 技能用的就是它：開網頁、讀內容、填表、截圖。</td><td>把國健署、學會指引的網頁開在旁邊，請 AI「依右邊這頁的建議改寫單張第 3 段」；或讓它自己去查、截圖回報。</td></tr>
+      <tr><td><b>終端機</b></td><td>⌃ ⌥ T</td><td>指令列，和 Mac 的「終端機」一樣，但已經站在這個專案資料夾裡。AI 跑指令時你也能自己打。</td><td>打 <code>ls</code> 看資料夾裡有哪些檔、<code>open .</code> 用 Finder 打開這個資料夾、<code>opencode upgrade</code> 更新。不確定的指令不要打，問 AI。</td></tr>
+      <tr><td><b>開啟檔案</b></td><td>⌃ ⌘ P</td><td>快速搜尋並打開專案裡的檔案；PPT、PDF、Markdown、圖片都能直接預覽，不用切去別的程式。</td><td>AI 說「已產生 失智症預防.pptx」，⌃⌘P 打檔名就能看成品；看完直接在左邊說「第 5 頁字太小」。</td></tr>
+    </table></div>
+    <div class="shots" style="margin-top:12px">
+      <figure class="shot"><a href="img/l2-oc-panels.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-panels.jpg" alt="OpenCode 右側面板選單" loading="lazy"></a><figcaption><b class="n">0</b>右半邊按「＋」出現的四個選項與快捷鍵。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-oc-panel-review.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-panel-review.jpg" alt="檢閱面板" loading="lazy"></a><figcaption><b class="n">1</b><b>檢閱</b>：這個練習資料夾還沒建 Git，所以顯示「沒有追蹤的變更」並給你「建立 Git 儲存庫」按鈕。按下去之後，AI 之後每次改檔都會在這裡列出差異。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-oc-panel-browser.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-panel-browser.jpg" alt="內建瀏覽器開國健署" loading="lazy"></a><figcaption><b class="n">2</b><b>瀏覽器</b>：在網址列打 hpa.gov.tw，國健署首頁就開在對話旁邊。AI 的 @browser 技能操作的就是這個視窗。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-oc-panel-terminal.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-panel-terminal.jpg" alt="終端機面板" loading="lazy"></a><figcaption><b class="n">3</b><b>終端機</b>：打 <code>ls</code> 列出資料夾內容，只有一個 .pptx。提示符號已經站在專案資料夾（canva簡報）裡。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-oc-panel-files.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-panel-files.jpg" alt="開啟檔案面板" loading="lazy"></a><figcaption><b class="n">4</b><b>開啟檔案</b>：左側是專案檔案清單與搜尋框，點一個檔案就在右邊預覽。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-oc-panel-viewer.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-panel-viewer.jpg" alt="pptx 預覽" loading="lazy"></a><figcaption><b class="n">5</b>點開 .pptx 後直接預覽 11 頁簡報與講者備忘稿，不用開 PowerPoint；看到標題字重疊，就回左邊跟 AI 說。</figcaption></figure>
+    </div>
+    <div class="note" style="margin-bottom:0"><b>課堂順序建議：</b>先 ⌃⌘P 看 AI 做出來的檔 → 有問題在左邊講 → 改完 ⌃⌘R 看它到底動了哪幾行 → 需要查資料時 ⌃⌘B。終端機留給進階學員。四個面板都是分頁，可以同時開好幾個，右上角「＋」再加。</div>
+  </div>
   <div class="card">
     <h3>第一個交辦：把第 1 堂的作業一次做完</h3>
     <p>第 1 堂我們用六要素，一次改一份單張、一個版本。交給代理，一句話三個版本一起出，而且會存成檔案。</p>
