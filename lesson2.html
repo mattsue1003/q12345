@@ -1543,17 +1543,33 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
   <div class="card">
     <h3>衛教師的外掛建議清單（ChatGPT：左側「外掛程式」→ 搜尋）</h3>
     <div class="grid3">
-      <div class="b3"><h4>日常行政（建議裝）</h4><ul style="margin:0;padding-left:1.2em"><li><b>Google Calendar</b>：研習、回診提醒、會議</li><li><b>Gmail</b>：個人信箱的研習公告、學會通知整理</li><li><b>Google Drive</b>：讀取你自己放的已公開衛教單張、指標定義</li><li><b>Canva</b>：第 8 節的圖卡直接送進 Canva 排版</li></ul></div>
+      <div class="b3"><h4>日常行政（建議裝）</h4><ul style="margin:0;padding-left:1.2em"><li><b>Google Calendar</b>：研習、回診提醒、會議</li><li><b>Gmail</b>：個人信箱的研習公告、學會通知整理</li><li><b>Google Drive</b>：讀取你自己放的已公開衛教單張、指標定義</li><li><b>Canva</b>：第 8 節的圖卡直接送進 Canva 排版</li><li><b>Browser</b>（雲端瀏覽器）：<b>本堂要用</b>。它在 OpenAI 的雲端開一個瀏覽器替你看網頁、填表、比價，是第 12 節 Agent 示範的手腳之一；用的是它的瀏覽器不是你的，要登入的網站得重新登入。權限一樣選唯讀，涉及送出表單時它會先問。</li></ul></div>
       <div class="b3"><h4>醫學研究（R 節會用）</h4><ul style="margin:0;padding-left:1.2em"><li><b>Life Sciences Literature</b>（OpenAI 官方）：找生醫論文、預印本</li><li><b>Arca FDA, Trials &amp; PubMed</b>：FDA、臨床試驗與 PubMed 公開資料</li><li>搜尋「pubmed」就看得到；<b>Paperguide、CoChat</b> 類似，擇一即可</li></ul></div>
-      <div class="b3"><h4>不建議／暫緩</h4><ul style="margin:0;padding-left:1.2em"><li><b>Google Contacts</b>：通訊錄是個資，沒有必要不要連</li><li><b>Browser</b>（雲端瀏覽器）：會代你操作網頁，等第 5 堂談 Agent 界線再開</li><li><b>Plugin Creator／Template Creator</b>：進階，之後再說</li></ul></div>
+      <div class="b3"><h4>不建議／暫緩</h4><ul style="margin:0;padding-left:1.2em"><li><b>Google Contacts</b>：通訊錄是個資，沒有必要不要連</li><li><b>Plugin Creator</b>（OpenAI 官方）：用對話「做一個自己的外掛」，讓 ChatGPT 去接某個系統的 API，例如院內學分系統。它產生的是程式設定，不是衛教內容，要有 API 與資訊室配合才用得上，課堂不教。商店裡沒有叫「Template Creator」的官方外掛，講義先前寫錯，已移除。</li></ul></div>
     </div>
     <div class="note red" style="margin:14px 0 0"><b>權限一定要設：</b>已安裝的外掛 →「管理」→「權限」，選「<b>允許唯讀工具</b>」（手機 App 叫「允許讀取動作」；可直接讀取，但變更前須先詢問）。不要選「允許低風險工具」或「允許所有工具」，在醫療場域「低風險」由你判斷，不是由它判斷；「一律先詢問」太煩，會讓人想關掉提醒，反而更危險。</div>
   </div>
   <div class="card">
     <h3>衛教師的兩個情境</h3>
     <div class="grid2">
-      <div><div class="prompt"><span class="label">截圖 → 行事曆</span>（貼上糖尿病衛教學會研習公告截圖）幫我把這場研習加到行事曆，提醒時間設前一天晚上。</div></div>
-      <div><div class="prompt"><span class="label">整理行程</span>幫我整理下個月所有衛教研習與學分課程，標出哪幾天太密、哪幾天比較空，並提醒報名截止日。</div></div>
+      <div><div class="prompt"><span class="label">截圖 → 行事曆（先下載下面的公告圖，當成截圖貼上）</span>幫我把這場研習加到 Google 日曆：日期、時間、地點照公告，標題寫「糖尿病衛教研習會」，提醒設前一天晚上 8 點；另外在報名截止日當天早上 9 點加一個「報名截止」提醒。加之前先把你讀到的內容列給我確認。</div>
+        <div class="shots" style="margin-top:8px"><figure class="shot" style="max-width:520px"><a href="lesson2-notice-sample.png" download><img src="img/l2-notice-sample.jpg" alt="練習用研習公告（虛構）" loading="lazy"></a><figcaption>練習用公告圖（講師用 ChatGPT 生圖做的<b>虛構</b>單位與課程，點圖下載 PNG）。日期 2026/12/12（六）09:00–16:30、報名截止 12/5 中午。上傳後看它能不能把這幾個數字讀對。</figcaption></figure></div></div>
+      <div><div class="prompt"><span class="label">整理行程（下面有 12 月的練習行程，複製貼在這段後面，或上傳 .ics／CSV）</span>以下是我 12 月的行程。請：1. 標出哪幾天太密（同一天兩場以上或超過 6 小時）、哪幾天完全空；2. 列出所有「報名截止」的日期並排序，離今天最近的放最上面；3. 算出 12 月可拿到的學分總數；4. 用表格呈現，日期用 12/5（六）這種寫法。</div>
+        <div class="row" style="margin:8px 0"><a class="btn ghost" href="lesson2-dec-schedule.ics" download>下載 .ics（匯入 Google 日曆）</a><a class="btn ghost" href="lesson2-dec-schedule.csv" download>下載 CSV</a></div>
+        <details style="margin-top:6px"><summary style="cursor:pointer"><b>12 月練習行程（14 筆，合成資料，點開複製）</b></summary><pre style="white-space:pre-wrap;font-size:.9rem;line-height:1.5;background:#f8fafc;padding:10px;border-radius:8px">12/1（二）14:00–16:00 糖尿病共照網個案討論會，本院 B1 第二會議室
+12/3（四）12:30–13:30 院內 CPR＋AED 年度複訓，急診教室；學分 2 點、報名截止 11/28
+12/5（六）09:00–12:00 衛教室月會（含 11 月指標檢討），衛教室
+12/9（三）13:30–17:30 胰島素筆針注射技巧工作坊，護理部 7 樓教室；學分 4 點、報名截止 12/2
+12/10（四）08:00–09:00 糖尿病中心晨會（主任主持），中心會議室
+12/10（四）13:00–17:00 連續血糖監測（CGM）判讀課程，線上視訊；學分 4 點、報名截止 12/4
+12/10（四）18:30–20:30 衛教師讀書會：ADA 2026 指引更新，線上視訊
+12/12（六）09:00–16:30 桃園地區糖尿病衛教研習會：高齡糖尿病照護與足部評估實作，某醫院行政大樓 5 樓第一會議室；學分 6 點、報名截止 12/5、08:30 報到、自備血糖機
+12/16（三）14:00–15:30 品管會議：Q3 糖尿病照護品質指標季報，行政大樓 3 樓會議室；要報告
+12/19（六）09:00–17:00 腎臟病衛教師學分課程：糖尿病腎病變營養與衛教，外院醫學大樓；學分 7 點、報名截止 12/12
+12/23（三）10:00–11:00 長照 2.0 個案轉介協調會，社區醫學部
+12/26（六）09:00–12:00 糖尿病足部照護社區衛教活動（講師），某里民活動中心；要上台
+12/30（三）13:30–15:00 衛教室年終檢討與明年計畫，衛教室</pre></details>
+        <p style="margin:6px 0 0;font-size:.92rem">標準答案（上課對照用）：最密是 <b>12/10</b>（三場、8 小時）與 12/12（7.5 小時）；報名截止依序 12/2、12/4、12/5、12/12；學分合計 <b>23 點</b>（2＋4＋4＋6＋7）。若想練「連日曆一起整理」，先把 .ics 匯入個人 Google 日曆，再對 AI 說「看我 12 月的日曆」。</p></div>
     </div>
     <p>不用說「請用 Google 日曆外掛」，它會自己判斷要用哪一個。</p>
     <div class="note red" style="margin-bottom:0"><b>醫院場域界線：</b>只連<b>個人</b>帳號處理個人行程與學習資料；院內公務信箱、含病人資料的雲端資料夾，請依本院資訊安全規範，未經核准不要授權給任何 AI。</div>
