@@ -1416,6 +1416,20 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <tr><td><b>Fetch／瀏覽器</b>（Playwright、Claude in Chrome、ChatGPT 雲端瀏覽器）</td><td>打開網頁、按按鈕、填表</td><td>「到學會網站查我的繼續教育學分」</td><td>ChatGPT 雲端瀏覽器、Claude in Chrome、OpenCode MCP</td><td>會代你操作網站，第 5 堂再細講</td></tr>
       <tr><td><b>GitHub</b></td><td>讀寫程式倉庫</td><td>第 3 堂做 HTML 簡報時讓 AI 直接推上網頁</td><td>ChatGPT 外掛程式、Claude 連接器、OpenCode</td><td>只放公開教材</td></tr>
     </table></div>
+  <div class="card">
+    <h3>實際跑一次：<span class="t gpt">ChatGPT</span>用 Google Drive 外掛找檔案（2026 年 11 月）</h3>
+    <p style="margin-top:0">講師帳號已裝好 Google Drive 外掛，所以沒有再跳授權；第一次裝會先到 Google 登入並勾選唯讀。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="driveg" data-t="dr1">① 點名外掛</button>
+      <button class="tab" data-g="driveg" data-t="dr2">② 結果</button>
+    </div>
+    <div class="panel on" data-g="driveg" id="dr1"><div class="shots">
+      <figure class="shot"><a href="img/l2-drive-prompt.jpg" target="_blank" rel="noopener"><img src="img/l2-drive-prompt.jpg" alt="@Google Drive 提示詞" loading="lazy"></a><figcaption><b class="n">1</b>輸入框打「@Google Drive」選定後，前面出現 Drive 標籤；要求「只列檔名與修改日期，不要打開內容」，先給最小權限的任務。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="driveg" id="dr2"><div class="shots">
+      <figure class="shot"><a href="img/l2-drive-result.jpg" target="_blank" rel="noopener"><img src="img/l2-drive-result.jpg" alt="搜尋結果" loading="lazy"></a><figcaption><b class="n">1</b>48 秒後列出 3 個檔名含「衛教」的檔案與修改日期，沒有打開任何內容。要它讀內容時再另外授權。</figcaption></figure>
+    </div></div>
+  </div>
     <div class="grid2" style="margin-top:12px">
       <div class="card" style="margin:0">
         <h3>課堂體驗：接一個、用一次（10 分鐘）</h3>
@@ -1718,12 +1732,12 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     <div class="grid2">
       <div class="card gpt-c" style="margin:0"><h3><span class="t gpt">ChatGPT</span>新增技能</h3><ol class="steps"><li>左側「外掛程式」→ 上方切到「<b>技能</b>」分頁</li><li>右上「新增」→ 三選一：<b>透過對話建立</b>（最簡單，用講的）、<b>使用編輯器建立</b>、<b>從電腦上傳</b>（zip）</li><li>編輯器：名稱（小寫英文、數字、連字號，最多 64 字）、說明（500 字內，<b>決定它什麼時候會自動啟動</b>）、指示內文</li><li>建好後出現在「由我建立」，平常自動觸發；也可在對話裡點名「用 ○○ 技能」</li></ol></div>
       <div class="card cl-c" style="margin:0"><h3><span class="t cl">Claude</span>新增技能</h3><ol class="steps"><li>「設定」→ 左側「自訂」區的 <b>Skills</b> → 右上「新增」：<b>上傳 Skill</b>（zip，含 SKILL.md）、<b>建立 Skill</b>（編輯器）、<b>使用 Claude 建立</b>（用講的）</li><li>「探索」分頁有 Anthropic 與合作夥伴做好的技能，可直接加入</li><li>使用：輸入框打「<b>/</b>」就列出技能，選一個再接你的內容</li></ol></div>
-      <div class="card ge-c" style="margin:0"><h3><span class="t ge">Gemini</span>新增技能</h3><ol class="steps"><li>輸入框打「<b>@</b>」→ 清單最下方「技能」區</li><li>原本的 Gem 於 2026/11/17 自動轉成技能；新技能從 Gem 管理工具建立</li><li>使用：對話裡打「@技能名稱」再接內容</li></ol><div class="shots" style="margin-top:10px"><figure class="shot"><a href="img/l2-at-ge.jpg" target="_blank" rel="noopener"><img src="img/l2-at-ge.jpg" alt="Gemini @ 選單裡的技能" loading="lazy"></a><figcaption><b class="n">1</b>打「@」後往下捲，「技能」區列出你已建立的技能，點一個再接內容。</figcaption></figure></div></div>
+      <div class="card ge-c" style="margin:0"><h3><span class="t ge">Gemini</span>新增技能</h3><ol class="steps"><li>左側「Gem 管理工具」頁最上方的「<b>建立技能</b>」→ 進入「探索／連接器／<b>技能</b>」頁</li><li>右上「建立」→ 三選一：<b>運用 Gemini 建立</b>、<b>手動建立</b>、<b>上傳</b>（zip，含 SKILL.md）</li><li>使用：對話裡打「<b>@</b>」→ 技能區選一個，再接內容。原本的 Gem 於 2026/11/17 自動轉成技能</li></ol><div class="shots" style="margin-top:10px"><figure class="shot"><a href="img/l2-at-ge.jpg" target="_blank" rel="noopener"><img src="img/l2-at-ge.jpg" alt="Gemini @ 選單裡的技能" loading="lazy"></a><figcaption><b class="n">1</b>打「@」後往下捲，「技能」區列出你已建立的技能，點一個再接內容。</figcaption></figure><figure class="shot"><a href="img/l2-ge-gems.jpg" target="_blank" rel="noopener"><img src="img/l2-ge-gems.jpg" alt="Gem 管理工具的轉換公告" loading="lazy"></a><figcaption><b class="n">2</b>Gem 管理工具頁最上方：「2026年11月17日起，Gem 將轉為『技能』」，右邊「建立技能」按鈕。</figcaption></figure><figure class="shot"><a href="img/l2-ge-skills.jpg" target="_blank" rel="noopener"><img src="img/l2-ge-skills.jpg" alt="Gemini 技能頁" loading="lazy"></a><figcaption><b class="n">3</b>技能頁：上方「探索／連接器／技能」分頁，列出已安裝的技能；右上「建立」。</figcaption></figure><figure class="shot"><a href="img/l2-ge-skills-new.jpg" target="_blank" rel="noopener"><img src="img/l2-ge-skills-new.jpg" alt="建立選單" loading="lazy"></a><figcaption><b class="n">4</b>「建立」下拉：運用 Gemini 建立、手動建立、上傳。和 ChatGPT、Claude 的三個選項一一對應。</figcaption></figure></div></div>
     </div>
     <div class="grid2" style="margin-top:12px">
       <div class="card" style="margin:0">
         <h3>自己做一個：SKILL.md 長這樣</h3>
-        <p style="margin-top:0">ChatGPT 與 Claude 的技能檔格式一樣（Gemini 貼內容即可）：一個資料夾，裡面一個 <code>SKILL.md</code>（寫法同第 4 節的 AGENTS.md），需要時再加範本檔。</p>
+        <p style="margin-top:0">三家的技能檔格式一樣：一個資料夾，裡面一個 <code>SKILL.md</code>（寫法同第 4 節的 AGENTS.md），需要時再加範本檔。</p>
         <div class="prompt"><span class="label">SKILL.md 範例：長者友善衛教單張</span>---
 name: senior-health-handout
 description: 把一段醫療或健康資料改寫成 65 歲以上長者看得懂的一頁衛教單張。使用者提到「衛教單張」「長者版」「改寫給長輩」時使用。
@@ -1747,8 +1761,8 @@ description: 把一段醫療或健康資料改寫成 65 歲以上長者看得懂
 請先問我 5 個問題，弄清楚我的流程、格式、禁忌，再用 SKILL.md 的格式（YAML 開頭的 name、description，接著 Markdown 的步驟與禁止事項）寫出來。
 description 要寫清楚「什麼情況下該啟動」，因為那決定它會不會自動被叫出來。</div>
         <ul>
-          <li>寫好的 SKILL.md 存成資料夾 → 壓縮 → ChatGPT「從電腦上傳」、Claude「設定 → 自訂 → Skills → 新增 → 上傳 Skill」。</li>
-          <li>ChatGPT 與 Claude 可直接上傳同一個 SKILL.md；Gemini 要把內容貼進技能管理工具。<b>寫一次，三家都用得到</b>。</li>
+          <li>寫好的 SKILL.md 存成資料夾 → 壓縮 → ChatGPT「從電腦上傳」、Claude「設定 → 自訂 → Skills → 新增 → 上傳 Skill」、Gemini「技能 → 建立 → 上傳」。</li>
+          <li>三家都能上傳同一個 SKILL.md（ChatGPT「從電腦上傳」、Claude「上傳 Skill」、Gemini「建立 → 上傳」）。<b>寫一次，三家都用得到</b>。</li>
           <li>技能裡不要放病人資料與院內未公開文件；那些放專案。</li>
         </ul>
       </div>
