@@ -1105,7 +1105,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <div class="prompt"><span class="label">✅ 人事時地物＋Why</span>請幫我做一份糖尿病照護品質指標的季報。這份報告是給糖尿病中心主任在品管會議上看的（人），目的是決定明年衛教人力要優先投入哪一個年齡層（Why）。範圍是本院門診共照網個案（地），比較 2026 年第 3 季與第 2 季（時），指標包含 HbA1c &lt; 7% 達標率、眼底檢查率、足部檢查率（事）。請整理成 8 頁左右的簡報與一頁摘要，不要太學術，數字要能讓主任 30 秒看懂（物）。我會上傳去識別化的合成資料檔。</div>
       <div class="note teal" style="margin:10px 0 0" id="dmdata"><b>練習用資料檔在這裡（合成資料，無真實病人）：</b>
         <div class="row" style="margin:8px 0"><a class="btn" href="lesson2-dm-quality.xlsx" download>下載 Excel（含說明工作表）</a><a class="btn ghost" href="lesson2-dm-quality.csv" download>下載 CSV（給 AI 分析用）</a></div>
-        <small>440 位共照網個案、2026 Q2 與 Q3 各一列（共 880 列）。欄位：個案代號、性別、年齡、年齡層（40-49／50-64／65-74／75 歲以上）、病程、使用胰島素、季別、HbA1c、HbA1c&lt;7 達標、本季眼底檢查、本季足部檢查。資料由程式隨機產生，但<b>刻意埋了一個明顯趨勢</b>讓主任 30 秒看得出來；AI 算完後請用 Excel 樞紐分析核對（第 S 節）。上傳時 ChatGPT／Claude 用 CSV 最穩，Gemini 兩種都可。</small>
+        <small>440 位共照網個案、2026 Q2 與 Q3 各一列（共 880 列）。欄位：個案代號、性別、年齡、年齡層（40-49／50-64／65-74／75 歲以上）、病程、使用胰島素、季別、HbA1c、HbA1c&lt;7 達標、本季眼底檢查、本季足部檢查。資料由程式隨機產生，但<b>刻意埋了一個明顯趨勢</b>讓主任 30 秒看得出來；AI 算完後請用 Excel 樞紐分析核對（第 S 節）。上傳時 ChatGPT／Claude 用 CSV 最穩，Gemini 兩種都可。Excel 檔有兩張工作表（個案資料、說明），正好可以試「多分頁會不會讀錯」：Excel 與 CSV 的差別、多分頁怎麼處理，見第 S 節「Excel 還是 CSV」。</small>
       </div>
     </div>
   </div>
@@ -2429,6 +2429,16 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
         <li>乾淨表的規格：第一列欄名（不重複、不含空白與單位）、一列一筆、數字欄只有數字、日期統一 YYYY-MM-DD、缺值留空不要填「無」或「-」、沒有合併儲存格、沒有小計列。</li>
         <li>非用 Excel 不可時：指定「只讀『資料』工作表，A1 到 H301」，並請它先印出讀到的前 5 列給你看。</li>
       </ul>
+      <div class="tbl" style="margin-top:10px"><table style="min-width:720px">
+        <tr><th></th><th>直接上傳 Excel（.xlsx）</th><th>另存成 CSV</th></tr>
+        <tr><td><b>三家收不收</b></td><td>都收。ChatGPT 與 Claude 會在背景寫 Python 讀；Gemini 直接解析</td><td>都收，而且是三家最不會讀錯的格式</td></tr>
+        <tr><td><b>多個工作表</b></td><td><b>最常出事的地方</b>：有的只讀第一張、有的全部讀進來混在一起、有的問你要哪一張。說明頁、樞紐表、圖表工作表都可能被當成資料</td><td>不會有這問題：CSV 天生只有一張表（另存時 Excel 也只存目前這一張）</td></tr>
+        <tr><td><b>公式、合併儲存格、格式</b></td><td>公式可能讀到結果也可能讀到空值；合併儲存格會讓欄位錯位；「7.5%」可能被讀成 0.075 或 7.5</td><td>只剩純文字和數字，所見即所得</td></tr>
+        <tr><td><b>檔案大小、額度</b></td><td>同樣內容比 CSV 大好幾倍，大檔容易逾時或吃掉上傳上限</td><td>最小，880 列不到 50 KB</td></tr>
+        <tr><td><b>中文亂碼</b></td><td>不會</td><td>用 Excel「另存新檔 → <b>CSV UTF-8（逗號分隔）</b>」才不會；選到舊的「CSV（逗號分隔）」中文可能變亂碼</td></tr>
+        <tr><td><b>結論</b></td><td>多張工作表、有格式的原始檔：<b>先整理</b>，只留一張乾淨的資料表再上傳，或在提示詞指名工作表與範圍</td><td><b>第一次算、要出數字給主任看，用 CSV</b>。本節的練習檔兩種都提供，就是讓你試一次差異</td></tr>
+      </table></div>
+      <div class="note" style="margin:10px 0 0"><b>多分頁 Excel 的安全做法（三步）：</b>① 在 Excel 把要分析的那張工作表右鍵「移動或複製 → 建立複本到新活頁簿」；② 新活頁簿裡刪掉標題列以上的說明、小計列、合併儲存格；③ 另存成「CSV UTF-8」再上傳。若一定要整本上傳，提示詞第一句寫：「這個檔有 N 張工作表，<b>只分析『個案資料』這張</b>，其他工作表忽略；開始前先告訴我你讀到幾列幾欄、欄名是什麼。」</div>
     </div>
   </div>
   <div class="card">
