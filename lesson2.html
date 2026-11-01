@@ -335,6 +335,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     <a href="#s15">四工具對照表</a>
     <a href="#s16">實作：數據與報表</a>
     <a href="#xl">Excel × AI</a>
+    <a href="#docs">Word／PPT／PDF × AI</a>
     <a href="#stat">描述性統計正確率</a>
     <a href="#gh">GitHub 個人網頁</a>
     <a href="#s17">課後任務</a>
@@ -1986,6 +1987,72 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
       <li><b>小清理：</b>「『年齡組』欄有幾種寫法？統一成三類，列出你改了哪幾列。」</li>
     </ol>
     <div class="note teal" style="margin-bottom:0"><b>要講的結論：</b>公式與解釋幾乎零風險；清理與統計一定要「列出改了什麼、附程式」；整檔產出與批次處理最省力也最需要人工抽查。Excel 不會消失，會消失的是「自己卡兩小時寫公式」。</div>
+  </div>
+</section>
+<section id="docs">
+  <div class="sec-head"><div class="num" style="background:#2B579A">D</div><div><h2>Word／PowerPoint／PDF × AI：三種檔案各自的搭配法</h2><p>Excel 之外，衛教師每天碰的另外三種檔。原則一樣：先弄清楚「AI 讀得到什麼、能產出什麼」，再決定哪一段交給它。</p></div></div>
+  <div class="card">
+    <h3>先看支援表：三家讀得到、做得出哪些檔（2026 年 11 月，以當天畫面為準）</h3>
+    <div class="tbl"><table style="min-width:900px">
+      <tr><th></th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th><th><span class="t oc">OpenCode</span></th></tr>
+      <tr><td><b>上傳讀取</b></td><td>.docx／.pptx／.pdf 都收</td><td>.docx／.pdf 收；<b>.pptx 不收</b>，先用 MarkItDown 轉（B 節）</td><td>.docx／.pdf 收；.pptx 經雲端硬碟最穩</td><td>資料夾裡任何檔；PDF／PPTX 先轉 .md</td></tr>
+      <tr><td><b>直接產出檔案</b></td><td>工作模式可產 .docx／.pptx／.pdf 下載</td><td>設定 → 功能 → 開「程式碼執行與檔案建立」後可產 .docx／.pptx／.xlsx／.pdf</td><td>產到 Google 文件／簡報再匯出；Gemini Notebook 可直接匯出 .docx／.pptx／.pdf</td><td>直接寫進資料夾</td></tr>
+      <tr><td><b>在原程式裡用</b></td><td colspan="2">Microsoft 365 Copilot（Word／PowerPoint 內建側欄，需企業授權）</td><td>Google 文件／簡報右上「Gemini」側欄</td><td>—</td></tr>
+    </table></div>
+  </div>
+  <div class="tri">
+    <div class="card">
+      <h3>Word：公文、衛教文、計畫書</h3>
+      <ul>
+        <li><b>改寫與審稿：</b>貼整段或上傳 .docx，「改成長者版、每句 20 字內，<b>列出你改了哪些句子</b>」。要它列清單，不要只給新檔。</li>
+        <li><b>套格式：</b>給它院內公文或計畫書範本（去識別化），「照這份的標題層級、字體、段落格式產出新檔」。產出後用 Word 的樣式檢查。</li>
+        <li><b>版本比對：</b>上傳新舊兩版，「列出差異，分成：意思改變／只是措辭」。比 Word 的比較功能看得懂。</li>
+        <li><b>翻譯與潤稿：</b>IRB 英文摘要、外籍看護版單張；要求「保留醫學專有名詞原文並加註中文」。</li>
+        <li><b>Copilot in Word 的差別：</b>直接在文件裡追蹤修訂、不用上傳下載，資料不出院內租戶；沒有授權就走上傳路線。</li>
+      </ul>
+      <div class="note" style="margin-bottom:0;font-size:.95rem"><b>坑：</b>AI 產出的 .docx 有時把標題做成「加粗的內文」而不是標題樣式，目錄會抓不到。要求「用 Word 內建的標題 1／標題 2 樣式」。</div>
+    </div>
+    <div class="card">
+      <h3>PowerPoint：從大綱到可編輯的簡報</h3>
+      <ul>
+        <li><b>做新的（四條路，第 1、2 堂都教過）：</b>Gemini 任務（版面最美，匯出 Google 簡報）；ChatGPT @Canva（第 8 節，每頁都是圖層）；Gemini Notebook「簡報」（最忠於資料）；ChatGPT 工作／Claude 直接產 .pptx（可編輯、版型樸素）。</li>
+        <li><b>改既有的：</b>上傳 .pptx 給 ChatGPT「把每頁字數減半、補講者備忘稿」；Claude 不收 .pptx，先轉 .md 再請它產新檔。</li>
+        <li><b>講者備忘稿與逐字稿：</b>「每頁寫 60 秒的口語講稿，對象是病友團體」，貼回備忘稿欄位。</li>
+        <li><b>後製：</b>字擠、字太小 → DeckEdit 文字辨識改字（第 8 節）；要換圖 → Canva。</li>
+        <li><b>圖片：</b>第 8 節的生圖拿來當每頁插圖；中文字由 PowerPoint 自己打，不要讓 AI 畫字。</li>
+      </ul>
+      <div class="note" style="margin-bottom:0;font-size:.95rem"><b>坑：</b>AI 產的 .pptx 常把文字做成一張圖或一個大文字框。驗收時點兩下看能不能選到單一文字；不能就回去要求「每個重點獨立文字框」。</div>
+    </div>
+    <div class="card">
+      <h3>PDF：讀、問、填、轉</h3>
+      <ul>
+        <li><b>讀與問：</b>短文件直接上傳；指引、評鑑條文這類要反覆用的，先 MarkItDown 轉文字（B 節）再丟進專案或 Gemini Notebook。防幻覺七步在 R 節 Q3。</li>
+        <li><b>掃描檔（圖片型 PDF）：</b>MarkItDown 轉出來會是空的。做法：上傳 Google 雲端硬碟 → 右鍵「以 Google 文件開啟」會自動 OCR；或直接把頁面截圖給 ChatGPT／Gemini 看圖讀字，再人工核對數字。</li>
+        <li><b>填表：</b>PDF 表單（如轉介單、報名表）給 AI 看欄位，「列出每個欄位要填什麼、哪些我還缺資料」；實際填寫自己來，避免填錯格。</li>
+        <li><b>合併、拆分、加浮水印：</b>這些是「操作」不是「理解」，交給 OpenCode／Claude Code 一句話做完（「把資料夾裡 12 份單張合併成一個 PDF，每份加頁碼」），比對話工具穩。</li>
+        <li><b>產出 PDF：</b>一律先產 Word 或簡報再另存 PDF，才有可編輯的原稿。</li>
+      </ul>
+      <div class="note" style="margin-bottom:0;font-size:.95rem"><b>坑：</b>PDF 裡的表格最常被讀歪（欄位錯位）。數字類的表格，轉文字後自己開起來對一次，或請它「把表格原樣重現一次給我確認」。</div>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>課堂體驗（10 分鐘）：同一份衛教文走三種檔</h3>
+      <ol class="steps">
+        <li><b>Word：</b>上傳一份已公開的衛教單張 .docx，「改成長者版，列出改動句子」。下載新檔，檢查標題樣式。</li>
+        <li><b>PPT：</b>接著說「把長者版做成 6 頁簡報，每頁一個重點＋講者備忘稿」。ChatGPT 工作模式或 Claude 直接產 .pptx；開起來點文字框驗收。</li>
+        <li><b>PDF：</b>把簡報另存 PDF，丟回去問「第 3 頁的數字來源是原文哪一句？」。看它能不能指回原文。</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>通用提示詞與界線</h3>
+      <div class="prompt"><span class="label">三種檔都適用的開場</span>附件是去識別化、可公開的衛教文件。請先用三句話告訴我你讀到的結構（有幾個段落／頁／表格），確認無誤我再給任務。
+之後每次修改都要：1. 列出改了哪裡；2. 不新增原文沒有的醫療建議或數字；3. 產出檔案時用內建樣式（標題樣式、獨立文字框），不要做成圖片。</div>
+      <ul style="margin-bottom:0">
+        <li>病歷、公文正本、含個資的 PDF：不上傳。要處理就先去識別化，或用院內授權的 Copilot。</li>
+        <li>任何要送出去的文件：AI 產出 → 你逐段看 → 你簽名。這條在三種檔都一樣。</li>
+      </ul>
+    </div>
   </div>
 </section>
 <section id="stat">
