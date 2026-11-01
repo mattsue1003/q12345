@@ -1326,6 +1326,61 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     <p>不用說「請用 Google 日曆外掛」，它會自己判斷要用哪一個。</p>
     <div class="note red" style="margin-bottom:0"><b>醫院場域界線：</b>只連<b>個人</b>帳號處理個人行程與學習資料；院內公務信箱、含病人資料的雲端資料夾，請依本院資訊安全規範，未經核准不要授權給任何 AI。</div>
   </div>
+  <div class="card" id="apimcp">
+    <h3>名詞解釋：API 和 MCP 是什麼？外掛背後就是它們</h3>
+    <p style="margin-top:0">學員常問「外掛、連接器、應用程式、MCP、API」到底是不是同一件事。一句話：<b>API 是兩個軟體之間的「插座規格」，MCP 是專門給 AI 用的「萬用轉接頭」</b>。你在第 12 節點的那些外掛，底下跑的多半就是 MCP。</p>
+    <div class="grid2">
+      <div class="card" style="margin:0">
+        <h3>API（應用程式介面）</h3>
+        <ul>
+          <li>一個軟體開放給別的軟體「照規格來叫我做事」的入口。你按網頁按鈕是人用介面；程式之間就用 API。</li>
+          <li>衛教師會碰到的兩種：① <b>模型 API</b>：OpenCode 的「金鑰（API key）」就是這個，付費計次（A 節）。② <b>服務 API</b>：Google 日曆、PubMed、Canva 都有，程式才看得懂。</li>
+          <li>金鑰等於密碼：不要貼進聊天視窗、不要寫在共用文件；外洩就去原網站撤銷重發。</li>
+        </ul>
+      </div>
+      <div class="card" style="margin:0">
+        <h3>MCP（Model Context Protocol，模型內容協定）</h3>
+        <ul>
+          <li>2024 年底由 Anthropic 提出、2025 年起 OpenAI 與 Google 也採用的<b>共同規格</b>：工具商只要做一個「MCP 伺服器」，ChatGPT、Claude、Gemini、OpenCode 都能接。</li>
+          <li>每個 MCP 伺服器提供幾個「工具」（例如「搜尋 PubMed」「讀取雲端硬碟檔案」），AI 看到你的要求，自己決定要不要呼叫。</li>
+          <li>三家叫法不同、本質一樣：ChatGPT 的<b>外掛程式</b>、Claude 的<b>連接器</b>、Gemini 的<b>應用程式</b>，以及 OpenCode 設定檔裡的 <code>mcp</code> 區段。</li>
+          <li>和技能的差別：技能是「教 AI 怎麼做」（文字 SOP），MCP 是「給 AI 一雙手」（真的能去抓資料、建檔案）。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tbl" style="margin-top:12px"><table style="min-width:920px">
+      <tr><th>推薦 MCP／連接器</th><th>它給 AI 什麼手</th><th>衛教師怎麼用</th><th>在哪裡接</th><th>注意</th></tr>
+      <tr><td><b>Google 雲端硬碟＋Gmail＋日曆</b></td><td>讀檔、找信、看行程</td><td>「找出上季所有衛教單張的最新版」「把下週門診衛教排進日曆」</td><td>三家內建：ChatGPT 外掛程式／Claude 連接器／Gemini 原生</td><td>只開唯讀；醫院信箱依資安規定</td></tr>
+      <tr><td><b>Canva</b></td><td>建簡報、海報、改尺寸</td><td>第 8 節實測：一句話生 8 頁可編輯簡報</td><td>ChatGPT 外掛程式、Claude 連接器</td><td>內容會上 Canva 雲端，只放可公開素材</td></tr>
+      <tr><td><b>PubMed／文獻類</b>（ChatGPT：Life Sciences Literature、Arca PubMed；Claude 探索：PubMed）</td><td>搜文獻、抓摘要、給 PMID</td><td>R 節的 PICO 查證；每筆附 PMID 可點開驗證</td><td>ChatGPT 外掛程式、Claude 連接器 → 探索</td><td>仍要自己點開 PMID 確認</td></tr>
+      <tr><td><b>Zotero</b></td><td>讀你的書目庫、加註解</td><td>「把這 10 篇的研究設計整理成表」</td><td>Claude／OpenCode（社群 MCP）</td><td>要在自己電腦跑</td></tr>
+      <tr><td><b>Notion／Google 試算表</b></td><td>讀寫資料庫、表格</td><td>個管追蹤表、衛教排程表讓 AI 直接更新</td><td>三家都有官方連接器</td><td>表裡不放可識別個資</td></tr>
+      <tr><td><b>Filesystem（檔案系統）</b></td><td>讀寫指定資料夾</td><td>OpenCode 天生就有；Claude 桌面版可指定資料夾</td><td>OpenCode／Claude Code／Cowork</td><td>只指向練習資料夾</td></tr>
+      <tr><td><b>Fetch／瀏覽器</b>（Playwright、Claude in Chrome、ChatGPT 雲端瀏覽器）</td><td>打開網頁、按按鈕、填表</td><td>「到學會網站查我的繼續教育學分」</td><td>ChatGPT 雲端瀏覽器、Claude in Chrome、OpenCode MCP</td><td>會代你操作網站，第 5 堂再細講</td></tr>
+      <tr><td><b>GitHub</b></td><td>讀寫程式倉庫</td><td>第 3 堂做 HTML 簡報時讓 AI 直接推上網頁</td><td>ChatGPT 外掛程式、Claude 連接器、OpenCode</td><td>只放公開教材</td></tr>
+    </table></div>
+    <div class="grid2" style="margin-top:12px">
+      <div class="card" style="margin:0">
+        <h3>課堂體驗：接一個、用一次（10 分鐘）</h3>
+        <ol class="steps">
+          <li><span class="t gpt">ChatGPT</span>左側「外掛程式」→ 搜尋 <b>Google Drive</b> → ＋ → 用瀏覽器登入並授權（<b>唯讀</b>）。</li>
+          <li>新對話打「@Google Drive 找出檔名含『衛教』的最近 5 個檔案，列出檔名與修改日期」。</li>
+          <li>看它跳出的權限卡，選「允許一次」。</li>
+          <li><span class="t cl">Claude</span>同一件事：設定 → 自訂 → 連接器 → 探索 → Google 雲端硬碟 → 連接，對話中說「用雲端硬碟連接器找…」。</li>
+          <li><span class="t ge">Gemini</span>不用裝：直接說「幫我在雲端硬碟找…」，Gemini 原生就接 Google 全家桶。</li>
+        </ol>
+      </div>
+      <div class="card" style="margin:0">
+        <h3>三條安全線（和外掛、代理一樣）</h3>
+        <ul>
+          <li><b>只裝官方或知名來源的 MCP。</b>任何人都能寫 MCP 伺服器，來路不明的等於把資料交給陌生人。ChatGPT 外掛頁有「公開／個人」標籤，Claude 的「探索」是審核過的清單。</li>
+          <li><b>權限從唯讀開始。</b>允許「讀」之前想清楚它讀得到什麼；允許「寫」之前想清楚它寫壞了誰負責。能選「允許一次」就不要選「一律允許」。</li>
+          <li><b>資料流向先想清楚。</b>接上雲端硬碟，AI 就看得到那裡所有檔案。院內資料夾、病人名單不要放在授權範圍內；用個人帳號的練習資料夾。</li>
+        </ul>
+        <div class="note" style="margin-bottom:0"><b>OpenCode 怎麼接 MCP：</b>在練習資料夾的 <code>opencode.json</code> 加一段 <code>mcp</code> 設定，或直接對它說「幫我加上 Zotero 的 MCP，設定前先告訴我會改哪個檔」。第 5 堂實作。</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- 13 -->
