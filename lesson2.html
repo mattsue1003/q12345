@@ -245,6 +245,32 @@ th .t{font-size:.9rem}
 th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
 .oc-c{border-top:5px solid #1F2937}
 .pill{white-space:nowrap}
+/* operation mockups */
+.mockgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin:16px 0}
+figure.mock{margin:0;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.mock .bar{display:flex;align-items:center;gap:6px;padding:8px 12px;background:#EEF2F3;border-bottom:1px solid var(--line);font-size:.8rem;color:var(--muted);font-weight:700}
+.mock .bar i{width:9px;height:9px;border-radius:50%;background:#C9D3D5;display:inline-block}
+.mock .bar span{margin-left:6px}
+.mock .scr{padding:14px;background:#FBFBFA;font-size:.88rem;line-height:1.6;display:flex;flex-direction:column;gap:10px;position:relative}
+.mock .u{align-self:flex-end;max-width:88%;background:#ECEAE4;border-radius:14px 14px 4px 14px;padding:8px 12px}
+.mock .a{max-width:96%}
+.mock .qcard{border:1px solid #E3DED6;background:#fff;border-radius:12px;padding:10px 12px;position:relative}
+.mock .qcard b{display:block;margin-bottom:6px}
+.mock .opt{display:flex;flex-wrap:wrap;gap:6px}
+.mock .opt span{border:1px solid #D9D3CA;border-radius:999px;padding:3px 10px;font-size:.82rem;background:#fff}
+.mock .opt span.sel{background:#B4532F;border-color:#B4532F;color:#fff}
+.mock .plan{border:1px solid #D5DEF3;background:#fff;border-radius:12px;padding:10px 12px;position:relative}
+.mock .plan ol{margin:6px 0 8px;padding-left:1.2em}
+.mock .btns{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.mock .btns span{border-radius:999px;padding:4px 12px;font-size:.82rem;font-weight:700;border:1px solid #2F62D0;color:#2F62D0;position:relative}
+.mock .btns span.go{background:#2F62D0;color:#fff}
+.mock .co{position:absolute;width:22px;height:22px;border-radius:50%;background:var(--orange);color:#fff;font-size:.75rem;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #fff;z-index:2}
+.mock figcaption{padding:12px 14px;border-top:1px solid var(--line);font-size:.92rem}
+.mock figcaption ol{margin:4px 0 0;padding-left:0;list-style:none;counter-reset:c}
+.mock figcaption li{counter-increment:c;position:relative;padding-left:28px;margin:4px 0}
+.mock figcaption li::before{content:counter(c);position:absolute;left:0;top:3px;width:20px;height:20px;border-radius:50%;background:var(--orange);color:#fff;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+.mock .tag{font-size:.75rem;color:var(--muted);font-weight:400;margin-left:auto}
+.mock .coi{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--orange);color:#fff;font-size:.7rem;font-weight:800;margin-right:5px;vertical-align:-3px}
 </style>
 </head>
 <body>
@@ -705,7 +731,31 @@ th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
       <div class="b3"><h4>用說的回答</h4><p style="margin:0">開語音一題一題講，比打字快很多。</p></div>
     </div>
   </div>
-  <div class="note teal"><b>小差異：</b><span class="t cl">Claude</span>有時會用可點選的選項卡片反問你；<span class="t ge">Gemini</span>在「深入研究」開始前會先列出研究計畫讓你修改，這也是同一個精神：先對齊需求再動手。</div>
+  <div class="note teal"><b>小差異：</b><span class="t cl">Claude</span>有時會用可點選的選項卡片反問你；<span class="t ge">Gemini</span>在「深入研究」開始前會先列出研究計畫讓你修改，這也是同一個精神：先對齊需求再動手。看下面兩張操作示意圖。</div>
+  <div class="mockgrid">
+    <figure class="mock">
+      <div class="bar"><i></i><i></i><i></i><span><span class="t cl">Claude</span> 選項卡片反問</span><em class="tag">示意圖</em></div>
+      <div class="scr">
+        <div class="u">幫我設計一場 30 分鐘的糖尿病足部照護團體衛教，對象是社區長者。在你回答我之前，盡量問我問題。</div>
+        <div class="a">好的，先確認幾件事，點選即可：</div>
+        <div class="qcard"><span class="co" style="left:-8px;top:-8px">1</span><b>參加的長者大概幾位？</b><div class="opt"><span>5 人以下</span><span class="sel">6～15 人</span><span>16 人以上</span></div></div>
+        <div class="qcard"><b>現場有什麼設備？（可複選）</b><div class="opt"><span class="sel">投影機</span><span>白板</span><span class="sel">足部模型</span><span>都沒有</span></div></div>
+        <div class="qcard"><span class="co" style="right:-8px;top:-8px">2</span><b>其他想補充的？</b><div class="opt"><span>你建議就好</span><span>自己輸入…</span></div></div>
+      </div>
+      <figcaption><b>怎麼操作</b><ol><li>直接點選項回答，不用打字；可複選的題目可以點多個</li><li>不確定就點「你建議就好」，或在對話框自己補充後送出</li><li>全部答完，Claude 才開始寫教案</li></ol></figcaption>
+    </figure>
+    <figure class="mock">
+      <div class="bar"><i></i><i></i><i></i><span><span class="t ge">Gemini</span> 深入研究的研究計畫</span><em class="tag">示意圖</em></div>
+      <div class="scr">
+        <div class="u">用深入研究整理：長者糖尿病足部照護團體衛教的有效做法，只用學術與官方來源。</div>
+        <div class="plan"><span class="co" style="left:-8px;top:-8px">1</span><b>研究計畫：長者糖尿病足部照護衛教</b>
+          <ol><li>搜尋近 5 年臨床指引與系統性回顧</li><li>找出團體衛教的有效元素與時間長度</li><li>整理適合 65 歲以上長者的教學方式</li><li>彙整成報告並附上來源</li></ol>
+          <div class="btns"><span><span class="coi">2</span>編輯計畫</span><span class="go"><span class="coi">3</span>開始研究</span></div>
+        </div>
+      </div>
+      <figcaption><b>怎麼操作</b><ol><li>送出後先別等報告，Gemini 會先給一份研究計畫</li><li>按「編輯計畫」，用一句話增刪：例如「加上台灣的衛福部資料」「不要動物研究」</li><li>計畫對了再按「開始研究」，約 5～15 分鐘完成</li></ol></figcaption>
+    </figure>
+  </div>
   <div class="note"><b>到這裡：</b>四招提示詞學完，你已經比大多數使用者更會用 AI。接下來是「功能」。</div>
 </section>
 
