@@ -889,6 +889,43 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       </div>
     </div>
   </div>
+  <div class="card" id="rcsetup">
+    <h3>手機遙控電腦上的代理，實際怎麼設：Claude Code Remote Control 與 Codex「連線」</h3>
+    <p style="margin-top:0">兩家的做法一樣：<b>電腦上先開一個「等人遙控」的工作階段，手機 App 再連進去</b>。手機只是遙控器，所有檔案和執行都留在電腦上；電腦關機或程式關掉，手機就什麼都做不了。下面是 2026 年 11 月的步驟。</p>
+    <div class="grid2">
+      <div class="card cl-c" style="margin:0">
+        <h3><span class="t cl">Claude Code</span> Remote Control</h3>
+        <p style="margin:0 0 6px"><b>條件：</b>Pro／Max／Ultra／Team／Enterprise 方案；電腦上裝好 Claude Code（終端機版或 Claude 桌面版的 Code 分頁）並用 claude.ai 帳號登入；手機裝 Claude App（iOS／Android）或用瀏覽器開 claude.ai/code。</p>
+        <ol class="steps">
+          <li><b>電腦端（三選一）</b><br>
+            ・終端機、進到練習資料夾後打 <code>claude remote-control</code>：第一次會問「Enable Remote Control? (y/n)」，按 y。畫面會給一個網址，<b>按空白鍵顯示 QR code</b>。這個模式是純伺服器，電腦上不打字。<br>
+            ・想一邊在電腦打、一邊手機也能接手：<code>claude --remote-control</code>（或 <code>--rc</code>）。<br>
+            ・已經在 Claude 桌面版 Code 分頁或終端機對話中：輸入 <code>/remote-control</code>（或 <code>/rc</code>），第一次會跳對話框，選「Enable Remote Control」。</li>
+          <li><b>手機端：</b>Claude App → 底部「Code」→ 工作階段清單會出現電腦那個 session（名稱像「電腦名-xxx」，可用 <code>--name "衛教單張"</code> 自己取）；或直接用手機相機掃剛才的 QR code。</li>
+          <li><b>開始用：</b>手機打字、拍照、傳檔案都行；AI 要動檔案時的「允許／拒絕」也在手機上按。電腦和手機同步顯示同一段對話。</li>
+          <li><b>結束：</b>在電腦終端機按 Ctrl+C，或再打一次 <code>/remote-control</code> 斷開。手機上的紀錄會留在 claude.ai/code。</li>
+          <li><b>想每次自動開：</b>Claude 桌面版「設定 → Code」勾「Connect new sessions to Remote Control」；終端機版在 <code>/config</code> 裡開 Remote Control at startup。</li>
+        </ol>
+        <div class="note" style="margin-bottom:0"><b>講師提醒：</b>電腦睡著或斷網，它會在恢復後自動重連，但睡著期間任務是停的；長任務前把 Mac 設成「接電源不睡眠」。第一次在新資料夾會問「Trust 這個資料夾?」，練習資料夾答 y，<b>不要在家目錄或含病人資料的資料夾開</b>。</div>
+      </div>
+      <div class="card gpt-c" style="margin:0">
+        <h3><span class="t gpt">Codex</span>（ChatGPT 桌面版）手機遙控</h3>
+        <p style="margin:0 0 6px"><b>條件：</b>Plus 以上；Mac／Windows 裝最新 ChatGPT 桌面版；手機裝最新 ChatGPT App，兩邊同一帳號。有學員回報帳號沒開兩步驟驗證時配對會失敗，先到 chatgpt.com 設定 → 安全性開啟 MFA。</p>
+        <ol class="steps">
+          <li><b>電腦端：</b>選單列「ChatGPT」→「設定」→ 左側往下到「<b>連線</b>」→ 分頁「<b>控制這台 Mac</b>」→ 把「<b>允許連線</b>」打開 → 右上「新增」→ 照畫面指示配對手機。配好的手機會列在下面，隨時可「撤銷存取權」。</li>
+          <li><b>防睡眠：</b>同一頁「其他設定 → <b>讓這台 Mac 維持喚醒</b>」打開（接電源時有效），不然人一離開電腦睡著就斷線。</li>
+          <li><b>手機端：</b>ChatGPT App → 上方切到 <b>Codex</b>（或「Remote／遠端」分頁）→ 會看到電腦上的 Codex 對話與資料夾，點進去就能下指令、看進度、按允許。這些遠端對話<b>不會</b>出現在手機一般的聊天紀錄裡。</li>
+          <li><b>權限：</b>Codex 桌面版「設定 → 一般 → 預設權限」有三檔；課堂請維持預設（每次改檔都會問）。<b>不要</b>為了手機上少按幾次就開「完整存取權限」。有時允許的提示沒跳到手機上，任務看起來卡住，回電腦按一下就好。</li>
+          <li><b>反過來：</b>同一頁的「控制其他裝置」分頁，是用這台 Mac 去遙控你另一台電腦；「SSH」是給工程師接遠端主機用的，課堂不教。</li>
+        </ol>
+        <div class="shots" style="margin-top:10px">
+          <figure class="shot"><a href="img/l2-codex-remote-this.jpg" target="_blank" rel="noopener"><img src="img/l2-codex-remote-this.jpg" alt="ChatGPT 設定連線頁" loading="lazy"></a><figcaption><b class="n">1</b>講師的 ChatGPT 桌面版「設定 → 連線 → 控制這台 Mac」：「允許連線」已開，下面列出已配對的 iPhone 與「撤銷存取權」；「讓這台 Mac 維持喚醒」在其他設定。</figcaption></figure>
+          <figure class="shot"><a href="img/l2-codex-remote-other.jpg" target="_blank" rel="noopener"><img src="img/l2-codex-remote-other.jpg" alt="控制其他裝置分頁" loading="lazy"></a><figcaption><b class="n">2</b>「控制其他裝置」分頁：反方向，用這台電腦遙控別台。</figcaption></figure>
+        </div>
+      </div>
+    </div>
+    <div class="note red" style="margin:12px 0 0"><b>兩家共同的三條規矩：</b>① 手機要有螢幕鎖，遙控等於把電腦交給拿到手機的人；② 只在去識別化的練習資料夾開遙控；③ 任何「刪除、寄出、送出」都回到電腦前再按。<b>OpenCode 目前沒有官方手機遙控</b>，它的「分享」是公開對話連結，不要拿來當遙控用。手機端的畫面（Claude App 的 Code 分頁、ChatGPT App 的 Codex 分頁）請在課堂上用講師手機投影示範。</div>
+  </div>
   <div class="card">
     <h3>Agent 不只 OpenCode：三個工具裡的代理功能，以及之後怎麼用</h3>
     <div class="tbl"><table>
