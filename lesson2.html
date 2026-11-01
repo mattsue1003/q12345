@@ -1980,6 +1980,22 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
     </div>
   </div>
   <div class="card">
+    <h3>實際跑一次：ChatGPT 寫公式、解釋公式（2026 年 11 月，課程模板）</h3>
+    <p style="margin-top:0">工作模式。兩個任務各花約 1 分鐘。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="xlg" data-t="xg1">① 寫公式</button>
+      <button class="tab" data-g="xlg" data-t="xg2">② 解釋既有公式</button>
+    </div>
+    <div class="panel on" data-g="xlg" id="xg1"><div class="shots">
+      <figure class="shot"><a href="img/l2-xl-prompt.jpg" target="_blank" rel="noopener"><img src="img/l2-xl-prompt.jpg" alt="上傳模板並要求公式" loading="lazy"></a><figcaption><b class="n">1</b>上傳 lesson2-template.xlsx，要它先說欄位與列範圍，再給公式、解釋每段、並用程式算出核對值。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-xl-formula.jpg" target="_blank" rel="noopener"><img src="img/l2-xl-formula.jpg" alt="公式與核對值" loading="lazy"></a><figcaption><b class="n">2</b>它先讀出 HbA1c 在 F 欄、F2:F217，給出 COUNTIFS／COUNT 公式、逐段解釋，並算出 46÷196＝23.47% 讓你貼進 Excel 後比對。注意最後一句：它主動提醒分母含 F114 的 75.0 異常值。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="xlg" id="xg2"><div class="shots">
+      <figure class="shot"><a href="img/l2-xl-explain1.jpg" target="_blank" rel="noopener"><img src="img/l2-xl-explain1.jpg" alt="讀出模板公式" loading="lazy"></a><figcaption><b class="n">1</b>請它解釋「指標報表」的 HbA1c 達標率：它把 E8 的 IF 公式和 C8／D8 引用的 COUNTIFS 原文貼出，白話說明分子分母。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-xl-explain2.jpg" target="_blank" rel="noopener"><img src="img/l2-xl-explain2.jpg" alt="指出可能算錯的地方" loading="lazy"></a><figcaption><b class="n">2</b>它指出：分母沒有排除超出合理範圍的值（第 114 列的 75 會在選 2026Q2 時進入分母），且公式只讀到第 2001 列。這就是「解釋公式」比自己讀公式快的地方。</figcaption></figure>
+    </div></div>
+  </div>
+  <div class="card">
     <h3>課堂體驗（10 分鐘）：三個小任務，用課程模板</h3>
     <ol class="steps">
       <li><b>寫公式：</b>「在『原始資料』工作表，幫我寫一個公式算 HbA1c&lt;7 的比例，分母排除空白。」把公式貼進 Excel，和它說的數字對一次。</li>
@@ -2034,6 +2050,21 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
       </ul>
       <div class="note" style="margin-bottom:0;font-size:.95rem"><b>坑：</b>PDF 裡的表格最常被讀歪（欄位錯位）。數字類的表格，轉文字後自己開起來對一次，或請它「把表格原樣重現一次給我確認」。</div>
     </div>
+  </div>
+  <div class="card">
+    <h3>實際跑一次：Word 改長者版 → 產 .docx（2026 年 11 月）</h3>
+    <p style="margin-top:0">工作模式，上傳一份合成的足部照護衛教單張。產檔花了 4 分 24 秒，比純文字回答慢很多，上課要先按下去再講別的。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="docg" data-t="dg1">① 上傳與要求</button>
+      <button class="tab" data-g="docg" data-t="dg2">② 產出與驗收</button>
+    </div>
+    <div class="panel on" data-g="docg" id="dg1"><div class="shots">
+      <figure class="shot"><a href="img/l2-docs-prompt.jpg" target="_blank" rel="noopener"><img src="img/l2-docs-prompt.jpg" alt="上傳 .docx 並下指令" loading="lazy"></a><figcaption><b class="n">1</b>要求：先說結構、改成長者版、每句 20 字內、不新增原文沒有的建議、用內建標題樣式、列出改動句。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="docg" id="dg2"><div class="shots">
+      <figure class="shot"><a href="img/l2-docs-preview.jpg" target="_blank" rel="noopener"><img src="img/l2-docs-preview.jpg" alt="右側文件預覽" loading="lazy"></a><figcaption><b class="n">1</b>做好後右側直接預覽新檔：標題、長者版副標、分節標題，每句都縮短成一行並加勾選框。右上可下載或放大。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-docs-changes.jpg" target="_blank" rel="noopener"><img src="img/l2-docs-changes.jpg" alt="改動清單與 Word 檔" loading="lazy"></a><figcaption><b class="n">2</b>對話裡列出「原句 → 新句」對照表，下方是可下載的 .docx 連結。它還主動備註預覽環境沒有中文字型、已指定微軟正黑體。</figcaption></figure>
+    </div></div>
   </div>
   <div class="grid2">
     <div class="card">
