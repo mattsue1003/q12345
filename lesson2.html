@@ -271,6 +271,13 @@ figure.mock{margin:0;background:var(--card);border:1px solid var(--line);border-
 .mock figcaption li::before{content:counter(c);position:absolute;left:0;top:3px;width:20px;height:20px;border-radius:50%;background:var(--orange);color:#fff;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center}
 .mock .tag{font-size:.75rem;color:var(--muted);font-weight:400;margin-left:auto}
 .mock .coi{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--orange);color:#fff;font-size:.7rem;font-weight:800;margin-right:5px;vertical-align:-3px}
+/* real screenshots */
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin-top:10px}
+figure.shot{margin:0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+figure.shot a{display:block;background:#111}
+figure.shot img{display:block;width:100%;height:auto}
+figure.shot figcaption{padding:10px 12px;font-size:.92rem;line-height:1.55}
+figure.shot figcaption b.n{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--orange);color:#fff;font-size:.78rem;margin-right:6px}
 </style>
 </head>
 <body>
@@ -875,17 +882,40 @@ figure.mock{margin:0;background:var(--card);border:1px solid var(--line);border-
 <section id="s9">
   <div class="sec-head"><div class="num">9</div><div><h2>寫作區塊：在 AI 的稿子上直接動手改</h2><p>不用再說「太抽象了，再改一次」。直接刪、直接補、打個問號，AI 會幫你圓回去。</p></div></div>
   <div class="tri">
-    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>Canvas 寫作區塊</h3>
-      <ul><li>提示詞最後加「用寫作區塊」</li><li>可在右側直接打字、刪除；改完請它「依我的修改調整整篇」</li><li>改過的地方會標色</li></ul></div>
+    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>寫作區塊</h3>
+      <ul><li>提示詞最後加「用寫作區塊」，回答裡會出現標著「寫作」的方框</li><li>點方框右上角「展開」，右側變成文件，可直接打字、刪除，也能復原、下載</li><li>改完在左邊說「依照我的修改，把整篇順過一次」，新增的字會用粗體標出</li><li>2026 年 5 月起，主力模型已用寫作區塊取代舊的 Canvas</li></ul></div>
     <div class="card ge-c"><h3><span class="t ge">Gemini</span>Canvas</h3>
-      <ul><li>「工具」→「Canvas」或說「用 Canvas 寫」</li><li>可直接編輯，反白一段文字請它「改白話一點」</li><li>一鍵「匯出至 Google 文件」，最適合要交出去的稿子</li></ul></div>
+      <ul><li>對話框「＋」→「更多工具」→「Canvas」，或直接說「用 Canvas 寫」</li><li>可直接編輯；反白一段文字，旁邊會跳出「問問 Gemini」，輸入「改白話一點」</li><li>右上「匯出」可存成 .md 或存到雲端硬碟，最適合要交出去的稿子</li></ul></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>Artifacts</h3>
-      <ul><li>說「做成文件（Artifact）」，內容會出現在右側獨立視窗</li><li>指定「只改第 3 段」，它會只更新那一段</li><li>可下載或複製；長文寫作是 Claude 的強項</li></ul></div>
+      <ul><li>說「做成文件（Artifact）」，內容會出現在右側獨立視窗；部分帳號會改用「Claude Docs」文件，看得到 Claude 邊寫邊打字</li><li>指定「只改『為什麼能看三個月』那段，其他不要動」，它只會更新那一段</li><li>可下載、複製或分享；長文寫作是 Claude 的強項</li></ul></div>
   </div>
   <div class="card">
     <h3>練習：衛教單張的「半自動」改稿</h3>
-    <div class="prompt"><span class="label">先請它寫進寫作區塊</span>用 400 字介紹「什麼是糖化血色素（HbA1c）」，對象是剛確診的民眾，盡量條列，放在寫作區塊（Canvas／Artifact）裡。</div>
+    <div class="prompt"><span class="label">先請它寫進寫作區塊</span>用 400 字介紹「什麼是糖化血色素（HbA1c）」，對象是剛確診的民眾，盡量條列，放在寫作區塊裡（ChatGPT 說「用寫作區塊」、Gemini 選 Canvas、Claude 說「做成文件」）。</div>
     <p>接著<b>直接在稿子上</b>：刪掉你覺得多餘的句子；在想補的地方打「：（這裡補充多久驗一次）」；最後請它「依照我的修改，把整篇順過一次，改過的地方標出來」。</p>
+  </div>
+  <div class="card">
+    <h3>實際操作畫面</h3>
+    <p style="margin-top:0">以下是講師帳號實際跑上面這個練習的截圖（2026 年 11 月），點圖可放大。各家介面改版快，按鈕位置可能略有不同。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="ws" data-t="ws-gpt"><span class="t gpt">ChatGPT</span></button>
+      <button class="tab" data-g="ws" data-t="ws-ge"><span class="t ge">Gemini</span></button>
+      <button class="tab" data-g="ws" data-t="ws-cl"><span class="t cl">Claude</span></button>
+    </div>
+    <div class="panel on" data-g="ws" id="ws-gpt"><div class="shots">
+      <figure class="shot"><a href="img/l2-gpt-1-block.jpg" target="_blank" rel="noopener"><img src="img/l2-gpt-1-block.jpg" alt="ChatGPT 回答中出現標示「寫作」的寫作區塊" loading="lazy"></a><figcaption><b class="n">1</b>提示詞加「用寫作區塊」，回答變成一個標著「寫作」的方框。右上角兩個按鈕：複製、展開。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-gpt-2-edit.jpg" target="_blank" rel="noopener"><img src="img/l2-gpt-2-edit.jpg" alt="展開後在右側文件直接刪句與加註" loading="lazy"></a><figcaption><b class="n">2</b>按展開，右側變成文件。直接刪掉一句，再在 6.5% 那行後面打「（這裡補充多久驗一次）」。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-gpt-3-revised.jpg" target="_blank" rel="noopener"><img src="img/l2-gpt-3-revised.jpg" alt="ChatGPT 依修改補上多久驗一次並以粗體標示" loading="lazy"></a><figcaption><b class="n">3</b>在左邊說「依照我的修改，把整篇順過一次」。它補上「多久驗一次？」，新增的字用粗體標出。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="ws" id="ws-ge"><div class="shots">
+      <figure class="shot"><a href="img/l2-ge-1-menu.jpg" target="_blank" rel="noopener"><img src="img/l2-ge-1-menu.jpg" alt="Gemini 加號選單中的更多工具與 Canvas" loading="lazy"></a><figcaption><b class="n">1</b>對話框「＋」→「更多工具」→「Canvas」。選好後對話框會出現 Canvas 標籤。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-ge-2-select.jpg" target="_blank" rel="noopener"><img src="img/l2-ge-2-select.jpg" alt="在 Gemini Canvas 反白一句並在問問 Gemini 輸入改白話" loading="lazy"></a><figcaption><b class="n">2</b>反白一句話，旁邊跳出「問問 Gemini」，輸入「改白話一點，給 70 歲長輩聽」再送出。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-ge-3-export.jpg" target="_blank" rel="noopener"><img src="img/l2-ge-3-export.jpg" alt="Gemini Canvas 匯出選單：.md 與雲端硬碟" loading="lazy"></a><figcaption><b class="n">3</b>右上「匯出」：存成 .md 檔，或直接存到雲端硬碟，再用 Google 文件打開繼續改。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="ws" id="ws-cl"><div class="shots">
+      <figure class="shot"><a href="img/l2-cl-1-doc.jpg" target="_blank" rel="noopener"><img src="img/l2-cl-1-doc.jpg" alt="Claude 在右側文件寫出糖化血色素衛教內容" loading="lazy"></a><figcaption><b class="n">1</b>說「做成文件（Artifact）」，右側出現獨立文件，連表格都排好。可直接在文件上修改。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-cl-2-section.jpg" target="_blank" rel="noopener"><img src="img/l2-cl-2-section.jpg" alt="Claude 只改寫指定段落為長輩口語" loading="lazy"></a><figcaption><b class="n">2</b>說「只改『為什麼能看三個月』那段，改成長輩口語，其他不要動」。只有那一段變成「血糖記帳本」的比喻，其他段落完全沒動。</figcaption></figure>
+    </div></div>
   </div>
 </section>
 
@@ -1159,7 +1189,7 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
       <tr><td>想久一點</td><td>推理強度</td><td>延伸思考</td><td>思考型／Pro 模型</td><td>換成較強的模型</td></tr>
       <tr><td>不留記錄</td><td>暫時對話</td><td>無痕聊天</td><td>臨時對話</td><td>開新 session；資料留在本機</td></tr>
       <tr><td>製圖</td><td>建立圖像＋編輯圈選</td><td>Artifacts 圖卡（HTML／SVG）、Canva 連接器</td><td>建立圖像（Nano Banana）</td><td>用程式畫數據圖表，存成 PNG</td></tr>
-      <tr><td>寫作區塊</td><td>Canvas</td><td>Artifacts</td><td>Canvas（可匯出 Google 文件）</td><td>直接改資料夾裡的檔案</td></tr>
+      <tr><td>寫作區塊</td><td>寫作區塊（舊稱 Canvas）</td><td>Artifacts／Claude Docs</td><td>Canvas（匯出 .md 或雲端硬碟）</td><td>直接改資料夾裡的檔案</td></tr>
       <tr><td>學習模式</td><td>學習模式（@study）</td><td>學習樣式</td><td>引導式學習</td><td>—（用對話工具）</td></tr>
       <tr><td>排程</td><td>排程任務</td><td>Cowork 排程（付費）</td><td>排定動作（付費）</td><td>—（第 5 堂再談）</td></tr>
       <tr><td>外掛</td><td>外掛程式</td><td>連接器</td><td>應用程式（Google 全家桶）</td><td>內建讀寫檔案、執行；可接 MCP</td></tr>
