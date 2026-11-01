@@ -278,6 +278,7 @@ figure.shot a{display:block;background:#111}
 figure.shot img{display:block;width:100%;height:auto}
 figure.shot figcaption{padding:10px 12px;font-size:.92rem;line-height:1.55}
 figure.shot figcaption b.n{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--orange);color:#fff;font-size:.78rem;margin-right:6px}
+#gh code{overflow-wrap:anywhere;word-break:break-all}
 </style>
 </head>
 <body>
@@ -331,6 +332,7 @@ figure.shot figcaption b.n{display:inline-flex;align-items:center;justify-conten
     <span class="toc-g">收尾</span>
     <a href="#s15">四工具對照表</a>
     <a href="#s16">實作：數據與報表</a>
+    <a href="#gh">GitHub 個人網頁</a>
     <a href="#s17">課後任務</a>
   </div>
   <div class="wrap toc-search">
@@ -1283,6 +1285,78 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
   <div class="note red"><b>真實資料的規則不變：</b>回到工作上要用真實資料時，先完成上面①的三步，並確認符合本院規範；個案代號不能回推到病人。</div>
 </section>
 
+<!-- GitHub -->
+<section id="gh">
+  <div class="sec-head"><div class="num" style="background:#24292F">G</div><div><h2>課堂實作：註冊 GitHub，上傳你的第一個自我介紹網頁</h2><p>今天在課堂上一起做完：註冊、請 AI 做網頁、上傳、用手機打開。第 3 堂會在同一個網站上深入做 HTML 衛教簡報。</p></div></div>
+  <div class="grid3">
+    <div class="b3"><h4>GitHub 是什麼？</h4><p style="margin:0">全世界工程師放檔案的雲端倉庫。我們只用它其中一個免費功能：<b>GitHub Pages</b>，把 HTML 檔變成一個公開網址。</p></div>
+    <div class="b3"><h4>為什麼要學？</h4><p style="margin:0">AI 做出來的網頁、簡報、衛教小工具都是 HTML 檔。放上 GitHub Pages，用手機、LINE 分享一個連結就能打開，不用寄檔案。這份講義就是這樣放上網的。</p></div>
+    <div class="b3"><h4>要花錢嗎？</h4><p style="margin:0">不用。免費帳號就能做公開網頁，不需要信用卡。要準備的只有一個 Email 和 20 分鐘。</p></div>
+  </div>
+
+  <div class="card">
+    <h3>步驟一：註冊 GitHub（5 分鐘）</h3>
+    <ol class="steps">
+      <li>打開 <a href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup</a></li>
+      <li>輸入 Email、設定密碼</li>
+      <li>設定 <b>Username（使用者名稱）</b>：這會變成你的網址，例如 username 是 <code>tyh-dm-amy</code>，網址就是 <code>tyh-dm-amy.github.io</code>。只能用英文小寫、數字、減號，取好記、專業一點的</li>
+      <li>完成真人驗證，到信箱收 GitHub 寄來的驗證碼，貼回網頁</li>
+      <li>選方案時選 <b>Free</b>；問卷可以直接略過</li>
+      <li>建議到右上頭像 →「Settings」→「Password and authentication」開啟兩步驟驗證</li>
+    </ol>
+    <div class="note" style="margin-bottom:0"><b>名字想清楚再取：</b>username 之後可以改，但網址會跟著變、舊連結會失效。不要用身分證字號、生日這類個資當名字。</div>
+  </div>
+
+  <div class="card">
+    <h3>步驟二：請 AI 做一個自我介紹網頁（5 分鐘）</h3>
+    <p style="margin-top:0">三個對話工具都可以。Claude 會直接在右側顯示做好的網頁，最方便預覽；ChatGPT 和 Gemini 會給一段程式碼，也一樣能用。</p>
+    <div class="prompt"><span class="label">個人網頁提示詞（改成你自己的資料）</span>請幫我做一個單一檔案的 HTML 自我介紹網頁，檔名 index.html，所有 CSS 寫在同一個檔案裡，不要用外部圖片。
+我的資料：
+- 稱呼：（例如 王衛教師、Amy）
+- 單位：衛生福利部桃園醫院 糖尿病中心
+- 職稱與證照：（例如 護理師、糖尿病衛教師）
+- 擅長的衛教主題：（例如 胰島素注射、足部照護、低血糖處理）
+- 一句話介紹：（例如 用長輩聽得懂的話，陪你把血糖顧好）
+- 聯絡方式：（只放公務信箱，或寫「請洽糖尿病中心櫃台」）
+設計要求：
+1. 手機打開也好讀，字大、行距寬，適合長者
+2. 配色溫和，用淺綠或米白
+3. 用文字或圖示代替照片
+4. 最下方放「本頁使用 AI 協助製作」
+做好後請告訴我怎麼存成 index.html。</div>
+    <div class="grid3" style="margin-top:12px">
+      <div class="card cl-c" style="margin:0"><h3><span class="t cl">Claude</span>存檔</h3><p style="margin:0">右側網頁上方按「下載」，或點「程式碼」分頁全選複製。檔名改成 <code>index.html</code>。</p></div>
+      <div class="card gpt-c" style="margin:0"><h3><span class="t gpt">ChatGPT</span>存檔</h3><p style="margin:0">程式碼方框右上「複製」，貼到記事本，存成 <code>index.html</code>。也可以請它「直接給我下載檔案」。</p></div>
+      <div class="card ge-c" style="margin:0"><h3><span class="t ge">Gemini</span>存檔</h3><p style="margin:0">用 Canvas 做可以直接預覽網頁；從程式碼複製貼到記事本，存成 <code>index.html</code>。</p></div>
+    </div>
+    <div class="note" style="margin:12px 0 0"><b>存檔陷阱和 AGENTS.md 一樣：</b>Windows 要先打開「顯示副檔名」，不然會變成 index.html.txt。存好後雙擊檔案，瀏覽器打得開、看得到網頁，就成功了。</div>
+  </div>
+
+  <div class="card">
+    <h3>步驟三：上傳到 GitHub Pages（10 分鐘，全程用網頁，不用寫程式）</h3>
+    <ol class="steps">
+      <li>登入 GitHub，右上「＋」→「New repository」（新增倉庫）</li>
+      <li><b>Repository name</b> 一字不差填 <code>你的username.github.io</code>，例如 <code>tyh-dm-amy.github.io</code>。這個特別的名字會讓 GitHub 自動把它變成網站</li>
+      <li>選 <b>Public</b>；<b>不要勾</b>「Add a README file」→ 按「Create repository」</li>
+      <li>出現的頁面中間找到藍色小字「<b>uploading an existing file</b>」，點進去</li>
+      <li>把 <code>index.html</code> 拖進框框 → 拉到下面按綠色「<b>Commit changes</b>」</li>
+      <li>等 1～2 分鐘，打開 <code>https://你的username.github.io</code>，看到你的網頁就完成了</li>
+      <li>沒出現？到倉庫上方「Settings」→ 左側「Pages」，確認 Source 是「Deploy from a branch」、Branch 是「main」→「/ (root)」，按 Save 再等 1 分鐘</li>
+    </ol>
+    <div class="grid2" style="margin-top:12px">
+      <div class="b3"><h4>之後要改內容</h4><p style="margin:0">回到 AI 說「把擅長主題加上『飲食衛教』」，存成新的 index.html，再照第 4、5 步上傳覆蓋即可。也可以在 GitHub 上點檔案 → 鉛筆圖示直接改字。</p></div>
+      <div class="b3"><h4>第 3 堂深入：HTML 衛教簡報</h4><p style="margin:0">今天學會的上傳流程，第 3 堂直接沿用。HTML 簡報一樣上傳到這個倉庫，例如存成 <code>slides.html</code>，網址就是 <code>你的username.github.io/slides.html</code>，一個連結就能在團體衛教現場用手機或電腦打開。</p></div>
+    </div>
+  </div>
+
+  <div class="card oc-c">
+    <h3><span class="t oc">OpenCode</span>進階：讓代理幫你做網頁</h3>
+    <p style="margin-top:0">在練習資料夾開 OpenCode，貼上上面的個人網頁提示詞，它會直接在資料夾裡建好 <code>index.html</code>，還能開瀏覽器給你看。上傳仍然用上面的網頁拖曳方式；讓代理直接推上 GitHub 需要額外設定登入，第 5 堂再教。</p>
+  </div>
+
+  <div class="note red"><b>公開網頁的界線：</b>GitHub Pages 是<b>全世界都看得到</b>的。不要放個人手機、住址、身分證字號、病人照片或任何病人資料，也不要放院內未公開的文件。若要以醫院名義對外發布，請先確認院內對外資訊發布規定。</div>
+</section>
+
 <!-- 17 -->
 <section id="s17">
   <div class="sec-head"><div class="num">17</div><div><h2>課後任務</h2><p>勾選會自動記在這台電腦的瀏覽器裡，下次打開還在。</p></div></div>
@@ -1298,8 +1372,9 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
     <label><input type="checkbox" data-k="h"><span>完成品質指標實作 Ⓐ～Ⓓ，手動驗算其中一組數字，並用模板印出一張個案回饋單</span></label>
     <label><input type="checkbox" data-k="i"><span>在 OpenCode 設好模型與練習資料夾，放入 AGENTS.md，完成「第一個交辦」的三個版本</span></label>
     <label><input type="checkbox" data-k="j"><span>用 OpenCode 裝好 MarkItDown，把一份臨床指引 PDF 轉成 .md，比較直接上傳與上傳文字版的回答</span></label>
+    <label><input type="checkbox" data-k="k"><span>註冊 GitHub，請 AI 做好自我介紹網頁，上傳到「username.github.io」並用手機打開成功</span></label>
   </div>
-  <div class="card fb"><div class="fb-in"><div class="fb-ico">→</div><div style="flex:1 1 300px"><b style="font-size:1.15rem">下一堂（11/09）：多媒體衛教微劇本、圖卡、短影音與簡報</b><br>今天的製圖局部修改與寫作區塊，下週會直接用在衛教圖卡與短影音腳本上。</div></div></div>
+  <div class="card fb"><div class="fb-in"><div class="fb-ico">→</div><div style="flex:1 1 300px"><b style="font-size:1.15rem">下一堂（11/09）：多媒體衛教微劇本、圖卡、短影音與簡報</b><br>今天的製圖局部修改與寫作區塊，下週會直接用在衛教圖卡與短影音腳本上；做好的 HTML 簡報會上傳到你今天建好的 GitHub 網頁。</div></div></div>
 </section>
 
 </main>
