@@ -498,7 +498,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <tr><td><span class="t gpt">ChatGPT</span></td><td>工具選單：回饋、在專案中工作、<b>學習</b>、新增自訂 GPT、模型、語音輸入</td><td>功能捷徑，等於點按鈕</td></tr>
       <tr><td><span class="t cl">Claude</span></td><td>「新增檔案」＋你裝的<b>技能</b>清單（第 14 節）</td><td>叫出技能</td></tr>
       <tr><td><span class="t ge">Gemini</span></td><td>提示「/ 已改為 @」：打 <b>@</b> 才會列出應用程式與<b>技能</b></td><td>叫出應用程式與技能</td></tr>
-      <tr><td><span class="t oc">OpenCode</span></td><td>真正的指令：/connect 連供應商、/models 換模型、/init 寫 AGENTS.md、/undo 復原、/new 新對話、/help</td><td>程式指令，打錯無效</td></tr>
+      <tr><td><span class="t oc">OpenCode</span></td><td>真正的指令。<b>桌面版</b>打「/」有四個：<b>/model</b> 換模型（⌘＋'）、<b>/connect</b> 連供應商（登入 ChatGPT／接 API key）、<b>/init</b> 幫這個資料夾寫 AGENTS.md、<b>/review</b> 檢查改了哪些檔案。<b>終端機版</b>更多：/undo 復原、/new 新對話、/share、/help。另外打「<b>@</b>」會列出技能（@browser 開內建瀏覽器）、代理（@general、@explore）與舊的工作階段。</td><td>程式指令，打錯無效</td></tr>
     </table></div>
     <div class="note" style="margin:12px 0 0"><b>民間流傳的 /tldr、/eli5、/fix 呢？</b>它們不是指令。送出去之後，模型只是看到「/」後面那個英文字，照字面猜你要什麼，和直接打「幫我摘要」沒有兩樣。好處是短、好記、三家都能用；壞處是三家的理解可能不同、也沒有保證。<b>把它當速記，不要當魔法。</b>正式工作回到第 5 節的「人事時地物＋Why」（第 1 堂的六要素）。</div>
   </div>
@@ -509,6 +509,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <button class="tab on" data-g="slashg" data-t="sl1"><span class="t gpt">ChatGPT</span></button>
       <button class="tab" data-g="slashg" data-t="sl2"><span class="t cl">Claude</span></button>
       <button class="tab" data-g="slashg" data-t="sl3"><span class="t ge">Gemini</span></button>
+      <button class="tab" data-g="slashg" data-t="sl4"><span class="t oc">OpenCode</span></button>
     </div>
     <div class="panel on" data-g="slashg" id="sl1"><div class="shots">
       <figure class="shot"><a href="img/l2-slash-gpt.jpg" target="_blank" rel="noopener"><img src="img/l2-slash-gpt.jpg" alt="ChatGPT 斜線選單" loading="lazy"></a><figcaption><b class="n">1</b>打「/」跳出工具選單，上下鍵選、Enter 進入。「學習」模式就在這裡。</figcaption></figure>
@@ -519,6 +520,13 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     <div class="panel" data-g="slashg" id="sl3"><div class="shots">
       <figure class="shot"><a href="img/l2-slash-ge.jpg" target="_blank" rel="noopener"><img src="img/l2-slash-ge.jpg" alt="Gemini 的提示" loading="lazy"></a><figcaption><b class="n">1</b>Gemini 打「/」會提示改用「@」。</figcaption></figure>
       <figure class="shot"><a href="img/l2-at-ge.jpg" target="_blank" rel="noopener"><img src="img/l2-at-ge.jpg" alt="Gemini @ 選單" loading="lazy"></a><figcaption><b class="n">2</b>打「@」才會列出虛擬化身、應用程式與技能。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="slashg" id="sl4"><div class="shots">
+      <figure class="shot"><a href="img/l2-oc-slash.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-slash.jpg" alt="OpenCode 桌面版斜線選單" loading="lazy"></a><figcaption><b class="n">1</b>先按「＋」開<b>新的工作階段</b>（不要在舊的裡面打），輸入框打「/」就跳出四個指令：/init、/review、/model、/connect。上下鍵選、Enter 執行，繼續打字可篩選。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-oc-slash-model.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-slash-model.jpg" alt="/model 模型選擇器" loading="lazy"></a><figcaption><b class="n">2</b><b>/model</b>（或 ⌘＋'）：模型選擇器。上面「Recent」是最近用過的，右邊「免費」標籤一眼可見；⌘F 可設最愛。點選單外面關閉。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-oc-slash-connect.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-slash-connect.jpg" alt="/connect 連線提供者" loading="lazy"></a><figcaption><b class="n">3</b><b>/connect</b>：連線提供者。OpenAI 走 ChatGPT 帳號登入，Anthropic、Google 貼 API key；已連的會顯示「connections ✓」。上課用免費模型不用動這裡。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-oc-slash-review.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-slash-review.jpg" alt="/review 提示" loading="lazy"></a><figcaption><b class="n">4</b><b>/review</b>：檢查這個資料夾裡「改了什麼」（預設是還沒存版本的變更）。改完一批衛教檔後打它，請 AI 自己複核一遍再交給你。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-oc-at.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-at.jpg" alt="OpenCode @ 選單" loading="lazy"></a><figcaption><b class="n">5</b>打「<b>@</b>」：上面是技能（@opencode 問 OpenCode 本身怎麼用、@report 回報問題、<b>@browser</b> 用內建瀏覽器開網頁、填表、截圖），中間是代理（@general 通用、@explore 只讀不改），再往下是舊的工作階段可以帶進上下文。</figcaption></figure>
     </div></div>
   </div>
   <div class="card">
