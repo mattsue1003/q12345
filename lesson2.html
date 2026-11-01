@@ -486,6 +486,40 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     </div>
     <div class="note" style="margin-bottom:0"><b>上課前一天的三分鐘檢查：</b>① 開 ChatGPT／Claude／OpenCode 桌面版各按一次「檢查更新」並重啟；② Chrome 右上沒有「更新」字樣；③ 手機三個 App 在商店裡沒有「更新」按鈕。做完這三件，截圖對得上，示範不會卡在「我的沒有這個按鈕」。</div>
   </div>
+  <div class="card" id="models">
+    <h3>什麼情況用什麼模型？ChatGPT、Claude、Gemini 的模型與「思考深度」怎麼選</h3>
+    <p style="margin-top:0">三家現在都把選擇拆成兩層：<b>選模型</b>（大腦大小）＋<b>選思考深度</b>（想多久）。日常九成的事用預設就好；真正要調的，是下面三種情況。名稱是 2026 年 11 月初的畫面，之後會改，但「快／中／強」三檔的邏輯不會變。</p>
+    <div class="tbl"><table style="min-width:960px">
+      <tr><th>你的情況</th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th><th>為什麼</th></tr>
+      <tr><td><b>問一句、改一段、翻譯、草稿</b><br><small>大部分的日常</small></td><td>預設 GPT-6，推理強度「中」</td><td>預設 Opus 5.5，投入程度「中」</td><td>預設 3.8 Flash（全方位協助）</td><td>快、省額度、品質夠。改衛教單字句、回信、整理會議記錄都在這一層。</td></tr>
+      <tr><td><b>要快、量很大</b><br><small>分類 200 筆回饋、逐筆打標籤、批次改寫</small></td><td>GPT-6，推理強度拉到「低」</td><td><b>Haiku 5.5</b>（最快速）或 Sonnet 5.5</td><td><b>3.5 Flash-Lite</b>（回覆最快）</td><td>每一筆都簡單，用大模型是浪費額度；免費版額度有限，更要省。</td></tr>
+      <tr><td><b>要想清楚、錯不得</b><br><small>讀 PDF 指引做摘要、統計判讀、寫計畫書、長文件核對</small></td><td>GPT-6，推理強度「高」；工作模式選 GPT-6.1 Sol／Terra</td><td><b>Fable 5.1</b>（最難的挑戰），或 Opus 5.5 投入程度「高」</td><td><b>3.1 Pro</b>（進階推論）＋思考程度「高」；最難的用 <b>4 Argon</b>（複雜任務）</td><td>多想幾步才會自己檢查、少幻覺。慢 2～5 倍、額度消耗數倍，所以只留給重要的那幾題。</td></tr>
+      <tr><td><b>長時間自己跑的任務</b><br><small>工作模式、Agent、Cowork、排程</small></td><td>工作模式預設「推薦的模型組合」就好</td><td>Opus 5.5「中」或「高」；Cowork 預設即可</td><td>任務模式用預設；Agent 會自己選</td><td>Agent 要做幾十步，模型太弱會卡在中間；太貴則一個任務吃掉半天額度。預設組合已經是平衡點。</td></tr>
+    </table></div>
+    <div class="grid2" style="margin-top:12px">
+      <div class="b3"><h4>在哪裡切？（三家都在輸入框旁邊）</h4><ul style="margin:0;padding-left:18px">
+        <li><b>ChatGPT：</b>對話模式沒有模型清單，只有「<b>推理強度</b>」滑桿（低／中／高），點「中 ›」才能切 GPT-6 或 GPT-5.6 Sol。工作模式輸入框右下「GPT-6 Luna Max」→ 選取推理強度＋選取模型（預設「推薦的模型組合」、GPT-6.1 Sol、GPT-6.1 Terra、GPT-6 Astra、GPT-6 Sol、GPT-6 Luna…）。</li>
+        <li><b>Claude：</b>輸入框右下「Opus 5.5 中」→ Fable 5.1／Opus 5.5／Sonnet 5.5／Haiku 5.5，再點「<b>投入程度</b>」選低／中／高／超高／最高（最高標示「5.5 倍或更多使用量」）；「更多模型」是舊版。</li>
+        <li><b>Gemini：</b>輸入框右下「Flash ˅」→ 3.5 Flash-Lite／3.8 Flash／3.1 Pro／4 Argon，下面「<b>思考程度</b>」低／中等／高。</li>
+      </ul></div>
+      <div class="b3"><h4>四個判斷原則</h4><ul style="margin:0;padding-left:18px">
+        <li><b>先用預設，答案不滿意再升級</b>，不要一開始就開最強：慢、吃額度、而且簡單問題大模型也不會比較好。</li>
+        <li><b>「想多久」比「哪個模型」影響大。</b>同一個模型把思考深度從中拉到高，對統計判讀、長文核對的改善通常比換模型明顯。</li>
+        <li><b>免費版看得到的模型比較少、額度到了會被降級</b>（例如 Claude 免費版主要用 Sonnet／Haiku，ChatGPT 免費版高強度有次數上限）。被降級時畫面會提示，那時候改天再問或換另一家。</li>
+        <li><b>醫療內容無論用哪個模型都要查證。</b>模型再強也只是降低錯誤率，不是零；第 Q 節的「附來源、逐條核對」照做。</li>
+      </ul></div>
+    </div>
+    <div class="shots" style="margin-top:12px">
+      <figure class="shot"><a href="img/l2-model-gpt-effort.jpg" target="_blank" rel="noopener"><img src="img/l2-model-gpt-effort.jpg" alt="ChatGPT 推理強度滑桿" loading="lazy"></a><figcaption><b class="n">1</b><span class="t gpt">ChatGPT</span> 對話模式：輸入框右下「推理強度」是一條滑桿，低／中／高。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-model-gpt-chat.jpg" target="_blank" rel="noopener"><img src="img/l2-model-gpt-chat.jpg" alt="ChatGPT 對話模式模型" loading="lazy"></a><figcaption><b class="n">2</b>點「中 ›」才看得到模型：GPT-6（預設）與 GPT-5.6 Sol。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-model-gpt-work.jpg" target="_blank" rel="noopener"><img src="img/l2-model-gpt-work.jpg" alt="ChatGPT 工作模式模型清單" loading="lazy"></a><figcaption><b class="n">3</b>工作模式的清單比較長，最上面「預設：推薦的模型組合」就是給 Agent 用的平衡選項。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-model-claude.jpg" target="_blank" rel="noopener"><img src="img/l2-model-claude.jpg" alt="Claude 模型選單" loading="lazy"></a><figcaption><b class="n">4</b><span class="t cl">Claude</span>：四個模型各附一句用途，Fable「最艱難的挑戰」、Haiku「最快速」。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-model-claude-effort.jpg" target="_blank" rel="noopener"><img src="img/l2-model-claude-effort.jpg" alt="Claude 投入程度" loading="lazy"></a><figcaption><b class="n">5</b>「投入程度」五檔，說明寫得很白：越高越詳盡、越慢、越快耗掉使用量。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-model-gemini.jpg" target="_blank" rel="noopener"><img src="img/l2-model-gemini.jpg" alt="Gemini 模型選單" loading="lazy"></a><figcaption><b class="n">6</b><span class="t ge">Gemini</span>：Flash-Lite 回覆最快、Flash 全方位、Pro 進階推論、Argon 複雜任務。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-model-gemini-think.jpg" target="_blank" rel="noopener"><img src="img/l2-model-gemini-think.jpg" alt="Gemini 思考程度" loading="lazy"></a><figcaption><b class="n">7</b>「思考程度」低（高效）／中等（適中）／高（詳盡）。</figcaption></figure>
+    </div>
+    <div class="note teal" style="margin-bottom:0"><b>OpenCode 的模型選法</b>（免費模型為主、哪些是中國做的）在第 A 節「OpenCode 裡的模型怎麼選」那張卡。</div>
+  </div>
 </section>
 
 <!-- 1 -->
