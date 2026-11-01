@@ -454,6 +454,25 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <div class="b3"><h4>怎麼確認自己用的是正版？</h4><p style="margin:0">只從上表連結或官方 App Store／Google Play 下載。搜尋時常見「ChatGPT 中文版」「免登入 GPT」等仿冒網站，會收集你輸入的內容，不要用。</p></div>
     </div>
   </div>
+  <div class="card" id="update">
+    <h3>上課前先更新：各平台怎麼更新、怎麼設成自動更新</h3>
+    <p style="margin-top:0">AI 工具幾乎每週改介面、加功能（例如 ChatGPT 的「錄製技能」只有新版桌面程式才有）。講義截圖是 2026 年 11 月初的版本，<b>上課前一天把下面這些都更新一次</b>，畫面才會對得上。原則：手機靠 App Store／Play 商店自動更新；電腦程式自己會檢查，但要「重新啟動」才真的換新版；網頁版（chatgpt.com、claude.ai、gemini.google.com）不用更新，重新整理就是最新。</p>
+    <div class="tbl"><table style="min-width:900px">
+      <tr><th>平台／程式</th><th>手動更新在哪裡</th><th>自動更新怎麼設</th><th>備註</th></tr>
+      <tr><td><b>ChatGPT 桌面版（Mac）</b></td><td>選單列「ChatGPT」→「<b>檢查更新…</b>」；左下角出現<img src="img/l2-upd-badge.jpg" alt="藍色下載圖示" style="height:1.4em;vertical-align:middle;border-radius:4px;margin:0 3px">「有可用的更新」就是新版已下載，點它重新啟動。</td><td>預設自動下載，不用設；只要記得重啟程式。</td><td>「錄製技能」「工作」模式等新功能都要新版。</td></tr>
+      <tr><td><b>ChatGPT 桌面版（Windows）</b></td><td>從 Microsoft Store 安裝的：開 Microsoft Store → 左下「資料庫」→「取得更新」。</td><td>Microsoft Store → 右上個人圖示 → 設定 → 「<b>應用程式更新</b>」開啟。</td><td>Windows 版功能比 Mac 版少，Record &amp; Replay 目前只有 Mac。</td></tr>
+      <tr><td><b>Claude 桌面版</b></td><td>Mac：選單列「Claude」→「Check for Updates…」。Windows：「Help」→「Check for Updates…」；Store 版同上走 Microsoft Store。</td><td>程式自己定時檢查並下載，重啟時套用；公司電腦若有管制會被鎖住。</td><td>桌面版更新不等於 Claude Code 更新（見下）。</td></tr>
+      <tr><td><b>Claude Code（終端機）</b></td><td>終端機打 <code>claude update</code>；<code>claude --version</code> 看版本。</td><td>原生安裝版預設背景自動更新；用 npm 裝的要自己打 <code>claude update</code>。</td><td>Claude 桌面版 Code 分頁內建自己的一份，跟終端機那份版本可能不同。</td></tr>
+      <tr><td><b>OpenCode 桌面版</b></td><td>選單列「OpenCode」→「<b>檢查更新…</b>」；同一選單有「重新啟動」。</td><td>預設啟動時自動檢查並下載。</td><td>同選單的「安裝 CLI…」可一併裝終端機版。</td></tr>
+      <tr><td><b>OpenCode CLI（終端機）</b></td><td><code>opencode upgrade</code>（可指定版本，例 <code>opencode upgrade 1.1.5</code>）。</td><td>預設啟動時自動更新；不想要就在 opencode.json 加 <code>"autoupdate": false</code>（或 <code>"notify"</code> 只通知）。</td><td>用 Homebrew 裝的走 <code>brew upgrade opencode</code>，自動更新不作用。</td></tr>
+      <tr><td><b>Chrome 與 Claude in Chrome 擴充功能</b></td><td>Chrome：右上「⋮」→ 說明 → 關於 Google Chrome，會自動檢查，按「重新啟動」。擴充功能：網址列打 <code>chrome://extensions</code> → 右上開「開發人員模式」→「更新」。</td><td>兩者都預設自動更新（Chrome 幾小時檢查一次，擴充功能跟著 Chrome）。</td><td>Chrome 右上出現綠／橘／紅色「更新」字樣就是等太久了。</td></tr>
+      <tr><td><b>Gemini</b></td><td>網頁版不用更新。手機 App 走商店（見下）。</td><td>—</td><td>Gem 與技能等新功能以網頁版最先上。</td></tr>
+      <tr><td><b>iPhone／iPad</b>（ChatGPT、Claude、Gemini App）</td><td>App Store → 右上頭像 → 往下拉重新整理 → 逐一「更新」或「全部更新」。</td><td>設定 → App Store → 「<b>App 更新</b>」開啟（行動數據下載可另外開）。</td><td>院內 Wi-Fi 若擋 App Store，回家會自動補更新。</td></tr>
+      <tr><td><b>Android</b></td><td>Play 商店 → 右上頭像 → 管理應用程式和裝置 → 「有可用的更新」。</td><td>Play 商店 → 頭像 → 設定 → 網路偏好設定 → 「<b>自動更新應用程式</b>」→ 選「僅限 Wi-Fi」。</td><td>也可在單一 App 頁面右上「⋮」勾「啟用自動更新」。</td></tr>
+      <tr><td><b>Mac App Store 程式</b>（Canva、LINE 等）</td><td>App Store → 左側「更新項目」。</td><td>系統設定 → App Store（或「一般 → 軟體更新」）→ 「<b>自動更新</b>」開啟。</td><td>macOS 本身的更新也在「一般 → 軟體更新」；系統版本不同，桌面控制的權限畫面偶爾會長得不一樣。</td></tr>
+    </table></div>
+    <div class="note" style="margin-bottom:0"><b>上課前一天的三分鐘檢查：</b>① 開 ChatGPT／Claude／OpenCode 桌面版各按一次「檢查更新」並重啟；② Chrome 右上沒有「更新」字樣；③ 手機三個 App 在商店裡沒有「更新」按鈕。做完這三件，截圖對得上，示範不會卡在「我的沒有這個按鈕」。</div>
+  </div>
 </section>
 
 <!-- 1 -->
