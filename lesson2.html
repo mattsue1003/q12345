@@ -666,7 +666,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <tr><td>Claude Haiku 5.5、GPT 6 Luna、Gemini 3.5 Flash Lite</td><td>同上三家</td><td>約 US$0.1～0.3／US$0.5～2.5</td><td>快、便宜，一次交辦不到一塊台幣</td><td>複雜任務會偷懶</td><td>轉檔、分類、改錯字、整理清單</td></tr>
       <tr><td>Grok 4.7、Mistral Large 4</td><td>xAI（美國）、Mistral（法國）</td><td>US$2／US$6、US$0.68／US$2.09</td><td>非中國的平價選項</td><td>中文與醫療用語不如上面三家</td><td>備用</td></tr>
     </table></div>
-    <div class="shots" style="margin-top:12px"><figure class="shot"><a href="img/l2-oc-free.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-free.jpg" alt="OpenCode 官方免費模型清單" loading="lazy"></a><figcaption><b class="n">1</b>官方文件的免費模型清單（2026/11）。課堂選 <b>Nemotron 3 Ultra Free</b>；在 OpenCode 打「/models」就能切換。MiMo 是小米的，跳過。</figcaption></figure></div>
+    <div class="shots" style="margin-top:12px"><figure class="shot"><a href="img/l2-oc-home.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-home.jpg" alt="OpenCode 桌面版首頁" loading="lazy"></a><figcaption><b class="n">1</b>OpenCode 桌面版：左上是目前資料夾（專案），輸入框下方「OpenCode／Beam Free」就是模型，點它換模型；提示文字寫著「/ 可使用命令，@ 可加入上下文」。</figcaption></figure><figure class="shot"><a href="img/l2-oc-free.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-free.jpg" alt="OpenCode 官方免費模型清單" loading="lazy"></a><figcaption><b class="n">2</b>官方文件的免費模型清單（2026/11）。課堂選 <b>Nemotron 3 Ultra Free</b>；在 OpenCode 打「/models」就能切換。MiMo 是小米的，跳過。</figcaption></figure></div>
     <div class="grid2" style="margin-top:12px">
       <div class="card" style="margin:0">
         <h3>免費和付費差在哪</h3>
@@ -1379,6 +1379,40 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
           <li><b>資料流向先想清楚。</b>接上雲端硬碟，AI 就看得到那裡所有檔案。院內資料夾、病人名單不要放在授權範圍內；用個人帳號的練習資料夾。</li>
         </ul>
         <div class="note" style="margin-bottom:0"><b>OpenCode 怎麼接 MCP：</b>在練習資料夾的 <code>opencode.json</code> 加一段 <code>mcp</code> 設定，或直接對它說「幫我加上 Zotero 的 MCP，設定前先告訴我會改哪個檔」。第 5 堂實作。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card" id="ctrl">
+    <h3>名詞解釋：瀏覽器控制、Chrome 控制、桌面控制、背景控制，差在哪？要先設定什麼？</h3>
+    <p style="margin-top:0">這四個詞都是「讓 AI 替你動手」的不同範圍。從小到大：<b>一個網頁 → 你的整個 Chrome → 任何桌面程式</b>；「背景／全螢幕」則是桌面控制的兩種模式。</p>
+    <div class="tbl"><table style="min-width:960px">
+      <tr><th>名稱</th><th>AI 能碰到什麼</th><th>誰有</th><th>適合</th><th>風險</th></tr>
+      <tr><td><b>瀏覽器控制</b>（雲端瀏覽器）</td><td>AI 自己在雲端開一個瀏覽器，讀網頁、點按鈕、填表。<b>不是你的瀏覽器</b>，沒有你的登入狀態。</td><td>ChatGPT「雲端瀏覽器」（Agent 模式）、Gemini Agent 模式</td><td>公開網站查資料、比價、填公開表單</td><td>要登入的網站得在它的瀏覽器重新登入；資料經過雲端</td></tr>
+      <tr><td><b>Chrome 控制</b>（Claude in Chrome）</td><td>裝一個擴充功能，AI 操作<b>你自己的 Chrome</b>：看得到你已登入的 Gmail、學會網站、院內系統。可讀 DOM，比看截圖快又準。</td><td>Claude（擴充功能）；ChatGPT 的 Atlas 瀏覽器是同類</td><td>學分查詢、報名、整理你帳號裡的東西；本講義的截圖就是這樣抓的</td><td>它用的是你的身分；每個網站第一次會問你允不允許</td></tr>
+      <tr><td><b>桌面控制</b>（Computer use）</td><td>截圖、移滑鼠、點、打字，<b>任何桌面程式</b>都能操作：Excel、PowerPoint、OpenCode、LINE。</td><td>Claude 桌面版（Cowork／Code）、OpenCode 與 Claude Code 的 computer-use、Codex 桌面版</td><td>沒有網頁版、沒有 API 的老程式；跨程式的流程</td><td>最強也最危險：它看得到螢幕上一切、能按任何鍵</td></tr>
+      <tr><td><b>背景控制</b> vs <b>全螢幕控制</b><br><small>桌面控制的兩種模式</small></td><td><b>背景：</b>只對你授權的那一個程式視窗操作，不搶滑鼠，你可以繼續用別的程式。<b>全螢幕：</b>接管整個螢幕與鍵盤，邊緣會發光，你要停手等它做完。</td><td>Claude 桌面版的授權對話框會讓你選</td><td>背景：單一程式的重複工作。全螢幕：要跨程式、拖拉、或背景模式點不到的時候</td><td>背景模式下你在打字，它也在打字，兩邊不會互相干擾；全螢幕模式下千萬別同時動鍵盤</td></tr>
+    </table></div>
+    <div class="grid2" style="margin-top:12px">
+      <div class="card" style="margin:0">
+        <h3>上課前要先做好的設定（Mac 為例）</h3>
+        <ol class="steps">
+          <li><b>系統權限：</b>系統設定 → 隱私權與安全性 → 「螢幕錄製與系統音訊」「輔助使用」「自動化」都加入 Claude（或 OpenCode）。沒給就只能截圖、不能點。</li>
+          <li><b>Chrome：</b>安裝「Claude in Chrome」擴充功能並用同一個 Claude 帳號登入；釘選在工具列。</li>
+          <li><b>第一次授權：</b>AI 要操作某個程式或網站時會跳對話框，列出它要碰的程式；這裡選「背景」或「全螢幕」。瀏覽器類程式只給「唯讀」、終端機類只給「點擊」，是系統預設的保護。</li>
+          <li><b>桌面空間：</b>把要給 AI 操作的程式放在<b>同一個一般桌面</b>，不要用全螢幕模式（綠燈放大）的桌面：視窗搬不進全螢幕空間，背景模式就點不到。</li>
+          <li><b>清場：</b>關掉會蓋住目標視窗的其他程式（被蓋住的地方點不到）、關掉含病人資料的視窗、先開好去識別化的練習資料夾。</li>
+          <li><b>舊任務：</b>OpenCode／Claude Code 若有「已中斷」的舊工作階段，先開新的工作階段再交辦，避免舊任務被重新觸發。</li>
+        </ol>
+      </div>
+      <div class="card" style="margin:0">
+        <h3>彼此怎麼搭配、怎麼選</h3>
+        <ul>
+          <li><b>先問「這件事在哪裡發生」：</b>在網頁上 → Chrome 控制（要你的登入）或雲端瀏覽器（公開網站）；在桌面程式 → 桌面控制；在資料夾 → 根本不用控制，交給 OpenCode 直接讀寫檔案最穩。</li>
+          <li><b>同一個對話可以接力：</b>例：Chrome 控制到學會網站查學分 → 桌面控制打開 Excel 登記 → OpenCode 把登記表轉成月報。各做自己最擅長的一段。</li>
+          <li><b>能用 API／MCP 就不要用控制：</b>控制是「看畫面、點按鈕」，慢且會點錯；Google 日曆、雲端硬碟、Canva 都有連接器，直接接。控制留給沒有接口的系統。</li>
+          <li><b>背景優先，全螢幕備用：</b>背景模式你不會被打斷；真的點不到（視窗被蓋、在別的桌面）再切全螢幕，做完就收回。</li>
+        </ul>
+        <div class="note red" style="margin-bottom:0"><b>講師實測踩到的三個坑（2026/11）：</b>① 目前桌面是全螢幕 App，OpenCode 視窗搬不過來；② ChatGPT 桌面程式的視窗蓋在 OpenCode 上面，點擊被擋；③ OpenCode 舊的「已中斷」工作階段被重新觸發，開始跑原本的任務，要立刻按停止。所以上面第 4、5、6 條不是客套話。</div>
       </div>
     </div>
   </div>
