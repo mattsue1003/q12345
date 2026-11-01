@@ -768,7 +768,7 @@ figure.mock{margin:0;background:var(--card);border:1px solid var(--line);border-
     <div class="card ge-c"><h3><span class="t ge">Gemini</span>強項，免費就能用</h3>
       <ul><li>「工具」→「建立圖像」（Nano Banana 模型）</li><li>圖片生成後直接講「把右上角小字刪掉、背景改淺綠」，它會只改那一處</li><li>中文字與資訊圖卡排版表現好，適合衛教圖卡初稿</li></ul></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>不生照片，改做「圖表型」圖卡</h3>
-      <ul><li>Claude 沒有內建照片式生圖</li><li>請它「做成一張可下載的資訊圖卡（HTML／SVG）」，用 Artifacts 產生，文字百分之百正確、可再改</li><li>連接 Canva 後，可請它直接在 Canva 建立設計</li></ul></div>
+      <ul><li>Claude 沒有內建照片式生圖</li><li>請它「做成一張可下載的資訊圖卡（HTML／SVG）」，用 Artifacts 產生，文字百分之百正確、可再改</li><li>連接 Canva 後，可請它直接在 Canva 建立設計</li><li>看得懂參考圖：可請它拆解風格、寫好生圖提示詞，再貼到 Gemini 用 Nano Banana 生成</li></ul></div>
   </div>
   <div class="card">
     <h3>去掉 AI 味的三個技巧</h3>
@@ -779,6 +779,61 @@ figure.mock{margin:0;background:var(--card);border:1px solid var(--line);border-
     </ol>
     <div class="prompt"><span class="label">衛教圖卡提示詞</span>請生成一張直式衛教圖卡，主題是「低血糖 15-15 法則」。對象是 70 歲長者，字要大、最多 4 個步驟，每步一個簡單圖示。配色用柔和的大自然色（淺綠、米白），不要金屬感、不要任何裝飾性小字。右下角放小字「AI 協力製作，衛教師審訂」。</div>
     <div class="note red"><b>版權與送審：</b>網路上常見的做法是「找無版權海報當風格參考」，在醫院請更保守：只用院內自有素材或確認授權的圖當參考；人物照片不要用真實病人。圖卡上的醫療內容一律由衛教師核對後再送院內審查（第 3 堂會細講肖像與版權）。</div>
+  </div>
+  <div class="card">
+    <h3>進階：丟一張圖，請 AI「照這個風格」畫</h3>
+    <p style="margin-top:0">做系列衛教圖卡最好用的方法。三個工具都看得懂上傳的圖，但能「照風格生圖」的是 Gemini 和 ChatGPT。</p>
+    <div class="tbl"><table>
+      <tr><th>工具</th><th>能不能參照上傳的圖</th><th>適合</th></tr>
+      <tr><td><span class="t ge">Gemini</span></td><td>可以，最強；Pro 版一次可放多張參考圖（官方以外資料稱最多 14 張）</td><td>風格轉換、人物一致、多張合成</td></tr>
+      <tr><td><span class="t gpt">ChatGPT</span></td><td>可以，可上傳多張</td><td>照風格生成，再用「編輯」局部修改</td></tr>
+      <tr><td><span class="t cl">Claude</span></td><td>看得懂、不能生圖</td><td>拆解風格、寫成提示詞</td></tr>
+    </table></div>
+    <div class="note" style="margin-top:12px"><b>圖片連結不可靠：</b>直接貼網址，AI 常讀不到圖或只讀到網頁文字。請先下載或截圖，再用「＋」上傳。</div>
+    <ol class="steps">
+      <li><b>先拆風格、不畫圖：</b>上傳參考圖，請 AI 把色彩、線條、人物畫法、構圖寫成一段「風格說明」</li>
+      <li><b>存成風格卡：</b>把風格說明存起來，以後每次貼上</li>
+      <li><b>生圖時講清楚角色：</b>「第 1 張只管風格，不要照抄人物和內容」，不寫的話 AI 常把參考圖整個抄過來</li>
+      <li><b>系列在同一個對話做：</b>第一張滿意後說「接下來都用這個風格」</li>
+      <li><b>長期使用放進專案：</b>參考圖＋風格說明放進 ChatGPT 專案或 Gemini 的 Gem（第 14 節）</li>
+    </ol>
+    <div class="prompt"><span class="label">① 拆風格（三個工具都能用）</span>請分析我上傳的這張圖的視覺風格，先不要畫圖。請用條列寫出：
+1. 整體風格（例如扁平插畫、水彩、等距 3D）
+2. 主色與輔色（盡量給色碼）
+3. 線條粗細與描邊方式
+4. 人物畫法（比例、五官、表情）
+5. 構圖與留白
+6. 文字區塊的位置與字體感覺
+最後整理成一段 80 字內的「風格說明」，讓我之後生圖時可以直接貼上。</div>
+    <div class="prompt"><span class="label">② 照風格生成新圖卡（Gemini、ChatGPT）</span>第 1 張圖是「風格參考」：只參考它的畫風、色彩、線條，不要照抄裡面的人物和內容。
+請畫一張糖尿病衛教圖卡，主題是「每天檢查雙腳 5 步驟」。
+對象：65 歲以上長者。直式 4:5。
+畫面：一位台灣長輩坐在椅子上檢查腳底，旁邊用 5 個小圖示表示步驟。
+文字只放標題「每天看腳 5 步驟」，其他文字我會自己加。
+風格說明：（貼上第①步的風格說明）</div>
+    <div class="prompt"><span class="label">③ 多張參考圖、分配角色（Gemini 最適合）</span>圖 1：風格參考（畫風與色彩）
+圖 2：人物參考（請保持這位衛教師角色的長相與制服）
+圖 3：場景參考（門診衛教室）
+請用圖 1 的風格，讓圖 2 的人物在圖 3 的場景中，示範胰島素筆的注射部位。
+不要加入任何文字。</div>
+    <div class="prompt"><span class="label">④ 系列一致（第二張以後）</span>很好，接下來這一系列都用這張的風格、人物和配色，不要改變。
+下一張主題：「低血糖時先吃 15 克糖」。</div>
+    <div class="prompt"><span class="label">⑤ 鎖住不能變的地方（局部修改）</span>只修改右下角的食物圖示，換成一杯果汁。
+人物、背景、配色、標題文字都保持完全不變。</div>
+    <div class="grid3" style="margin-top:14px">
+      <div class="b3"><h4>文字越少越好</h4><p style="margin:0">中文字常出錯。讓 AI 只畫圖，字到 Canva 或簡報自己加。</p></div>
+      <div class="b3"><h4>不用寫「8K、大師級」</h4><p style="margin:0">這類詞沒效果，把字數花在描述畫面內容。</p></div>
+      <div class="b3"><h4>改圖要說「什麼不變」</h4><p style="margin:0">沒鎖住的地方，AI 可能順手改掉人物或文字。</p></div>
+    </div>
+    <h3 style="margin-top:18px">範例圖與提示詞資料庫</h3>
+    <div class="tbl"><table>
+      <tr><th>資料庫</th><th>內容</th><th>適合</th></tr>
+      <tr><td><a href="https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts" target="_blank" rel="noopener">YouMind awesome-nano-banana-pro-prompts</a></td><td>社群整理上萬則提示詞，附預覽圖，有網頁版可搜尋</td><td>找特定風格、資訊圖表</td></tr>
+      <tr><td><a href="https://github.com/PicoTrex/Awesome-Nano-Banana-images" target="_blank" rel="noopener">PicoTrex Awesome-Nano-Banana-images</a></td><td>「輸入圖 → 輸出圖」對照加上提示詞</td><td>學「丟圖改風格」的寫法</td></tr>
+      <tr><td><a href="https://github.com/ZeroLu/awesome-nanobanana-pro" target="_blank" rel="noopener">ZeroLu awesome-nanobanana-pro</a></td><td>Pro 版進階提示詞範例</td><td>多張參考圖、進階用法</td></tr>
+    </table></div>
+    <p style="margin:8px 0 0">以英文和簡體中文為主。提示詞可以複製，再請 AI 改成衛教主題；圖片是社群蒐集，不一定能商用，只參考寫法，不要直接拿圖來用。</p>
+    <div class="note red" style="margin-top:12px"><b>醫療場域三條界線：</b>① 參照「風格」可以，但不要上傳別家醫院單張、知名插畫家作品或卡通角色要它照著畫；② 參考圖裡不能有病人的臉、病歷或手環；③ 注射部位、食物份量這類圖，生成後一定由專業人員核對。</div>
   </div>
 </section>
 
