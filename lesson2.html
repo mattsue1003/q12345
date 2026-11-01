@@ -547,7 +547,38 @@ th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
     <div class="card ge-c"><h3><span class="t ge">Gemini</span>對應做法</h3>
       <ol class="steps"><li>左下「設定與說明」→「個人背景資訊」</li><li>「給 Gemini 的指示」（舊名「已儲存的資訊」）：逐條新增</li><li>同頁可開啟「參考過往對話」</li></ol></div>
     <div class="card oc-c"><h3><span class="t oc">OpenCode</span>對應做法</h3>
-      <ol class="steps"><li>在練習資料夾裡建立一個文字檔，命名 <b>AGENTS.md</b></li><li>把下方「自訂指示」整段貼進去存檔</li><li>之後在這個資料夾開 OpenCode，每次交辦它都會先讀這份規則</li></ol></div>
+      <ol class="steps"><li>在練習資料夾開 OpenCode，請它建立 <b>AGENTS.md</b>（做法見下方）</li><li>把下方「自訂指示」整段放進去存檔</li><li>之後在這個資料夾開 OpenCode，每次交辦它都會先讀這份規則</li></ol></div>
+  </div>
+  <div class="card oc-c">
+    <h3><span class="t oc">OpenCode</span>AGENTS.md 是什麼？怎麼做？</h3>
+    <div class="grid2">
+      <div>
+        <h4 style="margin-top:0">先搞懂名字</h4>
+        <ul>
+          <li><b>.md</b> 是 Markdown 的副檔名，本質就是<b>純文字檔</b>，和 .txt 一樣能用記事本打開。用 # 當標題、- 當條列，人和 AI 都好讀。</li>
+          <li><b>檔名要一字不差：</b><code>AGENTS.md</code>，AGENTS 大寫、有 S、副檔名 .md。OpenCode 只會自動讀這個名字，取成 agent.md、規則.md 都不會生效。</li>
+          <li><b>位置：</b>放在練習資料夾的最上層。它管這個資料夾和裡面所有子資料夾。</li>
+          <li><b>已經有 CLAUDE.md？</b>資料夾裡沒有 AGENTS.md 時，OpenCode 會改讀 CLAUDE.md，所以 Claude Code 和 OpenCode 可以共用同一份規則。</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="margin-top:0">做法一：叫 OpenCode 幫你建（推薦）</h4>
+        <ol class="steps">
+          <li>在練習資料夾開 OpenCode</li>
+          <li>複製下方「自訂指示」，貼上這句再送出：</li>
+        </ol>
+        <div class="prompt"><span class="label">建立 AGENTS.md</span>請在這個資料夾最上層建立一個檔案，檔名一字不差叫 AGENTS.md，內容是我下面貼的規則，用 Markdown 條列整理，不要增加我沒寫的規則。建好後把完整內容唸給我確認。
+（貼上自訂指示）</div>
+        <p style="margin:0">也可以在 OpenCode 輸入 <code>/init</code>，它會掃描資料夾自動產生一份 AGENTS.md，再請它把你的自訂指示加進去。</p>
+      </div>
+    </div>
+    <details style="margin-top:12px"><summary><b>做法二：自己用記事本建（Windows／Mac）</b></summary>
+      <div class="grid2" style="margin-top:10px">
+        <div><h4 style="margin-top:0">Windows</h4><ol class="steps"><li>檔案總管上方「檢視」→「顯示」→ 勾選<b>副檔名</b>（不勾會變成 AGENTS.md.txt）</li><li>在練習資料夾空白處按右鍵 →「新增」→「文字文件」</li><li>整個檔名改成 <code>AGENTS.md</code>，跳出「變更副檔名」警告選「是」</li><li>右鍵 →「開啟檔案」→ 記事本，貼上規則 → 存檔</li></ol></div>
+        <div><h4 style="margin-top:0">Mac</h4><ol class="steps"><li>打開「文字編輯」→ 選單「格式」→「製作純文字」（⇧⌘T）</li><li>貼上規則</li><li>⌘S 存檔，檔名打 <code>AGENTS.md</code>，位置選練習資料夾</li><li>若跳出「使用 .md 或 .txt？」選 <b>使用 .md</b></li></ol></div>
+      </div>
+    </details>
+    <div class="note" style="margin:12px 0 0"><b>檢查有沒有生效：</b>在 OpenCode 問「你目前有讀到哪些規則？請列出 AGENTS.md 的內容」。答不出來，多半是檔名錯（例如變成 AGENTS.md.txt）或放錯資料夾。</div>
   </div>
   <div class="card">
     <h3>步驟一：用語音做 3 分鐘自我介紹，請 AI 整理成記憶</h3>
