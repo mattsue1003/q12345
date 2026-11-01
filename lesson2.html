@@ -588,7 +588,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <tr><td><span class="t ge">Gemini</span></td><td>排定動作；Agent 模式（陸續開放）</td><td>每週自動整理公告；Google 全家桶內的跨 App 任務</td><td>今天第 11 節</td></tr>
     </table></div>
     <div class="note teal"><b>Cowork、Claude Code、OpenCode 怎麼選？</b>Cowork 給「不碰程式」的文書工作，像是整理資料夾、做簡報、排程。Claude Code 和 OpenCode 都是「資料夾裡的代理」，能裝工具、跑指令。差別在 Claude Code 只能用 Claude 模型、要付費方案；OpenCode 免費、可換不同模型。已付費 Claude 的人用 Claude Code，其他人用 OpenCode，教的提示詞和 AGENTS.md／CLAUDE.md 寫法都通用。</div>
-  <div class="note" style="margin:14px 0 0"><b>代理的三條界線（第 5 堂會細講）：</b>① 只在去識別化的資料夾與個人帳號裡動作；② 會「變更」的動作一律要先問你（外掛權限選「允許讀取動作」）；③ 任何進入病歷、公文、對外文件的內容，由人簽名負責。</div>
+  <div class="note" style="margin:14px 0 0"><b>代理的三條界線（第 5 堂會細講）：</b>① 只在去識別化的資料夾與個人帳號裡動作；② 會「變更」的動作一律要先問你（外掛權限選「允許唯讀工具」）；③ 任何進入病歷、公文、對外文件的內容，由人簽名負責。</div>
   </div>
   <div class="note teal"><b>它和後面功能的關係：</b>第 4 節「讓 AI 懂你」在 OpenCode 叫 AGENTS.md；第 12 節「外掛」它天生就有（讀寫檔案、跑指令）；第 13 節「深度工作」是它的主場；第 14 節「專案」就是一個資料夾。每一節都會標出來。</div>
 </section>
@@ -1115,10 +1115,30 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
 <section id="s13">
   <div class="sec-head"><div class="num">13</div><div><h2>深度工作：從 80 分作業到 120 分研究報告</h2><p>讓 AI 花 10～20 分鐘拆解任務、查資料、做出檔案。這是目前三個工具最強的用法。</p></div></div>
   <div class="tri">
-    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>Work（工作）</h3><ul><li>對話上方從「對話」切到「工作」</li><li>可指定專案、強制使用的檔案、串接外掛</li><li>直接產出文件、試算表、簡報、網站</li></ul></div>
-    <div class="card cl-c"><h3><span class="t cl">Claude</span>研究＋Cowork</h3><ul><li>網頁版：對話框開「研究」，會搜尋數十個來源並附引用</li><li>桌面版 Cowork：交代一件長任務，它在你電腦的資料夾裡產出 Excel、Word、PowerPoint 檔</li></ul></div>
-    <div class="card ge-c"><h3><span class="t ge">Gemini</span>深入研究</h3><ul><li>「工具」→「深入研究」，先給你研究計畫可修改</li><li>完成後按「建立」：轉成網頁、資訊圖表、測驗或語音摘要</li><li>報告可匯出成 Google 文件</li></ul></div>
+    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>Work（工作）</h3><ul><li>首頁上方從「對話」切到「工作」；或「＋」→「深度研究」</li><li>輸入框下方可「選擇專案」、指定「檔案」、串接「外掛程式」</li><li>直接產出文件、試算表、簡報、網站</li></ul></div>
+    <div class="card cl-c"><h3><span class="t cl">Claude</span>研究＋Cowork</h3><ul><li>網頁版：對話框「＋」→「研究」，會搜尋數十個來源並附引用</li><li>桌面版 Cowork：交代一件長任務，它在你電腦的資料夾裡產出 Excel、Word、PowerPoint 檔</li></ul></div>
+    <div class="card ge-c"><h3><span class="t ge">Gemini</span>深入研究</h3><ul><li>「＋」→「更多工具」→「Deep Research」，先給你研究方案，按「修改方案」或「開始研究」</li><li>完成後按「建立」：轉成網頁、資訊圖表、測驗或語音摘要</li><li>報告可匯出成 Google 文件</li></ul></div>
     <div class="card oc-c"><h3><span class="t oc">OpenCode</span>代理的主場</h3><ul><li>對話工具的深度模式擅長「查資料寫報告」；OpenCode 擅長「處理你手上的檔案」</li><li>例：讀 60 筆合成個案的 Excel → 算達標率 → 畫圖 → 存成報表檔，一次交辦</li><li>它會邊做邊回報每一步，做錯可以叫它改，不用重來</li></ul></div>
+  </div>
+  <div class="card">
+    <h3>實際操作畫面（2026 年 11 月）</h3>
+    <p style="margin-top:0">講師帳號的真實畫面，點圖可放大。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="s13g" data-t="s13g-gpt"><span class="t gpt">ChatGPT</span></button>
+      <button class="tab" data-g="s13g" data-t="s13g-cl"><span class="t cl">Claude</span></button>
+      <button class="tab" data-g="s13g" data-t="s13g-ge"><span class="t ge">Gemini</span></button>
+    </div>
+    <div class="panel on" data-g="s13g" id="s13g-gpt"><div class="shots">
+      <figure class="shot"><a href="img/l2-s13-gpt-work.jpg" target="_blank" rel="noopener"><img src="img/l2-s13-gpt-work.jpg" alt="ChatGPT 工作模式" loading="lazy"></a><figcaption><b class="n">1</b>上方切到「工作」：輸入框下方可選專案、檔案、外掛程式；一次交代整件事。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-s3-gpt-plus.jpg" target="_blank" rel="noopener"><img src="img/l2-s3-gpt-plus.jpg" alt="ChatGPT 加號選單中的深度研究" loading="lazy"></a><figcaption><b class="n">2</b>只想查資料寫報告：「＋」→「深度研究」。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="s13g" id="s13g-cl"><div class="shots">
+      <figure class="shot"><a href="img/l2-s3-cl-plus.jpg" target="_blank" rel="noopener"><img src="img/l2-s3-cl-plus.jpg" alt="Claude 加號選單中的研究" loading="lazy"></a><figcaption><b class="n">1</b>「＋」→「研究」：會搜尋數十個來源，報告逐句附引用。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="s13g" id="s13g-ge"><div class="shots">
+      <figure class="shot"><a href="img/l2-ge-1-menu.jpg" target="_blank" rel="noopener"><img src="img/l2-ge-1-menu.jpg" alt="Gemini 更多工具中的 Deep Research" loading="lazy"></a><figcaption><b class="n">1</b>「＋」→「更多工具」→「Deep Research」。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-ama-ge-plan.jpg" target="_blank" rel="noopener"><img src="img/l2-ama-ge-plan.jpg" alt="Gemini 研究方案" loading="lazy"></a><figcaption><b class="n">2</b>送出後先出研究方案。先按「修改方案」要求「繁體中文、只用學術與官方來源、加入台灣國健署資料」，再按「開始研究」。</figcaption></figure>
+    </div></div>
   </div>
   <div class="card">
     <h3>祕技：兩段式提示詞</h3>
@@ -1187,8 +1207,26 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
   <div class="tri">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>專案</h3><ul><li>左側「專案」→ 建立</li><li>上傳來源檔案、設定專案指示</li><li>專案有自己獨立的記憶</li></ul></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>專案（Projects）</h3><ul><li>左側「專案」→「建立專案」</li><li>「專案知識」上傳檔案；「設定專案指示」貼固定規則</li><li>免費版即可建立</li></ul></div>
-    <div class="card ge-c"><h3><span class="t ge">Gemini</span>Gem／筆記本</h3><ul><li><b>Gem：</b>「Gem 管理工具」→ 新增 Gem，寫指示＋上傳知識檔，像一個專屬小助手</li><li><b>筆記本：</b>把對話與資料歸在同一個專案資料夾，可與 NotebookLM 同步</li></ul></div>
+    <div class="card ge-c"><h3><span class="t ge">Gemini</span>Gem／筆記本</h3><ul><li><b>Gem：</b>「Gem 管理工具」→ 新增 Gem，寫指示＋上傳知識檔，像一個專屬小助手。<b>注意：2026/11/17 起 Gem 會自動轉成「技能」</b>，做法相同、名稱改變</li><li><b>筆記本：</b>把對話與資料歸在同一個專案資料夾，可與 NotebookLM 同步</li></ul></div>
     <div class="card oc-c"><h3><span class="t oc">OpenCode</span>一個資料夾就是一個專案</h3><ul><li>開一個資料夾「衛教單張改寫室」，裡面放 AGENTS.md（規則）＋已公開單張（知識）</li><li>在這個資料夾開 OpenCode，就等於進了這個專案</li><li>產出的檔案直接留在資料夾裡，不用再下載</li></ul></div>
+  </div>
+  <div class="card">
+    <h3>實際操作畫面：建立「衛教單張改寫室」</h3>
+    <p style="margin-top:0">講師帳號實際打開建立畫面（2026 年 11 月），截圖時沒有真的建立。點圖可放大。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="s14g" data-t="s14g-gpt"><span class="t gpt">ChatGPT</span></button>
+      <button class="tab" data-g="s14g" data-t="s14g-cl"><span class="t cl">Claude</span></button>
+      <button class="tab" data-g="s14g" data-t="s14g-ge"><span class="t ge">Gemini</span></button>
+    </div>
+    <div class="panel on" data-g="s14g" id="s14g-gpt"><div class="shots">
+      <figure class="shot"><a href="img/l2-s14-gpt-new.jpg" target="_blank" rel="noopener"><img src="img/l2-s14-gpt-new.jpg" alt="ChatGPT 建立專案" loading="lazy"></a><figcaption><b class="n">1</b>左側「專案」旁的「＋」：輸入專案名稱。「預設記憶」可選讓這個專案只參考自己的對話。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="s14g" id="s14g-cl"><div class="shots">
+      <figure class="shot"><a href="img/l2-s14-cl-new.jpg" target="_blank" rel="noopener"><img src="img/l2-s14-cl-new.jpg" alt="Claude 建立專案" loading="lazy"></a><figcaption><b class="n">1</b>左側「專案」→「新增專案」：填「您正在進行什麼工作」和「您想達成什麼目標」，建立後再上傳專案知識、寫專案指示。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="s14g" id="s14g-ge"><div class="shots">
+      <figure class="shot"><a href="img/l2-s14-ge-gem.jpg" target="_blank" rel="noopener"><img src="img/l2-s14-ge-gem.jpg" alt="Gemini 新增 Gem" loading="lazy"></a><figcaption><b class="n">1</b>「新增 Gem」：填名稱、說明、使用說明（就是專案指示），右邊可即時預覽。上方提醒 11/17 起 Gem 轉為「技能」。</figcaption></figure>
+    </div></div>
   </div>
   <div class="card">
     <h3>建議建立的第一個專案：「衛教單張改寫室」</h3>
