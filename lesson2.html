@@ -311,6 +311,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     <span class="toc-g">開場</span>
     <a href="#s0">學習地圖</a>
     <span class="toc-g">基礎</span>
+    <a href="#slash">「/」快捷體驗</a>
     <a href="#s1">AI 底層邏輯</a>
     <a href="#s2">方案怎麼選</a>
     <a href="#s3">介面導覽</a>
@@ -333,6 +334,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     <span class="toc-g">收尾</span>
     <a href="#s15">四工具對照表</a>
     <a href="#s16">實作：數據與報表</a>
+    <a href="#stat">描述性統計正確率</a>
     <a href="#gh">GitHub 個人網頁</a>
     <a href="#s17">課後任務</a>
   </div>
@@ -452,6 +454,58 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
 </section>
 
 <!-- 1 -->
+<section id="slash">
+  <div class="sec-head"><div class="num" style="background:#0F766E">／</div><div><h2>暖身：輸入框打「/」會發生什麼事？</h2><p>裝好三個工具後的第一個體驗。先弄清楚「官方的 /」和「民間的 /」是兩回事，再用八個速記玩一輪。</p></div></div>
+  <div class="card">
+    <h3>官方的「/」：每家不一樣，而且都不是提示詞</h3>
+    <div class="tbl"><table style="min-width:760px">
+      <tr><th>工具</th><th>打「/」跳出什麼</th><th>性質</th></tr>
+      <tr><td><span class="t gpt">ChatGPT</span></td><td>工具選單：回饋、在專案中工作、<b>學習</b>、新增自訂 GPT、模型、語音輸入</td><td>功能捷徑，等於點按鈕</td></tr>
+      <tr><td><span class="t cl">Claude</span></td><td>「新增檔案」＋你裝的<b>技能</b>清單（第 14 節）</td><td>叫出技能</td></tr>
+      <tr><td><span class="t ge">Gemini</span></td><td>提示「/ 已改為 @」：打 <b>@</b> 才會列出應用程式與<b>技能</b></td><td>叫出應用程式與技能</td></tr>
+      <tr><td><span class="t oc">OpenCode</span></td><td>真正的指令：/connect 連供應商、/models 換模型、/init 寫 AGENTS.md、/undo 復原、/new 新對話、/help</td><td>程式指令，打錯無效</td></tr>
+    </table></div>
+    <div class="note" style="margin:12px 0 0"><b>民間流傳的 /tldr、/eli5、/fix 呢？</b>它們不是指令。送出去之後，模型只是看到「/」後面那個英文字，照字面猜你要什麼，和直接打「幫我摘要」沒有兩樣。好處是短、好記、三家都能用；壞處是三家的理解可能不同、也沒有保證。<b>把它當速記，不要當魔法。</b>正式工作回到第 5 節的六要素寫法。</div>
+  </div>
+  <div class="card">
+    <h3>實際畫面：三家打「/」</h3>
+    <p style="margin-top:0">講師帳號實測（2026 年 11 月）。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="slashg" data-t="sl1"><span class="t gpt">ChatGPT</span></button>
+      <button class="tab" data-g="slashg" data-t="sl2"><span class="t cl">Claude</span></button>
+      <button class="tab" data-g="slashg" data-t="sl3"><span class="t ge">Gemini</span></button>
+    </div>
+    <div class="panel on" data-g="slashg" id="sl1"><div class="shots">
+      <figure class="shot"><a href="img/l2-slash-gpt.jpg" target="_blank" rel="noopener"><img src="img/l2-slash-gpt.jpg" alt="ChatGPT 斜線選單" loading="lazy"></a><figcaption><b class="n">1</b>打「/」跳出工具選單，上下鍵選、Enter 進入。「學習」模式就在這裡。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="slashg" id="sl2"><div class="shots">
+      <figure class="shot"><a href="img/l2-slash-cl.jpg" target="_blank" rel="noopener"><img src="img/l2-slash-cl.jpg" alt="Claude 斜線選單" loading="lazy"></a><figcaption><b class="n">1</b>打「/」列出「新增檔案」與已安裝的技能，輸入英文可篩選。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="slashg" id="sl3"><div class="shots">
+      <figure class="shot"><a href="img/l2-slash-ge.jpg" target="_blank" rel="noopener"><img src="img/l2-slash-ge.jpg" alt="Gemini 的提示" loading="lazy"></a><figcaption><b class="n">1</b>Gemini 打「/」會提示改用「@」。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-at-ge.jpg" target="_blank" rel="noopener"><img src="img/l2-at-ge.jpg" alt="Gemini @ 選單" loading="lazy"></a><figcaption><b class="n">2</b>打「@」才會列出虛擬化身、應用程式與技能。</figcaption></figure>
+    </div></div>
+  </div>
+  <div class="card">
+    <h3>八個速記，帶學員玩一輪（每個 1 分鐘）</h3>
+    <p style="margin-top:0">規則：先猜它會做什麼，再送出，三家各試一次，比較差異。斜線後面的英文就是提示詞本身，所以<b>英文字要選最沒有歧義的那個</b>。</p>
+    <div class="tbl"><table style="min-width:820px">
+      <tr><th>速記</th><th>怎麼打</th><th>它多半會做</th><th>工作上什麼時候用</th></tr>
+      <tr><td><code>/tldr</code></td><td>/tldr ＋貼一段公文或公告</td><td>三到五句摘要</td><td>每天看公文、群組長訊息</td></tr>
+      <tr><td><code>/eli5</code></td><td>/eli5 糖化血色素</td><td>用五歲聽得懂的話解釋</td><td>準備對長者的說法</td></tr>
+      <tr><td><code>/table</code></td><td>/table 比較三類口服降血糖藥的常見副作用</td><td>直接給表格</td><td>要貼進簡報的對照表</td></tr>
+      <tr><td><code>/fix</code></td><td>/fix ＋貼一段有錯字的衛教文</td><td>只改錯字與標點，不改意思</td><td>送審前最後一關</td></tr>
+      <tr><td><code>/checklist</code></td><td>/checklist 第 2 型糖尿病出院衛教</td><td>可勾選的清單</td><td>交班、教案、評鑑準備</td></tr>
+      <tr><td><code>/quiz</code></td><td>/quiz 5 題 低血糖處理</td><td>出題＋附答案</td><td>團體衛教的互動、新人訓練</td></tr>
+      <tr><td><code>/translate</code></td><td>/translate en→zh ＋貼一段指引</td><td>翻譯並保留專有名詞</td><td>讀英文指引、回外籍病人訊息</td></tr>
+      <tr><td><code>/roleplay</code></td><td>/roleplay 你是 70 歲剛確診、不想打針的病人</td><td>進入角色跟你對話</td><td>練習衛教對話、新人演練</td></tr>
+    </table></div>
+    <div class="grid2" style="margin-top:12px">
+      <div class="card" style="margin:0"><h3>帶領順序</h3><ol class="steps"><li>先打官方的：ChatGPT「/」選「學習」、Claude「/」看技能、Gemini「@」看應用程式。讓大家看到<b>三家不一樣</b>。</li><li>再玩民間的八個速記，三家並排。</li><li>最後同一件事用完整句子再做一次：「請把下面公告摘要成三句，給護理同仁看」。比較哪個穩。</li></ol></div>
+      <div class="card" style="margin:0"><h3>要講的結論</h3><ul><li>速記省打字，但模型在猜；猜錯就重來，成本很低。</li><li>要求固定、每週都用的事，不要靠速記，做成<b>技能</b>（第 14 節）或放進<b>專案</b>。</li><li>OpenCode 的「/」是真的指令，打錯沒反應，不是它壞掉。</li><li>練習只貼<b>公開的</b>公告與衛教文，不要貼含病人資料的內容。</li></ul></div>
+    </div>
+  </div>
+</section>
 <section id="s1">
   <div class="sec-head"><div class="num">1</div><div><h2>AI 底層邏輯：它不是 Google，是「接下一句」的高手</h2><p>懂原理，才知道為什麼會有 AI 味、為什麼會一本正經地講錯。</p></div></div>
   <div class="grid2">
@@ -601,6 +655,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <tr><td>Claude Haiku 5.5、GPT 6 Luna、Gemini 3.5 Flash Lite</td><td>同上三家</td><td>約 US$0.1～0.3／US$0.5～2.5</td><td>快、便宜，一次交辦不到一塊台幣</td><td>複雜任務會偷懶</td><td>轉檔、分類、改錯字、整理清單</td></tr>
       <tr><td>Grok 4.7、Mistral Large 4</td><td>xAI（美國）、Mistral（法國）</td><td>US$2／US$6、US$0.68／US$2.09</td><td>非中國的平價選項</td><td>中文與醫療用語不如上面三家</td><td>備用</td></tr>
     </table></div>
+    <div class="shots" style="margin-top:12px"><figure class="shot"><a href="img/l2-oc-free.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-free.jpg" alt="OpenCode 官方免費模型清單" loading="lazy"></a><figcaption><b class="n">1</b>官方文件的免費模型清單（2026/11）。課堂選 <b>Nemotron 3 Ultra Free</b>；在 OpenCode 打「/models」就能切換。MiMo 是小米的，跳過。</figcaption></figure></div>
     <div class="grid2" style="margin-top:12px">
       <div class="card" style="margin:0">
         <h3>免費和付費差在哪</h3>
@@ -644,6 +699,25 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <tr><td><b>③ 資料夾代理</b><br><small>會讀寫你電腦的檔</small></td><td>Codex<br><small>側欄或設定裡；另有 Codex 桌面程式；需 Plus</small></td><td>Claude Code<br><small>桌面版 Code 分頁；需 Pro</small></td><td>—<br><small>（Gemini CLI 要打指令，課堂不教）</small></td><td>進到你指定的資料夾批次處理、裝工具、跑程式。<b>OpenCode 是這一層的免費通用版</b>，三家模型都能接。</td></tr>
     </table></div>
     <div class="note" style="margin:12px 0 0"><b>怎麼記：</b>①是「聊」、②是「交辦一件事」、③是「交辦一個資料夾」。第 ②、③ 層都會自己動手，所以第 7 節的 AMA 反問法與下面的三條界線，在這兩層最重要。Gemini 的「任務」目前是三家裡最早整合進首頁的，免費版就能切，但一天只有少量次數。</div>
+  </div>
+  <div class="card">
+    <h3>三層各自長什麼樣</h3>
+    <p style="margin-top:0">同一個輸入框下方的切換，三家名字不同。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="layg" data-t="lg1"><span class="t gpt">ChatGPT</span></button>
+      <button class="tab" data-g="layg" data-t="lg2"><span class="t cl">Claude</span></button>
+      <button class="tab" data-g="layg" data-t="lg3"><span class="t ge">Gemini</span></button>
+    </div>
+    <div class="panel on" data-g="layg" id="lg1"><div class="shots">
+      <figure class="shot"><a href="img/l2-s13-gpt-work.jpg" target="_blank" rel="noopener"><img src="img/l2-s13-gpt-work.jpg" alt="ChatGPT 工作" loading="lazy"></a><figcaption><b class="n">1</b>首頁上方「對話／工作」：第 ② 層。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-codex.jpg" target="_blank" rel="noopener"><img src="img/l2-codex.jpg" alt="Codex 頁" loading="lazy"></a><figcaption><b class="n">2</b>chatgpt.com/codex：第 ③ 層 Codex，有 macOS 桌面程式與 Cloud 版，需 Plus。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="layg" id="lg2"><div class="shots">
+      <figure class="shot"><a href="img/l2-s3-cl-home.jpg" target="_blank" rel="noopener"><img src="img/l2-s3-cl-home.jpg" alt="Claude 首頁" loading="lazy"></a><figcaption><b class="n">1</b>輸入框下方「對話／Cowork」：第 ② 層。第 ③ 層 Claude Code 在桌面版左上角切 Code 分頁。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="layg" id="lg3"><div class="shots">
+      <figure class="shot"><a href="img/l2-s3-ge-home.jpg" target="_blank" rel="noopener"><img src="img/l2-s3-ge-home.jpg" alt="Gemini 首頁" loading="lazy"></a><figcaption><b class="n">1</b>輸入框下方「對話／任務」：第 ② 層。Gemini 沒有第 ③ 層的圖形介面。</figcaption></figure>
+    </div></div>
   </div>
   <div class="card">
     <h3>Agent 不只 OpenCode：三個工具裡的代理功能，以及之後怎麼用</h3>
@@ -956,9 +1030,9 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <div class="card gpt-c" style="margin:0">
         <h3><span class="t gpt">ChatGPT</span>＋Canva 應用程式：一次生出多頁、每頁都是可編輯圖層</h3>
         <ol class="steps">
-          <li>設定 → <b>應用程式</b> → 找到 <b>Canva</b> → 連結，用瀏覽器登入你的 Canva 帳號（免費帳號即可）。</li>
+          <li>左側「<b>外掛程式</b>」→ 搜尋 <b>Canva</b> → 按「＋」，用瀏覽器登入你的 Canva 帳號（免費帳號即可）。裝好後名字旁邊會變成「…」。</li>
           <li>先在對話或專案裡把簡報大綱寫好：8 頁、每頁標題與三個重點、對象是長者。</li>
-          <li>輸入框打 <b>@Canva</b>（或句首寫「Canva，」），再說：「用上面的大綱做一份 8 頁簡報，大字、高對比、每頁一張插圖位置留白。」</li>
+          <li>回到對話，輸入框打 <b>@Canva</b>，選單第一列選「Canva」，再說：「用上面的大綱做一份 8 頁簡報，大字、高對比、每頁一張插圖位置留白。」</li>
           <li>對話裡會出現預覽。整體要改（全部換成暖色、第 3 頁改短）直接在對話裡說。</li>
           <li>點「在 Canva 開啟」。<b>每一頁的標題、內文、圖片都已經是獨立圖層</b>，不用 OCR、不用魔法圖層，直接點字改字。</li>
           <li>ChatGPT 生的插圖（第 8 節）另外下載，在 Canva 裡拖進對應頁面。</li>
@@ -977,6 +1051,22 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
         <div class="note teal" style="margin-bottom:0;font-size:.95rem"><b>個資提醒：</b>DeckEdit 在本機跑，可以放院內簡報；Canva 應用程式會把大綱送到 Canva 雲端，只放已去識別化、可公開的衛教內容。</div>
       </div>
     </div>
+  </div>
+  <div class="card">
+    <h3>實際操作畫面：Canva 外掛與 DeckEdit（2026 年 11 月）</h3>
+    <p style="margin-top:0">講師帳號實際畫面。點圖可放大。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="canvag" data-t="cg1"><span class="t gpt">ChatGPT</span>裝 Canva 外掛</button>
+      <button class="tab" data-g="canvag" data-t="cg2">DeckEdit</button>
+    </div>
+    <div class="panel on" data-g="canvag" id="cg1"><div class="shots">
+      <figure class="shot"><a href="img/l2-canva-search.jpg" target="_blank" rel="noopener"><img src="img/l2-canva-search.jpg" alt="搜尋 Canva 外掛" loading="lazy"></a><figcaption><b class="n">1</b>左側「外掛程式」→ 搜尋 Canva。第一個就是 Canva 官方；右邊是「＋」或已裝好的「…」。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-canva-plugin.jpg" target="_blank" rel="noopener"><img src="img/l2-canva-plugin.jpg" alt="Canva 外掛頁" loading="lazy"></a><figcaption><b class="n">2</b>點進去可看到官方範例提示詞，和右上角「開啟外掛程式」。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-canva-at.jpg" target="_blank" rel="noopener"><img src="img/l2-canva-at.jpg" alt="@Canva 選單" loading="lazy"></a><figcaption><b class="n">3</b>新對話輸入框打「@Canva」，第一列選 Canva，後面接你的大綱。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="canvag" id="cg2"><div class="shots">
+      <figure class="shot"><a href="img/l2-deckedit.jpg" target="_blank" rel="noopener"><img src="img/l2-deckedit.jpg" alt="DeckEdit 首頁" loading="lazy"></a><figcaption><b class="n">1</b>deckedit.com/zh-Hant：上方三個模式選「.pptx 轉換」，把 PDF 拖進下方框即可；不用註冊，檔案不離開瀏覽器。</figcaption></figure>
+    </div></div>
   </div>
   <div class="card">
     <h3>進階：丟一張圖，請 AI「照這個風格」畫</h3>
@@ -1246,7 +1336,21 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <tr><td>多步驟研究、步驟可見</td><td>承接深入研究，對話裡顯示它查了什麼、怎麼推論</td><td>查核時能回頭看它引用的是哪一頁</td></tr>
       <tr><td>軟體技能、多種匯出</td><td>照你的指示產出並可再編輯：PowerPoint、Excel、Word、Markdown、CSV、圖表 PNG／SVG</td><td>一句話把筆記本整理成「品質指標季報 Excel＋簡報」</td></tr>
     </table></div>
-    <div class="note" style="margin:12px 0 0"><b>和第 1 堂的關係：</b>第 1 堂用「Gemini 任務 ＋ @Gemini Notebook」做簡報，Notebook 只是資料來源。有了代理之後，Notebook 自己也能產出可編輯的 PPTX，後製就不必一定走 PDF → Canva。版面要精修，還是回到上面第 8 節的 Canva 應用程式或 DeckEdit。沒有拿到新功能的人，流程維持第 1 堂的做法即可。</div>
+      <div class="card">
+    <h3>實際畫面：Gemini Notebook（2026 年 11 月，AI Pro 帳號）</h3>
+    <p style="margin-top:0">講師帳號是 AI Pro，代理功能還沒全開，但已經看得到新東西。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="gnbg" data-t="gn1">首頁</button>
+      <button class="tab" data-g="gnbg" data-t="gn2">筆記本內</button>
+    </div>
+    <div class="panel on" data-g="gnbg" id="gn1"><div class="shots">
+      <figure class="shot"><a href="img/l2-gnb-home.jpg" target="_blank" rel="noopener"><img src="img/l2-gnb-home.jpg" alt="Gemini Notebook 首頁" loading="lazy"></a><figcaption><b class="n">1</b>notebook.google.com：已改名 Gemini Notebook。上方「探索」有精選筆記本，右下「新增筆記本」。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="gnbg" id="gn2"><div class="shots">
+      <figure class="shot"><a href="img/l2-gnb-studio.jpg" target="_blank" rel="noopener"><img src="img/l2-gnb-studio.jpg" alt="筆記本工作室" loading="lazy"></a><figcaption><b class="n">1</b>右側「工作室」：語音摘要、簡報、影片摘要、心智圖、報告、學習卡、測驗、資訊圖表、資料表。下方提示已能在對話中直接搜尋你的雲端硬碟檔案。</figcaption></figure>
+    </div></div>
+  </div>
+<div class="note" style="margin:12px 0 0"><b>和第 1 堂的關係：</b>第 1 堂用「Gemini 任務 ＋ @Gemini Notebook」做簡報，Notebook 只是資料來源。有了代理之後，Notebook 自己也能產出可編輯的 PPTX，後製就不必一定走 PDF → Canva。版面要精修，還是回到上面第 8 節的 Canva 應用程式或 DeckEdit。沒有拿到新功能的人，流程維持第 1 堂的做法即可。</div>
   </div>
   <div class="card">
     <h3>祕技：兩段式提示詞</h3>
@@ -1306,6 +1410,58 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
 請不要給我處置決定。請列出：1. 可能造成血糖上升的原因，依可能性排序並說明依據；2. 下次門診我應該再蒐集哪些資訊才能判斷；3. 哪些情況需要立即轉介醫師。
 每一點標明是「指引有寫」還是「你的推論」。</div>
   </div>
+  <div class="card" id="evq">
+    <h3>三個常見問題：查得準、找得高、讀 PDF 不幻覺</h3>
+    <div class="grid2">
+      <div class="card" style="margin:0">
+        <h3>Q1 醫學、健康資料要怎麼查才精準？</h3>
+        <ol class="steps">
+          <li><b>先鎖定問題：</b>用 PICO 寫成一句（上面提示詞①）。模糊的問題只會得到模糊的答案。</li>
+          <li><b>指定來源層級：</b>寫明「只用臨床指引、系統性回顧、統合分析；沒有再退到 RCT」。</li>
+          <li><b>指定年份與族群：</b>「近 5 年」「成人第 2 型」「亞洲或台灣資料優先」。</li>
+          <li><b>開對模式：</b>ChatGPT 裝 PubMed 類外掛或用工作模式；Claude 開「研究」；Gemini 開「深入研究」並要求只用學術來源。一般對話模式會憑記憶回答，最容易錯。</li>
+          <li><b>要可驗證的出處：</b>每一筆要 PMID 或 DOI，<b>你自己點開確認存在、確認結論一致</b>。沒有 PMID 的「研究顯示」當作沒查到。</li>
+          <li><b>要它說不知道：</b>加一句「找不到就說找不到，不要用其他族群代替而不註明」。</li>
+        </ol>
+      </div>
+      <div class="card" style="margin:0">
+        <h3>Q2 怎麼找到高等級、高品質的研究？</h3>
+        <div class="tbl" style="border:0"><table style="min-width:0">
+          <tr><th>等級</th><th>類型</th><th>怎麼請 AI 找</th></tr>
+          <tr><td>最高</td><td>臨床指引（ADA、台灣糖尿病學會）、系統性回顧／統合分析（Cochrane）</td><td>「先列指引與 Cochrane 回顧，標出發布年份」</td></tr>
+          <tr><td>高</td><td>隨機對照試驗（RCT）</td><td>「找樣本數 ≥ 200、追蹤 ≥ 12 個月的 RCT」</td></tr>
+          <tr><td>中</td><td>世代、病例對照研究</td><td>「只在沒有 RCT 時才列，並註明」</td></tr>
+          <tr><td>低</td><td>個案報告、專家意見、新聞、部落格</td><td>「不要列；若列出要標為低證據」</td></tr>
+        </table></div>
+        <ul style="margin-top:10px">
+          <li>請它在每筆後面標 <b>證據等級</b>（可用 GRADE 的高／中／低／極低），並說明理由。</li>
+          <li>專門工具更穩：PubMed 本身、Cochrane Library、<a href="https://consensus.app" target="_blank" rel="noopener">Consensus</a>、<a href="https://www.openevidence.com" target="_blank" rel="noopener">OpenEvidence</a>（需醫療人員驗證）。通用聊天工具當「幫你讀」，專門工具當「幫你找」。</li>
+          <li>期刊品質看兩件事：有沒有同儕審查、是不是掠奪性期刊（可查 Beall 清單）。請 AI 一起標。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card" style="margin-top:12px">
+      <h3>Q3 有 PDF，怎麼讓 AI 解釋時不產生幻覺？</h3>
+      <p style="margin-top:0">先講實話：<b>沒有任何方法能保證 100%</b>。但下面七步能把錯誤壓到很低，而且讓剩下的錯誤<b>查得出來</b>，這才是重點。</p>
+      <div class="tbl"><table style="min-width:820px">
+        <tr><th>#</th><th>做法</th><th>為什麼</th></tr>
+        <tr><td>1</td><td><b>先轉成 Markdown 再給</b>（B 節 MarkItDown），並自己打開看一眼表格有沒有亂掉</td><td>PDF 的多欄排版、表格最常被讀錯；文字版錯誤少、你也看得到它讀到什麼</td></tr>
+        <tr><td>2</td><td>提示詞寫死規則：「<b>只根據附件回答；每一句標出頁碼或段落；附件沒寫的就回答『文件未提及』</b>」</td><td>關掉它「用常識補」的習慣，這是幻覺最大來源</td></tr>
+        <tr><td>3</td><td><b>分段問</b>：一次問一個章節、一張表，不要「幫我整本摘要」</td><td>越長越容易漏；分段也方便你逐段核對</td></tr>
+        <tr><td>4</td><td>數字與建議句<b>要它引用原文</b>：「列出原文那一句，再給你的解釋」</td><td>原句和解釋並排，錯了一眼看得出來</td></tr>
+        <tr><td>5</td><td>用<b>只看來源</b>的工具：Gemini Notebook（回答附來源編號）、Claude 專案、ChatGPT 專案＋檔案</td><td>這些模式預設以附件為準，比一般對話穩</td></tr>
+        <tr><td>6</td><td><b>交叉驗證</b>：同一段請兩家各做一次，比對差異；或請同一家「再讀一次，找出剛才摘要和原文不一致的地方」</td><td>兩次獨立結果不一致的地方，就是要人工看的地方</td></tr>
+        <tr><td>7</td><td>最後<b>人工抽查</b>：所有數字 100% 核對，文字段落抽 2～3 段；把這套規則做成<b>技能</b>（第 14 節）以後自動套用</td><td>AI 負責讀 90%，你負責最後 10% 和簽名</td></tr>
+      </table></div>
+      <div class="prompt" style="margin-top:12px"><span class="label">PDF 忠實閱讀提示詞（可直接做成技能）</span>附件是一份臨床指引。請遵守：
+1. 只根據附件回答，不要補充附件以外的知識；附件沒寫的，回答「文件未提及」。
+2. 每一個結論後面標出頁碼（或章節標題）。
+3. 所有數字、劑量、閾值，先原文照抄那一句，再用白話解釋。
+4. 先只處理「第 3 章 血糖目標」。做完我會再給下一章。
+5. 最後列出你不確定的地方，以及這一章裡你覺得可能被誤讀的句子。</div>
+      <div class="note red" style="margin-bottom:0"><b>哪些永遠要人看：</b>藥物劑量與單位、閾值數字（如 HbA1c 目標）、禁忌症、「建議／不建議」的方向。這四類一個字都不能靠 AI。</div>
+    </div>
+  </div>
   <div class="note red"><b>院內規範優先：</b>研究用途涉及病人資料時，依本院 IRB 與資訊安全規定辦理；AI 產出的文獻清單與數據，進入任何正式文件前都要逐筆核對原文。</div>
 </section>
 
@@ -1350,6 +1506,92 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
 3. 每次改寫後，列出與原文意思可能不同的句子讓我核對。
 4. 專案知識找不到答案時，直接說「資料中沒有」，不要自己補。</div>
     <div class="note teal" style="margin-bottom:0"><b>預告第 4 堂：</b>這個專案就是「科室知識庫助手」的雛形，第 4 堂會再加上驗證題庫與出處標註。</div>
+  </div>
+  <div class="card" id="pts">
+    <h3>專案、技能、外掛、自訂指示：四個東西到底差在哪？</h3>
+    <p style="margin-top:0">學員最常混淆的四個名詞。一句話：<b>自訂指示是「你是誰」，專案是「一個主題的抽屜」，技能是「一套做法」，外掛是「一雙手」。</b></p>
+    <div class="tbl"><table style="min-width:900px">
+      <tr><th></th><th>自訂指示（第 4 節）</th><th>專案（本節）</th><th>技能</th><th>外掛／連接器（第 12 節）</th></tr>
+      <tr><td>存什麼</td><td>你的身分、對象、口吻、禁忌</td><td>一個主題的檔案＋專屬指示＋所有對話</td><td>一件工作的 SOP：步驟、格式、檢查點</td><td>和外部工具的連線：Gmail、雲端硬碟、Canva、PubMed</td></tr>
+      <tr><td>什麼時候生效</td><td>每一次對話，永遠</td><td>只在這個專案裡的對話</td><td>需要時才啟動（自動判斷或你用 / @ 叫出）</td><td>你允許它用的時候</td></tr>
+      <tr><td>跨不跨專案</td><td>全域</td><td>不跨</td><td><b>跨</b>：任何對話、任何專案都能用</td><td>跨</td></tr>
+      <tr><td>衛教師例子</td><td>「我是糖尿病衛教師，對象是 65 歲以上」</td><td>「衛教單張改寫室」：放模板、院內用語表</td><td>「長者友善單張」：字級、步驟、禁用詞、輸出格式</td><td>把單張直接做成 Canva、把文獻從 PubMed 拉進來</td></tr>
+      <tr><td>三家名稱</td><td>給 ChatGPT／Claude／Gemini 的指示</td><td>專案／專案／Gem 與筆記本</td><td>技能／技能／技能（Gem 於 11/17 轉為技能）</td><td>外掛程式／連接器／應用程式</td></tr>
+    </table></div>
+    <div class="grid2" style="margin-top:12px">
+      <div class="card" style="margin:0">
+        <h3>有沒有「透過專案」差在哪</h3>
+        <ul>
+          <li><b>不開專案：</b>每次新對話都要重貼背景、重傳檔案；AI 的記憶靠「記憶」功能零碎記。</li>
+          <li><b>開專案：</b>檔案與指示常駐，進來就有；同主題的對話集中一處，找得到；專案指示可以比全域指示更細（例如「本專案只產出 A4 單張」）。</li>
+          <li>判斷：同一件事做第 3 次，就該開專案。</li>
+        </ul>
+      </div>
+      <div class="card" style="margin:0">
+        <h3>有沒有「連接資料夾」差在哪</h3>
+        <ul>
+          <li><b>上傳檔案（專案）：</b>AI 讀的是副本，改完要你自己下載、另存。ChatGPT 工作模式下方「檔案」、Claude 專案「新增內容」都是這種。</li>
+          <li><b>連接資料夾（OpenCode／Claude Code／Cowork）：</b>AI 直接在你的資料夾裡讀、寫、新增檔案；產出留在原地，批次處理 30 個檔也是一句話。代價是它真的會改檔，所以只能指向練習資料夾。</li>
+          <li><b>連接雲端（外掛）：</b>ChatGPT 外掛接 Google Drive、Claude 連接器接雲端硬碟，AI 可以去抓，但多半是唯讀。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card" id="skill">
+    <h3>技能（Skill）：怎麼新增、怎麼做一個自己的</h3>
+    <div class="grid2">
+      <div class="card gpt-c" style="margin:0"><h3><span class="t gpt">ChatGPT</span>新增技能</h3><ol class="steps"><li>左側「外掛程式」→ 上方切到「<b>技能</b>」分頁</li><li>右上「新增」→ 三選一：<b>透過對話建立</b>（最簡單，用講的）、<b>使用編輯器建立</b>、<b>從電腦上傳</b>（zip）</li><li>編輯器：名稱（小寫英文、數字、連字號，最多 64 字）、說明（500 字內，<b>決定它什麼時候會自動啟動</b>）、指示內文</li><li>建好後出現在「由我建立」，平常自動觸發；也可在對話裡點名「用 ○○ 技能」</li></ol></div>
+      <div class="card cl-c" style="margin:0"><h3><span class="t cl">Claude</span>新增技能</h3><ol class="steps"><li>「設定」→「功能」→「技能」→ 上傳 zip（裡面一個資料夾，含 SKILL.md）</li><li>或直接在對話說「幫我把剛才這套做法做成技能」，用內建的 skill-creator 產生</li><li>使用：輸入框打「<b>/</b>」就列出技能，選一個再接你的內容</li></ol></div>
+      <div class="card ge-c" style="margin:0"><h3><span class="t ge">Gemini</span>新增技能</h3><ol class="steps"><li>輸入框打「<b>@</b>」→ 清單最下方「技能」區</li><li>原本的 Gem 於 2026/11/17 自動轉成技能；新技能從 Gem 管理員建立</li><li>使用：對話裡打「@技能名稱」再接內容</li></ol></div>
+    </div>
+    <div class="grid2" style="margin-top:12px">
+      <div class="card" style="margin:0">
+        <h3>自己做一個：SKILL.md 長這樣</h3>
+        <p style="margin-top:0">三家的技能檔格式一樣：一個資料夾，裡面一個 <code>SKILL.md</code>（寫法同第 4 節的 AGENTS.md），需要時再加範本檔。</p>
+        <div class="prompt"><span class="label">SKILL.md 範例：長者友善衛教單張</span>---
+name: senior-health-handout
+description: 把一段醫療或健康資料改寫成 65 歲以上長者看得懂的一頁衛教單張。使用者提到「衛教單張」「長者版」「改寫給長輩」時使用。
+---
+
+## 步驟
+1. 先問：對象、場合（門診／住院／社區）、有沒有院內禁用詞。沒答就用預設：門診、第 2 型糖尿病。
+2. 讀原文，列出 3 個最重要的行動，其他刪掉。
+3. 改寫：每句 20 字內，不用「請遵從醫囑」這類空話，數字一律給具體例子。
+4. 產出格式：標題、三個行動（各一句＋一個例子）、什麼情況要回診、聯絡方式留空。
+5. 最後自我檢查：有沒有醫療決定（劑量、停藥）？有就改成「請與醫師討論」。
+
+## 禁止
+- 不要編造數字與來源。
+- 不要加入原文沒有的治療建議。</div>
+      </div>
+      <div class="card" style="margin:0">
+        <h3>最省力的做法：請 AI 幫你寫技能</h3>
+        <div class="prompt"><span class="label">在任何一家貼這段</span>我想做一個技能（skill），名字叫 senior-health-handout。
+用途：把醫療資料改寫成 65 歲以上長者看得懂的一頁衛教單張。
+請先問我 5 個問題，弄清楚我的流程、格式、禁忌，再用 SKILL.md 的格式（YAML 開頭的 name、description，接著 Markdown 的步驟與禁止事項）寫出來。
+description 要寫清楚「什麼情況下該啟動」，因為那決定它會不會自動被叫出來。</div>
+        <ul>
+          <li>寫好的 SKILL.md 存成資料夾 → 壓縮 → ChatGPT「從電腦上傳」、Claude「技能 → 上傳」。</li>
+          <li>同一個檔三家都能用，所以<b>寫一次，到處用</b>。</li>
+          <li>技能裡不要放病人資料與院內未公開文件；那些放專案。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>實際畫面：ChatGPT 技能頁（2026 年 11 月）</h3>
+    <p style="margin-top:0">講師帳號實際畫面，已建好三個技能。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="skillg" data-t="sk1">技能頁</button>
+      <button class="tab" data-g="skillg" data-t="sk2">編輯器</button>
+    </div>
+    <div class="panel on" data-g="skillg" id="sk1"><div class="shots">
+      <figure class="shot"><a href="img/l2-skill-page.jpg" target="_blank" rel="noopener"><img src="img/l2-skill-page.jpg" alt="ChatGPT 技能頁" loading="lazy"></a><figcaption><b class="n">1</b>左側「外掛程式」→ 上方「技能」分頁。「已安裝」與「由我建立」分開列。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-skill-new.jpg" target="_blank" rel="noopener"><img src="img/l2-skill-new.jpg" alt="新增選單" loading="lazy"></a><figcaption><b class="n">2</b>右上「新增」：透過對話建立、使用編輯器建立、從電腦上傳。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="skillg" id="sk2"><div class="shots">
+      <figure class="shot"><a href="img/l2-skill-editor.jpg" target="_blank" rel="noopener"><img src="img/l2-skill-editor.jpg" alt="技能編輯器" loading="lazy"></a><figcaption><b class="n">1</b>左側就是 SKILL.md；右側填名稱（小寫英數連字號）、說明（500 字內）與指示。</figcaption></figure>
+    </div></div>
   </div>
 </section>
 
@@ -1578,6 +1820,65 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
   <div class="note teal"><b>每季重複套用：</b>新一季資料貼到「原始資料」最下面 → 「指標設定」補季別 → 「指標報表」選季別，指標、前期比較、趨勢圖自動更新；「個案回饋單」選代號就能印 A4。AI 只負責幫你檢查、解釋與寫回饋句，數字以模板公式為準。</div>
   <div class="note red"><b>真實資料的規則不變：</b>回到工作上要用真實資料時，先完成上面①的三步，並確認符合本院規範；個案代號不能回推到病人。</div>
 </section>
+<section id="stat">
+  <div class="sec-head"><div class="num" style="background:#9A3412">S</div><div><h2>延伸：用 AI 做描述性統計，怎麼確保數字是對的</h2><p>時間夠再上。接在 Ⓐ 之後：平均、百分比、分組計數看起來最簡單，卻是最常「算錯而沒人發現」的地方。</p></div></div>
+  <div class="grid2">
+    <div class="card">
+      <h3>為什麼會錯：AI 有兩種「算」</h3>
+      <ul>
+        <li><b>用看的算（心算）：</b>模型把表格當文字讀，直接「想」出一個平均。小表可能對，列數一多就會漏列、看錯欄、把 7.5 讀成 75。這是幻覺的來源。</li>
+        <li><b>寫程式算：</b>模型寫一段 Python，由程式真的去加總。數字由程式產生，模型只負責寫程式和解讀。<b>這條路才可靠。</b></li>
+        <li>三家在哪一條路：ChatGPT 工作模式與「進階資料分析」會跑程式；Claude 開「分析工具」（設定 → 功能）；Gemini 會自動執行程式碼；OpenCode 本來就在跑程式。<b>看到它顯示程式碼或「正在分析」，才代表它真的算了。</b></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Excel 還是 CSV？差別不在格式，在「乾不乾淨」</h3>
+      <ul>
+        <li>Excel 出錯的原因：多個工作表、合併儲存格、標題在第 3 列、備註行夾在資料中、公式與隱藏欄、數字存成文字、單位寫在格子裡（「7.5%」）。AI 讀錯範圍，數字就全錯。</li>
+        <li>CSV 為什麼穩：只有一張表、第一列就是欄名、沒有公式、沒有格式。<b>所以「改用 CSV」有效，但真正有效的是「一個檔一張乾淨的表」。</b></li>
+        <li>乾淨表的規格：第一列欄名（不重複、不含空白與單位）、一列一筆、數字欄只有數字、日期統一 YYYY-MM-DD、缺值留空不要填「無」或「-」、沒有合併儲存格、沒有小計列。</li>
+        <li>非用 Excel 不可時：指定「只讀『資料』工作表，A1 到 H301」，並請它先印出讀到的前 5 列給你看。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <h3>十條檢查：每次請 AI 算數字都照做</h3>
+    <div class="tbl"><table style="min-width:820px">
+      <tr><th>#</th><th>要它做的事</th><th>抓什麼錯</th></tr>
+      <tr><td>1</td><td>先<b>描述資料</b>再算：幾列幾欄、每欄名稱與型態、每欄缺值數、數值欄的最小／最大值</td><td>讀錯範圍、讀錯工作表、7.5 變 75</td></tr>
+      <tr><td>2</td><td><b>顯示程式碼</b>與程式輸出，每個數字旁附程式印出的原值</td><td>確認是「算的」不是「想的」</td></tr>
+      <tr><td>3</td><td>每個比例<b>寫明分子與分母</b>，以及分母排除了誰</td><td>達標率的分母用錯（全部病人 vs 有檢驗者）</td></tr>
+      <tr><td>4</td><td>異常值<b>先列出、不要自動排除</b>，排除與否由你決定並記錄</td><td>它「好心」把 1380 丟掉，你不知道</td></tr>
+      <tr><td>5</td><td>缺值處理方式<b>明說</b>：忽略、補 0、補平均，三者結果差很多</td><td>平均值被缺值補法改變</td></tr>
+      <tr><td>6</td><td>分組統計時<b>附每組人數 n</b>，n 小於 10 的組標記</td><td>一組只有 3 個人卻拿來比較</td></tr>
+      <tr><td>7</td><td>先不要四捨五入；最後呈現再統一小數位</td><td>中途進位造成加總不等於 100%</td></tr>
+      <tr><td>8</td><td>只做<b>描述</b>，不要它順便下「顯著」「有效」「因為」的結論</td><td>描述統計被偷渡成因果推論</td></tr>
+      <tr><td>9</td><td><b>自己抽查 3 個數字</b>：用 Excel 的 =AVERAGE、=COUNTIF 或樞紐分析算一次比對；或請另一家重算</td><td>唯一能抓到系統性錯誤的方法</td></tr>
+      <tr><td>10</td><td>結果表每一欄都要能回答「<b>從原始哪一欄、用什麼規則算出來</b>」，請它附一張「欄位對照表」</td><td>一季後重跑時對不起來</td></tr>
+    </table></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>兩段提示詞</h3>
+      <div class="prompt"><span class="label">① 先描述，不要算</span>附件是去識別化的糖尿病個管資料（合成資料）。先不要做任何統計。
+請用程式讀取後告訴我：1. 幾列幾欄；2. 每一欄的名稱、資料型態、缺值數、數值欄的最小與最大值；3. 你認為可能有問題的值（例如超出合理範圍）列出來，不要修改；4. 把前 5 列印給我看。
+確認無誤我再給你要算的指標。</div>
+      <div class="prompt"><span class="label">② 再算，附程式與分母</span>請用程式計算下列描述性統計，每一項都要：顯示程式碼、程式輸出的原始數字、分子與分母的定義、排除了哪些列與原因。
+1. 全體與分性別的 HbA1c 平均、標準差、中位數；2. HbA1c &lt; 7% 的達標率；3. 收縮壓 &lt; 130 的比例；4. 各年齡層（&lt;65、65–74、≥75）人數與達標率。
+異常值先保留並標記，不要排除。不要下任何「有效」「顯著」的結論。最後給我一張欄位對照表。</div>
+    </div>
+    <div class="card">
+      <h3>和 Ⓐ 實測的連結、以及界線</h3>
+      <ul>
+        <li>第 16 節 Ⓐ 的實測裡，ChatGPT 沒有直接算，而是先反問 10 個分子、分母定義的問題，又抓出 HbA1c 75 與收縮壓 1380 兩個異常值。那就是第 1、3、4 條在運作。<b>它反問是好事，不要嫌煩。</b></li>
+        <li>推論統計（t 檢定、迴歸、p 值）不在今天範圍：描述統計算錯你看得出來，推論統計算錯你看不出來。要做請回到 SPSS 或找統計諮詢。</li>
+        <li>資料一律先去識別化（第 1 堂的工作台），用合成資料練習；真實院內資料依院內規範與 IRB。</li>
+        <li>任何要進報告、評鑑、論文的數字：AI 算一次、你用 Excel 算一次、數字一致才用。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 
 <!-- GitHub -->
 <section id="gh">
