@@ -1544,7 +1544,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     <h3>衛教師的外掛建議清單（ChatGPT：左側「外掛程式」→ 搜尋）</h3>
     <div class="grid3">
       <div class="b3"><h4>日常行政（建議裝）</h4><ul style="margin:0;padding-left:1.2em"><li><b>Google Calendar</b>：研習、回診提醒、會議</li><li><b>Gmail</b>：個人信箱的研習公告、學會通知整理</li><li><b>Google Drive</b>：讀取你自己放的已公開衛教單張、指標定義</li><li><b>Canva</b>：第 8 節的圖卡直接送進 Canva 排版</li><li><b>Browser</b>（雲端瀏覽器）：<b>本堂要用</b>。它在 OpenAI 的雲端開一個瀏覽器替你看網頁、填表、比價，是第 12 節 Agent 示範的手腳之一；用的是它的瀏覽器不是你的，要登入的網站得重新登入。權限一樣選唯讀，涉及送出表單時它會先問。</li></ul></div>
-      <div class="b3"><h4>醫學研究（R 節會用）</h4><ul style="margin:0;padding-left:1.2em"><li><b>Life Sciences Literature</b>（OpenAI 官方）：找生醫論文、預印本</li><li><b>Arca FDA, Trials &amp; PubMed</b>：FDA、臨床試驗與 PubMed 公開資料</li><li>搜尋「pubmed」就看得到；<b>Paperguide、CoChat</b> 類似，擇一即可</li></ul></div>
+      <div class="b3"><h4>醫學研究（R 節會用）</h4><ul style="margin:0;padding-left:1.2em"><li><b>Consensus</b>：搜尋 2 億多篇同儕審查論文（Semantic Scholar／OpenAlex），回傳「10 Top Results」卡片，附年份、被引用次數、期刊；<b>講師實測一叫就動，首選</b></li><li><b>Life Sciences Literature</b>（OpenAI 官方）：找生醫論文、預印本與開放全文；講師實測兩次（含 @ 點名）都沒被呼叫，ChatGPT 退回網頁搜尋，備用</li><li><b>Arca FDA, Trials &amp; PubMed</b>：FDA、臨床試驗與 PubMed 公開資料，要 PMID 原生檢索時用</li><li>用法：輸入框打 <b>@</b> 選外掛，再寫問題；在文字裡寫「請用某某外掛」不保證觸發。細節見 R 節「實作一次」</li></ul></div>
       <div class="b3"><h4>不建議／暫緩</h4><ul style="margin:0;padding-left:1.2em"><li><b>Google Contacts</b>：通訊錄是個資，沒有必要不要連</li><li><b>Plugin Creator</b>（OpenAI 官方）：用對話「做一個自己的外掛」，讓 ChatGPT 去接某個系統的 API，例如院內學分系統。它產生的是程式設定，不是衛教內容，要有 API 與資訊室配合才用得上，課堂不教。商店裡沒有叫「Template Creator」的官方外掛，講義先前寫錯，已移除。</li></ul></div>
     </div>
     <div class="note red" style="margin:14px 0 0"><b>權限一定要設：</b>已安裝的外掛 →「管理」→「權限」，選「<b>允許唯讀工具</b>」（手機 App 叫「允許讀取動作」；可直接讀取，但變更前須先詢問）。不要選「允許低風險工具」或「允許所有工具」，在醫療場域「低風險」由你判斷，不是由它判斷；「一律先詢問」太煩，會讓人想關掉提醒，反而更危險。</div>
@@ -1553,7 +1553,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     <h3>衛教師的兩個情境</h3>
     <div class="grid2">
       <div><div class="prompt"><span class="label">截圖 → 行事曆（先下載下面的公告圖，當成截圖貼上）</span>幫我把這場研習加到 Google 日曆：日期、時間、地點照公告，標題寫「糖尿病衛教研習會」，提醒設前一天晚上 8 點；另外在報名截止日當天早上 9 點加一個「報名截止」提醒。加之前先把你讀到的內容列給我確認。</div>
-        <div class="shots" style="margin-top:8px"><figure class="shot" style="max-width:520px"><a href="lesson2-notice-sample.png" download><img src="img/l2-notice-sample.jpg" alt="練習用研習公告（虛構）" loading="lazy"></a><figcaption>練習用公告圖（講師用 ChatGPT 生圖做的<b>虛構</b>單位與課程，點圖下載 PNG）。日期 2026/12/12（六）09:00–16:30、報名截止 12/5 中午。上傳後看它能不能把這幾個數字讀對。</figcaption></figure></div></div>
+        <div class="shots" style="margin-top:8px"><figure class="shot" style="max-width:520px"><a href="lesson2-notice-poster.png" download><img src="img/l2-notice-poster.jpg" alt="練習用研習公告（虛構）" loading="lazy"></a><figcaption>練習用公告圖（講師用 ChatGPT 生圖做的<b>虛構</b>單位與課程，點圖下載 PNG；另有<a href="lesson2-notice-sample.png" download>網頁截圖版</a>）。日期 2026/12/12（六）09:00–16:30、報名截止 12/5 中午。<b>公告上「12 月 5 日（星期五）」是錯的，12/5 其實是星期六</b>：這是講師打錯、ChatGPT 生圖時主動指出來的，正好留著當考題，看學員和 AI 會不會核對日期與星期。</figcaption></figure></div></div>
       <div><div class="prompt"><span class="label">整理行程（下面有 12 月的練習行程，複製貼在這段後面，或上傳 .ics／CSV）</span>以下是我 12 月的行程。請：1. 標出哪幾天太密（同一天兩場以上或超過 6 小時）、哪幾天完全空；2. 列出所有「報名截止」的日期並排序，離今天最近的放最上面；3. 算出 12 月可拿到的學分總數；4. 用表格呈現，日期用 12/5（六）這種寫法。</div>
         <div class="row" style="margin:8px 0"><a class="btn ghost" href="lesson2-dec-schedule.ics" download>下載 .ics（匯入 Google 日曆）</a><a class="btn ghost" href="lesson2-dec-schedule.csv" download>下載 CSV</a></div>
         <details style="margin-top:6px"><summary style="cursor:pointer"><b>12 月練習行程（14 筆，合成資料，點開複製）</b></summary><pre style="white-space:pre-wrap;font-size:.9rem;line-height:1.5;background:#f8fafc;padding:10px;border-radius:8px">12/1（二）14:00–16:00 糖尿病共照網個案討論會，本院 B1 第二會議室
@@ -1779,7 +1779,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     </div>
   </div>
   <div class="tri">
-    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>外掛＋Work</h3><ul><li>裝 Life Sciences Literature 或 Arca PubMed 外掛</li><li>在問題裡寫「用 PubMed 外掛查，附 PMID」</li><li>要完整文獻回顧時切到 Work</li></ul></div>
+    <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>外掛＋Work</h3><ul><li>裝 <b>Consensus</b>（首選）與 Arca PubMed 外掛</li><li>輸入框打「<b>@Consensus</b>」點名，再貼 PICO 問題，要求附 PMID／DOI 與搜尋字串</li><li>要完整文獻回顧時切到 Work</li></ul></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>研究模式＋專案</h3><ul><li>開「研究」會搜尋數十個來源並逐句附引用</li><li>建一個「研究」專案，放已下載的 PDF 當知識</li><li>長文摘要與 IRB 文件草稿是強項</li></ul></div>
     <div class="card ge-c"><h3><span class="t ge">Gemini</span>深入研究＋Gemini Notebook</h3><ul><li>「深入研究」先給計畫，可要求只用學術來源</li><li>把指引 PDF 丟進 Gemini Notebook，回答只根據你給的文件並標出處（第 4 堂知識庫的前身）</li></ul></div>
   </div>
@@ -1791,6 +1791,47 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     <div class="prompt"><span class="label">② 臨床情境討論（只要方向，不要決定）</span>以下是一位去識別化的個案摘要：（70 多歲、HbA1c 兩季從 7.2 升到 8.5、自行減少胰島素劑量、活動量下降、飲食以早餐店為主）。
 請不要給我處置決定。請列出：1. 可能造成血糖上升的原因，依可能性排序並說明依據；2. 下次門診我應該再蒐集哪些資訊才能判斷；3. 哪些情況需要立即轉介醫師。
 每一點標明是「指引有寫」還是「你的推論」。</div>
+  </div>
+  <div class="card" id="litlab">
+    <h3>實作一次：同一個 PICO 問題，丟給兩個外掛（2026/11/2 講師實測）</h3>
+    <p style="margin-top:0">問題固定為：65 歲以上第 2 型糖尿病患者（P）、護理師或衛教師主導的足部自我照護衛教（I）、相較一般衛教（C）、對足部自我照護行為或足部潰瘍發生率（O）；條件 2020 年以後、RCT 或系統性回顧、最多 5 篇、每篇附 PMID、找不到就說找不到、最後交代搜尋字串。</p>
+    <ol class="steps">
+      <li><b>點名外掛：</b>在輸入框打「<b>@</b>」，出現外掛清單，打前幾個字母篩選，Enter 選取，輸入框會出現一個藍色外掛標籤。<b>不要只在句子裡寫「請用某某外掛」</b>，講師這樣寫的那一次，ChatGPT 自己改用網頁搜尋。</li>
+      <li><b>貼問題：</b>照上面的 PICO 寫，條件（年份、設計、篇數）與輸出欄位（作者年份、期刊、設計、樣本數、結果、PMID）都要寫出來，加「找不到就說找不到，不要用其他族群或年份代替而不註明」。</li>
+      <li><b>看它有沒有真的用外掛：</b>回覆上方會出現「已開啟 Search Academic Research Papers」之類的卡片，點開可看它實際拿到的 10 篇；沒有這張卡，就是它沒用外掛，結果等同一般搜尋。</li>
+      <li><b>核對：</b>挑它說「符合」的那篇，複製 PMID 到 pubmed.ncbi.nlm.nih.gov 查，確認題目、年份、樣本數一致；再看它標「部分符合」的理由是否合理（例如平均年齡 55 歲卻說是長者研究）。</li>
+      <li><b>要可重現的搜尋式：</b>追問「給我可以貼到 PubMed 的布林搜尋式（MeSH＋[tiab]＋[pt]＋年份）」，拿到後自己到 PubMed 跑一次，這才是能寫進報告的檢索策略。</li>
+    </ol>
+    <div class="tbl" style="margin-top:10px"><table style="min-width:900px">
+      <tr><th></th><th>Consensus</th><th>Life Sciences Literature</th><th>這次結果</th></tr>
+      <tr><td><b>有沒有被呼叫</b></td><td>有，37 秒回覆，上方出現「已開啟 Search Academic Research Papers」與 10 Top Results 卡片</td><td>沒有。即使用 @ 點名，ChatGPT 仍寫「外掛未能直接呼叫，改用限定 PubMed 網站的網頁搜尋」</td><td>外掛不一定每次都動，<b>看卡片</b>才知道</td></tr>
+      <tr><td><b>資料來源</b></td><td>Semantic Scholar、OpenAlex 等索引，2 億多篇；卡片顯示年份、被引用次數、期刊</td><td>PubMed／預印本／開放全文（設計如此，這次未觸發）</td><td>兩邊最後都指向同一篇核心 RCT：Chen 2023，Digital Health，PMID 38107978，台灣 65 歲以上、護理師主導、n=100</td></tr>
+      <tr><td><b>精準度</b></td><td>會把「平均年齡 52 歲」的研究標為部分符合並說明原因</td><td>網頁搜尋版同樣分出符合／部分符合，並多給一篇 Kes 2022</td><td>兩邊都誠實回答「未找到完全符合的系統性回顧」，沒有硬湊 5 篇</td></tr>
+      <tr><td><b>附帶價值</b></td><td>卡片可直接看被引用數、期刊，快速判斷品質</td><td>網頁搜尋版主動給了一段 PubMed 布林搜尋式（MeSH＋[tiab]＋[pt]）</td><td>把那段布林式貼到 PubMed 原站，就是可重現的檢索</td></tr>
+    </table></div>
+    <div class="grid2" style="margin-top:12px">
+      <div class="b3"><h4>怎麼問才精準</h4><ul style="margin:0;padding-left:18px">
+        <li><b>PICO 四個都寫</b>，族群要寫年齡與疾病型別，介入要寫「誰做的」（護理師主導），結果要寫可測量的指標。</li>
+        <li><b>限制條件外顯：</b>年份、研究設計（RCT／系統性回顧／指引）、篇數上限、語言。</li>
+        <li><b>輸出欄位外顯：</b>作者年份、期刊、設計、樣本數、一句結果、PMID 或 DOI；沒有識別碼的一律不採信。</li>
+        <li><b>逼它誠實：</b>「找不到就說找不到」「部分符合要說明哪裡不符」「交代實際搜尋字串」。</li>
+        <li><b>英文關鍵字效果較好：</b>中文問沒關係，但可以附一行英文關鍵字（older adults, nurse-led, diabetic foot, self-care, RCT）。</li>
+      </ul></div>
+      <div class="b3"><h4>用這類外掛要注意</h4><ul style="margin:0;padding-left:18px">
+        <li><b>Consensus 不是 PubMed：</b>索引以英文、有摘要的論文為主，不含你醫院訂閱的全文；它的「Consensus Meter」（多少篇說是／否）由 AI 判讀，可能反映出版偏差，當線索不當結論。</li>
+        <li><b>年齡陷阱：</b>摘要常只寫平均年齡，「平均 67 歲」不等於「全部 65 歲以上」，要看納入條件；PubMed 的 Aged 標籤也一樣。</li>
+        <li><b>PMID 一定回查：</b>這次兩邊都沒編造，但任何一次都可能；回查花 30 秒，引用錯誤的代價是整份報告。</li>
+        <li><b>額度：</b>Consensus 免費帳號有每月次數上限，Deep Search 更少；課堂練習一人一兩次夠用。</li>
+        <li><b>它給的是「定向查找」不是系統性檢索：</b>要寫文獻回顧，拿它的布林式到 PubMed、Cochrane 重跑，並記錄日期與篇數。</li>
+      </ul></div>
+    </div>
+    <div class="shots" style="margin-top:12px">
+      <figure class="shot"><a href="img/l2-lit-at-consensus.jpg" target="_blank" rel="noopener"><img src="img/l2-lit-at-consensus.jpg" alt="@Consensus 點名" loading="lazy"></a><figcaption><b class="n">1</b>打「@Consensus」，清單出現「Consensus · Search peer-reviewed research」，Enter 選取。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-lit-consensus-results.jpg" target="_blank" rel="noopener"><img src="img/l2-lit-consensus-results.jpg" alt="Consensus 結果卡片" loading="lazy"></a><figcaption><b class="n">2</b>回覆上方的「已開啟 Search Academic Research Papers」與 10 Top Results：每篇有年份、被引用次數、作者、期刊。第 2 篇就是 Chen 2023。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-lit-at-lsl.jpg" target="_blank" rel="noopener"><img src="img/l2-lit-at-lsl.jpg" alt="@Life Sciences Literature 點名" loading="lazy"></a><figcaption><b class="n">3</b>同樣方式點名 Life Sciences Literature，標籤有掛上……</figcaption></figure>
+      <figure class="shot"><a href="img/l2-lit-lsl-reply.jpg" target="_blank" rel="noopener"><img src="img/l2-lit-lsl-reply.jpg" alt="Life Sciences Literature 回覆" loading="lazy"></a><figcaption><b class="n">4</b>……但回覆上方沒有外掛卡片，文末自己承認「外掛未能直接呼叫，改用網頁搜尋」。內容仍可用，只是不能宣稱做過 PubMed 原生檢索。</figcaption></figure>
+    </div>
+    <div class="prompt" style="margin-top:12px"><span class="label">它給的 PubMed 布林式（可直接貼到 PubMed 搜尋框）</span>("Diabetes Mellitus, Type 2"[MeSH] OR "type 2 diabetes"[tiab]) AND ("Diabetic Foot"[MeSH] OR "foot care"[tiab] OR "foot self-care"[tiab]) AND ("Patient Education as Topic"[MeSH] OR education[tiab] OR self-management[tiab]) AND (nurs*[tiab] OR educator*[tiab]) AND ("Aged"[MeSH] OR elderly[tiab] OR "older adults"[tiab]) AND ("Randomized Controlled Trial"[pt] OR "Systematic Review"[pt] OR "Meta-Analysis"[pt]) AND 2021:2026[dp]</div>
   </div>
   <div class="card" id="evq">
     <h3>三個常見問題：查得準、找得高、讀 PDF 少幻覺</h3>
