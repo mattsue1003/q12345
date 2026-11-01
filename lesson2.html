@@ -505,7 +505,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     <div class="tbl"><table style="min-width:820px">
       <tr><th>速記</th><th>怎麼打</th><th>它多半會做</th><th>工作上什麼時候用</th></tr>
       <tr><td><code>/tldr</code></td><td>/tldr ＋貼一段公文或公告</td><td>三到五句摘要</td><td>每天看公文、群組長訊息</td></tr>
-      <tr><td><code>/eli5</code></td><td>/eli5 糖化血色素</td><td>用五歲聽得懂的話解釋</td><td>準備對長者的說法</td></tr>
+      <tr><td><code>/eli5</code></td><td>/eli5 糖化血色素</td><td>像對小朋友解釋</td><td>準備對長者的說法</td></tr>
       <tr><td><code>/table</code></td><td>/table 比較三類口服降血糖藥的常見副作用</td><td>直接給表格</td><td>要貼進簡報的對照表</td></tr>
       <tr><td><code>/fix</code></td><td>/fix ＋貼一段有錯字的衛教文</td><td>只改錯字與標點，不改意思</td><td>送審前最後一關</td></tr>
       <tr><td><code>/checklist</code></td><td>/checklist 第 2 型糖尿病出院衛教</td><td>可勾選的清單</td><td>交班、教案、評鑑準備</td></tr>
@@ -646,7 +646,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <h3>上課一起做的設定（約 5 分鐘）</h3>
       <ol class="steps">
         <li>打開 OpenCode（還沒裝的請先到 <a href="https://opencode.ai/zht" target="_blank" rel="noopener">opencode.ai</a>）</li>
-        <li>選模型：先用<b>內建免費模型</b>（課堂用 Nemotron 3 Ultra Free，下方表格說明怎麼挑）就能跑；想用熟悉的模型，用「連接供應商」登入你的 Gemini 或 ChatGPT 帳號</li>
+        <li>選模型：先用<b>內建免費模型</b>（課堂用 Nemotron 3 Ultra Free，下方表格說明怎麼挑）就能跑；想用熟悉的模型，用「連接供應商」登入 ChatGPT 帳號，或貼上 Gemini／Claude 的 API 金鑰</li>
         <li>建立一個練習資料夾，例如「桌面／AI練習」，把合成資料與<b>已公開</b>的衛教單張放進去</li>
         <li>在 OpenCode 打開這個資料夾，以後所有交辦都只在這個資料夾裡進行</li>
       </ol>
@@ -668,7 +668,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <tr><td>Claude Haiku 5.5、GPT 6 Luna、Gemini 3.5 Flash Lite</td><td>同上三家</td><td>約 US$0.1～0.3／US$0.5～2.5</td><td>快、便宜，一次交辦不到一塊台幣</td><td>複雜任務會偷懶</td><td>轉檔、分類、改錯字、整理清單</td></tr>
       <tr><td>Grok 4.7、Mistral Large 4</td><td>xAI（美國）、Mistral（法國）</td><td>US$2／US$6、US$0.68／US$2.09</td><td>非中國的平價選項</td><td>中文與醫療用語不如上面三家</td><td>備用</td></tr>
     </table></div>
-    <div class="shots" style="margin-top:12px"><figure class="shot"><a href="img/l2-oc-home.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-home.jpg" alt="OpenCode 桌面版首頁" loading="lazy"></a><figcaption><b class="n">1</b>OpenCode 桌面版：左上是目前資料夾（專案），輸入框下方「OpenCode／Beam Free」就是模型，點它換模型；提示文字寫著「/ 可使用命令，@ 可加入上下文」。</figcaption></figure><figure class="shot"><a href="img/l2-oc-models.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-models.jpg" alt="OpenCode 模型選單" loading="lazy"></a><figcaption><b class="n">2</b>點輸入框下方的模型名稱就會跳出這個選單：上面是最近用過的，「免費」標籤一眼可見；往下捲有 Claude、GPT、Gemini 等付費模型。搜尋框打 Nemotron 就能找到課堂用的那一個。</figcaption></figure><figure class="shot"><a href="img/l2-oc-project.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-project.jpg" alt="OpenCode 專案選單" loading="lazy"></a><figcaption><b class="n">3</b>點左上角的專案名稱：可看到目前資料夾路徑、切換「本機儲存庫」（其他資料夾）、Git 分支與已變更檔案數。這就是「一個資料夾就是一個專案」。</figcaption></figure><figure class="shot"><a href="img/l2-oc-free.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-free.jpg" alt="OpenCode 官方免費模型清單" loading="lazy"></a><figcaption><b class="n">4</b>官方文件的免費模型清單（2026/11）。MiMo 是小米的，跳過。</figcaption></figure></div>
+    <div class="shots" style="margin-top:12px"><figure class="shot"><a href="img/l2-oc-home.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-home.jpg" alt="OpenCode 桌面版首頁" loading="lazy"></a><figcaption><b class="n">1</b>OpenCode 桌面版：左上是目前資料夾（專案），輸入框下方「OpenCode／Beam Free」就是模型，點它換模型（圖中的 Beam Free 是隱身模型，請改選 Nemotron）；提示文字寫著「/ 可使用命令，@ 可加入上下文」。</figcaption></figure><figure class="shot"><a href="img/l2-oc-models.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-models.jpg" alt="OpenCode 模型選單" loading="lazy"></a><figcaption><b class="n">2</b>點輸入框下方的模型名稱就會跳出這個選單：上面是最近用過的，「免費」標籤一眼可見；往下捲有 Claude、GPT、Gemini 等付費模型。搜尋框打 Nemotron 就能找到課堂用的那一個。</figcaption></figure><figure class="shot"><a href="img/l2-oc-project.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-project.jpg" alt="OpenCode 專案選單" loading="lazy"></a><figcaption><b class="n">3</b>點左上角的專案名稱：可看到目前資料夾路徑、切換「本機儲存庫」（其他資料夾）、Git 分支與已變更檔案數。這就是「一個資料夾就是一個專案」。</figcaption></figure><figure class="shot"><a href="img/l2-oc-free.jpg" target="_blank" rel="noopener"><img src="img/l2-oc-free.jpg" alt="OpenCode 官方免費模型清單" loading="lazy"></a><figcaption><b class="n">4</b>官方文件的免費模型清單（2026/11）。MiMo 是小米的，跳過。</figcaption></figure></div>
     <div class="grid2" style="margin-top:12px">
       <div class="card" style="margin:0">
         <h3>免費和付費差在哪</h3>
@@ -676,15 +676,15 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
           <li><b>免費模型：</b>限時、會輪替，量大時排隊；資料政策要看清楚，部分標「Contributor」的模型會拿你的內容去訓練。練習用合成資料沒問題，<b>真實文件不要放</b>。</li>
           <li><b>付費計次（Zen）：</b>先儲值，用多少扣多少，每次儲值另收 4.6%＋US$0.31 手續費。模型最齊，Claude、GPT、Gemini 都在同一個選單。</li>
           <li><b>月費方案 OpenCode Go：</b>US$10／月（Go Plus US$40），包 30 個模型的固定額度，每 5 小時最多用掉月額度的 20%。但清單以中國模型為主，非中國的只有 GPT 6 Luna、Claude Haiku 5.5、Gemini 4 Argon 這類，<b>對我們不划算</b>。</li>
-          <li><b>接自己的帳號：</b>已付 Claude Pro 或 ChatGPT Plus 的人，在 OpenCode「連接供應商」登入即可，用的是訂閱額度，不另外付錢。Gemini 要到 Google AI Studio 申請金鑰，有免費額度。</li>
+          <li><b>接自己的帳號：</b>已付 ChatGPT Plus 的人，在 OpenCode「連接供應商」登入即可用訂閱額度；Claude 訂閱帳號能否在第三方工具登入以官方條款為準，保險做法是用 API 金鑰計次；Gemini 到 Google AI Studio 申請金鑰，有免費額度。</li>
         </ul>
       </div>
       <div class="card" style="margin:0">
         <h3>付費大概要花多少</h3>
         <ul>
           <li>一次「三個版本衛教單張」交辦：約 2 萬 token 進、5 千出。Claude Sonnet 5.5 約 <b>US$0.09（台幣 3 元）</b>；Haiku 5.5 約 US$0.005。</li>
-          <li>整季 30 份單張重寫＋每週一次指標整理：Sonnet 5.5 大約 US$3～5／月。</li>
-          <li>最省：儲值 US$10 可以用一學期。比起再訂一個 US$20 月費，<b>計次對偶爾用的人划算</b>；每天都用再考慮登入自己的 Pro 帳號。</li>
+          <li>一季 30 份單張重寫＋每週一次指標整理：Sonnet 5.5 一季大約 US$3～5。</li>
+          <li>最省：儲值 US$10，輕度使用可能撐一學期。比起再訂一個 US$20 月費，<b>計次對偶爾用的人划算</b>；每天都用再考慮登入自己的 Pro 帳號。</li>
         </ul>
         <div class="note teal" style="margin-bottom:0"><b>課堂建議：</b>今天先用 <b>Nemotron 3 Ultra Free</b> 跑完所有練習；回去要真的用，改成 Claude Sonnet 5.5（改檔）或 GPT 6 Sol（算數）。不選隱身模型，不選紅色列。價格以 <a href="https://opencode.ai/docs/zen/" target="_blank" rel="noopener">官方清單</a>為準，常變動。</div>
       </div>
@@ -698,13 +698,13 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
 2. 長者大字版.md：最多 5 步驟、每步 20 字內、不用英文縮寫；
 3. 越南文對照版.md：中越一句一列，數字與時間完整保留。
 限制：不新增原文沒有的醫療建議。
-完成後另外寫一份「改動清單.md」，列出每個版本與原文意思可能不同的句子，讓我核對。
+完成後另外寫一份「改動清單.md」，列出每個版本與原文意思可能不同的句子，讓我核對。越南文版需由會越南文的同仁核對後才可發給病人。
 開始前如果有不清楚的地方，先問我。</div>
     <p style="margin-bottom:0">注意最後一句：第 7 節的 AMA 反問法，在代理上一樣有用，而且更重要，因為它接下來會真的動手。</p>
   </div>
   <div class="card" id="layers">
-    <h3>先看懂三層：三家都是「對話 → 代理 → 資料夾代理」</h3>
-    <p style="margin-top:0">ChatGPT、Claude、Gemini 現在的輸入框下方都有兩個切換，往下還各有一個會碰你電腦檔案的工具。名字都不一樣，其實是同一個階梯。</p>
+    <h3>先看懂三層階梯：「對話 → 代理 → 資料夾代理」，三家大致對應</h3>
+    <p style="margin-top:0">ChatGPT、Claude、Gemini 現在的輸入框旁都有兩個切換（ChatGPT 在上方，另外兩家在下方），往下還各有一個會碰你電腦檔案的工具。名字都不一樣，其實是同一個階梯。</p>
     <div class="tbl"><table style="min-width:860px">
       <tr><th>層</th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th><th>差在哪、什麼時候用</th></tr>
       <tr><td><b>① 對話</b></td><td>對話</td><td>對話</td><td>對話</td><td>一問一答，你主導每一步。想、問、改一段文字都在這層。</td></tr>
@@ -722,7 +722,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <button class="tab" data-g="layg" data-t="lg3"><span class="t ge">Gemini</span></button>
     </div>
     <div class="panel on" data-g="layg" id="lg1"><div class="shots">
-      <figure class="shot"><a href="img/l2-s13-gpt-work.jpg" target="_blank" rel="noopener"><img src="img/l2-s13-gpt-work.jpg" alt="ChatGPT 工作" loading="lazy"></a><figcaption><b class="n">1</b>首頁上方「對話／工作」：第 ② 層。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-s13-gpt-work.jpg" target="_blank" rel="noopener"><img src="img/l2-s13-gpt-work.jpg" alt="ChatGPT 工作" loading="lazy"></a><figcaption><b class="n">1</b>首頁輸入框上方「對話／工作」：第 ② 層。</figcaption></figure>
       <figure class="shot"><a href="img/l2-codex.jpg" target="_blank" rel="noopener"><img src="img/l2-codex.jpg" alt="Codex 頁" loading="lazy"></a><figcaption><b class="n">2</b>chatgpt.com/codex：第 ③ 層 Codex，有 macOS 桌面程式與 Cloud 版，需 Plus。</figcaption></figure>
     </div></div>
     <div class="panel" data-g="layg" id="lg2"><div class="shots">
@@ -755,7 +755,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
   </g>
   <g font-size="11" fill="#475569">
     <text x="330" y="104" text-anchor="end">交辦</text><text x="430" y="104">回報、等你核准</text>
-    <text x="330" y="224" text-anchor="end">委派、安全連線</text><text x="430" y="224">回報結果</text>
+    <text x="330" y="224" text-anchor="end">配對後委派</text><text x="430" y="224">回報結果</text>
     <text x="395" y="340">依你給的權限讀寫</text>
     <text x="150" y="36" text-anchor="middle">問問題</text>
     <text x="600" y="36" text-anchor="middle">人在外面</text>
@@ -768,14 +768,14 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <tr><td><b>AI Agent（代理）</b></td><td>接到目標後<b>自己規畫多步驟、呼叫工具、檢查結果、回報</b>；會問你要不要繼續</td><td>看你給它什麼工具：搜尋、程式、檔案、瀏覽器、外掛</td><td>ChatGPT 工作、Claude Cowork、Gemini 任務、OpenCode</td><td>一件要跑十幾步、會產出檔案的事</td></tr>
       <tr><td><b>雲端代理</b></td><td>代理跑在廠商的伺服器上，有自己的雲端電腦</td><td>網路、你上傳的檔案、你授權的雲端服務（雲端硬碟、Gmail）；<b>碰不到你的電腦</b></td><td>ChatGPT 工作與雲端瀏覽器、Claude 研究與網頁版 Code、Gemini 任務、Gemini Notebook</td><td>查資料、寫報告、處理雲端檔案；電腦可以關機</td></tr>
       <tr><td><b>本機代理</b></td><td>代理跑在你的電腦上</td><td>你指定的資料夾、安裝的程式、瀏覽器、終端機</td><td>OpenCode、Claude Code（桌面）、Cowork、Codex 桌面版</td><td>批次處理電腦裡的檔案、操作沒有雲端版的程式；電腦要開著</td></tr>
-      <tr><td><b>手機 Remote Control</b></td><td>手機本身不跑代理；它透過廠商的雲端<b>把指令送到你家或辦公室正在跑的本機代理</b>，再把回報送回手機</td><td>等於本機代理碰得到的全部</td><td>Claude Code 的 Remote Control、Codex 手機接桌面版、OpenCode 的遠端分享</td><td>人在外面、電腦在家開著；交辦長任務、回來看結果</td></tr>
+      <tr><td><b>手機 Remote Control</b></td><td>手機本身不跑代理；它透過廠商的雲端<b>把指令送到你家或辦公室正在跑的本機代理</b>，再把回報送回手機</td><td>等於本機代理碰得到的全部</td><td>Claude Code 的 Remote Control、Codex 手機接桌面版（OpenCode 的「分享」是公開對話連結，不是遙控，勿用）</td><td>人在外面、電腦在家開著；交辦長任務、回來看結果</td></tr>
     </table></div>
     <div class="grid2" style="margin-top:12px">
       <div class="card" style="margin:0">
         <h3>常見混淆，一句話回答</h3>
         <ul>
           <li><b>「Agent 跟 Bot 差在哪？」</b>Bot 回答你，Agent 替你做。判斷方法：它會不會自己跑第二步、第三步而不用你再按一次。</li>
-          <li><b>「Grok 跟 Grok 的代理版差在哪？」</b>同一個模型、不同的殼：聊天版是 Bot，能呼叫工具且會自己多步執行的才是 Agent。各家名字不同（Work／Cowork／任務／Agent 模式），看功能不看名字。目前查不到 xAI 有叫「Grok Bar」的正式產品，若學員指的是第三方桌面小工具，那只是把聊天視窗放在工具列，仍是 Bot。</li>
+          <li><b>「Grok 跟 Grok 的代理版差在哪？」</b>同一個模型、不同的殼：聊天版是 Bot，能呼叫工具且會自己多步執行的才是 Agent。各家名字不同（Work／Cowork／任務／Agent 模式），看功能不看名字。第三方的「工具列小視窗」只是把聊天框換個位置，仍是 Bot。</li>
           <li><b>「雲端代理可以碰我電腦嗎？」</b>預設不行。要碰，得在電腦上裝本機代理並配對（Claude Code 的 Remote Control、Codex 的雲端⇄桌面），而且每次改動都會回頭問你。</li>
           <li><b>「手機就能跑 Agent？」</b>手機上的 ChatGPT／Claude／Gemini App 跑的是<b>雲端</b>代理；要動到電腦裡的檔案，手機只是遙控器，電腦要開著、本機代理要先啟動。</li>
           <li><b>「Remote Control 安全嗎？」</b>連線經過廠商雲端加密中繼，但等於把電腦交給遠端的你；手機遺失要能立刻登出；只在個人電腦與練習資料夾用，院內電腦依資安規定。</li>
@@ -788,7 +788,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
           <li><b>每一條線都是授權：</b>雲端代理要你授權才能碰雲端硬碟；本機代理要你指定資料夾；手機要先配對。沒有一條線是預設打開的。</li>
           <li><b>重要操作由人確認：</b>刪檔、寄信、送出表單、改病歷相關文件，在任何一層都要停下來問你。外掛權限選「允許唯讀工具」、代理先跑「只讀不改」就是這個意思。</li>
         </ol>
-        <div class="note teal" style="margin-bottom:0"><b>講師怎麼用：</b>白天在門診用手機 Remote Control 交辦家裡電腦上的 OpenCode／Claude Code「把今天的 30 份單張轉成 .md 並列出個資疑慮」；晚上回家開電腦直接審核。手機只負責下指令和看回報，所有檔案都留在電腦裡。</div>
+        <div class="note teal" style="margin-bottom:0"><b>講師怎麼用：</b>白天在門診用手機 Remote Control 交辦家裡電腦上的 OpenCode／Claude Code「把今天的 30 份單張轉成 .md 並列出個資疑慮」；電腦整天開著，晚上回家直接在電腦上審核。手機只負責下指令和看回報，所有檔案都留在電腦裡。</div>
       </div>
     </div>
   </div>
@@ -800,7 +800,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <tr><td><span class="t gpt">ChatGPT</span></td><td>Work（工作）；Codex（資料夾代理，chatgpt.com/codex）、雲端瀏覽器</td><td>Work 做完整報告；雲端瀏覽器可代你操作網頁（例：到學會網站查學分），開啟前先看第 12 節的權限設定</td><td>今天第 13 節、第 5 堂</td></tr>
       <tr><td><span class="t cl">Claude</span></td><td>桌面版 Cowork；連接器</td><td>交辦「整理這個資料夾的衛教素材並做成簡報」；排程每週文獻快報</td><td>今天第 11、13 節</td></tr>
       <tr><td><span class="t cl">Claude Code</span></td><td>桌面版左上切到 <b>Code</b> 分頁 → 選一個電腦資料夾（需付費方案）；網頁版 Code 在雲端，碰不到你的電腦</td><td>和 OpenCode 同一類：在資料夾裡讀檔、改檔、裝工具、批次處理。例：裝 MarkItDown 把整批指引 PDF 轉文字（B 節）、把衛教內容做成互動網頁並發布</td><td>今天 B 節、第 5 堂</td></tr>
-      <tr><td><span class="t ge">Gemini</span></td><td>排定動作；Agent 模式（陸續開放）</td><td>每週自動整理公告；Google 全家桶內的跨 App 任務</td><td>今天第 11 節</td></tr>
+      <tr><td><span class="t ge">Gemini</span></td><td>任務；排定動作；Agent 模式（陸續開放）</td><td>每週自動整理公告；Google 全家桶內的跨 App 任務</td><td>今天第 11 節</td></tr>
     </table></div>
     <div class="note teal"><b>Cowork、Claude Code、OpenCode 怎麼選？</b>Cowork 給「不碰程式」的文書工作，像是整理資料夾、做簡報、排程。Claude Code 和 OpenCode 都是「資料夾裡的代理」，能裝工具、跑指令。差別在 Claude Code 只能用 Claude 模型、要付費方案；OpenCode 免費、可換不同模型。已付費 Claude 的人用 Claude Code，其他人用 OpenCode，教的提示詞和 AGENTS.md／CLAUDE.md 寫法都通用。</div>
   <div class="note" style="margin:14px 0 0"><b>代理的三條界線（第 5 堂會細講）：</b>① 只在去識別化的資料夾與個人帳號裡動作；② 會「變更」的動作一律要先問你（外掛權限選「允許唯讀工具」）；③ 任何進入病歷、公文、對外文件的內容，由人簽名負責。</div>
@@ -1411,7 +1411,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <tr><td><b>Canva</b></td><td>建簡報、海報、改尺寸</td><td>第 8 節實測：一句話生 8 頁可編輯簡報</td><td>ChatGPT 外掛程式、Claude 連接器</td><td>內容會上 Canva 雲端，只放可公開素材</td></tr>
       <tr><td><b>PubMed／文獻類</b>（ChatGPT：Life Sciences Literature、Arca PubMed；Claude 探索：PubMed）</td><td>搜文獻、抓摘要、給 PMID</td><td>R 節的 PICO 查證；每筆附 PMID 可點開驗證</td><td>ChatGPT 外掛程式、Claude 連接器 → 探索</td><td>仍要自己點開 PMID 確認</td></tr>
       <tr><td><b>Zotero</b></td><td>讀你的書目庫、加註解</td><td>「把這 10 篇的研究設計整理成表」</td><td>Claude／OpenCode（社群 MCP）</td><td>要在自己電腦跑</td></tr>
-      <tr><td><b>Notion／Google 試算表</b></td><td>讀寫資料庫、表格</td><td>個管追蹤表、衛教排程表讓 AI 直接更新</td><td>三家都有官方連接器</td><td>表裡不放可識別個資</td></tr>
+      <tr><td><b>Notion／Google 試算表</b></td><td>讀寫資料庫、表格</td><td>個管追蹤表、衛教排程表讓 AI 直接更新</td><td>ChatGPT／Claude 多有官方連接器；Gemini 以 Google 試算表為主</td><td>表裡不放可識別個資</td></tr>
       <tr><td><b>Filesystem（檔案系統）</b></td><td>讀寫指定資料夾</td><td>OpenCode 天生就有；Claude 桌面版可指定資料夾</td><td>OpenCode／Claude Code／Cowork</td><td>只指向練習資料夾</td></tr>
       <tr><td><b>Fetch／瀏覽器</b>（Playwright、Claude in Chrome、ChatGPT 雲端瀏覽器）</td><td>打開網頁、按按鈕、填表</td><td>「到學會網站查我的繼續教育學分」</td><td>ChatGPT 雲端瀏覽器、Claude in Chrome、OpenCode MCP</td><td>會代你操作網站，第 5 堂再細講</td></tr>
       <tr><td><b>GitHub</b></td><td>讀寫程式倉庫</td><td>第 3 堂做 HTML 簡報時讓 AI 直接推上網頁</td><td>ChatGPT 外掛程式、Claude 連接器、OpenCode</td><td>只放公開教材</td></tr>
@@ -1424,13 +1424,13 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
           <li>新對話打「@Google Drive 找出檔名含『衛教』的最近 5 個檔案，列出檔名與修改日期」。</li>
           <li>看它跳出的權限卡，選「允許一次」。</li>
           <li><span class="t cl">Claude</span>同一件事：設定 → 自訂 → 連接器 → 探索 → Google 雲端硬碟 → 連接，對話中說「用雲端硬碟連接器找…」。</li>
-          <li><span class="t ge">Gemini</span>不用裝：直接說「幫我在雲端硬碟找…」，Gemini 原生就接 Google 全家桶。</li>
+          <li><span class="t ge">Gemini</span>Google 應用程式預設可用：直接說「幫我在雲端硬碟找…」；找不到請到「個人化智慧服務 → 連結的應用程式」開啟。</li>
         </ol>
       </div>
       <div class="card" style="margin:0">
         <h3>三條安全線（和外掛、代理一樣）</h3>
         <ul>
-          <li><b>只裝官方或知名來源的 MCP。</b>任何人都能寫 MCP 伺服器，來路不明的等於把資料交給陌生人。ChatGPT 外掛頁有「公開／個人」標籤，Claude 的「探索」是審核過的清單。</li>
+          <li><b>只裝官方或知名來源的 MCP。</b>任何人都能寫 MCP 伺服器，來路不明的等於把資料交給陌生人。ChatGPT 外掛頁會標示提供者，Claude 的「探索」有官方與合作夥伴標示；仍要逐一看它要的權限。</li>
           <li><b>權限從唯讀開始。</b>允許「讀」之前想清楚它讀得到什麼；允許「寫」之前想清楚它寫壞了誰負責。能選「允許一次」就不要選「一律允許」。</li>
           <li><b>資料流向先想清楚。</b>接上雲端硬碟，AI 就看得到那裡所有檔案。院內資料夾、病人名單不要放在授權範圍內；用個人帳號的練習資料夾。</li>
         </ul>
@@ -1444,9 +1444,9 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     <div class="tbl"><table style="min-width:960px">
       <tr><th>名稱</th><th>AI 能碰到什麼</th><th>誰有</th><th>適合</th><th>風險</th></tr>
       <tr><td><b>瀏覽器控制</b>（雲端瀏覽器）</td><td>AI 自己在雲端開一個瀏覽器，讀網頁、點按鈕、填表。<b>不是你的瀏覽器</b>，沒有你的登入狀態。</td><td>ChatGPT「雲端瀏覽器」（Agent 模式）、Gemini Agent 模式</td><td>公開網站查資料、比價、填公開表單</td><td>要登入的網站得在它的瀏覽器重新登入；資料經過雲端</td></tr>
-      <tr><td><b>Chrome 控制</b>（Claude in Chrome）</td><td>裝一個擴充功能，AI 操作<b>你自己的 Chrome</b>：看得到你已登入的 Gmail、學會網站、院內系統。可讀 DOM，比看截圖快又準。</td><td>Claude（擴充功能）；ChatGPT 的 Atlas 瀏覽器是同類</td><td>學分查詢、報名、整理你帳號裡的東西；本講義的截圖就是這樣抓的</td><td>它用的是你的身分；每個網站第一次會問你允不允許</td></tr>
-      <tr><td><b>桌面控制</b>（Computer use）</td><td>截圖、移滑鼠、點、打字，<b>任何桌面程式</b>都能操作：Excel、PowerPoint、OpenCode、LINE。</td><td>Claude 桌面版（Cowork／Code）、OpenCode 與 Claude Code 的 computer-use、Codex 桌面版</td><td>沒有網頁版、沒有 API 的老程式；跨程式的流程</td><td>最強也最危險：它看得到螢幕上一切、能按任何鍵</td></tr>
-      <tr><td><b>背景控制</b> vs <b>全螢幕控制</b><br><small>桌面控制的兩種模式</small></td><td><b>背景：</b>只對你授權的那一個程式視窗操作，不搶滑鼠，你可以繼續用別的程式。<b>全螢幕：</b>接管整個螢幕與鍵盤，邊緣會發光，你要停手等它做完。</td><td>Claude 桌面版的授權對話框會讓你選</td><td>背景：單一程式的重複工作。全螢幕：要跨程式、拖拉、或背景模式點不到的時候</td><td>背景模式下你在打字，它也在打字，兩邊不會互相干擾；全螢幕模式下千萬別同時動鍵盤</td></tr>
+      <tr><td><b>Chrome 控制</b>（Claude in Chrome）</td><td>裝一個擴充功能，AI 操作<b>你自己的 Chrome</b>：看得到你已登入的 Gmail、學會網站、院內系統。可讀 DOM，比看截圖快又準。</td><td>Claude（擴充功能）；ChatGPT 的 Atlas 瀏覽器是同類</td><td>學分查詢、報名、整理你個人帳號裡的東西（院內系統依資安規定，預設不開放）</td><td>它用的是你的身分；每個網站第一次會問你允不允許</td></tr>
+      <tr><td><b>桌面控制</b>（Computer use）</td><td>截圖、移滑鼠、點、打字，<b>多數桌面程式</b>都能操作：Excel、PowerPoint、OpenCode、LINE（瀏覽器只能看、終端機只能點，不能打字）。</td><td>Claude 桌面版（Cowork／Code）、OpenCode 與 Claude Code 的 computer-use、Codex 桌面版</td><td>沒有網頁版、沒有 API 的老程式；跨程式的流程</td><td>最強也最危險：它看得到螢幕上一切、能按任何鍵</td></tr>
+      <tr><td><b>背景控制</b> vs <b>全螢幕控制</b><br><small>桌面控制的兩種模式</small></td><td><b>背景：</b>只對你授權的那一個程式視窗操作，不搶滑鼠，你可以繼續用別的程式。<b>全螢幕：</b>接管整個螢幕與鍵盤，邊緣會發光，你要停手等它做完。</td><td>Claude 桌面版的授權對話框會讓你選</td><td>背景：單一程式的重複工作。全螢幕：要跨程式、拖拉、或背景模式點不到的時候</td><td>背景模式下通常不會互相干擾，但目標視窗被蓋住就會點錯；全螢幕模式下千萬別同時動鍵盤</td></tr>
     </table></div>
     <div class="grid2" style="margin-top:12px">
       <div class="card" style="margin:0">
@@ -1464,7 +1464,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
         <h3>彼此怎麼搭配、怎麼選</h3>
         <ul>
           <li><b>先問「這件事在哪裡發生」：</b>在網頁上 → Chrome 控制（要你的登入）或雲端瀏覽器（公開網站）；在桌面程式 → 桌面控制；在資料夾 → 根本不用控制，交給 OpenCode 直接讀寫檔案最穩。</li>
-          <li><b>同一個對話可以接力：</b>例：Chrome 控制到學會網站查學分 → 桌面控制打開 Excel 登記 → OpenCode 把登記表轉成月報。各做自己最擅長的一段。</li>
+          <li><b>同一件事可以接力：</b>例：Chrome 控制到學會網站查學分 → 桌面控制打開 Excel 登記 → OpenCode 把登記表轉成月報。各做自己最擅長的一段。</li>
           <li><b>能用 API／MCP 就不要用控制：</b>控制是「看畫面、點按鈕」，慢且會點錯；Google 日曆、雲端硬碟、Canva 都有連接器，直接接。控制留給沒有接口的系統。</li>
           <li><b>背景優先，全螢幕備用：</b>背景模式你不會被打斷；真的點不到（視窗被蓋、在別的桌面）再切全螢幕，做完就收回。</li>
         </ul>
@@ -1587,12 +1587,12 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
 每一點標明是「指引有寫」還是「你的推論」。</div>
   </div>
   <div class="card" id="evq">
-    <h3>三個常見問題：查得準、找得高、讀 PDF 不幻覺</h3>
+    <h3>三個常見問題：查得準、找得高、讀 PDF 少幻覺</h3>
     <div class="grid2">
       <div class="card" style="margin:0">
         <h3>Q1 醫學、健康資料要怎麼查才精準？</h3>
         <ol class="steps">
-          <li><b>先鎖定問題：</b>用 PICO 寫成一句（上面提示詞①）。模糊的問題只會得到模糊的答案。</li>
+          <li><b>先鎖定問題：</b>用 PICO 寫成一句（R 節上方的提示詞①）。模糊的問題只會得到模糊的答案。</li>
           <li><b>指定來源層級：</b>寫明「只用臨床指引、系統性回顧、統合分析；沒有再退到 RCT」。</li>
           <li><b>指定年份與族群：</b>「近 5 年」「成人第 2 型」「亞洲或台灣資料優先」。</li>
           <li><b>開對模式：</b>ChatGPT 裝 PubMed 類外掛或用工作模式；Claude 開「研究」；Gemini 開「深入研究」並要求只用學術來源。一般對話模式會憑記憶回答，最容易錯。</li>
@@ -1605,7 +1605,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
         <div class="tbl" style="border:0"><table style="min-width:0">
           <tr><th>等級</th><th>類型</th><th>怎麼請 AI 找</th></tr>
           <tr><td>最高</td><td>臨床指引（ADA、台灣糖尿病學會）、系統性回顧／統合分析（Cochrane）</td><td>「先列指引與 Cochrane 回顧，標出發布年份」</td></tr>
-          <tr><td>高</td><td>隨機對照試驗（RCT）</td><td>「找樣本數 ≥ 200、追蹤 ≥ 12 個月的 RCT」</td></tr>
+          <tr><td>高</td><td>隨機對照試驗（RCT）</td><td>「設定最低樣本數與追蹤時間（依主題調整），例如樣本 ≥ 200、追蹤 ≥ 12 個月」</td></tr>
           <tr><td>中</td><td>世代、病例對照研究</td><td>「只在沒有 RCT 時才列，並註明」</td></tr>
           <tr><td>低</td><td>個案報告、專家意見、新聞、部落格</td><td>「不要列；若列出要標為低證據」</td></tr>
         </table></div>
@@ -1625,9 +1625,9 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
         <tr><td>2</td><td>提示詞寫死規則：「<b>只根據附件回答；每一句標出頁碼或段落；附件沒寫的就回答『文件未提及』</b>」</td><td>關掉它「用常識補」的習慣，這是幻覺最大來源</td></tr>
         <tr><td>3</td><td><b>分段問</b>：一次問一個章節、一張表，不要「幫我整本摘要」</td><td>越長越容易漏；分段也方便你逐段核對</td></tr>
         <tr><td>4</td><td>數字與建議句<b>要它引用原文</b>：「列出原文那一句，再給你的解釋」</td><td>原句和解釋並排，錯了一眼看得出來</td></tr>
-        <tr><td>5</td><td>用<b>只看來源</b>的工具：Gemini Notebook（回答附來源編號）、Claude 專案、ChatGPT 專案＋檔案</td><td>這些模式預設以附件為準，比一般對話穩</td></tr>
+        <tr><td>5</td><td>用<b>只看來源</b>的工具：Gemini Notebook（回答附來源編號）；Claude／ChatGPT 專案則方便反覆引用附件</td><td>Notebook 預設只依你的來源回答；專案仍會用一般知識，要靠第 2 步的提示詞限制</td></tr>
         <tr><td>6</td><td><b>交叉驗證</b>：同一段請兩家各做一次，比對差異；或請同一家「再讀一次，找出剛才摘要和原文不一致的地方」</td><td>兩次獨立結果不一致的地方，就是要人工看的地方</td></tr>
-        <tr><td>7</td><td>最後<b>人工抽查</b>：所有數字 100% 核對，文字段落抽 2～3 段；把這套規則做成<b>技能</b>（第 14 節）以後自動套用</td><td>AI 負責讀 90%，你負責最後 10% 和簽名</td></tr>
+        <tr><td>7</td><td>最後<b>人工抽查</b>：所有數字 100% 核對，文字段落抽 2～3 段；把這套規則做成<b>技能</b>（第 14 節）以後自動套用</td><td>AI 先讀一遍，你負責核對與簽名</td></tr>
       </table></div>
       <div class="prompt" style="margin-top:12px"><span class="label">PDF 忠實閱讀提示詞（可直接做成技能）</span>附件是一份臨床指引。請遵守：
 1. 只根據附件回答，不要補充附件以外的知識；附件沒寫的，回答「文件未提及」。
@@ -1692,7 +1692,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <tr><td>什麼時候生效</td><td>每一次對話，永遠</td><td>只在這個專案裡的對話</td><td>需要時才啟動（自動判斷或你用 / @ 叫出）</td><td>你允許它用的時候</td></tr>
       <tr><td>跨不跨專案</td><td>全域</td><td>不跨</td><td><b>跨</b>：任何對話、任何專案都能用</td><td>跨</td></tr>
       <tr><td>衛教師例子</td><td>「我是糖尿病衛教師，對象是 65 歲以上」</td><td>「衛教單張改寫室」：放模板、院內用語表</td><td>「長者友善單張」：字級、步驟、禁用詞、輸出格式</td><td>把單張直接做成 Canva、把文獻從 PubMed 拉進來</td></tr>
-      <tr><td>三家名稱</td><td>給 ChatGPT／Claude／Gemini 的指示</td><td>專案／專案／Gem 與筆記本</td><td>技能／技能／技能（Gem 於 11/17 轉為技能）</td><td>外掛程式／連接器／應用程式</td></tr>
+      <tr><td>三家名稱</td><td>給 ChatGPT／Claude／Gemini 的指示</td><td>專案／專案／筆記本（Gemini Notebook）</td><td>技能／技能／技能（Gem 於 11/17 轉為技能）</td><td>外掛程式／連接器／應用程式</td></tr>
     </table></div>
     <div class="grid2" style="margin-top:12px">
       <div class="card" style="margin:0">
@@ -1706,7 +1706,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <div class="card" style="margin:0">
         <h3>有沒有「連接資料夾」差在哪</h3>
         <ul>
-          <li><b>上傳檔案（專案）：</b>AI 讀的是副本，改完要你自己下載、另存。ChatGPT 工作模式下方「檔案」、Claude 專案「新增內容」都是這種。</li>
+          <li><b>上傳檔案（專案）：</b>AI 讀的是副本，改完要你自己下載、另存。ChatGPT 專案的「檔案」、Claude 專案的「新增內容」都是這種。</li>
           <li><b>連接資料夾（OpenCode／Claude Code／Cowork）：</b>AI 直接在你的資料夾裡讀、寫、新增檔案；產出留在原地，批次處理 30 個檔也是一句話。代價是它真的會改檔，所以只能指向練習資料夾。</li>
           <li><b>連接雲端（外掛）：</b>ChatGPT 外掛接 Google Drive、Claude 連接器接雲端硬碟，AI 可以去抓，但多半是唯讀。</li>
         </ul>
@@ -1723,7 +1723,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     <div class="grid2" style="margin-top:12px">
       <div class="card" style="margin:0">
         <h3>自己做一個：SKILL.md 長這樣</h3>
-        <p style="margin-top:0">三家的技能檔格式一樣：一個資料夾，裡面一個 <code>SKILL.md</code>（寫法同第 4 節的 AGENTS.md），需要時再加範本檔。</p>
+        <p style="margin-top:0">ChatGPT 與 Claude 的技能檔格式一樣（Gemini 貼內容即可）：一個資料夾，裡面一個 <code>SKILL.md</code>（寫法同第 4 節的 AGENTS.md），需要時再加範本檔。</p>
         <div class="prompt"><span class="label">SKILL.md 範例：長者友善衛教單張</span>---
 name: senior-health-handout
 description: 把一段醫療或健康資料改寫成 65 歲以上長者看得懂的一頁衛教單張。使用者提到「衛教單張」「長者版」「改寫給長輩」時使用。
@@ -1748,7 +1748,7 @@ description: 把一段醫療或健康資料改寫成 65 歲以上長者看得懂
 description 要寫清楚「什麼情況下該啟動」，因為那決定它會不會自動被叫出來。</div>
         <ul>
           <li>寫好的 SKILL.md 存成資料夾 → 壓縮 → ChatGPT「從電腦上傳」、Claude「設定 → 自訂 → Skills → 新增 → 上傳 Skill」。</li>
-          <li>同一個檔三家都能用，所以<b>寫一次，到處用</b>。</li>
+          <li>ChatGPT 與 Claude 可直接上傳同一個 SKILL.md；Gemini 要把內容貼進技能管理工具。<b>寫一次，三家都用得到</b>。</li>
           <li>技能裡不要放病人資料與院內未公開文件；那些放專案。</li>
         </ul>
       </div>
@@ -2016,7 +2016,7 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
       <tr><td><b>② 清理與整理資料</b></td><td>上傳檔案，請它統一格式、拆欄、找重複、標異常</td><td>「把『年齡組』統一成 &lt;65／65–74／≥75」「日期有 2026/3/1 和 3-1-26 兩種，統一成 YYYY-MM-DD」「找出同一個案同季重複列」</td><td>ChatGPT 工作模式、Claude（會跑程式）</td><td>要它<b>輸出改了哪些格</b>的清單，不要只給新檔；原檔留著</td></tr>
       <tr><td><b>③ 描述統計與樞紐</b></td><td>S 節的兩段提示詞</td><td>分性別、年齡層的達標率；每位衛教師的個案數</td><td>ChatGPT 工作、Claude 分析工具、Gemini</td><td>十條檢查；數字自己用 =COUNTIFS 抽查</td></tr>
       <tr><td><b>④ 畫圖表</b></td><td>請它用程式畫，或產出可編輯的 Excel 圖表</td><td>HbA1c 季趨勢折線圖、達標率長條圖，給它院內配色</td><td>ChatGPT 工作（可回傳 xlsx）、Claude（產 HTML 互動圖）</td><td>先指定圖型與分母；第 16 節 Ⓒ 有提示詞</td></tr>
-      <tr><td><b>⑤ 產出整份 Excel</b></td><td>給規格，它直接建檔：多工作表、公式、下拉選單、條件格式</td><td>「做一個個案追蹤表：原始資料、每月統計（公式自動算）、異常值用紅底」</td><td>ChatGPT 工作、Claude、Gemini Notebook（匯出 Excel）、OpenCode</td><td>打開檢查公式是「活的」還是寫死的數字；課程模板就是這樣做出來的</td></tr>
+      <tr><td><b>⑤ 產出整份 Excel</b></td><td>給規格，它直接建檔：多工作表、公式、下拉選單、條件格式</td><td>「做一個個案追蹤表：原始資料、每月統計（公式自動算）、異常值用紅底」</td><td>ChatGPT 工作、Claude、Gemini Notebook（匯出 .docx／.pptx）、OpenCode</td><td>打開檢查公式是「活的」還是寫死的數字；課程模板就是這樣做出來的</td></tr>
       <tr><td><b>⑥ 批次處理很多檔</b></td><td>把 30 個檔放進練習資料夾，交給資料夾代理</td><td>「把每個衛教師的月報合併成一張總表，欄位對齊，來源檔名放最後一欄」</td><td>OpenCode、Claude Code、Cowork</td><td>只指向去識別化的練習資料夾；先跑 2 個檔確認再跑全部</td></tr>
     </table></div>
   </div>
@@ -2024,8 +2024,8 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
     <div class="card">
       <h3>Excel 本身的 AI、以及 Google 試算表</h3>
       <ul>
-        <li><b>Microsoft 365 Copilot in Excel：</b>在 Excel 右側對話，可直接對選取範圍做公式、分析、圖表。需 Microsoft 365 Copilot 授權（多為企業方案），院內多半沒有；有的話資料不離開院內租戶，是最合規的選項。</li>
-        <li><b>Google 試算表 ＋ Gemini：</b>右上「Gemini」側欄可問資料、做表；儲存格裡可直接用 <code>=AI("把 A2 的症狀描述分類成 低／中／高 風險")</code> 這類函數，整欄往下拉就批次處理。免費 Google 帳號可用部分功能。</li>
+        <li><b>Microsoft 365 Copilot in Excel：</b>在 Excel 右側對話，可直接對選取範圍做公式、分析、圖表。需 Microsoft 365 Copilot 授權（多為企業方案），院內多半沒有；若院內已授權且資安單位核可，資料留在院內租戶，較容易符合規範。</li>
+        <li><b>Google 試算表 ＋ Gemini：</b>右上「Gemini」側欄可問資料、做表；儲存格裡可直接用 <code>=AI("把 A2 的症狀描述分類成 低／中／高 風險")</code> 這類函數；往下拉填入公式後，再選取整欄按「生成並填入」才會批次執行（僅供練習分類，不可取代臨床分級）。免費 Google 帳號可用部分功能。</li>
         <li><b>Excel 沒有 Copilot 時：</b>就是本節的做法：另存一份去識別化的檔，丟給 ChatGPT／Claude／Gemini，再把結果貼回。</li>
       </ul>
     </div>
@@ -2083,9 +2083,9 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
       <ul>
         <li><b>改寫與審稿：</b>貼整段或上傳 .docx，「改成長者版、每句 20 字內，<b>列出你改了哪些句子</b>」。要它列清單，不要只給新檔。</li>
         <li><b>套格式：</b>給它院內公文或計畫書範本（去識別化），「照這份的標題層級、字體、段落格式產出新檔」。產出後用 Word 的樣式檢查。</li>
-        <li><b>版本比對：</b>上傳新舊兩版，「列出差異，分成：意思改變／只是措辭」。比 Word 的比較功能看得懂。</li>
+        <li><b>版本比對：</b>上傳新舊兩版，「列出差異，分成：意思改變／只是措辭」。可當第二道檢查；正式比對仍以 Word 的「比較」功能為準。</li>
         <li><b>翻譯與潤稿：</b>IRB 英文摘要、外籍看護版單張；要求「保留醫學專有名詞原文並加註中文」。</li>
-        <li><b>Copilot in Word 的差別：</b>直接在文件裡追蹤修訂、不用上傳下載，資料不出院內租戶；沒有授權就走上傳路線。</li>
+        <li><b>Copilot in Word 的差別：</b>直接在文件裡追蹤修訂、不用上傳下載，資料留在院內租戶（仍依院內資安規定）；沒有授權就走上傳路線。</li>
       </ul>
       <div class="note" style="margin-bottom:0;font-size:.95rem"><b>坑：</b>AI 產出的 .docx 有時把標題做成「加粗的內文」而不是標題樣式，目錄會抓不到。要求「用 Word 內建的標題 1／標題 2 樣式」。</div>
     </div>
@@ -2104,7 +2104,7 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
       <h3>PDF：讀、問、填、轉</h3>
       <ul>
         <li><b>讀與問：</b>短文件直接上傳；指引、評鑑條文這類要反覆用的，先 MarkItDown 轉文字（B 節）再丟進專案或 Gemini Notebook。防幻覺七步在 R 節 Q3。</li>
-        <li><b>掃描檔（圖片型 PDF）：</b>MarkItDown 轉出來會是空的。做法：上傳 Google 雲端硬碟 → 右鍵「以 Google 文件開啟」會自動 OCR；或直接把頁面截圖給 ChatGPT／Gemini 看圖讀字，再人工核對數字。</li>
+        <li><b>掃描檔（圖片型 PDF）：</b>MarkItDown 轉出來多半是空的。做法：上傳 Google 雲端硬碟 → 右鍵「以 Google 文件開啟」會自動 OCR；或直接把頁面截圖給 ChatGPT／Gemini 看圖讀字，再人工核對數字。</li>
         <li><b>填表：</b>PDF 表單（如轉介單、報名表）給 AI 看欄位，「列出每個欄位要填什麼、哪些我還缺資料」；實際填寫自己來，避免填錯格。</li>
         <li><b>合併、拆分、加浮水印：</b>這些是「操作」不是「理解」，交給 OpenCode／Claude Code 一句話做完（「把資料夾裡 12 份單張合併成一個 PDF，每份加頁碼」），比對話工具穩。</li>
         <li><b>產出 PDF：</b>一律先產 Word 或簡報再另存 PDF，才有可編輯的原稿。</li>
@@ -2142,7 +2142,7 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
       <ol class="steps">
         <li><b>Word：</b>上傳一份已公開的衛教單張 .docx，「改成長者版，列出改動句子」。下載新檔，檢查標題樣式。</li>
         <li><b>PPT：</b>接著說「把長者版做成 6 頁簡報，每頁一個重點＋講者備忘稿」。ChatGPT 工作模式或 Claude 直接產 .pptx；開起來點文字框驗收。</li>
-        <li><b>PDF：</b>把簡報另存 PDF，丟回去問「第 3 頁的數字來源是原文哪一句？」。看它能不能指回原文。</li>
+        <li><b>PDF：</b>把簡報另存 PDF，丟回去問「第 2 頁的內容來源是原文哪一句？」。看它能不能逐字指回原文（實測見上方 ④）。</li>
       </ol>
     </div>
     <div class="card">
@@ -2163,7 +2163,7 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
     <div class="tbl"><table style="min-width:960px">
       <tr><th></th><th>Google 試算表（＝Excel）</th><th>Google 文件（＝Word）</th><th>Google 簡報（＝PowerPoint）</th></tr>
       <tr><td><b>入口</b></td><td>右上 ✦ 開 Gemini 側欄；儲存格裡直接打 <code>=AI(...)</code></td><td>右上 ✦ 側欄；空白頁底部的「使用 Gemini 撰寫內容」</td><td>新檔案一開就跳出 Gemini 起始畫面（簡報／投影片／圖片／資訊圖表）；右上 ✦ 側欄</td></tr>
-      <tr><td><b>最有感的功能</b></td><td><code>=AI("把這個症狀描述分成 低、中、高 風險", A2)</code> 往下拉整欄批次分類；側欄「建一個季報範本」會自己建工作表、填範例、寫達標率公式、上格式</td><td>側欄一句話直接寫進文件，含標題樣式與大綱；選取文字後「幫我改寫」</td><td>「簡報」模式先問你風格與核心內容（勾選），列出大綱讓你核准，再生成整份；「圖片」用 Nano Banana Pro 生插圖</td></tr>
+      <tr><td><b>最有感的功能</b></td><td><code>=AI("把這個症狀描述分成 低、中、高 風險", A2)</code> 往下拉後再按一次「生成並填入」整欄批次分類；側欄「建一個季報範本」會自己建工作表、填範例、寫達標率公式、上格式</td><td>側欄一句話直接寫進文件，含標題樣式與大綱；選取文字後「幫我改寫」</td><td>「簡報」模式先問你風格與核心內容（勾選），列出大綱讓你核准，再生成整份；「圖片」用 Nano Banana Pro 生插圖</td></tr>
       <tr><td><b>和 Excel／Word／PPT 路線的差別</b></td><td>不用上傳；公式直接寫進格子；但 =AI() 每格都算一次額度，量大時慢</td><td>不用下載 .docx 再開；產出就是可編輯文件；要給別人 Word 檔再「下載為 .docx」</td><td>產出直接可編輯、每個文字框獨立；版型比 Gemini 任務模式樸素，比 ChatGPT 產 .pptx 快很多（約 2 分鐘 vs 10 分鐘）</td></tr>
       <tr><td><b>實測踩到的坑（2026/11）</b></td><td>=AI() 要按「生成並填入」才會跑；參照錯欄會回「請提供症狀描述」而不是報錯</td><td><b>側欄與「幫我寫」目前不支援中文提示詞</b>（回「目前不支援你輸入的語言」）。解法：用英文下指令、在指令裡寫 in Traditional Chinese，它就會用繁體中文寫進文件</td><td>側欄中文提示詞可以用，但它自己的步驟文字偶爾跳出簡體字（「审核并优化演示文稿」）；生成前的問卷是中英夾雜</td></tr>
       <tr><td><b>資料去哪裡</b></td><td colspan="3">檔案本來就在 Google 雲端硬碟；Gemini 讀的是這個檔和你勾選的來源（雲端硬碟／Gmail／Chat／網頁）。院內資料依資安規定；練習用合成資料。</td></tr>
@@ -2177,7 +2177,7 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
       <button class="tab" data-g="gwsg1" data-t="gw2">側欄建範本</button>
     </div>
     <div class="panel on" data-g="gwsg1" id="gw1"><div class="shots">
-      <figure class="shot"><a href="img/l2-gs-ai.jpg" target="_blank" rel="noopener"><img src="img/l2-gs-ai.jpg" alt="=AI 公式與結果" loading="lazy"></a><figcaption><b class="n">1</b>C2 打 =AI("把這個症狀描述分成 低、中、高 三種風險，只回一個詞", A2)，按「生成並填入」，回「高」。往下拉就整欄分類。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-gs-ai.jpg" target="_blank" rel="noopener"><img src="img/l2-gs-ai.jpg" alt="=AI 公式與結果" loading="lazy"></a><figcaption><b class="n">1</b>C2 打 =AI("把這個症狀描述分成 低、中、高 三種風險，只回一個詞", A2)，按「生成並填入」，回「高」。往下拉填入公式後，選取整欄再按一次「生成並填入」才會批次執行。練習用分類，不是臨床分級。</figcaption></figure>
     </div></div>
     <div class="panel" data-g="gwsg1" id="gw2"><div class="shots">
       <figure class="shot"><a href="img/l2-gs-plan.jpg" target="_blank" rel="noopener"><img src="img/l2-gs-plan.jpg" alt="Gemini 的計畫" loading="lazy"></a><figcaption><b class="n">1</b>側欄說「建一個糖尿病個管季報範本，含達標率公式與 5 筆合成資料」。它先列步驟（建立工作表與資料結構 → 視覺化排版與驗證）等你按「核准」。</figcaption></figure>
@@ -2199,7 +2199,7 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
       <figure class="shot"><a href="img/l2-gd-lang.jpg" target="_blank" rel="noopener"><img src="img/l2-gd-lang.jpg" alt="不支援的語言" loading="lazy"></a><figcaption><b class="n">1</b>用中文要求寫衛教短文，回「目前不支援你輸入的語言」。側欄同樣結果。</figcaption></figure>
     </div></div>
     <div class="panel" data-g="gwsg2" id="gw5"><div class="shots">
-      <figure class="shot"><a href="img/l2-gd-result.jpg" target="_blank" rel="noopener"><img src="img/l2-gd-result.jpg" alt="英文提示詞、繁中輸出" loading="lazy"></a><figcaption><b class="n">1</b>改成英文：Write a 150-word patient handout in Traditional Chinese (Taiwan)… 它直接把整份寫進文件，自動下標題「低血糖處理指南：15-15法則」、三個小標、每句都短。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-gd-result.jpg" target="_blank" rel="noopener"><img src="img/l2-gd-result.jpg" alt="英文提示詞、繁中輸出" loading="lazy"></a><figcaption><b class="n">1</b>改成英文：Write a 150-word patient handout in Traditional Chinese (Taiwan)… 它直接把整份寫進文件，自動下標題「低血糖處理指南：15-15 法則」、三個小標、每句都短。</figcaption></figure>
     </div></div>
   </div>
   <div class="card">
@@ -2215,7 +2215,7 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
       <figure class="shot"><a href="img/l2-gsl-start.jpg" target="_blank" rel="noopener"><img src="img/l2-gsl-start.jpg" alt="Slides 起始畫面" loading="lazy"></a><figcaption><b class="n">1</b>新簡報一開就問：簡報（整份）、投影片（單張）、圖片（Nano Banana Pro）、資訊圖表、匯入、空白。選「簡報」。</figcaption></figure>
     </div></div>
     <div class="panel" data-g="gwsg3" id="gw7"><div class="shots">
-      <figure class="shot"><a href="img/l2-gsl-details.jpg" target="_blank" rel="noopener"><img src="img/l2-gsl-details.jpg" alt="簡報細節" loading="lazy"></a><figcaption><b class="n">1</b>可加風格參考檔、來源檔，並勾選 Gemini 可搜尋的位置（雲端硬碟／Gmail／Chat／網頁）。只勾雲端硬碟最安全。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-gsl-details.jpg" target="_blank" rel="noopener"><img src="img/l2-gsl-details.jpg" alt="簡報細節" loading="lazy"></a><figcaption><b class="n">1</b>可加風格參考檔、來源檔，並勾選 Gemini 可搜尋的位置（雲端硬碟／Gmail／Chat／網頁）。練習時全不勾，或只勾放合成資料的資料夾。</figcaption></figure>
       <figure class="shot"><a href="img/l2-gsl-q.jpg" target="_blank" rel="noopener"><img src="img/l2-gsl-q.jpg" alt="需求確認問卷" loading="lazy"></a><figcaption><b class="n">2</b>它先問風格（精簡／詳細）與核心內容（勾選），再動手。這就是 AMA 反問法被做進產品裡。</figcaption></figure>
     </div></div>
     <div class="panel" data-g="gwsg3" id="gw8"><div class="shots">
@@ -2230,8 +2230,8 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
     <div class="card">
       <h3>課堂體驗（10 分鐘）</h3>
       <ol class="steps">
-        <li><b>試算表：</b>sheets.new → A 欄貼 3 句合成症狀描述 → B1 打 <code>=AI("分成 低、中、高 風險，只回一個詞", A1)</code> → 生成並填入 → 往下拉。</li>
-        <li><b>文件：</b>docs.new → 右上 ✦ → 用<b>英文</b>說 Write … in Traditional Chinese → 看它直接寫進文件 → 選一段按「幫我改寫」。</li>
+        <li><b>試算表：</b>sheets.new → A 欄貼 3 句合成症狀描述 → B1 打 <code>=AI("分成 低、中、高 風險，只回一個詞", A1)</code> → 生成並填入 → 往下拉填公式 → 選整欄再按一次生成並填入。</li>
+        <li><b>文件：</b>docs.new → 右上 ✦ → 用<b>英文</b>說 Write … in Traditional Chinese → 看它直接寫進文件 → 選一段試「幫我改寫」（若回不支援語言，改用英文 Rewrite in Traditional Chinese）。</li>
         <li><b>簡報：</b>slides.new → 選「簡報」→ 中文描述主題 → 回答問卷 → 核准大綱 → 等 2 分鐘 → 點任一文字框確認可編輯。</li>
       </ol>
     </div>
@@ -2279,7 +2279,7 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
       <tr><td>6</td><td>分組統計時<b>附每組人數 n</b>，n 小於 10 的組標記</td><td>一組只有 3 個人卻拿來比較</td></tr>
       <tr><td>7</td><td>先不要四捨五入；最後呈現再統一小數位</td><td>中途進位造成加總不等於 100%</td></tr>
       <tr><td>8</td><td>只做<b>描述</b>，不要它順便下「顯著」「有效」「因為」的結論</td><td>描述統計被偷渡成因果推論</td></tr>
-      <tr><td>9</td><td><b>自己抽查 3 個數字</b>：用 Excel 的 =AVERAGE、=COUNTIF 或樞紐分析算一次比對；或請另一家重算</td><td>唯一能抓到系統性錯誤的方法</td></tr>
+      <tr><td>9</td><td><b>自己抽查 3 個數字</b>：用 Excel 的 =AVERAGE、=COUNTIF 或樞紐分析算一次比對；或請另一家重算</td><td>最能抓到系統性錯誤的方法之一</td></tr>
       <tr><td>10</td><td>結果表每一欄都要能回答「<b>從原始哪一欄、用什麼規則算出來</b>」，請它附一張「欄位對照表」</td><td>一季後重跑時對不起來</td></tr>
     </table></div>
   </div>
