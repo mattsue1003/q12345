@@ -279,6 +279,7 @@ figure.shot img{display:block;width:100%;height:auto}
 figure.shot figcaption{padding:10px 12px;font-size:.92rem;line-height:1.55}
 figure.shot figcaption b.n{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--orange);color:#fff;font-size:.78rem;margin-right:6px}
 #gh code{overflow-wrap:anywhere;word-break:break-all}
+figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
 </style>
 </head>
 <body>
@@ -478,7 +479,7 @@ figure.shot figcaption b.n{display:inline-flex;align-items:center;justify-conten
       <tr><td>找以前的對話</td><td>左側歷史，可改名、刪除</td><td>左側「聊天」，可搜尋、加星號</td><td>左側對話清單，可釘選、改名</td></tr>
     </table>
   </div>
-  <div class="note teal"><b>上週的麥克風問題：</b>用麥克風講話，Gemini 轉出來的文字效果不錯，ChatGPT 卻常跑出簡體字。聽寫的字要改「語音 → 語言」，回覆要改「自訂指示」，下一節第一張卡三個工具一起教。第 1 堂教的 Typeless 也可以直接用在這三個工具裡。</div>
+  <div class="note teal"><b>上週的麥克風問題：</b>用麥克風講話，Gemini 轉出來的文字效果不錯，ChatGPT 卻常跑出簡體字。聽寫的字要改「聲音（手機：語音）→ 語言」，回覆要改「自訂指示」，下一節第一張卡三個工具一起教。第 1 堂教的 Typeless 也可以直接用在這三個工具裡。</div>
   <div class="card gpt-c">
     <h3><span class="t gpt">ChatGPT</span>桌面版彩蛋：「Mini 與寵物」到底有什麼用？</h3>
     <p style="margin-top:0"><b>一句話：</b>它是一個<b>浮在桌面上的 ChatGPT 快捷鍵</b>。不用切回 ChatGPT 視窗，在 Word、病歷系統、PDF 前面按一下就能打字或用說的問，還能看長任務做到哪。寵物只是外觀，換哪一隻都不影響 AI 的能力。</p>
@@ -576,18 +577,18 @@ figure.shot figcaption b.n{display:inline-flex;align-items:center;justify-conten
     <p>上週測試：Gemini 轉出來的文字正常，ChatGPT 會出現簡體字。要徹底解決，先弄清楚三個設定各管什麼，因為「記憶」和「自訂指示」只管 ChatGPT 的<b>回覆</b>，管不到麥克風<b>聽寫出來的字</b>。</p>
     <div class="tbl"><table>
       <tr><th>設定</th><th>管什麼</th><th>位置（ChatGPT）</th></tr>
-      <tr><td>語音 → 語言</td><td>麥克風<b>聽寫出來的文字</b>用什麼語言</td><td>設定 → 語音 → 語言：選「中文」（不要留自動偵測）</td></tr>
+      <tr><td>語音 → 語言</td><td>麥克風<b>聽寫出來的文字</b>用什麼語言</td><td>設定 → 聲音（手機 App 叫「語音」）→ 語言：選「國語」或「中文」（不要留自動偵測）</td></tr>
       <tr><td>自訂指示</td><td>ChatGPT <b>每一次回覆</b>都遵守的規則</td><td>設定 → 個人化 → 自訂指示（一個文字框，直接打字）</td></tr>
       <tr><td>記憶</td><td>它對你的了解，<b>覺得相關時才參考</b>，不是每次</td><td>設定 → 個人化 → 記憶：啟用記憶、填暱稱、職業、關於你的更多資訊；或在對話裡說「請記住…」</td></tr>
-      <tr><td>簡要回答</td><td>開著時，快速回答<b>不會套用個人化與記憶</b>，繁體規則也會被跳過</td><td>設定 → 個人化 → 簡要回答：<b>關掉</b></td></tr>
+      <tr><td>快速回答（手機叫「簡要回答」）</td><td>開著時，快速回答<b>不會套用個人化與記憶</b>，繁體規則也會被跳過</td><td>設定 → 個人化 → 其他 ChatGPT 設定 → 快速回答：<b>關掉</b></td></tr>
     </table></div>
     <p style="margin-top:12px"><b>為什麼上週改了記憶會「覺得有改善」？</b>因為回覆變繁體了，畫面看起來正常很多；但自己講的話被轉出來的那段，很可能還是簡體。聽寫、回覆兩邊都要設。</p>
     <div class="tri">
       <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>三步都做</h3>
         <ol class="steps">
-          <li><b>聽寫變繁體：</b>左下頭像 →「設定」→「語音」→「語言」→ 選「中文」</li>
-          <li><b>回覆變繁體：</b>「設定」→「個人化」→「自訂指示」文字框貼上下面那句</li>
-          <li><b>關掉漏洞：</b>同一頁「簡要回答」關閉（開著時快速回答會跳過自訂指示與記憶）</li>
+          <li><b>聽寫變繁體：</b>左下頭像 →「設定」→「聲音」（手機叫「語音」）→「語言」→ 選「國語」或「中文」</li>
+          <li><b>回覆變繁體：</b>「設定」→「個人化」→「自訂指示」→「ChatGPT」，文字框貼上下面那句</li>
+          <li><b>關掉漏洞：</b>同一頁往下「快速回答」（手機叫「簡要回答」）關閉，開著時會跳過自訂指示與記憶</li>
           <li><b>記憶補齊：</b>「個人化」→「記憶」→ 啟用、填暱稱、職業（例：糖尿病衛教師）、關於你的更多資訊</li>
           <li><b>測一次：</b>開新對話按麥克風講一段話，看「轉出的字」和「回覆」是不是都繁體</li>
         </ol></div>
@@ -595,26 +596,49 @@ figure.shot figcaption b.n{display:inline-flex;align-items:center;justify-conten
         <p>Gemini 跟著 <b>Google 帳號的語言</b>走，台灣帳號預設就是繁體中文，所以聽寫和回覆都對。不是模型比較聰明，是設定剛好對。</p>
         <ol class="steps">
           <li><b>確認帳號語言：</b>myaccount.google.com →「個人資訊」→「語言」→ 中文（台灣）</li>
-          <li><b>回覆規則也貼一份：</b>Gemini 左下「設定與說明」→「個人背景資訊」→「給 Gemini 的指示」→ 貼上同一句</li>
+          <li><b>回覆規則也貼一份：</b>Gemini 左下 ⚙️ 設定 →「個人化智慧服務」→「給 Gemini 的指令」→ 貼上同一句</li>
           <li>同事如果用的是中國大陸或英文介面的帳號，第 1 步改過來就好</li>
         </ol></div>
       <div class="card cl-c"><h3><span class="t cl">Claude</span>一個欄位搞定回覆</h3>
         <ol class="steps">
-          <li>左下名稱 →「設定」→「一般」</li>
-          <li>「個人偏好設定」欄位貼上同一句 → 儲存，之後每個對話都套用</li>
+          <li>左下名稱 →「設定」→「帳戶」</li>
+          <li>「給 Claude 的指示」欄位貼上同一句，之後每個對話都套用（舊名「個人偏好設定」）</li>
           <li>Claude 的麥克風聽寫跟著手機或電腦的<b>系統語言</b>，系統是繁體中文就不會有問題</li>
         </ol></div>
     </div>
     <div class="prompt"><span class="label">三個工具都貼這一句</span>回覆如果是中文，都請用繁體中文（台灣用語），不要使用簡體字。這條規則適用於之後所有對話。</div>
-    <div class="note" style="margin-bottom:0"><b>記起來的原則：</b>「聽寫語言」是語音設定；「回覆語言」是個人化設定；「簡要回答」開著會繞過個人化。繁體中文這種每次都要的規則，放在每次都會讀的「自訂指示／個人偏好／給 Gemini 的指示」，不能只靠「記憶」。這也是本節自訂指示的第 1 條。</div>
+    <div class="note" style="margin-bottom:0"><b>記起來的原則：</b>「聽寫語言」是語音設定；「回覆語言」是個人化設定；「快速回答／簡要回答」開著會繞過個人化。繁體中文這種每次都要的規則，放在每次都會讀的「自訂指示／給 Claude 的指示／給 Gemini 的指令」，不能只靠「記憶」。這也是本節自訂指示的第 1 條。</div>
+  </div>
+  <div class="card">
+    <h3>實際設定畫面（2026 年 11 月，網頁版）</h3>
+    <p style="margin-top:0">以下是講師帳號的真實畫面，點圖可放大。手機 App 的名稱略有不同，已在上面步驟註明。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="s4g" data-t="s4g-gpt"><span class="t gpt">ChatGPT</span></button>
+      <button class="tab" data-g="s4g" data-t="s4g-cl"><span class="t cl">Claude</span></button>
+      <button class="tab" data-g="s4g" data-t="s4g-ge"><span class="t ge">Gemini</span></button>
+    </div>
+    <div class="panel on" data-g="s4g" id="s4g-gpt"><div class="shots">
+      <figure class="shot"><a href="img/l2-s4-gpt-voice.jpg" target="_blank" rel="noopener"><img src="img/l2-s4-gpt-voice.jpg" alt="ChatGPT 設定聲音語言" loading="lazy"></a><figcaption><b class="n">1</b>設定 →「聲音」→「語言」選國語。這一項管<b>麥克風聽寫出來的字</b>。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-s4-gpt-ci-text.jpg" target="_blank" rel="noopener"><img src="img/l2-s4-gpt-ci-text.jpg" alt="ChatGPT 自訂指示文字框" loading="lazy"></a><figcaption><b class="n">2</b>「個人化」→「自訂指示」→「ChatGPT」，在文字框貼上繁體中文規則，按右上「儲存」。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-s4-gpt-ci-quick.jpg" target="_blank" rel="noopener"><img src="img/l2-s4-gpt-ci-quick.jpg" alt="ChatGPT 快速回答開關" loading="lazy"></a><figcaption><b class="n">3</b>同一頁往下「快速回答」：說明寫著「並非個人化，也不會使用你的記憶」，建議關閉。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-s4-gpt-memory.jpg" target="_blank" rel="noopener"><img src="img/l2-s4-gpt-memory.jpg" alt="ChatGPT 記憶設定" loading="lazy"></a><figcaption><b class="n">4</b>同一頁最上方「ChatGPT 記憶」：開啟「啟用記憶」，按「管理」可看它記了什麼。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="s4g" id="s4g-cl"><div class="shots">
+      <figure class="shot"><a href="img/l2-s4-cl-instr.jpg" target="_blank" rel="noopener"><img src="img/l2-s4-cl-instr.jpg" alt="Claude 給 Claude 的指示欄位" loading="lazy"></a><figcaption><b class="n">1</b>設定 →「帳戶」→「給 Claude 的指示」，貼上繁體中文規則。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-s4-cl-memory.jpg" target="_blank" rel="noopener"><img src="img/l2-s4-cl-memory.jpg" alt="Claude 記憶設定" loading="lazy"></a><figcaption><b class="n">2</b>設定 →「記憶」：開啟「從對話產生記憶」。也能從其他 AI 匯入記憶。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="s4g" id="s4g-ge"><div class="shots">
+      <figure class="shot"><a href="img/l2-s4-ge-menu.jpg" target="_blank" rel="noopener"><img src="img/l2-s4-ge-menu.jpg" alt="Gemini 設定選單" loading="lazy"></a><figcaption><b class="n">1</b>左下 ⚙️ 打開選單，點「偏好設定」下的「個人化智慧服務」。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-s4-ge-personal.jpg" target="_blank" rel="noopener"><img src="img/l2-s4-ge-personal.jpg" alt="Gemini 個人化智慧服務頁面" loading="lazy"></a><figcaption><b class="n">2</b>「個人化記憶」開關，以及「給 Gemini 的指令」，點進去貼上繁體中文規則。</figcaption></figure>
+    </div></div>
   </div>
   <div class="tri">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>做法</h3>
-      <ol class="steps"><li>左下頭像 →「個人化」</li><li>「記憶」：按「管理」可貼上、刪除</li><li>「自訂指示」：每次回答都會遵守</li></ol></div>
+      <ol class="steps"><li>左下頭像 →「設定」→「個人化」</li><li>「ChatGPT 記憶」：啟用記憶，按「管理」可查看、刪除</li><li>「自訂指示」→「ChatGPT」：每次回答都會遵守</li></ol></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>對應做法</h3>
-      <ol class="steps"><li>左下名稱 →「設定」→「一般」</li><li>「個人偏好設定」欄位：貼上自訂指示（每個對話都套用）</li><li>「設定」→「功能」：開啟記憶，讓它記得過去對話</li></ol></div>
+      <ol class="steps"><li>左下名稱 →「設定」→「帳戶」</li><li>「給 Claude 的指示」欄位：貼上自訂指示（每個對話都套用）</li><li>「設定」→「記憶」：開啟「從對話產生記憶」，讓它記得過去對話</li></ol></div>
     <div class="card ge-c"><h3><span class="t ge">Gemini</span>對應做法</h3>
-      <ol class="steps"><li>左下「設定與說明」→「個人背景資訊」</li><li>「給 Gemini 的指示」（舊名「已儲存的資訊」）：逐條新增</li><li>同頁可開啟「參考過往對話」</li></ol></div>
+      <ol class="steps"><li>左下 ⚙️ 設定 →「個人化智慧服務」</li><li>「給 Gemini 的指令」：逐條新增（舊名「個人背景資訊」）</li><li>同頁「個人化記憶」：開啟後會從過去對話學習</li></ol></div>
     <div class="card oc-c"><h3><span class="t oc">OpenCode</span>對應做法</h3>
       <ol class="steps"><li>在練習資料夾開 OpenCode，請它建立 <b>AGENTS.md</b>（做法見下方）</li><li>把下方「自訂指示」整段放進去存檔</li><li>之後在這個資料夾開 OpenCode，每次交辦它都會先讀這份規則</li></ol></div>
   </div>
@@ -652,7 +676,7 @@ figure.shot figcaption b.n{display:inline-flex;align-items:center;justify-conten
   <div class="card">
     <h3>步驟一：用語音做 3 分鐘自我介紹，請 AI 整理成記憶</h3>
     <p>開新對話、打開語音，照下面的問題講出來；整理好的文字再貼到上面的記憶／偏好欄位。</p>
-    <div class="prompt"><span class="label">自我介紹提示詞</span>我想讓你更完整地認識我。以下是我的自我介紹，請整理成適合放進「記憶／個人偏好」的條列，讓我可以直接複製貼上。
+    <div class="prompt"><span class="label">自我介紹提示詞</span>我想讓你更完整地認識我。以下是我的自我介紹，請整理成適合放進「記憶／給 AI 的指示」的條列，讓我可以直接複製貼上。
 
 1. 我的職業與單位：（例：桃園地區醫院糖尿病中心衛教師，護理背景 10 年）
 2. 我每天主要的工作：（例：門診衛教、團體衛教、胰島素注射指導、品質指標報表）
@@ -667,7 +691,7 @@ figure.shot figcaption b.n{display:inline-flex;align-items:center;justify-conten
       <tr><th>位置</th><th>設定</th><th>建議</th><th>為什麼</th></tr>
       <tr><td><span class="pill o">必要</span>語音</td><td>語言</td><td>中文</td><td>聽寫不再出簡體字</td></tr>
       <tr><td><span class="pill o">必要</span>個人化</td><td>自訂指示</td><td>貼上本節的六條自訂指示</td><td>每次回覆都遵守：繁體、不確定就說、分開事實與推測、附來源、看到個資先提醒</td></tr>
-      <tr><td><span class="pill o">必要</span>個人化</td><td>簡要回答</td><td>關閉</td><td>開著時快速回答不套用自訂指示與記憶</td></tr>
+      <tr><td><span class="pill o">必要</span>個人化</td><td>快速回答（手機：簡要回答）</td><td>關閉</td><td>開著時快速回答不套用自訂指示與記憶</td></tr>
       <tr><td><span class="pill o">必要</span>個人化 → 記憶</td><td>啟用記憶、暱稱、職業、更多資訊</td><td>開啟；職業填「糖尿病衛教師」並寫服務對象</td><td>它才知道你是誰、對象是長者、要用衛教語言</td></tr>
       <tr><td><span class="pill o">必要</span>資料控制</td><td>為所有人改善模型</td><td>關閉</td><td>醫療場域原則：對話不拿去訓練；即使只有合成資料也養成習慣</td></tr>
       <tr><td><span class="pill o">必要</span>安全性與登入</td><td>多重驗證（兩步驟）</td><td>開啟</td><td>記憶、外掛、雲端硬碟都綁在這個帳號上</td></tr>
@@ -774,30 +798,21 @@ figure.shot figcaption b.n{display:inline-flex;align-items:center;justify-conten
       <div class="b3"><h4>用說的回答</h4><p style="margin:0">開語音一題一題講，比打字快很多。</p></div>
     </div>
   </div>
-  <div class="note teal"><b>小差異：</b><span class="t cl">Claude</span>有時會用可點選的選項卡片反問你；<span class="t ge">Gemini</span>在「深入研究」開始前會先列出研究計畫讓你修改，這也是同一個精神：先對齊需求再動手。看下面兩張操作示意圖。</div>
-  <div class="mockgrid">
-    <figure class="mock">
-      <div class="bar"><i></i><i></i><i></i><span><span class="t cl">Claude</span> 選項卡片反問</span><em class="tag">示意圖</em></div>
-      <div class="scr">
-        <div class="u">幫我設計一場 30 分鐘的糖尿病足部照護團體衛教，對象是社區長者。在你回答我之前，盡量問我問題。</div>
-        <div class="a">好的，先確認幾件事，點選即可：</div>
-        <div class="qcard"><span class="co" style="left:-8px;top:-8px">1</span><b>參加的長者大概幾位？</b><div class="opt"><span>5 人以下</span><span class="sel">6～15 人</span><span>16 人以上</span></div></div>
-        <div class="qcard"><b>現場有什麼設備？（可複選）</b><div class="opt"><span class="sel">投影機</span><span>白板</span><span class="sel">足部模型</span><span>都沒有</span></div></div>
-        <div class="qcard"><span class="co" style="right:-8px;top:-8px">2</span><b>其他想補充的？</b><div class="opt"><span>你建議就好</span><span>自己輸入…</span></div></div>
-      </div>
-      <figcaption><b>怎麼操作</b><ol><li>直接點選項回答，不用打字；可複選的題目可以點多個</li><li>不確定就點「你建議就好」，或在對話框自己補充後送出</li><li>全部答完，Claude 才開始寫教案</li></ol></figcaption>
-    </figure>
-    <figure class="mock">
-      <div class="bar"><i></i><i></i><i></i><span><span class="t ge">Gemini</span> 深入研究的研究計畫</span><em class="tag">示意圖</em></div>
-      <div class="scr">
-        <div class="u">用深入研究整理：長者糖尿病足部照護團體衛教的有效做法，只用學術與官方來源。</div>
-        <div class="plan"><span class="co" style="left:-8px;top:-8px">1</span><b>研究計畫：長者糖尿病足部照護衛教</b>
-          <ol><li>搜尋近 5 年臨床指引與系統性回顧</li><li>找出團體衛教的有效元素與時間長度</li><li>整理適合 65 歲以上長者的教學方式</li><li>彙整成報告並附上來源</li></ol>
-          <div class="btns"><span><span class="coi">2</span>編輯計畫</span><span class="go"><span class="coi">3</span>開始研究</span></div>
-        </div>
-      </div>
-      <figcaption><b>怎麼操作</b><ol><li>送出後先別等報告，Gemini 會先給一份研究計畫</li><li>按「編輯計畫」，用一句話增刪：例如「加上台灣的衛福部資料」「不要動物研究」</li><li>計畫對了再按「開始研究」，約 5～15 分鐘完成</li></ol></figcaption>
-    </figure>
+  <div class="note teal"><b>小差異：</b><span class="t cl">Claude</span>有時會用可點選的選項卡片反問你；<span class="t ge">Gemini</span>在「深入研究」開始前會先列出研究計畫讓你修改，這也是同一個精神：先對齊需求再動手。看下面的實際操作畫面。</div>
+  <div class="card">
+    <h3>實際操作畫面</h3>
+    <p style="margin-top:0">講師帳號實際送出上面的衛教範例（2026 年 11 月），點圖可放大。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="s7g" data-t="s7g-cl"><span class="t cl">Claude</span></button>
+      <button class="tab" data-g="s7g" data-t="s7g-ge"><span class="t ge">Gemini</span></button>
+    </div>
+    <div class="panel on" data-g="s7g" id="s7g-cl"><div class="shots">
+      <figure class="shot"><a href="img/l2-ama-cl-1.jpg" target="_blank" rel="noopener"><img src="img/l2-ama-cl-1.jpg" alt="Claude 用選項卡片反問" loading="lazy"></a><figcaption><b class="n">1</b>Claude 先回「先問幾個關鍵問題」，下方出現選項卡片：「第 1 項，共 3 項」。點數字或選項回答；都不合適就在「其他答案」打字。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-ama-cl-2.jpg" target="_blank" rel="noopener"><img src="img/l2-ama-cl-2.jpg" alt="Claude 第二個問題" loading="lazy"></a><figcaption><b class="n">2</b>點完自動跳下一題。不想答可以按「略過」，三題答完 Claude 才開始寫教案。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="s7g" id="s7g-ge"><div class="shots">
+      <figure class="shot"><a href="img/l2-ama-ge-plan.jpg" target="_blank" rel="noopener"><img src="img/l2-ama-ge-plan.jpg" alt="Gemini 深入研究的研究方案" loading="lazy"></a><figcaption><b class="n">1</b>選「Deep Research」送出後，Gemini 先列研究方案。按「修改方案」用一句話增刪（例如「改用繁體中文、加入台灣國健署資料」），對了再按「開始研究」。注意這次它用了簡體字，正是要先改方案的例子。</figcaption></figure>
+    </div></div>
   </div>
   <div class="note"><b>到這裡：</b>四招提示詞學完，你已經比大多數使用者更會用 AI。接下來是「功能」。</div>
 </section>
@@ -1187,7 +1202,7 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
   <div class="tbl">
     <table>
       <tr><th>步驟</th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th><th><span class="t oc">OpenCode</span></th></tr>
-      <tr><td>讓 AI 懂你</td><td>個人化 → 自訂指示／記憶（簡要回答關閉）</td><td>設定 → 個人偏好設定；記憶</td><td>個人背景資訊 → 給 Gemini 的指示</td><td>資料夾裡的 AGENTS.md</td></tr>
+      <tr><td>讓 AI 懂你</td><td>個人化 → 自訂指示／記憶（快速回答關閉）</td><td>設定 → 帳戶 → 給 Claude 的指示；記憶</td><td>個人化智慧服務 → 給 Gemini 的指令</td><td>資料夾裡的 AGENTS.md</td></tr>
       <tr><td>想久一點</td><td>推理強度</td><td>延伸思考</td><td>思考型／Pro 模型</td><td>換成較強的模型</td></tr>
       <tr><td>不留記錄</td><td>暫時對話</td><td>無痕聊天</td><td>臨時對話</td><td>開新 session；資料留在本機</td></tr>
       <tr><td>製圖</td><td>建立圖像＋編輯圈選</td><td>Artifacts 圖卡（HTML／SVG）、Canva 連接器</td><td>建立圖像（Nano Banana）</td><td>用程式畫數據圖表，存成 PNG</td></tr>
