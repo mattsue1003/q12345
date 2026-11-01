@@ -1341,11 +1341,48 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     <h3 style="margin-top:18px">範例圖與提示詞資料庫</h3>
     <div class="tbl"><table>
       <tr><th>資料庫</th><th>內容</th><th>適合</th></tr>
-      <tr><td><a href="https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts" target="_blank" rel="noopener">YouMind awesome-nano-banana-pro-prompts</a></td><td>社群整理上萬則提示詞，附預覽圖，有網頁版可搜尋</td><td>找特定風格、資訊圖表</td></tr>
-      <tr><td><a href="https://github.com/PicoTrex/Awesome-Nano-Banana-images" target="_blank" rel="noopener">PicoTrex Awesome-Nano-Banana-images</a></td><td>「輸入圖 → 輸出圖」對照加上提示詞</td><td>學「丟圖改風格」的寫法</td></tr>
-      <tr><td><a href="https://github.com/ZeroLu/awesome-nanobanana-pro" target="_blank" rel="noopener">ZeroLu awesome-nanobanana-pro</a></td><td>Pro 版進階提示詞範例</td><td>多張參考圖、進階用法</td></tr>
+      <tr><td><a href="https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts" target="_blank" rel="noopener">YouMind awesome-nano-banana-pro-prompts</a></td><td>社群整理 1.5 萬則以上提示詞，附預覽圖；<b>用網頁版</b> <a href="https://youmind.com/zh-TW/nano-banana-pro-prompts" target="_blank" rel="noopener">youmind.com/zh-TW/nano-banana-pro-prompts</a> 最方便，有繁體介面、分類與搜尋</td><td>找特定風格、資訊圖表</td></tr>
+      <tr><td><a href="https://github.com/PicoTrex/Awesome-Nano-Banana-images" target="_blank" rel="noopener">PicoTrex Awesome-Nano-Banana-images</a></td><td>160 多個案例，每個都是「輸入圖 → 輸出圖 → 提示詞」三件套，簡體中文</td><td>學「丟圖改風格」「圖變資訊圖」的寫法</td></tr>
     </table></div>
     <p style="margin:8px 0 0">以英文和簡體中文為主。提示詞可以複製，再請 AI 改成衛教主題；圖片是社群蒐集，不一定能商用，只參考寫法，不要直接拿圖來用。</p>
+    <div class="grid2" style="margin-top:12px">
+      <div class="card" style="margin:0">
+        <h3>怎麼用 YouMind 網頁版（找「風格」）</h3>
+        <ol class="steps">
+          <li>開 <a href="https://youmind.com/zh-TW/nano-banana-pro-prompts" target="_blank" rel="noopener">youmind.com/zh-TW/nano-banana-pro-prompts</a>，右上角語言選「繁體中文（台灣）」。首頁那個大輸入框是它自家的生圖服務，<b>不用理它</b>，往下捲。</li>
+          <li>點「查看全部」進畫廊，上方分類列選「<b>資訊圖表／教育視覺化內容</b>」（2026/11 有 644 則），或用放大鏡搜「infographic」「diagram」「poster」。</li>
+          <li>看到喜歡的卡片，點「<b>查看完整提示詞</b>」進單頁：上面是範例圖，下面「生成相似圖片」區塊裡就是完整提示詞，右上有「<b>複製提示詞</b>」。</li>
+          <li>把提示詞貼到 Gemini（選 Nano Banana Pro 生圖）或 ChatGPT，<b>把主題換成你的</b>：「產品」換成「低血糖處理」、語言寫「繁體中文」、再加一句「畫面裡不要有文字」，字之後到 Canva 加。</li>
+          <li>不合用就回畫廊換一張；一次只改一個變數（風格、構圖、配色），才知道是哪句話有效。</li>
+        </ol>
+      </div>
+      <div class="card" style="margin:0">
+        <h3>怎麼用 PicoTrex（學「丟圖改圖」）</h3>
+        <ol class="steps">
+          <li>開 <a href="https://github.com/PicoTrex/Awesome-Nano-Banana-images" target="_blank" rel="noopener">GitHub 頁</a>，就是一篇長文，不用登入。頂端的 Menu 是目錄，分「Nano Banana Pro 例子」（52 個）與「Nano Banana 例子」（110 個），<b>點目錄項目會跳到該案例</b>。</li>
+          <li>每個案例的格式固定：<b>輸出圖</b>（有的還有輸入圖）→「輸入：需上傳一張…」→「提示詞」灰框，右上角有複製圖示。先看圖決定要不要，再看它要你上傳什麼。</li>
+          <li>衛教最值得抄的幾個：Nano Banana 例 14「文章信息圖」（貼文字生成資訊圖）、例 16「模型標注講解圖」（器官標註，注意它自己也警告標註常錯）、例 48「食物卡路里標注」（上傳餐盤照自動標熱量，當<b>估算</b>示範，不當營養諮詢）、例 29「紅筆批注」（請 AI 用紅筆圈出單張可改的地方）、Pro 例 5「根據文章製作 PPT」、例 28「黑板粉筆畫」。</li>
+          <li>提示詞是簡體，複製後請 AI「改成繁體中文、台灣用語，主題換成○○」再用；上傳的參考圖只能是你自己的、去識別化的照片。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="card" style="margin-top:12px">
+      <h3>實際畫面（2026 年 11 月）</h3>
+      <div class="tabs">
+        <button class="tab on" data-g="nbg" data-t="nb1">YouMind 網頁版</button>
+        <button class="tab" data-g="nbg" data-t="nb2">PicoTrex GitHub</button>
+      </div>
+      <div class="panel on" data-g="nbg" id="nb1"><div class="shots">
+        <figure class="shot"><a href="img/l2-nb-ym-home.jpg" target="_blank" rel="noopener"><img src="img/l2-nb-ym-home.jpg" alt="YouMind 首頁" loading="lazy"></a><figcaption><b class="n">1</b>首頁：右上切繁體中文；大輸入框是它自家生圖，跳過，往下捲找「熱門提示詞 → 查看全部」。</figcaption></figure>
+        <figure class="shot"><a href="img/l2-nb-ym-gallery.jpg" target="_blank" rel="noopener"><img src="img/l2-nb-ym-gallery.jpg" alt="YouMind 分類畫廊" loading="lazy"></a><figcaption><b class="n">2</b>畫廊選「資訊圖表／教育視覺化內容」，右上顯示總計 644 則；每張卡片有縮圖、提示詞前兩行與「查看完整提示詞」。</figcaption></figure>
+        <figure class="shot"><a href="img/l2-nb-ym-detail.jpg" target="_blank" rel="noopener"><img src="img/l2-nb-ym-detail.jpg" alt="YouMind 單頁" loading="lazy"></a><figcaption><b class="n">3</b>單頁的「生成相似圖片」區：完整提示詞在這裡，右上角複製；這則是「8 格 Bento 產品資訊圖」，把產品換成衛教主題就能用。</figcaption></figure>
+      </div></div>
+      <div class="panel" data-g="nbg" id="nb2"><div class="shots">
+        <figure class="shot"><a href="img/l2-nb-pico-top.jpg" target="_blank" rel="noopener"><img src="img/l2-nb-pico-top.jpg" alt="PicoTrex README 開頭" loading="lazy"></a><figcaption><b class="n">1</b>GitHub 頁開頭：語言徽章、Introduction，再往下是目錄（Menu）。</figcaption></figure>
+        <figure class="shot"><a href="img/l2-nb-pico-14.jpg" target="_blank" rel="noopener"><img src="img/l2-nb-pico-14.jpg" alt="例 14 文章信息圖" loading="lazy"></a><figcaption><b class="n">2</b>例 14「文章信息圖」：輸出圖 → 「輸入：需上傳一段文章」→ 提示詞灰框（右上複製）。把衛教文貼進去就是同款資訊圖。</figcaption></figure>
+        <figure class="shot"><a href="img/l2-nb-pico-48.jpg" target="_blank" rel="noopener"><img src="img/l2-nb-pico-48.jpg" alt="例 48 食物卡路里標註" loading="lazy"></a><figcaption><b class="n">3</b>例 48「食物卡路里標注」：上傳餐盤照，一句提示詞就標出每樣食物的熱量密度與估算熱量。課堂當「AI 估算 vs 營養師計算」的對照題。</figcaption></figure>
+      </div></div>
+    </div>
     <div class="note red" style="margin-top:12px"><b>醫療場域三條界線：</b>① 參照「風格」可以，但不要上傳別家醫院單張、知名插畫家作品或卡通角色要它照著畫；② 參考圖裡不能有病人的臉、病歷或手環；③ 注射部位、食物份量這類圖，生成後一定由專業人員核對。</div>
   </div>
 </section>
