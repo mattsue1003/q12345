@@ -731,6 +731,66 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <figure class="shot"><a href="img/l2-s3-ge-home.jpg" target="_blank" rel="noopener"><img src="img/l2-s3-ge-home.jpg" alt="Gemini 首頁" loading="lazy"></a><figcaption><b class="n">1</b>輸入框下方「對話／任務」：第 ② 層。Gemini 沒有第 ③ 層的圖形介面。</figcaption></figure>
     </div></div>
   </div>
+  <div class="card" id="agentbot">
+    <h3>Agent、Bot、雲端代理、本機代理、手機 Remote Control：一張圖講清楚</h3>
+    <p style="margin-top:0">學員常問「AI Agent 跟聊天機器人（Bot）到底差在哪」「雲端的和裝在電腦上的差在哪」「手機遙控是什麼」。這五個東西不是對手，是同一條指揮鏈上的不同位置。</p>
+    <svg viewBox="0 0 760 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="人類、雲端代理、本機代理、手機遙控的關係圖" style="width:100%;max-width:760px;display:block;margin:8px auto;font-family:inherit">
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#475569"/></marker></defs>
+  <g font-size="14" fill="#1F2937">
+    <rect x="270" y="14" width="220" height="56" rx="10" fill="#FFF7ED" stroke="#9A3412" stroke-width="2"/><text x="380" y="38" text-anchor="middle" font-weight="700">人類：總指揮</text><text x="380" y="58" text-anchor="middle" font-size="12" fill="#6B7280">決定做什麼、審核結果、簽名</text>
+    <rect x="270" y="130" width="220" height="60" rx="10" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/><text x="380" y="154" text-anchor="middle" font-weight="700">雲端代理</text><text x="380" y="174" text-anchor="middle" font-size="12" fill="#6B7280">ChatGPT 工作、Claude 研究、Gemini 任務</text>
+    <rect x="270" y="250" width="220" height="60" rx="10" fill="#ECFDF5" stroke="#0F766E" stroke-width="2"/><text x="380" y="274" text-anchor="middle" font-weight="700">本機代理</text><text x="380" y="294" text-anchor="middle" font-size="12" fill="#6B7280">OpenCode、Claude Code、Cowork、Codex 桌面版</text>
+    <rect x="230" y="360" width="300" height="46" rx="10" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2"/><text x="380" y="388" text-anchor="middle" font-weight="700">你電腦裡的資料夾、Excel、Word、瀏覽器</text>
+    <rect x="570" y="190" width="170" height="60" rx="10" fill="#FDF4FF" stroke="#7C5CBF" stroke-width="2"/><text x="655" y="214" text-anchor="middle" font-weight="700">手機 Remote Control</text><text x="655" y="234" text-anchor="middle" font-size="12" fill="#6B7280">在外面下指令、看回報</text>
+    <rect x="20" y="190" width="170" height="60" rx="10" fill="#FFFBEB" stroke="#D97706" stroke-width="2"/><text x="105" y="214" text-anchor="middle" font-weight="700">聊天機器人（Bot）</text><text x="105" y="234" text-anchor="middle" font-size="12" fill="#6B7280">一問一答，不動手</text>
+  </g>
+  <g stroke="#475569" stroke-width="2" fill="none" marker-end="url(#ar)">
+    <path d="M360 70 V128"/><path d="M400 128 V72"/>
+    <path d="M360 190 V248"/><path d="M400 248 V192"/>
+    <path d="M380 310 V358"/>
+    <path d="M240 42 H60 V188"/>
+    <path d="M520 42 H655 V188"/>
+    <path d="M655 250 V280 H492"/>
+  </g>
+  <g font-size="11" fill="#475569">
+    <text x="330" y="104" text-anchor="end">交辦</text><text x="430" y="104">回報、等你核准</text>
+    <text x="330" y="224" text-anchor="end">委派、安全連線</text><text x="430" y="224">回報結果</text>
+    <text x="395" y="340">依你給的權限讀寫</text>
+    <text x="150" y="36" text-anchor="middle">問問題</text>
+    <text x="600" y="36" text-anchor="middle">人在外面</text>
+    <text x="575" y="300">遠端把指令送到家裡的電腦</text>
+  </g>
+</svg>
+    <div class="tbl" style="margin-top:12px"><table style="min-width:900px">
+      <tr><th>名稱</th><th>它做什麼</th><th>碰得到什麼</th><th>例子</th><th>什麼時候用</th></tr>
+      <tr><td><b>聊天機器人（Bot）</b></td><td>你問一句、它答一句；不會自己拆步驟、不會動工具</td><td>只有你貼給它的文字和檔案</td><td>任一家的「對話」模式、LINE 官方帳號的自動回覆</td><td>問、寫、改、解釋</td></tr>
+      <tr><td><b>AI Agent（代理）</b></td><td>接到目標後<b>自己規畫多步驟、呼叫工具、檢查結果、回報</b>；會問你要不要繼續</td><td>看你給它什麼工具：搜尋、程式、檔案、瀏覽器、外掛</td><td>ChatGPT 工作、Claude Cowork、Gemini 任務、OpenCode</td><td>一件要跑十幾步、會產出檔案的事</td></tr>
+      <tr><td><b>雲端代理</b></td><td>代理跑在廠商的伺服器上，有自己的雲端電腦</td><td>網路、你上傳的檔案、你授權的雲端服務（雲端硬碟、Gmail）；<b>碰不到你的電腦</b></td><td>ChatGPT 工作與雲端瀏覽器、Claude 研究與網頁版 Code、Gemini 任務、Gemini Notebook</td><td>查資料、寫報告、處理雲端檔案；電腦可以關機</td></tr>
+      <tr><td><b>本機代理</b></td><td>代理跑在你的電腦上</td><td>你指定的資料夾、安裝的程式、瀏覽器、終端機</td><td>OpenCode、Claude Code（桌面）、Cowork、Codex 桌面版</td><td>批次處理電腦裡的檔案、操作沒有雲端版的程式；電腦要開著</td></tr>
+      <tr><td><b>手機 Remote Control</b></td><td>手機本身不跑代理；它透過廠商的雲端<b>把指令送到你家或辦公室正在跑的本機代理</b>，再把回報送回手機</td><td>等於本機代理碰得到的全部</td><td>Claude Code 的 Remote Control、Codex 手機接桌面版、OpenCode 的遠端分享</td><td>人在外面、電腦在家開著；交辦長任務、回來看結果</td></tr>
+    </table></div>
+    <div class="grid2" style="margin-top:12px">
+      <div class="card" style="margin:0">
+        <h3>常見混淆，一句話回答</h3>
+        <ul>
+          <li><b>「Agent 跟 Bot 差在哪？」</b>Bot 回答你，Agent 替你做。判斷方法：它會不會自己跑第二步、第三步而不用你再按一次。</li>
+          <li><b>「Grok 跟 Grok 的代理版差在哪？」</b>同一個模型、不同的殼：聊天版是 Bot，能呼叫工具且會自己多步執行的才是 Agent。各家名字不同（Work／Cowork／任務／Agent 模式），看功能不看名字。目前查不到 xAI 有叫「Grok Bar」的正式產品，若學員指的是第三方桌面小工具，那只是把聊天視窗放在工具列，仍是 Bot。</li>
+          <li><b>「雲端代理可以碰我電腦嗎？」</b>預設不行。要碰，得在電腦上裝本機代理並配對（Claude Code 的 Remote Control、Codex 的雲端⇄桌面），而且每次改動都會回頭問你。</li>
+          <li><b>「手機就能跑 Agent？」</b>手機上的 ChatGPT／Claude／Gemini App 跑的是<b>雲端</b>代理；要動到電腦裡的檔案，手機只是遙控器，電腦要開著、本機代理要先啟動。</li>
+          <li><b>「Remote Control 安全嗎？」</b>連線經過廠商雲端加密中繼，但等於把電腦交給遠端的你；手機遺失要能立刻登出；只在個人電腦與練習資料夾用，院內電腦依資安規定。</li>
+        </ul>
+      </div>
+      <div class="card" style="margin:0">
+        <h3>這張圖的三個重點（也是三條規矩）</h3>
+        <ol class="steps">
+          <li><b>人在最上面：</b>決定目標、審核結果、簽名的永遠是人。代理可以「做」，不能「決定」。</li>
+          <li><b>每一條線都是授權：</b>雲端代理要你授權才能碰雲端硬碟；本機代理要你指定資料夾；手機要先配對。沒有一條線是預設打開的。</li>
+          <li><b>重要操作由人確認：</b>刪檔、寄信、送出表單、改病歷相關文件，在任何一層都要停下來問你。外掛權限選「允許唯讀工具」、代理先跑「只讀不改」就是這個意思。</li>
+        </ol>
+        <div class="note teal" style="margin-bottom:0"><b>講師怎麼用：</b>白天在門診用手機 Remote Control 交辦家裡電腦上的 OpenCode／Claude Code「把今天的 30 份單張轉成 .md 並列出個資疑慮」；晚上回家開電腦直接審核。手機只負責下指令和看回報，所有檔案都留在電腦裡。</div>
+      </div>
+    </div>
+  </div>
   <div class="card">
     <h3>Agent 不只 OpenCode：三個工具裡的代理功能，以及之後怎麼用</h3>
     <div class="tbl"><table>
