@@ -1516,9 +1516,9 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
     <ol class="steps">
       <li>登入 GitHub，右上「＋」→「New repository」（新增倉庫）</li>
       <li><b>Repository name</b> 一字不差填 <code>你的username.github.io</code>，例如 <code>tyh-dm-amy.github.io</code>。這個特別的名字會讓 GitHub 自動把它變成網站</li>
-      <li>選 <b>Public</b>；<b>不要勾</b>「Add a README file」→ 按「Create repository」</li>
+      <li>「Choose visibility」選 <b>Public</b>；「Add README」保持 <b>Off</b> → 按綠色「Create repository」</li>
       <li>出現的頁面中間找到藍色小字「<b>uploading an existing file</b>」，點進去</li>
-      <li>把 <code>index.html</code> 拖進框框 → 拉到下面按綠色「<b>Commit changes</b>」</li>
+      <li>把 <code>index.html</code> 拖進「Drag files here」框框 → 下方保持「Commit directly to the main branch」→ 按綠色「<b>Commit changes</b>」</li>
       <li>等 1～2 分鐘，打開 <code>https://你的username.github.io</code>，看到你的網頁就完成了</li>
       <li>沒出現？到倉庫上方「Settings」→ 左側「Pages」，確認 Source 是「Deploy from a branch」、Branch 是「main」→「/ (root)」，按 Save 再等 1 分鐘</li>
     </ol>
@@ -1528,6 +1528,25 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
     </div>
   </div>
 
+  <div class="card">
+    <h3>實際操作畫面（講師帳號，2026 年 11 月）</h3>
+    <p style="margin-top:0">示範時沒有真的建立倉庫或上傳檔案，點圖可放大。你的畫面上 mattsue1003 會換成你自己的 username。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="ghg" data-t="ghg-1">建立倉庫</button>
+      <button class="tab" data-g="ghg" data-t="ghg-2">上傳檔案</button>
+      <button class="tab" data-g="ghg" data-t="ghg-3">確認上線</button>
+    </div>
+    <div class="panel on" data-g="ghg" id="ghg-1"><div class="shots">
+      <figure class="shot"><a href="img/l2-gh-name.jpg" target="_blank" rel="noopener"><img src="img/l2-gh-name.jpg" alt="GitHub 建立倉庫填名稱" loading="lazy"></a><figcaption><b class="n">1</b>Repository name 填「你的username.github.io」，出現綠色「is available」就代表可以用。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-gh-config.jpg" target="_blank" rel="noopener"><img src="img/l2-gh-config.jpg" alt="GitHub 倉庫設定與建立按鈕" loading="lazy"></a><figcaption><b class="n">2</b>往下：visibility 選 Public、Add README 保持 Off，按右下綠色「Create repository」。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="ghg" id="ghg-2"><div class="shots">
+      <figure class="shot"><a href="img/l2-gh-upload.jpg" target="_blank" rel="noopener"><img src="img/l2-gh-upload.jpg" alt="GitHub 上傳檔案頁面" loading="lazy"></a><figcaption><b class="n">1</b>點「uploading an existing file」進到這頁：把 index.html 拖進上方框框，選「Commit directly to the main branch」，按「Commit changes」。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="ghg" id="ghg-3"><div class="shots">
+      <figure class="shot"><a href="img/l2-gh-pages.jpg" target="_blank" rel="noopener"><img src="img/l2-gh-pages.jpg" alt="GitHub Pages 設定頁" loading="lazy"></a><figcaption><b class="n">1</b>倉庫「Settings」→ 左側「Pages」：看到「Your site is live at …」就成功了。Source 是「Deploy from a branch」，Branch 是「main」與「/ (root)」。</figcaption></figure>
+    </div></div>
+  </div>
   <div class="card oc-c">
     <h3><span class="t oc">OpenCode</span>進階：讓代理幫你做網頁</h3>
     <p style="margin-top:0">在練習資料夾開 OpenCode，貼上上面的個人網頁提示詞，它會直接在資料夾裡建好 <code>index.html</code>，還能開瀏覽器給你看。上傳仍然用上面的網頁拖曳方式；讓代理直接推上 GitHub 需要額外設定登入，第 5 堂再教。</p>
