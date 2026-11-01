@@ -579,11 +579,47 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <h3>上課一起做的設定（約 5 分鐘）</h3>
       <ol class="steps">
         <li>打開 OpenCode（還沒裝的請先到 <a href="https://opencode.ai/zht" target="_blank" rel="noopener">opencode.ai</a>）</li>
-        <li>選模型：先用<b>內建免費模型</b>就能跑；想用熟悉的模型，用「連接供應商」登入你的 Gemini 或 ChatGPT 帳號</li>
+        <li>選模型：先用<b>內建免費模型</b>（課堂用 Nemotron 3 Ultra Free，下方表格說明怎麼挑）就能跑；想用熟悉的模型，用「連接供應商」登入你的 Gemini 或 ChatGPT 帳號</li>
         <li>建立一個練習資料夾，例如「桌面／AI練習」，把合成資料與<b>已公開</b>的衛教單張放進去</li>
         <li>在 OpenCode 打開這個資料夾，以後所有交辦都只在這個資料夾裡進行</li>
       </ol>
       <div class="note red" style="margin-bottom:0"><b>最重要的一條：</b>Agent 會真的讀寫檔案。<b>永遠只指向去識別化的練習資料夾</b>，不要指向桌面、文件或任何有病歷的資料夾。</div>
+    </div>
+  </div>
+  <div class="card" id="ocmodel">
+    <h3>OpenCode 裡的模型怎麼選？免費／付費差在哪、要多少錢</h3>
+    <p style="margin-top:0">OpenCode 本身免費，「腦」要另外選。選單裡混著免費試用、付費計次和多家公司的模型，名字看不出來源。下表整理 2026 年 11 月官方清單，<b>中國公司的模型一律標紅，課堂不用</b>；來源沒公開的「隱身模型」也不建議，不知道資料去了哪裡。</p>
+    <div class="tbl"><table style="min-width:1180px">
+      <tr><th>模型</th><th>誰做的</th><th>費用</th><th>優點</th><th>缺點</th><th>適合情境</th></tr>
+      <tr><td><b>Nemotron 3 Ultra Free</b>（另有 3.5 Lightning、3.5 Super VL）</td><td>NVIDIA（美國）</td><td><span class="pill">免費</span>限時</td><td>免費裡最大、最穩的非中國模型；開放權重</td><td>複雜交辦會漏步驟；限時免費，隨時可能收回</td><td><b>課堂免費首選</b>：轉檔、整理資料夾、改單張</td></tr>
+      <tr><td>Big Pickle、Beam、Flint 40B、Jev 1.13</td><td>隱身模型，來源未公開</td><td><span class="pill">免費</span>限時</td><td>有時很強</td><td>不知道是哪家、資料怎麼用；可能隨時換掉底層模型</td><td>不建議。醫療場域不要用來路不明的腦</td></tr>
+      <tr style="background:#FFF1F2"><td>GLM、DeepSeek、MiMo、Qwen、Kimi、MiniMax、Hy3</td><td>智譜、DeepSeek、小米、阿里、月之暗面、MiniMax、騰訊（皆中國）</td><td>免費版與付費版都有</td><td>便宜、額度大</td><td>伺服器與資料政策受中國法規管轄</td><td><b>課堂一律不用</b>，包含免費版</td></tr>
+      <tr><td><b>Claude Sonnet 5.5</b></td><td>Anthropic（美國）</td><td>每百萬 token 輸入 US$2／輸出 US$10</td><td>照指令改檔最可靠，少擅自發揮；長任務不迷路</td><td>比小模型貴 10～20 倍</td><td>批次改文件、整批衛教單張重寫、做網頁</td></tr>
+      <tr><td>Claude Opus 5.5</td><td>Anthropic</td><td>US$4／US$20</td><td>最會規畫多步驟、最會抓細節</td><td>慢、貴</td><td>一次要處理整個資料夾的大工程</td></tr>
+      <tr><td><b>GPT 6 Sol</b></td><td>OpenAI（美國）</td><td>US$2／US$10</td><td>數據分析、推理強；Excel 類任務穩</td><td>偶爾太囉嗦</td><td>品質指標、統計、要算數字的交辦</td></tr>
+      <tr><td><b>Gemini 4 Argon</b></td><td>Google（美國）</td><td>US$2／US$10（11/30 前半價）</td><td>吃得下很長的文件、看圖便宜</td><td>格式有時跑掉；中文偶有簡體</td><td>讀整本指引、含圖片的素材</td></tr>
+      <tr><td>Claude Haiku 5.5、GPT 6 Luna、Gemini 3.5 Flash Lite</td><td>同上三家</td><td>約 US$0.1～0.3／US$0.5～2.5</td><td>快、便宜，一次交辦不到一塊台幣</td><td>複雜任務會偷懶</td><td>轉檔、分類、改錯字、整理清單</td></tr>
+      <tr><td>Grok 4.7、Mistral Large 4</td><td>xAI（美國）、Mistral（法國）</td><td>US$2／US$6、US$0.68／US$2.09</td><td>非中國的平價選項</td><td>中文與醫療用語不如上面三家</td><td>備用</td></tr>
+    </table></div>
+    <div class="grid2" style="margin-top:12px">
+      <div class="card" style="margin:0">
+        <h3>免費和付費差在哪</h3>
+        <ul>
+          <li><b>免費模型：</b>限時、會輪替，量大時排隊；資料政策要看清楚，部分標「Contributor」的模型會拿你的內容去訓練。練習用合成資料沒問題，<b>真實文件不要放</b>。</li>
+          <li><b>付費計次（Zen）：</b>先儲值，用多少扣多少，每次儲值另收 4.6%＋US$0.31 手續費。模型最齊，Claude、GPT、Gemini 都在同一個選單。</li>
+          <li><b>月費方案 OpenCode Go：</b>US$10／月（Go Plus US$40），包 30 個模型的固定額度，每 5 小時最多用掉月額度的 20%。但清單以中國模型為主，非中國的只有 GPT 6 Luna、Claude Haiku 5.5、Gemini 4 Argon 這類，<b>對我們不划算</b>。</li>
+          <li><b>接自己的帳號：</b>已付 Claude Pro 或 ChatGPT Plus 的人，在 OpenCode「連接供應商」登入即可，用的是訂閱額度，不另外付錢。Gemini 要到 Google AI Studio 申請金鑰，有免費額度。</li>
+        </ul>
+      </div>
+      <div class="card" style="margin:0">
+        <h3>付費大概要花多少</h3>
+        <ul>
+          <li>一次「三個版本衛教單張」交辦：約 2 萬 token 進、5 千出。Claude Sonnet 5.5 約 <b>US$0.09（台幣 3 元）</b>；Haiku 5.5 約 US$0.005。</li>
+          <li>整季 30 份單張重寫＋每週一次指標整理：Sonnet 5.5 大約 US$3～5／月。</li>
+          <li>最省：儲值 US$10 可以用一學期。比起再訂一個 US$20 月費，<b>計次對偶爾用的人划算</b>；每天都用再考慮登入自己的 Pro 帳號。</li>
+        </ul>
+        <div class="note teal" style="margin-bottom:0"><b>課堂建議：</b>今天先用 <b>Nemotron 3 Ultra Free</b> 跑完所有練習；回去要真的用，改成 Claude Sonnet 5.5（改檔）或 GPT 6 Sol（算數）。不選隱身模型，不選紅色列。價格以 <a href="https://opencode.ai/docs/zen/" target="_blank" rel="noopener">官方清單</a>為準，常變動。</div>
+      </div>
     </div>
   </div>
   <div class="card">
@@ -598,12 +634,23 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
 開始前如果有不清楚的地方，先問我。</div>
     <p style="margin-bottom:0">注意最後一句：第 7 節的 AMA 反問法，在代理上一樣有用，而且更重要，因為它接下來會真的動手。</p>
   </div>
+  <div class="card" id="layers">
+    <h3>先看懂三層：三家都是「對話 → 代理 → 資料夾代理」</h3>
+    <p style="margin-top:0">ChatGPT、Claude、Gemini 現在的輸入框下方都有兩個切換，往下還各有一個會碰你電腦檔案的工具。名字都不一樣，其實是同一個階梯。</p>
+    <div class="tbl"><table style="min-width:860px">
+      <tr><th>層</th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th><th>差在哪、什麼時候用</th></tr>
+      <tr><td><b>① 對話</b></td><td>對話</td><td>對話</td><td>對話</td><td>一問一答，你主導每一步。想、問、改一段文字都在這層。</td></tr>
+      <tr><td><b>② 代理</b><br><small>網頁版就有</small></td><td>工作（Work）<br><small>第 13 節</small></td><td>Cowork<br><small>桌面版；網頁版用「研究」</small></td><td>任務<br><small>第 1 堂做簡報用的那個</small></td><td>交辦一整件事，它自己拆步驟、查資料、產出檔案（報告、簡報、試算表），做完回報。要等幾分鐘，額度吃得多，免費版次數少。</td></tr>
+      <tr><td><b>③ 資料夾代理</b><br><small>會讀寫你電腦的檔</small></td><td>Codex<br><small>側欄或設定裡；另有 Codex 桌面程式；需 Plus</small></td><td>Claude Code<br><small>桌面版 Code 分頁；需 Pro</small></td><td>—<br><small>（Gemini CLI 要打指令，課堂不教）</small></td><td>進到你指定的資料夾批次處理、裝工具、跑程式。<b>OpenCode 是這一層的免費通用版</b>，三家模型都能接。</td></tr>
+    </table></div>
+    <div class="note" style="margin:12px 0 0"><b>怎麼記：</b>①是「聊」、②是「交辦一件事」、③是「交辦一個資料夾」。第 ②、③ 層都會自己動手，所以第 7 節的 AMA 反問法與下面的三條界線，在這兩層最重要。Gemini 的「任務」目前是三家裡最早整合進首頁的，免費版就能切，但一天只有少量次數。</div>
+  </div>
   <div class="card">
     <h3>Agent 不只 OpenCode：三個工具裡的代理功能，以及之後怎麼用</h3>
     <div class="tbl"><table>
       <tr><th>工具</th><th>代理功能在哪</th><th>適合衛教師的用法</th><th>哪一堂</th></tr>
       <tr><td><span class="t oc">OpenCode</span></td><td>開啟資料夾就是</td><td>批次處理檔案、每季重跑指標、把文書流程寫成一次交辦</td><td>今天、第 5 堂</td></tr>
-      <tr><td><span class="t gpt">ChatGPT</span></td><td>Work（工作）；設定裡的 Codex、雲端瀏覽器</td><td>Work 做完整報告；雲端瀏覽器可代你操作網頁（例：到學會網站查學分），開啟前先看第 12 節的權限設定</td><td>今天第 13 節、第 5 堂</td></tr>
+      <tr><td><span class="t gpt">ChatGPT</span></td><td>Work（工作）；Codex（資料夾代理，側欄／設定 → 應用程式）、雲端瀏覽器</td><td>Work 做完整報告；雲端瀏覽器可代你操作網頁（例：到學會網站查學分），開啟前先看第 12 節的權限設定</td><td>今天第 13 節、第 5 堂</td></tr>
       <tr><td><span class="t cl">Claude</span></td><td>桌面版 Cowork；連接器</td><td>交辦「整理這個資料夾的衛教素材並做成簡報」；排程每週文獻快報</td><td>今天第 11、13 節</td></tr>
       <tr><td><span class="t cl">Claude Code</span></td><td>桌面版左上切到 <b>Code</b> 分頁 → 選一個電腦資料夾（需付費方案）；網頁版 Code 在雲端，碰不到你的電腦</td><td>和 OpenCode 同一類：在資料夾裡讀檔、改檔、裝工具、批次處理。例：裝 MarkItDown 把整批指引 PDF 轉文字（B 節）、把衛教內容做成互動網頁並發布</td><td>今天 B 節、第 5 堂</td></tr>
       <tr><td><span class="t ge">Gemini</span></td><td>排定動作；Agent 模式（陸續開放）</td><td>每週自動整理公告；Google 全家桶內的跨 App 任務</td><td>今天第 11 節</td></tr>
@@ -902,6 +949,35 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     <div class="prompt"><span class="label">衛教圖卡提示詞</span>請生成一張直式衛教圖卡，主題是「低血糖 15-15 法則」。對象是 70 歲長者，字要大、最多 4 個步驟，每步一個簡單圖示。配色用柔和的大自然色（淺綠、米白），不要金屬感、不要任何裝飾性小字。右下角放小字「AI 協力製作，衛教師審訂」。</div>
     <div class="note red"><b>版權與送審：</b>網路上常見的做法是「找無版權海報當風格參考」，在醫院請更保守：只用院內自有素材或確認授權的圖當參考；人物照片不要用真實病人。圖卡上的醫療內容一律由衛教師核對後再送院內審查（第 3 堂會細講肖像與版權）。</div>
   </div>
+  <div class="card" id="canva">
+    <h3>承接第 1 堂：簡報後製的兩條捷徑（Canva 多頁模板、DeckEdit 文字辨識）</h3>
+    <p style="margin-top:0">第 1 堂做簡報的流程是「Gemini Notebook／任務產出 → 匯出 PDF → Canva 魔法圖層一張一張改」。魔法圖層一次只收一張圖，十頁簡報要做十次。今天補兩個更快的做法。</p>
+    <div class="grid2">
+      <div class="card gpt-c" style="margin:0">
+        <h3><span class="t gpt">ChatGPT</span>＋Canva 應用程式：一次生出多頁、每頁都是可編輯圖層</h3>
+        <ol class="steps">
+          <li>設定 → <b>應用程式</b> → 找到 <b>Canva</b> → 連結，用瀏覽器登入你的 Canva 帳號（免費帳號即可）。</li>
+          <li>先在對話或專案裡把簡報大綱寫好：8 頁、每頁標題與三個重點、對象是長者。</li>
+          <li>輸入框打 <b>@Canva</b>（或句首寫「Canva，」），再說：「用上面的大綱做一份 8 頁簡報，大字、高對比、每頁一張插圖位置留白。」</li>
+          <li>對話裡會出現預覽。整體要改（全部換成暖色、第 3 頁改短）直接在對話裡說。</li>
+          <li>點「在 Canva 開啟」。<b>每一頁的標題、內文、圖片都已經是獨立圖層</b>，不用 OCR、不用魔法圖層，直接點字改字。</li>
+          <li>ChatGPT 生的插圖（第 8 節）另外下載，在 Canva 裡拖進對應頁面。</li>
+        </ol>
+        <div class="note" style="margin-bottom:0;font-size:.95rem">和魔法圖層的差別：魔法圖層是「把一張做好的圖拆成圖層」，只能單張；Canva 應用程式是「請 Canva 直接排版」，天生多頁可編輯。缺點是版型由 Canva 的模板決定，沒有 Gemini 任務做出來的那麼有設計感；可以先用 Gemini 任務定調，再把大綱餵給 @Canva 做可編輯版。</div>
+      </div>
+      <div class="card" style="margin:0">
+        <h3>DeckEdit：已經做好的 PDF 簡報，用文字辨識（OCR）變成可以改字</h3>
+        <p style="margin-top:0">第 1 堂介紹過，這裡再放一次步驟，因為它和上面是互補的：Canva 應用程式適合「還沒做」的簡報；DeckEdit 適合「已經做好、只想改幾個字」的簡報。</p>
+        <ol class="steps">
+          <li>打開 <a href="https://deckedit.com/zh-Hant" target="_blank" rel="noopener">deckedit.com/zh-Hant</a>，免費、不用註冊，檔案留在你的瀏覽器裡不上傳。</li>
+          <li>拖入 PDF：Gemini Notebook 匯出的簡報、ChatGPT 生的整頁圖片、或 Canva「分享 → 下載 → PDF 標準」。</li>
+          <li>等它辨識，每頁的文字變成可點選的文字框；點一段就能改字、放大、換字體。常見用法是把 Notebook 簡報太小的字一次調大。</li>
+          <li>匯出 PPTX，交給同事用 PowerPoint 或 Google 簡報繼續。</li>
+        </ol>
+        <div class="note teal" style="margin-bottom:0;font-size:.95rem"><b>個資提醒：</b>DeckEdit 在本機跑，可以放院內簡報；Canva 應用程式會把大綱送到 Canva 雲端，只放已去識別化、可公開的衛教內容。</div>
+      </div>
+    </div>
+  </div>
   <div class="card">
     <h3>進階：丟一張圖，請 AI「照這個風格」畫</h3>
     <p style="margin-top:0">做系列衛教圖卡最好用的方法。三個工具都看得懂上傳的圖，但能「照風格生圖」的是 Gemini 和 ChatGPT。</p>
@@ -1161,6 +1237,17 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <figure class="shot"><a href="img/l2-ama-ge-plan.jpg" target="_blank" rel="noopener"><img src="img/l2-ama-ge-plan.jpg" alt="Gemini 研究方案" loading="lazy"></a><figcaption><b class="n">2</b>送出後先出研究方案。先按「修改方案」要求「繁體中文、只用學術與官方來源、加入台灣國健署資料」，再按「開始研究」。</figcaption></figure>
     </div></div>
   </div>
+  <div class="card ge-c" id="gnb">
+    <h3><span class="t ge">Gemini Notebook</span>（原 NotebookLM）現在有代理了嗎？</h3>
+    <p style="margin-top:0">有，2026 年 6 月的大更新把它從「只回答你上傳的資料」變成會自己找資料、自己做檔案的研究代理；7 月起改名 Gemini Notebook。但<b>目前先開給 Google AI Ultra 和企業版 Workspace</b>，AI Pro 與免費版陸續開放，上課時請實際打開看看自己帳號有沒有。</p>
+    <div class="tbl" style="border:0"><table style="min-width:0">
+      <tr><th>新能力</th><th>做什麼</th><th>衛教師怎麼用</th></tr>
+      <tr><td>專案對話＋自動找來源</td><td>開一個主題的對話，它用 Google 搜尋幫你推薦、加入來源，含外文原始文獻</td><td>「建一本足部照護的筆記本」，它先去找指引與期刊，你再挑要不要收</td></tr>
+      <tr><td>多步驟研究、步驟可見</td><td>承接深入研究，對話裡顯示它查了什麼、怎麼推論</td><td>查核時能回頭看它引用的是哪一頁</td></tr>
+      <tr><td>軟體技能、多種匯出</td><td>照你的指示產出並可再編輯：PowerPoint、Excel、Word、Markdown、CSV、圖表 PNG／SVG</td><td>一句話把筆記本整理成「品質指標季報 Excel＋簡報」</td></tr>
+    </table></div>
+    <div class="note" style="margin:12px 0 0"><b>和第 1 堂的關係：</b>第 1 堂用「Gemini 任務 ＋ @Gemini Notebook」做簡報，Notebook 只是資料來源。有了代理之後，Notebook 自己也能產出可編輯的 PPTX，後製就不必一定走 PDF → Canva。版面要精修，還是回到上面第 8 節的 Canva 應用程式或 DeckEdit。沒有拿到新功能的人，流程維持第 1 堂的做法即可。</div>
+  </div>
   <div class="card">
     <h3>祕技：兩段式提示詞</h3>
     <div class="flow">
@@ -1288,6 +1375,16 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
         <li>OpenCode 可以直接幫你裝、幫你整個資料夾一起轉</li>
       </ul>
     </div>
+  </div>
+  <div class="card">
+    <h3>常見疑問：「聽說現在上傳 PDF 跟 Markdown 已經沒差了？」</h3>
+    <div class="tbl" style="border:0"><table style="min-width:0">
+      <tr><th>說法</th><th>對不對</th><th>實際狀況</th></tr>
+      <tr><td>「不要上傳 PDF，要給 Markdown」</td><td>一半對</td><td>問一次就丟的小文件（10 頁內、純文字），直接上傳 PDF 沒問題，三家都讀得懂。要<b>反覆用</b>（放進專案、給代理、每週重讀）的文件才值得先轉。</td></tr>
+      <tr><td>「已經沒差異了」</td><td>讀得懂沒差，<b>花費有差</b></td><td>模型抽文字的能力確實進步了。差異剩在 token：PDF 會多算一份圖片、版面表格常被打散；Markdown 只算文字，標題和表格保留。同一份 30 頁指引，差 3～7 倍額度。</td></tr>
+      <tr><td>「差異在 token」</td><td>對，還有兩個</td><td>① token：上面那張表。② <b>檢查個資</b>：純文字你能先搜尋姓名、病歷號再上傳，PDF 很難。③ <b>代理工具</b>：OpenCode 等資料夾代理本來就只讀文字檔，PDF 要先轉才碰得到。</td></tr>
+    </table></div>
+    <p style="margin:10px 0 0;color:var(--muted)">一句話：聊天視窗偶爾問，PDF 直接丟；要省額度、要查個資、要給代理，先轉 Markdown。</p>
   </div>
   <div class="card">
     <h3>哪些檔案該轉？</h3>
