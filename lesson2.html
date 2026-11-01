@@ -336,6 +336,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     <a href="#s16">實作：數據與報表</a>
     <a href="#xl">Excel × AI</a>
     <a href="#docs">Word／PPT／PDF × AI</a>
+    <a href="#gws">Google 三件套 × Gemini</a>
     <a href="#stat">描述性統計正確率</a>
     <a href="#gh">GitHub 個人網頁</a>
     <a href="#s17">課後任務</a>
@@ -2151,6 +2152,91 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
       <ul style="margin-bottom:0">
         <li>病歷、公文正本、含個資的 PDF：不上傳。要處理就先去識別化，或用院內授權的 Copilot。</li>
         <li>任何要送出去的文件：AI 產出 → 你逐段看 → 你簽名。這條在三種檔都一樣。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section id="gws">
+  <div class="sec-head"><div class="num" style="background:#1A73E8">G</div><div><h2>Google 試算表／文件／簡報 × Gemini：不用上傳下載，AI 就在檔案裡</h2><p>Excel、Word、PowerPoint 各有一個 Google 對應物，而且 Gemini 直接住在裡面。做法和前兩節一樣，只是少了「上傳、下載、貼回去」三個步驟。免費 Google 帳號就有一部分功能，講師帳號是 AI Pro。</p></div></div>
+  <div class="card">
+    <h3>對照表：同一件事，在 Google 裡怎麼做</h3>
+    <div class="tbl"><table style="min-width:960px">
+      <tr><th></th><th>Google 試算表（＝Excel）</th><th>Google 文件（＝Word）</th><th>Google 簡報（＝PowerPoint）</th></tr>
+      <tr><td><b>入口</b></td><td>右上 ✦ 開 Gemini 側欄；儲存格裡直接打 <code>=AI(...)</code></td><td>右上 ✦ 側欄；空白頁底部的「使用 Gemini 撰寫內容」</td><td>新檔案一開就跳出 Gemini 起始畫面（簡報／投影片／圖片／資訊圖表）；右上 ✦ 側欄</td></tr>
+      <tr><td><b>最有感的功能</b></td><td><code>=AI("把這個症狀描述分成 低、中、高 風險", A2)</code> 往下拉整欄批次分類；側欄「建一個季報範本」會自己建工作表、填範例、寫達標率公式、上格式</td><td>側欄一句話直接寫進文件，含標題樣式與大綱；選取文字後「幫我改寫」</td><td>「簡報」模式先問你風格與核心內容（勾選），列出大綱讓你核准，再生成整份；「圖片」用 Nano Banana Pro 生插圖</td></tr>
+      <tr><td><b>和 Excel／Word／PPT 路線的差別</b></td><td>不用上傳；公式直接寫進格子；但 =AI() 每格都算一次額度，量大時慢</td><td>不用下載 .docx 再開；產出就是可編輯文件；要給別人 Word 檔再「下載為 .docx」</td><td>產出直接可編輯、每個文字框獨立；版型比 Gemini 任務模式樸素，比 ChatGPT 產 .pptx 快很多（約 2 分鐘 vs 10 分鐘）</td></tr>
+      <tr><td><b>實測踩到的坑（2026/11）</b></td><td>=AI() 要按「生成並填入」才會跑；參照錯欄會回「請提供症狀描述」而不是報錯</td><td><b>側欄與「幫我寫」目前不支援中文提示詞</b>（回「目前不支援你輸入的語言」）。解法：用英文下指令、在指令裡寫 in Traditional Chinese，它就會用繁體中文寫進文件</td><td>側欄中文提示詞可以用，但它自己的步驟文字偶爾跳出簡體字（「审核并优化演示文稿」）；生成前的問卷是中英夾雜</td></tr>
+      <tr><td><b>資料去哪裡</b></td><td colspan="3">檔案本來就在 Google 雲端硬碟；Gemini 讀的是這個檔和你勾選的來源（雲端硬碟／Gmail／Chat／網頁）。院內資料依資安規定；練習用合成資料。</td></tr>
+    </table></div>
+  </div>
+  <div class="card">
+    <h3><span class="t ge">Gemini</span>試算表：=AI() 與側欄建範本（2026 年 11 月實測）</h3>
+    <p style="margin-top:0">新開一個試算表，兩個動作各約 1 分鐘。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="gwsg1" data-t="gw1">=AI() 函數</button>
+      <button class="tab" data-g="gwsg1" data-t="gw2">側欄建範本</button>
+    </div>
+    <div class="panel on" data-g="gwsg1" id="gw1"><div class="shots">
+      <figure class="shot"><a href="img/l2-gs-ai.jpg" target="_blank" rel="noopener"><img src="img/l2-gs-ai.jpg" alt="=AI 公式與結果" loading="lazy"></a><figcaption><b class="n">1</b>C2 打 =AI("把這個症狀描述分成 低、中、高 三種風險，只回一個詞", A2)，按「生成並填入」，回「高」。往下拉就整欄分類。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="gwsg1" id="gw2"><div class="shots">
+      <figure class="shot"><a href="img/l2-gs-plan.jpg" target="_blank" rel="noopener"><img src="img/l2-gs-plan.jpg" alt="Gemini 的計畫" loading="lazy"></a><figcaption><b class="n">1</b>側欄說「建一個糖尿病個管季報範本，含達標率公式與 5 筆合成資料」。它先列步驟（建立工作表與資料結構 → 視覺化排版與驗證）等你按「核准」。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-gs-result.jpg" target="_blank" rel="noopener"><img src="img/l2-gs-result.jpg" alt="建好的工作表" loading="lazy"></a><figcaption><b class="n">2</b>核准後約 1 分鐘：新工作表、標題列、5 筆範例、HbA1c<7 達標率 60% 的公式（COUNTIF／COUNT，分母排除空白）、醫療配色。</figcaption></figure>
+    </div></div>
+  </div>
+  <div class="card">
+    <h3><span class="t ge">Gemini</span>文件：中文提示詞不支援、英文提示詞可以（2026 年 11 月實測）</h3>
+    <p style="margin-top:0">這個坑一定要先講，不然學員第一步就卡住。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="gwsg2" data-t="gw3">入口</button>
+      <button class="tab" data-g="gwsg2" data-t="gw4">中文被擋</button>
+      <button class="tab" data-g="gwsg2" data-t="gw5">英文下指令</button>
+    </div>
+    <div class="panel on" data-g="gwsg2" id="gw3"><div class="shots">
+      <figure class="shot"><a href="img/l2-gd-home.jpg" target="_blank" rel="noopener"><img src="img/l2-gd-home.jpg" alt="Google 文件的 Gemini 入口" loading="lazy"></a><figcaption><b class="n">1</b>新文件底部有「使用 Gemini 撰寫內容」與快捷（套用文件格式、會議記錄、電子郵件草稿）；右上 ✦ 開側欄。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="gwsg2" id="gw4"><div class="shots">
+      <figure class="shot"><a href="img/l2-gd-lang.jpg" target="_blank" rel="noopener"><img src="img/l2-gd-lang.jpg" alt="不支援的語言" loading="lazy"></a><figcaption><b class="n">1</b>用中文要求寫衛教短文，回「目前不支援你輸入的語言」。側欄同樣結果。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="gwsg2" id="gw5"><div class="shots">
+      <figure class="shot"><a href="img/l2-gd-result.jpg" target="_blank" rel="noopener"><img src="img/l2-gd-result.jpg" alt="英文提示詞、繁中輸出" loading="lazy"></a><figcaption><b class="n">1</b>改成英文：Write a 150-word patient handout in Traditional Chinese (Taiwan)… 它直接把整份寫進文件，自動下標題「低血糖處理指南：15-15法則」、三個小標、每句都短。</figcaption></figure>
+    </div></div>
+  </div>
+  <div class="card">
+    <h3><span class="t ge">Gemini</span>簡報：起始畫面 → 細節 → 問卷 → 大綱核准（2026 年 11 月實測）</h3>
+    <p style="margin-top:0">Google 簡報的 Gemini 比另外兩個多了一段「先問你」的流程，和第 1 堂的 Gemini 任務模式很像。</p>
+    <div class="tabs">
+      <button class="tab on" data-g="gwsg3" data-t="gw6">① 起始畫面</button>
+      <button class="tab" data-g="gwsg3" data-t="gw7">② 細節與問卷</button>
+      <button class="tab" data-g="gwsg3" data-t="gw8">③ 大綱核准</button>
+    </div>
+    <div class="panel on" data-g="gwsg3" id="gw6"><div class="shots">
+      <figure class="shot"><a href="img/l2-gsl-start.jpg" target="_blank" rel="noopener"><img src="img/l2-gsl-start.jpg" alt="Slides 起始畫面" loading="lazy"></a><figcaption><b class="n">1</b>新簡報一開就問：簡報（整份）、投影片（單張）、圖片（Nano Banana Pro）、資訊圖表、匯入、空白。選「簡報」。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="gwsg3" id="gw7"><div class="shots">
+      <figure class="shot"><a href="img/l2-gsl-details.jpg" target="_blank" rel="noopener"><img src="img/l2-gsl-details.jpg" alt="簡報細節" loading="lazy"></a><figcaption><b class="n">1</b>可加風格參考檔、來源檔，並勾選 Gemini 可搜尋的位置（雲端硬碟／Gmail／Chat／網頁）。只勾雲端硬碟最安全。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-gsl-q.jpg" target="_blank" rel="noopener"><img src="img/l2-gsl-q.jpg" alt="需求確認問卷" loading="lazy"></a><figcaption><b class="n">2</b>它先問風格（精簡／詳細）與核心內容（勾選），再動手。這就是 AMA 反問法被做進產品裡。</figcaption></figure>
+    </div></div>
+    <div class="panel" data-g="gwsg3" id="gw8"><div class="shots">
+      <figure class="shot"><a href="img/l2-gsl-outline.jpg" target="_blank" rel="noopener"><img src="img/l2-gsl-outline.jpg" alt="六頁大綱" loading="lazy"></a><figcaption><b class="n">1</b>列出 6 頁標題讓你核准；注意第 2 步驟跳出簡體字「审核并优化演示文稿」，產出後要自己掃一遍用字。</figcaption></figure>
+    </div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>課堂體驗（10 分鐘）</h3>
+      <ol class="steps">
+        <li><b>試算表：</b>sheets.new → A 欄貼 3 句合成症狀描述 → B1 打 <code>=AI("分成 低、中、高 風險，只回一個詞", A1)</code> → 生成並填入 → 往下拉。</li>
+        <li><b>文件：</b>docs.new → 右上 ✦ → 用<b>英文</b>說 Write … in Traditional Chinese → 看它直接寫進文件 → 選一段按「幫我改寫」。</li>
+        <li><b>簡報：</b>slides.new → 選「簡報」→ 中文描述主題 → 回答問卷 → 核准大綱 → 等 2 分鐘 → 點任一文字框確認可編輯。</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>什麼時候選 Google 路線、什麼時候選 Office 路線</h3>
+      <ul>
+        <li><b>選 Google：</b>檔案本來就在雲端硬碟、要多人同時編輯、要快（簡報 2 分鐘）、要整欄批次分類。</li>
+        <li><b>選 Office＋上傳：</b>院內規定用 Office、要交 .docx／.pptx 給別人、要用 ChatGPT 的工作模式查證內容（它會去查文獻並標示改了什麼）。</li>
+        <li><b>兩邊都要記得：</b>Gemini 在 Google 裡讀得到整個檔，不只是你選取的段落；開側欄前先確認檔案裡沒有個資。</li>
+        <li>中文支援差異會變：上課前一天用自己的帳號再試一次 docs.new 的中文提示詞。</li>
       </ul>
     </div>
   </div>
