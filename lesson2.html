@@ -334,6 +334,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     <span class="toc-g">收尾</span>
     <a href="#s15">四工具對照表</a>
     <a href="#s16">實作：數據與報表</a>
+    <a href="#xl">Excel × AI</a>
     <a href="#stat">描述性統計正確率</a>
     <a href="#gh">GitHub 個人網頁</a>
     <a href="#s17">課後任務</a>
@@ -1915,6 +1916,49 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
 （貼上「個案回饋單」工作表中該個案的四季數值）</div>
   <div class="note teal"><b>每季重複套用：</b>新一季資料貼到「原始資料」最下面 → 「指標設定」補季別 → 「指標報表」選季別，指標、前期比較、趨勢圖自動更新；「個案回饋單」選代號就能印 A4。AI 只負責幫你檢查、解釋與寫回饋句，數字以模板公式為準。</div>
   <div class="note red"><b>真實資料的規則不變：</b>回到工作上要用真實資料時，先完成上面①的三步，並確認符合本院規範；個案代號不能回推到病人。</div>
+</section>
+<section id="xl">
+  <div class="sec-head"><div class="num" style="background:#1D6F42">X</div><div><h2>Excel × AI：六種搭配，從「幫我寫公式」到「整批檔案一次處理」</h2><p>衛教師每天都在開 Excel。AI 不是要取代它，而是把你卡最久的那幾步接走。由淺到深六種，前三種今天就能用。</p></div></div>
+  <div class="card">
+    <div class="tbl"><table style="min-width:960px">
+      <tr><th>用法</th><th>怎麼做</th><th>衛教師例子</th><th>適合工具</th><th>風險與對策</th></tr>
+      <tr><td><b>① 寫公式、解釋公式</b><br><small>最安全、最常用</small></td><td>把需求用中文講，或把看不懂的公式貼給它</td><td>「A 欄是 HbA1c，B 欄是日期，幫我寫一個公式：近 90 天內 HbA1c&lt;7 的人數」「這段 VLOOKUP 在做什麼？」</td><td>三家都行；Gemini 對 Google 試算表函數最熟</td><td>公式貼回去前，拿 3 筆已知答案的列驗算</td></tr>
+      <tr><td><b>② 清理與整理資料</b></td><td>上傳檔案，請它統一格式、拆欄、找重複、標異常</td><td>「把『年齡組』統一成 &lt;65／65–74／≥75」「日期有 2026/3/1 和 3-1-26 兩種，統一成 YYYY-MM-DD」「找出同一個案同季重複列」</td><td>ChatGPT 工作模式、Claude（會跑程式）</td><td>要它<b>輸出改了哪些格</b>的清單，不要只給新檔；原檔留著</td></tr>
+      <tr><td><b>③ 描述統計與樞紐</b></td><td>第 S 節的兩段提示詞</td><td>分性別、年齡層的達標率；每位衛教師的個案數</td><td>ChatGPT 工作、Claude 分析工具、Gemini</td><td>十條檢查；數字自己用 =COUNTIFS 抽查</td></tr>
+      <tr><td><b>④ 畫圖表</b></td><td>請它用程式畫，或產出可編輯的 Excel 圖表</td><td>HbA1c 季趨勢折線圖、達標率長條圖，給它院內配色</td><td>ChatGPT 工作（可回傳 xlsx）、Claude（產 HTML 互動圖）</td><td>先指定圖型與分母；第 16 節 Ⓒ 有提示詞</td></tr>
+      <tr><td><b>⑤ 產出整份 Excel</b></td><td>給規格，它直接建檔：多工作表、公式、下拉選單、條件格式</td><td>「做一個個案追蹤表：原始資料、每月統計（公式自動算）、異常值用紅底」</td><td>ChatGPT 工作、Claude、Gemini Notebook（匯出 Excel）、OpenCode</td><td>打開檢查公式是「活的」還是寫死的數字；課程模板就是這樣做出來的</td></tr>
+      <tr><td><b>⑥ 批次處理很多檔</b></td><td>把 30 個檔放進練習資料夾，交給資料夾代理</td><td>「把每個衛教師的月報合併成一張總表，欄位對齊，來源檔名放最後一欄」</td><td>OpenCode、Claude Code、Cowork</td><td>只指向去識別化的練習資料夾；先跑 2 個檔確認再跑全部</td></tr>
+    </table></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>Excel 本身的 AI、以及 Google 試算表</h3>
+      <ul>
+        <li><b>Microsoft 365 Copilot in Excel：</b>在 Excel 右側對話，可直接對選取範圍做公式、分析、圖表。需 Microsoft 365 Copilot 授權（多為企業方案），院內多半沒有；有的話資料不離開院內租戶，是最合規的選項。</li>
+        <li><b>Google 試算表 ＋ Gemini：</b>右上「Gemini」側欄可問資料、做表；儲存格裡可直接用 <code>=AI("把 A2 的症狀描述分類成 低／中／高 風險")</code> 這類函數，整欄往下拉就批次處理。免費 Google 帳號可用部分功能。</li>
+        <li><b>Excel 沒有 Copilot 時：</b>就是本節的做法：另存一份去識別化的檔，丟給 ChatGPT／Claude／Gemini，再把結果貼回。</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>上傳 Excel 前的三件事</h3>
+      <ol class="steps">
+        <li><b>去識別化：</b>刪掉姓名、病歷號、身分證、電話、出生日期；用「個案代號」取代。第 1 堂的工作台可以自動做。</li>
+        <li><b>瘦身：</b>只留需要的工作表與欄位；刪掉隱藏工作表、備註行、合併儲存格（第 S 節「乾淨表」規格）。</li>
+        <li><b>說清楚：</b>第一句話告訴它「哪張工作表、哪幾欄、每欄是什麼意思、單位」。AI 讀不到你的欄位定義表，就會猜。</li>
+      </ol>
+      <div class="prompt" style="margin-bottom:0"><span class="label">通用開場（貼在任何 Excel 任務前面）</span>附件是去識別化的合成資料。只看工作表「原始資料」。欄位說明：個案代號（文字）、季別（2026Q1 格式）、HbA1c(%)（數值，合理 4–15）、收縮壓／舒張壓（mmHg）、LDL(mg/dL)。
+做任何修改前先列出你打算改哪些儲存格；產出新檔時保留原工作表不動，結果放新的工作表。每個公式都用文字說明一次用途。</div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>課堂體驗（10 分鐘）：三個小任務，用課程模板</h3>
+    <ol class="steps">
+      <li><b>寫公式：</b>「在『原始資料』工作表，幫我寫一個公式算 HbA1c&lt;7 的比例，分母排除空白。」把公式貼進 Excel，和它說的數字對一次。</li>
+      <li><b>解釋公式：</b>打開模板「指標報表」工作表，複製任一格公式貼給 AI：「這在算什麼？哪裡可能算錯？」</li>
+      <li><b>小清理：</b>「『年齡組』欄有幾種寫法？統一成三類，列出你改了哪幾列。」</li>
+    </ol>
+    <div class="note teal" style="margin-bottom:0"><b>要講的結論：</b>公式與解釋幾乎零風險；清理與統計一定要「列出改了什麼、附程式」；整檔產出與批次處理最省力也最需要人工抽查。Excel 不會消失，會消失的是「自己卡兩小時寫公式」。</div>
+  </div>
 </section>
 <section id="stat">
   <div class="sec-head"><div class="num" style="background:#9A3412">S</div><div><h2>延伸：用 AI 做描述性統計，怎麼確保數字是對的</h2><p>時間夠再上。接在 Ⓐ 之後：平均、百分比、分組計數看起來最簡單，卻是最常「算錯而沒人發現」的地方。</p></div></div>
