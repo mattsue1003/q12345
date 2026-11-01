@@ -309,6 +309,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     <span class="toc-g">課前</span>
     <a href="#pre">Napkin 圖表</a>
     <span class="toc-g">開場</span>
+    <a href="#deid">去識別化</a>
     <a href="#s0">學習地圖</a>
     <span class="toc-g">基礎</span>
     <a href="#slash">「/」快捷體驗</a>
@@ -425,6 +426,70 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
     </div>
   </div>
 </section>
+
+<!-- deid -->
+<section id="deid">
+  <div class="sec-head"><div class="num" style="background:#9A3412">前</div><div><h2>課前演練：個案資料交給 AI 之前，先去識別化</h2><p>Napkin 之後、正式用 AI 之前的第一個動作。今天後面每一節凡是要上傳資料，都先過這一關。</p></div></div>
+  <div class="card">
+    <h3>工具：長照資料去識別化工作台（講師自製，純本機、不連網、不用 AI）</h3>
+    <div class="row" style="margin:6px 0 10px"><a class="btn" href="https://mattsue1003.github.io/ltc-deid-workbench/" target="_blank" rel="noopener">開啟去識別化工作台</a></div>
+    <div class="grid3">
+      <div class="b3"><h4>它做什麼</h4><p style="margin:0">上傳 Word、Excel、CSV、PDF、掃描檔或照片、.txt，或直接貼文字，它用顏色標出<b>姓名、稱謂、身分證、電話、Email、病歷號、健保卡號、生日、日期、地址、醫院與機構名稱</b>；你逐一確認後下載去識別化版本。</p></div>
+      <div class="b3"><h4>怎麼替換</h4><p style="margin:0">姓名 → 個案A、家屬B、人員C（同一人全文一致，可改成「A 阿嬤」這種自訂稱呼）；生日 → 年齡層；日期 → 第 N 天；地址只留縣市＋鄉鎮區；證號、電話、Email 整段遮蔽。</p></div>
+      <div class="b3"><h4>為什麼敢用</h4><p style="margin:0">全部在你的瀏覽器裡計算，<b>檔案不會離開電腦</b>，工具本身也不呼叫任何 AI 模型。這就是「給 AI 之前的那一道門」，門本身不能再是 AI。</p></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>演練材料：四種格式、同一位虛構個案「林美珠」</h3>
+    <p style="margin-top:0">以下全部是程式產生的<b>合成資料</b>：姓名、證號、電話、地址、病歷號都是隨機拼出來的，與任何真人無關。每份都故意塞了十幾處個資，請學員找得到、改得掉、檢查得出漏網之魚。</p>
+    <div class="tbl"><table style="min-width:860px">
+      <tr><th>格式</th><th>檔案</th><th>內容</th><th>演練重點</th></tr>
+      <tr><td><b>文字</b></td><td><a href="deid/lesson2-deid-case.txt" download>lesson2-deid-case.txt</a>（也可直接複製下方文字貼上）</td><td>兩次衛教紀錄：個案、兒子、醫師、衛教師四個人名，證號、電話、Email、地址、三個日期</td><td>最快上手。看它把「HbA1c」誤判成人名、漏掉「王小華」，練習取消誤判、手動補上</td></tr>
+      <tr><td><b>Word</b></td><td><a href="deid/lesson2-deid-case.docx" download>lesson2-deid-case.docx</a></td><td>同上，Word 版</td><td>下載時選 .docx，確認格式還在</td></tr>
+      <tr><td><b>Excel</b></td><td><a href="deid/lesson2-deid-list.xlsx" download>lesson2-deid-list.xlsx</a></td><td>10 位共照網個案名單：病歷號、姓名、身分證、生日、電話、地址、照顧者、HbA1c、回診日</td><td>表格一次 10 個人，看代號 A～J 是否一致；「備註」欄的「獨居」「外籍看護」要不要留，自己判斷</td></tr>
+      <tr><td><b>PDF</b></td><td><a href="deid/lesson2-deid-referral.pdf" download>lesson2-deid-referral.pdf</a></td><td>營養諮詢轉介單：表格＋轉介原因＋簽章</td><td>PDF 表格裡的欄位名稱（「個案姓名」）不該被遮，值才要；轉介人簽章要遮</td></tr>
+      <tr><td><b>照片</b></td><td><a href="deid/lesson2-deid-photo.jpg" download>lesson2-deid-photo.jpg</a></td><td>手寫風的血糖自我監測記錄卡（斜拍）</td><td>走「掃描檔・照片」流程：OCR 不一定全對，<b>黑框版用滑鼠補遮</b>家屬簽名與地址那一行</td></tr>
+    </table></div>
+    <details style="margin-top:10px"><summary style="cursor:pointer"><b>文字版（點開全選複製，貼到工作台「沒有檔案？直接貼上文字」）</b></summary><pre style="white-space:pre-wrap;font-size:.9rem;line-height:1.5;background:#f8fafc;padding:10px;border-radius:8px">糖尿病衛教紀錄（練習用虛構資料）
+
+個案姓名：林美珠　性別：女　出生日期：1952/03/18（74 歲）
+身分證字號：A223456789　病歷號：0987654　健保卡號：000012345678
+聯絡電話：0912-345-678　住家電話：(03) 325-6789
+地址：桃園市桃園區中山路 123 巷 45 號 6 樓
+主要照顧者：兒子 林志強（0933-222-111），Email：chihchiang.lin@example.com
+就診院所：桃園市立○○醫院 糖尿病中心　主治醫師：陳大明 醫師
+
+2026/10/15 衛教內容：
+個案 HbA1c 8.5%（2026/10/08 抽血），較上次 7.2% 上升。自述近兩個月自行把晚上的長效胰島素從 18 單位減到 10 單位，因為「怕半夜低血糖」。早餐多在中山路口的早餐店吃蛋餅加奶茶。活動量下降，膝蓋痛，不太出門。
+衛教重點：說明減藥風險；與兒子林志強電話聯繫，請協助監測晚間血糖；轉介營養師（2026/10/22 10:00，營養諮詢室）。
+下次回診：2026/11/12 09:30 糖尿病中心 3 診。
+
+2026/10/29 電話追蹤：
+兒子回報一週晚間血糖 180–240 mg/dL，無低血糖。個案同意恢復 14 單位，11/12 回診再調整。足部檢查：右足大拇趾有一小水泡，已教導勿自行刺破，若紅腫發熱立即回診或撥打 0912-345-678 聯絡衛教師 王小華。</pre></details>
+    <div class="shots" style="margin-top:10px"><figure class="shot" style="max-width:520px"><a href="deid/lesson2-deid-photo.jpg" download><img src="img/l2-deid-photo-thumb.jpg" alt="練習用血糖記錄卡照片" loading="lazy"></a><figcaption>照片版練習檔：手寫風血糖記錄卡（虛構），點圖下載。上傳後走「掃描檔・照片」流程。</figcaption></figure></div>
+  </div>
+  <div class="card">
+    <h3>帶領流程（10 分鐘）與講師實測畫面</h3>
+    <ol class="steps">
+      <li><b>貼文字版</b>到工作台「沒有檔案？直接貼上文字」→「開始檢查」。畫面會切到第 2 步「檢查」，左邊是彩色標記的原文，右邊是「已找到的個資」清單（講師實測：<b>18 處</b>）。</li>
+      <li><b>找誤判：</b>人名清單裡出現「HbA → 個案D」，這是把檢驗名稱當人名。取消勾選，或點左邊彩色字取消遮蔽。</li>
+      <li><b>找漏網：</b>最後一行的衛教師「王小華」沒被標。用滑鼠選取「王小華」，右側「漏掉的人名或字詞」選「工作人員」→ 加入；全文相同字會一起處理。</li>
+      <li><b>改稱呼：</b>點「林美珠 → 個案A」右邊的 ✎，改成「林阿嬤」之類的自訂稱呼，之後給 AI 時讀起來比較自然。</li>
+      <li><b>看結果預覽</b>，再到第 3 步選格式（.txt 或 .docx）、勾「我已從頭到尾看過左邊的標記」→ 下載。檔名也自動去掉了個資。</li>
+      <li><b>換格式再來一次：</b>Excel 名單看 10 個人代號是否一致；PDF 轉介單看表格欄位；照片走掃描檔流程，黑框版用滑鼠補遮簽名。</li>
+      <li><b>接到後面的課：</b>第 5、B、S 節上傳給 AI 的，一律是這裡下載出來的版本，不是原檔。</li>
+    </ol>
+    <div class="shots" style="margin-top:12px">
+      <figure class="shot"><a href="img/l2-deid-home.jpg" target="_blank" rel="noopener"><img src="img/l2-deid-home.jpg" alt="工作台首頁" loading="lazy"></a><figcaption><b class="n">1</b>首頁：拖檔案、⌘V 貼截圖、或往下貼文字。支援格式列在按鈕下方。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-deid-marked.jpg" target="_blank" rel="noopener"><img src="img/l2-deid-marked.jpg" alt="標記檢查畫面" loading="lazy"></a><figcaption><b class="n">2</b>標記檢查：人名紅、證號紫、電話藍、日期綠、地址青、機構黃。注意「HbA」被標紅（誤判）、最後一行「王小華」沒被標（漏網）。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-deid-list.jpg" target="_blank" rel="noopener"><img src="img/l2-deid-list.jpg" alt="已找到的個資清單" loading="lazy"></a><figcaption><b class="n">3</b>右側清單：人名 4／4、身分證 1／1、電話 3／3、Email 1／1、病歷號／卡號 2／2…。取消勾選＝不遮蔽；✎ 可改稱呼；「看位置」跳到原文。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-deid-preview.jpg" target="_blank" rel="noopener"><img src="img/l2-deid-preview.jpg" alt="結果預覽" loading="lazy"></a><figcaption><b class="n">4</b>結果預覽：姓名變個案A／家屬B／人員C，生日變【70–74歲】，日期變第 1、8、15、36 天，地址只剩桃園市桃園區。也看得到兩個要修的地方：「HbA1c」變成「D1c」（誤判要取消）、最後的「王小華」還在（漏網要補）。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-deid-download.jpg" target="_blank" rel="noopener"><img src="img/l2-deid-download.jpg" alt="下載區" loading="lazy"></a><figcaption><b class="n">5</b>第 3 步下載：選 .txt 或 .docx，必須勾「我已從頭到尾看過」才能下載。這個勾選不是形式，是流程的一部分。</figcaption></figure>
+    </div>
+    <div class="note red" style="margin:12px 0 0"><b>三句話收尾：</b>① 自動偵測一定有漏，<b>人要看最後一遍</b>；② 去識別化後仍可能被「拼」回來（罕見疾病＋鄉鎮＋年齡），分享前想一下受眾；③ 這個工具解決的是「不小心貼出去」，不取代院方的資料使用規範，正式研究仍要走 IRB。</div>
+  </div>
+</section>
+
 
 <!-- 0 -->
 <section id="s0">
