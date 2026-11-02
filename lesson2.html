@@ -280,6 +280,9 @@ figure.shot figcaption{padding:10px 12px;font-size:.92rem;line-height:1.55}
 figure.shot figcaption b.n{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--orange);color:#fff;font-size:.78rem;margin-right:6px}
 #gh code{overflow-wrap:anywhere;word-break:break-all}
 figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
+/* anchor targets land below the sticky nav + search bar */
+section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
+@media (max-width:720px){section,.card[id],div[id],h3[id]{scroll-margin-top:176px}}
 </style>
 </head>
 <body>
