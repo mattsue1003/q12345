@@ -845,7 +845,7 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
       <div class="card" style="margin:0">
         <h3>免費和付費差在哪</h3>
         <ul>
-          <li><b>免費模型：</b>限時、會輪替，量大時排隊；資料政策要看清楚，部分標「Contributor」的模型會拿你的內容去訓練。練習用合成資料沒問題，<b>真實文件不要放</b>。</li>
+          <li><b>免費模型：</b>限時、會輪替，而且<b>不是無限用</b>：用一陣子會跳「Rate limit exceeded. Please try again later.」，詳見下方。資料政策要看清楚，部分標「Contributor」的模型會拿你的內容去訓練。練習用合成資料沒問題，<b>真實文件不要放</b>。</li>
           <li><b>付費計次（Zen）：</b>先儲值，用多少扣多少，每次儲值另收 4.6%＋US$0.31 手續費。模型最齊，Claude、GPT、Gemini 都在同一個選單。</li>
           <li><b>月費方案 OpenCode Go：</b>US$10／月（Go Plus US$40），包 30 個模型的固定額度，每 5 小時最多用掉月額度的 20%。但清單以中國模型為主，非中國的只有 GPT 6 Luna、Claude Haiku 5.5、Gemini 4 Argon 這類，<b>對我們不划算</b>。</li>
           <li><b>接自己的帳號：</b>已付 ChatGPT Plus 的人，在 OpenCode「連接供應商」登入即可用訂閱額度；Claude 訂閱帳號能否在第三方工具登入以官方條款為準，保險做法是用 API 金鑰計次；Gemini 到 Google AI Studio 申請金鑰，有免費額度。</li>
@@ -859,6 +859,30 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
           <li>最省：儲值 US$10，輕度使用可能撐一學期。比起再訂一個 US$20 月費，<b>計次對偶爾用的人划算</b>；每天都用再考慮登入自己的 Pro 帳號。</li>
         </ul>
         <div class="note teal" style="margin-bottom:0"><b>課堂建議：</b>今天先用 <b>Nemotron 3 Ultra Free</b> 跑完所有練習；回去要真的用，改成 Claude Sonnet 5.5（改檔）或 GPT 6 Sol（算數）。不選隱身模型，不選紅色列。價格以 <a href="https://opencode.ai/docs/zen/" target="_blank" rel="noopener">官方清單</a>為準，常變動。</div>
+      </div>
+    </div>
+    <div class="card" id="freelimit" style="margin-top:12px;border-left:5px solid #B45309">
+      <h3>「免費」不是無限：跳出 Rate limit exceeded 怎麼辦</h3>
+      <p style="margin-top:0">免費模型用一陣子，回覆會變成一行紅字 <code>Rate limit exceeded. Please try again later.</code>，不會告訴你還要等多久。講師查過 2026 年 10 月官方 GitHub 上的多起回報與官方回覆，整理如下：</p>
+      <div class="grid3">
+        <div class="b3"><h4>限制怎麼算</h4><ul style="margin:0;padding-left:1.2em">
+          <li>限制在<b>伺服器端、以你的帳號（或同一網路）為單位</b>，不是每個模型各一份。所以<b>換另一個免費模型沒有用</b>，換資料夾也沒用。</li>
+          <li>官方沒有公布額度數字，也不顯示重置時間，只說「通常過一陣子會恢復」。使用者回報從幾十分鐘到兩三小時不等。</li>
+          <li>同時開兩個對話一起跑，會更快用完。</li>
+          <li>免費模型只能在 OpenCode 裡用，在別的程式接不上。</li>
+        </ul></div>
+        <div class="b3"><h4>遇到了怎麼辦</h4><ol class="steps" style="margin:0">
+          <li>先別急著重送，每送一次都算一次。</li>
+          <li>把要做的事寫在記事本，<b>休息 30～60 分鐘</b>再試；課堂上就先換到下一個不需要 AI 的步驟（看檔、核對、整理資料夾）。</li>
+          <li>要立刻繼續：在「連接供應商」登入你已付費的 ChatGPT 帳號，或儲值 US$5～10 用計次模型。</li>
+          <li>一直沒恢復：到 <a href="https://opencode.ai/console" target="_blank" rel="noopener">opencode.ai/console</a> 看用量，或寫信給 help@anoma.ly 附上開始日期與用的模型。</li>
+        </ol></div>
+        <div class="b3"><h4>怎麼省著用</h4><ul style="margin:0;padding-left:1.2em">
+          <li><b>一次交辦寫完整</b>（人事時地物＋Why＋輸出格式），比來回改十次省。</li>
+          <li>同一個網路教室 20 個人同時跑，可能一起被擋：講師示範一次，學員<b>分批</b>跑。</li>
+          <li>讀長檔案前先請它「只讀前 50 列／前 2 頁」確認方向，再放全量。</li>
+          <li>教室若一直被擋，改用 ChatGPT 的 Work 或 Claude 的 Cowork 做同一題（第 ②、③ 層對照見下方階梯表）。</li>
+        </ul></div>
       </div>
     </div>
   </div>
@@ -893,6 +917,46 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
 完成後另外寫一份「改動清單.md」，列出每個版本與原文意思可能不同的句子，讓我核對。越南文版需由會越南文的同仁核對後才可發給病人。
 開始前如果有不清楚的地方，先問我。</div>
     <p style="margin-bottom:0">注意最後一句：第 7 節的 AMA 反問法，在代理上一樣有用，而且更重要，因為它接下來會真的動手。</p>
+  </div>
+  <div class="card" id="ocpractice" style="border-left:5px solid #1F2937">
+    <h3>代理練習兩題：讓 AI 替你填 Google 表單、整理一個亂糟糟的資料夾</h3>
+    <p style="margin-top:0">兩題都是行政上每週會遇到的事，一題用<b>瀏覽器</b>（@browser 技能），一題用<b>資料夾</b>。重點不是做完，而是體驗「交辦 → 它自己動手 → 你檢查」這個循環。</p>
+    <div class="grid2">
+      <div class="card" style="margin:0">
+        <h4 style="margin-top:0">練習 A：填 Google 表單（瀏覽器代理）</h4>
+        <p style="margin:0 0 6px"><b>準備（講師，3 分鐘）：</b>在 <a href="https://forms.google.com" target="_blank" rel="noopener">forms.google.com</a> 建一份「研習報名表」，五題就好：姓名（簡答）、單位（下拉：門診／病房／糖尿病中心／其他）、職稱（單選）、要參加的場次（核取方塊：12/05 上午、12/05 下午）、飲食（單選：葷／素）。發布後把「填寫連結」貼在投影幕。學員填的全部用<b>虛構資料</b>。</p>
+        <ol class="steps" style="margin:0">
+          <li>OpenCode 右半邊「＋」→ 瀏覽器（⌃⌘B），在網址列貼上表單連結，確認表單開得出來。</li>
+          <li>左邊對話框打「@」選 <b>@browser</b>，貼下面的提示詞送出。</li>
+          <li>看右邊瀏覽器：它會自己點欄位、打字、勾選。<b>送出前它應該停下來問你</b>，你在右邊親眼核對一遍再說「送出」。</li>
+          <li>進階：把 3 個人的資料一次給它，看它會不會填三次；或故意給一個表單沒有的選項，看它怎麼回報。</li>
+        </ol>
+        <div class="prompt" style="margin-top:10px"><span class="label">在 OpenCode 輸入（先打 @browser）</span>請用瀏覽器打開目前已開啟的這份 Google 表單，依下面資料填寫，但<b>填完先不要按送出</b>，先把每一題你填了什麼列給我確認：
+姓名：王小華（虛構）
+單位：糖尿病中心
+職稱：衛教師
+場次：12/05 上午
+飲食：素
+如果表單有我沒給資料的必填題，停下來問我，不要自己猜。</div>
+        <div class="note" style="margin:10px 0 0"><b>為什麼這題重要：</b>這就是「瀏覽器控制」的最小版本，和 ChatGPT 雲端瀏覽器、Claude in Chrome 做的是同一件事。規矩也一樣：<b>按送出、付款、寄出的那一下，永遠由人來按</b>。真實報名、公文系統請用你自己的手。</div>
+      </div>
+      <div class="card" style="margin:0">
+        <h4 style="margin-top:0">練習 B：檔案命名與分類（資料夾代理）</h4>
+        <p style="margin:0 0 6px"><b>準備：</b>下載 <a href="lesson2-oc-messy-files.zip" download><b>lesson2-oc-messy-files.zip</b></a>（16 個合成檔，檔名故意亂：「新文件 (2)」「final_final_真的最終版」「aaa」），解壓縮後把「待整理」資料夾放進你的練習資料夾，在 OpenCode 打開它。</p>
+        <ol class="steps" style="margin:0">
+          <li>先用 ⌃⌘P 自己看幾個檔，體會「光看檔名完全不知道是什麼」。</li>
+          <li>貼下面的提示詞。它應該<b>先列出計畫表、問你確認</b>，才真的改名搬檔。</li>
+          <li>它動手後，用 ⌃⌘R「檢閱」或直接看資料夾：每個檔是不是都在對的分類、新檔名看得懂、沒有檔案不見。</li>
+          <li>挑一個它分錯的，告訴它為什麼，看它會不會只改那一個。</li>
+        </ol>
+        <div class="prompt" style="margin-top:10px"><span class="label">在 OpenCode 輸入（資料夾裡有「待整理」）</span>「待整理」資料夾裡有 16 個檔案，檔名很亂。請：
+1. 逐一打開看內容，先列一張表給我：原檔名 → 建議新檔名 → 建議分類資料夾。新檔名用「日期_類型_主題」格式（日期找不到就留空），分類只能是：衛教單張、會議紀錄、品質指標、研習活動、範本、其他。
+2. 先不要動任何檔案，等我確認。
+3. 我確認後，建立分類資料夾、改名並搬進去，原本的檔案不要刪除也不要覆蓋，重名的在後面加 -2。
+4. 最後給我一份「整理清單.md」，記錄每個檔案從哪裡搬到哪裡，讓我能還原。</div>
+        <div class="note" style="margin:10px 0 0"><b>回去怎麼用：</b>同一段提示詞拿去整理自己的下載資料夾、共用槽的衛教素材庫。<b>先在複本上跑</b>，確認它的分類邏輯合你意，再用在正本；病歷類檔案不要交給它。</div>
+      </div>
+    </div>
   </div>
   <div class="card" id="layers">
     <h3>先看懂三層階梯：「對話 → 代理 → 資料夾代理」，三家大致對應</h3>
