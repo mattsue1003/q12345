@@ -306,6 +306,8 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
 
 <nav class="toc" aria-label="章節導覽">
   <div class="wrap">
+    <span class="toc-g">破冰</span>
+    <a href="#ice">金曲猜歌</a>
     <span class="toc-g">課前</span>
     <a href="#pre">Napkin 圖表</a>
     <span class="toc-g">開場</span>
@@ -346,6 +348,42 @@ figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
 </nav>
 
 <main class="wrap">
+
+<!-- ice -->
+<section id="ice">
+  <div class="sec-head"><div class="num" style="background:#E8590C">♪</div><div><h2>開場破冰：台灣金曲猜歌</h2><p>先玩 10 分鐘再上課。這不是題外話：這整個遊戲網頁就是用今天要教的 AI 工具做出來的，最後一節會預告下一堂怎麼帶大家自己做。</p></div></div>
+  <div class="card" style="border-left:5px solid #E8590C">
+    <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">
+      <div style="flex:1 1 320px">
+        <h3 style="margin-top:0">台灣金曲猜歌</h3>
+        <p style="margin:0 0 8px">從 50 年代唱到 2026，15 組歌單共 300 首：國語年代金曲、台語金曲四個時期、鄧麗君與鳳飛飛特輯。選一組，播前奏，全場搶答。朋友聚會、闔家同樂、團體衛教開場都用得上。</p>
+        <p style="margin:0;color:var(--muted)">手機掃講義 QR 或直接打開網址，投影在大螢幕上效果最好。</p>
+      </div>
+      <a class="btn" href="https://mattsue1003.github.io/pop-song-guess/" target="_blank" rel="noopener" style="background:#E8590C;border-color:#E8590C">打開金曲猜歌</a>
+    </div>
+  </div>
+  <div class="grid3">
+    <div class="b3"><h4>今天怎麼玩（10 分鐘）</h4><ol class="steps" style="margin:0">
+      <li>講師投影，選一組歌單。糖尿病中心的學員年齡層混合，建議先選「90 年代」或「經典精選」，再換一組台語讓年長同仁贏回來。</li>
+      <li>按「播前奏」，預設只放前 15 秒，大家直接喊歌名。</li>
+      <li>沒人猜到就按「提示①」，一次一點，不要一次講完。</li>
+      <li>「公布答案」後一起哼一段，再「下一題」。每組 20 題，玩 5～6 題就夠熱了。</li>
+    </ol></div>
+    <div class="b3"><h4>帶團體衛教時</h4><ul style="margin:0">
+      <li>長者團體用「台語 1950–1970」或「鄧麗君特輯」，猜歌本身就是懷舊治療的一種形式。</li>
+      <li>兩桌對抗，答對的桌子加分；分數不重要，開口才重要。</li>
+      <li>「曲目表」可以先看整組有哪些歌，「本機音樂」可改放自己的檔案，現場沒網路也能用。</li>
+    </ul></div>
+    <div class="b3"><h4>這跟今天的課有什麼關係</h4><p style="margin:0">這一整個網頁，從版面、歌單、計分到提示流程，都是講師用 AI 一句一句「交辦」出來的，沒有寫過一行程式。今天學完提示詞與 AI 代理，你會看得懂它是怎麼被做出來的；<a href="#s17">課後任務</a>後面有預告，下一堂就帶大家自己做一個。</p></div>
+  </div>
+  <div class="gallery">
+    <div class="shots">
+      <figure class="shot"><a href="img/l2-song-home.jpg" target="_blank" rel="noopener"><img src="img/l2-song-home.jpg" alt="金曲猜歌首頁：三類歌單" loading="lazy"></a><figcaption><b class="n">1</b>首頁：三大類（國語年代、台語、歌手特輯），每組 20 首，點右側 ▶ 開始。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-song-play.jpg" target="_blank" rel="noopener"><img src="img/l2-song-play.jpg" alt="金曲猜歌遊戲畫面" loading="lazy"></a><figcaption><b class="n">2</b>遊戲畫面：播前奏（前 15 秒／整段 30 秒）、提示①、喊對了、公布答案、下一題；上方可全螢幕、看曲目表、換成本機音樂。</figcaption></figure>
+    </div>
+  </div>
+  <div class="note"><b>公播提醒：</b>試聽片段來自 Apple 公開音樂資料庫，需連網。課堂內部使用沒問題；若拿到對外的公開活動播放，請注意公播授權。</div>
+</section>
 
 <!-- pre -->
 <section id="pre">
@@ -2307,6 +2345,19 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
     <label><input type="checkbox" data-k="k"><span>註冊 GitHub，請 AI 做好自我介紹網頁，上傳到「username.github.io」並用手機打開成功</span></label>
   </div>
   <div class="card fb"><div class="fb-in"><div class="fb-ico">→</div><div style="flex:1 1 300px"><b style="font-size:1.15rem">下一堂（11/09）：工具對照表、數據與報表實作、Office × AI</b><br>原本排在今天收尾的「四工具對照表、品質指標數據報表實作、Excel／Word／PPT／PDF × AI、Google 三件套、描述性統計正確率」整段移到第 3 堂，<a href="lesson3.html">講義已先放上網</a>。今天的製圖局部修改與寫作區塊，之後也會用在衛教圖卡與簡報上；做好的 HTML 會上傳到你今天建好的 GitHub 網頁。</div></div></div>
+  <div class="card" style="border-left:5px solid #E8590C">
+    <h3 style="margin-top:0">預告：接下來我們要做「可以上架」的程式</h3>
+    <p>開場玩的<a href="#ice">金曲猜歌</a>就是一個例子：一個網址、手機打開就能用、不用安裝。今天你已經把第一個自我介紹網頁放上 GitHub Pages，之後的課就沿著這條路往下走，用 AI 代理把想法做成真的能給別人用的東西：</p>
+    <div class="grid3">
+      <div class="b3"><h4>個人 profile 網頁</h4><p style="margin:0">今天那一頁的進階版：專長、服務時段、衛教影片連結、預約表單，一個 QR 貼在診間門口。</p></div>
+      <div class="b3"><h4>簡報型網頁</h4><p style="margin:0">衛教簡報做成 HTML，手機、電腦、投影都能開，還能嵌入互動題目與影片，不怕現場沒有 PowerPoint。</p></div>
+      <div class="b3"><h4>衛教互動遊戲網頁</h4><p style="margin:0">像金曲猜歌一樣：低血糖處置排排看、食物份量配對、足部檢查找錯誤。團體衛教開場 10 分鐘就靠它。</p></div>
+      <div class="b3"><h4>資料庫網頁</h4><p style="margin:0">衛教單張範本庫、個案追蹤表、課程報名表，資料存在雲端表格，同事一起用，不用再傳 Excel 來回。</p></div>
+      <div class="b3"><h4>小工具</h4><p style="margin:0">像第 1 堂的去識別化工作台：一個單一用途的頁面，解決一件每天都在做的事。</p></div>
+      <div class="b3"><h4>上架與分享</h4><p style="margin:0">全部走今天學的 GitHub Pages 流程；要給院內同仁用，一個網址就夠。下一堂會從一個完整的例子帶大家從零做到上線。</p></div>
+    </div>
+    <div class="note" style="margin-bottom:0"><b>下一堂先想好：</b>你最想做哪一種？帶一個真的會用到的題目來，課堂上就拿它當自己的作品。</div>
+  </div>
 </section>
 
 </main>
