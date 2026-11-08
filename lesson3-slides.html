@@ -320,7 +320,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
     <tr><td>會不會消失</td><td>網站存在你的雲端硬碟，不刪就在；院內 Workspace 管理者可能關閉「對外發布」。</td><td>不刪倉庫就一直在。</td><td>免費方案有流量額度，個人衛教使用通常夠。</td></tr>
     <tr><td>適合</td><td>不想學 GitHub、院內同仁限定查看（可設只限機構帳號）、馬上要給人看。</td><td>要長期用、要印 QR、要放很多作品。</td><td>不想學 GitHub、檔案很多張圖片時。</td></tr>
   </table>
-  <div class="note g" style="margin-top:8px;font-size:15.5px;padding:8px 14px"><b>建議：</b>先匯出到協作平台給同事試玩、或做院內限定頁；要印 QR、放很多作品、長期維護，用 GitHub Pages。三條路都從同一份 HTML 出發（Canvas「匯出」→「下載程式碼」就是那個檔），隨時可以換。</div>
+  <div class="note g" style="margin-top:8px;font-size:15.5px;padding:8px 14px"><b>建議：</b>先匯出到協作平台給同事試玩、或做院內限定頁；要印 QR、放很多作品、長期維護，用 GitHub Pages。三條路都從同一份 HTML 出發（Canvas「匯出」→「下載程式碼」就是那個檔），隨時可以換。還有第四條：ChatGPT 裝 GitHub 外掛程式，一句話直接 commit（第 <span class="ref" data-for="s-gpt-github"></span> 頁）。</div>
   <div class="foot"><span>第 3 堂｜GitHub 與個人網頁</span><span class="pg"></span></div>
 </section>
 
@@ -341,6 +341,34 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
     <div class="card o"><h3 style="font-size:17px">怎麼選（白話版）</h3><p><b>今天先做出來給人看、或只給院內同事看</b> → 匯出到協作平台最快，一分鐘有網址，還能設定只限機構帳號查看。<br><b>要印成 QR 貼衛教室、要常常改、要把簡報、九宮格、報名表都放在一起</b> → 用「匯出 → 下載程式碼」拿到 HTML 檔，走 GitHub 五步驟。網址固定，改好重傳同名檔案就更新，所有作品共用一個首頁。<br>兩邊可以並存：協作平台給院內，GitHub 給病人。</p></div>
   </div>
   <div class="foot"><span>第 3 堂｜GitHub 與個人網頁｜示範頁：sites.google.com/view/hypo-3steps-demo（合成內容）</span><span class="pg"></span></div>
+</section>
+
+<!-- ChatGPT 外掛程式 直接上傳 GitHub -->
+<section class="slide" id="s-gpt-github">
+  <span class="kicker o">第一段｜上架的第四條路：ChatGPT 外掛程式 → 直接寫進 GitHub</span>
+  <h2 style="font-size:32px">不用打開 GitHub 網站：在 ChatGPT 對話裡裝好 <b>GitHub 外掛程式</b>，一句話把檔案 commit 上去（實測 2026/11）</h2>
+  <div class="cols" style="grid-template-columns:1.05fr 1fr">
+    <div>
+      <ol class="steps">
+        <li><b>裝外掛</b>：ChatGPT 左下「外掛程式」（設定 → 外掛程式）→「瀏覽目錄」找 <b>GitHub</b>（OpenAI 提供，功能寫著 Interactive、Write）→ 安裝 → 用第 2 堂註冊的 GitHub 帳號登入授權。</li>
+        <li><b>權限先看懂</b>：預設是「允許唯讀工具」。要它寫檔案時，對話裡會跳出「要允許 ChatGPT 使用 GitHub 嗎？將調用 Create File 工具」：選<b>允許一次</b>最安全，不要按「一律允許」。</li>
+        <li><b>交辦</b>：貼右邊的提示語，指定倉庫 <b>你的username/你的username.github.io</b>、檔名、分支 main、commit 訊息。它會自己寫 HTML、建檔、提交，回你檔案網址與 commit ID。</li>
+        <li><b>驗收</b>：等 1～2 分鐘打開 你的username.github.io/檔名.html。ChatGPT 自己也會提醒「檔案提交成功，不代表 Pages 已啟用」：第一次還是要到 Settings → Pages 開。</li>
+      </ol>
+      <div class="note r" style="font-size:14px;margin-top:8px"><b>注意</b>：它能寫就能覆蓋。檔名打錯會蓋掉既有檔案（例如 index.html），所以提示語裡<b>檔名寫清楚、說「新增」不要說「更新」</b>；重要檔案先在 GitHub 下載備份。ChatGPT Plus 以上才有外掛程式；免費帳號走五步驟拖檔。</div>
+    </div>
+    <div>
+      <div class="prompt" style="font-size:13.5px"><button class="cp" type="button">複製</button>請用 GitHub 外掛程式，在我的倉庫 你的username/你的username.github.io 的 main 分支新增一個檔案 slides.html（如果已存在請先停下來問我）。內容是我下面貼的完整 HTML，一字不改。直接 commit 到 main，commit 訊息寫「add slides」。完成後告訴我檔案網址與 GitHub Pages 網址。
+（接著貼上 AI 幫你做好的 slides.html 全部內容）</div>
+      <div class="shots" style="grid-template-columns:repeat(3,1fr);margin-top:10px">
+        <figure><img src="img/l3-gpt-github-1.jpg" alt="ChatGPT 外掛程式設定頁" style="aspect-ratio:16/10"><figcaption>① 設定 → 外掛程式：GitHub 已安裝，預設「允許唯讀工具」</figcaption></figure>
+        <figure><img src="img/l3-gpt-github-4.jpg" alt="ChatGPT 詢問是否允許使用 GitHub Create File 工具" style="aspect-ratio:16/10"><figcaption>② 寫檔前一定問你：Create File 工具 → 允許一次</figcaption></figure>
+        <figure><img src="img/l3-gpt-github-6.jpg" alt="ChatGPT 回報已提交至 GitHub 與網址" style="aspect-ratio:16/10"><figcaption>③ 回報 commit ID、檔案網址與 Pages 網址，1 分鐘後打得開</figcaption></figure>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin:6px 0 0">實測成品：mattsue1003.github.io/q12345/chatgpt-upload-demo.html（處理 1 分 8 秒，全程沒開 GitHub 網站）。</p>
+    </div>
+  </div>
+  <div class="foot"><span>第 3 堂｜GitHub 與個人網頁</span><span class="pg"></span></div>
 </section>
 
 <!-- 上線前檢查 -->
@@ -1453,6 +1481,7 @@ html[data-theme="light"] .qr small{color:#444}
 #s-leaflet-3 .cols3 figcaption{color:var(--ink)}
 #food-grid img{height:150px;aspect-ratio:auto!important;padding:6px!important}#food-grid figcaption{font-size:13px!important;margin-top:2px!important}#s-food .cols{margin-top:8px!important}#s-food .card p{font-size:14px}
 @media (max-width:760px),(orientation:portrait) and (max-width:1024px){#food-grid img{height:auto;aspect-ratio:1!important}}
+#s-gpt-github .steps li{margin:5px 0;font-size:14.5px}#s-gpt-github .shots figcaption{font-size:12.5px;padding:6px 8px}
 </style>
 <div class="lb" id="lb" role="dialog" aria-label="放大圖片"><button class="x" type="button" aria-label="關閉">×</button><img alt=""><figcaption></figcaption><div class="hint">點任一處或按 Esc 關閉</div></div>
 <script>
