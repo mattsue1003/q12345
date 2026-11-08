@@ -39,6 +39,7 @@ html,body{height:100%;margin:0;background:#0b2227;font-family:var(--font);color:
 .term{background:#0b1f24;color:#d7f5e9;border-radius:12px;padding:14px 18px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:15px;line-height:1.55;white-space:pre-wrap;position:relative}
 .term b{color:#F4A93C;font-weight:700}
 .term .cp{float:right;margin:0 0 6px 12px;background:var(--orange);color:#fff;border:0;border-radius:999px;padding:4px 12px;font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+code{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-family:ui-monospace,Menlo,monospace;font-size:.9em}
 .big{font-size:30px;font-weight:700;line-height:1.4}
 .hl{color:var(--orange);font-weight:900}
 .tl{color:var(--teal);font-weight:900}
@@ -829,6 +830,35 @@ copilot
   <div class="foot"><span>第 3 堂｜影片工具</span><span class="pg"></span></div>
 </section>
 
+<!-- Codex 剪片 -->
+<section class="slide">
+  <span class="kicker o">第六段｜Codex 桌面版 ＋ ffmpeg-skill：講一句話就剪片</span>
+  <h2 style="font-size:30px;margin-bottom:10px">ChatGPT 不能生影片，但 ChatGPT App 裡的 Codex 可以「剪」影片：裝一個 skill，全在自己電腦跑</h2>
+  <div class="cols" style="grid-template-columns:1fr 1.05fr 0.75fr;display:grid;gap:16px">
+    <div>
+      <div class="card t" style="padding:12px 16px"><h3 style="font-size:20px;margin-bottom:4px">安裝三步（一次就好）</h3><ol class="steps" style="margin-top:0">
+        <li style="font-size:15px;margin:5px 0">電腦要有 FFmpeg（Mac：<code>brew install ffmpeg</code>；沒有 Homebrew 也可用 Python 的 static-ffmpeg）。</li>
+        <li style="font-size:15px;margin:5px 0">終端機貼 <code>npx ffmpeg-skill --codex</code>，skill 會放進 ~/.agents/skills。</li>
+        <li style="font-size:15px;margin:5px 0">打開 ChatGPT App 的 Codex 分頁，選一個放素材的資料夾。</li></ol></div>
+      <div class="card" style="margin-top:8px;padding:12px 16px"><h3 style="font-size:20px;margin-bottom:4px">它會自己做的事</h3><p style="font-size:15px;margin:0">先 probe 看清楚檔案 → 計畫 → 執行 → check 規格 → look 排一張縮圖總表自己看過。實測中它第一版字幕變方框，自己看圖發現後換字型重做。</p></div>
+    </div>
+    <div class="prompt" style="font-size:13px;line-height:1.35"><button class="cp" type="button">複製</button>請用 ffmpeg-skill 幫我把 ./素材/公園.MOV（iPhone HDR 手機影片）剪成一支 Instagram Reels 直式短片：
+1. 先轉成 SDR（iPhone HDR 直接重編碼會灰掉）
+2. 保留 0:03–0:14 與 0:22–0:33 兩段接起來
+3. 改成 9:16 直式 1080x1920，用 crop 置中
+4. 開頭用 合照1.jpg 做 3 秒 Ken Burns，結尾用 合照2.jpg 3 秒，淡入淡出
+5. 燒入字幕（一字不改、大字、放安全區）：0-3 週末，公園的草坡／3-8 自己爬上去／8-14 爸爸在旁邊，不出手只出聲／14-20 再試一次／20-25 慢慢來，你做得到／25-28 今天也玩得很開心
+6. 音量 -14 LUFS，用 reels 預設匯出到 ./成品，然後 check 規格、look 產縮圖總表
+請把每個指令與結果寫進 ./操作紀錄.md，不要改原始檔，全部本機處理。</div>
+    <div class="shots" style="grid-template-columns:1fr;gap:8px">
+      <figure><img src="img/l3-codex-demo.jpg" alt="交辦畫面" style="height:158px;aspect-ratio:auto;object-fit:cover;object-position:top"><figcaption style="font-size:13px">交辦一句話</figcaption></figure>
+      <figure><img src="img/l3-codex-demo2.jpg" alt="check 與 look" style="height:158px;aspect-ratio:auto;object-fit:cover;object-position:top"><figcaption style="font-size:13px">check 通過、look 自己看</figcaption></figure>
+    </div>
+  </div>
+  <div class="note r" style="margin-top:8px;font-size:15px;padding:8px 14px"><b>衛教怎麼用：</b>自己拍的注射、血糖機操作影片，交給它剪短、裁直、上大字字幕、三個平台各出一版。影片全程留在自己電腦，<b>有病人或家屬入鏡的素材不要交給雲端工具</b>，這正是用本機 skill 的理由。</div>
+  <div class="foot"><span>第 3 堂｜影片工具</span><span class="pg"></span></div>
+</section>
+
 <!-- 18 音樂 -->
 <section class="slide">
   <span class="kicker o">第六段｜音樂</span>
@@ -873,7 +903,7 @@ copilot
       <li>用參考風格提示語做 6 張一組的圖卡，拿到 Canva 排成一支 30 秒短片，配上 Gemini 的 30 秒音樂。</li>
       <li>做一張 A4 QR code 海報，指向你的 slides.html，貼在衛教室試一週，記下病人反應。</li>
       <li>照 ai-form-upload 的步驟，做一份下一場衛教課的報名表，自己先用假資料填一次。</li>
-      <li>裝 Antigravity CLI 或 Copilot Free 其中一個，在練習資料夾交辦一次「做三個檔案」。</li>
+      <li>裝 Antigravity CLI 或 Copilot Free 交辦一次「做三個檔案」；在 Codex 裝 ffmpeg-skill，把一支自己拍的操作影片交辦「裁直、加字幕、出 Reels 版」。</li>
     </ol>
     <div>
       <div class="card o"><h3>第 4 堂（11/23）預告：糖尿病專科 AI 助手與知識庫</h3><p>把院內衛教文件與指引整理成「只回答有出處的問題」的助手，再用驗證題庫測正確率。請先想好：<b>哪 5 份文件</b>最常被病人問到。</p></div>
