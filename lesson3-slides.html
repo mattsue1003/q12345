@@ -36,6 +36,9 @@ html,body{height:100%;margin:0;background:#0b2227;font-family:var(--font);color:
 .card p{margin:6px 0}
 .prompt{background:#13343a;color:#e8f4f2;border-radius:12px;padding:14px 20px;font-size:17px;line-height:1.5;white-space:pre-wrap;font-family:var(--font);position:relative}
 .prompt .cp{float:right;margin:0 0 6px 12px;background:var(--orange);color:#fff;border:0;border-radius:999px;padding:4px 12px;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.term{background:#0b1f24;color:#d7f5e9;border-radius:12px;padding:14px 18px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:15px;line-height:1.55;white-space:pre-wrap;position:relative}
+.term b{color:#F4A93C;font-weight:700}
+.term .cp{float:right;margin:0 0 6px 12px;background:var(--orange);color:#fff;border:0;border-radius:999px;padding:4px 12px;font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
 .big{font-size:30px;font-weight:700;line-height:1.4}
 .hl{color:var(--orange);font-weight:900}
 .tl{color:var(--teal);font-weight:900}
@@ -106,9 +109,9 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
     <table class="agenda" style="font-size:16.5px">
       <tr><td>10:00</td><td><b>破冰</b>：長者遊戲簡報生成器，玩 3 題「找缺少」，順便看一個上架好的網頁長什麼樣。</td></tr>
       <tr><td>10:08</td><td><b>回顧 + 上線</b>：第 2 堂的 GitHub 流程再走一次，今天所有成品都靠它上架。</td></tr>
-      <tr><td>10:25</td><td><b>網頁型簡報</b>：一個 HTML 檔就是一份簡報，請 AI 做一份衛教簡報並上傳。</td></tr>
+      <tr><td>10:25</td><td><b>網頁型簡報</b>：一個 HTML 檔就是一份簡報，請 AI 做一份衛教簡報並上傳；步驟影片也能變成教學簡報。</td></tr>
             <tr><td>11:05</td><td>（10:55 休息 10 分鐘）<b>目標九宮格程式</b>：從大谷翔平的 81 格，做出病人可以填、可以印的網頁。</td></tr>
-      <tr><td>11:35</td><td><b>AI 做報名表與上傳</b>：請 AI 寫 Apps Script，報名資料進試算表、證書自動進雲端硬碟，填答者免登入。</td></tr>
+      <tr><td>11:35</td><td><b>AI 做報名表與上傳</b>＋<b>終端機代理</b>（Antigravity CLI、Copilot Free）：示範為主，步驟都在簡報裡。</td></tr>
       <tr><td>11:50</td><td><b>參考風格做素材</b>：圖片、影片、簡報、音樂，用「參考風格」而不是「抄作品」（示範為主，細節看講義）。</td></tr>
       <tr><td>12:00</td><td>課後任務與下堂預告（11/23 知識庫助手）</td></tr>
     </table>
@@ -348,6 +351,47 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
   <div class="foot"><span>第 3 堂｜網頁型簡報</span><span class="pg"></span></div>
 </section>
 
+<!-- 步驟影片 1 -->
+<section class="slide">
+  <span class="kicker">第二段｜步驟影片 → 網頁型簡報</span>
+  <h2 style="font-size:34px">手工藝、操作技巧的「步驟影片」，變成一頁一步驟的教學簡報</h2>
+  <div class="cols" style="grid-template-columns:1.3fr 1fr">
+    <figure style="margin:0;background:#fff;border:1.5px solid var(--line);border-radius:12px;overflow:hidden"><img src="img/l3-craft-demo.jpg" alt="上帝之眼手作教學簡報畫面" style="width:100%;display:block"><figcaption style="font-size:15px;padding:8px 12px">示範：mattsue1003.github.io/<b>craft-lesson-plan-steps</b>。左邊是影片，點步驟就跳到那一段；右邊是該步驟的重點與帶領備忘，鍵盤 ← → 翻步驟。</figcaption></figure>
+    <div>
+      <div class="card t"><h3>為什麼要這樣做</h3><ul style="font-size:18px"><li>整支影片 5 分鐘，病人跟不上；<b>一次只看一個步驟</b>，看完做完再下一步。</li><li>每步旁邊寫重點與分級提示，帶領者不用背。</li><li>同一份程式換影片、換步驟文字，就是下一個手作教案。</li></ul></div>
+      <div class="note r" style="margin-top:10px;font-size:16px"><b>影片來源：</b>自己拍的最好；用 YouTube 公開影片請用<b>官方嵌入播放器</b>（不下載、不重新上傳），並保留「開啟 YouTube」按鈕；不確定授權就不要放上公開網頁。</div>
+    </div>
+  </div>
+  <div class="foot"><span>第 3 堂｜步驟影片 → 網頁型簡報</span><span class="pg"></span></div>
+</section>
+
+<!-- 步驟影片 2 -->
+<section class="slide">
+  <span class="kicker">第二段｜步驟影片 → 網頁型簡報</span>
+  <h2 style="font-size:34px">三步驟：盤點時間點 → 請 AI 做簡報 → 上傳成網址</h2>
+  <div class="cols" style="grid-template-columns:1fr 1.35fr">
+    <div>
+      <ol class="steps">
+        <li style="font-size:18px"><b>盤點時間點</b>：看一次影片，記下每個步驟開始的分秒與一句話名稱（5～8 步）。沒時間就把影片連結或逐字稿貼給 AI，請它先列出步驟草稿，你再核對。</li>
+        <li style="font-size:18px"><b>請 AI 做簡報</b>：用右邊的提示語，把步驟表貼進去。</li>
+        <li style="font-size:18px"><b>上傳</b>：存成 craft.html 拖進倉庫，連結加進 index.html，課堂用投影機或平板打開。</li>
+      </ol>
+      <div class="note g" style="margin-top:8px;font-size:16px">適用：編織、摺紙、黏土、烹飪、胰島素注射步驟、血糖機操作、傷口換藥（院內自拍影片）。</div>
+    </div>
+    <div class="prompt" style="font-size:14px;line-height:1.38"><button class="cp" type="button">複製</button>請做一個單一檔案的 HTML「步驟教學簡報」，檔名 craft.html，CSS 與 JavaScript 寫在同一檔案。
+影片：YouTube 網址（貼上），請用 youtube-nocookie 的嵌入播放器，不要下載影片。
+步驟（名稱｜開始時間｜重點 2～4 條｜帶領提示）：
+1. 工具與材料盤點｜0:20｜…｜…
+2. 十字固定與中心打底｜0:42｜…｜…
+（依序貼上全部步驟）
+畫面：左邊是影片，下方列出全部步驟按鈕（顯示時間），點一個就跳到那個時間點播放；右邊顯示目前步驟的標題、重點清單、帶領提示（用淡綠色框）。
+操作：鍵盤 ← → 切換步驟，切換時影片自動跳到該時間點；右上角有「全螢幕投影」與「開啟 YouTube 備用」按鈕；下方顯示「步驟 N / 總數」。
+字體至少 20px、高對比，手機直式時影片在上、步驟在下。最後在頁尾標示「本頁使用 AI 協助製作」。
+請先列出你理解的步驟表讓我確認，再寫程式。</div>
+  </div>
+  <div class="foot"><span>第 3 堂｜步驟影片 → 網頁型簡報</span><span class="pg"></span></div>
+</section>
+
 <!-- 11 大谷 -->
 <section class="slide">
   <span class="kicker a">第三段｜目標九宮格程式</span>
@@ -549,9 +593,75 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
   <div class="foot"><span>第 3 堂｜AI 做報名表與上傳</span><span class="pg"></span></div>
 </section>
 
+<!-- 終端機代理 1 -->
+<section class="slide">
+  <span class="kicker a">第五段｜終端機代理：Antigravity CLI 與 GitHub Copilot Free</span>
+  <h2 style="font-size:34px">除了 OpenCode，還有兩個免費的「交辦型」工具：一句話做出一整個資料夾</h2>
+  <p style="margin-top:-6px">第 2 堂的 OpenCode 是「在資料夾裡幫你做事的代理」。Google 與 GitHub 各有一個免費版本，流程一樣：<b>開資料夾 → 登入 → 用中文交辦 → 檔案直接出現 → 拖上 GitHub</b>。</p>
+  <table style="font-size:16px">
+    <tr><th style="width:140px"></th><th>Antigravity CLI（Google）</th><th>GitHub Copilot Free（VS Code ＋ Copilot CLI）</th><th>OpenCode（第 2 堂）</th></tr>
+    <tr><td>這是什麼</td><td>Google 的終端機代理，指令叫 <b>agy</b>。<b>2026/6/18 起取代 Gemini CLI</b>給個人與免費帳號使用。</td><td>GitHub 的 AI 助手：在 VS Code 編輯器裡用，也有終端機版 Copilot CLI。</td><td>開源終端機代理，可接多家免費模型。</td></tr>
+    <tr><td>免費額度</td><td>個人 Google 帳號免費，<b>每週額度</b>、Google 未公布數字；需年滿 18 歲。</td><td>$0、<b>不用信用卡</b>；每月 2,000 次補全、可用 Haiku 4.5、GPT-5 mini 等；含 Copilot CLI。</td><td>免費模型有速率限制，額度依模型。</td></tr>
+    <tr><td>登入</td><td>第一次執行會開瀏覽器用 Google 帳號登入。</td><td>GitHub 帳號（第 2 堂註冊的那個）。</td><td>依模型供應商。</td></tr>
+    <tr><td>適合</td><td>已經習慣 Gemini 的人；想在終端機裡一次生成多個檔案。</td><td>想要「看得到檔案、點得到按鈕」的圖形介面；順便直接推上 GitHub。</td><td>想切換不同免費模型。</td></tr>
+  </table>
+  <div class="note" style="margin-top:10px;font-size:16px;padding:8px 14px">三個都會安裝到電腦裡、能讀寫你指定的資料夾：<b>只在練習資料夾裡用</b>，不要在放病人資料的資料夾開啟。額度與介面常變動，以官網當下說明為準。</div>
+  <div class="foot"><span>第 3 堂｜終端機代理</span><span class="pg"></span></div>
+</section>
+
+<!-- 終端機代理 2 Antigravity -->
+<section class="slide">
+  <span class="kicker a">第五段｜Antigravity CLI</span>
+  <h2 style="font-size:34px;margin-bottom:12px">Antigravity CLI：三行指令裝好，用中文交辦</h2>
+  <div class="cols" style="grid-template-columns:1.25fr 1fr">
+    <div>
+      <div class="term" style="font-size:13.5px;line-height:1.45"><button class="cp" type="button">複製</button><b># ① 安裝（Mac：打開「終端機」貼上；Windows 用 PowerShell 見官網）</b>
+curl -fsSL https://antigravity.google/cli/install.sh | bash
+
+<b># ② 進到練習資料夾，啟動（第一次會開瀏覽器請你登入 Google）</b>
+cd ~/Desktop/ai-practice
+agy
+
+<b># ③ 在 agy 裡用中文交辦，例如：</b>
+請在這個資料夾建立三個檔案：index.html（自我介紹首頁，含連到另外兩個檔案的按鈕）、slides.html（低血糖處理 8 頁網頁型簡報）、mandala.html（可填寫、自動存檔、可列印的目標九宮格）。全部單一檔案、手機好讀、字大。</div>
+      <div class="note r" style="margin-top:8px;font-size:15px;padding:8px 14px">它會問「可以建立檔案嗎？」才動手；看不懂的動作就按拒絕。做好的檔案一樣拖進 GitHub 倉庫上傳。</div>
+    </div>
+    <div>
+      <div class="shots" style="grid-template-columns:1fr">
+        <figure><img src="img/l3-agy-docs.jpg" alt="Gemini CLI 官方文件頁上的公告" style="aspect-ratio:16/9"><figcaption style="font-size:14px">官方文件頂端公告（2026/11 截圖）：免費與 Google One 用戶的 Gemini CLI 已於 2026/6/18 改為 Antigravity CLI。網路上很多教學還寫 Gemini CLI，照著裝會登入失敗。</figcaption></figure>
+      </div>
+      <div class="card" style="margin-top:8px;padding:12px 16px"><h3 style="font-size:20px">Windows 同學</h3><p style="font-size:15px">開「PowerShell」，到官網 antigravity.google 的 CLI 頁複製 Windows 安裝指令；安裝完關掉再開一次 PowerShell，輸入 agy。</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>第 3 堂｜終端機代理</span><span class="pg"></span></div>
+</section>
+
+<!-- 終端機代理 3 Copilot -->
+<section class="slide">
+  <span class="kicker a">第五段｜GitHub Copilot Free</span>
+  <h2 style="font-size:34px;margin-bottom:12px">GitHub Copilot Free：$0、不用信用卡，在 VS Code 裡看著檔案交辦</h2>
+  <div class="shots" style="grid-template-columns:1fr 1fr 1.3fr">
+    <figure><img src="img/l3-copilot-plans.jpg" alt="Copilot 方案頁 Free 欄位"><figcaption><b>①</b> 到 <b>github.com/features/copilot/plans</b>：Free 欄按「Get started」或「Open in VS Code」。寫著每月 2,000 次補全、Copilot CLI、No credit card required。</figcaption></figure>
+    <figure><img src="img/l3-copilot-vscode.jpg" alt="VS Code 設定 Copilot 文件"><figcaption><b>②</b> 下載 VS Code（code.visualstudio.com）→ 開啟後在<b>狀態列的 Copilot 圖示</b>按「Use AI Features」→ 用 GitHub 帳號登入，沒方案就自動加入 Free。</figcaption></figure>
+    <div class="term"><button class="cp" type="button">複製</button><b># ③ 在 VS Code：檔案 → 開啟資料夾（練習資料夾）
+# 右側 Chat 面板切到「Agent」，貼上交辦：</b>
+請在這個資料夾建立 index.html、slides.html、mandala.html（內容同左頁的交辦），全部單一檔案、字大、手機好讀。做完請在瀏覽器預覽。
+
+<b># ④ 終端機版（選用，Node 22 以上）</b>
+npm install -g @github/copilot
+copilot
+<b># 第一次輸入 /login 依畫面登入</b></div>
+  </div>
+  <div class="cols" style="margin-top:10px">
+    <div class="card"><h3>和 GitHub 上架最順</h3><p style="font-size:16px">VS Code 左側「原始檔控制」按一下就能把資料夾發布成 GitHub 倉庫；今天先用第 2 堂教的網頁拖曳上傳，不用急著學。</p></div>
+    <div class="note" style="margin-top:0;font-size:15px">Free 的聊天與代理額度用「AI 點數」計算、數字不公開；用完會提示下個月再來或升級，不會自動扣款。補全建議預設會比對公開程式碼並回傳遙測，可在設定關閉。</div>
+  </div>
+  <div class="foot"><span>第 3 堂｜終端機代理</span><span class="pg"></span></div>
+</section>
+
 <!-- 15 參考風格原則 -->
 <section class="slide">
-  <span class="kicker o">第五段｜參考他人風格做圖片、影片、音樂</span>
+  <span class="kicker o">第六段｜參考他人風格做圖片、影片、音樂</span>
   <h2>原則：風格可以學，作品不能抄（圖片、影片、簡報都一樣）</h2>
   <div class="cols3">
     <div class="card t"><h3>可以做</h3><ul><li>參考別人的<b>排版、配色、構圖、節奏、曲風</b>，換成自己的衛教內容。</li><li>上傳自己拍的、院內授權的、或 AI 生成的圖當參考。</li><li>描述「扁平插畫、粉彩、粗線條」這類風格詞。</li></ul></div>
@@ -564,7 +674,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
 
 <!-- 16 圖片 -->
 <section class="slide">
-  <span class="kicker o">第五段｜圖片</span>
+  <span class="kicker o">第六段｜圖片</span>
   <h2 style="font-size:34px">圖片：上傳參考圖，說「用這個風格，畫我的內容」</h2>
   <div class="cols" style="grid-template-columns:1fr 1.2fr">
     <div>
@@ -583,7 +693,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
 
 <!-- 簡報風格 -->
 <section class="slide">
-  <span class="kicker o">第五段｜簡報風格</span>
+  <span class="kicker o">第六段｜簡報風格</span>
   <h2 style="font-size:34px">簡報風格：截 2～3 張你喜歡的簡報，讓 AI 學「版型」，內容換成你的</h2>
   <div class="cols" style="grid-template-columns:1fr 1.2fr">
     <div>
@@ -602,7 +712,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
 
 <!-- 17 影片 -->
 <section class="slide">
-  <span class="kicker o">第五段｜影片</span>
+  <span class="kicker o">第六段｜影片</span>
   <h2>影片：AI 生影片目前多半要付費，免費路線是「圖卡 + 字幕 + 配音」</h2>
   <div class="cols" style="grid-template-columns:1fr 1.15fr">
     <div>
@@ -627,7 +737,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
 
 <!-- 18 音樂 -->
 <section class="slide">
-  <span class="kicker o">第五段｜音樂</span>
+  <span class="kicker o">第六段｜音樂</span>
   <h2>音樂：30 秒配樂免費就有，用「曲風、速度、樂器、情緒」描述，不要寫歌手名</h2>
   <div class="cols" style="grid-template-columns:1fr 1.15fr">
     <div>
@@ -647,7 +757,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
 
 <!-- 19 送審自檢 -->
 <section class="slide">
-  <span class="kicker o">第五段｜參考風格做素材</span>
+  <span class="kicker o">第六段｜參考風格做素材</span>
   <h2>素材送審前的自檢表（高齡友善 + 肖像版權 + 內容正確）</h2>
   <div class="cols3">
     <div class="card t"><h3>高齡友善</h3><ul><li>內文字至少 28px（投影）／14pt（紙本）</li><li>高對比，不用淡灰字</li><li>一頁一個重點，口語、短句</li><li>影片旁白慢速、有字幕</li></ul></div>
@@ -669,6 +779,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
       <li>用參考風格提示語做 6 張一組的圖卡，拿到 Canva 排成一支 30 秒短片，配上 Gemini 的 30 秒音樂。</li>
       <li>做一張 A4 QR code 海報，指向你的 slides.html，貼在衛教室試一週，記下病人反應。</li>
       <li>照 ai-form-upload 的步驟，做一份下一場衛教課的報名表，自己先用假資料填一次。</li>
+      <li>裝 Antigravity CLI 或 Copilot Free 其中一個，在練習資料夾交辦一次「做三個檔案」。</li>
     </ol>
     <div>
       <div class="card o"><h3>第 4 堂（11/23）預告：糖尿病專科 AI 助手與知識庫</h3><p>把院內衛教文件與指引整理成「只回答有出處的問題」的助手，再用驗證題庫測正確率。請先想好：<b>哪 5 份文件</b>最常被病人問到。</p></div>
@@ -737,7 +848,7 @@ document.addEventListener('touchend',function(e){if(tx==null)return;var dx=e.cha
 // copy prompts
 var toast=document.getElementById('toast');
 function tst(t){toast.textContent=t||'已複製';toast.classList.add('show');setTimeout(function(){toast.classList.remove('show')},1400)}
-document.querySelectorAll('.prompt .cp').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var box=b.parentNode.cloneNode(true);box.querySelector('.cp').remove();var txt=box.textContent.trim();
+document.querySelectorAll('.prompt .cp, .term .cp').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var box=b.parentNode.cloneNode(true);box.querySelector('.cp').remove();var txt=box.textContent.trim();
   if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(function(){tst()},function(){fb(txt)})}else fb(txt);
   function fb(t){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');tst()}catch(x){tst('請手動複製')}document.body.removeChild(ta)}})});
 })();
