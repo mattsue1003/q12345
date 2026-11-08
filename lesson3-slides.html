@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第3堂簡報｜做出可以上架的東西：GitHub 個人網頁、網頁型簡報、目標九宮格、參考風格做素材</title>
+<meta name="description" content="衛福部桃園醫院糖尿病中心 AI 賦能工作坊 第 3 堂（11/09）網頁型簡報：GitHub 與個人網頁、HTML 簡報、大谷翔平九宮格程式製作、參考他人風格做圖片影片音樂。">
+<meta property="og:title" content="第3堂簡報：做出可以上架的東西">
+<meta property="og:description" content="GitHub 個人網頁、網頁型簡報、目標九宮格程式、參考風格做圖片／影片／音樂">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<style>
+:root{--orange:#E8552D;--amber:#F4A93C;--teal:#028090;--ink:#12343B;--teal-50:#E6F4F5;--orange-50:#FDEEE9;--amber-50:#FEF6E8;--bg:#F7F9F9;--card:#fff;--line:#DCE6E7;--muted:#4F6B70;--ok:#1E8E5A;--warn:#C0392B;
+--font:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:#0b2227;font-family:var(--font);color:var(--ink);overflow:hidden}
+#stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+.slide{position:absolute;width:1280px;height:720px;left:50%;top:50%;transform:translate(-50%,-50%) scale(var(--s,1));background:var(--bg);border-radius:14px;overflow:hidden;padding:52px 64px 60px;display:none;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.slide.on{display:block}
+.slide h1{font-size:46px;line-height:1.2;margin:0 0 18px;font-weight:900;letter-spacing:.5px}
+.slide h2{font-size:38px;line-height:1.25;margin:0 0 20px;font-weight:900}
+.slide h3{font-size:24px;margin:0 0 10px;font-weight:700}
+.slide p,.slide li{font-size:22px;line-height:1.55}
+.slide ul{margin:0;padding-left:28px}
+.slide li{margin:6px 0}
+.kicker{display:inline-block;font-size:17px;font-weight:700;color:var(--teal);background:var(--teal-50);border-radius:999px;padding:4px 14px;margin-bottom:12px;letter-spacing:1px}
+.kicker.o{color:var(--orange);background:var(--orange-50)}
+.kicker.a{color:#8a5a00;background:var(--amber-50)}
+.foot{position:absolute;left:64px;right:64px;bottom:18px;display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.cols3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:18px 22px}
+.card.t{border-top:6px solid var(--teal)}.card.o{border-top:6px solid var(--orange)}.card.a{border-top:6px solid var(--amber)}
+.card h3{margin-top:0}
+.card p,.card li{font-size:19px;line-height:1.5}
+.card p{margin:6px 0}
+.prompt{background:#13343a;color:#e8f4f2;border-radius:12px;padding:14px 20px;font-size:17px;line-height:1.5;white-space:pre-wrap;font-family:var(--font);position:relative}
+.prompt .cp{float:right;margin:0 0 6px 12px;background:var(--orange);color:#fff;border:0;border-radius:999px;padding:4px 12px;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.big{font-size:30px;font-weight:700;line-height:1.4}
+.hl{color:var(--orange);font-weight:900}
+.tl{color:var(--teal);font-weight:900}
+table{border-collapse:collapse;width:100%;font-size:19px;background:#fff;border-radius:12px;overflow:hidden}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;line-height:1.4}
+th{background:var(--teal-50);font-weight:700}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding-left:48px;margin:10px 0;font-size:21px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:2px;width:34px;height:34px;border-radius:50%;background:var(--orange);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:18px}
+.note{background:var(--amber-50);border-left:6px solid var(--amber);border-radius:10px;padding:12px 16px;font-size:19px;margin-top:14px}
+.note.r{background:var(--orange-50);border-color:var(--orange)}
+.note.g{background:var(--teal-50);border-color:var(--teal)}
+.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.shots figure{margin:0;background:#fff;border:1.5px solid var(--line);border-radius:10px;overflow:hidden}
+.shots img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;object-position:top}
+.shots figcaption{font-size:15px;padding:8px 10px;line-height:1.35}
+.qr{background:#fff;border-radius:14px;padding:12px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.12);display:inline-block}
+.qr img{width:170px;height:170px;display:block}
+.qr small{display:block;font-size:13px;color:var(--muted);margin-top:6px;word-break:break-all;max-width:200px}
+.cover{background:linear-gradient(135deg,#0f2d33 0%,#07434c 55%,#0a5a62 100%);color:#fff}
+.cover h1{font-size:52px;color:#fff}
+.cover p{color:#d6e9e8}
+.cover .kicker{background:rgba(255,255,255,.12);color:#fff}
+.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;width:300px}
+.mini div{background:#fff;border:1.5px solid var(--line);border-radius:6px;height:56px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;text-align:center;padding:2px;line-height:1.2}
+.mini div.c{background:var(--orange);color:#fff;border-color:var(--orange)}
+.mini.sm{width:220px}.mini.sm div{height:40px;font-size:12px}
+.agenda td:first-child{width:130px;font-weight:900;color:var(--teal);white-space:nowrap}
+.chip{display:inline-block;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:4px 12px;font-size:17px;margin:3px 4px 3px 0}
+.badge{position:absolute;right:64px;top:48px;background:var(--teal);color:#fff;border-radius:999px;padding:6px 16px;font-weight:700;font-size:16px}
+#hud{position:fixed;left:0;right:0;bottom:0;height:6px;background:rgba(255,255,255,.12)}
+#hud i{display:block;height:100%;background:var(--orange);width:0;transition:width .25s}
+#ctl{position:fixed;right:14px;bottom:14px;display:flex;gap:8px;z-index:9}
+#ctl button{background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;cursor:pointer}
+#ctl button:hover{background:rgba(255,255,255,.3)}
+#num{position:fixed;left:16px;bottom:12px;color:rgba(255,255,255,.7);font-size:14px;z-index:9}
+body.list{overflow:auto}
+body.list #stage{position:static;display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:18px;padding:70px 20px 40px}
+body.list .slide{display:block;position:relative;left:auto;top:auto;transform:scale(.3);transform-origin:top left;width:1280px;height:720px;margin:0 0 calc(720px*.3 - 720px + 0px) 0;cursor:pointer}
+body.list .wrapcell{height:216px;width:384px;overflow:hidden;border-radius:6px}
+.toast{position:fixed;left:50%;bottom:60px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;opacity:0;transition:.2s;font-size:15px;z-index:20}
+.toast.show{opacity:1;transform:translateX(-50%)}
+.help{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:30}
+.help.on{display:flex}
+.help div{background:#fff;border-radius:16px;padding:24px 30px;max-width:520px;font-size:17px;line-height:1.7}
+kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1px 8px;font-family:inherit;font-weight:700}
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- 1 封面 -->
+<section class="slide cover">
+  <span class="kicker">衛福部桃園醫院 糖尿病中心｜AI 賦能工作坊 第 3 堂（11/09 10:00–12:00）</span>
+  <h1>做出「可以上架」的東西：<br>GitHub 個人網頁、網頁型簡報、目標九宮格程式，<br>以及參考他人風格做圖片、影片、音樂</h1>
+  <p style="font-size:24px;margin-top:10px">今天每一個成品都會變成<b style="color:#fff">一個網址</b>：手機掃得到、LINE 傳得出去、衛教室貼得上牆。</p>
+  <div style="display:flex;gap:26px;align-items:flex-end;position:absolute;left:64px;right:64px;bottom:50px">
+    <div class="qr"><img src="img/l3-qr-slides.png" alt="這份簡報的 QR code"><small>mattsue1003.github.io/q12345/lesson3-slides.html</small></div>
+    <div style="font-size:19px;line-height:1.7;color:#d6e9e8">掃左邊 QR code 就能在手機上打開這份簡報。<br>這份簡報本身就是一個 HTML 檔，今天第二段會教你做一份。<br>鍵盤 <kbd style="color:#12343B">←</kbd> <kbd style="color:#12343B">→</kbd> 翻頁、<kbd style="color:#12343B">F</kbd> 全螢幕、<kbd style="color:#12343B">O</kbd> 總覽。<br>授課：鍾孟修 職能治療師（愛迪樂）</div>
+  </div>
+</section>
+
+<!-- 2 地圖 -->
+<section class="slide">
+  <span class="kicker">今天的地圖</span>
+  <h2>兩小時，四件事，帶走三個網址</h2>
+  <div class="cols">
+    <table class="agenda">
+      <tr><td>10:00</td><td><b>回顧 + 上線</b>：第 2 堂的 GitHub 流程再走一次，今天所有成品都靠它上架。</td></tr>
+      <tr><td>10:25</td><td><b>網頁型簡報</b>：一個 HTML 檔就是一份簡報，請 AI 做一份衛教簡報並上傳。</td></tr>
+      <tr><td>10:55</td><td>休息 10 分鐘</td></tr>
+      <tr><td>11:05</td><td><b>目標九宮格程式</b>：從大谷翔平的 81 格，做出病人可以填、可以印的網頁。</td></tr>
+      <tr><td>11:35</td><td><b>參考風格做素材</b>：圖片、影片、音樂，用「參考風格」而不是「抄作品」。</td></tr>
+      <tr><td>11:55</td><td>課後任務與下堂預告（11/23 知識庫助手）</td></tr>
+    </table>
+    <div>
+      <div class="card t"><h3>帶走的三個網址</h3>
+        <p>① <b>你的username.github.io</b>：自我介紹網頁（第 2 堂做的，今天補完）</p>
+        <p>② <b>…/slides.html</b>：一份衛教主題的網頁型簡報</p>
+        <p>③ <b>…/mandala.html</b>：病人可以填的目標九宮格</p></div>
+      <div class="note" style="margin-top:14px">今天全程用<b>合成資料</b>。所有公開網頁上不放病人資料、院內未公開文件、個人手機與住址。</div>
+    </div>
+  </div>
+  <div class="foot"><span>第 3 堂｜做出可以上架的東西</span><span>講義：mattsue1003.github.io/q12345/lesson3.html</span></div>
+</section>
+
+<!-- 3 為什麼上架 -->
+<section class="slide">
+  <span class="kicker o">第一段｜GitHub 與個人網頁</span>
+  <h2>為什麼要「上架」？因為檔案傳不出去，網址傳得出去</h2>
+  <div class="cols3">
+    <div class="card o"><h3>寄檔案的世界</h3><p>PPT 要裝 Office 才開得了、手機排版會跑掉、改一版就要重寄一次、LINE 群裡找不到最新版。</p></div>
+    <div class="card t"><h3>一個網址的世界</h3><p>手機、平板、電腦打開都一樣；改好重新上傳，<b>網址不變</b>；印成 QR code 貼在衛教室、放進衛教單張。</p></div>
+    <div class="card a"><h3>今天做的三樣東西</h3><p>自我介紹網頁、網頁型簡報、目標九宮格。<b>三個都是 HTML 檔</b>，上架流程完全一樣，學一次用三次。</p></div>
+  </div>
+  <div class="note g" style="margin-top:22px"><b>GitHub Pages 是什麼：</b>GitHub 是全世界工程師放檔案的雲端倉庫，我們只用它一個免費功能：把 HTML 檔變成公開網址。免費帳號就能做，不需要信用卡，只要一個 Email。</div>
+  <div class="foot"><span>第 3 堂｜GitHub 與個人網頁</span><span>3</span></div>
+</section>
+
+<!-- 4 五步驟 -->
+<section class="slide">
+  <span class="kicker o">第一段｜GitHub 與個人網頁</span>
+  <h2>第 2 堂的五步驟，今天再走一次（10 分鐘）</h2>
+  <div class="cols" style="grid-template-columns:1.1fr 1fr">
+    <ol class="steps">
+      <li>登入 github.com，右上「＋」→「New repository」</li>
+      <li>Repository name 一字不差填 <b>你的username.github.io</b>，Public，不勾 README</li>
+      <li>點藍色小字「uploading an existing file」，把 index.html 拖進去</li>
+      <li>保持「Commit directly to the main branch」→ 綠色「Commit changes」</li>
+      <li>等 1～2 分鐘，打開 https://你的username.github.io；沒出現就到 Settings → Pages 確認 Branch 是 main、/ (root)</li>
+    </ol>
+    <div class="shots" style="grid-template-columns:1fr 1fr">
+      <figure><img src="https://mattsue1003.github.io/q12345/img/l2-gh-name.jpg" alt="建立倉庫，填 username.github.io"><figcaption>取名出現綠色「is available」</figcaption></figure>
+      <figure><img src="https://mattsue1003.github.io/q12345/img/l2-gh-config.jpg" alt="選 Public 不勾 README"><figcaption>Public、README 關閉</figcaption></figure>
+      <figure><img src="https://mattsue1003.github.io/q12345/img/l2-gh-upload.jpg" alt="拖曳上傳 index.html"><figcaption>拖進去、Commit changes</figcaption></figure>
+      <figure><img src="https://mattsue1003.github.io/q12345/img/l2-gh-pages.jpg" alt="Settings Pages 顯示 live"><figcaption>Settings → Pages 看到 live</figcaption></figure>
+    </div>
+  </div>
+  <div class="foot"><span>第 3 堂｜GitHub 與個人網頁</span><span>截圖為講師帳號示範畫面；你的畫面上 username 會是自己的</span></div>
+</section>
+
+<!-- 5 個人網頁提示詞 -->
+<section class="slide">
+  <span class="kicker o">第一段｜GitHub 與個人網頁</span>
+  <h2>還沒有 index.html？用這段提示語 5 分鐘做一個</h2>
+  <div class="cols" style="grid-template-columns:1.25fr 1fr">
+    <div class="prompt"><button class="cp" type="button">複製</button>請幫我做一個單一檔案的 HTML 自我介紹網頁，檔名 index.html，所有 CSS 寫在同一個檔案裡，不要用外部圖片。
+我的資料：
+- 稱呼：（例如 王衛教師）
+- 單位：衛生福利部桃園醫院 糖尿病中心
+- 職稱與證照：（例如 護理師、糖尿病衛教師）
+- 擅長主題：（例如 胰島素注射、足部照護、低血糖處理）
+- 一句話介紹：（例如 用長輩聽得懂的話，陪你把血糖顧好）
+- 聯絡方式：只放公務信箱或「請洽糖尿病中心櫃台」
+設計要求：手機好讀、字大行距寬；配色溫和（淺綠或米白）；用圖示代替照片；最下方放「本頁使用 AI 協助製作」。做好後告訴我怎麼存成 index.html。</div>
+    <div>
+      <div class="card t"><h3>三家在哪裡拿檔案</h3>
+        <p><b>Claude</b>：右側直接顯示網頁，上方「下載」。</p>
+        <p><b>Gemini</b>：開「任務」或 Canvas 才能預覽；從程式碼複製貼到記事本存成 index.html。</p>
+        <p><b>ChatGPT</b>：程式碼框右上「複製」，或請它「直接給我下載檔案」。</p></div>
+      <div class="note r" style="margin-top:12px"><b>存檔陷阱：</b>Windows 先打開「顯示副檔名」，不然會存成 index.html.txt。存好後雙擊能在瀏覽器打開就對了。</div>
+    </div>
+  </div>
+  <div class="foot"><span>第 3 堂｜GitHub 與個人網頁</span><span>5</span></div>
+</section>
+
+<!-- 6 第二、三個檔案 -->
+<section class="slide">
+  <span class="kicker o">第一段｜GitHub 與個人網頁</span>
+  <h2>同一個倉庫可以放很多檔案：今天的三個網址長這樣</h2>
+  <div class="cols3">
+    <div class="card t"><h3>index.html</h3><p class="big" style="font-size:22px">你的username.github.io</p><p>自我介紹頁。檔名叫 index 的會自動變成首頁。</p></div>
+    <div class="card o"><h3>slides.html</h3><p class="big" style="font-size:22px">你的username.github.io/slides.html</p><p>網頁型簡報。一樣拖進同一個倉庫就好。</p></div>
+    <div class="card a"><h3>mandala.html</h3><p class="big" style="font-size:22px">你的username.github.io/mandala.html</p><p>目標九宮格。檔名只用英文小寫、數字、減號。</p></div>
+  </div>
+  <div class="cols" style="margin-top:20px">
+    <div class="card"><h3>之後要改內容</h3><p>回到 AI 說「把擅長主題加上飲食衛教」→ 存成新的同名檔案 → 再拖進去上傳，會自動覆蓋舊的。也可以在 GitHub 點檔案 → 鉛筆圖示直接改字。</p></div>
+    <div class="note r" style="margin-top:0"><b>公開網頁的界線：</b>全世界都看得到。不放個人手機、住址、身分證字號、病人照片與任何病人資料；以醫院名義對外發布前，先確認院內對外資訊規定。</div>
+  </div>
+  <div class="foot"><span>第 3 堂｜GitHub 與個人網頁</span><span>6</span></div>
+</section>
+
+<!-- 7 網頁型簡報是什麼 -->
+<section class="slide">
+  <span class="kicker">第二段｜網頁型簡報</span>
+  <h2>網頁型簡報：一個 HTML 檔，就是一份能翻頁、能投影、手機能開的簡報</h2>
+  <div class="cols" style="grid-template-columns:1fr 1.1fr">
+    <div>
+      <p class="big">你現在看的這份，就是。</p>
+      <ul>
+        <li>不用安裝 PowerPoint，瀏覽器打開就能投影。</li>
+        <li>可以放<b>互動</b>：翻牌問答、計時器、點一下跳到網站。</li>
+        <li>手機、平板打開就是直式可讀版本。</li>
+        <li>改字只要再請 AI 改一句，重新上傳，<b>網址不變</b>。</li>
+      </ul>
+      <p style="margin-top:12px">按 <kbd>F</kbd> 試試全螢幕、按 <kbd>O</kbd> 看總覽。</p>
+    </div>
+    <table>
+      <tr><th></th><th>PowerPoint</th><th>Canva</th><th>網頁型簡報</th></tr>
+      <tr><td>打開方式</td><td>要有 Office</td><td>要登入 Canva</td><td>任何瀏覽器</td></tr>
+      <tr><td>分享</td><td>寄檔案</td><td>分享連結</td><td>一個網址 + QR</td></tr>
+      <tr><td>互動（問答、計時）</td><td>有限</td><td>有限</td><td>想得到就做得到</td></tr>
+      <tr><td>美編微調</td><td>最方便</td><td>方便</td><td>要用「說」的改</td></tr>
+      <tr><td>適合</td><td>院內正式簡報</td><td>海報、圖卡</td><td>團體衛教、病友教室、手機閱讀</td></tr>
+    </table>
+  </div>
+  <div class="foot"><span>第 3 堂｜網頁型簡報</span><span>7</span></div>
+</section>
+
+<!-- 8 簡報提示詞 -->
+<section class="slide">
+  <span class="kicker">第二段｜網頁型簡報</span>
+  <h2>提示語範本：一份 8 頁的「低血糖處理」團體衛教簡報</h2>
+  <div class="cols" style="grid-template-columns:1.3fr 1fr">
+    <div class="prompt" style="font-size:16px"><button class="cp" type="button">複製</button>請幫我做一個單一檔案的 HTML 網頁型簡報，檔名 slides.html，CSS 和 JavaScript 都寫在同一個檔案裡，不要用外部圖片。
+主題：低血糖的辨識與處理（給糖尿病病人與家屬的團體衛教，約 15 分鐘）
+對象：60～80 歲長者與陪同家屬，部分視力不佳
+共 8 頁：1 封面 2 什麼是低血糖（數字 70） 3 常見症狀（6 個，用大圖示） 4 立刻做的三件事（15 克糖的例子） 5 15 分鐘後再測一次 6 什麼情況要送醫 7 怎麼預防（吃藥、進食、運動時間） 8 翻牌問答 3 題
+設計要求：
+1. 16:9 版面，字體至少 28px，標題 48px 以上，高對比，一頁一個重點
+2. 鍵盤左右鍵、點擊螢幕左右半邊都能翻頁，手機可左右滑動
+3. 第 8 頁的問答卡點一下翻面顯示答案
+4. 右下角顯示頁碼，有「全螢幕」按鈕
+5. 最後一頁放「本簡報使用 AI 協助製作，內容請以醫療人員說明為準」
+請先列出 8 頁的標題與重點給我確認，再寫程式。</div>
+    <div>
+      <div class="card t"><h3>這段提示語的四個關鍵</h3>
+        <p><b>單一檔案</b>：才能直接拖上 GitHub。</p>
+        <p><b>頁數與每頁內容先列出來</b>：AI 先給大綱再寫程式，錯了改大綱比改程式便宜。</p>
+        <p><b>長者規格寫成數字</b>：28px、48px、高對比，不要只寫「字大一點」。</p>
+        <p><b>互動寫清楚動作</b>：點一下翻面、左右滑動，AI 才知道要做什麼。</p></div>
+      <div class="note" style="margin-top:12px">內容先用 AI 起草，<b>數字與處置一定要用院內衛教單或指引核對</b>，再上線。</div>
+    </div>
+  </div>
+  <div class="foot"><span>第 3 堂｜網頁型簡報</span><span>8</span></div>
+</section>
+
+<!-- 9 在哪裡做、怎麼改 -->
+<section class="slide">
+  <span class="kicker">第二段｜網頁型簡報</span>
+  <h2>在哪裡做、怎麼預覽、怎麼改</h2>
+  <div class="cols3">
+    <div class="card t"><h3>Claude</h3><p>貼提示語，右側 Artifacts 直接顯示可以翻頁的簡報。滿意就按「下載」存成 slides.html。</p><p style="color:var(--muted)">最適合第一次做：所見即所得。</p></div>
+    <div class="card o"><h3>Gemini</h3><p>先開「任務」再貼提示語，右側會出現 Canvas 預覽。做好後「分享」可以直接拿到連結，或複製程式碼存檔。</p><p style="color:var(--muted)">「對話」模式只會給程式碼，不會預覽。</p></div>
+    <div class="card a"><h3>ChatGPT</h3><p>貼提示語後會給程式碼框，點「複製」貼到記事本存成 slides.html，雙擊預覽。也可以開畫布（Canvas）預覽。</p></div>
+  </div>
+  <div class="cols" style="margin-top:18px">
+    <div class="card"><h3>修改用「說」的，一次一件事</h3>
+      <span class="chip">第 3 頁的六個症狀改成兩排三個，圖示放大</span><span class="chip">所有頁面的字再放大 20%</span><span class="chip">第 4 頁加上「方糖 3 顆＝15 克」</span><span class="chip">翻頁加一個淡入效果</span><span class="chip">手機直式時一頁一個重點往下排</span></div>
+    <div class="card"><h3>做壞了怎麼辦</h3><p>把錯誤訊息或「現在變成怎樣」直接貼給它；連改三次還不對，就說「回到上一版」，或換另一家工具貼同一段提示語。</p></div>
+  </div>
+  <div class="foot"><span>第 3 堂｜網頁型簡報</span><span>9</span></div>
+</section>
+
+<!-- 10 課堂實作 1 -->
+<section class="slide">
+  <span class="badge">課堂實作 15 分鐘</span>
+  <span class="kicker">第二段｜網頁型簡報</span>
+  <h2>現在做：一份簡報 → slides.html → 上傳 → 手機打開</h2>
+  <ol class="steps">
+    <li>把上一頁提示語貼到 Claude 或 Gemini「任務」，主題可以換成你負責的衛教主題（胰島素注射、足部照護、飲食份量…）。</li>
+    <li>先看大綱，調整 1～2 處再讓它寫程式。</li>
+    <li>預覽：鍵盤能翻頁、字夠大、問答卡會翻面。</li>
+    <li>存成 <b>slides.html</b>，拖進你的 username.github.io 倉庫，Commit。</li>
+    <li>手機打開 <b>https://你的username.github.io/slides.html</b>，傳給旁邊同學看。</li>
+  </ol>
+  <div class="note g">做完的同學：請 AI「幫我做一張 QR code 指向這個網址，A4 直式，上面寫『低血糖怎麼辦 掃我看』」，順便練一下圖片。</div>
+  <div class="foot"><span>第 3 堂｜網頁型簡報</span><span>10</span></div>
+</section>
+
+<!-- 11 大谷 -->
+<section class="slide">
+  <span class="kicker a">第三段｜目標九宮格程式</span>
+  <h2>大谷翔平高一那年寫的 81 格</h2>
+  <div class="cols" style="grid-template-columns:1fr 1fr;align-items:start">
+    <div>
+      <ul>
+        <li>花卷東高中一年級，在教練帶領下用<b>原田隆史的「目標達成表」（曼陀羅計畫表）</b>寫下 9×9＝81 格。</li>
+        <li>正中央：<b>8 球團第一指名</b>。</li>
+        <li>周圍 8 格是達成它的面向：體格、控球、球質、球速 160 km/h、變化球、運氣、人品、心志。</li>
+        <li>外圈 64 格是每天做得到的小事。「運氣」那一格底下寫的是：打招呼、撿垃圾、打掃房間、對裁判的態度、珍惜球具、讀書……</li>
+      </ul>
+      <p class="big" style="margin-top:14px">重點不是 81 格填滿，而是<span class="hl">把大目標拆成今天就能做的一件事</span>。</p>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+      <div class="mini">
+        <div>體格</div><div>控球</div><div>球質</div>
+        <div>心志</div><div class="c">8 球團<br>第一指名</div><div>球速<br>160 km/h</div>
+        <div>人品</div><div>運氣</div><div>變化球</div>
+      </div>
+      <div class="mini sm">
+        <div>打招呼</div><div>撿垃圾</div><div>打掃房間</div>
+        <div>讀書</div><div class="c" style="background:var(--teal);border-color:var(--teal)">運氣</div><div>對裁判<br>的態度</div>
+        <div>珍惜球具</div><div>正向思考</div><div>被支持<br>的人</div>
+      </div>
+      <small style="color:var(--muted)">中間 9 格（上）與「運氣」那一塊的 9 格（下），依公開報導整理</small>
+    </div>
+  </div>
+  <div class="foot"><span>第 3 堂｜目標九宮格程式</span><span>11</span></div>
+</section>
+
+<!-- 12 衛教怎麼用 -->
+<section class="slide">
+  <span class="kicker a">第三段｜目標九宮格程式</span>
+  <h2>搬到糖尿病衛教：病人的 81 格長這樣</h2>
+  <div class="cols" style="grid-template-columns:1fr 1.2fr">
+    <div class="mini" style="width:340px">
+      <div>飲食</div><div>運動</div><div>用藥</div>
+      <div>家人支持</div><div class="c" style="font-size:14px">3 個月後<br>HbA1c 7% 以下<br>且無低血糖</div><div>血糖監測</div>
+      <div>回診與檢查</div><div>情緒與睡眠</div><div>足部照護</div>
+    </div>
+    <div>
+      <div class="card t"><h3>怎麼和病人一起填</h3>
+        <p>① 中間 9 格由衛教師帶著填：目標要<b>有數字、有期限</b>。</p>
+        <p>② 外圈<b>不必填滿</b>：先挑病人最有把握的 2～3 個面向，每格一件「這週就做得到」的事：飯後散步 15 分鐘、藥放牙刷旁、每天看腳底。</p>
+        <p>③ 列印貼冰箱，完成一件打一個勾；回診帶來，勾勾變多就是進步。</p></div>
+      <div class="note" style="margin-top:12px">用 AI 的位置：請它<b>依病人條件</b>（年齡、工作、用藥、活動量）產生 64 個候選小行動，再由衛教師和病人挑。AI 出選項，人做決定。</div>
+    </div>
+  </div>
+  <div class="foot"><span>第 3 堂｜目標九宮格程式</span><span>12</span></div>
+</section>
+
+<!-- 13 程式提示詞 -->
+<section class="slide">
+  <span class="kicker a">第三段｜目標九宮格程式</span>
+  <h2>程式製作提示語：一個可以填、會記住、能列印的九宮格網頁</h2>
+  <div class="cols" style="grid-template-columns:1.3fr 1fr">
+    <div class="prompt" style="font-size:15px;line-height:1.42"><button class="cp" type="button">複製</button>請做一個單一檔案的 HTML 網頁「目標九宮格」，檔名 mandala.html，CSS 與 JavaScript 寫在同一檔案，不用外部套件。
+功能：
+1. 畫面是 9×9 的 81 格（3×3 個大區塊，每區塊 3×3 小格）。正中央那格是「大目標」，它周圍 8 格是「面向」，每個面向會自動同步顯示在對應外圍區塊的中心格；其餘 64 格是「小行動」
+2. 每格都可以直接打字，輸入後自動存在瀏覽器（localStorage），重新整理不會不見
+3. 小行動格右上角有一個打勾按鈕，勾了變淡綠色，頁首顯示「已完成 N / 64」
+4. 有一個下拉選單可以套用範本：「糖尿病自我管理」（目標：3 個月後 HbA1c 7% 以下且無低血糖；八個面向：飲食、運動、用藥、血糖監測、足部照護、情緒與睡眠、回診與檢查、家人支持；請幫每個面向寫 8 個長者做得到的小行動）
+5. 「列印 A4」按鈕：橫式 A4 一頁印完，隱藏按鈕
+6. 「下載圖片」按鈕：把九宮格畫成 PNG 下載
+7. 手機也能用：格子字體自動縮小，不會左右捲動
+8. 配色：中央橘色、面向淡藍綠、其他白色；字體用系統中文字體
+頁尾寫「本頁使用 AI 協助製作」。請先確認功能清單，再寫程式。</div>
+    <div>
+      <div class="card o"><h3>示範成品（講師做好的）</h3>
+        <div style="display:flex;gap:14px;align-items:center">
+          <div class="qr" style="box-shadow:none;border:1.5px solid var(--line);padding:8px"><img src="img/l3-qr-mandala.png" alt="目標九宮格網頁 QR code" style="width:130px;height:130px"></div>
+          <p style="font-size:17px;margin:0">mattsue1003.github.io/q12345/<b>mandala.html</b><br><br>手機掃開來玩：套用範本、打勾、列印、下載圖片。你等一下做的會和它很像。</p>
+        </div></div>
+      <div class="card" style="margin-top:12px"><h3>提示語的訣竅</h3><p>功能<b>一條一條編號</b>、把「自動存檔」「列印」「手機」這些你在意的事寫出來。AI 不會猜你要列印。</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>第 3 堂｜目標九宮格程式</span><span>13</span></div>
+</section>
+
+<!-- 14 課堂實作 2 -->
+<section class="slide">
+  <span class="badge">課堂實作 15 分鐘</span>
+  <span class="kicker a">第三段｜目標九宮格程式</span>
+  <h2>現在做：九宮格 → mandala.html → 上傳 → 和同學互填</h2>
+  <div class="cols" style="grid-template-columns:1.1fr 1fr">
+    <ol class="steps">
+      <li>貼上一頁的提示語到 Claude（預覽最快）或 Gemini「任務」。</li>
+      <li>它列出功能清單後，加一句你的需求，例如「範本再加一個『體重管理』」。</li>
+      <li>預覽：打字會留著、勾勾會變色、列印預覽一頁印完。</li>
+      <li>存成 <b>mandala.html</b>，拖進倉庫上傳。</li>
+      <li>把網址傳給旁邊同學，請對方用「糖尿病自我管理」範本幫一位合成個案填 3 個面向。</li>
+    </ol>
+    <div>
+      <div class="card"><h3>常見修改指令</h3>
+        <span class="chip">面向那 8 格字再大一點</span><span class="chip">加一個「全部清空」要先確認</span><span class="chip">加「複製成文字」按鈕方便貼 LINE</span><span class="chip">列印時中央格要保留橘色</span><span class="chip">加填寫人與日期欄位</span></div>
+      <div class="note r" style="margin-top:12px">填寫人欄位只寫稱呼與日期，<b>不要寫病歷號或完整姓名</b>。資料只存在填寫者自己的瀏覽器，不會上傳到任何地方。</div>
+    </div>
+  </div>
+  <div class="foot"><span>第 3 堂｜目標九宮格程式</span><span>14</span></div>
+</section>
+
+<!-- 15 參考風格原則 -->
+<section class="slide">
+  <span class="kicker o">第四段｜參考他人風格做圖片、影片、音樂</span>
+  <h2>原則：風格可以學，作品不能抄</h2>
+  <div class="cols3">
+    <div class="card t"><h3>可以做</h3><ul><li>參考別人的<b>排版、配色、構圖、節奏、曲風</b>，換成自己的衛教內容。</li><li>上傳自己拍的、院內授權的、或 AI 生成的圖當參考。</li><li>描述「扁平插畫、粉彩、粗線條」這類風格詞。</li></ul></div>
+    <div class="card o"><h3>不要做</h3><ul><li>上傳別人的作品叫 AI「畫一張一樣的」再對外發布。</li><li>用<b>真人的臉</b>（名人、同事、病人）生圖生影片。</li><li>在提示語寫特定歌手、畫家、品牌的名字當成品風格。</li></ul></div>
+    <div class="card a"><h3>三步驟</h3><ol class="steps" style="margin-top:4px"><li style="font-size:18px">找 2～3 張你喜歡的參考（海報、圖卡、短片截圖）</li><li style="font-size:18px">用話描述你看到的風格：線條、配色、留白、字體感</li><li style="font-size:18px">換成自己的主題、對象與訊息，再做</li></ol></div>
+  </div>
+  <div class="note" style="margin-top:18px"><b>院內素材審查三問：</b>有沒有真人肖像？有沒有別人的作品或商標？數字與處置有沒有用院內衛教單核對？三題都過，再送審、再發布。</div>
+  <div class="foot"><span>第 3 堂｜參考風格做素材</span><span>15</span></div>
+</section>
+
+<!-- 16 圖片 -->
+<section class="slide">
+  <span class="kicker o">第四段｜圖片</span>
+  <h2 style="font-size:34px">圖片：上傳參考圖，說「用這個風格，畫我的內容」</h2>
+  <div class="cols" style="grid-template-columns:1fr 1.2fr">
+    <div>
+      <div class="card t"><h3>ChatGPT（建議主力）</h3><p>免費帳號可上傳參考圖再生圖，新版還能<b>儲存常用參考圖</b>。一組圖卡要風格一致、只改一處，它最穩。</p></div>
+      <div class="card o" style="margin-top:10px"><h3>Gemini（免費備援）</h3><p>一次可放<b>多張參考圖</b>，提示語裡說明每張的角色（風格／構圖）。額度不公開且會變。</p></div>
+      <div class="card a" style="margin-top:10px"><h3>Canva</h3><p>成品用魔法圖層拆開改字、改色，排成 A4 海報或 1:1 圖卡。</p></div>
+    </div>
+    <div class="prompt" style="font-size:15px"><button class="cp" type="button">複製</button>（先上傳 2 張你喜歡的衛教圖卡當參考）
+請參考這兩張圖的「風格」：扁平插畫、粗黑描邊、米白底、每張只有一個主角、配色不超過 4 色，但不要複製它們的內容。
+用這個風格幫我畫 6 張一組的衛教圖卡，主題「低血糖的六個常見症狀」：冒冷汗、手抖、心跳快、頭暈、肚子餓、說話不清楚。
+每張：1:1，正中央一位 70 歲左右的台灣長者（卡通化、不是真人），下方留 20% 空白給我放字。
+先畫第 1 張給我確認風格，確認後再畫其他 5 張，並保持同一個人物、同一組配色。</div>
+  </div>
+  <div class="foot"><span>第 3 堂｜參考風格做素材</span><span>第 1 張不對先改第 1 張；局部修改說「只改左手，其他不動」</span></div>
+</section>
+
+<!-- 17 影片 -->
+<section class="slide">
+  <span class="kicker o">第四段｜影片</span>
+  <h2>影片：AI 生影片目前多半要付費，免費路線是「圖卡 + 字幕 + 配音」</h2>
+  <div class="cols" style="grid-template-columns:1fr 1.15fr">
+    <div>
+      <table>
+        <tr><th>工具</th><th>現況（2026/11，會變動）</th></tr>
+        <tr><td>Gemini（Veo）</td><td>影片生成在付費方案（AI Pro 約每天 3 支）；免費方案偶有限時開放。</td></tr>
+        <tr><td>ChatGPT／Sora</td><td>需另開 Sora，免費額度持續縮減，以當下 App 顯示為準。</td></tr>
+        <tr><td>Canva／CapCut</td><td>免費就能把<b>圖卡排成影片</b>、自動字幕、加配音與配樂。衛教短片首選。</td></tr>
+      </table>
+      <div class="note" style="margin-top:12px">用「參考風格」的方式：找一支你喜歡的衛教短片，<b>只學它的結構</b>（開頭 3 秒問題、中間 3 個重點、結尾一句行動），內容換成自己的。</div>
+    </div>
+    <div class="prompt" style="font-size:16px"><button class="cp" type="button">複製</button>請幫我寫一支 30 秒衛教短影音的微劇本，主題「低血糖時先做三件事」，對象是 65 歲以上糖尿病病人與家屬。
+結構參考常見的三段式短片：
+- 0–3 秒：一句抓住注意力的問題（口語、台灣用語）
+- 4–24 秒：三個重點，每個重點一張圖卡 + 一句旁白不超過 15 字
+- 25–30 秒：一句行動呼籲 + 「請以醫療人員說明為準」
+請用表格輸出：秒數｜畫面（給生圖用的描述，卡通長者、不要真人）｜旁白｜字幕。
+旁白請用溫和、慢速的語氣，之後我會用 Canva 的 AI 配音唸出來。</div>
+  </div>
+  <div class="foot"><span>第 3 堂｜參考風格做素材</span><span>17</span></div>
+</section>
+
+<!-- 18 音樂 -->
+<section class="slide">
+  <span class="kicker o">第四段｜音樂</span>
+  <h2>音樂：30 秒配樂免費就有，用「曲風、速度、樂器、情緒」描述，不要寫歌手名</h2>
+  <div class="cols" style="grid-template-columns:1fr 1.15fr">
+    <div>
+      <div class="card t"><h3>Gemini（Lyria）</h3><p>在 Gemini App 直接說「幫我做一段音樂」，免費方案可做 <b>30 秒</b>的曲子，可下載 MP3；需年滿 18 歲。適合短影音配樂、團體活動開場。</p></div>
+      <div class="card o" style="margin-top:12px"><h3>Suno</h3><p>免費約每天 50 點、大約 10 首，<b>只能非商業使用</b>；可以寫歌詞做整首歌，例如「量血糖歌」「洗手歌」。</p></div>
+      <div class="note r" style="margin-top:12px">院內公開播放、放上官方頻道前，確認該方案的使用授權；免費方案多半限個人非商業。</div>
+    </div>
+    <div>
+      <div class="prompt" style="font-size:16px"><button class="cp" type="button">複製</button>請做一段 30 秒的背景音樂，給糖尿病衛教短影音用。
+風格描述（不要模仿特定歌手）：輕快但不吵的木吉他與烏克麗麗，每分鐘約 95 拍，加一點手拍與輕鼓，情緒是「溫暖、放心、早晨」，沒有人聲，結尾淡出。
+適合 65 歲以上觀眾，避免高頻刺耳的音色。</div>
+      <div class="prompt" style="font-size:16px;margin-top:12px"><button class="cp" type="button">複製</button>（Suno 用）請寫一首 1 分鐘的台語＋華語混合兒歌風格歌詞「飯後走一走」，四句一段共兩段加副歌，歌詞教「飯後 15 分鐘散步、帶糖果、穿好鞋」，字句簡單、押韻、適合長者跟著唱。曲風：輕快民謠、口琴、慢速。</div>
+    </div>
+  </div>
+  <div class="foot"><span>第 3 堂｜參考風格做素材</span><span>18</span></div>
+</section>
+
+<!-- 19 送審自檢 -->
+<section class="slide">
+  <span class="kicker o">第四段｜參考風格做素材</span>
+  <h2>素材送審前的自檢表（高齡友善 + 肖像版權 + 內容正確）</h2>
+  <div class="cols3">
+    <div class="card t"><h3>高齡友善</h3><ul><li>內文字至少 28px（投影）／14pt（紙本）</li><li>高對比，不用淡灰字</li><li>一頁一個重點，口語、短句</li><li>影片旁白慢速、有字幕</li></ul></div>
+    <div class="card o"><h3>肖像與版權</h3><ul><li>沒有真人臉（名人、同事、病人）</li><li>沒有別人的作品、商標、歌曲</li><li>參考風格，沒有複製內容</li><li>音樂方案允許這個用途</li></ul></div>
+    <div class="card a"><h3>內容正確</h3><ul><li>數字（70 mg/dL、15 克）用院內衛教單核對</li><li>處置流程與科內一致</li><li>標示「請以醫療人員說明為準」</li><li>標示「使用 AI 協助製作」</li></ul></div>
+  </div>
+  <div class="note g" style="margin-top:18px">三欄都勾完，再依院內流程送審。網頁上線後有錯，改好重新上傳，網址不變，不用重新發 QR code。</div>
+  <div class="foot"><span>第 3 堂｜參考風格做素材</span><span>19</span></div>
+</section>
+
+<!-- 20 課後任務 -->
+<section class="slide">
+  <span class="kicker">收尾</span>
+  <h2>課後任務（兩週內），以及下一堂</h2>
+  <div class="cols" style="grid-template-columns:1.2fr 1fr">
+    <ol class="steps">
+      <li>把今天的 slides.html 換成你負責的衛教主題，數字用院內衛教單核對，上傳覆蓋。</li>
+      <li>用 mandala.html 和一位<b>合成個案</b>（或自己）填完中間 9 格與 2 個面向，列印一張。</li>
+      <li>用參考風格提示語做 6 張一組的圖卡，拿到 Canva 排成一支 30 秒短片，配上 Gemini 的 30 秒音樂。</li>
+      <li>做一張 A4 QR code 海報，指向你的 slides.html，貼在衛教室試一週，記下病人反應。</li>
+    </ol>
+    <div>
+      <div class="card o"><h3>第 4 堂（11/23）預告：糖尿病專科 AI 助手與知識庫</h3><p>把院內衛教文件與指引整理成「只回答有出處的問題」的助手，再用驗證題庫測正確率。請先想好：<b>哪 5 份文件</b>最常被病人問到。</p></div>
+      <div class="note" style="margin-top:12px">講義與所有提示語都在：<b>mattsue1003.github.io/q12345/lesson3.html</b>。遇到問題用講義右下角「回報問題」。</div>
+    </div>
+  </div>
+  <div class="foot"><span>第 3 堂｜收尾</span><span>20</span></div>
+</section>
+
+<!-- 21 結尾 -->
+<section class="slide cover">
+  <span class="kicker">謝謝大家</span>
+  <h1>今天帶走的不是檔案，是三個網址</h1>
+  <div class="cols3" style="margin-top:10px">
+    <div class="card" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff"><h3 style="color:#fff">① 自我介紹網頁</h3><p style="color:#d6e9e8">你的username.github.io</p></div>
+    <div class="card" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff"><h3 style="color:#fff">② 網頁型簡報</h3><p style="color:#d6e9e8">…/slides.html</p></div>
+    <div class="card" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff"><h3 style="color:#fff">③ 目標九宮格</h3><p style="color:#d6e9e8">…/mandala.html</p></div>
+  </div>
+  <div style="display:flex;gap:26px;align-items:center;position:absolute;left:64px;right:64px;bottom:50px">
+    <div class="qr"><img src="img/l3-qr-slides.png" alt="這份簡報的 QR code"><small>這份簡報</small></div>
+    <div class="qr"><img src="img/l3-qr-mandala.png" alt="目標九宮格 QR code"><small>目標九宮格示範</small></div>
+    <div style="font-size:19px;line-height:1.8;color:#d6e9e8">講義：<b style="color:#fff">mattsue1003.github.io/q12345/lesson3.html</b><br>更多教案與課程：愛迪樂臉書粉專（講義頁有連結）<br>鍾孟修 職能治療師｜愛迪樂<br><span style="font-size:15px">本簡報使用 AI 協助製作；工具介面與免費額度以官方當下說明為準。</span></div>
+  </div>
+</section>
+
+</div>
+<div id="hud"><i></i></div>
+<div id="num"></div>
+<div id="ctl"><button type="button" data-a="prev">‹</button><button type="button" data-a="next">›</button><button type="button" data-a="list">總覽</button><button type="button" data-a="fs">全螢幕</button><button type="button" data-a="help">?</button></div>
+<div class="toast" id="toast">已複製</div>
+<div class="help" id="help"><div><b>操作</b><br><kbd>→</kbd> <kbd>空白鍵</kbd> 下一頁、<kbd>←</kbd> 上一頁、<kbd>Home</kbd>/<kbd>End</kbd> 首尾頁<br><kbd>F</kbd> 全螢幕、<kbd>O</kbd> 總覽（點縮圖跳頁）、<kbd>?</kbd> 這個說明<br>手機：左右滑動翻頁；點提示語右上「複製」可直接貼到 AI。<br>網址後面加 <kbd>#8</kbd> 可以直接開第 8 頁。<br><br><button type="button" onclick="document.getElementById('help').classList.remove('on')" style="font:inherit;padding:6px 16px;border-radius:999px;border:0;background:var(--teal);color:#fff;font-weight:700;cursor:pointer">關閉</button></div></div>
+
+<script>
+(function(){
+var slides=[].slice.call(document.querySelectorAll('.slide')),n=slides.length,i=0;
+var hud=document.querySelector('#hud i'),num=document.getElementById('num');
+function fit(){var s=Math.min(window.innerWidth/1300,window.innerHeight/760);document.documentElement.style.setProperty('--s',s)}
+function show(k){i=Math.max(0,Math.min(n-1,k));slides.forEach(function(s,j){s.classList.toggle('on',j===i)});hud.style.width=((i+1)/n*100)+'%';num.textContent=(i+1)+' / '+n;if(location.hash!=='#'+(i+1))history.replaceState(null,'','#'+(i+1))}
+function fromHash(){var h=parseInt(location.hash.replace('#',''),10);show(isNaN(h)?0:h-1)}
+function list(on){var b=document.body;var want=on==null?!b.classList.contains('list'):on;b.classList.toggle('list',want);if(want){slides.forEach(function(s){s.classList.add('on')})}else{show(i)}}
+window.addEventListener('resize',fit);fit();fromHash();
+window.addEventListener('hashchange',fromHash);
+document.addEventListener('keydown',function(e){
+  if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;
+  if(document.body.classList.contains('list')&&(e.key==='Escape'||e.key==='o'||e.key==='O')){list(false);return}
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();show(i+1)}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(i-1)}
+  else if(e.key==='Home')show(0);else if(e.key==='End')show(n-1);
+  else if(e.key==='f'||e.key==='F')fs();
+  else if(e.key==='o'||e.key==='O')list();
+  else if(e.key==='?')document.getElementById('help').classList.toggle('on');
+  else if(e.key==='Escape')document.getElementById('help').classList.remove('on');
+});
+function fs(){var d=document;if(!d.fullscreenElement){(d.documentElement.requestFullscreen||d.documentElement.webkitRequestFullscreen).call(d.documentElement)}else{(d.exitFullscreen||d.webkitExitFullscreen).call(d)}}
+document.getElementById('ctl').addEventListener('click',function(e){var a=e.target.dataset.a;if(!a)return;if(a==='prev')show(i-1);else if(a==='next')show(i+1);else if(a==='fs')fs();else if(a==='list')list();else if(a==='help')document.getElementById('help').classList.toggle('on')});
+// click slide halves to navigate (not on links/buttons/text selection)
+document.getElementById('stage').addEventListener('click',function(e){
+  if(document.body.classList.contains('list')){var s=e.target.closest('.slide');if(s){list(false);show(slides.indexOf(s))}return}
+  if(e.target.closest('a,button,.prompt,table,kbd'))return;
+  var r=e.currentTarget.getBoundingClientRect();(e.clientX-r.left)/r.width>0.6?show(i+1):(e.clientX-r.left)/r.width<0.4?show(i-1):0;
+});
+// touch swipe
+var tx=null,ty=null;document.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+document.addEventListener('touchend',function(e){if(tx==null)return;var dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)show(dx<0?i+1:i-1);tx=ty=null});
+// copy prompts
+var toast=document.getElementById('toast');
+function tst(t){toast.textContent=t||'已複製';toast.classList.add('show');setTimeout(function(){toast.classList.remove('show')},1400)}
+document.querySelectorAll('.prompt .cp').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var box=b.parentNode.cloneNode(true);box.querySelector('.cp').remove();var txt=box.textContent.trim();
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(function(){tst()},function(){fb(txt)})}else fb(txt);
+  function fb(t){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');tst()}catch(x){tst('請手動複製')}document.body.removeChild(ta)}})});
+})();
+</script>
+<script src="https://mattsue1003.github.io/oth-report-button/report.js" data-site="桃園醫院糖尿病中心 第3堂簡報" data-position="bottom-left" defer></script>
+</body>
+</html>
