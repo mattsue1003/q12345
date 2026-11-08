@@ -804,6 +804,31 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
   <div class="foot"><span>第 3 堂｜AI 做報名表與上傳</span><span class="pg"></span></div>
 </section>
 
+<!-- 報名表 GitHub + Apps Script -->
+<section class="slide" id="s-form-gh">
+  <span class="kicker">第四段｜AI 做報名表與上傳：進階做法</span>
+  <h2 style="font-size:32px">表單放在 <b>GitHub</b>、資料進 <b>Apps Script</b>：報名表和你的首頁同一個網址、同一套風格</h2>
+  <div class="cols" style="grid-template-columns:1fr 1.15fr">
+    <div>
+      <ol class="steps" style="font-size:14.5px">
+        <li><b>後端</b>：sheets.new → 擴充功能 → Apps Script，只貼 Code.gs（doPost：收 JSON、寫入「報名資料」、把 base64 檔案存到雲端硬碟資料夾）。部署成網頁應用程式：執行身分「我」、存取「所有人」→ 拿到 /exec 網址。</li>
+        <li><b>前端</b>：請 AI 做單一檔案 form.html，風格和你的 index.html 一致；把 /exec 網址填進去，用 fetch 送 JSON（Content-Type 用 text/plain 才不會被擋），檔案用 FileReader 轉 base64，限 5 MB。</li>
+        <li><b>上架</b>：form.html 拖進同一個 GitHub 倉庫；請 AI 把「線上報名」按鈕加進 index.html。網址變成 你的username.github.io/form.html，可印 QR。</li>
+        <li><b>測試與更新</b>：假資料填一次 → 試算表有資料、雲端硬碟有檔。改 Code.gs 要「管理部署作業 → 建立新版本」；改 form.html 只要重新上傳覆蓋。</li>
+      </ol>
+      <div class="note r" style="font-size:14px;margin-top:8px"><b>比路線 A 多的風險</b>：/exec 網址寫在公開的 form.html 裡，拿到的人都能送資料。對策：Code.gs 檢查一個「報名代碼」欄位（海報上才有）、限制檔案類型與大小、每筆記 IP 與時間、活動結束就封存部署。GitHub Pages 是公開的，form.html 裡不能放任何個資。<b>選哪條</b>：已有 GitHub 網站、要印 QR、要像自己的網頁 → 這條；只要一個網址、15 分鐘上線 → 前一頁的路線 A。兩條的 Code.gs 幾乎一樣。</div>
+    </div>
+    <div>
+      <div class="prompt" style="font-size:12.5px;line-height:1.45"><button class="cp" type="button">複製</button>我有一個放在 GitHub Pages 的個人網站（index.html）。請幫我做一份「糖尿病衛教課程報名表」，分成兩個檔案：
+A. Code.gs（Google Apps Script 網頁應用程式）：只處理 doPost，收 JSON；欄位：姓名（必填）、聯絡電話（10 碼）、Email、場次（11/21 上午、11/28 上午）、陪同家屬人數、報名代碼（必須等於 TYH2026 才接受）、附件（base64 字串＋檔名，只收 jpg/png/pdf，5 MB 以內）。資料寫進目前試算表「報名資料」工作表（第一欄送出時間、最後一欄檔案連結），附件存到雲端硬碟資料夾「衛教報名_上傳檔案」。回傳 JSON {ok:true} 或錯誤訊息。
+B. form.html（單一檔案，放 GitHub）：手機好填、字大、配色和我貼的 index.html 一致（稍後貼上）；用 fetch 以 text/plain 送 JSON 到 APPS_SCRIPT_URL；送出時顯示「上傳中…」，成功「報名成功」，失敗顯示原因；頁尾放個資告知。
+請給我兩個檔案的完整程式碼，並一步一步教我：部署 Apps Script 拿到 /exec 網址、填進 form.html、上傳 GitHub、把按鈕加進 index.html。</div>
+      
+    </div>
+  </div>
+  <div class="foot"><span>第 3 堂｜AI 做報名表與上傳</span><span class="pg"></span></div>
+</section>
+
 <!-- 報名表 5 個資與替代 -->
 <section class="slide">
   <span class="kicker">第四段｜AI 做報名表與上傳</span>
@@ -1227,9 +1252,9 @@ copilot
 </div>
 <div id="hud"><i></i></div>
 <div id="num"></div>
-<div id="ctl"><button type="button" data-a="prev">‹</button><button type="button" data-a="next">›</button><button type="button" data-a="list">總覽</button><button type="button" data-a="fs">全螢幕</button><button type="button" data-a="help">?</button></div>
+<div id="ctl"><button type="button" data-a="prev">‹</button><button type="button" data-a="next">›</button><button type="button" data-a="list">總覽</button><button type="button" data-a="fs">全螢幕</button><button type="button" data-a="theme" id="themeBtn" title="切換深色／白底">白底</button><button type="button" data-a="help">?</button></div>
 <div class="toast" id="toast">已複製</div>
-<div class="help" id="help"><div><b>操作</b><br><kbd>→</kbd> <kbd>空白鍵</kbd> 下一頁、<kbd>←</kbd> 上一頁、<kbd>Home</kbd>/<kbd>End</kbd> 首尾頁<br><kbd>F</kbd> 全螢幕、<kbd>O</kbd> 總覽（點縮圖跳頁）、<kbd>?</kbd> 這個說明<br>手機（直式）：自動改成上下捲動的講義模式，一頁接一頁；橫放手機或平板就回到投影模式，左右滑動翻頁。<br>點提示語右上「複製」可直接貼到 AI。<br>網址後面加 <kbd>#8</kbd> 可以直接開第 8 頁；講義裡的連結會直接跳到對應頁。<br><br><button type="button" onclick="document.getElementById('help').classList.remove('on')" style="font:inherit;padding:6px 16px;border-radius:999px;border:0;background:var(--teal);color:#fff;font-weight:700;cursor:pointer">關閉</button></div></div>
+<div class="help" id="help"><div><b>操作</b><br><kbd>→</kbd> <kbd>空白鍵</kbd> 下一頁、<kbd>←</kbd> 上一頁、<kbd>Home</kbd>/<kbd>End</kbd> 首尾頁<br><kbd>F</kbd> 全螢幕、<kbd>O</kbd> 總覽（點縮圖跳頁）、<kbd>L</kbd> 或右下「白底」切換深色／白底（投影用深色、列印或手機閱讀用白底）、<kbd>?</kbd> 這個說明<br>手機（直式）：自動改成上下捲動的講義模式，一頁接一頁；橫放手機或平板就回到投影模式，左右滑動翻頁。<br>點提示語右上「複製」可直接貼到 AI。<br>網址後面加 <kbd>#8</kbd> 可以直接開第 8 頁；講義裡的連結會直接跳到對應頁。<br><br><button type="button" onclick="document.getElementById('help').classList.remove('on')" style="font:inherit;padding:6px 16px;border-radius:999px;border:0;background:var(--teal);color:#fff;font-weight:700;cursor:pointer">關閉</button></div></div>
 
 <script>
 (function(){
@@ -1253,13 +1278,16 @@ document.addEventListener('keydown',function(e){
   if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();show(i+1)}
   else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(i-1)}
   else if(e.key==='Home')show(0);else if(e.key==='End')show(n-1);
-  else if(e.key==='f'||e.key==='F')fs();
+  else if(e.key==='f'||e.key==='F')fs();else if(e.key==='l'||e.key==='L')toggleTheme();
   else if(e.key==='o'||e.key==='O')list();
   else if(e.key==='?')document.getElementById('help').classList.toggle('on');
   else if(e.key==='Escape')document.getElementById('help').classList.remove('on');
 });
 function fs(){var d=document;if(!d.fullscreenElement){(d.documentElement.requestFullscreen||d.documentElement.webkitRequestFullscreen).call(d.documentElement)}else{(d.exitFullscreen||d.webkitExitFullscreen).call(d)}}
-document.getElementById('ctl').addEventListener('click',function(e){var a=e.target.dataset.a;if(!a)return;if(a==='prev')show(i-1);else if(a==='next')show(i+1);else if(a==='fs')fs();else if(a==='list')list();else if(a==='help')document.getElementById('help').classList.toggle('on')});
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t);var b=document.getElementById('themeBtn');if(b)b.textContent=t==='light'?'深色':'白底';try{localStorage.setItem('l3theme',t)}catch(e){}}
+function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-theme')==='light'?'dark':'light')}
+try{var _t=localStorage.getItem('l3theme');if(_t)applyTheme(_t)}catch(e){}
+document.getElementById('ctl').addEventListener('click',function(e){var a=e.target.dataset.a;if(!a)return;if(a==='theme'){toggleTheme();return}if(a==='prev')show(i-1);else if(a==='next')show(i+1);else if(a==='fs')fs();else if(a==='list')list();else if(a==='help')document.getElementById('help').classList.toggle('on')});
 // click slide halves to navigate (not on links/buttons/text selection)
 document.getElementById('stage').addEventListener('click',function(e){
   if(isDoc())return;
@@ -1340,6 +1368,31 @@ body.list{background:#0A0A09}
   .foot{border-top:1px solid var(--line)}
 }
 #s-design .steps li{margin:4px 0;font-size:14.5px}#s-design .prompt{font-size:13px!important;line-height:1.45}#s-design .note{font-size:13.5px!important;padding:8px 12px}
+
+/* ===== 白底模式 ===== */
+html[data-theme="light"]{--bg:#F7F6F2;--panel:#FFFFFF;--panel2:#EEEDE7;--ink:#1B1B19;--muted:#5E5A50;--line:#DAD6CB;--mint:#0A8F72;--sand:#9A6B1E;--teal:#0A8F72;--teal-50:rgba(10,143,114,.10);--orange:#D95F2B;--orange-50:rgba(217,95,43,.12);--amber:#B08A3E;--amber-50:rgba(176,138,62,.14);--card:#FFFFFF}
+html[data-theme="light"],html[data-theme="light"] body,html[data-theme="light"] body.list{background:#DAD7CE}
+html[data-theme="light"] .slide{background-color:var(--bg);background-image:linear-gradient(rgba(0,0,0,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.05) 1px,transparent 1px);color:var(--ink);border-color:#E6E3DA;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+html[data-theme="light"] .slide h1,html[data-theme="light"] .slide h2,html[data-theme="light"] .slide h3,html[data-theme="light"] .card h3,html[data-theme="light"] .cover h1{color:#15150F}
+html[data-theme="light"] .cover{background:radial-gradient(900px 420px at 12% 8%,rgba(10,143,114,.14),transparent 62%),radial-gradient(700px 420px at 92% 95%,rgba(176,138,62,.16),transparent 62%),linear-gradient(rgba(0,0,0,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.05) 1px,transparent 1px),#F7F6F2;background-size:auto,auto,48px 48px,48px 48px,auto}
+html[data-theme="light"] .cover p,html[data-theme="light"] .cover [style*="color:#d6e9e8"]{color:var(--muted)!important}
+html[data-theme="light"] .cover [style*="color:#fff"]{color:var(--ink)!important}
+html[data-theme="light"] .cover .card[style*="rgba(255,255,255,.1)"]{background:#fff!important;border-color:var(--line)!important}
+html[data-theme="light"] .cover b[style*="color:#fff"]{color:#15150F!important}
+html[data-theme="light"] th{background:var(--panel2);color:#7A5A1E}
+html[data-theme="light"] code,html[data-theme="light"] kbd{background:#EEEDE7;border-color:#CFCBC0;color:var(--ink)}
+html[data-theme="light"] .mini div.c{color:#fff}
+html[data-theme="light"] .badge{color:#fff}
+html[data-theme="light"] .prompt .cp,html[data-theme="light"] .term .cp,html[data-theme="light"] .toast{background:var(--teal);color:#fff}
+html[data-theme="light"] #hud{background:rgba(0,0,0,.08)}
+html[data-theme="light"] #ctl button{background:#fff;border-color:#CFCBC0;color:var(--ink)}html[data-theme="light"] #ctl button:hover{background:#EEEDE7}
+html[data-theme="light"] #num{color:#3C3A33}
+html[data-theme="light"] .help div{background:#fff;color:var(--ink);border-color:var(--line)}
+html[data-theme="light"] .help div button{background:var(--teal)!important;color:#fff!important}
+html[data-theme="light"] .qr small{color:#444}
+@media (max-width:760px),(orientation:portrait) and (max-width:1024px){html[data-theme="light"] #num{background:#fff;border-color:#CFCBC0;color:var(--ink)}}
+#s-form-gh .steps li{margin:4px 0;font-size:14px}#s-form-gh .note{margin-top:8px;font-size:13.5px!important;padding:8px 12px}
+@media (max-width:760px),(orientation:portrait) and (max-width:1024px){#num{left:auto;right:136px}}
 </style>
 <div class="lb" id="lb" role="dialog" aria-label="放大圖片"><button class="x" type="button" aria-label="關閉">×</button><img alt=""><figcaption></figcaption><div class="hint">點任一處或按 Esc 關閉</div></div>
 <script>
