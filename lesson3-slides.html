@@ -8,7 +8,7 @@
 <meta property="og:title" content="第3堂簡報：做出可以上架的東西">
 <meta property="og:description" content="GitHub 個人網頁、網頁型簡報、目標九宮格程式、參考風格做圖片／影片／音樂">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;600&display=swap">
 <style>
 :root{--orange:#E8552D;--amber:#F4A93C;--teal:#028090;--ink:#12343B;--teal-50:#E6F4F5;--orange-50:#FDEEE9;--amber-50:#FEF6E8;--bg:#F7F9F9;--card:#fff;--line:#DCE6E7;--muted:#4F6B70;--ok:#1E8E5A;--warn:#C0392B;
 --font:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
@@ -140,7 +140,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
 <!-- 1 封面 -->
 <section class="slide cover">
   <span class="kicker">衛福部桃園醫院 糖尿病中心｜AI 賦能工作坊 第 3 堂（11/09 10:00–12:00）</span>
-  <h1>第一條線：做出「可以上架」的東西，<br>GitHub 個人網頁、網頁型簡報、目標九宮格，參考風格做素材；<br>第二條線：把 AI 接進每天的 Excel、Word、PPT 與數據報表</h1>
+  <h1>第一條線：做出<span class="hl">「可以上架」</span>的東西，<br>GitHub 個人網頁、網頁型簡報、目標九宮格，參考風格做素材；<br>第二條線：把 AI 接進每天的 <span class="hl">Excel、Word、PPT</span> 與數據報表</h1>
   <p style="font-size:24px;margin-top:10px">第一條線的每一個成品都會變成<b style="color:#fff">一個網址</b>：手機掃得到、LINE 傳得出去、衛教室貼得上牆。第二條線是第 2 堂移過來的「Office × AI 與品質指標報表」，休息後講濃縮版，細節都在講義。</p>
   <div style="display:flex;gap:26px;align-items:flex-end;position:absolute;left:64px;right:64px;bottom:50px">
     <div class="qr"><img src="img/l3-qr-slides.png" alt="這份簡報的 QR code"><small>mattsue1003.github.io/q12345/lesson3-slides.html</small></div>
@@ -948,6 +948,36 @@ copilot
   <div class="foot"><span>第 3 堂｜參考風格做素材</span><span>做好的 slides.html 一樣拖進倉庫上傳</span></div>
 </section>
 
+<!-- 好風格怎麼來 -->
+<section class="slide" id="s-design">
+  <span class="kicker o">第六段｜簡報風格：拆解一個有設計感的網站</span>
+  <h2 style="font-size:33px">好風格從哪來：拆一個你喜歡的網站，<b>六條規則</b>換成衛教內容（這份簡報就是這樣改的）</h2>
+  <div class="cols" style="grid-template-columns:1fr 1.1fr">
+    <ol class="steps" style="font-size:16px">
+      <li><b>配色只有三個角色</b>：底色、文字、一個主強調色（薄荷綠 #00F0B0 用在小標、編號、進度條）；再加一個暖色點綴（沙色 #D8C7A4）。<b>給色碼，不給形容詞</b>。</li>
+      <li><b>大標題一句話</b>，其中 3～5 個字換成暖色：眼睛先看到重點（看這頁標題的「六條規則」）。</li>
+      <li><b>小標用等寬字體＋「// 」</b>，像程式註解：一眼知道這是章節標籤，不和內文搶。</li>
+      <li><b>卡片</b>：深底、1px 細邊、10px 圓角、左上小編號：資訊有格子可放，版面自然整齊。</li>
+      <li><b>留白</b>：一頁一個重點、三張卡片為上限；字大、行距寬，不塞滿。</li>
+      <li><b>背景一層極淡格線或一抹漸層光暈</b>：有層次，但不搶內容。深色投影好看；印講義或長者手機閱讀，請 AI 加「切換黑／白底」。</li>
+    </ol>
+    <div>
+      <div class="prompt" style="font-size:14px"><button class="cp" type="button">複製</button>請幫我做一個單一檔案的 HTML 網頁型簡報 slides.html，主題「糖尿病足部照護」，給 60 歲以上病人與家屬，共 8 頁。
+風格規則（請嚴格遵守）：
+1. 深色底 #141413、極淡格線背景；文字米白 #EDEDE6；主強調色薄荷綠 #00F0B0 只用在小標、編號、進度條；暖色沙色 #D8C7A4 只用在每頁標題裡要強調的 3～5 個字。
+2. 每頁一個大標題（48px 以上、粗體、左對齊），標題上方一行等寬字體的章節標籤，像「// 01 為什麼要每天看腳」。
+3. 內容放在深灰卡片 #1C1C1A 裡：1px 邊框 #2F2F2C、圓角 10px，卡片左上角等寬字小編號 01、02。
+4. 一頁最多三張卡片、三個重點，留白要多。
+5. 內文字至少 28px、高對比；按鈕膠囊形（圓角 999px）。
+6. 右上角「切換黑／白底」按鈕；鍵盤左右翻頁、手機可滑動、右下角頁碼、全螢幕鍵。
+7. 最後一頁標示「本簡報使用 AI 協助製作，內容請以醫療人員說明為準」。
+不使用任何真人照片、商標或他人的文字。請先給我 8 頁大綱與每頁要強調的字，我確認後再寫程式。</div>
+      <div class="note g" style="font-size:14.5px;margin-top:10px"><b>學風格不抄作品</b>：參考的是上面這種「規則」，不是對方的文字、圖片、商標。把規則寫成提示語存起來，之後每一份衛教簡報、圖卡都套同一套，科內素材就會長得像一家人。</div>
+    </div>
+  </div>
+  <div class="foot"><span>第 3 堂｜參考風格做素材</span><span class="pg"></span></div>
+</section>
+
 <!-- 17 影片 -->
 <section class="slide" id="s-video">
   <span class="kicker o">第六段｜影片</span>
@@ -1181,7 +1211,7 @@ copilot
 <!-- 21 結尾 -->
 <section class="slide cover">
   <span class="kicker">謝謝大家</span>
-  <h1>今天帶走的不是檔案，是一個首頁網址，連到你所有作品</h1>
+  <h1>今天帶走的不是檔案，是<span class="hl">一個首頁網址</span>，連到你所有作品</h1>
   <div class="cols3" style="margin-top:10px">
     <div class="card" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff"><h3 style="color:#fff">① 首頁 index.html</h3><p style="color:#d6e9e8">你的username.github.io（自我介紹＋作品連結）</p></div>
     <div class="card" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff"><h3 style="color:#fff">② 網頁型簡報</h3><p style="color:#d6e9e8">…/slides.html</p></div>
@@ -1257,6 +1287,59 @@ document.querySelectorAll('.prompt .cp, .term .cp').forEach(function(b){b.addEve
 .lb .x{position:absolute;top:14px;right:16px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.15);color:#fff;font-size:26px;cursor:pointer}
 .lb .hint{position:absolute;bottom:12px;left:0;right:0;text-align:center;color:#9fc2c5;font-size:13px}
 .slide img{cursor:zoom-in}.slide .qr img{cursor:default}
+
+/* ===== 主題：深色工作室風（參考設計工作室網站的風格規則：深底、極淡格線、薄荷綠小標、沙色標題強調、細邊深色卡片） ===== */
+:root{--bg:#141413;--panel:#1C1C1A;--panel2:#232321;--ink:#EDEDE6;--muted:#A8A092;--line:#2F2F2C;--mint:#00F0B0;--sand:#D8C7A4;--teal:#00F0B0;--teal-50:rgba(0,240,176,.10);--orange:#FF9A6E;--orange-50:rgba(255,154,110,.13);--amber:#D8C7A4;--amber-50:rgba(216,199,164,.12);--card:#1C1C1A;--ok:#00F0B0;--warn:#FF7A6B;--mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+html,body{background:#0A0A09}
+.slide{background-color:var(--bg);background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;color:var(--ink);border:1px solid #262624;box-shadow:0 30px 80px rgba(0,0,0,.65)}
+.slide h1,.slide h2,.slide h3{color:#F3F2EC;letter-spacing:-.3px}
+.slide h2 b,.hl{color:var(--sand);font-weight:900}
+.tl{color:var(--mint)}
+.kicker,.kicker.o,.kicker.a{background:transparent;border:0;padding:0;font-family:var(--mono);font-size:14px;font-weight:600;letter-spacing:.14em;color:var(--mint);margin-bottom:10px}
+.kicker::before{content:"// "}
+.kicker.o{color:var(--sand)}.kicker.a{color:var(--orange)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--ink)}
+.card.t{border-top:3px solid var(--mint)}.card.o{border-top:3px solid var(--sand)}.card.a{border-top:3px solid var(--orange)}
+.card h3{color:#F3F2EC}
+.prompt{background:#0D0F0E;border:1px solid rgba(0,240,176,.4);color:#E6F2EC;border-radius:10px}
+.prompt .cp,.term .cp{background:var(--mint);color:#0B0B0A}
+.term{background:#0D0F0E;border:1px solid var(--line);color:#D7E9E0;font-family:var(--mono)}
+.term b{color:var(--sand)}
+[style*="background:#13343a"]{background:#0D0F0E!important;border:1px solid rgba(0,240,176,.4)}
+code,kbd{background:#232321;border-color:#3A3A36;color:var(--ink)}
+kbd[style]{color:var(--ink)!important}
+table{background:var(--panel);border-radius:10px;border:1px solid var(--line);color:var(--ink)}
+th,td{border-color:var(--line)}
+th{background:#232321;color:var(--sand);font-family:var(--mono);font-size:.82em;font-weight:600;letter-spacing:.06em}
+.steps li::before{background:transparent;border:1.5px solid var(--mint);color:var(--mint);font-family:var(--mono);font-size:15px}
+.note{background:var(--amber-50);border-left:3px solid var(--sand);color:var(--ink)}
+.note.r{background:var(--orange-50);border-color:var(--orange)}
+.note.g{background:var(--teal-50);border-color:var(--mint)}
+.shots figure{background:var(--panel);border:1px solid var(--line)}
+figure[style*="background:#fff"]{background:var(--panel)!important;border-color:var(--line)!important}
+.shots figcaption,figure figcaption{color:var(--ink)}
+.qr{background:#fff}.qr small{color:#444}
+.cover{background:radial-gradient(900px 420px at 12% 8%,rgba(0,240,176,.16),transparent 62%),radial-gradient(700px 420px at 92% 95%,rgba(216,199,164,.16),transparent 62%),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),#0F0F0E;background-size:auto,auto,48px 48px,48px 48px,auto}
+.cover h1{color:#F3F2EC}.cover p{color:#B9B3A6}
+.cover .kicker{background:transparent;color:var(--mint)}
+.mini div{background:var(--panel);border-color:var(--line);color:var(--ink)}
+.mini div.c{background:var(--sand);color:#121212;border-color:var(--sand)}
+.agenda td:first-child{color:var(--mint);font-family:var(--mono);font-weight:600}
+.chip{background:var(--panel);border:1px solid var(--line);color:var(--ink)}
+.badge{background:var(--mint);color:#0B0B0A;font-family:var(--mono);font-weight:600}
+.foot{color:var(--muted);font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;border-top:1px solid var(--line);padding-top:8px}
+#hud{background:rgba(255,255,255,.08)}#hud i{background:var(--mint)}
+#ctl button{background:#1C1C1A;border:1px solid var(--line);color:var(--ink)}#ctl button:hover{background:#2A2A27}
+#num{color:var(--muted);font-family:var(--mono)}
+.toast{background:var(--mint);color:#0B0B0A;font-weight:700}
+.help div{background:#1C1C1A;color:var(--ink);border:1px solid var(--line)}
+.help div button{background:var(--mint)!important;color:#0B0B0A!important}
+body.list{background:#0A0A09}
+@media (max-width:760px),(orientation:portrait) and (max-width:1024px){
+  #num{background:#1C1C1A;border:1px solid var(--line);color:var(--ink)}
+  .foot{border-top:1px solid var(--line)}
+}
+#s-design .steps li{margin:4px 0;font-size:14.5px}#s-design .prompt{font-size:13px!important;line-height:1.45}#s-design .note{font-size:13.5px!important;padding:8px 12px}
 </style>
 <div class="lb" id="lb" role="dialog" aria-label="放大圖片"><button class="x" type="button" aria-label="關閉">×</button><img alt=""><figcaption></figcaption><div class="hint">點任一處或按 Esc 關閉</div></div>
 <script>
