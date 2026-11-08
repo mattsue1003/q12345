@@ -63,7 +63,7 @@ th{background:var(--teal-50);font-weight:700}
 .mini div{background:#fff;border:1.5px solid var(--line);border-radius:6px;height:56px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;text-align:center;padding:2px;line-height:1.2}
 .mini div.c{background:var(--orange);color:#fff;border-color:var(--orange)}
 .mini.sm{width:220px}.mini.sm div{height:40px;font-size:12px}
-.agenda td:first-child{width:130px;font-weight:900;color:var(--teal);white-space:nowrap}
+.agenda td{padding:7px 10px}.agenda td:first-child{width:92px;font-weight:900;color:var(--teal);white-space:nowrap}
 .chip{display:inline-block;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:4px 12px;font-size:17px;margin:3px 4px 3px 0}
 .badge{position:absolute;right:64px;top:48px;background:var(--teal);color:#fff;border-radius:999px;padding:6px 16px;font-weight:700;font-size:16px}
 #hud{position:fixed;left:0;right:0;bottom:0;height:6px;background:rgba(255,255,255,.12)}
@@ -101,16 +101,16 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
 <!-- 2 地圖 -->
 <section class="slide">
   <span class="kicker">今天的地圖</span>
-  <h2>兩小時，一個破冰、四件事，帶走三個網址</h2>
+  <h2 style="font-size:34px;margin-bottom:12px">兩小時，一個破冰、五件事，帶走三個網址加一張報名表</h2>
   <div class="cols">
-    <table class="agenda">
+    <table class="agenda" style="font-size:16.5px">
       <tr><td>10:00</td><td><b>破冰</b>：長者遊戲簡報生成器，玩 3 題「找缺少」，順便看一個上架好的網頁長什麼樣。</td></tr>
       <tr><td>10:08</td><td><b>回顧 + 上線</b>：第 2 堂的 GitHub 流程再走一次，今天所有成品都靠它上架。</td></tr>
       <tr><td>10:25</td><td><b>網頁型簡報</b>：一個 HTML 檔就是一份簡報，請 AI 做一份衛教簡報並上傳。</td></tr>
-      <tr><td>10:55</td><td>休息 10 分鐘</td></tr>
-      <tr><td>11:05</td><td><b>目標九宮格程式</b>：從大谷翔平的 81 格，做出病人可以填、可以印的網頁。</td></tr>
-      <tr><td>11:35</td><td><b>參考風格做素材</b>：圖片、影片、簡報、音樂，用「參考風格」而不是「抄作品」。</td></tr>
-      <tr><td>11:55</td><td>課後任務與下堂預告（11/23 知識庫助手）</td></tr>
+            <tr><td>11:05</td><td>（10:55 休息 10 分鐘）<b>目標九宮格程式</b>：從大谷翔平的 81 格，做出病人可以填、可以印的網頁。</td></tr>
+      <tr><td>11:35</td><td><b>AI 做報名表與上傳</b>：請 AI 寫 Apps Script，報名資料進試算表、證書自動進雲端硬碟，填答者免登入。</td></tr>
+      <tr><td>11:50</td><td><b>參考風格做素材</b>：圖片、影片、簡報、音樂，用「參考風格」而不是「抄作品」（示範為主，細節看講義）。</td></tr>
+      <tr><td>12:00</td><td>課後任務與下堂預告（11/23 知識庫助手）</td></tr>
     </table>
     <div>
       <div class="card t"><h3>帶走的三個網址（首頁連到全部）</h3>
@@ -451,9 +451,107 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
   <div class="foot"><span>第 3 堂｜目標九宮格程式</span><span class="pg"></span></div>
 </section>
 
+<!-- 報名表 1 路線 -->
+<section class="slide">
+  <span class="kicker">第四段｜AI 做報名表與上傳</span>
+  <h2 style="font-size:34px">用 Gemini、ChatGPT 做一份「能上傳檔案」的報名表：先選路線</h2>
+  <p style="margin-top:-6px">衛教課程報名、病友團體報名、同仁積分課程收結業證書，都用得到。<b>「要不要上傳檔案」和「填答者有沒有 Google 帳號」</b>決定用哪一條。</p>
+  <div class="cols3">
+    <div class="card t"><h3>路線 A｜AI 寫程式＋Apps Script</h3><p>填答者<b>免登入</b>、免費、資料在自己的試算表與雲端硬碟。要照步驟部署一次（約 15 分鐘）。</p><p style="color:var(--muted)">對外報名、家屬填寫、想自訂欄位與檢查。<b>今天走這條。</b></p></div>
+    <div class="card o"><h3>路線 B｜Google 表單</h3><p>最省事，表單右上角的 Gemini 一句話生出整份表。但<b>上傳題要求填答者登入 Google</b>。</p><p style="color:var(--muted)">院內同仁、學員都有 Gmail，5 分鐘內要做好。</p></div>
+    <div class="card a"><h3>路線 C｜其他表單平台</h3><p>Tally 免費可收檔、免登入、英文介面；Jotform 有繁中但免費額度小（5 份表單、每月 100 筆）。資料放在平台伺服器。</p><p style="color:var(--muted)">不想碰程式又不能要求登入。</p></div>
+  </div>
+  <div class="note g" style="margin-top:14px">完整步驟、每一張實測截圖與可直接用的程式碼都在：<b>mattsue1003.github.io/ai-form-upload</b>（講義頁也有連結）。接下來四頁是濃縮版。</div>
+  <div class="foot"><span>第 3 堂｜AI 做報名表與上傳</span><span class="pg"></span></div>
+</section>
+
+<!-- 報名表 2 提示詞 -->
+<section class="slide">
+  <span class="kicker">第四段｜AI 做報名表與上傳</span>
+  <h2 style="font-size:32px;margin-bottom:12px">步驟 1：把欄位、存哪裡、畫面要求、要哪兩個檔案講清楚</h2>
+  <div class="cols" style="grid-template-columns:1.35fr 1fr">
+    <div class="prompt" style="font-size:14px;line-height:1.38"><button class="cp" type="button">複製</button>請幫我用 Google Apps Script 做一個「糖尿病衛教課程報名表」網頁。
+欄位：姓名（必填）、聯絡電話（必填，10 碼數字）、Email、報名場次：11/21（五）上午、11/28（五）上午（必填）、陪同家屬人數（0～3）、上傳檢驗報告或轉介單照片：照片或 PDF，一個檔案，最大 5 MB（選填）、我已閱讀並同意個資蒐集告知（勾選，必填）。
+需求：
+1. 送出後，資料寫進這份 Google 試算表的「報名資料」工作表；第一欄是送出時間，最後一欄是檔案連結。
+2. 上傳的檔案存到我的雲端硬碟資料夾「衛教報名_上傳檔案」（沒有就自動建立），檔名前面加上姓名和日期。
+3. 手機好填、字要大；送出時按鈕顯示「上傳中…」，成功後顯示「報名成功」。
+4. 請給我 Code.gs 和 index.html 兩個檔案的完整程式碼，並一步一步告訴我怎麼部署成「網頁應用程式」。</div>
+    <div>
+      <div class="card t"><h3>寫好提示詞的四件事</h3><ol class="steps" style="margin-top:4px"><li style="font-size:18px">欄位與哪些必填</li><li style="font-size:18px">資料寫到哪個工作表</li><li style="font-size:18px">檔案存哪個資料夾、怎麼命名</li><li style="font-size:18px">畫面大字好按；最後一定寫「給我完整程式碼，並一步一步教我部署」</li></ol></div>
+      <div class="shots" style="grid-template-columns:1fr 1fr;margin-top:10px">
+        <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/g01_prompt.jpg" alt="Gemini 輸入提示詞"><figcaption>Gemini：模型選 Pro，約 30 秒給兩個檔案</figcaption></figure>
+        <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/c02_answer.jpg" alt="ChatGPT 的回答"><figcaption>ChatGPT：想較久、程式較長、多防呆</figcaption></figure>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>第 3 堂｜AI 做報名表與上傳</span><span class="pg"></span></div>
+</section>
+
+<!-- 報名表 3 部署 -->
+<section class="slide">
+  <span class="kicker">第四段｜AI 做報名表與上傳</span>
+  <h2 style="font-size:34px">步驟 2～3：貼進試算表的 Apps Script，部署成「網頁應用程式」</h2>
+  <div class="shots" style="grid-template-columns:repeat(4,1fr)">
+    <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/a01_ext_menu.jpg" alt="擴充功能選單中的 Apps Script"><figcaption><b>①</b> 網址列打 <b>sheets.new</b> 開新試算表 → 「擴充功能」→「Apps Script」</figcaption></figure>
+    <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/a04_index_html.jpg" alt="index.html 貼上後"><figcaption><b>②</b> 刪掉原本內容貼上 Code.gs；按「＋」→ HTML，名稱打 <b>index</b>，貼上 index.html，存檔</figcaption></figure>
+    <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/a07_access_all.jpg" alt="執行身分與存取設定"><figcaption><b>③</b> 「部署」→「新增部署作業」→ 齒輪選「網頁應用程式」→ 執行身分「<b>我</b>」、誰可以存取「<b>所有人</b>」</figcaption></figure>
+    <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/a13_deployed.jpg" alt="部署成功與網址"><figcaption><b>④</b> 第一次會跳「未驗證」警告：Advanced → Go to…(unsafe) → 全選 → Continue。成功後拿到結尾 <b>/exec</b> 的網址</figcaption></figure>
+  </div>
+  <div class="cols" style="margin-top:12px">
+    <div class="note" style="margin-top:0"><b>「未驗證」是正常的：</b>這支程式是你自己寫的，Google 沒審查過；只有你（擁有者）授權時會看到，填答者不會。只授權自己寫的、看得懂用途的程式。</div>
+    <div class="note r" style="margin-top:0"><b>選「所有人」之後</b>拿到網址的人都能送資料進你的雲端硬碟：網址只發給報名對象，活動結束到「管理部署作業」封存。</div>
+  </div>
+  <div class="foot"><span>第 3 堂｜AI 做報名表與上傳</span><span class="pg"></span></div>
+</section>
+
+<!-- 報名表 4 測試與修正 -->
+<section class="slide">
+  <span class="kicker">第四段｜AI 做報名表與上傳</span>
+  <h2 style="font-size:34px">步驟 4～5：自己先填一次，出問題就把現象告訴 AI，用「建立新版本」更新</h2>
+  <div class="shots" style="grid-template-columns:repeat(4,1fr)">
+    <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/f05_success.jpg" alt="報名成功"><figcaption>用假資料（王小明、0912345678）填一次，看到「報名成功」</figcaption></figure>
+    <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/s01_sheet_bug.jpg" alt="試算表第一筆資料，手機少了 0"><figcaption>試算表多了「報名資料」，但手機變成 912345678，<b>開頭的 0 不見了</b></figcaption></figure>
+    <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/g05_fix_answer.jpg" alt="Gemini 的修正說明"><figcaption>把現象貼給 AI：加一個半形單引號，試算表就當成文字</figcaption></figure>
+    <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/a16_new_version.jpg" alt="建立新版本"><figcaption>「部署」→「管理部署作業」→ 鉛筆 → 版本選「<b>建立新版本</b>」，網址不變</figcaption></figure>
+  </div>
+  <div class="cols" style="margin-top:12px;grid-template-columns:1.2fr 1fr">
+    <div class="prompt" style="font-size:15px"><button class="cp" type="button">複製</button>測試成功了！但是試算表裡手機號碼前面的 0 不見了（0912345678 變成 912345678）。請幫我修正 Code.gs，給我修改後的完整程式碼，並告訴我修改後要怎麼重新部署，網址才不會變。</div>
+    <div class="card"><h3>上線前再問一句</h3><p>「這份程式上線前還有什麼風險？請幫我補強。」AI 會補上檔案大小與格式檢查、個資告知文字。只按存檔不會更新網頁，一定要「建立新版本」；誤按「新增部署作業」會變成新網址。</p></div>
+  </div>
+  <div class="foot"><span>第 3 堂｜AI 做報名表與上傳</span><span class="pg"></span></div>
+</section>
+
+<!-- 報名表 5 個資與替代 -->
+<section class="slide">
+  <span class="kicker">第四段｜AI 做報名表與上傳</span>
+  <h2 style="font-size:32px;margin-bottom:12px">報名表收的是個資：上線前檢查，以及不想寫程式的替代方案</h2>
+  <div class="cols" style="grid-template-columns:1.1fr 1fr">
+    <div class="card o"><h3>個資與上線前檢查</h3><ul style="font-size:16.5px">
+      <li>表單上寫清楚<b>個資告知</b>：主辦單位、目的、資料類別、保存期間、當事人權利（個資法第 8 條）。</li>
+      <li>病歷、檢驗報告屬<b>特種個資</b>（第 6 條）：報名表盡量不要收；真的要收，先確認院內規定。</li>
+      <li>上傳資料夾不要設「知道連結的任何人」；給同事看用 Email 個別共用。</li>
+      <li>自己先送一筆假資料；測 5 MB 以上與錯誤格式會不會被擋。</li>
+      <li>活動結束到「管理部署作業」封存，依告知期間刪除檔案。</li></ul></div>
+    <div>
+      <table style="font-size:16px">
+        <tr><th>工具</th><th>免費收檔</th><th>填答者登入</th><th>適合</th></tr>
+        <tr><td>Google 表單＋Gemini</td><td>可以</td><td>要</td><td>院內同仁報名</td></tr>
+        <tr><td>Tally</td><td>可以（單檔 10 MB）</td><td>不用</td><td>零預算、對外開放</td></tr>
+        <tr><td>Jotform</td><td>可以（額度小）</td><td>不用</td><td>要繁中介面的小型報名</td></tr>
+        <tr><td>SurveyCake</td><td>付費方案</td><td>不用</td><td>需要台灣客服與發票</td></tr>
+        <tr><td><b>AI＋Apps Script</b></td><td>可以</td><td>不用</td><td>免費、資料留在自己帳號</td></tr>
+      </table>
+      <p style="font-size:16px;color:var(--muted);margin:8px 0 0">2026 年 11 月查證，額度常變動，用前再看官網。</p>
+    </div>
+  </div>
+  <div class="note g" style="margin-top:6px;padding:8px 14px;font-size:16px"><b>一句話選擇：</b>填答者都有 Google 帳號用 Google 表單；對外開放又不想寫程式用 Tally；想免費、免登入、資料留在自己帳號，用 AI＋Apps Script。</div>
+  <div class="foot"><span>第 3 堂｜AI 做報名表與上傳</span><span class="pg"></span></div>
+</section>
+
 <!-- 15 參考風格原則 -->
 <section class="slide">
-  <span class="kicker o">第四段｜參考他人風格做圖片、影片、音樂</span>
+  <span class="kicker o">第五段｜參考他人風格做圖片、影片、音樂</span>
   <h2>原則：風格可以學，作品不能抄（圖片、影片、簡報都一樣）</h2>
   <div class="cols3">
     <div class="card t"><h3>可以做</h3><ul><li>參考別人的<b>排版、配色、構圖、節奏、曲風</b>，換成自己的衛教內容。</li><li>上傳自己拍的、院內授權的、或 AI 生成的圖當參考。</li><li>描述「扁平插畫、粉彩、粗線條」這類風格詞。</li></ul></div>
@@ -466,7 +564,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
 
 <!-- 16 圖片 -->
 <section class="slide">
-  <span class="kicker o">第四段｜圖片</span>
+  <span class="kicker o">第五段｜圖片</span>
   <h2 style="font-size:34px">圖片：上傳參考圖，說「用這個風格，畫我的內容」</h2>
   <div class="cols" style="grid-template-columns:1fr 1.2fr">
     <div>
@@ -485,7 +583,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
 
 <!-- 簡報風格 -->
 <section class="slide">
-  <span class="kicker o">第四段｜簡報風格</span>
+  <span class="kicker o">第五段｜簡報風格</span>
   <h2 style="font-size:34px">簡報風格：截 2～3 張你喜歡的簡報，讓 AI 學「版型」，內容換成你的</h2>
   <div class="cols" style="grid-template-columns:1fr 1.2fr">
     <div>
@@ -504,7 +602,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
 
 <!-- 17 影片 -->
 <section class="slide">
-  <span class="kicker o">第四段｜影片</span>
+  <span class="kicker o">第五段｜影片</span>
   <h2>影片：AI 生影片目前多半要付費，免費路線是「圖卡 + 字幕 + 配音」</h2>
   <div class="cols" style="grid-template-columns:1fr 1.15fr">
     <div>
@@ -529,7 +627,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
 
 <!-- 18 音樂 -->
 <section class="slide">
-  <span class="kicker o">第四段｜音樂</span>
+  <span class="kicker o">第五段｜音樂</span>
   <h2>音樂：30 秒配樂免費就有，用「曲風、速度、樂器、情緒」描述，不要寫歌手名</h2>
   <div class="cols" style="grid-template-columns:1fr 1.15fr">
     <div>
@@ -549,7 +647,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
 
 <!-- 19 送審自檢 -->
 <section class="slide">
-  <span class="kicker o">第四段｜參考風格做素材</span>
+  <span class="kicker o">第五段｜參考風格做素材</span>
   <h2>素材送審前的自檢表（高齡友善 + 肖像版權 + 內容正確）</h2>
   <div class="cols3">
     <div class="card t"><h3>高齡友善</h3><ul><li>內文字至少 28px（投影）／14pt（紙本）</li><li>高對比，不用淡灰字</li><li>一頁一個重點，口語、短句</li><li>影片旁白慢速、有字幕</li></ul></div>
@@ -570,6 +668,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
       <li>用 mandala.html 和一位<b>合成個案</b>（或自己）填完中間 9 格與 2 個面向，列印一張。</li>
       <li>用參考風格提示語做 6 張一組的圖卡，拿到 Canva 排成一支 30 秒短片，配上 Gemini 的 30 秒音樂。</li>
       <li>做一張 A4 QR code 海報，指向你的 slides.html，貼在衛教室試一週，記下病人反應。</li>
+      <li>照 ai-form-upload 的步驟，做一份下一場衛教課的報名表，自己先用假資料填一次。</li>
     </ol>
     <div>
       <div class="card o"><h3>第 4 堂（11/23）預告：糖尿病專科 AI 助手與知識庫</h3><p>把院內衛教文件與指引整理成「只回答有出處的問題」的助手，再用驗證題庫測正確率。請先想好：<b>哪 5 份文件</b>最常被病人問到。</p></div>
@@ -591,7 +690,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
   <div style="display:flex;gap:26px;align-items:center;position:absolute;left:64px;right:64px;bottom:50px">
     <div class="qr"><img src="img/l3-qr-slides.png" alt="這份簡報的 QR code"><small>這份簡報</small></div>
     <div class="qr"><img src="img/l3-qr-mandala.png" alt="目標九宮格 QR code"><small>目標九宮格示範</small></div>
-    <div style="font-size:19px;line-height:1.8;color:#d6e9e8">講義：<b style="color:#fff">mattsue1003.github.io/q12345/lesson3.html</b><br>更多教案與課程：愛迪樂臉書粉專（講義頁有連結）<br>鍾孟修 職能治療師｜愛迪樂<br><span style="font-size:15px">本簡報使用 AI 協助製作；工具介面與免費額度以官方當下說明為準。</span></div>
+    <div style="font-size:19px;line-height:1.8;color:#d6e9e8">講義：<b style="color:#fff">mattsue1003.github.io/q12345/lesson3.html</b>｜報名表教學：<b style="color:#fff">mattsue1003.github.io/ai-form-upload</b><br>更多教案與課程：愛迪樂臉書粉專（講義頁有連結）<br>鍾孟修 職能治療師｜愛迪樂<br><span style="font-size:15px">本簡報使用 AI 協助製作；工具介面與免費額度以官方當下說明為準。</span></div>
   </div>
 </section>
 
