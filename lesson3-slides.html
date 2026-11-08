@@ -268,7 +268,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
 </section>
 
 <!-- 6 index.html 當首頁 -->
-<section class="slide">
+<section class="slide" id="s-hub">
   <span class="kicker o">第一段｜GitHub 與個人網頁</span>
   <h2 style="font-size:32px;margin-bottom:12px">以 index.html 為首頁：每做一個新網頁，就把連結加進首頁，病人只記一個網址</h2>
   <div class="cols" style="grid-template-columns:1fr 1.25fr">
@@ -307,6 +307,34 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
   <div class="foot"><span>第 3 堂｜GitHub 與個人網頁</span><span class="pg"></span></div>
 </section>
 
+<!-- 上線前檢查 -->
+<section class="slide" id="s-prelaunch">
+  <span class="kicker o">第一段｜上架之後</span>
+  <h2 style="font-size:32px;margin-bottom:10px">網址打得開 ≠ 可以正式用：上線前讓 AI 幫你檢查 10 件事</h2>
+  <div class="cols" style="grid-template-columns:1.15fr 1fr">
+    <div class="card t" style="padding:12px 16px"><ol class="steps" style="margin-top:0;columns:1">
+      <li style="font-size:15px;margin:4px 0"><b>手機排版</b>：手機打開不會左右捲動，字至少 16px，按鈕一指按得到。</li>
+      <li style="font-size:15px;margin:4px 0"><b>圖片瘦身</b>：每張 300 KB 以下、寬不超過 1600px，長輩的手機才載得快。</li>
+      <li style="font-size:15px;margin:4px 0"><b>連結全通</b>：首頁 ↔ 作品用相對路徑，點一遍沒有 404。</li>
+      <li style="font-size:15px;margin:4px 0"><b>HTTPS</b>：GitHub Pages 的 Settings → Pages 勾「Enforce HTTPS」。</li>
+      <li style="font-size:15px;margin:4px 0"><b>程式裡沒有祕密</b>：沒有金鑰、密碼、個人手機、病人資料。</li>
+      <li style="font-size:15px;margin:4px 0"><b>標題與描述</b>：有 title、meta description、og:title，LINE 轉傳才有預覽卡。</li>
+      <li style="font-size:15px;margin:4px 0"><b>速度</b>：pagespeed.web.dev 貼網址，行動裝置四項 90 分以上。</li>
+      <li style="font-size:15px;margin:4px 0"><b>表單真的送得到</b>：自己填一次，試算表有資料、通知有收到。</li>
+      <li style="font-size:15px;margin:4px 0"><b>標示</b>：「AI 協助製作」「請以醫療人員說明為準」、最後更新日期。</li>
+      <li style="font-size:15px;margin:4px 0"><b>無障礙</b>：字與底色對比夠、每張圖有替代文字、不用只靠顏色表達。</li>
+    </ol></div>
+    <div>
+      <figure style="margin:0;background:#fff;border:1.5px solid var(--line);border-radius:10px;overflow:hidden"><img src="img/l3-pagespeed.jpg" alt="PageSpeed Insights 檢測講義頁的結果" style="width:100%;display:block;aspect-ratio:16/7;object-fit:cover;object-position:top"><figcaption style="font-size:13.5px;padding:6px 10px;line-height:1.35"><b>第 7 項實測</b>：pagespeed.web.dev 貼上講義網址 → 行動裝置：效能 100、無障礙 96、最佳做法 100、SEO 100。不到 90 的項目，把它列出的建議整段貼給 AI 改。</figcaption></figure>
+      <div class="prompt" style="font-size:13.5px;line-height:1.35;margin-top:8px"><button class="cp" type="button">複製</button>（貼上你的 index.html 全部內容）
+請用下面 10 項逐一檢查這個網頁，每項回答「通過／不通過／怎麼改」：手機排版、圖片大小、連結是否都有效、HTTPS、程式裡有沒有金鑰或個資、title 與 meta description 與 og 標籤、載入速度、表單送出測試、AI 協助製作與醫療免責標示、無障礙（對比、替代文字）。
+檢查完直接給我修正後的完整 index.html。</div>
+    </div>
+  </div>
+  <div class="note g" style="margin-top:8px;font-size:15px;padding:8px 14px"><b>課堂做法：</b>上傳成功後不要急著發 QR，先把這段提示語丟給 AI 跑一遍、再跑一次 PageSpeed，兩個都綠了才算「上線」。改好重新上傳，網址不變。</div>
+  <div class="foot"><span>第 3 堂｜GitHub 與個人網頁</span><span class="pg"></span></div>
+</section>
+
 <!-- 7 網頁型簡報是什麼 -->
 <section class="slide">
   <span class="kicker">第二段｜網頁型簡報</span>
@@ -335,7 +363,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
 </section>
 
 <!-- 8 簡報提示詞 -->
-<section class="slide">
+<section class="slide" id="s-slides-prompt">
   <span class="kicker">第二段｜網頁型簡報</span>
   <h2>提示語範本：一份 8 頁的「低血糖處理」團體衛教簡報</h2>
   <div class="cols" style="grid-template-columns:1.3fr 1fr">
@@ -385,12 +413,12 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
   <span class="kicker">第二段｜網頁型簡報</span>
   <h2>現在做：一份簡報 → slides.html → 上傳 → 手機打開</h2>
   <ol class="steps">
-    <li>把第 11 頁的提示語貼到 Claude 或 Gemini「任務」，主題可以換成你負責的衛教主題（胰島素注射、足部照護、飲食份量…）。</li>
+    <li>把第 <span class="ref" data-for="s-slides-prompt"></span> 頁的提示語貼到 Claude 或 Gemini「任務」，主題可以換成你負責的衛教主題（胰島素注射、足部照護、飲食份量…）。</li>
     <li>先看大綱，調整 1～2 處再讓它寫程式。</li>
     <li>預覽：鍵盤能翻頁、字夠大、問答卡會翻面。</li>
     <li>存成 <b>slides.html</b>，拖進你的 username.github.io 倉庫，Commit。</li>
     <li>手機打開 <b>https://你的username.github.io/slides.html</b>，傳給旁邊同學看。</li>
-    <li>回到 AI，用第 8 頁的提示語把 slides.html 的連結加進 <b>index.html</b>（還沒做九宮格，先把提示語裡 mandala 那一行刪掉），重新上傳覆蓋，首頁就看得到。</li>
+    <li>回到 AI，用第 <span class="ref" data-for="s-hub"></span> 頁的提示語把 slides.html 的連結加進 <b>index.html</b>（還沒做九宮格，先把提示語裡 mandala 那一行刪掉），重新上傳覆蓋，首頁就看得到。</li>
   </ol>
   <div class="note g">做完的同學：請 AI「幫我做一張 QR code 指向這個網址，A4 直式，上面寫『低血糖怎麼辦 掃我看』」，順便練一下圖片。</div>
   <div class="foot"><span>第 3 堂｜網頁型簡報</span><span class="pg"></span></div>
@@ -640,7 +668,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
 </section>
 
 <!-- 終端機代理 1 -->
-<section class="slide">
+<section class="slide" id="s-agents">
   <span class="kicker a">第五段｜終端機代理：Antigravity CLI 與 GitHub Copilot Free</span>
   <h2 style="font-size:34px">除了 OpenCode，還有兩個免費的「交辦型」工具：一句話做出一整個資料夾</h2>
   <p style="margin-top:-6px">第 2 堂的 OpenCode 是「在資料夾裡幫你做事的代理」。Google 與 GitHub 各有一個免費版本，流程一樣：<b>開資料夾 → 登入 → 用中文交辦 → 檔案直接出現 → 拖上 GitHub</b>。</p>
@@ -757,7 +785,7 @@ copilot
 </section>
 
 <!-- 17 影片 -->
-<section class="slide">
+<section class="slide" id="s-video">
   <span class="kicker o">第六段｜影片</span>
   <h2>影片：AI 生影片目前多半要付費，免費路線是「圖卡 + 字幕 + 配音」</h2>
   <div class="cols" style="grid-template-columns:1fr 1.15fr">
@@ -765,7 +793,7 @@ copilot
       <table style="font-size:17.5px">
         <tr><th>工具</th><th>現況（2026/11，會變動）</th></tr>
         <tr><td>Gemini（Veo）</td><td>影片生成在付費方案（AI Pro 約每天 3 支）；免費方案偶有限時開放。</td></tr>
-        <tr><td>ChatGPT／Sora</td><td>Sora 已於 2026/4/26 停用，ChatGPT <b>不能生影片</b>；可做腳本、圖卡、GIF、網頁動畫（第 36 頁）。</td></tr>
+        <tr><td>ChatGPT／Sora</td><td>Sora 已於 2026/4/26 停用，ChatGPT <b>不能生影片</b>；可做腳本、圖卡、GIF、網頁動畫（第 <span class="ref" data-for="s-nochatgpt"></span> 頁）。</td></tr>
         <tr><td>Google Vids／Canva／Edits</td><td>免費就能把<b>圖卡排成影片</b>、自動字幕、加配音與配樂。衛教短片首選，後面三頁有細節步驟。</td></tr>
       </table>
       <div class="note" style="margin-top:12px">「參考影片風格」怎麼學：找一支你喜歡的衛教短片，截 3 張圖貼給 AI，請它描述<b>結構</b>（開頭問題、三重點、結尾行動）、<b>畫面風格</b>（插畫還是實拍、配色、字幕大小位置）、<b>節奏</b>（幾秒換一張），再套到你的主題。不要用它的畫面與旁白。</div>
@@ -817,7 +845,7 @@ copilot
       <li style="font-size:16px">「播放」檢查 → 右上「共用」拿連結，或「檔案 → 下載 MP4」。</li>
     </ol>
   </div>
-  <div class="note" style="margin-top:8px;font-size:15px;padding:8px 14px">旁白稿先用第 31 頁的微劇本提示語請 AI 寫好，每段不超過 15 字，Vids 裡只是貼上。數字與處置一樣要用院內衛教單核對。</div>
+  <div class="note" style="margin-top:8px;font-size:15px;padding:8px 14px">旁白稿先用第 <span class="ref" data-for="s-video"></span> 頁的微劇本提示語請 AI 寫好，每段不超過 15 字，Vids 裡只是貼上。數字與處置一樣要用院內衛教單核對。</div>
   <div class="foot"><span>第 3 堂｜影片工具</span><span class="pg"></span></div>
 </section>
 
@@ -853,13 +881,13 @@ copilot
 </section>
 
 <!-- 影片工具 5 ChatGPT 能不能做影片 -->
-<section class="slide">
+<section class="slide" id="s-nochatgpt">
   <span class="kicker o">第六段｜ChatGPT 能不能做影片？</span>
   <h2 style="font-size:32px;margin-bottom:12px">ChatGPT（網頁／桌面版）不能直接生影片，但能做出影片的四樣零件</h2>
   <div class="cols" style="grid-template-columns:1fr 1.25fr">
     <div>
       <div class="note r" style="margin-top:0;font-size:15px;padding:8px 14px"><b>官方說明：</b>OpenAI 的影片工具 Sora 網頁與 App 已於 <b>2026 年 4 月 26 日停止服務</b>（API 於 9 月 24 日停止）。ChatGPT 免費版、Plus、桌面版都沒有「生成影片」功能，網路上寫「ChatGPT 可以生影片」的文章多半是停用前寫的。</div>
-      <div class="card" style="margin-top:8px;padding:10px 16px"><h3 style="font-size:19px;margin-bottom:4px">所以用 ChatGPT 做衛教影片的流程</h3><ol class="steps" style="margin-top:0"><li style="font-size:14.5px;margin:5px 0"><b>腳本與分鏡</b>：30 秒微劇本、每格秒數與字幕（第 31 頁提示語）。</li><li style="font-size:14.5px;margin:5px 0"><b>圖卡與 GIF 動圖</b>：Images 2.6 可以把提示語或上傳照片做成會動的 GIF、調速度、改單格（陸續開放中）；儲存參考圖維持人物一致。</li><li style="font-size:14.5px;margin:5px 0"><b>網頁型動畫</b>：請它寫一個會自己播放、有字幕與轉場的 HTML 動畫頁（右邊提示語），瀏覽器全螢幕就是一支「影片」。</li><li style="font-size:14.5px;margin:5px 0"><b>要 MP4 才組裝</b>：圖卡與 GIF 丟進 Google Vids 或 Canva 配旁白；或用 Mac 的 QuickTime「新增螢幕錄製」把網頁動畫錄成 MP4，再用 Edits 加字幕。</li></ol></div>
+      <div class="card" style="margin-top:8px;padding:10px 16px"><h3 style="font-size:19px;margin-bottom:4px">所以用 ChatGPT 做衛教影片的流程</h3><ol class="steps" style="margin-top:0"><li style="font-size:14.5px;margin:5px 0"><b>腳本與分鏡</b>：30 秒微劇本、每格秒數與字幕（第 <span class="ref" data-for="s-video"></span> 頁提示語）。</li><li style="font-size:14.5px;margin:5px 0"><b>圖卡與 GIF 動圖</b>：Images 2.6 可以把提示語或上傳照片做成會動的 GIF、調速度、改單格（陸續開放中）；儲存參考圖維持人物一致。</li><li style="font-size:14.5px;margin:5px 0"><b>網頁型動畫</b>：請它寫一個會自己播放、有字幕與轉場的 HTML 動畫頁（右邊提示語），瀏覽器全螢幕就是一支「影片」。</li><li style="font-size:14.5px;margin:5px 0"><b>要 MP4 才組裝</b>：圖卡與 GIF 丟進 Google Vids 或 Canva 配旁白；或用 Mac 的 QuickTime「新增螢幕錄製」把網頁動畫錄成 MP4，再用 Edits 加字幕。</li></ol></div>
     </div>
     <div class="prompt" style="font-size:13px;line-height:1.35"><button class="cp" type="button">複製</button>請做一個單一檔案的 HTML「自動播放的衛教短片」，檔名 video.html，CSS 與 JavaScript 寫在同一檔案，不用外部套件與圖片。
 主題：低血糖時先做三件事（給 65 歲以上病人與家屬）。
@@ -904,6 +932,34 @@ copilot
   <div class="foot"><span>第 3 堂｜影片工具</span><span class="pg"></span></div>
 </section>
 
+<!-- Claude 桌面版做教學動畫 -->
+<section class="slide" id="s-ccanim">
+  <span class="kicker o">第六段｜Claude 桌面版 Code 分頁：七步做出教學動畫</span>
+  <h2 style="font-size:30px;margin-bottom:10px">想要「會動的衛教動畫 MP4」：給 Claude 桌面版一個資料夾，七步交辦，內容你把關、動畫它做</h2>
+  <div class="cols" style="grid-template-columns:1.05fr 0.95fr 0.8fr;gap:14px">
+    <div class="card t" style="padding:12px 16px"><ol class="steps" style="margin-top:0">
+      <li style="font-size:14.5px;margin:4px 0">下載 <b>Claude 桌面版</b>（claude.ai/download），登入後點上方 <b>Code</b> 分頁。</li>
+      <li style="font-size:14.5px;margin:4px 0">桌面建空資料夾「衛教動畫工作室」；環境選 <b>Local</b>，資料夾選它。</li>
+      <li style="font-size:14.5px;margin:4px 0">第一句話先叫它<b>檢查環境</b>（Node.js、FFmpeg、瀏覽器），缺的照它說的裝。</li>
+      <li style="font-size:14.5px;margin:4px 0">先別開工：寫一份<b>知識點檢核表.md</b>，每個數字、處置、禁止事項一條，附院內依據。</li>
+      <li style="font-size:14.5px;margin:4px 0">請它提 <b>5 個開場</b>，你挑一個；風格描述（配色、角色、字級）也在這裡定。</li>
+      <li style="font-size:14.5px;margin:4px 0">它寫旁白、做動畫、配樂音效，<b>每一幕自己截圖檢查</b>再修，最後匯出 MP4。</li>
+      <li style="font-size:14.5px;margin:4px 0">片子好了請它再做一頁 video.html 嵌入播放，拖上 GitHub，連結加進 index.html。</li>
+    </ol></div>
+    <div>
+      <div class="prompt" style="font-size:12.5px;line-height:1.35"><button class="cp" type="button">複製</button>這個資料夾裡有「知識點檢核表.md」。請先逐條讀完並確認你理解，再做一支 60 秒、16:9 的衛教教學動畫「低血糖怎麼辦」，對象 65 歲以上病人與家屬。
+步驟：1. 先給我 5 個不同的開場讓我挑；2. 我選定後，寫逐幕腳本（秒數｜畫面｜旁白｜字幕）給我確認；3. 再寫程式做動畫：卡通長者、不出現真人臉孔與品牌，字幕至少 40px、高對比，旁白慢速；4. 每一幕匯出後自己截圖檢查文字有沒有跑版、數字是否與檢核表一致；5. 配輕柔背景音樂與簡單音效，音量低於旁白；6. 匯出 MP4（1920×1080）到 ./成品，並寫一份「操作紀錄.md」。全部在本機處理，不上傳任何檔案。</div>
+      <div class="note r" style="margin-top:8px;font-size:13.5px;padding:8px 12px">Claude Code 需要 <b>Claude Pro 以上</b>方案；免費帳號用第 <span class="ref" data-for="s-agents"></span> 頁的 Antigravity CLI 或 Copilot Free，同一套七步照走。常用的角色、配色、教法可以請它存成 skill，下一支動畫直接沿用。</div>
+    </div>
+    <div class="shots" style="grid-template-columns:1fr;gap:6px">
+      <figure><img src="img/l3-cc-step1.jpg" alt="Code 分頁選擇本機資料夾" style="height:118px;aspect-ratio:auto;object-fit:cover;object-position:top"><figcaption style="font-size:12.5px;padding:5px 8px">② Code 分頁：Local ＋ 選資料夾</figcaption></figure>
+      <figure><img src="img/l3-cc-step2.jpg" alt="請它先檢查環境" style="height:118px;aspect-ratio:auto;object-fit:cover;object-position:top"><figcaption style="font-size:12.5px;padding:5px 8px">③ 先檢查環境，缺的它幫你裝</figcaption></figure>
+      <figure><img src="img/l3-cc-step3.jpg" alt="知識點檢核表與五個開場" style="height:118px;aspect-ratio:auto;object-fit:cover;object-position:top"><figcaption style="font-size:12.5px;padding:5px 8px">④⑤ 檢核表先交，再挑開場（示意畫面）</figcaption></figure>
+    </div>
+  </div>
+  <div class="foot"><span>第 3 堂｜影片工具</span><span class="pg"></span></div>
+</section>
+
 <!-- 18 音樂 -->
 <section class="slide">
   <span class="kicker o">第六段｜音樂</span>
@@ -943,7 +999,7 @@ copilot
   <h2>課後任務（兩週內），以及下一堂</h2>
   <div class="cols" style="grid-template-columns:1.2fr 1fr">
     <ol class="steps">
-      <li>把今天的 slides.html 換成你負責的衛教主題，數字用院內衛教單核對，上傳覆蓋。</li>
+      <li>把今天的 slides.html 換成你負責的衛教主題，數字用院內衛教單核對，上傳覆蓋；用第 <span class="ref" data-for="s-prelaunch"></span> 頁的 10 項讓 AI 自檢一次。</li>
       <li>用 mandala.html 和一位<b>合成個案</b>（或自己）填完中間 9 格與 2 個面向，列印一張。</li>
       <li>用參考風格提示語做 6 張一組的圖卡，拿到 Canva 排成一支 30 秒短片，配上 Gemini 的 30 秒音樂。</li>
       <li>做一張 A4 QR code 海報，指向你的 slides.html，貼在衛教室試一週，記下病人反應。</li>
@@ -986,6 +1042,7 @@ copilot
 var slides=[].slice.call(document.querySelectorAll('.slide')),n=slides.length,i=0;
 var hud=document.querySelector('#hud i'),num=document.getElementById('num');
 slides.forEach(function(s,j){var pg=s.querySelector('.foot .pg');if(pg)pg.textContent=j+1});
+document.querySelectorAll('.ref').forEach(function(r){var t=document.getElementById(r.dataset.for);r.textContent=t?slides.indexOf(t)+1:'?'});
 var mq=window.matchMedia('(max-width:760px),(orientation:portrait) and (max-width:1024px)');function isDoc(){return mq.matches}
 function fit(){var s=Math.min(window.innerWidth/1300,window.innerHeight/760);document.documentElement.style.setProperty('--s',s)}
 function show(k,scroll){i=Math.max(0,Math.min(n-1,k));slides.forEach(function(s,j){s.classList.toggle('on',j===i)});hud.style.width=((i+1)/n*100)+'%';num.textContent=(i+1)+' / '+n;if(location.hash!=='#'+(i+1))history.replaceState(null,'','#'+(i+1));if(isDoc()&&scroll!==false&&i>0)slides[i].scrollIntoView({block:'start'})}
