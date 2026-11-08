@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>第3堂簡報｜做出可以上架的東西：GitHub 個人網頁、網頁型簡報、目標九宮格、參考風格做素材</title>
+<title>第3堂簡報｜做出可以上架的東西：GitHub 個人網頁、網頁型簡報、目標九宮格、參考圖片／影片／簡報風格做素材</title>
 <meta name="description" content="衛福部桃園醫院糖尿病中心 AI 賦能工作坊 第 3 堂（11/09）網頁型簡報：GitHub 與個人網頁、HTML 簡報、大谷翔平九宮格程式製作、參考他人風格做圖片影片音樂。">
 <meta property="og:title" content="第3堂簡報：做出可以上架的東西">
 <meta property="og:description" content="GitHub 個人網頁、網頁型簡報、目標九宮格程式、參考風格做圖片／影片／音樂">
@@ -90,7 +90,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
 <!-- 1 封面 -->
 <section class="slide cover">
   <span class="kicker">衛福部桃園醫院 糖尿病中心｜AI 賦能工作坊 第 3 堂（11/09 10:00–12:00）</span>
-  <h1>做出「可以上架」的東西：<br>GitHub 個人網頁、網頁型簡報、目標九宮格程式，<br>以及參考他人風格做圖片、影片、音樂</h1>
+  <h1>做出「可以上架」的東西：<br>GitHub 個人網頁、網頁型簡報、目標九宮格程式，<br>以及參考他人的圖片、影片、簡報風格做素材</h1>
   <p style="font-size:24px;margin-top:10px">今天每一個成品都會變成<b style="color:#fff">一個網址</b>：手機掃得到、LINE 傳得出去、衛教室貼得上牆。</p>
   <div style="display:flex;gap:26px;align-items:flex-end;position:absolute;left:64px;right:64px;bottom:50px">
     <div class="qr"><img src="img/l3-qr-slides.png" alt="這份簡報的 QR code"><small>mattsue1003.github.io/q12345/lesson3-slides.html</small></div>
@@ -108,11 +108,11 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
       <tr><td>10:25</td><td><b>網頁型簡報</b>：一個 HTML 檔就是一份簡報，請 AI 做一份衛教簡報並上傳。</td></tr>
       <tr><td>10:55</td><td>休息 10 分鐘</td></tr>
       <tr><td>11:05</td><td><b>目標九宮格程式</b>：從大谷翔平的 81 格，做出病人可以填、可以印的網頁。</td></tr>
-      <tr><td>11:35</td><td><b>參考風格做素材</b>：圖片、影片、音樂，用「參考風格」而不是「抄作品」。</td></tr>
+      <tr><td>11:35</td><td><b>參考風格做素材</b>：圖片、影片、簡報、音樂，用「參考風格」而不是「抄作品」。</td></tr>
       <tr><td>11:55</td><td>課後任務與下堂預告（11/23 知識庫助手）</td></tr>
     </table>
     <div>
-      <div class="card t"><h3>帶走的三個網址</h3>
+      <div class="card t"><h3>帶走的三個網址（首頁連到全部）</h3>
         <p>① <b>你的username.github.io</b>：自我介紹網頁（第 2 堂做的，今天補完）</p>
         <p>② <b>…/slides.html</b>：一份衛教主題的網頁型簡報</p>
         <p>③ <b>…/mandala.html</b>：病人可以填的目標九宮格</p></div>
@@ -182,19 +182,26 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
   <div class="foot"><span>第 3 堂｜GitHub 與個人網頁</span><span>5</span></div>
 </section>
 
-<!-- 6 第二、三個檔案 -->
+<!-- 6 index.html 當首頁 -->
 <section class="slide">
   <span class="kicker o">第一段｜GitHub 與個人網頁</span>
-  <h2>同一個倉庫可以放很多檔案：今天的三個網址長這樣</h2>
-  <div class="cols3">
-    <div class="card t"><h3>index.html</h3><p class="big" style="font-size:22px">你的username.github.io</p><p>自我介紹頁。檔名叫 index 的會自動變成首頁。</p></div>
-    <div class="card o"><h3>slides.html</h3><p class="big" style="font-size:22px">你的username.github.io/slides.html</p><p>網頁型簡報。一樣拖進同一個倉庫就好。</p></div>
-    <div class="card a"><h3>mandala.html</h3><p class="big" style="font-size:22px">你的username.github.io/mandala.html</p><p>目標九宮格。檔名只用英文小寫、數字、減號。</p></div>
+  <h2 style="font-size:32px;margin-bottom:12px">以 index.html 為首頁：每做一個新網頁，就把連結加進首頁，病人只記一個網址</h2>
+  <div class="cols" style="grid-template-columns:1fr 1.25fr">
+    <div>
+      <div class="card t"><h3>同一個倉庫，一個首頁帶所有作品</h3>
+        <p><b>index.html</b> → 你的username.github.io（首頁：自我介紹＋作品連結）</p>
+        <p><b>slides.html</b> → …/slides.html（網頁型簡報）</p>
+        <p><b>mandala.html</b> → …/mandala.html（目標九宮格）</p>
+        <p style="color:var(--muted)">檔名只用英文小寫、數字、減號；全部拖進同一個倉庫。</p></div>
+      <div class="note r" style="margin-top:8px;font-size:17px"><b>公開界線：</b>不放個人手機、住址、病人照片與任何病人資料；以醫院名義發布前先確認院內規定。</div>
+    </div>
+    <div class="prompt" style="font-size:15px;line-height:1.42"><button class="cp" type="button">複製</button>（先把你目前的 index.html 內容整份貼上）
+請在這個 index.html 最下方加一個「我的衛教作品」區塊，風格與原本一致、手機好讀，每個作品一張卡片，有標題、一句說明與「打開」按鈕：
+1. slides.html：低血糖的辨識與處理（團體衛教簡報）
+2. mandala.html：目標九宮格（和衛教師一起填的自我管理表）
+連結請用相對路徑（直接寫 slides.html，不要寫完整網址），之後新增作品我會再請你加。請回傳完整的 index.html 檔案內容。</div>
   </div>
-  <div class="cols" style="margin-top:20px">
-    <div class="card"><h3>之後要改內容</h3><p>回到 AI 說「把擅長主題加上飲食衛教」→ 存成新的同名檔案 → 再拖進去上傳，會自動覆蓋舊的。也可以在 GitHub 點檔案 → 鉛筆圖示直接改字。</p></div>
-    <div class="note r" style="margin-top:0"><b>公開網頁的界線：</b>全世界都看得到。不放個人手機、住址、身分證字號、病人照片與任何病人資料；以醫院名義對外發布前，先確認院內對外資訊規定。</div>
-  </div>
+  <div class="note g" style="margin-top:8px;padding:8px 14px;font-size:17px">流程固定三步：做出新網頁 → 拖進倉庫上傳 → 請 AI 把連結加進 index.html，重新上傳 index.html 覆蓋。今天兩個實作都會走這一遍。</div>
   <div class="foot"><span>第 3 堂｜GitHub 與個人網頁</span><span>6</span></div>
 </section>
 
@@ -281,6 +288,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
     <li>預覽：鍵盤能翻頁、字夠大、問答卡會翻面。</li>
     <li>存成 <b>slides.html</b>，拖進你的 username.github.io 倉庫，Commit。</li>
     <li>手機打開 <b>https://你的username.github.io/slides.html</b>，傳給旁邊同學看。</li>
+    <li>回到 AI，用第 6 頁的提示語把 slides.html 的連結加進 <b>index.html</b>，重新上傳覆蓋，首頁就看得到。</li>
   </ol>
   <div class="note g">做完的同學：請 AI「幫我做一張 QR code 指向這個網址，A4 直式，上面寫『低血糖怎麼辦 掃我看』」，順便練一下圖片。</div>
   <div class="foot"><span>第 3 堂｜網頁型簡報</span><span>10</span></div>
@@ -378,6 +386,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
       <li>預覽：打字會留著、勾勾會變色、列印預覽一頁印完。</li>
       <li>存成 <b>mandala.html</b>，拖進倉庫上傳。</li>
       <li>把網址傳給旁邊同學，請對方用「糖尿病自我管理」範本幫一位合成個案填 3 個面向。</li>
+      <li>同樣把 mandala.html 的連結加進 <b>index.html</b>，重新上傳。</li>
     </ol>
     <div>
       <div class="card"><h3>常見修改指令</h3>
@@ -391,7 +400,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
 <!-- 15 參考風格原則 -->
 <section class="slide">
   <span class="kicker o">第四段｜參考他人風格做圖片、影片、音樂</span>
-  <h2>原則：風格可以學，作品不能抄</h2>
+  <h2>原則：風格可以學，作品不能抄（圖片、影片、簡報都一樣）</h2>
   <div class="cols3">
     <div class="card t"><h3>可以做</h3><ul><li>參考別人的<b>排版、配色、構圖、節奏、曲風</b>，換成自己的衛教內容。</li><li>上傳自己拍的、院內授權的、或 AI 生成的圖當參考。</li><li>描述「扁平插畫、粉彩、粗線條」這類風格詞。</li></ul></div>
     <div class="card o"><h3>不要做</h3><ul><li>上傳別人的作品叫 AI「畫一張一樣的」再對外發布。</li><li>用<b>真人的臉</b>（名人、同事、病人）生圖生影片。</li><li>在提示語寫特定歌手、畫家、品牌的名字當成品風格。</li></ul></div>
@@ -420,6 +429,25 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
   <div class="foot"><span>第 3 堂｜參考風格做素材</span><span>第 1 張不對先改第 1 張；局部修改說「只改左手，其他不動」</span></div>
 </section>
 
+<!-- 簡報風格 -->
+<section class="slide">
+  <span class="kicker o">第四段｜簡報風格</span>
+  <h2 style="font-size:34px">簡報風格：截 2～3 張你喜歡的簡報，讓 AI 學「版型」，內容換成你的</h2>
+  <div class="cols" style="grid-template-columns:1fr 1.2fr">
+    <div>
+      <div class="card t"><h3>參考什麼</h3><ul><li><b>版型</b>：標題位置、左文右圖還是上下、留白多少</li><li><b>配色</b>：底色、強調色、字色各一個</li><li><b>字</b>：標題多大、內文多大、粗細</li><li><b>節奏</b>：一頁一句還是一頁三點、有沒有章節分隔頁</li></ul></div>
+      <div class="card o" style="margin-top:10px"><h3>不參考什麼</h3><p>別人的照片、插圖、商標、逐字內容。這份簡報也可以當參考：按 <kbd>O</kbd> 總覽截圖，請 AI 學它的版型做你的主題。</p></div>
+    </div>
+    <div class="prompt" style="font-size:15px;line-height:1.42"><button class="cp" type="button">複製</button>（先上傳 2～3 張你喜歡的簡報截圖）
+請先用文字描述這幾張簡報的「風格」：版型（標題位置、圖文比例、留白）、配色（底色、強調色、字色，給我色碼）、字體大小與粗細、每頁資訊量與節奏。不要描述它們的內容。
+然後用這個風格，幫我做一份單一檔案的 HTML 網頁型簡報 slides.html，主題「胰島素注射部位輪替」給 60 歲以上病人與家屬，共 8 頁，內容用我提供的衛教單張（稍後貼上）。
+規則：不使用參考圖裡的任何圖片、商標與文字；內文字至少 28px；鍵盤左右翻頁、手機可滑動；最後一頁標示「本簡報使用 AI 協助製作，內容請以醫療人員說明為準」。
+先給我風格描述與 8 頁大綱，我確認後再寫程式。</div>
+  </div>
+  <div class="note g" style="margin-top:12px">同一段風格描述存起來，之後每一份簡報、圖卡都用它，科內素材就會長得像一家人。</div>
+  <div class="foot"><span>第 3 堂｜參考風格做素材</span><span>做好的 slides.html 一樣拖進倉庫上傳</span></div>
+</section>
+
 <!-- 17 影片 -->
 <section class="slide">
   <span class="kicker o">第四段｜影片</span>
@@ -432,17 +460,17 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
         <tr><td>ChatGPT／Sora</td><td>需另開 Sora，免費額度持續縮減，以當下 App 顯示為準。</td></tr>
         <tr><td>Canva／CapCut</td><td>免費就能把<b>圖卡排成影片</b>、自動字幕、加配音與配樂。衛教短片首選。</td></tr>
       </table>
-      <div class="note" style="margin-top:12px">用「參考風格」的方式：找一支你喜歡的衛教短片，<b>只學它的結構</b>（開頭 3 秒問題、中間 3 個重點、結尾一句行動），內容換成自己的。</div>
+      <div class="note" style="margin-top:12px">「參考影片風格」怎麼學：找一支你喜歡的衛教短片，截 3 張圖貼給 AI，請它描述<b>結構</b>（開頭問題、三重點、結尾行動）、<b>畫面風格</b>（插畫還是實拍、配色、字幕大小位置）、<b>節奏</b>（幾秒換一張），再套到你的主題。不要用它的畫面與旁白。</div>
     </div>
     <div class="prompt" style="font-size:16px"><button class="cp" type="button">複製</button>請幫我寫一支 30 秒衛教短影音的微劇本，主題「低血糖時先做三件事」，對象是 65 歲以上糖尿病病人與家屬。
-結構參考常見的三段式短片：
+（我先貼了 3 張參考短片的截圖）請先描述這支影片的結構、畫面風格與字幕樣式，然後用同樣的結構與風格寫我的腳本。結構：
 - 0–3 秒：一句抓住注意力的問題（口語、台灣用語）
 - 4–24 秒：三個重點，每個重點一張圖卡 + 一句旁白不超過 15 字
 - 25–30 秒：一句行動呼籲 + 「請以醫療人員說明為準」
 請用表格輸出：秒數｜畫面（給生圖用的描述，卡通長者、不要真人）｜旁白｜字幕。
 旁白請用溫和、慢速的語氣，之後我會用 Canva 的 AI 配音唸出來。</div>
   </div>
-  <div class="foot"><span>第 3 堂｜參考風格做素材</span><span>17</span></div>
+  <div class="foot"><span>第 3 堂｜參考風格做素材</span><span>18</span></div>
 </section>
 
 <!-- 18 音樂 -->
@@ -462,7 +490,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
       <div class="prompt" style="font-size:16px;margin-top:12px"><button class="cp" type="button">複製</button>（Suno 用）請寫一首 1 分鐘的台語＋華語混合兒歌風格歌詞「飯後走一走」，四句一段共兩段加副歌，歌詞教「飯後 15 分鐘散步、帶糖果、穿好鞋」，字句簡單、押韻、適合長者跟著唱。曲風：輕快民謠、口琴、慢速。</div>
     </div>
   </div>
-  <div class="foot"><span>第 3 堂｜參考風格做素材</span><span>18</span></div>
+  <div class="foot"><span>第 3 堂｜參考風格做素材</span><span>19</span></div>
 </section>
 
 <!-- 19 送審自檢 -->
@@ -475,7 +503,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
     <div class="card a"><h3>內容正確</h3><ul><li>數字（70 mg/dL、15 克）用院內衛教單核對</li><li>處置流程與科內一致</li><li>標示「請以醫療人員說明為準」</li><li>標示「使用 AI 協助製作」</li></ul></div>
   </div>
   <div class="note g" style="margin-top:18px">三欄都勾完，再依院內流程送審。網頁上線後有錯，改好重新上傳，網址不變，不用重新發 QR code。</div>
-  <div class="foot"><span>第 3 堂｜參考風格做素材</span><span>19</span></div>
+  <div class="foot"><span>第 3 堂｜參考風格做素材</span><span>20</span></div>
 </section>
 
 <!-- 20 課後任務 -->
@@ -494,15 +522,15 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
       <div class="note" style="margin-top:12px">講義與所有提示語都在：<b>mattsue1003.github.io/q12345/lesson3.html</b>。遇到問題用講義右下角「回報問題」。</div>
     </div>
   </div>
-  <div class="foot"><span>第 3 堂｜收尾</span><span>20</span></div>
+  <div class="foot"><span>第 3 堂｜收尾</span><span>21</span></div>
 </section>
 
 <!-- 21 結尾 -->
 <section class="slide cover">
   <span class="kicker">謝謝大家</span>
-  <h1>今天帶走的不是檔案，是三個網址</h1>
+  <h1>今天帶走的不是檔案，是一個首頁網址，連到你所有作品</h1>
   <div class="cols3" style="margin-top:10px">
-    <div class="card" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff"><h3 style="color:#fff">① 自我介紹網頁</h3><p style="color:#d6e9e8">你的username.github.io</p></div>
+    <div class="card" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff"><h3 style="color:#fff">① 首頁 index.html</h3><p style="color:#d6e9e8">你的username.github.io（自我介紹＋作品連結）</p></div>
     <div class="card" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff"><h3 style="color:#fff">② 網頁型簡報</h3><p style="color:#d6e9e8">…/slides.html</p></div>
     <div class="card" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff"><h3 style="color:#fff">③ 目標九宮格</h3><p style="color:#d6e9e8">…/mandala.html</p></div>
   </div>
