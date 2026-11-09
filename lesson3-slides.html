@@ -987,19 +987,20 @@ B. index.html（單一檔案，放 GitHub 倉庫 form）：手機好填、字大
 <section class="slide" id="s-veo">
   <span class="kicker o">第五段｜影片：Gemini 直接生成影片（Veo）實測 2026/11</span>
   <h2 style="font-size:32px">Gemini 現在可以<b>直接生影片</b>：＋ → 建立影片 → 描述構想 → 等 2～5 分鐘，10 秒 720p 動畫</h2>
-  <div class="cols" style="grid-template-columns:1.25fr 1fr">
+  <div class="cols" style="grid-template-columns:1.15fr 1fr">
     <div>
-      <div class="shots" style="grid-template-columns:repeat(3,1fr)">
-        <figure><img src="img/l3-veo-1.jpg" alt="Gemini 加號選單裡的建立影片" style="aspect-ratio:16/10"><figcaption>① 對話框左邊「＋」→ <b>建立影片</b>（旁邊是建立圖像）</figcaption></figure>
-        <figure><img src="img/l3-veo-2.jpg" alt="描述影片構想與橫向格式選項" style="aspect-ratio:16/10"><figcaption>② 貼構想，下方可選<b>橫向／直向</b>與格式；上面有現成樣式可參考</figcaption></figure>
-        <figure><img src="img/l3-veo-3.jpg" alt="影片已準備好" style="aspect-ratio:16/10"><figcaption>③ 「您的影片已準備好」：10 秒、1280×720，右上可下載 MP4</figcaption></figure>
+      <video id="veo-video" controls preload="metadata" poster="img/l3-veo-poster.jpg" style="width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--line);background:#000;display:block"><source src="video-veo-demo.mp4" type="video/mp4">你的瀏覽器不支援影片播放，<a href="video-veo-demo.mp4">點此下載</a>。</video>
+      <p style="font-size:13px;color:var(--muted);margin:6px 0 0">Gemini 實際生成的 10 秒、1280×720 成品（自帶環境音）。長者冒冷汗、拿起果汁、時鐘轉動，和提示語一致；沒有文字，字幕與旁白到 Canva 加。</p>
+      <div class="shots" style="grid-template-columns:repeat(3,1fr);margin-top:8px">
+        <figure><img src="img/l3-veo-1.jpg" alt="Gemini 加號選單裡的建立影片" style="aspect-ratio:16/8"><figcaption>① 「＋」→ <b>建立影片</b></figcaption></figure>
+        <figure><img src="img/l3-veo-2.jpg" alt="描述影片構想與橫向格式選項" style="aspect-ratio:16/8"><figcaption>② 貼構想，選橫向／格式</figcaption></figure>
+        <figure><img src="img/l3-veo-3.jpg" alt="影片已準備好" style="aspect-ratio:16/8"><figcaption>③ 「您的影片已準備好」→ 下載</figcaption></figure>
       </div>
-      <div class="prompt" style="font-size:13px;margin-top:10px"><button class="cp" type="button">複製</button>請生成一支 8 秒、橫式 16:9 的衛教短片。扁平卡通插畫風格，粉藍色平塗背景，飽和的橘、綠、藍色塊，不要真人。畫面：一位卡通化的台灣長者坐在椅子上，有點頭暈冒冷汗，桌上放著三顆方糖和一杯果汁；他拿起果汁慢慢喝一口，表情逐漸放鬆微笑；旁邊一個時鐘輕輕轉動。鏡頭緩慢推近，溫和、安心的氛圍。畫面中不要出現任何文字、品牌或商標。</div>
     </div>
     <div>
-      <div class="card t" style="font-size:14.5px"><h3 style="font-size:17px">實測心得</h3><p>第一次送出等了 4 分鐘才出來，中途畫面重整過一次，<b>不要離開對話</b>；做好的影片也會存在左側「媒體庫」。一次一段 8～10 秒、720p，免費帳號額度少、AI Pro 每天數支；畫面不會有字，字幕與旁白要到 Vids／Canva 加。</p></div>
-      <div class="card o" style="font-size:14.5px;margin-top:8px"><h3 style="font-size:17px">衛教怎麼用</h3><p>生 3 段各 8 秒（症狀 → 吃糖 → 再測），丟進 Canva 排成一支，加上第 <span class="ref" data-for="s-voice"></span> 頁的台灣口音旁白。提示語要寫：風格、角色（卡通長者、不是真人）、動作、鏡頭、<b>「不要文字、品牌、商標」</b>。</p></div>
-      <div class="note r" style="font-size:13.5px;margin-top:8px">送審三問一樣適用：沒有真人臉、不像院內同事、數字由字幕與旁白負責、片尾標「AI 協助製作」。</div>
+      <div class="prompt" style="font-size:12.5px;line-height:1.45"><button class="cp" type="button">複製</button>請生成一支 8 秒、橫式 16:9 的衛教短片。扁平卡通插畫風格，粉藍色平塗背景，飽和的橘、綠、藍色塊，不要真人。畫面：一位卡通化的台灣長者坐在椅子上，有點頭暈冒冷汗，桌上放著三顆方糖和一杯果汁；他拿起果汁慢慢喝一口，表情逐漸放鬆微笑；旁邊一個時鐘輕輕轉動。鏡頭緩慢推近，溫和、安心的氛圍。畫面中不要出現任何文字、品牌或商標。</div>
+      <div class="card t" style="font-size:13.5px;margin-top:8px"><h3 style="font-size:16px">實測心得與衛教用法</h3><p>第一次等了約 4 分鐘，中途畫面重整過一次，<b>不要離開對話</b>；成品也會存在左側「媒體庫」。一次一段 8～10 秒、720p，免費帳號額度少、AI Pro 每天數支。衛教用法：生 3 段（症狀 → 吃糖 → 再測），丟進 Canva 排成一支，加第 <span class="ref" data-for="s-voice"></span> 頁的台灣口音旁白。提示語要寫風格、角色（卡通長者、不是真人）、動作、鏡頭、<b>「不要文字、品牌、商標」</b>。</p></div>
+      <div class="note r" style="font-size:13px;margin-top:8px">送審三問一樣適用：沒有真人臉、不像院內同事、數字由字幕與旁白負責、片尾標「AI 協助製作」。</div>
     </div>
   </div>
   <div class="foot"><span>第 3 堂｜影片工具</span><span class="pg"></span></div>
@@ -1492,7 +1493,7 @@ slides.forEach(function(s,j){var pg=s.querySelector('.foot .pg');if(pg)pg.textCo
 document.querySelectorAll('.ref').forEach(function(r){var t=document.getElementById(r.dataset.for);r.textContent=t?slides.indexOf(t)+1:'?'});
 var mq=window.matchMedia('(max-width:760px),(orientation:portrait) and (max-width:1024px)');function isDoc(){return mq.matches}
 function fit(){var s=Math.min(window.innerWidth/1300,window.innerHeight/760);document.documentElement.style.setProperty('--s',s)}
-function show(k,scroll){var dv=document.getElementById('demo-video');if(dv&&!dv.paused)dv.pause();i=Math.max(0,Math.min(n-1,k));slides.forEach(function(s,j){s.classList.toggle('on',j===i)});hud.style.width=((i+1)/n*100)+'%';num.textContent=(i+1)+' / '+n;if(location.hash!=='#'+(i+1))history.replaceState(null,'','#'+(i+1));if(isDoc()&&scroll!==false&&i>0)slides[i].scrollIntoView({block:'start'})}
+function show(k,scroll){['demo-video','veo-video'].forEach(function(id){var dv=document.getElementById(id);if(dv&&!dv.paused)dv.pause()});i=Math.max(0,Math.min(n-1,k));slides.forEach(function(s,j){s.classList.toggle('on',j===i)});hud.style.width=((i+1)/n*100)+'%';num.textContent=(i+1)+' / '+n;if(location.hash!=='#'+(i+1))history.replaceState(null,'','#'+(i+1));if(isDoc()&&scroll!==false&&i>0)slides[i].scrollIntoView({block:'start'})}
 function fromHash(){var h=location.hash.replace('#','');var t=document.getElementById(h);if(t&&slides.indexOf(t)>=0){show(slides.indexOf(t));return}var k=parseInt(h,10);show(isNaN(k)?0:k-1)}
 function list(on){var b=document.body;var want=on==null?!b.classList.contains('list'):on;b.classList.toggle('list',want);if(want){slides.forEach(function(s){s.classList.add('on')})}else{show(i)}}
 window.addEventListener('resize',fit);fit();fromHash();
@@ -1645,6 +1646,9 @@ html[data-theme="light"] #ctl a{background:#fff;border-color:#CFCBC0;color:var(-
 #s-line2 .steps li{font-size:16.5px;margin:6px 0}#s-line2 .card p{font-size:17px}
 #s-research td,#s-research th{padding:7px 10px;line-height:1.4}#s-research-2 .shots figcaption{font-size:12px;padding:5px 7px}#s-research-2 .shots img{aspect-ratio:16/10}#s-voice .card p{font-size:14px;line-height:1.45}#s-veo .shots figcaption{font-size:12.5px;padding:5px 8px}
 #s-research-2 .shots img{aspect-ratio:16/8.5!important}#s-research-2 .note{font-size:13px!important;padding:7px 12px;margin-top:8px!important}#s-research-2 .shots{gap:10px}
+#s-veo .shots figcaption{font-size:12px;padding:4px 6px}#s-veo .card p{line-height:1.45}
+#veo-video{height:290px!important;aspect-ratio:auto!important;object-fit:cover}#s-veo .shots img{aspect-ratio:16/7!important}#s-veo .shots figcaption{font-size:11.5px!important;padding:3px 6px!important}#s-veo p{margin-top:4px!important}
+@media (max-width:760px),(orientation:portrait) and (max-width:1024px){#veo-video{height:auto!important;aspect-ratio:16/9!important}}
 </style>
 <div class="lb" id="lb" role="dialog" aria-label="放大圖片"><button class="x" type="button" aria-label="關閉">×</button><img alt=""><figcaption></figcaption><div class="hint">點任一處或按 Esc 關閉</div></div>
 <script>
