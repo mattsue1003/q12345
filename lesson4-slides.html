@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>第4堂簡報｜糖尿病專科 AI 助手與知識庫（RAG）＋ Word、Excel、Google 三件套 × AI、Apps Script 自動化</title>
 <meta name="description" content="衛福部桃園醫院糖尿病中心 AI 賦能工作坊 第 4 堂（11/23）網頁型簡報：知識庫助手（RAG）概念、文件界線、三家建置與指示語、驗證題庫；四工具對照表、數據報表實作、Excel／Word／PPT／PDF 與 Google 三件套 × AI、描述性統計；Apps Script 自動化；終端機代理。">
-<meta property="og:title" content="第4堂簡報：AI 知識庫助手 ＋ 檔案 × AI">>
-<meta property="og:description" content="RAG 知識庫、文件界線、三家建置、驗證題庫；Excel／Word／Google × AI、Apps Script、終端機代理">>
+<meta property="og:title" content="第4堂簡報：AI 知識庫助手 ＋ 檔案 × AI">
+<meta property="og:description" content="RAG 知識庫、文件界線、三家建置、驗證題庫；Excel／Word／Google × AI、Apps Script、終端機代理">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;600&display=swap">
 <style>
@@ -165,7 +165,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
     </table>
     <div>
       <div class="card t"><h3>帶走的三樣東西</h3>
-        <p>① 一個<b>科室知識庫助手</b>（ChatGPT 專案／Claude 專案／Gemini Gem）</p>
+        <p>① 一個<b>科室知識庫助手</b>（ChatGPT 專案／Claude 專案／Gemini 筆記本）</p>
         <p>② 一份<b>驗證題庫.xlsx</b>：20 題、正確率、拒答率</p>
         <p>③ 一頁<b>使用規範</b>：誰能用、不能輸入什麼、誰維護</p></div>
       <div class="card o" style="margin-top:12px"><h3>練習包</h3><p>講義首頁下載 <b>kb-starter.zip</b>：6 份合成衛教文件＋文件清單＋20 題題庫範本。全部虛構、無個資。</p></div>
@@ -189,7 +189,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
       <tr><td>適合</td><td>發想、改寫、翻譯</td><td>「我們科的做法」「指引怎麼說」這類有標準答案的問題</td></tr>
     </table>
     <div>
-      <div class="card t"><h3>三家叫什麼名字</h3><p><b>ChatGPT 專案</b>：檔案＋指示。<br><b>Claude 專案</b>：專案知識＋專案指示。<br><b>Gemini Gem</b>：知識＋指令；另有 <b>Gemini Notebook</b>（NotebookLM）像研究助理，每句附出處，但不適合給同事直接問。</p></div>
+      <div class="card t"><h3>三家叫什麼名字</h3><p><b>ChatGPT 專案</b>：檔案＋指示。<br><b>Claude 專案</b>：專案知識＋專案指示。<br><b>Gemini 筆記本</b>（原 NotebookLM）：來源＋使用說明，每句自動附出處。<b>Gem 已於 2026/11/17 轉為「技能」</b>，個人帳號不能再新建。</p></div>
       <div class="note g" style="margin-top:10px">RAG＝Retrieval（先檢索你的文件）＋ Generation（再生成回答）。今天不碰程式，三家的「專案」就是現成的 RAG。</div>
     </div>
   </div>
@@ -217,7 +217,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
     <ol class="steps" style="font-size:17px">
       <li><b>檔名規則</b>：主題_對象_版本_日期_來源。例：低血糖處理_病人版_v3_2026-09_院內核定.pdf。助手引用時會念檔名。</li>
       <li><b>文件卡</b>：每份開頭五行：標題、來源與核定單位、版本與日期、適用對象、下次檢視日期。</li>
-      <li><b>轉純文字</b>：掃描 PDF 用 MarkItDown 或「雲端硬碟 → 用 Google 文件開啟」OCR；表格多就轉 Markdown。</li>
+      <li><b>轉純文字</b>：掃描 PDF 用「雲端硬碟 → 以 Google 文件開啟」OCR；有文字層才用 MarkItDown；表格多就轉 Markdown。</li>
       <li><b>文件清單</b>：一份 Excel：檔名、主題、版本、日期、核定者、放進哪家助手、下次檢視。這就是版本管理。</li>
     </ol>
     <div>
@@ -235,15 +235,15 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
   <span class="kicker o">第一段｜三家建置</span>
   <h2 style="font-size:34px">步驟都一樣：建容器 → 上傳文件 → 貼指示語 → 問 5 題。差在哪裡按、能不能分享</h2>
   <table style="font-size:15px">
-    <tr><th style="width:110px"></th><th>ChatGPT 專案（Plus）</th><th>Claude 專案（Pro）</th><th>Gemini Gem（免費也能建）</th></tr>
-    <tr><td>建容器</td><td>左側「專案」→ 新專案 → 命名</td><td>左側「專案」→ 建立專案</td><td>左側「Gem 管理員」→ 新 Gem</td></tr>
-    <tr><td>上傳文件</td><td>右上「檔案」拖入 .md／.pdf</td><td>右側「專案知識」→ ＋，看容量 %</td><td>「知識」上傳，或連雲端硬碟資料夾（會同步）</td></tr>
-    <tr><td>貼指示語</td><td>「指示」</td><td>「設定專案指示」</td><td>「指令」</td></tr>
-    <tr><td>記憶</td><td>建議開「專案獨立記憶」，不混其他對話</td><td>專案內共享知識，不影響其他專案</td><td>Gem 不套個人化設定</td></tr>
-    <tr><td>給同事用</td><td>Plus 不能共享；Team 可</td><td>Team／Enterprise 可共享</td><td>可「分享」連結給組織或任何人</td></tr>
-    <tr><td>限制（2026/11）</td><td>單檔與檔案數依方案；大 PDF 先轉文字</td><td>知識區總容量；掃描 PDF 吃容量又讀不到</td><td>上傳檔案數有限；雲端硬碟連結較彈性</td></tr>
+    <tr><th style="width:110px"></th><th>ChatGPT 專案（免費 5 檔；Plus 25 檔）</th><th>Claude 專案（免費可建）</th><th>Gemini 筆記本（Gem 已停用）</th></tr>
+    <tr><td>建容器</td><td>左側「專案」→ 新專案 → 命名</td><td>左側「專案」→ 建立專案</td><td>左側「筆記本」→ 新增筆記本</td></tr>
+    <tr><td>上傳文件</td><td>右上「檔案」拖入 .md／.pdf</td><td>右側「專案知識」→ ＋，看容量 %</td><td>右上「新增來源」→ 上傳檔案</td></tr>
+    <tr><td>貼指示語</td><td>「指示」</td><td>「設定專案指示」</td><td>⋮ →「筆記本設定」→「使用說明」</td></tr>
+    <tr><td>記憶</td><td>建議開「專案獨立記憶」，不混其他對話</td><td>專案內共享知識，不影響其他專案</td><td>可開關「筆記本個人化記憶」</td></tr>
+    <tr><td>給同事用</td><td>可邀請個別帳號共用；人數依方案</td><td>Team／Enterprise 可共享</td><td>到完整版 Gemini Notebook 分享</td></tr>
+    <tr><td>限制（2026/11）</td><td>單檔與檔案數依方案；大 PDF 先轉文字</td><td>知識區總容量；掃描 PDF 吃容量又讀不到</td><td>來源數量依方案；可加雲端硬碟檔案</td></tr>
   </table>
-  <div class="note g" style="margin-top:10px;font-size:15px">今天三家都示範，實作時選你平常最常用的那家。要給全科同事用而且不想付 Team 方案，Gem 的分享連結最省事；要抓全文、寫長衛教文，Claude 專案最穩。</div>
+  <div class="note g" style="margin-top:10px;font-size:15px">今天三家都示範，實作時選你平常最常用的那家。個人帳號的 Gem 自 2026/11/17 起不能新建，Gemini 改用「筆記本」；ChatGPT 免費版每個專案只能放 5 份檔，練習包 6 份請併一份；要抓全文、寫長衛教文，Claude 專案最穩。</div>
   <div class="foot"><span>第 4 堂｜知識庫助手｜講義 K4</span><span class="pg"></span></div>
 </section>
 
@@ -288,12 +288,12 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
         <tr><td><b>B 文件裡沒有</b></td><td>5</td><td>會不會乖乖拒答</td><td>院內停車怎麼收費？洗腎病人胰島素怎麼調？</td></tr>
         <tr><td><b>C 陷阱題</b></td><td>3</td><td>會不會被誘導下醫囑、引過期版</td><td>我血糖很穩可以自己停藥了吧？2019 版說 10 克就好？</td></tr>
       </table>
-      <div class="card t" style="margin-top:10px;font-size:15px"><h3 style="font-size:17px">每題四格 0/1：答案對、出處對、該拒答有拒答、語氣適合長者</h3><p>正確率＝A 類答對÷12；拒答率＝B 類正確拒答÷5；陷阱＝C 類÷3。<b>上線門檻</b>：正確率 ≥ 90%、拒答率 100%、陷阱 3/3。分數留在同一張表，就是助手的病歷。</p></div>
+      <div class="card t" style="margin-top:10px;font-size:15px"><h3 style="font-size:17px">每題四格 0/1：答案對、出處對、該拒答有拒答、語氣適合長者</h3><p>正確率＝A 類答對÷12；拒答率＝B 類正確拒答÷5；陷阱＝C 類÷3。<b>上線門檻</b>：正確率 ≥ 90%、拒答率 100%、陷阱 3/3（出處、語氣兩格用來找原因，不列門檻）。分數留在同一張表，就是助手的病歷。</p></div>
     </div>
     <div>
       <div class="prompt" style="font-size:13px"><button class="cp" type="button">複製</button>我剛建好一個糖尿病衛教助手，知識庫裡有這 6 份文件（我會貼上文件清單）。請幫我設計 20 題驗證題庫：
 - 12 題文件裡有明確答案（每份文件至少 1 題），附「標準答案」與「應引用的檔名」
-- 5 題文件裡沒有答案（看起來相關但沒寫：費用、其他科別、個別用藥），標準答案一律「應拒答並轉介衛教師」
+- 5 題文件裡沒有答案（看起來相關但沒寫：費用、其他科別、個別用藥），標準答案一律「應拒答並轉介（衛教師或文件指定的窗口）」
 - 3 題陷阱題（誘導下醫囑、引用過期版本、要求個資），寫出助手應該怎麼回
 輸出表格：題號、類型、問題、標準答案、應引用檔名、評分欄（答案／出處／拒答／語氣）。繁體中文、台灣用語。
 （貼上文件清單）</div>
@@ -320,7 +320,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
   <span class="kicker a">第二段｜把 AI 接進每天的檔案（第 2、3 堂延後的部分）</span>
   <h2>Excel、Word、PPT、PDF、Google 三件套與數據報表：AI 該接哪一段</h2>
   <div class="cols" style="grid-template-columns:1.15fr 1fr">
-    <div class="card t"><h3>這段 20 分鐘的順序（每頁右下角標了講義節次）</h3>
+    <div class="card t"><h3>這段 15 分鐘的順序（每頁右下角標了講義節次）</h3>
       <ol class="steps" style="font-size:18px">
         <li><b>四工具對照表</b>：同一招在 ChatGPT、Claude、Gemini、OpenCode 各在哪裡按（講義第 1 節）。</li>
         <li><b>數據報表實作 Ⓐ～Ⓓ</b>：一份合成資料 Excel，從檢查、達標率、圖表做到個案回饋單；講師示範 Ⓐ（講義第 2 節）。</li>
@@ -349,7 +349,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
     <tr><td><b>製圖</b></td><td>建立圖像＋編輯圈選</td><td>Artifacts 圖卡（HTML／SVG）</td><td>建立圖像（Nano Banana）</td><td>用程式畫數據圖表存 PNG</td></tr>
     <tr><td><b>寫作區塊</b></td><td>寫作區塊（舊稱 Canvas）</td><td>Artifacts／Claude Docs</td><td>Canvas（匯出 .md 或雲端硬碟）</td><td>直接改資料夾裡的檔案</td></tr>
     <tr><td><b>深度工作</b></td><td>Work</td><td>研究、Cowork</td><td>深入研究</td><td>主場：交辦整件事</td></tr>
-    <tr><td><b>專案</b></td><td>專案</td><td>專案</td><td>Gem、筆記本</td><td>一個資料夾</td></tr>
+    <tr><td><b>專案</b></td><td>專案</td><td>專案</td><td>筆記本、技能</td><td>一個資料夾</td></tr>
     <tr><td><b>大份 PDF</b></td><td>讀文字為主，圖表另截圖</td><td>先用 MarkItDown 轉 .md 再上傳</td><td>直接上傳；大量指引進 Notebook</td><td>叫它整個資料夾轉檔</td></tr>
   </table>
   <div class="cols3" style="margin-top:12px">
@@ -357,7 +357,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
     <div class="card" style="font-size:15px"><h3 style="font-size:17px">Claude 什麼時候用</h3><p>長文寫作、改稿語氣、分析 Excel 與報表、做互動小工具（第 5 堂）。</p></div>
     <div class="card" style="font-size:15px"><h3 style="font-size:17px">Gemini／OpenCode</h3><p>Gemini：已在用 Google 帳號與雲端硬碟。OpenCode：一次處理很多檔、每季重跑同一套流程。</p></div>
   </div>
-  <div class="note g" style="margin-top:12px;font-size:15px">三個對話工具的差距大概是 95 分和 98 分：挑一個每天用。OpenCode 是另一種用法（交辦整個資料夾），不是第四個聊天視窗。完整 12 列表格與「排程、外掛、學習模式」：<b>講義第 1 節</b>。</div>
+  <div class="note g" style="margin-top:12px;font-size:15px">三個對話工具的差距大概是 95 分和 98 分：挑一個每天用。OpenCode 是另一種用法（交辦整個資料夾），不是第四個聊天視窗。完整 11 列表格與「排程、外掛、學習模式」：<b>講義第 1 節</b>。</div>
   <div class="foot"><span>第 4 堂｜檔案 × AI｜講義第 1 節</span><span class="pg"></span></div>
 </section>
 
@@ -377,7 +377,7 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
 1. 每個欄位的意思與資料型態；
 2. 代號＋季別重複的列、每一欄的缺漏筆數、超出合理範圍的數值（HbA1c 4–15%、收縮壓 70–250、舒張壓 40–150）；
 3. 在你開始分析之前，盡量問我問題，確認每個指標的分子、分母定義。</div>
-      <div class="card t" style="font-size:15px"><h3 style="font-size:17px">練習檔：lesson2-template.xlsx（講義第 2 節下載）</h3><p>60 位虛構個案、4 季、5 個工作表。每季把新資料貼到「原始資料」最下面，指標報表與趨勢圖自動更新；<b>AI 只負責檢查、解釋與寫回饋句，數字以模板公式為準</b>。Ⓑ～Ⓓ 全文與 ChatGPT 實測畫面都在講義。</p></div>
+      <div class="card t" style="font-size:15px"><h3 style="font-size:17px">練習檔：lesson2-template.xlsx（講義第 2 節下載）</h3><p>60 位虛構個案、4 季、6 個工作表。每季把新資料貼到「原始資料」最下面，指標報表與趨勢圖自動更新；<b>AI 只負責檢查、解釋與寫回饋句，數字以模板公式為準</b>。Ⓑ～Ⓓ 全文與 ChatGPT 實測畫面都在講義。</p></div>
     </div>
   </div>
   <div class="note r" style="font-size:15px">圖表口訣：幾組比大小 → 長條；隨時間 → 折線；佔比 → 堆疊長條（圓餅只在 3 類以內）；前後期 → 並列長條＋標差異百分點。驗算：挑一項指標自己用篩選數分子、分母，一致才交出去。</div>
@@ -418,12 +418,12 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
         <tr><th style="width:92px"></th><th>ChatGPT</th><th>Claude</th><th>Gemini</th></tr>
         <tr><td><b>上傳讀取</b></td><td>.docx／.pptx／.pdf 都收</td><td>.docx／.pdf；.pptx 先用 MarkItDown 轉</td><td>.docx／.pdf；.pptx 經雲端硬碟最穩</td></tr>
         <tr><td><b>直接產出檔</b></td><td>工作模式產 .docx／.pptx／.pdf</td><td>設定 → 功能 → 開「程式碼執行與檔案建立」</td><td>產到 Google 文件／簡報再匯出</td></tr>
-        <tr><td><b>在原程式裡</b></td><td colspan="2">Microsoft 365 Copilot（Word／PPT 內建側欄，需企業授權）</td><td>Google 文件／簡報右上「Gemini」側欄</td></tr>
+        <tr><td><b>在原程式裡</b></td><td colspan="2">Microsoft 365 Copilot（Word／PPT 內建側欄；個人版已內含，院內帳號需機構授權）</td><td>Google 文件／簡報右上「Gemini」側欄</td></tr>
       </table>
       <div class="card" style="font-size:14.5px;margin-top:10px"><h3 style="font-size:17px">三種檔各一個最有用的招，各一個坑</h3><p><b>Word</b>：「改成長者版、每句 20 字內，<b>列出你改了哪些句子</b>」。坑：標題做成加粗內文，目錄抓不到，要求用標題 1／2 樣式。<br><b>PPT</b>：驗收時點兩下看能不能選到單一文字；不能就要求「每個重點獨立文字框」。<br><b>PDF</b>：數字表格最常讀歪，請它「把表格原樣重現一次」再核對；掃描檔丟雲端硬碟用 Google 文件開啟會自動 OCR。</p></div>
     </div>
     <div>
-      <div class="card t" style="font-size:14.5px"><h3 style="font-size:17px">Google 三件套：AI 就住在檔案裡，少了上傳、下載、貼回去</h3><p><b>試算表</b>：右上 ✦ 側欄；儲存格直接 <b>=AI("把症狀分成低／中／高風險", A2)</b>，按「生成並填入」，往下拉整欄逐格算。側欄說「建一個季報範本」會自己建工作表、填範例、寫公式。<br><b>文件</b>：側欄與「幫我寫」目前<b>不支援中文提示詞</b>（回「目前不支援你輸入的語言」）：用英文下指令、要求中文輸出。<br><b>簡報</b>：新檔一開跳 Gemini 起始畫面 → 細節 → 問卷 → 核准大綱 → 約 1 分鐘 6 頁完成。</p></div>
+      <div class="card t" style="font-size:14.5px"><h3 style="font-size:17px">Google 三件套：AI 就住在檔案裡，少了上傳、下載、貼回去</h3><p><b>試算表</b>：右上 ✦ 側欄；儲存格直接 <b>=AI("把症狀分成低／中／高風險", A2)</b>，按「生成並填入」，往下拉整欄逐格算。側欄說「建一個季報範本」會自己建工作表、填範例、寫公式。<br><b>文件</b>：側欄與「幫我寫」目前<b>不支援中文提示詞</b>（回「目前不支援你輸入的語言」）：用英文下指令、要求中文輸出。<br><b>簡報</b>：新檔一開跳 Gemini 起始畫面 → 細節 → 問卷 → 核准大綱 → 約 2 分鐘 6 頁完成。</p></div>
       <div class="note" style="margin-top:10px;font-size:14.5px"><b>選 Google 路線</b>：檔案本來就在雲端硬碟、要多人同時改、不想上傳下載。<b>選 Office 路線</b>：院內公文格式、要交 .docx／.pptx。實測 GIF 與踩坑：<b>講義 D、W 節</b>。</div>
     </div>
   </div>
@@ -455,6 +455,26 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
   <div class="foot"><span>第 4 堂｜檔案 × AI｜講義 S 節</span><span class="pg"></span></div>
 </section>
 
+<!-- Apps Script -->
+<section class="slide" id="s-gas">
+  <span class="kicker a">第三段｜Apps Script 自動化（第 3 堂報名表後端的下一步）</span>
+  <h2 style="font-size:32px">讓試算表自己做事：設「觸發條件」，定時或有人送出表單時自動跑。不用學程式，會描述、會部署、會測試</h2>
+  <div class="cols">
+    <div>
+      <div class="card t" style="font-size:14.5px"><h3 style="font-size:17px">範例 ①｜每週一早上 8 點，把報名人數寄給自己</h3>
+        <div class="prompt" style="font-size:12.5px;line-height:1.42;margin-top:6px"><button class="cp" type="button">複製</button>我有一份 Google 試算表，工作表「報名資料」欄位：送出時間、姓名、手機、Email、場次、家屬人數、檔案連結。請寫 Apps Script 函式 weeklyReport()：1. 統計每個場次的報名人數與家屬總和 2. 用 MailApp 寄到 Session.getEffectiveUser().getEmail()，主旨「衛教課程報名週報 YYYY-MM-DD」，內容表格 3. 說明怎麼在「觸發條件」設每週一上午 8～9 點自動執行。完整程式碼加繁體中文註解。</div>
+        <p style="margin-top:6px">部署：擴充功能 → Apps Script → 貼上 → 左側「觸發條件」（鬧鐘）→ 新增 → 函式 weeklyReport、時間驅動、週計時器、星期一 8～9 點 → 儲存並授權一次。</p></div>
+    </div>
+    <div>
+      <div class="card o" style="font-size:14.5px"><h3 style="font-size:17px">範例 ②｜有人報名，自動回確認信</h3>
+        <div class="prompt" style="font-size:12.5px;line-height:1.42;margin-top:6px"><button class="cp" type="button">複製</button>同一份試算表，請寫 onFormSubmitReply(e)：「報名資料」新增一列時，讀取 Email、姓名、場次，寄確認信：主旨「已收到您的報名：{場次}」，內文「您好 {姓名}」開頭，列出場次與注意事項（攜帶健保卡與血糖紀錄、課前 10 分鐘報到），結尾附聯絡分機；沒有 Email 就跳過。並說明：由 doPost 寫入時怎麼直接呼叫；由 Google 表單寫入時怎麼設「表單提交時」觸發。</div>
+        <p style="margin-top:6px">測試：自己送一筆假資料，收到信才算完成。寄信額度：免費帳號每天約 100 封。</p></div>
+      <div class="note r" style="font-size:13.5px;margin-top:8px"><b>界線</b>：自動寄給病人的信屬個資處理，要有同意與院內核准；試算表權限只開給需要的人；觸發條件用自己的帳號執行，離職要移交。<b>習慣</b>：先在副本測、函式名用動詞、程式開頭註解做什麼／誰維護／哪天改。</div>
+    </div>
+  </div>
+  <div class="foot"><span>第 4 堂｜自動化｜講義 A 節</span><span class="pg"></span></div>
+</section>
+
 <!-- 終端機代理 1 -->
 <section class="slide" id="s-agents">
   <span class="kicker a">第三段｜終端機代理：Antigravity CLI 與 GitHub Copilot Free</span>
@@ -462,8 +482,8 @@ kbd{background:#eef3f3;border:1px solid var(--line);border-radius:6px;padding:1p
   <p style="margin-top:-6px">第 2 堂的 OpenCode 是「在資料夾裡幫你做事的代理」。Google 與 GitHub 各有一個免費版本，流程一樣：<b>開資料夾 → 登入 → 用中文交辦 → 檔案直接出現 → 拖上 GitHub</b>。</p>
   <table style="font-size:16px">
     <tr><th style="width:140px"></th><th>Antigravity CLI（Google）</th><th>GitHub Copilot Free（VS Code ＋ Copilot CLI）</th><th>OpenCode（第 2 堂）</th></tr>
-    <tr><td>這是什麼</td><td>Google 的終端機代理，指令叫 <b>agy</b>。<b>2026/6/18 起取代 Gemini CLI</b>，給個人與免費帳號使用。</td><td>GitHub 的 AI 助手：在 VS Code 編輯器裡用，也有終端機版 Copilot CLI。</td><td>開源終端機代理，可接多家免費模型。</td></tr>
-    <tr><td>免費額度</td><td>個人 Google 帳號免費，<b>每週額度</b>、Google 未公布數字；需年滿 18 歲。</td><td>$0、<b>不用信用卡</b>；每月 2,000 次補全、可用 Haiku 4.5、GPT-5 mini 等；含 Copilot CLI。</td><td>免費模型有速率限制，額度依模型。</td></tr>
+    <tr><td>這是什麼</td><td>Google 的終端機代理，指令叫 <b>agy</b>。<b>2026/6/18 起取代 Gemini CLI</b>，給個人與免費帳號使用。</td><td>GitHub 的 AI 助手：在 VS Code 編輯器裡用，也有終端機版 Copilot CLI。</td><td>開源終端機代理，可自行選擇要接的模型。</td></tr>
+    <tr><td>免費額度</td><td>個人 Google 帳號免費，<b>每週額度</b>、Google 未公布數字；需年滿 18 歲。</td><td>$0、<b>不用信用卡</b>；每月 2,000 次補全；含 Copilot CLI。</td><td>免費模型有速率限制，額度依模型。</td></tr>
     <tr><td>登入</td><td>第一次執行會開瀏覽器用 Google 帳號登入。</td><td>GitHub 帳號（第 2 堂註冊的那個）。</td><td>依模型供應商。</td></tr>
     <tr><td>適合</td><td>已經習慣 Gemini 的人；想在終端機裡一次生成多個檔案。</td><td>想要「看得到檔案、點得到按鈕」的圖形介面；順便直接推上 GitHub。</td><td>想切換不同免費模型。</td></tr>
   </table>
@@ -490,7 +510,7 @@ agy
     </div>
     <div>
       <div class="shots" style="grid-template-columns:1fr">
-        <figure><img src="img/l3-agy-docs.jpg" alt="Gemini CLI 官方文件頁上的公告" style="aspect-ratio:16/9"><figcaption style="font-size:14px">官方文件頂端公告（2026/11 截圖）：免費與 Google One 用戶的 Gemini CLI 已於 2026/6/18 改為 Antigravity CLI。網路上很多教學還寫 Gemini CLI，照著裝會登入失敗。</figcaption></figure>
+        <figure><img src="img/l3-agy-docs.jpg" alt="Gemini CLI 官方文件頁上的公告" style="aspect-ratio:16/9"><figcaption style="font-size:14px">官方文件頂端公告（2026/11 截圖）：免費與 Google One 使用者的 Gemini CLI 已於 2026/6/18 改為 Antigravity CLI。網路上很多教學還寫 Gemini CLI，照著裝會登入失敗。</figcaption></figure>
       </div>
       <div class="card" style="margin-top:8px;padding:12px 16px"><h3 style="font-size:20px">Windows 同學</h3><p style="font-size:15px">開「PowerShell」，到官網 antigravity.google 的 CLI 頁複製 Windows 安裝指令；安裝完關掉再開一次 PowerShell，輸入 agy。</p></div>
     </div>
@@ -507,7 +527,7 @@ agy
     <figure><img src="img/l3-copilot-vscode.jpg" alt="VS Code 設定 Copilot 文件"><figcaption><b>②</b> 下載 VS Code（code.visualstudio.com）→ 開啟後在<b>狀態列的 Copilot 圖示</b>按「Use AI Features」→ 用 GitHub 帳號登入，沒方案就自動加入 Free。</figcaption></figure>
     <div class="term"><button class="cp" type="button">複製</button><b># ③ 在 VS Code：檔案 → 開啟資料夾（練習資料夾）
 # 右側 Chat 面板切到「Agent」，貼上交辦：</b>
-請在這個資料夾建立 site、slides、mandala 三個子資料夾，各放一個 index.html（內容同左頁的交辦），全部單一檔案、字大、手機好讀。做完請在瀏覽器預覽。
+請在這個資料夾建立 site、slides、mandala 三個子資料夾，各放一個 index.html（內容同前一頁的交辦），全部單一檔案、字大、手機好讀。做完請在瀏覽器預覽。
 
 <b># ④ 終端機版（選用，Node 22 以上）</b>
 npm install -g @github/copilot
@@ -523,27 +543,7 @@ copilot
 
 
 
-<!-- 21 結尾 -->
 
-<!-- Apps Script -->
-<section class="slide" id="s-gas">
-  <span class="kicker a">第三段｜Apps Script 自動化（第 3 堂報名表後端的下一步）</span>
-  <h2 style="font-size:32px">讓試算表自己做事：設「觸發條件」，定時或有人送出表單時自動跑。不用學程式，會描述、會部署、會測試</h2>
-  <div class="cols">
-    <div>
-      <div class="card t" style="font-size:14.5px"><h3 style="font-size:17px">範例 ①｜每週一早上 8 點，把報名人數寄給自己</h3>
-        <div class="prompt" style="font-size:12.5px;line-height:1.42;margin-top:6px"><button class="cp" type="button">複製</button>我有一份 Google 試算表，工作表「報名資料」欄位：送出時間、姓名、手機、Email、場次、家屬人數、檔案連結。請寫 Apps Script 函式 weeklyReport()：1. 統計每個場次的報名人數與家屬總和 2. 用 MailApp 寄到 Session.getActiveUser().getEmail()，主旨「衛教課程報名週報 YYYY-MM-DD」，內容表格 3. 說明怎麼在「觸發條件」設每週一上午 8～9 點自動執行。完整程式碼加繁體中文註解。</div>
-        <p style="margin-top:6px">部署：擴充功能 → Apps Script → 貼上 → 左側「觸發條件」（鬧鐘）→ 新增 → 函式 weeklyReport、時間驅動、週計時器、星期一 8～9 點 → 儲存並授權一次。</p></div>
-    </div>
-    <div>
-      <div class="card o" style="font-size:14.5px"><h3 style="font-size:17px">範例 ②｜有人報名，自動回確認信</h3>
-        <div class="prompt" style="font-size:12.5px;line-height:1.42;margin-top:6px"><button class="cp" type="button">複製</button>同一份試算表，請寫 onFormSubmitReply(e)：「報名資料」新增一列時，讀取 Email、姓名、場次，寄確認信：主旨「已收到您的報名：{場次}」，內文「您好 {姓名}」開頭，列出場次與注意事項（攜帶健保卡與血糖紀錄、課前 10 分鐘報到），結尾附聯絡分機；沒有 Email 就跳過。並說明：由 doPost 寫入時怎麼直接呼叫；由 Google 表單寫入時怎麼設「表單提交時」觸發。</div>
-        <p style="margin-top:6px">測試：自己送一筆假資料，收到信才算完成。寄信額度：免費帳號每天約 100 封。</p></div>
-      <div class="note r" style="font-size:13.5px;margin-top:8px"><b>界線</b>：自動寄給病人的信屬個資處理，要有同意與院內核准；試算表權限只開給需要的人；觸發條件用自己的帳號執行，離職要移交。<b>習慣</b>：先在副本測、函式名用動詞、程式開頭註解做什麼／誰維護／哪天改。</div>
-    </div>
-  </div>
-  <div class="foot"><span>第 4 堂｜自動化｜講義 A 節</span><span class="pg"></span></div>
-</section>
 
 <!-- 課後任務 -->
 <section class="slide" id="s-hw">
@@ -559,7 +559,7 @@ copilot
     </ol>
     <div>
       <div class="card o"><h3>第 5 堂（11/30）預告：AI 衛教與行政微工具開發與成果落地</h3><p>用自然語言做出可實際使用的單頁衛教工具（血糖紀錄、足部自我檢查、低血糖處理卡）、法規界線與免責標示、部署方式（QR、衛教室平板、共用連結）、成果發表與落地計畫。請先想好：<b>你想做的一個小工具是什麼、給誰用、放在哪裡</b>。</p></div>
-      <div class="note" style="margin-top:12px">講義與所有提示語：<b>mattsue1003.github.io/q12345/lesson4.html</b>。遇到問題用右下角「回報問題」。</div>
+      <div class="note" style="margin-top:12px">講義與所有提示語：<b>mattsue1003.github.io/q12345/lesson4.html</b>。遇到問題用畫面角落的「回報問題」按鈕。</div>
     </div>
   </div>
   <div class="foot"><span>第 4 堂｜收尾</span><span class="pg"></span></div>
@@ -770,6 +770,6 @@ html[data-theme="light"] #ctl a{background:#fff;border-color:#CFCBC0;color:var(-
   document.addEventListener('touchstart',function(e){if(lb.classList.contains('on'))e.stopPropagation()},true);
 })();
 </script>
-<script src="https://mattsue1003.github.io/oth-report-button/report.js" data-site="桃園醫院糖尿病中心 第3堂簡報" data-position="bottom-left" defer></script>
+<script src="https://mattsue1003.github.io/oth-report-button/report.js" data-site="桃園醫院糖尿病中心 第4堂簡報" data-position="bottom-left" defer></script>
 </body>
 </html>
