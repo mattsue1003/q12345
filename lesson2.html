@@ -5,152 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>第2堂 ChatGPT、Claude、Gemini 與 OpenCode 操作對照</title>
 <meta name="description" content="衛福部桃園醫院糖尿病中心 AI 賦能工作坊 第2堂講義：從 AI 底層邏輯到進階功能，對照 ChatGPT、Claude、Gemini 與 OpenCode 代理的操作位置，學會四招提示詞、製圖、寫作區塊、學習模式、排程、外掛、深度工作與專案，並在課堂上註冊 GitHub、上傳第一個自我介紹網頁。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
-:root{
-  --orange:#E8552D; --amber:#F4A93C; --teal:#028090; --ink:#12343B;
-  --teal-50:#E6F4F5; --orange-50:#FDEEE9; --amber-50:#FEF6E8;
-  --bg:#F7F9F9; --card:#FFFFFF; --line:#DCE6E7; --muted:#4F6B70;
-  --ok:#1E8E5A; --warn:#C0392B;
-  --radius:16px;
-  --font:"Microsoft JhengHei","PingFang TC","Noto Sans TC","Heiti TC",system-ui,sans-serif;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:120px}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.75;overflow-x:hidden}
-img,svg{max-width:100%}
-a{color:var(--teal)}
-h1,h2,h3,h4{line-height:1.35;margin:0 0 .5em}
-h2{font-size:clamp(1.5rem,3.2vw,2rem)}
-h3{font-size:1.25rem}
-p{margin:.4em 0 .8em}
-kbd{display:inline-block;min-width:1.8em;padding:.05em .5em;border:1px solid #B9C9CB;border-bottom-width:3px;border-radius:7px;background:#fff;font-family:inherit;font-size:.92em;font-weight:700;text-align:center;line-height:1.5}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-
-/* hero */
-.hero{background:linear-gradient(135deg,var(--ink) 0%,#0B4F58 55%,var(--teal) 100%);color:#fff;padding:56px 0 64px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(244,169,60,.45),rgba(244,169,60,0) 70%)}
-.hero .tag{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);padding:4px 14px;border-radius:999px;font-size:.9rem;margin-bottom:14px}
-.hero h1{font-size:clamp(1.8rem,5vw,3rem);margin-bottom:.3em}
-.hero h1 span{color:var(--amber)}
-.hero .sub{font-size:clamp(1rem,2.2vw,1.2rem);opacity:.92;max-width:760px}
-.goals{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:28px;position:relative;z-index:1}
-.goal{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:16px 18px}
-.goal b{display:block;color:var(--amber);font-size:.95rem;margin-bottom:4px}
-.contact{display:flex;flex-wrap:wrap;gap:10px 12px;margin-top:24px;position:relative;z-index:1}
-.contact .btn{padding:12px 20px;font-size:1.05rem;box-shadow:0 4px 14px rgba(0,0,0,.18)}
-.btn.line{background:#06C755}
-.btn.mail{background:var(--orange)}
-.btn.fbc{background:#1877F2}
-.contact-hint{margin:12px 0 0;font-size:.95rem;opacity:.92;position:relative;z-index:1}
-.contact-hint b{color:var(--amber)}
-
-.lessons{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;position:relative;z-index:1}
-.lessons a{color:#fff;text-decoration:none;font-weight:800;padding:5px 16px;border-radius:999px;border:1.5px solid rgba(255,255,255,.45);font-size:.95rem}
-.lessons a:hover{background:rgba(255,255,255,.14)}
-.lessons a.on{background:var(--amber);border-color:var(--amber);color:var(--ink)}
-
-/* nav */
-nav.toc{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-nav.toc .wrap{display:flex;gap:8px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
-nav.toc .wrap::-webkit-scrollbar{display:none}
-nav.toc a{flex:0 0 auto;text-decoration:none;color:var(--ink);background:var(--teal-50);padding:6px 14px;border-radius:999px;font-size:.95rem;font-weight:700;white-space:nowrap}
-nav.toc a.on{background:var(--teal);color:#fff}
-nav.toc .toc-g{flex:0 0 auto;align-self:center;font-size:.8rem;font-weight:800;color:#fff;background:var(--ink);padding:3px 9px;border-radius:6px;margin-left:6px;letter-spacing:.05em}
-nav.toc .toc-g:first-child{margin-left:0}
-nav.toc .toc-search{padding-top:0;padding-bottom:10px;overflow:visible;flex-wrap:wrap;align-items:center}
-nav.toc .toc-search input{flex:1 1 240px;min-width:0;padding:8px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.95rem;font-family:inherit;background:#fff}
-nav.toc .toc-search input:focus{outline:2px solid var(--teal);border-color:var(--teal)}
-nav.toc #qCount{font-size:.9rem;color:var(--muted);min-width:4.5em;white-space:nowrap}
-.qbtn{background:var(--teal-50);border:0;border-radius:8px;padding:7px 11px;font-family:inherit;font-weight:700;color:var(--ink);cursor:pointer;font-size:.9rem}
-.qbtn:hover{background:var(--teal);color:#fff}
-mark.hit{background:#FFE08A;color:inherit;padding:0 2px;border-radius:3px}
-mark.hit.cur{background:var(--orange);color:#fff}
-
-/* sections */
-section{padding:56px 0 8px}
-.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.num{flex:0 0 auto;width:52px;height:52px;border-radius:14px;background:var(--orange);color:#fff;display:grid;place-items:center;font-size:1.4rem;font-weight:800}
-.sec-head p{margin:0;color:var(--muted)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin-bottom:18px;box-shadow:0 2px 0 rgba(18,52,59,.03)}
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
-.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-.grid2>.card,.grid3>.card{margin-bottom:0}
-.pill{display:inline-block;font-size:.8rem;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--teal-50);color:var(--teal);margin-right:6px;vertical-align:middle}
-.pill.o{background:var(--orange-50);color:var(--orange)}
-.pill.a{background:var(--amber-50);color:#A86A0B}
-.note{border-left:5px solid var(--amber);background:var(--amber-50);padding:14px 18px;border-radius:0 12px 12px 0;margin:14px 0}
-.note.red{border-color:var(--warn);background:#FDECEA}
-.note.teal{border-color:var(--teal);background:var(--teal-50)}
-ul,ol{padding-left:1.4em;margin:.4em 0 .8em}
-li{margin:.25em 0}
-
-/* tool cards */
+/* 沿用的元件樣式 */
 .tool{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
-.tool>*,.grid2>*,.grid3>*{min-width:0}
+.tool>*{min-width:0}
 .tool-top{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
 .logo{width:60px;height:60px;border-radius:16px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:1.5rem;flex:0 0 auto}
-.btn{display:inline-flex;align-items:center;gap:6px;background:var(--teal);color:#fff;text-decoration:none;font-weight:700;padding:10px 18px;border-radius:12px;border:0;cursor:pointer;font-family:inherit;font-size:1rem}
-.btn.o{background:var(--orange)}
-.btn.ghost{background:#fff;color:var(--teal);border:2px solid var(--teal)}
-.btn:hover{filter:brightness(1.07)}
-.steps{counter-reset:s;list-style:none;padding:0;margin:0}
-.steps li{counter-increment:s;position:relative;padding:10px 0 10px 50px;border-bottom:1px dashed var(--line)}
-.steps li:last-child{border-bottom:0}
-.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:800}
-.keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
 .key{background:var(--teal-50);border-radius:12px;padding:12px 14px}
 .key .k{font-size:1.15rem;margin-bottom:4px}
-
-/* checklist */
-.check label{display:flex;gap:12px;align-items:flex-start;padding:8px 0;cursor:pointer}
-.check input{width:22px;height:22px;margin-top:5px;accent-color:var(--teal);flex:0 0 auto}
-.check input:checked+span{color:var(--muted);text-decoration:line-through}
-.progress{height:10px;background:var(--line);border-radius:99px;overflow:hidden;margin:8px 0 4px}
-.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--amber));transition:width .3s}
-
-/* tables */
-.tbl{overflow-x:auto;border-radius:12px;border:1px solid var(--line);background:#fff}
-table{border-collapse:collapse;width:100%;min-width:640px}
-th,td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
-th{background:var(--ink);color:#fff;font-weight:700}
-tr:last-child td{border-bottom:0}
-td:first-child{font-weight:700;white-space:nowrap}
-
-/* three no */
 .three{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
 .no{background:#fff;border:2px solid var(--orange);border-radius:var(--radius);padding:22px;position:relative}
 .no .big{font-size:2.6rem;font-weight:900;color:var(--orange);line-height:1}
 .no h3{margin-top:8px}
-
-/* prompt boxes */
-.prompt{position:relative;background:#0F2C32;color:#E9F5F6;border-radius:14px;padding:18px 20px 18px;margin:12px 0;font-size:1rem;line-height:1.75;white-space:pre-wrap;word-break:break-word}
-.prompt .copy{position:absolute;top:10px;right:10px;background:var(--amber);color:var(--ink);border:0;border-radius:9px;padding:5px 12px;font-weight:800;cursor:pointer;font-family:inherit;font-size:.9rem}
-.prompt .label{display:block;color:var(--amber);font-weight:800;margin-bottom:6px;padding-right:80px}
-
-/* six elements */
 .six{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:18px}
 .el{background:#fff;border:1px solid var(--line);border-top:6px solid var(--teal);border-radius:14px;padding:14px 16px}
-.el:nth-child(2){border-top-color:var(--orange)}.el:nth-child(3){border-top-color:var(--amber)}
-.el:nth-child(4){border-top-color:var(--ink)}.el:nth-child(5){border-top-color:#5B8E7D}.el:nth-child(6){border-top-color:var(--warn)}
+.el:nth-child(2){border-top-color:var(--orange)}
+.el:nth-child(3){border-top-color:var(--amber)}
+.el:nth-child(4){border-top-color:var(--ink)}
+.el:nth-child(5){border-top-color:#5B8E7D}
+.el:nth-child(6){border-top-color:var(--warn)}
 .el b{font-size:1.25rem;display:block}
 .el small{color:var(--muted);font-size:.92rem;display:block;line-height:1.5}
-
-/* forms */
 .field{margin-bottom:12px}
 .field label{display:block;font-weight:800;margin-bottom:4px}
 .field label em{font-style:normal;font-weight:400;color:var(--muted);font-size:.9rem}
 textarea,select,input[type=text]{width:100%;font-family:inherit;font-size:1rem;padding:10px 12px;border:1px solid #B9C9CB;border-radius:10px;background:#fff;color:var(--ink);line-height:1.6}
 textarea{resize:vertical}
 .row{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
-
-/* de-id */
 .deid-out{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-height:90px;white-space:pre-wrap;word-break:break-word}
 mark{background:#FFD9CC;color:var(--ink);border-radius:5px;padding:0 3px;font-weight:700}
 mark[data-t]::after{content:attr(data-t);font-size:.7em;background:var(--orange);color:#fff;border-radius:4px;padding:0 4px;margin-left:3px;vertical-align:super}
 .found{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
 .found span{background:var(--orange-50);color:var(--orange);border-radius:999px;padding:2px 12px;font-weight:700;font-size:.92rem}
-
-/* compare */
 .ba{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
 .ba .card h3{display:flex;align-items:center;gap:8px}
 .elder{font-size:1.45rem;line-height:1.8}
@@ -160,25 +48,21 @@ mark[data-t]::after{content:attr(data-t);font-size:.7em;background:var(--orange)
 .tr-box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}
 .tr-box b{display:block;color:var(--teal);margin-bottom:4px}
 .diff{background:#FDECEA;border-radius:5px;padding:0 3px;font-weight:700;color:var(--warn)}
-
-/* flow */
 .flow{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;margin:14px 0}
 .flow div{flex:1 1 150px;background:var(--teal);color:#fff;border-radius:12px;padding:12px 14px;font-weight:700;position:relative}
 .flow div small{display:block;font-weight:400;opacity:.9;line-height:1.5}
-.flow div:nth-child(2){background:#0B6C78}.flow div:nth-child(3){background:var(--ink)}.flow div:nth-child(4){background:var(--orange)}
-
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 16px}
-.tab{font-family:inherit;font-size:1rem;font-weight:800;padding:8px 16px;border-radius:999px;border:2px solid var(--teal);background:#fff;color:var(--teal);cursor:pointer}
-.tab.on{background:var(--teal);color:#fff}
-.panel{display:none}.panel.on{display:block}
-@media print{.panel{display:block!important}.tabs{display:none}}
+.flow div:nth-child(2){background:#0B6C78}
+.flow div:nth-child(3){background:var(--ink)}
+.flow div:nth-child(4){background:var(--orange)}
 details.risk{border-left:6px solid var(--orange);padding:14px 20px}
 details.risk summary{font-size:1.1rem}
 .risk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:6px}
 .r-bad,.r-good{border-radius:12px;padding:14px 16px}
-.r-bad{background:#FDECEA}.r-good{background:var(--teal-50)}
+.r-bad{background:#FDECEA}
+.r-good{background:var(--teal-50)}
 .r-bad>b,.r-good>b{display:block;margin-bottom:4px}
-.r-bad>b{color:var(--warn)}.r-good>b{color:var(--teal)}
+.r-bad>b{color:var(--warn)}
+.r-good>b{color:var(--teal)}
 .r-bad ul,.r-good ul{margin:0}
 .shortcut-box{background:#fff;border:2px solid var(--teal);border-radius:var(--radius);padding:18px 20px;margin:18px 0}
 .shortcut-box h3{color:var(--teal)}
@@ -188,64 +72,17 @@ details.risk summary{font-size:1.1rem}
 .b3-ico{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:1.3rem;margin-bottom:8px;color:#fff}
 .b3 h4{margin:0 0 6px;font-size:1.1rem}
 .b3 ul{margin:0;padding-left:1.2em}
-.card.alt{border:2px solid var(--amber);background:#FFFDF8}
 .sm-link{font-size:.85rem;padding:5px 12px;border-radius:9px;vertical-align:middle}
-.deid-cta{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;justify-content:space-between;background:var(--teal-50);border:1px solid #BFE0E3;border-radius:12px;padding:14px 16px}
-.deid-cta>div:first-child{flex:1 1 320px;min-width:0}
-.card.fb{background:linear-gradient(120deg,var(--ink),#0B4F58);color:#fff;border:0}
-.fb-in{display:flex;flex-wrap:wrap;gap:16px 22px;align-items:center}
-.fb-ico{width:56px;height:56px;border-radius:14px;background:#1877F2;color:#fff;font-weight:900;font-size:2rem;display:grid;place-items:center;flex:0 0 auto}
-.example{background:var(--amber-50);border:1px dashed var(--amber);border-radius:12px;padding:12px 16px;margin:10px 0}
-details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
-details summary{cursor:pointer;font-weight:800}
-details[open] summary{margin-bottom:8px}
-
-footer{margin-top:60px;background:var(--ink);color:#CFE3E5;padding:36px 0;font-size:.95rem}
-footer a{color:var(--amber)}
-.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(80px);background:var(--ink);color:#fff;padding:10px 20px;border-radius:999px;font-weight:700;transition:transform .25s;z-index:99}
-.toast.show{transform:translateX(-50%) translateY(0)}
-
-@media (max-width:640px){
-  body{font-size:17px}
-  .wrap{padding:0 16px}
-  .card{padding:18px}
-  .hero{padding:40px 0 44px}
-  .num{width:44px;height:44px;font-size:1.2rem}
-  .elder{font-size:1.3rem}
-  .prompt{font-size:.95rem}
-}
-@media print{
-  nav.toc,.copy,.row .btn,.toast{display:none!important}
-  .hero{background:var(--ink)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  section{break-inside:avoid-page}
-}
-
-/* ---- lesson 2 additions ---- */
-.lessons{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;position:relative;z-index:1}
-.lessons a{color:#fff;text-decoration:none;font-weight:800;padding:5px 16px;border-radius:999px;border:1.5px solid rgba(255,255,255,.45);font-size:.95rem}
-.lessons a:hover{background:rgba(255,255,255,.14)}
-.lessons a.on{background:var(--amber);border-color:var(--amber);color:var(--ink)}
-.t{display:inline-block;font-size:.8rem;font-weight:800;padding:2px 10px;border-radius:999px;color:#fff;margin-right:6px;vertical-align:middle;white-space:nowrap;line-height:1.6}
-.t.gpt{background:#0E8A6B}.t.cl{background:#B4532F}.t.ge{background:#2F62D0}
-th .t{font-size:.9rem}
-.tri{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:18px}
-.tri>.card,.grid3>.card{margin-bottom:0;min-width:0}
-.gpt-c{border-top:5px solid #0E8A6B}.cl-c{border-top:5px solid #B4532F}.ge-c{border-top:5px solid #2F62D0}
 .tri ul,.tri ol{margin-bottom:0}
-.tri .steps li{padding:8px 0 8px 42px}.tri .steps li::before{width:30px;height:30px;top:8px}
+.tri .steps li{padding:8px 0 8px 42px}
+.tri .steps li::before{width:30px;height:30px;top:8px}
 .b3{background:var(--teal-50);border-radius:14px;padding:14px 16px}
 .b3 h4{margin:0 0 6px;font-size:1.1rem}
 .flow div:nth-child(4){background:var(--orange)}
- .video{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000}
+.video{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .vgrid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:18px;margin-bottom:18px}
 .vgrid>.card{margin-bottom:0;min-width:0}
-@media (max-width:900px){.vgrid{grid-template-columns:minmax(0,1fr)}}
-.t.oc{background:#374151}
-th .t.oc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
-.oc-c{border-top:5px solid #1F2937}
-.pill{white-space:nowrap}
-/* operation mockups */
 .mockgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin:16px 0}
 figure.mock{margin:0;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
 .mock .bar{display:flex;align-items:center;gap:6px;padding:8px 12px;background:#EEF2F3;border-bottom:1px solid var(--line);font-size:.8rem;color:var(--muted);font-weight:700}
@@ -271,90 +108,361 @@ figure.mock{margin:0;background:var(--card);border:1px solid var(--line);border-
 .mock figcaption li::before{content:counter(c);position:absolute;left:0;top:3px;width:20px;height:20px;border-radius:50%;background:var(--orange);color:#fff;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center}
 .mock .tag{font-size:.75rem;color:var(--muted);font-weight:400;margin-left:auto}
 .mock .coi{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--orange);color:#fff;font-size:.7rem;font-weight:800;margin-right:5px;vertical-align:-3px}
-/* real screenshots */
-.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin-top:10px}
-figure.shot{margin:0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-figure.shot a{display:block;background:#111}
-figure.shot img{display:block;width:100%;height:auto}
-figure.shot figcaption{padding:10px 12px;font-size:.92rem;line-height:1.55}
-figure.shot figcaption b.n{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--orange);color:#fff;font-size:.78rem;margin-right:6px}
 #gh code{overflow-wrap:anywhere;word-break:break-all}
-figure.shot img{max-height:440px;object-fit:contain;margin:0 auto}
-/* anchor targets land below the sticky nav + search bar */
-section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
-@media (max-width:720px){section,.card[id],div[id],h3[id]{scroll-margin-top:176px}}
+.card[id],div[id]{scroll-margin-top:118px}
+/* 版面：逐頁閱讀（電腦）／整頁捲動（手機或切換）；白底、粗黑字、彩色小方塊點綴 */
+:root{
+  --bg:#EDEBE5; --paper:#FFFEFA; --ink:#1B1A18; --muted:#5F5B54; --line:#E4E0D6; --soft:#F3F0E8;
+  --mag:#D7306E; --blue:#1773EA; --lime:#D5F066; --amber:#FBA705; --sky:#47B2E4; --green:#0A9E4A;
+  --code:#F6F3EB;
+  --orange:var(--mag); --teal:var(--blue); --teal-50:#EAF2FE; --orange-50:#FCE9F0; --amber-50:#FFF4DC;
+  --card:var(--paper); --ok:#0A9E4A; --warn:#C0392B; --radius:12px;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35  0 0 0 0 .3  0 0 0 0 .22  0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --f-display:"Montserrat","Noto Sans TC",system-ui,sans-serif;
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --barh:56px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--grain),var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%}
+a{color:var(--blue);text-underline-offset:3px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+h1,h2,h3,h4{line-height:1.3;margin:0 0 .5em;letter-spacing:.01em;text-wrap:balance}
+h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:900}
+h3{font-size:1.2rem;font-weight:900}
+h4{font-weight:900}
+p{margin:.4em 0 .8em}
+ul,ol{padding-left:1.4em;margin:.4em 0 .8em}
+li{margin:.25em 0}
+code{font-family:var(--f-mono);font-size:.88em;background:var(--code);border:1px solid var(--line);border-radius:5px;padding:0 5px;overflow-wrap:anywhere}
+kbd{display:inline-block;min-width:1.8em;padding:0 7px;border:1.5px solid var(--line);border-bottom-width:3px;border-radius:6px;background:var(--paper);font-family:var(--f-mono);font-size:.85em;font-weight:600;text-align:center;line-height:1.5}
+.hl{background:linear-gradient(transparent 62%,color-mix(in srgb,var(--lime) 85%,transparent) 62%)}
+.muted{color:var(--muted)}
+
+/* 頂部工具列 */
+.bar{position:fixed;top:0;left:0;right:0;z-index:40;height:var(--barh);display:flex;align-items:center;gap:10px;padding:0 max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px));background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;text-decoration:none;color:var(--ink)}
+.mark{width:26px;height:26px;display:grid;grid-template-columns:1fr 1fr;gap:3px;flex:none}
+.mark i{border-radius:3px}.mark i:nth-child(1){background:var(--mag)}.mark i:nth-child(2){background:var(--lime)}.mark i:nth-child(3){background:var(--blue)}.mark i:nth-child(4){background:var(--amber)}
+.brand b{font-family:var(--f-display);font-weight:900;letter-spacing:.06em;font-size:15px;white-space:nowrap}
+.brand span.bt{color:var(--muted);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .sp{flex:1}
+.lessons{display:flex;gap:4px;flex:none}
+.lessons a{font-family:var(--f-display);font-weight:800;font-size:13px;text-decoration:none;color:var(--muted);width:30px;height:30px;border-radius:8px;display:grid;place-items:center;border:1.5px solid var(--line);background:var(--paper)}
+.lessons a:hover{border-color:var(--ink);color:var(--ink)}
+.lessons a.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.lessons-l{font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap}
+.prog{font-family:var(--f-display);font-weight:800;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bpill{border:1.5px solid var(--ink);background:transparent;border-radius:999px;padding:5px 14px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;text-decoration:none;color:var(--ink);line-height:1.5}
+.bpill:hover,.bpill.act{background:var(--ink);color:var(--paper)}
+.bpill.fill{background:var(--ink);color:var(--paper)}
+.bpill.fill:hover{background:var(--mag);border-color:var(--mag)}
+.topprog{position:fixed;top:var(--barh);left:0;height:3px;width:0;background:linear-gradient(90deg,var(--mag),var(--amber),var(--lime),var(--sky),var(--blue));z-index:40;transition:width .3s}
+
+/* 搜尋列 */
+.sbar{position:fixed;top:calc(var(--barh) + 3px);left:0;right:0;z-index:39;display:none;gap:8px;align-items:center;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 8px 20px rgba(60,50,30,.08)}
+body.searching .sbar{display:flex}
+.sbar input{flex:1 1 200px;min-width:0;padding:8px 14px;border:1.5px solid var(--ink);border-radius:999px;font-size:15px;font-family:inherit;background:var(--paper);color:var(--ink)}
+#qCount{font-family:var(--f-display);font-weight:800;font-size:13px;color:var(--muted);min-width:4.2em;white-space:nowrap;text-align:center}
+.qbtn{background:var(--paper);border:1.5px solid var(--line);border-radius:8px;padding:5px 10px;font-weight:700;cursor:pointer;font-size:13px}
+.qbtn:hover{border-color:var(--ink)}
+mark.hit{background:var(--lime);color:inherit;padding:0 2px;border-radius:3px}
+mark.hit.cur{background:var(--mag);color:#fff}
+
+/* 舞台與頁面 */
+.viewport{position:fixed;inset:calc(var(--barh) + 3px) 0 0 0;overflow:hidden}
+.stage{height:100%}
+.page{display:none;height:100%;overflow-y:auto;overflow-x:hidden;background:var(--grain),var(--paper);padding:34px max(24px,calc((100vw - 1180px)/2)) 110px}
+.page.on{display:block}
+body.searching.paged .page{padding-top:92px}
+.navbtn{position:fixed;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:35;height:44px;border-radius:999px;border:1.5px solid var(--ink);background:var(--paper);cursor:pointer;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;padding:0 16px;box-shadow:0 6px 20px rgba(60,50,30,.12);max-width:40vw}
+.navbtn span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.navbtn:hover{background:var(--ink);color:var(--paper)}
+.navbtn[disabled]{opacity:.35;cursor:default;background:var(--paper);color:var(--ink)}
+.navbtn.prev{left:max(16px,env(safe-area-inset-left,0px))}
+.navbtn.next{left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper)}
+.navbtn.next:hover{background:var(--mag);border-color:var(--mag)}
+.navbtn.next[disabled]{background:var(--paper);color:var(--ink);border-color:var(--ink)}
+
+/* 捲動模式 */
+body.scroll .viewport{position:static;overflow:visible;padding:calc(var(--barh) + 22px) max(14px,env(safe-area-inset-right,0px)) 90px max(14px,env(safe-area-inset-left,0px))}
+body.scroll .stage{height:auto;display:flex;flex-direction:column;gap:22px;max-width:1180px;margin:0 auto}
+body.scroll .page{display:block;height:auto;overflow:visible;padding:30px clamp(16px,4vw,48px) 34px;border-radius:12px;box-shadow:0 1px 2px rgba(60,50,30,.08),0 10px 28px rgba(60,50,30,.08)}
+body.scroll .navbtn{display:none}
+body.scroll.searching .viewport{padding-top:calc(var(--barh) + 76px)}
+body.scroll [id]{scroll-margin-top:calc(var(--barh) + 20px)}
+
+/* 章節標頭 */
+.eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-size:13px;letter-spacing:.14em;color:var(--muted);margin-bottom:12px}
+.eyebrow .sq{width:10px;height:10px;border-radius:2px;background:var(--c,var(--mag));flex:none}
+.eyebrow em{font-style:normal;margin-left:auto;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.sec-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:22px}
+.sec-head h2{margin-bottom:.25em}
+.sec-head p{margin:0;color:var(--muted);font-size:1.06rem;max-width:80ch}
+.num{flex:0 0 auto;width:52px;height:52px;border-radius:10px;background:var(--c,var(--mag))!important;color:#fff;display:grid;place-items:center;font-family:var(--f-display);font-size:1.25rem;font-weight:900;margin-top:4px}
+.num.dk{color:#18181B}
+
+/* 卡片與格線 */
+.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:18px}
+.card.alt{border:2px solid var(--amber);background:#FFFDF6}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.grid3,.tri{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-bottom:18px}
+.grid2>*,.grid3>*,.tri>*{min-width:0}
+.grid2>.card,.grid3>.card,.tri>.card{margin-bottom:0}
+.gpt-c{border-top:6px solid #0E8A6B}.cl-c{border-top:6px solid #B4532F}.ge-c{border-top:6px solid #2F62D0}.oc-c{border-top:6px solid #1F2937}
+.pill{display:inline-flex;align-items:center;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--soft);color:var(--ink);margin-right:6px;vertical-align:middle;white-space:nowrap}
+.pill.o{background:color-mix(in srgb,var(--mag) 14%,var(--paper));color:#A51E52}
+.pill.a{background:color-mix(in srgb,var(--amber) 22%,var(--paper));color:#7A5200}
+.t{display:inline-block;font-size:12px;font-weight:800;padding:2px 10px;border-radius:999px;color:#fff;margin-right:6px;vertical-align:middle;white-space:nowrap;line-height:1.6}
+.t.gpt{background:#0E8A6B}.t.cl{background:#B4532F}.t.ge{background:#2F62D0}.t.oc{background:#374151}
+.note{border-radius:10px;padding:14px 18px;margin:14px 0;background:color-mix(in srgb,var(--amber) 14%,var(--paper));border:1px solid color-mix(in srgb,var(--amber) 45%,var(--paper));font-size:.97rem}
+.note.red{background:color-mix(in srgb,var(--mag) 9%,var(--paper));border-color:color-mix(in srgb,var(--mag) 40%,var(--paper))}
+.note.teal{background:color-mix(in srgb,var(--blue) 8%,var(--paper));border-color:color-mix(in srgb,var(--blue) 32%,var(--paper))}
+.example{background:var(--soft);border:1px dashed #CFC9BA;border-radius:10px;padding:12px 16px;margin:10px 0}
+details{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 18px;margin:10px 0}
+details summary{cursor:pointer;font-weight:900}
+details[open] summary{margin-bottom:8px}
+
+/* 按鈕 */
+.btn{display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:700;padding:9px 18px;border-radius:999px;border:1.5px solid var(--ink);cursor:pointer;font-family:inherit;font-size:.95rem;line-height:1.5}
+.btn:hover{background:var(--mag);border-color:var(--mag);color:#fff}
+.btn.o,.btn.ghost{background:var(--paper);color:var(--ink)}
+.btn.o:hover,.btn.ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn.line{background:#06C755;border-color:#06C755;color:#fff}
+.btn.fbc{background:#1877F2;border-color:#1877F2;color:#fff}
+
+/* 步驟 */
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding:10px 0 10px 46px;border-bottom:1px solid var(--line)}
+.steps li:last-child{border-bottom:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:11px;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--f-display);font-weight:900;font-size:13px}
+
+/* 檢查表 */
+.check label{display:flex;gap:12px;align-items:flex-start;padding:12px 16px;margin:8px 0;border:1px solid var(--line);border-radius:10px;cursor:pointer}
+.check label:hover{border-color:var(--ink)}
+.check input{width:20px;height:20px;margin-top:5px;accent-color:var(--blue);flex:0 0 auto}
+.check input:checked+span{color:var(--muted);text-decoration:line-through}
+.progress{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin:8px 0 10px}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--mag),var(--amber),var(--lime),var(--sky),var(--blue));transition:width .3s}
+
+/* 表格 */
+.tbl{overflow-x:auto;border-radius:10px;border:1px solid var(--line);background:var(--paper)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.95rem}
+th,td{padding:10px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--soft);color:var(--ink);font-weight:900;font-size:.88rem;letter-spacing:.03em;border-bottom:2px solid var(--ink)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:900;white-space:nowrap}
+
+/* 提示語區塊 */
+.prompt{position:relative;background:var(--code);color:var(--ink);border:1px solid var(--line);border-left:4px solid var(--ink);border-radius:10px;padding:16px 18px;margin:12px 0;font-size:.95rem;line-height:1.75;white-space:pre-wrap;word-break:break-word}
+.prompt .copy{position:absolute;top:10px;right:10px;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;font-size:12px;font-weight:700;padding:2px 14px;cursor:pointer;font-family:var(--f-body)}
+.prompt .copy:hover{background:var(--ink);color:var(--paper)}
+.prompt .copy.ok{background:var(--lime);border-color:var(--lime);color:#18181B}
+.prompt:not(:has(.label)){padding-top:42px}
+.grid2 table,.tri table{min-width:460px}
+.cover .eyebrow em{display:none}
+.prompt .label{display:block;font-family:var(--f-display);font-weight:800;font-size:12px;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;padding-right:76px}
+
+/* 分頁籤 */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 16px}
+.tab{font-family:inherit;font-size:.92rem;font-weight:700;padding:6px 16px;border-radius:999px;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer}
+.tab:hover{background:var(--soft)}
+.tab.on{background:var(--ink);color:var(--paper)}
+.panel{display:none}.panel.on{display:block}
+
+/* 實測截圖 */
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:10px}
+figure.shot{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+figure.shot a{display:block;background:#0F1012}
+figure.shot img{display:block;width:100%;height:auto;max-height:440px;object-fit:contain;margin:0 auto}
+figure.shot figcaption{padding:10px 12px;font-size:.9rem;line-height:1.55;color:var(--muted)}
+figure.shot figcaption b{color:var(--ink)}
+figure.shot figcaption b.n{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:6px;background:var(--ink);color:var(--paper);font-family:var(--f-display);font-size:12px;margin-right:6px}
+main img{cursor:zoom-in}
+.deid-cta{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;justify-content:space-between;background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.deid-cta>div:first-child{flex:1 1 320px;min-width:0}
+.card.fb{background:var(--ink);color:var(--paper);border:0}
+.card.fb a{color:var(--lime)}
+.fb-in{display:flex;flex-wrap:wrap;gap:16px 22px;align-items:center}
+.fb-ico{width:52px;height:52px;border-radius:10px;background:var(--lime);color:#18181B;font-weight:900;font-size:1.8rem;display:grid;place-items:center;flex:0 0 auto}
+
+/* 封面 */
+.cover{position:relative}
+.cover .confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.cover .confetti i{position:absolute;border-radius:4px;opacity:.95;animation:bob 6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.cover>*:not(.confetti){position:relative}
+.cover h1{font-size:clamp(2rem,5vw,3.9rem);line-height:1.14;font-weight:900;margin:6px 0 18px;max-width:22ch}
+.cover h1 .en{display:block;font-family:var(--f-display);font-size:clamp(.95rem,1.6vw,1.3rem);letter-spacing:.3em;font-weight:900;margin-bottom:14px}
+.cover h1 .en b{color:var(--mag)}
+.lede{font-size:1.15rem;color:var(--muted);margin:0 0 20px;max-width:74ch}
+.meta{display:flex;flex-wrap:wrap;gap:14px 44px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;margin:6px 0 20px}
+.meta small{display:block;font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.08em}
+.meta strong{font-size:1.1rem}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 22px}
+.goals{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-bottom:26px}
+.goal{background:var(--paper);border:1px solid var(--line);border-top:6px solid var(--c,var(--mag));border-radius:10px;padding:14px 16px;font-size:.97rem}
+.goal b{display:block;font-family:var(--f-display);font-weight:900;font-size:13px;letter-spacing:.1em;color:var(--muted);margin-bottom:4px}
+h2.sub{font-size:1.3rem;margin:8px 0 10px}
+.agenda{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 28px}
+.agenda a{display:grid;grid-template-columns:38px 1fr auto;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.agenda a:hover strong{color:var(--blue)}
+.agenda .no{width:34px;height:34px;border-radius:7px;display:grid;place-items:center;font-family:var(--f-display);font-weight:900;font-size:13px;background:var(--c);color:#fff}
+.agenda .no.dk{color:#18181B}
+.agenda strong{font-size:1rem;display:block;line-height:1.4}
+.agenda small{display:block;color:var(--muted);font-size:.82rem;line-height:1.45}
+.agenda em{font-style:normal;font-family:var(--f-display);font-weight:800;font-size:12px;color:var(--muted);white-space:nowrap}
+.agenda .brk{grid-column:1/-1;display:flex;align-items:center;gap:12px;color:var(--muted);font-size:12px;font-weight:800;letter-spacing:.12em;margin-top:12px}
+.agenda .brk::after{content:"";flex:1;border-top:1px dashed #CFC9BA}
+.agenda .brk i{width:10px;height:10px;border-radius:2px;background:var(--c)}
+
+/* 目錄總覽 */
+.toc{position:fixed;inset:0;z-index:50;background:color-mix(in srgb,var(--bg) 97%,transparent);display:none;overflow:auto;padding:calc(var(--barh) + 24px) max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px))}
+.toc.on{display:block}
+.toc-in{max-width:980px;margin:0 auto}
+.toc h2{font-size:1.5rem}
+.toc ol{padding:0;margin:0 0 18px;list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px}
+.toc .tg{grid-column:1/-1;display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-size:12px;letter-spacing:.14em;color:var(--muted);margin-top:10px}
+.toc .tg i{width:10px;height:10px;border-radius:2px;background:var(--c)}
+.toc ol a{display:flex;gap:10px;align-items:center;padding:10px 14px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--ink);background:var(--paper);font-weight:700;font-size:.95rem;line-height:1.4}
+.toc ol a i{font-style:normal;font-family:var(--f-display);font-weight:900;color:#fff;background:var(--c);min-width:30px;height:30px;border-radius:6px;display:grid;place-items:center;font-size:12px;flex:none}
+.toc ol a i.dk{color:#18181B}
+.toc ol a:hover,.toc ol a.cur{border-color:var(--ink)}
+.toc ol a.cur{box-shadow:inset 0 0 0 1px var(--ink)}
+.keys{font-size:.88rem;color:var(--muted)}
+
+footer{margin-top:40px;border-top:1px solid var(--line);padding-top:18px;font-size:.88rem;color:var(--muted)}
+footer b{color:var(--ink)!important}
+.toast{position:fixed;left:50%;bottom:76px;transform:translateX(-50%) translateY(140px);background:var(--ink);color:var(--paper);padding:8px 20px;border-radius:999px;font-weight:700;font-size:14px;transition:transform .25s;z-index:99}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* 放大檢視 */
+.lb{position:fixed;inset:0;z-index:9999;background:rgba(10,10,12,.9);display:none;align-items:center;justify-content:center;flex-direction:column;padding:18px;cursor:zoom-out}
+.lb.on{display:flex}
+.lb img{width:min(96vw,1200px);height:auto;max-height:84vh;object-fit:contain;border-radius:8px;background:#fff}
+.lb figcaption{color:#F3F0E8;font-size:15px;line-height:1.6;max-width:900px;text-align:center;margin-top:12px}
+.lb .x{position:absolute;top:14px;right:16px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.15);color:#fff;font-size:26px;cursor:pointer}
+.lb .hint{position:absolute;bottom:12px;left:0;right:0;text-align:center;color:#B9B4A8;font-size:13px}
+
+@media (max-width:900px){
+  body{font-size:16.5px}
+  .brand span.bt,.prog,.lessons-l,.bar .hide-m{display:none}
+  .bar{gap:6px}
+  .bpill{padding:5px 10px;font-size:12.5px}
+  .lessons a{width:26px;height:26px;font-size:12px}
+  .agenda{grid-template-columns:minmax(0,1fr)}
+  .sec-head{gap:12px}
+  .num{width:42px;height:42px;font-size:1.05rem}
+  .card{padding:16px}
+  .cover .confetti{display:none}
+}
+@media (max-width:420px){.brand b{display:none}}
+@media (prefers-reduced-motion:reduce){.cover .confetti i{animation:none}*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  .bar,.topprog,.sbar,.navbtn,.toc,.copy,.toast,.cover .confetti{display:none!important}
+  body{background:#fff}
+  .viewport{position:static!important;overflow:visible!important;padding:0!important}
+  .stage{height:auto!important;display:block!important}
+  .page{display:block!important;height:auto!important;overflow:visible!important;padding:16px 0!important;box-shadow:none!important}
+  .panel{display:block!important}.tabs{display:none}
+}
+.cover h1 .hl{background:linear-gradient(transparent 62%,color-mix(in srgb,var(--lime) 85%,transparent) 62%)}
+.agenda a{grid-template-columns:38px 1fr}
+.agenda em{display:none}
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="lessons"><a href="./">第 1 堂</a><a class="on" href="lesson2.html">第 2 堂</a><a href="lesson3.html">第 3 堂</a><a href="lesson4.html">第 4 堂</a></div>
-    <span class="tag">衛福部桃園醫院 糖尿病中心｜AI 賦能工作坊 第 2 堂（11/02）</span>
-    <h1>ChatGPT 從入門到進階，<br>同一招搬到 <span>Claude</span> 與 <span>Gemini</span></h1>
-    <p class="sub">十四個步驟加上開場破冰、OpenCode 代理、研究輔助等延伸，從 AI 的底層邏輯、方案選擇、四招提示詞，一路到製圖、寫作區塊、學習模式、排程、外掛、深度工作與專案。每一招都對照「在 ChatGPT、Claude、Gemini 各按哪裡」，再加上第 1 堂預告的 OpenCode：同一件事交給 AI Agent 自己做。所有情境都換成衛教師、行政與日常生活真的會遇到的。</p>
-    <div class="goals">
-      <div class="goal"><b>目標 1</b>理解 AI 的底層邏輯，知道為什麼會有「AI 味」與幻覺，以及怎麼用設定擋掉。</div>
-      <div class="goal"><b>目標 2</b>熟練四招提示詞：讓 AI 懂你、人事時地物＋Why、碎念法、AMA 反問法。</div>
-      <div class="goal"><b>目標 3</b>會用製圖、寫作區塊、學習、排程、外掛、深度工作、專案七大功能，知道三個工具各在哪裡，並用 OpenCode 讓 AI 代理自己完成一整件事。</div>
-    </div>
-    <div class="contact">
-      <a class="btn line" href="https://reurl.cc/4YbrVj" target="_blank" rel="noopener">加入 LINE 學員社群</a>
-      <button class="btn mail" type="button" onclick="window.openReport&&window.openReport({type:'建議與想法'})">回報錯誤或建議</button>
-      <a class="btn fbc" href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專</a>
-    </div>
-    <p class="contact-hint">LINE 社群通關密語：<b>桃園醫院糖尿病中心</b>。第 1 堂的資安三不原則與去識別化，今天每一個練習都適用；整份檔案要先清乾淨，用 <a href="https://mattsue1003.github.io/ltc-deid-workbench/" target="_blank" rel="noopener" style="color:var(--amber)">去識別化工作台</a>。</p>
-  </div>
+<header class="bar">
+  <a class="brand" href="#top" title="回到封面"><span class="mark"><i></i><i></i><i></i><i></i></span><b>AI × 糖尿病衛教</b><span class="bt">第 2 堂講義｜ChatGPT、Claude、Gemini 從入門到進階</span></a>
+  <span class="sp"></span>
+  <span class="lessons-l">堂次</span>
+  <nav class="lessons" aria-label="切換堂次"><a href="./" title="第 1 堂講義">1</a><a class="on" aria-current="page" href="lesson2.html" title="第 2 堂講義">2</a><a href="lesson3.html" title="第 3 堂講義">3</a><a href="lesson4.html" title="第 4 堂講義">4</a></nav>
+  <span class="prog" id="prog">1 / 25</span>
+  <button class="bpill" id="tocBtn" type="button" aria-expanded="false">目錄</button>
+  <button class="bpill" id="searchBtn" type="button" aria-expanded="false">搜尋</button>
+  <button class="bpill hide-m" id="modeBtn" type="button">整頁捲動</button>
+  
 </header>
+<div class="topprog" id="topprog"></div>
+<div class="sbar" role="search">
+  <input id="q" type="search" placeholder="搜尋這份講義的關鍵字" aria-label="搜尋講義">
+  <span id="qCount"></span>
+  <button class="qbtn" id="qPrev" type="button" title="上一個">▲</button>
+  <button class="qbtn" id="qNext" type="button" title="下一個">▼</button>
+  <button class="qbtn" id="qClear" type="button" hidden>清除</button>
+  <button class="qbtn" id="qClose" type="button">關閉</button>
+</div>
 
-<nav class="toc" aria-label="章節導覽">
-  <div class="wrap">
-    <span class="toc-g">破冰</span>
-    <a href="#ice">金曲猜歌</a>
-    <span class="toc-g">課前</span>
-    <a href="#pre">Napkin 圖表</a>
-    <span class="toc-g">開場</span>
-    <a href="#deid">去識別化</a>
-    <a href="#s0">學習地圖</a>
-    <span class="toc-g">基礎</span>
-    <a href="#slash">「/」快捷體驗</a>
-    <a href="#s1">AI 底層邏輯</a>
-    <a href="#s2">方案怎麼選</a>
-    <a href="#s3">介面導覽</a>
-    <a href="#oc">OpenCode 代理</a>
-    <span class="toc-g">提示詞</span>
-    <a href="#s4">讓 AI 懂你</a>
-    <a href="#s5">人事時地物＋Why</a>
-    <a href="#s6">碎念法</a>
-    <a href="#s7">AMA 反問法</a>
-    <span class="toc-g">功能</span>
-    <a href="#s8">製圖</a>
-    <a href="#s9">寫作區塊</a>
-    <a href="#s10">學習模式</a>
-    <a href="#s11">排程自動化</a>
-    <a href="#s12">外掛連接</a>
-    <a href="#s13">深度工作</a>
-    <a href="#s13r">研究輔助</a>
-    <a href="#s14">專案</a>
-    <a href="#md">PDF 轉文字</a>
-    <span class="toc-g">收尾</span>
-    <a href="#gh">GitHub 個人網頁</a>
-    <a href="#s17">課後任務</a>
-  </div>
-  <div class="wrap toc-search">
-    <input id="q" type="search" placeholder="搜尋講義關鍵字：例如 自訂指示、Canvas、排程、Gem、專案" aria-label="搜尋講義">
-    <span id="qCount"></span>
-    <button class="qbtn" id="qPrev" title="上一個">▲</button>
-    <button class="qbtn" id="qNext" title="下一個">▼</button>
-    <button class="qbtn" id="qClear">清除</button>
-  </div>
-</nav>
+<main class="viewport"><div class="stage">
 
-<main class="wrap">
+<section class="page cover" id="top" data-title="封面與今日目標">
+  <div class="confetti" aria-hidden="true"><i style="right:6%;top:60px;width:54px;height:54px;background:var(--mag)"></i><i style="right:14%;top:138px;width:30px;height:30px;background:var(--lime);animation-delay:-2s"></i><i style="right:3%;top:170px;width:38px;height:38px;background:var(--blue);animation-delay:-4s"></i><i style="right:20%;top:54px;width:20px;height:20px;background:var(--amber);animation-delay:-1s"></i><i style="right:10%;top:234px;width:16px;height:16px;background:var(--sky);animation-delay:-3s"></i></div>
+  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>衛福部桃園醫院 糖尿病中心｜AI 賦能工作坊</div>
+  <h1><span class="en">LESSON <b>02</b> · 講義</span>ChatGPT 從入門到進階，同一招搬到 <span class="hl">Claude</span> 與 <span class="hl">Gemini</span></h1>
+  <p class="lede">十四個步驟加上開場破冰、OpenCode 代理、研究輔助等延伸，從 AI 的底層邏輯、方案選擇、四招提示詞，一路到製圖、寫作區塊、學習模式、排程、外掛、深度工作與專案。每一招都對照「在 ChatGPT、Claude、Gemini 各按哪裡」，再加上第 1 堂預告的 OpenCode：同一件事交給 AI Agent 自己做。所有情境都換成衛教師、行政與日常生活真的會遇到的。</p>
+  <div class="meta">
+    <div><small>日期</small><strong>11/02</strong></div>
+    <div><small>講師</small><strong>鍾孟修 職能治療師</strong></div>
+    <div><small>LINE 社群通關密語</small><strong>桃園醫院糖尿病中心</strong></div>
+  </div>
+  <div class="ctas">
+    <a class="btn line" href="https://reurl.cc/4YbrVj" target="_blank" rel="noopener">加入 LINE 學員社群</a>
+    <button class="btn o" type="button" onclick="window.openReport&&window.openReport({type:'建議與想法'})">回報錯誤或建議</button>
+    <a class="btn fbc" href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專</a>
+  </div>
+  <div class="goals">
+    <div class="goal" style="--c:var(--mag)"><b>目標 1</b>理解 AI 的底層邏輯，知道為什麼會有「AI 味」與幻覺，以及怎麼用設定擋掉。</div>
+    <div class="goal" style="--c:var(--amber)"><b>目標 2</b>熟練四招提示詞：讓 AI 懂你、人事時地物＋Why、碎念法、AMA 反問法。</div>
+    <div class="goal" style="--c:var(--blue)"><b>目標 3</b>會用製圖、寫作區塊、學習、排程、外掛、深度工作、專案七大功能，知道三個工具各在哪裡，並用 OpenCode 讓 AI 代理自己完成一整件事。</div>
+  </div>
+  <h2 class="sub">這份講義有什麼：點任何一列直接跳過去</h2>
+  <nav class="agenda" aria-label="講義地圖">
+      <div class="brk" style="--c:var(--amber)"><i></i>破冰</div>
+      <a href="#ice"><span class="no dk" style="--c:var(--amber)">♪</span><span><strong>金曲猜歌</strong></span><em></em></a>
+      <div class="brk" style="--c:var(--mag)"><i></i>課前</div>
+      <a href="#pre"><span class="no" style="--c:var(--mag)">前</span><span><strong>Napkin 圖表</strong></span><em></em></a>
+      <div class="brk" style="--c:var(--blue)"><i></i>開場</div>
+      <a href="#deid"><span class="no" style="--c:var(--blue)">前</span><span><strong>去識別化</strong></span><em></em></a>
+      <a href="#s0"><span class="no" style="--c:var(--blue)">0</span><span><strong>學習地圖</strong></span><em></em></a>
+      <div class="brk" style="--c:var(--green)"><i></i>基礎</div>
+      <a href="#slash"><span class="no" style="--c:var(--green)">／</span><span><strong>「/」快捷體驗</strong></span><em></em></a>
+      <a href="#s1"><span class="no" style="--c:var(--green)">1</span><span><strong>AI 底層邏輯</strong></span><em></em></a>
+      <a href="#s2"><span class="no" style="--c:var(--green)">2</span><span><strong>方案怎麼選</strong></span><em></em></a>
+      <a href="#s3"><span class="no" style="--c:var(--green)">3</span><span><strong>介面導覽</strong></span><em></em></a>
+      <a href="#oc"><span class="no" style="--c:var(--green)">A</span><span><strong>OpenCode 代理</strong></span><em></em></a>
+      <div class="brk" style="--c:var(--sky)"><i></i>提示詞</div>
+      <a href="#s4"><span class="no dk" style="--c:var(--sky)">4</span><span><strong>讓 AI 懂你</strong></span><em></em></a>
+      <a href="#s5"><span class="no dk" style="--c:var(--sky)">5</span><span><strong>人事時地物＋Why</strong></span><em></em></a>
+      <a href="#s6"><span class="no dk" style="--c:var(--sky)">6</span><span><strong>碎念法</strong></span><em></em></a>
+      <a href="#s7"><span class="no dk" style="--c:var(--sky)">7</span><span><strong>AMA 反問法</strong></span><em></em></a>
+      <div class="brk" style="--c:var(--lime)"><i></i>功能</div>
+      <a href="#s8"><span class="no dk" style="--c:var(--lime)">8</span><span><strong>製圖</strong></span><em></em></a>
+      <a href="#s9"><span class="no dk" style="--c:var(--lime)">9</span><span><strong>寫作區塊</strong></span><em></em></a>
+      <a href="#s10"><span class="no dk" style="--c:var(--lime)">10</span><span><strong>學習模式</strong></span><em></em></a>
+      <a href="#s11"><span class="no dk" style="--c:var(--lime)">11</span><span><strong>排程自動化</strong></span><em></em></a>
+      <a href="#s12"><span class="no dk" style="--c:var(--lime)">12</span><span><strong>外掛連接</strong></span><em></em></a>
+      <a href="#s13"><span class="no dk" style="--c:var(--lime)">13</span><span><strong>深度工作</strong></span><em></em></a>
+      <a href="#s13r"><span class="no dk" style="--c:var(--lime)">R</span><span><strong>研究輔助</strong></span><em></em></a>
+      <a href="#s14"><span class="no dk" style="--c:var(--lime)">14</span><span><strong>專案</strong></span><em></em></a>
+      <a href="#md"><span class="no dk" style="--c:var(--lime)">B</span><span><strong>PDF 轉文字</strong></span><em></em></a>
+      <div class="brk" style="--c:var(--amber)"><i></i>收尾</div>
+      <a href="#gh"><span class="no dk" style="--c:var(--amber)">G</span><span><strong>GitHub 個人網頁</strong></span><em></em></a>
+      <a href="#s17"><span class="no dk" style="--c:var(--amber)">15</span><span><strong>課後任務</strong></span><em></em></a>
+  </nav>
+  <div class="note" style="margin-top:22px"><b>怎麼讀這份講義：</b>電腦上一次看一節，按下方「下一頁」或鍵盤 <kbd>→</kbd> 前進、<kbd>←</kbd> 返回；右上「目錄」看全部章節，「搜尋」找關鍵字，「整頁捲動」可改成一路往下捲。手機會自動用整頁捲動。</div>
+  <div class="note teal">LINE 社群通關密語：<b>桃園醫院糖尿病中心</b>。第 1 堂的資安三不原則與去識別化，今天每一個練習都適用；整份檔案要先清乾淨，用 <a href="https://mattsue1003.github.io/ltc-deid-workbench/" target="_blank" rel="noopener">去識別化工作台</a>。</div>
+</section>
+
 
 <!-- ice -->
-<section id="ice">
-  <div class="sec-head"><div class="num" style="background:#E8590C">♪</div><div><h2>開場破冰：台灣金曲猜歌</h2><p>先玩 10 分鐘再上課。這不是題外話：這整個遊戲網頁就是用今天要教的 AI 工具做出來的，最後一節會預告下一堂怎麼帶大家自己做。</p></div></div>
+<section class="page" id="ice" data-title="金曲猜歌" style="--c:var(--amber)">
+  <div class="eyebrow" style="--c:var(--amber)"><span class="sq"></span>破冰<em>2 / 25</em></div>
+  <div class="sec-head"><div class="num dk" style="background:#E8590C">♪</div><div><h2>開場破冰：台灣金曲猜歌</h2><p>先玩 10 分鐘再上課。這不是題外話：這整個遊戲網頁就是用今天要教的 AI 工具做出來的，最後一節會預告下一堂怎麼帶大家自己做。</p></div></div>
   <div class="card" style="border-left:5px solid #E8590C">
     <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">
       <div style="flex:1 1 320px">
@@ -389,7 +497,8 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 </section>
 
 <!-- pre -->
-<section id="pre">
+<section class="page" id="pre" data-title="Napkin 圖表" style="--c:var(--mag)">
+  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>課前<em>3 / 25</em></div>
   <div class="sec-head"><div class="num" style="background:var(--teal)">前</div><div><h2>課前補充：Napkin AI，貼上文字秒變圖表</h2><p>衛教單張、上課簡報、家屬說明都用得到。3 分半的教學，建議上課前先看、先註冊。</p></div></div>
   <div class="vgrid">
     <div class="card">
@@ -463,7 +572,8 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 </section>
 
 <!-- deid -->
-<section id="deid">
+<section class="page" id="deid" data-title="去識別化" style="--c:var(--blue)">
+  <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>開場<em>4 / 25</em></div>
   <div class="sec-head"><div class="num" style="background:#9A3412">前</div><div><h2>課前演練：個案資料交給 AI 之前，先去識別化</h2><p>Napkin 之後、正式用 AI 之前的第一個動作。今天後面每一節凡是要上傳資料，都先過這一關。</p></div></div>
   <div class="card">
     <h3>工具：長照資料去識別化工作台（講師自製，純本機、不連網、不用 AI）</h3>
@@ -527,7 +637,8 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 
 
 <!-- 0 -->
-<section id="s0">
+<section class="page" id="s0" data-title="學習地圖" style="--c:var(--blue)">
+  <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>開場<em>5 / 25</em></div>
   <div class="sec-head"><div class="num">0</div><div><h2>今天的學習地圖</h2><p>十四個步驟分成三段：先會問、再會用功能、最後讓 AI 自己動起來。</p></div></div>
   <div class="card">
     <h3>三段式升級路線</h3>
@@ -576,7 +687,7 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
       <tr><td><b>OpenCode 桌面版</b></td><td>選單列「OpenCode」→「<b>檢查更新…</b>」；同一選單有「重新啟動」。</td><td>預設啟動時自動檢查並下載。</td><td>同選單的「安裝 CLI…」可一併裝終端機版。</td></tr>
       <tr><td><b>OpenCode CLI（終端機）</b></td><td><code>opencode upgrade</code>（可指定版本，例 <code>opencode upgrade 1.1.5</code>）。</td><td>預設啟動時自動更新；不想要就在 opencode.json 加 <code>"autoupdate": false</code>（或 <code>"notify"</code> 只通知）。</td><td>用 Homebrew 裝的走 <code>brew upgrade opencode</code>，自動更新不作用。</td></tr>
       <tr><td><b>Chrome 與 Claude in Chrome 擴充功能</b></td><td>Chrome：右上「⋮」→ 說明 → 關於 Google Chrome，會自動檢查，按「重新啟動」。擴充功能：網址列打 <code>chrome://extensions</code> → 右上開「開發人員模式」→「更新」。</td><td>兩者都預設自動更新（Chrome 幾小時檢查一次，擴充功能跟著 Chrome）。</td><td>Chrome 右上出現綠／橘／紅色「更新」字樣就是等太久了。</td></tr>
-      <tr><td><b>Gemini</b></td><td>網頁版不用更新。手機 App 走商店（見下）。</td><td>—</td><td>Gem 與技能等新功能以網頁版最先上。</td></tr>
+      <tr><td><b>Gemini</b></td><td>網頁版不用更新。手機 App 走商店（見下）。</td><td>—</td><td>技能、筆記本等新功能以網頁版最先上。</td></tr>
       <tr><td><b>iPhone／iPad</b>（ChatGPT、Claude、Gemini App）</td><td>App Store → 右上頭像 → 往下拉重新整理 → 逐一「更新」或「全部更新」。</td><td>設定 → App Store → 「<b>App 更新</b>」開啟（行動數據下載可另外開）。</td><td>院內 Wi-Fi 若擋 App Store，回家會自動補更新。</td></tr>
       <tr><td><b>Android</b></td><td>Play 商店 → 右上頭像 → 管理應用程式和裝置 → 「有可用的更新」。</td><td>Play 商店 → 頭像 → 設定 → 網路偏好設定 → 「<b>自動更新應用程式</b>」→ 選「僅限 Wi-Fi」。</td><td>也可在單一 App 頁面右上「⋮」勾「啟用自動更新」。</td></tr>
       <tr><td><b>Mac App Store 程式</b>（Canva、LINE 等）</td><td>App Store → 左側「更新項目」。</td><td>系統設定 → App Store（或「一般 → 軟體更新」）→ 「<b>自動更新</b>」開啟。</td><td>macOS 本身的更新也在「一般 → 軟體更新」；系統版本不同，桌面控制的權限畫面偶爾會長得不一樣。</td></tr>
@@ -623,7 +734,8 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 </section>
 
 <!-- 1 -->
-<section id="slash">
+<section class="page" id="slash" data-title="「/」快捷體驗" style="--c:var(--green)">
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>基礎<em>6 / 25</em></div>
   <div class="sec-head"><div class="num" style="background:#0F766E">／</div><div><h2>暖身：輸入框打「/」會發生什麼事？</h2><p>裝好三個工具後的第一個體驗。先弄清楚「官方的 /」和「民間的 /」是兩回事，再用八個速記玩一輪。</p></div></div>
   <div class="card">
     <h3>官方的「/」：每家不一樣，而且都不是提示詞</h3>
@@ -690,7 +802,8 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
     </div>
   </div>
 </section>
-<section id="s1">
+<section class="page" id="s1" data-title="AI 底層邏輯" style="--c:var(--green)">
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>基礎<em>7 / 25</em></div>
   <div class="sec-head"><div class="num">1</div><div><h2>AI 底層邏輯：它不是 Google，是「接下一句」的高手</h2><p>懂原理，才知道為什麼會有 AI 味、為什麼會一本正經地講錯。</p></div></div>
   <div class="grid2">
     <div class="card">
@@ -711,12 +824,13 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 </section>
 
 <!-- 2 -->
-<section id="s2">
+<section class="page" id="s2" data-title="方案怎麼選" style="--c:var(--green)">
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>基礎<em>8 / 25</em></div>
   <div class="sec-head"><div class="num">2</div><div><h2>方案怎麼選：先免費，用到卡住再升級</h2><p>大部分功能免費版就用得到。本課程也以免費版能完成為原則。</p></div></div>
   <div class="tbl">
     <table>
       <tr><th>層級</th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th></tr>
-      <tr><td>免費</td><td>免費版：對話、生圖、語音、有限的深度研究；可能出現廣告</td><td>Free：對話、專案、Artifacts、部分連接器；每日額度較少</td><td>免費版：快速模型、生圖、Canvas、引導式學習、Gems</td></tr>
+      <tr><td>免費</td><td>免費版：對話、生圖、語音、有限的深度研究；可能出現廣告</td><td>Free：對話、專案、Artifacts、部分連接器；每日額度較少</td><td>免費版：快速模型、生圖、Canvas、引導式學習、技能</td></tr>
       <tr><td>入門付費</td><td>Go：功能同免費，額度約多 10 倍，仍可能有廣告</td><td>—</td><td>Google AI Plus：較高額度＋雲端空間，可家庭共享</td></tr>
       <tr><td>主力付費</td><td>Plus：頂級模型、完整 Work、無廣告</td><td>Pro（約 US$20／月）：更高額度、研究、桌面版 Cowork 與排程</td><td>Google AI Pro：Pro 模型、深入研究、排定動作、較高額度</td></tr>
       <tr><td>重度使用</td><td>Pro：最強模型與最深思考，額度一般人用不完</td><td>Max（US$100 或 US$200／月）：Pro 的 5～20 倍額度</td><td>Google AI Ultra：最高額度與實驗功能</td></tr>
@@ -726,7 +840,8 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 </section>
 
 <!-- 3 -->
-<section id="s3">
+<section class="page" id="s3" data-title="介面導覽" style="--c:var(--green)">
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>基礎<em>9 / 25</em></div>
   <div class="sec-head"><div class="num">3</div><div><h2>介面導覽：同樣的五個按鈕，三家都有</h2><p>網頁版、桌面版、手機 App 都能用免費帳號；手機 App 一定要裝，走路就能用說的。</p></div></div>
   <div class="tbl">
     <table>
@@ -734,7 +849,7 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
       <tr><td>上傳檔案、圖片</td><td>對話框「＋」</td><td>對話框「＋」或直接拖進來</td><td>對話框「＋」，可直接選雲端硬碟</td></tr>
       <tr><td>讓它想久一點</td><td>輸入框右側「推理強度」，平常用「中」或更高即可</td><td>模型選單 →「投入程度」調高（舊稱延伸思考）</td><td>模型選單選 Pro，或調「思考程度」</td></tr>
       <tr><td>用說的</td><td>麥克風聽寫；右側按鈕開語音對話</td><td>麥克風聽寫；語音模式</td><td>麥克風聽寫；Gemini Live 即時對話</td></tr>
-      <tr><td>不留記錄、不受記憶影響</td><td>右上「暫時對話」</td><td>右上「無痕」聊天</td><td>左側選單「發起新對話」旁的「臨時對話」圖示（手機先點左上角 ☰）；離開這個對話就消失，也不套用 Gem 和個人化</td></tr>
+      <tr><td>不留記錄、不受記憶影響</td><td>右上「暫時對話」</td><td>右上「無痕」聊天</td><td>左側選單「發起新對話」旁的「臨時對話」圖示（手機先點左上角 ☰）；離開這個對話就消失，也不套用技能和個人化</td></tr>
       <tr><td>找以前的對話</td><td>左側歷史，可改名、刪除</td><td>左側「聊天」，可搜尋、加星號</td><td>左側對話清單，可釘選、改名</td></tr>
     </table>
   </div>
@@ -801,7 +916,8 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 </section>
 
 <!-- oc -->
-<section id="oc">
+<section class="page" id="oc" data-title="OpenCode 代理" style="--c:var(--green)">
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>基礎<em>10 / 25</em></div>
   <div class="sec-head"><div class="num" style="background:#1F2937">A</div><div><h2>第四個工具 OpenCode：從「對話」到「代理」</h2><p>第 1 堂請大家先裝好的那一個。今天先學會差別、設定好模型，後面每個功能都會回來用它。</p></div></div>
   <div class="note teal" style="margin-top:0"><b>本節很長，先抓三件事：</b>① <b>設定</b>（下一張卡，5 分鐘）：選免費模型、建練習資料夾、打開它；② <b>第一個交辦</b>與<b>代理練習兩題</b>（填表單、整理資料夾），親手體驗「交辦 → 它動手 → 你檢查」；③ <b>免費不是無限</b>：跳出 Rate limit 就先換步驟，不要狂按重送。其餘的階梯表、Agent 名詞、手機遙控、費用，回家再讀。</div>
   <div class="grid2">
@@ -1106,8 +1222,9 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 </section>
 
 <!-- 4 -->
-<section id="s4">
-  <div class="sec-head"><div class="num">4</div><div><h2>第一招：讓 AI 成為「懂你的人」</h2><p>最聰明的人不如最懂你的人。兩個設定：記憶＝你是誰；自訂指示＝你要它變成誰。</p></div></div>
+<section class="page" id="s4" data-title="讓 AI 懂你" style="--c:var(--sky)">
+  <div class="eyebrow" style="--c:var(--sky)"><span class="sq"></span>提示詞<em>11 / 25</em></div>
+  <div class="sec-head"><div class="num dk">4</div><div><h2>第一招：讓 AI 成為「懂你的人」</h2><p>最聰明的人不如最懂你的人。兩個設定：記憶＝你是誰；自訂指示＝你要它變成誰。</p></div></div>
   <div class="card alt">
     <h3>先解決上週的問題：麥克風講中文，ChatGPT 跑出簡體字</h3>
     <p>上週測試：Gemini 轉出來的文字正常，ChatGPT 會出現簡體字。要徹底解決，先弄清楚三個設定各管什麼，因為「記憶」和「自訂指示」只管 ChatGPT 的<b>回覆</b>，管不到麥克風<b>聽寫出來的字</b>。</p>
@@ -1247,8 +1364,9 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 </section>
 
 <!-- 5 -->
-<section id="s5">
-  <div class="sec-head"><div class="num">5</div><div><h2>第二招：人事時地物＋Why</h2><p>小學就學過的檢查清單。問題裡塞滿這幾項，AI 就不會在你不需要的地方用力。</p></div></div>
+<section class="page" id="s5" data-title="人事時地物＋Why" style="--c:var(--sky)">
+  <div class="eyebrow" style="--c:var(--sky)"><span class="sq"></span>提示詞<em>12 / 25</em></div>
+  <div class="sec-head"><div class="num dk">5</div><div><h2>第二招：人事時地物＋Why</h2><p>小學就學過的檢查清單。問題裡塞滿這幾項，AI 就不會在你不需要的地方用力。</p></div></div>
   <div class="six">
     <div class="el"><b>人</b><small>給誰看？誰要用？<br>例：糖尿病中心主任</small></div>
     <div class="el"><b>事</b><small>要做什麼？<br>例：品質指標季報</small></div>
@@ -1298,8 +1416,9 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 </section>
 
 <!-- 6 -->
-<section id="s6">
-  <div class="sec-head"><div class="num">6</div><div><h2>第三招：碎念法</h2><p>懶得整理問題？開語音碎碎念 3 分鐘，把想到的全丟給它。對人很失禮，對 AI 反而資訊最完整。</p></div></div>
+<section class="page" id="s6" data-title="碎念法" style="--c:var(--sky)">
+  <div class="eyebrow" style="--c:var(--sky)"><span class="sq"></span>提示詞<em>13 / 25</em></div>
+  <div class="sec-head"><div class="num dk">6</div><div><h2>第三招：碎念法</h2><p>懶得整理問題？開語音碎碎念 3 分鐘，把想到的全丟給它。對人很失禮，對 AI 反而資訊最完整。</p></div></div>
   <div class="grid2">
     <div class="card">
       <h3>怎麼開始</h3>
@@ -1321,8 +1440,9 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 </section>
 
 <!-- 7 -->
-<section id="s7">
-  <div class="sec-head"><div class="num">7</div><div><h2>第四招：AMA 反問法（最省力、最耐用）</h2><p>任何問題最後加一句魔法句，讓 AI 負責想它需要哪些資訊，你只要回答就好。</p></div></div>
+<section class="page" id="s7" data-title="AMA 反問法" style="--c:var(--sky)">
+  <div class="eyebrow" style="--c:var(--sky)"><span class="sq"></span>提示詞<em>14 / 25</em></div>
+  <div class="sec-head"><div class="num dk">7</div><div><h2>第四招：AMA 反問法（最省力、最耐用）</h2><p>任何問題最後加一句魔法句，讓 AI 負責想它需要哪些資訊，你只要回答就好。</p></div></div>
   <div class="card">
     <div class="prompt"><span class="label">魔法句（三個工具通用）</span>在你回答我之前，盡量問我問題，來幫助你更好地回答我。</div>
     <div class="prompt"><span class="label">衛教範例</span>幫我設計一場 30 分鐘的糖尿病足部照護團體衛教，對象是社區長者。在你回答我之前，盡量問我問題，來幫助你更好地回答我。</div>
@@ -1352,8 +1472,9 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 </section>
 
 <!-- 8 -->
-<section id="s8">
-  <div class="sec-head"><div class="num">8</div><div><h2>製圖：先生成，再「局部修改」</h2><p>現在厲害的不是會畫，而是畫完能指定位置小修，不會整張毀掉重來。</p></div></div>
+<section class="page" id="s8" data-title="製圖" style="--c:var(--lime)">
+  <div class="eyebrow" style="--c:var(--lime)"><span class="sq"></span>功能<em>15 / 25</em></div>
+  <div class="sec-head"><div class="num dk">8</div><div><h2>製圖：先生成，再「局部修改」</h2><p>現在厲害的不是會畫，而是畫完能指定位置小修，不會整張毀掉重來。</p></div></div>
   <div class="tri">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>做法</h3>
       <ul><li>對話框「＋」→「製作圖像」，或第一句說「請直接生成一張圖片」</li><li>點圖片打開編輯器，下方工具列有「標註、留言、移除背景、擦除、調整大小」；用「留言」點在要改的位置打字</li><li>可上傳參考圖，要求「用這個設計感」</li></ul></div>
@@ -1471,7 +1592,7 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
       <li><b>存成風格卡：</b>把風格說明存起來，以後每次貼上</li>
       <li><b>生圖時講清楚角色：</b>「第 1 張只管風格，不要照抄人物和內容」，不寫的話 AI 常把參考圖整個抄過來</li>
       <li><b>系列在同一個對話做：</b>第一張滿意後說「接下來都用這個風格」</li>
-      <li><b>長期使用放進專案：</b>參考圖＋風格說明放進 ChatGPT 專案或 Gemini 的 Gem（第 14 節）</li>
+      <li><b>長期使用放進專案：</b>參考圖＋風格說明放進 ChatGPT 專案或 Gemini 的筆記本（第 14 節）</li>
     </ol>
     <div class="prompt"><span class="label">① 拆風格（三個工具都能用）</span>請分析我上傳的這張圖的視覺風格，先不要畫圖。請用條列寫出：
 1. 整體風格（例如扁平插畫、水彩、等距 3D）
@@ -1551,8 +1672,9 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 </section>
 
 <!-- 9 -->
-<section id="s9">
-  <div class="sec-head"><div class="num">9</div><div><h2>寫作區塊：在 AI 的稿子上直接動手改</h2><p>不用再說「太抽象了，再改一次」。直接刪、直接補、打個問號，AI 會幫你圓回去。</p></div></div>
+<section class="page" id="s9" data-title="寫作區塊" style="--c:var(--lime)">
+  <div class="eyebrow" style="--c:var(--lime)"><span class="sq"></span>功能<em>16 / 25</em></div>
+  <div class="sec-head"><div class="num dk">9</div><div><h2>寫作區塊：在 AI 的稿子上直接動手改</h2><p>不用再說「太抽象了，再改一次」。直接刪、直接補、打個問號，AI 會幫你圓回去。</p></div></div>
   <div class="tri">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>寫作區塊</h3>
       <ul><li>提示詞最後加「用寫作區塊」，回答裡會出現標著「寫作」的方框</li><li>點方框右上角「展開」，右側變成文件，可直接打字、刪除，也能復原、下載</li><li>改完在左邊說「依照我的修改，把整篇順過一次」，新增的字會用粗體標出</li><li>2026 年 5 月起，主力模型已用寫作區塊取代舊的 Canvas</li></ul></div>
@@ -1592,8 +1714,9 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 </section>
 
 <!-- 10 -->
-<section id="s10">
-  <div class="sec-head"><div class="num">10</div><div><h2>學習模式：讓 AI 當你的家教，不是給答案的機器</h2><p>先確認你懂到哪裡，再用蘇格拉底式提問一步步帶你想。這是最被低估的功能。</p></div></div>
+<section class="page" id="s10" data-title="學習模式" style="--c:var(--lime)">
+  <div class="eyebrow" style="--c:var(--lime)"><span class="sq"></span>功能<em>17 / 25</em></div>
+  <div class="sec-head"><div class="num dk">10</div><div><h2>學習模式：讓 AI 當你的家教，不是給答案的機器</h2><p>先確認你懂到哪裡，再用蘇格拉底式提問一步步帶你想。這是最被低估的功能。</p></div></div>
   <div class="tri">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>學習模式</h3><p>對話框打「/」→ 選「學習」，訊息前面會出現「學習」標籤；叫不出來就直接說「我想進入學習模式」。</p></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>學習風格</h3><p>部分帳號在「＋」裡有「樣式 → 學習」；沒有這個選項時，貼下方「家教」提示詞，效果一樣，它還會用勾選卡片先測你的程度。</p></div>
@@ -1634,8 +1757,9 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 </section>
 
 <!-- 11 -->
-<section id="s11">
-  <div class="sec-head"><div class="num">11</div><div><h2>排程自動化：交代一次，它每天自己做</h2><p>前面所有功能都是「你開口它才動」。排程讓 AI 第一次主動為你工作。</p></div></div>
+<section class="page" id="s11" data-title="排程自動化" style="--c:var(--lime)">
+  <div class="eyebrow" style="--c:var(--lime)"><span class="sq"></span>功能<em>18 / 25</em></div>
+  <div class="sec-head"><div class="num dk">11</div><div><h2>排程自動化：交代一次，它每天自己做</h2><p>前面所有功能都是「你開口它才動」。排程讓 AI 第一次主動為你工作。</p></div></div>
   <div class="tri">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>排程任務</h3><ul><li>左側「已排程」→ 在「排定工作」框描述任務</li><li>設定頻率、時間，在雲端自動執行</li><li>免費版可設少量任務</li></ul></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>排程任務</h3><ul><li>左側「排程任務」→「新增任務」：選「使用 Claude 建立」或「手動設定」</li><li>桌面版 Cowork 也能用「/schedule」</li><li>需付費方案（Pro 以上）</li></ul></div>
@@ -1673,8 +1797,9 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 </section>
 
 <!-- 12 -->
-<section id="s12">
-  <div class="sec-head"><div class="num">12</div><div><h2>外掛連接：讓 AI 從「出主意」變成「動手做」</h2><p>連上信箱、行事曆、雲端硬碟，一句話就幫你查、排、整理。</p></div></div>
+<section class="page" id="s12" data-title="外掛連接" style="--c:var(--lime)">
+  <div class="eyebrow" style="--c:var(--lime)"><span class="sq"></span>功能<em>19 / 25</em></div>
+  <div class="sec-head"><div class="num dk">12</div><div><h2>外掛連接：讓 AI 從「出主意」變成「動手做」</h2><p>連上信箱、行事曆、雲端硬碟，一句話就幫你查、排、整理。</p></div></div>
   <div class="tri">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>外掛程式</h3><ul><li>左側「外掛程式」→ 搜尋 → 點進去按「安裝外掛程式」→ 確認授權</li><li>Google 系列、Canva、GitHub、Notion 等</li></ul></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>連接器</h3><ul><li>「設定」→「自訂」→「連接器」→「探索」，或對話框「＋」→ 連接器</li><li>Gmail、Google 日曆、雲端硬碟、Canva、Notion 等</li><li>免費版也能用部分連接器</li></ul></div>
@@ -1846,8 +1971,9 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 </section>
 
 <!-- 13 -->
-<section id="s13">
-  <div class="sec-head"><div class="num">13</div><div><h2>深度工作：從 80 分作業到 120 分研究報告</h2><p>讓 AI 花 10～20 分鐘拆解任務、查資料、做出檔案。這是目前三個工具最強的用法。</p></div></div>
+<section class="page" id="s13" data-title="深度工作" style="--c:var(--lime)">
+  <div class="eyebrow" style="--c:var(--lime)"><span class="sq"></span>功能<em>20 / 25</em></div>
+  <div class="sec-head"><div class="num dk">13</div><div><h2>深度工作：從 80 分作業到 120 分研究報告</h2><p>讓 AI 花 10～20 分鐘拆解任務、查資料、做出檔案。這是目前三個工具最強的用法。</p></div></div>
   <div class="tri">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>Work（工作）</h3><ul><li>首頁上方從「對話」切到「工作」；或「＋」→「深度研究」</li><li>輸入框下方可「選擇專案」、指定「檔案」、串接「外掛程式」</li><li>直接產出文件、試算表、簡報、網站</li></ul></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>研究＋Cowork</h3><ul><li>網頁版：對話框「＋」→「研究」，會搜尋數十個來源並附引用</li><li>桌面版 Cowork：交代一件長任務，它在你電腦的資料夾裡產出 Excel、Word、PowerPoint 檔</li></ul></div>
@@ -1921,8 +2047,9 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 </section>
 
 <!-- 13R -->
-<section id="s13r">
-  <div class="sec-head"><div class="num" style="background:#5B8E7D">R</div><div><h2>延伸：用 AI 輔助醫學研究與臨床判斷</h2><p>AI 可以幫你「找、讀、整理、反問」，不能替你「決定」。這一節把界線和做法一次講清楚。</p></div></div>
+<section class="page" id="s13r" data-title="研究輔助" style="--c:var(--lime)">
+  <div class="eyebrow" style="--c:var(--lime)"><span class="sq"></span>功能<em>21 / 25</em></div>
+  <div class="sec-head"><div class="num dk" style="background:#5B8E7D">R</div><div><h2>延伸：用 AI 輔助醫學研究與臨床判斷</h2><p>AI 可以幫你「找、讀、整理、反問」，不能替你「決定」。這一節把界線和做法一次講清楚。</p></div></div>
   <div class="grid2">
     <div class="card">
       <h3>可以交給 AI 的</h3>
@@ -2056,12 +2183,13 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
 </section>
 
 <!-- 14 -->
-<section id="s14">
-  <div class="sec-head"><div class="num">14</div><div><h2>專案：一件長期正事，一個獨立的記憶空間</h2><p>放進這件事需要的資料，每次對話都會參考；而其他對話不會被它干擾。</p></div></div>
+<section class="page" id="s14" data-title="專案" style="--c:var(--lime)">
+  <div class="eyebrow" style="--c:var(--lime)"><span class="sq"></span>功能<em>22 / 25</em></div>
+  <div class="sec-head"><div class="num dk">14</div><div><h2>專案：一件長期正事，一個獨立的記憶空間</h2><p>放進這件事需要的資料，每次對話都會參考；而其他對話不會被它干擾。</p></div></div>
   <div class="tri">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>專案</h3><ul><li>左側「專案」→ 建立</li><li>上傳來源檔案、設定專案指示</li><li>專案有自己獨立的記憶</li></ul></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>專案（Projects）</h3><ul><li>左側「專案」→「建立專案」</li><li>「專案知識」上傳檔案；「設定專案指示」貼固定規則</li><li>免費版即可建立</li></ul></div>
-    <div class="card ge-c"><h3><span class="t ge">Gemini</span>Gem／筆記本</h3><ul><li><b>Gem：</b>「Gem 管理工具」→ 新增 Gem，寫指示＋上傳知識檔，像一個專屬小助手。<b>注意：2026/11/17 起 Gem 會自動轉成「技能」</b>，做法相同、名稱改變</li><li><b>筆記本：</b>把對話與資料歸在同一個專案資料夾，可與 Gemini Notebook 同步</li></ul></div>
+    <div class="card ge-c"><h3><span class="t ge">Gemini</span>筆記本／技能</h3><ul><li><b>Gem 已停用：</b>個人 Google 帳號的 Gem 自 2026/11/17 起轉成「技能」，不能再新建或使用，12/17 完全下架；已有 Gem 的人請在 12/17 前把裡面的檔案下載回來。要「指示＋知識檔」的專屬助手，改用筆記本（步驟與實測見<a href="lesson4.html#k4">第 4 堂 K4</a>）</li><li><b>筆記本：</b>左側「筆記本」→ 新增筆記本 →「新增來源」上傳檔案 → 右上「⋮」→「筆記本設定」的「使用說明」貼固定規則。回答會附來源檔名，可與 Gemini Notebook 同步</li></ul></div>
     <div class="card oc-c"><h3><span class="t oc">OpenCode</span>一個資料夾就是一個專案</h3><ul><li>開一個資料夾「衛教單張改寫室」，裡面放 AGENTS.md（規則）＋已公開單張（知識）</li><li>在這個資料夾開 OpenCode，就等於進了這個專案</li><li>產出的檔案直接留在資料夾裡，不用再下載</li></ul></div>
   </div>
   <div class="card">
@@ -2079,13 +2207,13 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
       <figure class="shot"><a href="img/l2-s14-cl-new.jpg" target="_blank" rel="noopener"><img src="img/l2-s14-cl-new.jpg" alt="Claude 建立專案" loading="lazy"></a><figcaption><b class="n">1</b>左側「專案」→「新增專案」：填「您正在進行什麼工作」和「您想達成什麼目標」，建立後再上傳專案知識、寫專案指示。</figcaption></figure>
     </div></div>
     <div class="panel" data-g="s14g" id="s14g-ge"><div class="shots">
-      <figure class="shot"><a href="img/l2-s14-ge-gem.jpg" target="_blank" rel="noopener"><img src="img/l2-s14-ge-gem.jpg" alt="Gemini 新增 Gem" loading="lazy"></a><figcaption><b class="n">1</b>「新增 Gem」：填名稱、說明、使用說明（就是專案指示），右邊可即時預覽。上方提醒 11/17 起 Gem 轉為「技能」。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-s14-ge-gem.jpg" target="_blank" rel="noopener"><img src="img/l2-s14-ge-gem.jpg" alt="Gemini 新增 Gem" loading="lazy"></a><figcaption><b class="n">1</b>11/17 前的舊畫面（現在已不能新增 Gem）：填名稱、說明、使用說明，右邊可即時預覽；上方就是「Gem 轉為技能」的公告。</figcaption></figure>
     </div></div>
   </div>
   <div class="card">
     <h3>建議建立的第一個專案：「衛教單張改寫室」</h3>
     <ol class="steps">
-      <li>建立專案（Gemini 用 Gem；OpenCode 開一個同名資料夾），名稱：衛教單張改寫室</li>
+      <li>建立專案（Gemini 用筆記本；OpenCode 開一個同名資料夾），名稱：衛教單張改寫室</li>
       <li>上傳：院內<b>已公開</b>的衛教單張、單位用語表（例如統一說「血糖機」而不是「血糖儀」）</li>
       <li>專案指示貼上第 1 堂的六要素與今天的自訂指示</li>
       <li>以後每次改寫單張都在這個專案裡開新對話，不必再交代一次背景</li>
@@ -2106,7 +2234,7 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
       <tr><td>什麼時候生效</td><td>每一次對話，永遠</td><td>只在這個專案裡的對話</td><td>需要時才啟動（自動判斷或你用 / @ 叫出）</td><td>你允許它用的時候</td></tr>
       <tr><td>跨不跨專案</td><td>全域</td><td>不跨</td><td><b>跨</b>：任何對話、任何專案都能用</td><td>跨</td></tr>
       <tr><td>衛教師例子</td><td>「我是糖尿病衛教師，對象是 65 歲以上」</td><td>「衛教單張改寫室」：放模板、院內用語表</td><td>「長者友善單張」：字級、步驟、禁用詞、輸出格式</td><td>把單張直接做成 Canva、把文獻從 PubMed 拉進來</td></tr>
-      <tr><td>三家名稱</td><td>給 ChatGPT／Claude／Gemini 的指示</td><td>專案／專案／筆記本（Gemini Notebook）</td><td>技能／技能／技能（Gem 於 11/17 轉為技能）</td><td>外掛程式／連接器／應用程式</td></tr>
+      <tr><td>三家名稱</td><td>給 ChatGPT／Claude／Gemini 的指示</td><td>專案／專案／筆記本（Gemini Notebook）</td><td>技能／技能／技能（Gem 已於 2026/11/17 轉為技能）</td><td>外掛程式／連接器／應用程式</td></tr>
     </table></div>
     <div class="grid2" style="margin-top:12px">
       <div class="card" style="margin:0">
@@ -2132,7 +2260,7 @@ section,.card[id],div[id],h3[id]{scroll-margin-top:118px}
     <div class="grid2">
       <div class="card gpt-c" style="margin:0"><h3><span class="t gpt">ChatGPT</span>新增技能</h3><ol class="steps"><li>左側「外掛程式」→ 上方切到「<b>技能</b>」分頁</li><li>右上「新增」→ 三選一：<b>透過對話建立</b>（最簡單，用講的）、<b>使用編輯器建立</b>、<b>從電腦上傳</b>（zip）</li><li><b>第四種：用錄影教它（Record &amp; Replay）。</b>只在 <b>Mac 桌面版</b>、切到「工作」模式：輸入框左下「<b>＋</b>」→ 往下捲到「<b>錄製技能</b>」→ 輸入框出現「Record &amp; Replay」→ 先用一句話說目標與會變動的輸入（例：「把 Excel 名單轉成 LINE 群組公告」）→ 送出 → 同意錄製 → 你照平常做一遍 → 選單列或對話說「做完了」→ 它看完錄影草擬一份技能（何時用、要什麼輸入、步驟、怎麼驗收）→ 改一改存起來。下次新對話說「用 ○○ 技能」即可重播。適合「用講的講不清、用做的三分鐘」的例行事，像把報表貼進院內系統固定欄位。<b>錄的時候它看得到視窗內容</b>，先關掉病人資料，示範用去識別化檔案。</li><li>編輯器：名稱（小寫英文、數字、連字號，最多 64 字）、說明（500 字內，<b>決定它什麼時候會自動啟動</b>）、指示內文</li><li>建好後出現在「由我建立」，平常自動觸發；也可在對話裡點名「用 ○○ 技能」</li></ol></div>
       <div class="card cl-c" style="margin:0"><h3><span class="t cl">Claude</span>新增技能</h3><ol class="steps"><li>「設定」→ 左側「自訂」區的 <b>Skills</b> → 右上「新增」：<b>上傳 Skill</b>（zip，含 SKILL.md）、<b>建立 Skill</b>（編輯器）、<b>使用 Claude 建立</b>（用講的）</li><li>「探索」分頁有 Anthropic 與合作夥伴做好的技能，可直接加入</li><li>使用：輸入框打「<b>/</b>」就列出技能，選一個再接你的內容</li></ol></div>
-      <div class="card ge-c" style="margin:0"><h3><span class="t ge">Gemini</span>新增技能</h3><ol class="steps"><li>左側「Gem 管理工具」頁最上方的「<b>建立技能</b>」→ 進入「探索／連接器／<b>技能</b>」頁</li><li>右上「建立」→ 三選一：<b>運用 Gemini 建立</b>、<b>手動建立</b>、<b>上傳</b>（zip，含 SKILL.md）</li><li>使用：對話裡打「<b>@</b>」→ 技能區選一個，再接內容。原本的 Gem 於 2026/11/17 自動轉成技能</li></ol><div class="shots" style="margin-top:10px"><figure class="shot"><a href="img/l2-at-ge.jpg" target="_blank" rel="noopener"><img src="img/l2-at-ge.jpg" alt="Gemini @ 選單裡的技能" loading="lazy"></a><figcaption><b class="n">1</b>打「@」後往下捲，「技能」區列出你已建立的技能，點一個再接內容。</figcaption></figure><figure class="shot"><a href="img/l2-ge-gems.jpg" target="_blank" rel="noopener"><img src="img/l2-ge-gems.jpg" alt="Gem 管理工具的轉換公告" loading="lazy"></a><figcaption><b class="n">2</b>Gem 管理工具頁最上方：「2026年11月17日起，Gem 將轉為『技能』」，右邊「建立技能」按鈕。</figcaption></figure><figure class="shot"><a href="img/l2-ge-skills.jpg" target="_blank" rel="noopener"><img src="img/l2-ge-skills.jpg" alt="Gemini 技能頁" loading="lazy"></a><figcaption><b class="n">3</b>技能頁：上方「探索／連接器／技能」分頁，列出已安裝的技能；右上「建立」。</figcaption></figure><figure class="shot"><a href="img/l2-ge-skills-new.jpg" target="_blank" rel="noopener"><img src="img/l2-ge-skills-new.jpg" alt="建立選單" loading="lazy"></a><figcaption><b class="n">4</b>「建立」下拉：運用 Gemini 建立、手動建立、上傳。和 ChatGPT、Claude 的三個選項一一對應。</figcaption></figure></div></div>
+      <div class="card ge-c" style="margin:0"><h3><span class="t ge">Gemini</span>新增技能</h3><ol class="steps"><li>左側「顯示更多」→「自訂」→「<b>技能</b>」（或舊 Gem 管理工具頁最上方的「建立技能」）→ 進入「探索／連接器／<b>技能</b>」頁</li><li>右上「建立」→ 三選一：<b>運用 Gemini 建立</b>、<b>手動建立</b>、<b>上傳</b>（zip，含 SKILL.md）</li><li>使用：對話裡打「<b>@</b>」→ 技能區選一個，再接內容。原本的 Gem 已於 2026/11/17 轉成技能，Gem 本身不能再用</li></ol><div class="shots" style="margin-top:10px"><figure class="shot"><a href="img/l2-at-ge.jpg" target="_blank" rel="noopener"><img src="img/l2-at-ge.jpg" alt="Gemini @ 選單裡的技能" loading="lazy"></a><figcaption><b class="n">1</b>打「@」後往下捲，「技能」區列出你已建立的技能，點一個再接內容。</figcaption></figure><figure class="shot"><a href="img/l2-ge-gems.jpg" target="_blank" rel="noopener"><img src="img/l2-ge-gems.jpg" alt="Gem 管理工具的轉換公告" loading="lazy"></a><figcaption><b class="n">2</b>Gem 管理工具頁最上方：「2026年11月17日起，Gem 將轉為『技能』」，右邊「建立技能」按鈕。</figcaption></figure><figure class="shot"><a href="img/l2-ge-skills.jpg" target="_blank" rel="noopener"><img src="img/l2-ge-skills.jpg" alt="Gemini 技能頁" loading="lazy"></a><figcaption><b class="n">3</b>技能頁：上方「探索／連接器／技能」分頁，列出已安裝的技能；右上「建立」。</figcaption></figure><figure class="shot"><a href="img/l2-ge-skills-new.jpg" target="_blank" rel="noopener"><img src="img/l2-ge-skills-new.jpg" alt="建立選單" loading="lazy"></a><figcaption><b class="n">4</b>「建立」下拉：運用 Gemini 建立、手動建立、上傳。和 ChatGPT、Claude 的三個選項一一對應。</figcaption></figure></div></div>
     </div>
     <div class="grid2" style="margin-top:12px">
       <div class="card" style="margin:0">
@@ -2199,8 +2327,9 @@ description 要寫清楚「什麼情況下該啟動」，因為那決定它會�
 </section>
 
 <!-- MarkItDown -->
-<section id="md">
-  <div class="sec-head"><div class="num" style="background:#7C5CBF">B</div><div><h2>上傳前先瘦身：用 MarkItDown 把 PDF 轉成文字</h2><p>同一份指引，轉成文字再給 AI，額度用得少、回答更專心，上傳前還能先看一遍有沒有個資。</p></div></div>
+<section class="page" id="md" data-title="PDF 轉文字" style="--c:var(--lime)">
+  <div class="eyebrow" style="--c:var(--lime)"><span class="sq"></span>功能<em>23 / 25</em></div>
+  <div class="sec-head"><div class="num dk" style="background:#7C5CBF">B</div><div><h2>上傳前先瘦身：用 MarkItDown 把 PDF 轉成文字</h2><p>同一份指引，轉成文字再給 AI，額度用得少、回答更專心，上傳前還能先看一遍有沒有個資。</p></div></div>
   <div class="grid2">
     <div class="card">
       <h3>為什麼要先轉？</h3>
@@ -2303,8 +2432,9 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
 </section>
 
 <!-- GitHub -->
-<section id="gh">
-  <div class="sec-head"><div class="num" style="background:#24292F">G</div><div><h2>課堂實作：註冊 GitHub，上傳你的第一個自我介紹網頁</h2><p>今天在課堂上一起做完：註冊、請 AI 做網頁、上傳、用手機打開。第 3 堂會在同一個網站上深入做 HTML 衛教簡報。</p></div></div>
+<section class="page" id="gh" data-title="GitHub 個人網頁" style="--c:var(--amber)">
+  <div class="eyebrow" style="--c:var(--amber)"><span class="sq"></span>收尾<em>24 / 25</em></div>
+  <div class="sec-head"><div class="num dk" style="background:#24292F">G</div><div><h2>課堂實作：註冊 GitHub，上傳你的第一個自我介紹網頁</h2><p>今天在課堂上一起做完：註冊、請 AI 做網頁、上傳、用手機打開。第 3 堂會在同一個網站上深入做 HTML 衛教簡報。</p></div></div>
   <div class="grid3">
     <div class="b3"><h4>GitHub 是什麼？</h4><p style="margin:0">全世界工程師放檔案的雲端倉庫。我們只用它其中一個免費功能：<b>GitHub Pages</b>，把 HTML 檔變成一個公開網址。</p></div>
     <div class="b3"><h4>為什麼要學？</h4><p style="margin:0">AI 做出來的網頁、簡報、衛教小工具都是 HTML 檔。放上 GitHub Pages，用手機、LINE 分享一個連結就能打開，不用寄檔案。這份講義就是這樣放上網的。</p></div>
@@ -2394,8 +2524,9 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
 </section>
 
 <!-- 17 -->
-<section id="s17">
-  <div class="sec-head"><div class="num">15</div><div><h2>課後任務</h2><p>勾選會自動記在這台電腦的瀏覽器裡，下次打開還在。</p></div></div>
+<section class="page" id="s17" data-title="課後任務" style="--c:var(--amber)">
+  <div class="eyebrow" style="--c:var(--amber)"><span class="sq"></span>收尾<em>25 / 25</em></div>
+  <div class="sec-head"><div class="num dk">15</div><div><h2>課後任務</h2><p>勾選會自動記在這台電腦的瀏覽器裡，下次打開還在。</p></div></div>
   <div class="card check" id="checklist">
     <div class="progress"><i id="bar"></i></div>
     <label><input type="checkbox" data-k="a"><span>三個工具（ChatGPT、Claude、Gemini）都註冊並裝好手機 App</span></label>
@@ -2404,7 +2535,7 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
     <label><input type="checkbox" data-k="d"><span>用 AMA 魔法句設計一場團體衛教，並用「你建議就好」收尾</span></label>
     <label><input type="checkbox" data-k="e"><span>在 Gemini 或 ChatGPT 生成一張衛教圖卡，並至少做一次局部修改</span></label>
     <label><input type="checkbox" data-k="f"><span>用學習模式／引導式學習學一個統計或指引概念</span></label>
-    <label><input type="checkbox" data-k="g"><span>建立「衛教單張改寫室」專案（或 Gem），放入一份已公開的院內單張</span></label>
+    <label><input type="checkbox" data-k="g"><span>建立「衛教單張改寫室」專案（Gemini 用筆記本），放入一份已公開的院內單張</span></label>
     <label><input type="checkbox" data-k="i"><span>在 OpenCode 設好模型與練習資料夾，放入 AGENTS.md，完成「第一個交辦」的三個版本</span></label>
     <label><input type="checkbox" data-k="j"><span>用 OpenCode 裝好 MarkItDown，把一份臨床指引 PDF 轉成 .md，比較直接上傳與上傳文字版的回答</span></label>
     <label><input type="checkbox" data-k="k"><span>註冊 GitHub，請 AI 做好自我介紹網頁，上傳到「username.github.io」並用手機打開成功</span></label>
@@ -2426,16 +2557,61 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
     </div>
     <div class="note" style="margin-bottom:0"><b>下一堂先想好：</b>你最想做哪一種？帶一個真的會用到的題目來，課堂上就拿它當自己的作品。</div>
   </div>
-</section>
-
-</main>
-
 <footer>
-  <div class="wrap">
+  <div>
     <p><b style="color:#fff">糖尿病衛教團隊 AI 工具專業賦能與臨床實務應用工作坊｜第 2 堂</b><br>授課講師：鍾孟修 職能治療師｜<a href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專</a>｜<a href="https://reurl.cc/4YbrVj" target="_blank" rel="noopener">LINE 學員社群</a>｜<a href="mailto:adlotmatt@gmail.com">adlotmatt@gmail.com</a></p>
     <p>課程配套工具：<a href="https://mattsue1003.github.io/ltc-deid-workbench/" target="_blank" rel="noopener">去識別化工作台</a>、<a href="https://www.napkin.ai/" target="_blank" rel="noopener">Napkin AI</a>、<a href="https://opencode.ai/zht" target="_blank" rel="noopener">OpenCode</a>、<a href="https://github.com/microsoft/markitdown" target="_blank" rel="noopener">MarkItDown</a>。工具說明參考：<a href="https://help.openai.com/" target="_blank" rel="noopener">ChatGPT 說明中心</a>、<a href="https://support.claude.com/" target="_blank" rel="noopener">Claude 說明中心</a>、<a href="https://support.google.com/gemini/" target="_blank" rel="noopener">Gemini 說明中心</a>。各工具功能、方案與按鈕名稱更新頻繁，請以官方最新說明為準。課程練習全程使用合成資料。</p>
   </div>
 </footer>
+</section>
+
+
+</div></main>
+
+<button class="navbtn prev" id="prev" type="button" aria-label="上一頁">←<span>上一頁</span></button>
+<button class="navbtn next" id="next" type="button" aria-label="下一頁"><span id="nextLabel">下一頁</span>→</button>
+<nav class="toc" id="toc" aria-label="目錄"><div class="toc-in">
+  <h2>目錄：25 頁</h2>
+  <ol>
+      <li class="tg" style="--c:var(--ink)"><i></i>開始</li>
+      <li><a href="#top" style="--c:var(--ink)"><i>首</i>封面與今日目標</a></li>
+      <li class="tg" style="--c:var(--amber)"><i></i>破冰</li>
+      <li><a href="#ice" style="--c:var(--amber)"><i class="dk">♪</i>金曲猜歌</a></li>
+      <li class="tg" style="--c:var(--mag)"><i></i>課前</li>
+      <li><a href="#pre" style="--c:var(--mag)"><i>前</i>Napkin 圖表</a></li>
+      <li class="tg" style="--c:var(--blue)"><i></i>開場</li>
+      <li><a href="#deid" style="--c:var(--blue)"><i>前</i>去識別化</a></li>
+      <li><a href="#s0" style="--c:var(--blue)"><i>0</i>學習地圖</a></li>
+      <li class="tg" style="--c:var(--green)"><i></i>基礎</li>
+      <li><a href="#slash" style="--c:var(--green)"><i>／</i>「/」快捷體驗</a></li>
+      <li><a href="#s1" style="--c:var(--green)"><i>1</i>AI 底層邏輯</a></li>
+      <li><a href="#s2" style="--c:var(--green)"><i>2</i>方案怎麼選</a></li>
+      <li><a href="#s3" style="--c:var(--green)"><i>3</i>介面導覽</a></li>
+      <li><a href="#oc" style="--c:var(--green)"><i>A</i>OpenCode 代理</a></li>
+      <li class="tg" style="--c:var(--sky)"><i></i>提示詞</li>
+      <li><a href="#s4" style="--c:var(--sky)"><i class="dk">4</i>讓 AI 懂你</a></li>
+      <li><a href="#s5" style="--c:var(--sky)"><i class="dk">5</i>人事時地物＋Why</a></li>
+      <li><a href="#s6" style="--c:var(--sky)"><i class="dk">6</i>碎念法</a></li>
+      <li><a href="#s7" style="--c:var(--sky)"><i class="dk">7</i>AMA 反問法</a></li>
+      <li class="tg" style="--c:var(--lime)"><i></i>功能</li>
+      <li><a href="#s8" style="--c:var(--lime)"><i class="dk">8</i>製圖</a></li>
+      <li><a href="#s9" style="--c:var(--lime)"><i class="dk">9</i>寫作區塊</a></li>
+      <li><a href="#s10" style="--c:var(--lime)"><i class="dk">10</i>學習模式</a></li>
+      <li><a href="#s11" style="--c:var(--lime)"><i class="dk">11</i>排程自動化</a></li>
+      <li><a href="#s12" style="--c:var(--lime)"><i class="dk">12</i>外掛連接</a></li>
+      <li><a href="#s13" style="--c:var(--lime)"><i class="dk">13</i>深度工作</a></li>
+      <li><a href="#s13r" style="--c:var(--lime)"><i class="dk">R</i>研究輔助</a></li>
+      <li><a href="#s14" style="--c:var(--lime)"><i class="dk">14</i>專案</a></li>
+      <li><a href="#md" style="--c:var(--lime)"><i class="dk">B</i>PDF 轉文字</a></li>
+      <li class="tg" style="--c:var(--amber)"><i></i>收尾</li>
+      <li><a href="#gh" style="--c:var(--amber)"><i class="dk">G</i>GitHub 個人網頁</a></li>
+      <li><a href="#s17" style="--c:var(--amber)"><i class="dk">15</i>課後任務</a></li>
+  </ol>
+  <p class="keys">鍵盤：<kbd>→</kbd> 下一頁　<kbd>←</kbd> 上一頁　<kbd>O</kbd> 目錄　<kbd>/</kbd> 搜尋　<kbd>Esc</kbd> 關閉</p>
+</div></nav>
+<div class="lb" id="lb" role="dialog" aria-label="放大圖片"><button class="x" type="button" aria-label="關閉">×</button><img alt=""><figcaption></figcaption><div class="hint">點任一處或按 Esc 關閉</div></div>
+<script>window.__addLb=true</script>
+
 
 <div class="toast" id="toast">已複製</div>
 
@@ -2510,5 +2686,106 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
 
 </script>
 <script src="https://mattsue1003.github.io/oth-report-button/report.js" data-site="桃園醫院糖尿病中心 AI 工作坊｜第 2 堂" defer></script>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)},body=document.body;
+  var pages=[].slice.call(document.querySelectorAll('.page')),cur=0;
+  var toc=$('toc'),lb=$('lb');
+  var mode;try{mode=localStorage.getItem('l4mode')}catch(e){}
+  if(mode!=='scroll'&&mode!=='paged')mode=window.matchMedia('(max-width:900px)').matches?'scroll':'paged';
+  function paged(){return body.classList.contains('paged')}
+  function update(){
+    $('prog').textContent=(cur+1)+' / '+pages.length;
+    if(paged())$('topprog').style.width=((cur+1)/pages.length*100)+'%';
+    $('prev').disabled=cur===0;$('next').disabled=cur===pages.length-1;
+    $('nextLabel').textContent=cur<pages.length-1?'下一頁：'+pages[cur+1].dataset.title:'最後一頁';
+    [].forEach.call(toc.querySelectorAll('a'),function(a){a.classList.toggle('cur',a.getAttribute('href')==='#'+pages[cur].id)});
+  }
+  function show(i,keep){
+    cur=Math.max(0,Math.min(pages.length-1,i));
+    pages.forEach(function(p,j){p.classList.toggle('on',j===cur)});
+    if(!keep)pages[cur].scrollTop=0;
+    update();
+  }
+  function setHash(id){try{history.replaceState(null,'','#'+id)}catch(e){}}
+  function goToId(id,keepHash){
+    var el=document.getElementById(id);if(!el)return false;
+    var p=el.closest('.page');if(!p)return false;
+    var i=pages.indexOf(p);
+    if(paged()){show(i);if(el!==p)el.scrollIntoView({block:'start'})}
+    else{cur=i;update();el.scrollIntoView({block:'start'})}
+    if(!keepHash)setHash(id);
+    return true;
+  }
+  function setMode(m,save){
+    mode=m;body.classList.toggle('scroll',m==='scroll');body.classList.toggle('paged',m!=='scroll');
+    $('modeBtn').textContent=m==='scroll'?'逐頁閱讀':'整頁捲動';
+    if(save){try{localStorage.setItem('l4mode',m)}catch(e){}}
+    if(m==='scroll'){pages.forEach(function(p){p.classList.remove('on')});update();if(save)pages[cur].scrollIntoView({block:'start'});onScroll()}
+    else{window.scrollTo(0,0);show(cur,true)}
+  }
+  function onScroll(){
+    if(paged())return;
+    var h=document.documentElement,max=h.scrollHeight-h.clientHeight;
+    $('topprog').style.width=(max>0?Math.min(100,h.scrollTop/max*100):0)+'%';
+    var y=window.innerHeight*0.35,best=0;
+    pages.forEach(function(p,j){if(p.getBoundingClientRect().top<=y)best=j});
+    if(best!==cur){cur=best;update()}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  $('modeBtn').onclick=function(){setMode(mode==='scroll'?'paged':'scroll',true)};
+  $('prev').onclick=function(){show(cur-1);setHash(pages[cur].id)};
+  $('next').onclick=function(){show(cur+1);setHash(pages[cur].id)};
+  function tocOpen(on){toc.classList.toggle('on',on);$('tocBtn').classList.toggle('act',on);$('tocBtn').setAttribute('aria-expanded',on?'true':'false')}
+  $('tocBtn').onclick=function(){tocOpen(!toc.classList.contains('on'))};
+  toc.addEventListener('click',function(e){if(e.target===toc||e.target.classList.contains('toc-in'))tocOpen(false)});
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]');if(!a)return;
+    var id=decodeURIComponent(a.getAttribute('href').slice(1));if(!id)return;
+    if(goToId(id)){e.preventDefault();tocOpen(false)}
+  });
+  window.addEventListener('hashchange',function(){goToId(decodeURIComponent(location.hash.slice(1)),true)});
+  /* 搜尋列開關；搜尋本身沿用原頁面的程式，這裡只負責把命中的那一頁叫出來 */
+  var sIn=$('q');
+  function syncHit(){var m=document.querySelector('mark.hit.cur');if(!m)return;var pg=m.closest('.page');if(pg&&paged()&&pages.indexOf(pg)!==cur)show(pages.indexOf(pg),true);m.scrollIntoView({block:'center'})}
+  function searchOpen(on){body.classList.toggle('searching',on);$('searchBtn').classList.toggle('act',on);$('searchBtn').setAttribute('aria-expanded',on?'true':'false');if(on){tocOpen(false);sIn.focus();sIn.select()}else if($('qClear')){$('qClear').click();sIn.blur()}}
+  $('searchBtn').onclick=function(){searchOpen(!body.classList.contains('searching'))};
+  $('qClose').onclick=function(){searchOpen(false)};
+  sIn.addEventListener('input',function(){setTimeout(syncHit,420)});
+  sIn.addEventListener('keydown',function(e){if(e.key==='Enter')setTimeout(syncHit,60);if(e.key==='Escape')setTimeout(function(){searchOpen(false)},0)});
+  ['qNext','qPrev'].forEach(function(id){if($(id))$(id).addEventListener('click',function(){setTimeout(syncHit,60)})});
+  document.addEventListener('keydown',function(e){
+    if(lb&&lb.classList.contains('on'))return;
+    if(e.target.closest&&e.target.closest('input,textarea,select,[contenteditable]'))return;
+    if(e.metaKey||e.ctrlKey||e.altKey)return;
+    if(e.key==='Escape'){if(toc.classList.contains('on'))tocOpen(false);else if(body.classList.contains('searching'))searchOpen(false);return}
+    if(e.key==='o'||e.key==='O'){tocOpen(!toc.classList.contains('on'));return}
+    if(e.key==='/'){e.preventDefault();searchOpen(true);return}
+    if(toc.classList.contains('on')||!paged())return;
+    if(e.key==='ArrowRight'){show(cur+1);setHash(pages[cur].id)}
+    if(e.key==='ArrowLeft'){show(cur-1);setHash(pages[cur].id)}
+  });
+  if(window.__addLb&&lb){
+    var im=lb.querySelector('img'),cap=lb.querySelector('figcaption');
+    function lbClose(){lb.classList.remove('on');im.src=''}
+    document.addEventListener('click',function(e){
+      if(lb.classList.contains('on')){e.preventDefault();e.stopPropagation();lbClose();return}
+      var img=e.target.closest('main img');if(!img)return;
+      var a=img.closest('a'),href=a&&a.getAttribute('href')||'';
+      if(a&&!/\.(jpe?g|png|gif|webp)(\?|$)/i.test(href))return;
+      var src=href||img.currentSrc||img.src;
+      var fig=img.closest('figure'),fc=fig&&fig.querySelector('figcaption');
+      e.preventDefault();e.stopPropagation();im.src=src;cap.textContent=fc?fc.textContent.trim():img.alt;lb.classList.add('on');
+    },true);
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;e.stopPropagation();if(e.key==='Escape'||e.key===' '||e.key==='Enter'){e.preventDefault();lbClose()}},true);
+  }
+  setMode(mode,false);
+  var h=decodeURIComponent(location.hash.slice(1));
+  if(!(h&&goToId(h,true)))show(0);
+  if(!paged())onScroll();
+})();
+
+</script>
 </body>
 </html>
