@@ -374,6 +374,23 @@ footer b{color:var(--ink)!important}
 .agenda a{grid-template-columns:38px 1fr}
 .agenda em{display:none}
 </style>
+<!--MG-CSS--><style>
+/* ===== 融合版：滿版、重點畫面 ===== */
+html{font-size:clamp(16px,1.06vw,20px)}
+body{font-size:1.0625rem;background:var(--grain),var(--paper)}
+.page{padding-left:max(24px,calc((100vw - 1680px)/2));padding-right:max(24px,calc((100vw - 1680px)/2))}
+body.scroll .viewport{padding:calc(var(--barh) + 3px) 0 0}
+body.scroll.searching .viewport{padding-top:calc(var(--barh) + 58px)}
+body.scroll .stage{gap:0;max-width:none}
+body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((100vw - 1680px)/2)) 54px;border-bottom:3px solid var(--ink)}
+.sl{display:block;margin:0 0 22px;scroll-margin-top:calc(var(--barh) + 16px)}
+.sl+.sl{margin-top:-6px}
+@media (max-width:900px){body{font-size:16.5px}.page,body.scroll .page{padding-left:16px;padding-right:16px}body.scroll .page{padding-top:26px;padding-bottom:34px}}
+@media print{.sl{display:none!important}}
+.sl{grid-column:1/-1;min-width:0}
+.grid2:has(.sl),.grid3:has(.sl){grid-template-columns:minmax(0,1fr)!important}
+.grid2>.sl,.grid3>.sl{margin-bottom:0}
+</style><!--/MG-CSS-->
 </head>
 <body>
 
@@ -2685,6 +2702,117 @@ markitdown "糖尿病照護指引.pdf" -o "糖尿病照護指引.md"</div>
 })();
 
 </script>
+<!--MG--><script>
+(function(){
+  var body=document.body,$=function(id){return document.getElementById(id)};
+  function paged(){return body.classList.contains('paged')}
+  function curPage(){return document.querySelector('.page.on')}
+  /* ---- 重點畫面：把簡報頁放進對應主題 ---- */
+  var deck=$('deck'),hosts=[];
+  if(deck&&deck.content&&Element.prototype.attachShadow){
+    var css=deck.content.querySelector('style').textContent,sheet=null;
+    try{sheet=new CSSStyleSheet();sheet.replaceSync(css)}catch(e){sheet=null}
+    var lb=$('lb'),last=null;
+    function mk(sl,i){
+      var h=document.createElement('div');h.className='sl';h.id='sl-'+(sl.id||('n'+i));
+      var r=h.attachShadow({mode:'open'});
+      if(sheet&&('adoptedStyleSheets' in r))r.adoptedStyleSheets=[sheet];else{var st=document.createElement('style');st.textContent=css;r.appendChild(st)}
+      var fr=document.createElement('div');fr.className='fr';sl.classList.add('on');fr.appendChild(sl);r.appendChild(fr);
+      r.addEventListener('click',function(e){
+        var b=e.target.closest('.cp');
+        if(b){var box=b.parentNode.cloneNode(true);box.querySelector('.cp').remove();var t=box.textContent.trim(),o=b.textContent;
+          var done=function(){b.textContent='已複製';setTimeout(function(){b.textContent=o},1300)};
+          if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(done,function(){});
+          else{var ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;opacity:0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(x){}document.body.removeChild(ta)}
+          return}
+        var img=e.target.closest('img');
+        if(img&&lb&&!img.closest('.qr')){var a=img.closest('a'),href=a&&a.getAttribute('href')||'';
+          var src=/\.(jpe?g|png|gif|webp)(\?|$)/i.test(href)?href:(img.currentSrc||img.src);
+          var fig=img.closest('figure'),fc=fig&&fig.querySelector('figcaption');
+          e.preventDefault();e.stopPropagation();
+          lb.querySelector('img').src=src;var cap=lb.querySelector('figcaption');if(cap)cap.textContent=fc?fc.textContent.trim():img.alt;
+          setTimeout(function(){lb.classList.add('on')},0)}
+      });
+      return h;
+    }
+    function topInsert(pg,h){
+      var n=pg.firstElementChild;
+      while(n&&(n.classList.contains('eyebrow')||n.classList.contains('confetti')||n.classList.contains('sl')))n=n.nextElementSibling;
+      pg.insertBefore(h,n);
+    }
+    [].slice.call(deck.content.querySelectorAll('section.slide')).forEach(function(sl,i){
+      var h=mk(sl,i),at=sl.getAttribute('data-at'),ok=false,pg;
+      if(at&&(pg=$(at))){
+        if(sl.getAttribute('data-pos')==='end'){var f=pg.querySelector('footer');if(f)f.parentNode.insertBefore(h,f);else pg.appendChild(h)}
+        else topInsert(pg,h);
+        ok=true;
+      }
+      if(!ok&&sl.id){
+        var ls=document.querySelectorAll('main a[href$="slides.html#'+sl.id+'"]');
+        for(var k=0;k<ls.length&&!ok;k++){
+          if(ls[k].closest('table'))continue;
+          var an=ls[k].closest('.card');
+          if(!an){an=ls[k];while(an.parentNode&&!(an.parentNode.classList&&an.parentNode.classList.contains('page')))an=an.parentNode}
+          if(an&&an.parentNode){var pv=an.previousElementSibling;an.parentNode.insertBefore(h,an);ok=true}
+        }
+      }
+      if(!ok&&last){last.parentNode.insertBefore(h,last.nextSibling);ok=true}
+      if(ok){last=h;hosts.push(h)}
+    });
+    /* 原本連到簡報的按鈕：重點畫面就在上方的拿掉，其他改成頁內跳轉 */
+    [].forEach.call(document.querySelectorAll('main a[href*="slides.html"]'),function(a){
+      var m=/slides\.html#(.+)$/.exec(a.getAttribute('href')||''),h=m&&$('sl-'+m[1]);
+      if(!h){a.remove();return}
+      if(h.closest('.page')===a.closest('.page')&&!a.closest('table')){a.remove();return}
+      a.setAttribute('href','#'+h.id);a.removeAttribute('target');a.removeAttribute('rel');
+      a.textContent=a.textContent.replace(/簡報這[一兩]頁/,'看重點畫面').replace(/^簡報$/,'重點畫面');
+    });
+    function fit(){
+      var H=Math.max(300,window.innerHeight-160);
+      hosts.forEach(function(h){var w=h.clientWidth;if(w)h.style.setProperty('--s',Math.min((w-4)/1280,H/720).toFixed(4))});
+    }
+    window.addEventListener('resize',fit);
+    if(window.ResizeObserver){var ro=new ResizeObserver(fit);hosts.forEach(function(h){ro.observe(h)})}
+    fit();
+    var hh=decodeURIComponent(location.hash.slice(1));
+    if(hh.indexOf('sl-')===0&&$(hh)){var l=document.createElement('a');l.href='#'+hh;l.style.display='none';document.querySelector('main').appendChild(l);l.click();l.remove()}
+  }
+  /* ---- 逐頁模式：滑到頁尾再往下滑就換下一頁，頁首再往上滑回上一頁 ---- */
+  function atEnd(p){return p.scrollTop+p.clientHeight>=p.scrollHeight-2}
+  function go(d){
+    var b=$(d>0?'next':'prev');if(!b||b.disabled)return;b.click();
+    if(d<0){var p=curPage();if(p)p.scrollTop=p.scrollHeight}
+  }
+  function busy(){var t=$('toc'),l=$('lb');return (t&&t.classList.contains('on'))||(l&&l.classList.contains('on'))}
+  var lastT=0,startEdge=0,acc=0,accDir=0,lock=0;
+  window.addEventListener('wheel',function(e){
+    if(!paged()||busy()||e.ctrlKey)return;
+    var p=curPage();if(!p||!p.contains(e.target))return;
+    var now=Date.now(),dir=e.deltaY>0?1:e.deltaY<0?-1:0;if(!dir)return;
+    if(now-lastT>220){startEdge=(atEnd(p)?1:0)|(p.scrollTop<=0?2:0);if(now-lastT>1500||dir!==accDir)acc=0;if(now>lock)lock=0}
+    lastT=now;
+    if(lock)return;
+    var ok=(dir>0&&(startEdge&1)&&atEnd(p))||(dir<0&&(startEdge&2)&&p.scrollTop<=0);
+    if(!ok){acc=0;return}
+    accDir=dir;acc+=Math.min(Math.abs(e.deltaY),120);
+    if(acc>=180){acc=0;lock=now+700;go(dir)}
+  },{passive:true});
+  var ty=null,tEdge=0;
+  document.addEventListener('touchstart',function(e){var p=curPage();if(!paged()||!p||busy()){ty=null;return}ty=e.touches[0].clientY;tEdge=(atEnd(p)?1:0)|(p.scrollTop<=0?2:0)},{passive:true});
+  document.addEventListener('touchend',function(e){if(ty==null||!paged())return;var dy=e.changedTouches[0].clientY-ty;ty=null;if(dy<-70&&(tEdge&1))go(1);else if(dy>70&&(tEdge&2))go(-1)},{passive:true});
+  document.addEventListener('keydown',function(e){
+    if(!paged()||busy()||e.metaKey||e.ctrlKey||e.altKey)return;
+    if(e.target.closest&&e.target.closest('input,textarea,select,button,a,summary,[contenteditable]'))return;
+    var p=curPage();if(!p)return;var k=e.key,d=0,amt=0;
+    if(k==='ArrowDown'){d=1;amt=90}else if(k==='ArrowUp'){d=-1;amt=90}
+    else if(k==='PageDown'||(k===' '&&!e.shiftKey)){d=1;amt=p.clientHeight*.88}
+    else if(k==='PageUp'||(k===' '&&e.shiftKey)){d=-1;amt=p.clientHeight*.88}
+    else return;
+    e.preventDefault();
+    if(d>0&&atEnd(p))go(1);else if(d<0&&p.scrollTop<=0)go(-1);else p.scrollTop+=d*amt;
+  });
+})();
+</script><!--/MG-->
 <script src="https://mattsue1003.github.io/oth-report-button/report.js" data-site="桃園醫院糖尿病中心 AI 工作坊｜第 2 堂" defer></script>
 
 <script>
