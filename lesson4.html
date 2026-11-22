@@ -993,7 +993,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 <section class="page" id="stat" data-g="file" data-title="描述性統計正確率" style="--c:var(--blue)">
   <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>檔案 × AI<em>14 / 17</em></div>
-<!--KIT--><div class="kit"><h3>練習檔：兩段提示語都用這一份</h3><p class="exp">上傳後先貼 ①（只描述、不計算），確認欄位讀對了再貼 ②。</p><div class="ctas"><a class="btn" href="lesson2-dm-quality.csv" download>⬇ 個管品質資料 .csv</a><a class="btn o" href="lesson2-dm-quality.xlsx" download>⬇ 同一份 .xlsx</a></div></div><!--/KIT-->
+<!--KIT--><div class="kit"><h3>練習用 Excel：兩段提示語都用這一份</h3><p class="exp">60 位虛構個案、一人一列，欄位剛好對上提示語 ②：性別、年齡、HbA1c、收縮壓、舒張壓、LDL。檔案裡故意藏了 3 個資料問題。上傳後先貼 ①（只描述、不計算），看 AI 找不找得到，再貼 ②。</p><div class="ctas"><a class="btn" href="kit/練習_描述性統計_個管資料.xlsx" download>⬇ 描述性統計練習檔 .xlsx</a></div><details><summary><b>參考答案（講師核對用）</b></summary><p><b>① 應該抓到的 3 個問題</b>：S017 的 HbA1c 是 75（應為 7.5，少了小數點）；S033 的 HbA1c 空白；S048 的收縮壓是 13（少打一位）。<br><b>② 保留異常值的結果</b>：60 列，HbA1c 有值 59 筆；全體平均 8.48、標準差 8.87、中位數 7.4；男性 32 筆平均 9.47、女性 27 筆平均 7.30。HbA1c &lt; 7% 達標 18／59＝30.5%。收縮壓 &lt; 130 為 37／60＝61.7%（含那筆 13）。年齡層人數與達標：&lt;65 歲 25 人（有值 24）達標 7；65–74 歲 17 人達標 6；≥75 歲 18 人達標 5。<br><b>教學重點</b>：一筆 75 就把平均從 7.33 拉到 8.48、標準差從 1.06 拉到 8.87，中位數仍是 7.4。所以要先做 ① 再做 ②。</p></details></div><!--/KIT-->
   <div class="sec-head"><div class="num" style="background:#9A3412">S</div><div><h2>延伸：用 AI 做描述性統計，怎麼確保數字是對的</h2><p>接在 Ⓐ 之後：平均、百分比、分組計數看起來最簡單，卻是最常「算錯而沒人發現」的地方。</p></div></div>
   <div class="grid2">
     <div class="card">
@@ -1063,7 +1063,8 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
   <div class="grid2">
     <div class="card">
       <h3>兩段提示詞</h3>
-      <div class="prompt"><span class="label">① 先描述，不要算</span>附件是去識別化的糖尿病個管資料（合成資料）。先不要做任何統計。
+      <!--KIT--><p style="margin:0 0 10px"><a class="btn" href="kit/練習_描述性統計_個管資料.xlsx" download>⬇ 先下載練習用 Excel，上傳後再貼下面的提示語</a></p><!--/KIT-->
+<div class="prompt"><span class="label">① 先描述，不要算</span>附件是去識別化的糖尿病個管資料（合成資料）。先不要做任何統計。
 請用程式讀取後告訴我：1. 幾列幾欄；2. 每一欄的名稱、資料型態、缺值數、數值欄的最小與最大值；3. 你認為可能有問題的值（例如超出合理範圍）列出來，不要修改；4. 把前 5 列印給我看。
 確認無誤我再給你要算的指標。</div>
       <div class="prompt"><span class="label">② 再算，附程式與分母</span>請用程式計算下列描述性統計，每一項都要：顯示程式碼、程式輸出的原始數字、分子與分母的定義、排除了哪些列與原因。
