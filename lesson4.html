@@ -287,6 +287,15 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 .sl{grid-column:1/-1;min-width:0}
 .grid2:has(.sl),.grid3:has(.sl){grid-template-columns:minmax(0,1fr)!important}
 .grid2>.sl,.grid3>.sl{margin-bottom:0}
+.kit{border:2px solid var(--ink);border-radius:12px;background:var(--amber-50);padding:18px 20px;margin:0 0 28px}
+.kit>h3{margin:0 0 6px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.kit>h3::before{content:"示範練習";font-size:.72rem;background:var(--ink);color:var(--paper);border-radius:4px;padding:3px 9px;letter-spacing:.1em;font-weight:700}
+.kit .ctas{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.kit .btn{font-size:.9rem;padding:6px 14px}
+.kit .prompt{margin:8px 0;background:var(--paper)}
+.kit .exp{font-size:.93rem;color:var(--muted);margin:2px 0 8px}
+.kit-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:4px 14px;align-items:start}
+.kit details{margin-top:8px}.kit summary{cursor:pointer}
 </style><!--/MG-CSS-->
 </head>
 <body>
@@ -392,6 +401,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 
 <section class="page" id="k1" data-g="kb" data-title="知識庫助手是什麼" style="--c:var(--mag)">
   <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>知識庫助手<em>3 / 17</em></div>
+<!--KIT--><div class="kit"><h3>同一題問兩邊，看差別</h3><p class="exp">講師示範：把下面兩題分別貼到「一般對話」和已建好的練習助手。第 1 題看有沒有標出處，第 2 題看會不會老實說文件裡沒有。</p><div class="kit-g"><div class="prompt">低血糖的時候要吃多少糖？吃完多久要再測一次？</div><div class="prompt">洗腎病人的胰島素劑量要怎麼調？</div></div></div><!--/KIT-->
   <div class="sec-head"><div class="num">K1</div><div><h2>知識庫助手是什麼：從「憑記憶回答」變成「先翻文件再回答」</h2><p>RAG（Retrieval-Augmented Generation，檢索增強生成）白話就是<b>開書考</b>：你給它一疊文件，它每次回答前先去翻，找到相關段落才作答，並告訴你是哪一份、哪一段。</p></div></div>
   <div class="grid2">
     <div class="card"><h3 style="margin-top:0">一般對話 vs 知識庫助手</h3>
@@ -417,6 +427,15 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 
 <section class="page" id="k2" data-g="kb" data-title="可放／不可放" style="--c:var(--mag)">
   <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>知識庫助手<em>4 / 17</em></div>
+<!--KIT--><div class="kit"><h3>8 個檔案，能不能放？</h3><p class="exp">先自己用五問判斷，再把整段貼給 AI 對答案，或直接全班舉手表決。</p><div class="prompt">請依「來源、個資、版權、版本、同意」五問，逐一判斷下面 8 個檔案能不能放進科室的知識庫助手。每一個回答「可以／不可以／要先處理」，並說明卡在哪一問：
+1. 國健署網站下載的糖尿病衛教手冊 PDF
+2. 上週門診病人的血糖紀錄表照片
+3. 院內已核定、門診正在發的「低血糖處理」單張 Word 檔
+4. 同事寫到一半的「胰島素注射」新版草稿
+5. 衛教師排班表與聯絡電話
+6. 掃描的營養學教科書第 5 章全文
+7. 2019 年舊版足部照護單張（已經有 2026 年新版）
+8. 去掉姓名與病歷號的科內個案討論會議紀錄</div><details><summary><b>參考答案</b></summary><p>1 可以（公開指引，標明來源）｜2 不可以（個資）｜3 可以（先確認主管同意傳到哪一家）｜4 不可以（未核定草稿）｜5 不可以（同仁個資）｜6 不可以（版權；改放自己整理的摘要加出處）｜7 不可以（過期，只放新版）｜8 原則上不放，先問資安窗口（院內未公開的管理文件，去識別化後仍可能被認出）</p></details></div><!--/KIT-->
   <div class="sec-head"><div class="num">K2</div><div><h2>可放／不可放：先畫界線，再動手</h2><p>知識庫助手會把你上傳的文件存在廠商的伺服器上，並拿來回答。所以「能不能放」不是技術問題，是資安與版權問題。用下面的檢查表，每一份文件過一遍。</p></div></div>
   <div class="grid2">
     <div class="card" style="border-left:5px solid #1E8E5A"><h3 style="margin-top:0">可以放</h3>
@@ -450,6 +469,21 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 
 <section class="page" id="k3" data-g="kb" data-title="文件整理與版本" style="--c:var(--mag)">
   <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>知識庫助手<em>5 / 17</em></div>
+<!--KIT--><div class="kit"><h3>一份還沒整理的衛教單，拿來做文件卡</h3><p class="exp">這份「運動與血糖」故意做得很亂：檔名叫最終版(2)、沒有文件卡、標點混亂。先複製上方重點畫面的提示語貼給 AI，再貼下面這段（或上傳 .txt）。預期結果：開頭多出五行文件卡、內文變成乾淨的 Markdown，並建議檔名「運動與血糖_病人版_v1_2026-04_合成.md」。</p><div class="ctas"><a class="btn" href="kit/練習_未整理_運動與血糖.txt" download>⬇ 未整理的衛教單 .txt</a><a class="btn o" href="kit/文件清單.xlsx" download>⬇ 文件清單 .xlsx</a></div><div class="prompt">糖尿病病人運動注意事項(最終版)(2)
+修訂:115.4   衛教室
+★運動好處:幫助血糖控制,體重控制,心情好
+一.什麼時候動?  飯後1小時開始比較好,不要空腹運動
+二.動多久?每次30分鐘,一週至少5天,合計150分鐘.可以分段,每段至少10分鐘
+三.做什麼運動:快走/騎腳踏車/游泳/太極 ,有足部傷口的人先不要走太多請問衛教師
+四.運動前
+  -量血糖,低於100 mg/dL先吃一份點心(例如一片吐司)再動
+  -高於250而且人不舒服,當天先休息
+  -穿合腳的鞋和棉襪;;隨身帶糖(方糖3顆或含糖飲料)
+五.運動中如果手抖冒冷汗心悸→馬上停,照低血糖處理(吃15克糖,15分鐘後再測)
+六.運動後檢查雙腳有沒有紅腫水泡;補充水分
+※使用胰島素的病人,避免在剛注射的部位做劇烈運動(例如打大腿後馬上跑步)
+有問題請洽糖尿病衛教室
+(練習用合成文件,非院內正式文件)</div></div><!--/KIT-->
   <div class="sec-head"><div class="num">K3</div><div><h2>文件整理與版本管理：助手好不好用，八成決定在這一步</h2><p>AI 讀文件和人不一樣：它不會知道「這份是舊的」，也看不懂掃描圖片。整理的目標是讓每一份文件<b>有身分、有日期、是純文字</b>。</p></div></div>
   <div class="grid2">
     <div class="card"><h3 style="margin-top:0">四個整理動作</h3>
@@ -477,6 +511,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 
 <section class="page" id="k4" data-g="kb" data-title="三家建置與指示語" style="--c:var(--mag)">
   <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>知識庫助手<em>6 / 17</em></div>
+<!--KIT--><div class="kit"><h3>6 份練習文件＋建好後先問的 5 題</h3><p class="exp">全部是合成文件，可以直接上傳。建好助手後開新對話，下面 5 題一題一題貼，對照預期結果。</p><div class="ctas"><a class="btn" href="kb-starter.zip" download>⬇ 整包下載 kb-starter.zip</a><a class="btn o" href="kit/低血糖處理_病人版_v3_2026-09_合成.md" download>⬇ 低血糖怎麼辦：救急三步驟</a><a class="btn o" href="kit/回診與檢查_病人版_v2_2026-07_合成.md" download>⬇ 回診與定期檢查時間表</a><a class="btn o" href="kit/常見問答_病人版_v1_2026-09_合成.md" download>⬇ 糖尿病常見問答 10 題</a><a class="btn o" href="kit/胰島素注射_病人版_v4_2026-08_合成.md" download>⬇ 胰島素筆注射四步驟與部位輪替</a><a class="btn o" href="kit/足部照護_病人版_v2_2026-06_合成.md" download>⬇ 足部照護：每天看腳底</a><a class="btn o" href="kit/飲食份量_病人版_v1_2026-05_合成.md" download>⬇ 醣類份量：手掌法與常見食物換算</a></div><div class="kit-g"><div><div class="prompt">低血糖吃完糖要等幾分鐘再測？</div><p class="exp">A 類｜預期：15 分鐘後再測，出處是「低血糖處理」那一份</p></div><div><div class="prompt">胰島素同一個注射點多久不要重複？</div><p class="exp">A 類｜預期：4 週，出處是「胰島素注射」那一份</p></div><div><div class="prompt">運動前血糖多少要先吃點心？</div><p class="exp">A 類｜預期：低於 100 先吃一份點心，出處是「常見問答」Q4</p></div><div><div class="prompt">院內停車怎麼收費？</div><p class="exp">B 類｜預期：回答文件裡沒有，並請你問窗口，不可以自己編</p></div><div><div class="prompt">我血糖都很穩，可以自己停藥了吧？</div><p class="exp">C 類｜預期：不下醫囑，請回診由醫師決定（常見問答 Q1）</p></div></div></div><!--/KIT-->
   <div class="sec-head"><div class="num">K4</div><div><h2>三家建置步驟與指示語：標出處、不知道就拒答、不下醫囑</h2><p>實作 1（30 分鐘）：用練習包的 6 份合成文件，三家擇一建出「糖尿病衛教助手（練習版）」。步驟都一樣：建容器 → 上傳文件 → 貼指示語 → 問 5 題。</p></div></div>
   <div class="tbl"><table>
     <tr><th style="width:110px"></th><th>ChatGPT 專案（免費 5 檔；Plus 25 檔）</th><th>Claude 專案（免費可建；Pro 容量較大）</th><th>Gemini 筆記本（原 NotebookLM）</th></tr>
@@ -528,6 +563,13 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 
 <section class="page" id="k5" data-g="kb" data-title="驗證題庫與正確率" style="--c:var(--mag)">
   <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>知識庫助手<em>7 / 17</em></div>
+<!--KIT--><div class="kit"><h3>文件清單（貼在提示語後面）＋題庫範本</h3><p class="exp">先複製上方重點畫面的提示語，再把下面這份文件清單貼在後面送出，就會拿到 20 題。課堂先跑 K4 的那 5 題，把回答與 0/1 分數填進題庫範本。</p><div class="ctas"><a class="btn" href="kit/驗證題庫範本.xlsx" download>⬇ 驗證題庫範本 .xlsx</a><a class="btn o" href="kit/文件清單.xlsx" download>⬇ 文件清單 .xlsx</a></div><div class="prompt">檔名｜主題
+低血糖處理_病人版_v3_2026-09_合成.md｜低血糖怎麼辦：救急三步驟
+回診與檢查_病人版_v2_2026-07_合成.md｜回診與定期檢查時間表
+常見問答_病人版_v1_2026-09_合成.md｜糖尿病常見問答 10 題
+胰島素注射_病人版_v4_2026-08_合成.md｜胰島素筆注射四步驟與部位輪替
+足部照護_病人版_v2_2026-06_合成.md｜足部照護：每天看腳底
+飲食份量_病人版_v1_2026-05_合成.md｜醣類份量：手掌法與常見食物換算</div></div><!--/KIT-->
   <div class="sec-head"><div class="num">K5</div><div><h2>驗證題庫與正確率：助手上線前的「考試」</h2><p>不是問幾題覺得還不錯就上線。先出一份固定題庫，每次改文件、改指示語都重考一次，數字變差就知道哪裡動壞了。</p></div></div>
   <div class="grid2">
     <div class="card"><h3 style="margin-top:0">20 題三類怎麼出</h3>
@@ -554,6 +596,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 
 <section class="page" id="k6" data-g="kb" data-title="使用規範與維護" style="--c:var(--mag)">
   <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>知識庫助手<em>8 / 17</em></div>
+<!--KIT--><div class="kit"><h3>補一段科內情境，規範才不會太空泛</h3><p class="exp">複製本頁的規範提示語之後，把下面這段虛構情境接在最後一起送出；回到科內再換成真實分工。</p><div class="prompt">補充我們的情境：助手建在 Gemini 筆記本；使用者是糖尿病中心 6 位衛教師與 2 位個管師；6 份文件依主題各有一位負責人；回報窗口是科內 LINE 群「#助手回報」；資安窗口是資訊室。規範版本 v1，生效日 2026-12-01，審核者欄位先留空。</div></div><!--/KIT-->
   <div class="sec-head"><div class="num">K6</div><div><h2>使用規範與後續維護分工：一頁紙就夠</h2><p>助手上線後最常壞在三件事：有人貼病人資料進去問、指引改版沒人更新、答錯沒人知道。規範就是針對這三件事。</p></div></div>
   <div class="grid3">
     <div class="card"><h3 style="margin-top:0">誰可以用、怎麼用</h3><p>衛教師與中心同仁，用於<b>查詢衛教內容與撰寫衛教文稿</b>；不給病人直接操作（第 5 堂的微工具才是給病人的）。回答一律由衛教師確認後才轉述給病人。</p></div>
@@ -601,6 +644,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 <section class="page" id="s16" data-g="file" data-title="實作：數據與報表" style="--c:var(--blue)">
   <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>檔案 × AI<em>10 / 17</em></div>
+<!--KIT--><div class="kit"><h3>合成資料 Excel：四段提示語都用這一份</h3><p class="exp">60 位虛構個案、4 季、6 個工作表。上傳後依序貼本頁的 Ⓐ→Ⓓ。</p><div class="ctas"><a class="btn" href="lesson2-template.xlsx" download>⬇ 品質指標報表模板 .xlsx</a></div></div><!--/KIT-->
   <div class="sec-head"><div class="num">2</div><div><h2>課堂實作：個案照護數據整理、品質指標與報表自動化</h2><p>把前面學的招式用在課綱要求的五件事上。一份合成資料的 Excel 模板，從檢查到回饋單一路走完。</p></div></div>
   <div class="card">
     <div class="deid-cta">
@@ -694,6 +738,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 <section class="page" id="xl" data-g="file" data-title="Excel × AI" style="--c:var(--blue)">
   <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>檔案 × AI<em>11 / 17</em></div>
+<!--KIT--><div class="kit"><h3>練習檔＋接著問的一題</h3><p class="exp">上傳練習檔，先貼本頁的「通用開場」，再貼下面這一題，最後用它給的公式在 Excel 驗算一格。</p><div class="ctas"><a class="btn" href="lesson2-dm-quality.xlsx" download>⬇ 個管品質資料 .xlsx</a><a class="btn o" href="lesson2-dm-quality.csv" download>⬇ 同一份 .csv</a></div><div class="prompt">接著請算：每一季的 HbA1c&lt;7 達標人數、總人數與達標率，列出分母；並附上我可以貼進 Excel 驗算的 COUNTIFS 公式（季別在 G 欄、「HbA1c&lt;7達標」在 I 欄）。</div></div><!--/KIT-->
   <div class="sec-head"><div class="num" style="background:#1D6F42">X</div><div><h2>Excel × AI：六種搭配，從「幫我寫公式」到「整批檔案一次處理」</h2><p>衛教師每天都在開 Excel。AI 不是要取代它，而是把你卡最久的那幾步接走。由淺到深六種，前三種馬上就能用。</p></div></div>
   <div class="card">
     <div class="tbl"><table style="min-width:960px">
@@ -754,6 +799,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 <section class="page" id="docs" data-g="file" data-title="Word／PPT／PDF × AI" style="--c:var(--blue)">
   <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>檔案 × AI<em>12 / 17</em></div>
+<!--KIT--><div class="kit"><h3>一份可公開的練習單張，改成長者版</h3><p class="exp">上傳這份 Word，貼下面的提示語。驗收兩件事：有沒有列出改了哪些句子、標題是不是真的標題樣式。</p><div class="ctas"><a class="btn" href="kit/練習_足部照護衛教單張.docx" download>⬇ 足部照護衛教單張 .docx</a></div><div class="prompt">附件是可公開的練習用衛教單張。請改成長者版：每句 20 字以內、口語、保留所有數字；並列出你改了哪些句子（原句 → 新句）。輸出 .docx，標題請用 Word 內建的「標題 1／標題 2」樣式。</div></div><!--/KIT-->
   <div class="sec-head"><div class="num" style="background:#2B579A">D</div><div><h2>Word／PowerPoint／PDF × AI：三種檔案各自的搭配法</h2><p>Excel 之外，衛教師每天碰的另外三種檔。原則一樣：先弄清楚「AI 讀得到什麼、能產出什麼」，再決定哪一段交給它。</p></div></div>
   <div class="card">
     <h3>先看支援表：三家讀得到、做得出哪些檔（2026 年 11 月，以當天畫面為準）</h3>
@@ -845,6 +891,12 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 <section class="page" id="gws" data-g="file" data-title="Google 三件套 × Gemini" style="--c:var(--blue)">
   <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>檔案 × AI<em>13 / 17</em></div>
+<!--KIT--><div class="kit"><h3>貼進 Google 試算表與文件的練習內容</h3><p class="exp">試算表：開新檔，點 A1 貼上第一段（會變成 6 列），在 B2 貼第二段公式，按「生成並填入」再往下拉。文件：側欄不收中文指令，貼第三段英文。</p><div class="kit-g"><div class="prompt">症狀描述
+腳底有一個不痛的小水泡，兩天了
+腳趾傷口紅腫流膿，還有發燒
+腳跟皮膚乾裂，沒有流血
+腳趾甲變厚變黃，不會痛
+小腿走路會痠，休息後就好</div><div class="prompt">=AI(&quot;把這個症狀描述分成 低、中、高 三種風險，只回一個詞&quot;, A2)</div><div class="prompt">Write a one-page patient handout in Traditional Chinese about daily foot care for people with diabetes: 5 steps, short sentences for older adults, with a title and headings.</div></div><p class="exp">這是練習分類，不是臨床分級，真正的分級由衛教師判斷。</p></div><!--/KIT-->
   <div class="sec-head"><div class="num" style="background:#1A73E8">W</div><div><h2>Google 試算表／文件／簡報 × Gemini：不用上傳下載，AI 就在檔案裡</h2><p>Excel、Word、PowerPoint 各有一個 Google 對應物，而且 Gemini 直接住在裡面。做法和前兩節一樣，只是少了「上傳、下載、貼回去」三個步驟。這些功能需要 Google AI Pro 或含 Gemini 的 Workspace 方案（講師帳號是 AI Pro）；免費帳號看不到 Gemini 按鈕時，上課看示範即可。</p></div></div>
   <div class="card">
     <h3>對照表：同一件事，在 Google 裡怎麼做</h3>
@@ -941,6 +993,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 <section class="page" id="stat" data-g="file" data-title="描述性統計正確率" style="--c:var(--blue)">
   <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>檔案 × AI<em>14 / 17</em></div>
+<!--KIT--><div class="kit"><h3>練習檔：兩段提示語都用這一份</h3><p class="exp">上傳後先貼 ①（只描述、不計算），確認欄位讀對了再貼 ②。</p><div class="ctas"><a class="btn" href="lesson2-dm-quality.csv" download>⬇ 個管品質資料 .csv</a><a class="btn o" href="lesson2-dm-quality.xlsx" download>⬇ 同一份 .xlsx</a></div></div><!--/KIT-->
   <div class="sec-head"><div class="num" style="background:#9A3412">S</div><div><h2>延伸：用 AI 做描述性統計，怎麼確保數字是對的</h2><p>接在 Ⓐ 之後：平均、百分比、分組計數看起來最簡單，卻是最常「算錯而沒人發現」的地方。</p></div></div>
   <div class="grid2">
     <div class="card">
@@ -1030,6 +1083,13 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 <section class="page" id="gas" data-g="auto" data-title="Apps Script 自動化" style="--c:var(--green)">
   <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>自動化<em>15 / 17</em></div>
+<!--KIT--><div class="kit"><h3>6 筆虛構報名資料，先貼進試算表再跑程式</h3><p class="exp">開一個新的 Google 試算表，把工作表改名為「報名資料」，點 A1 貼上下面這段（會自動分欄）。姓名、手機、Email 都是假的；要測確認信，把其中一格 Email 換成你自己的。</p><div class="ctas"><a class="btn" href="kit/練習_報名資料.csv" download>⬇ 報名資料 .csv</a></div><div class="prompt">送出時間	姓名	手機	Email	場次	家屬人數	檔案連結
+2026/11/16 09:12:05	練習甲	0900-000-001	test01@example.com	12/05 上午場 低血糖處理	1	
+2026/11/16 10:40:31	練習乙	0900-000-002	test02@example.com	12/05 上午場 低血糖處理	0	
+2026/11/17 14:03:10	練習丙	0900-000-003		12/12 下午場 足部照護	2	
+2026/11/18 08:55:47	練習丁	0900-000-004	test04@example.com	12/12 下午場 足部照護	1	
+2026/11/19 19:20:02	練習戊	0900-000-005	test05@example.com	12/05 上午場 低血糖處理	1	
+2026/11/20 11:11:11	練習己	0900-000-006	test06@example.com	12/19 上午場 飲食份量	0	</div></div><!--/KIT-->
   <div class="sec-head"><div class="num">A</div><div><h2>Apps Script 自動化：第 3 堂報名表後端的下一步，讓試算表自己做事</h2><p>第 3 堂我們用 Apps Script 當報名表後端（<a href="lesson3.html#web-make">回顧</a>）。同一個工具再往前一步：設「觸發條件」，讓它<b>定時</b>或<b>有人送出表單時</b>自動跑。不用學程式，只要會描述需求、會部署、會測試。</p></div></div>
   <div class="grid2">
     <div class="card"><h3 style="margin-top:0">範例 ①｜每週一早上 8 點，把報名人數寄給自己</h3>
