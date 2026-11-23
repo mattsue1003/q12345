@@ -361,7 +361,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
   <a class="brand" href="#top" title="回到封面"><span class="mark"><i></i><i></i><i></i><i></i></span><b>AI × 糖尿病衛教</b><span class="bt">第 1 堂講義｜基礎工具、資安界線與衛教轉譯</span></a>
   <span class="sp"></span>
   <span class="lessons-l">堂次</span>
-  <nav class="lessons" aria-label="切換堂次"><a class="on" aria-current="page" href="./" title="第 1 堂講義">1</a><a href="lesson2.html" title="第 2 堂講義">2</a><a href="lesson3.html" title="第 3 堂講義">3</a><a href="lesson4.html" title="第 4 堂講義">4</a></nav>
+  <nav class="lessons" aria-label="切換堂次"><a class="on" aria-current="page" href="./" title="第 1 堂講義">1</a><a href="lesson2.html" title="第 2 堂講義">2</a><a href="lesson3.html" title="第 3 堂講義">3</a><a href="lesson4.html" title="第 4 堂講義">4</a><a href="lesson5.html" title="第 5 堂講義">5</a></nav>
   <span class="prog" id="prog">1 / 16</span>
   <button class="bpill" id="tocBtn" type="button" aria-expanded="false">目錄</button>
   <button class="bpill" id="searchBtn" type="button" aria-expanded="false">搜尋</button>
@@ -422,10 +422,10 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <a href="#s11"><span class="no dk" style="--c:var(--sky)">13</span><span><strong>範本庫</strong></span><em></em></a>
       <div class="brk" style="--c:var(--lime)"><i></i>課後</div>
       <a href="#s12"><span class="no dk" style="--c:var(--lime)">14</span><span><strong>課後任務</strong></span><em></em></a>
-      <a href="#s15"><span class="no dk" style="--c:var(--lime)">15</span><span><strong>s15</strong></span><em></em></a>
+      <a href="#s15"><span class="no dk" style="--c:var(--lime)">15</span><span><strong>聯絡與回饋</strong></span><em></em></a>
   </nav>
   <div class="note" style="margin-top:22px"><b>怎麼讀這份講義：</b>電腦上一次看一節，按下方「下一頁」或鍵盤 <kbd>→</kbd> 前進、<kbd>←</kbd> 返回；右上「目錄」看全部章節，「搜尋」找關鍵字，「整頁捲動」可改成一路往下捲。手機會自動用整頁捲動。</div>
-  <div class="note teal">LINE 社群通關密語：<b>桃園醫院糖尿病中心</b>，裡面都是上過課的學員，有問題可以直接討論。對 LINE 有個資或隱私顧慮，請改用信箱聯絡：adlotmatt@gmail.com</div>
+  <div class="note teal">LINE 社群通關密語：<b>桃園醫院糖尿病中心</b>，裡面都是上過課的學員，有問題可以直接討論。對 LINE 有個資或隱私顧慮，請改按封面的「回報錯誤或建議」按鈕留言給講師。</div>
 </section>
 
 
@@ -463,6 +463,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       </div>
     </div>
     <div class="prompt"><span class="label">提示語</span>請只根據我上傳的文件回答。每一個重點後面標註出自第幾頁；文件裡沒有提到的，請直接寫「文件未提及」，不要自行補充。<button class="copy">複製</button></div>
+    <p style="margin-bottom:0"><b>現在就練：</b>下載這份合成的練習單張，上傳到 AI 後貼上面的提示語，再問「低血糖要喝多少含糖飲料？」「可以吃巧克力嗎？」，看它會不會老實回答「文件未提及」。<br><a class="btn" href="lesson1-sample-leaflets.txt" download style="margin-top:8px">⬇ 練習用衛教單張（.txt）</a></p>
   </details>
 
   <details class="risk">
@@ -480,6 +481,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
     <div class="prompt"><span class="label">提示語</span>請依台灣食物代換表計算下面這餐的醣類克數。用表格逐項列出：食物、份量、屬於哪一類、幾份、每份幾克醣、小計。最後加總，並註明哪些項目的份量是你估計的。
 
 （貼上餐點內容）<button class="copy">複製</button></div>
+    <div class="prompt"><span class="label">練習用餐點（接在上面提示語後面貼上，正確答案見上方算式）</span>早餐：吐司 2 片、鮮奶 1 杯（240 mL）、香蕉半根、水煮蛋 1 顆、無糖茶 1 杯。<button class="copy">複製</button></div>
   </details>
 
   <details class="risk">
@@ -506,6 +508,8 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
     <div class="prompt"><span class="label">第 3 層：上傳最新版 PDF 後再問</span>這是我上傳的最新版指引。請比較它和我們科內現行衛教單張（貼在下面）的差異，列出「單張需要更新的地方」與對應的指引頁碼。
 
 （貼上現行衛教單張）<button class="copy">複製</button></div>
+    <div class="prompt"><span class="label">練習用「現行衛教單張」（合成內容，接在第 3 層提示語後面貼上）</span>低血糖係指血糖值低於 70 mg/dL，常見症狀包括冒冷汗、心悸、顫抖、飢餓感及意識改變。若出現上述症狀，應立即攝取 15 公克速效碳水化合物，如 120–150 mL 含糖飲料或 3–4 顆方糖，15 分鐘後再次監測血糖，若仍低於 70 mg/dL，重複上述步驟。<button class="copy">複製</button></div>
+    <p style="margin-bottom:0"><b>最新版指引去哪裡下載：</b><a href="https://professional.diabetes.org/standards-of-care" target="_blank" rel="noopener">美國糖尿病學會 ADA 照護標準（官方頁面）</a>、<a href="https://www.hpa.gov.tw/Pages/List.aspx?nodeid=359" target="_blank" rel="noopener">國民健康署糖尿病專區</a>。下載 PDF 後上傳，再貼第 3 層提示語與上面的練習單張。</p>
   </details>
 
   <details class="risk">
@@ -549,7 +553,13 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 用表格列出，等一下我會用這張表檢查譯文。
 
 （貼上中文內容）<button class="copy">複製</button></div>
-    <p style="margin-bottom:0">完整的翻譯 → 回譯 → 比對流程，請見 <a href="#s10">第 12 節</a>。</p>
+    <div class="prompt"><span class="label">練習用中文內容（合成，接在上面提示語後面貼上）</span>低血糖怎麼辦？
+1. 血糖低於 70 mg/dL，或出現手抖、冒冷汗、心跳很快時，馬上處理。
+2. 立刻喝 120–150 mL 含糖飲料，或吃 3–4 顆方糖。
+3. 休息 15 分鐘後，再量一次血糖。
+4. 如果血糖還是低於 70 mg/dL，再重複一次。
+5. 不要空腹運動；意識不清時，不要餵食，請立刻送醫。<button class="copy">複製</button></div>
+    <p style="margin-bottom:0">翻譯、回譯、比對三段提示語與練習用譯文，都放在 <a href="#s10">第 12 節</a>，可以接著做。</p>
   </details>
 
   <div class="note teal"><b>今天的核心觀念：</b>AI 產出的是「草稿」，不是「成品」。凡是要交到病人手上的內容，都要經過衛教師覆核。</div>
@@ -769,8 +779,9 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 3. 專有名詞與數字若不確定，用【？】標出來讓我確認
 4. 最後用一句話總結我想要你做什麼
 口述內容：<button class="copy">複製</button></div>
-      <div class="note teal" style="margin:0"><b>把這段存成「口述整理」指令：</b>每次用聽寫說完，貼這段在前面，就能達到 Typeless 的整理效果；ChatGPT 可存成專案指示，Gemini 可存成「技能」（Gem 已於 2026/11/17 停用）。這樣免費版字數用完，或院內電腦不能裝軟體時，也有替代方案。</div>
+      <div class="note teal" style="margin:0"><b>把這段存成「口述整理」指令：</b>每次用聽寫說完，貼這段在前面，就能達到 Typeless 的整理效果；ChatGPT 可存成「專案」的指示（個人帳號已不能新建自訂 GPT），Gemini 可存成「技能」（個人帳號的 Gem 自 2026/11/17 起只能看、不能用，12/17 移除，由技能取代；技能需年滿 18 歲）。這樣免費版字數用完，或院內電腦不能裝軟體時，也有替代方案。</div>
     </div>
+    <div class="prompt"><span class="label">練習用口述內容（合成；沒有麥克風時，接在「口述整理指令」後面貼上）</span>嗯那個我想要請你幫我寫一個，就是給家屬的回診提醒，然後對象是個案A的女兒，嗯，下次回診是下週三，不對，是下週四早上九點，要空腹八小時，然後記得帶血糖紀錄本還有，那個，目前在用的藥袋，語氣親切一點，大概三四句就好。<button class="copy">複製</button></div>
   </div>
 
   <div class="card">
@@ -817,7 +828,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
         <ul>
           <li><b>ChatGPT Record 模式</b>（Mac App，付費方案）：官方單次上限 4 小時，實測約 2 小時會自動結束；英文最準，中文要校對人名</li>
           <li><b>手機錄音</b>：iPhone 語音備忘錄、Pixel 錄音機 → 把文字貼給 AI</li>
-          <li><b>Gemini 上傳音檔</b>：免費 10 分鐘，AI Pro／Ultra 3 小時；<b>NotebookLM</b> 上傳錄音可問決議並附出處</li>
+          <li><b>Gemini 上傳音檔</b>：免費 10 分鐘，AI Pro／Ultra 3 小時；<b>Gemini Notebook</b>（原 NotebookLM）上傳錄音可問決議並附出處</li>
         </ul>
       </div>
       <div class="b3">
@@ -846,6 +857,18 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
         </ul>
       </div>
     </div>
+    <div class="prompt"><span class="label">練習用會議逐字稿（合成，人物與事項皆虛構；接在「會議記錄指令」後面貼上）</span>【糖尿病中心 科內會議 逐字稿】
+主持人（護理長）：今天討論兩件事，團體衛教排程，還有衛教單張改版。先講團衛。
+衛教師甲：十二月的團衛我建議排在 12 月 10 號星期四下午兩點，主題是「外食怎麼選」，地點在門診三樓衛教室。
+營養師：那天我可以，但我需要投影機，還有食物模型要先借。
+主持人：好，那就 12 月 10 號下午兩點，營養師主講，衛教師甲負責報名，名額上限 20 人。食物模型誰借？
+衛教師乙：我來借，12 月 8 號前借到。
+主持人：第二件事，低血糖單張要改成長者大字版。
+衛教師乙：我可以先出初稿，11 月 30 號前給大家看。
+衛教師甲：字級建議至少 18，還有，越南文版要不要一起做？
+主持人：越南文版先不決定，下次會議再討論，請衛教師甲先問通譯可以的時間。
+主持人：那今天就到這裡，下次會議是 12 月 3 號。<button class="copy">複製</button></div>
+    <p style="margin-bottom:0"><a class="btn" href="lesson1-sample-meeting.txt" download>⬇ 練習用會議逐字稿（.txt）</a>　要練「上傳檔案」的同仁用這個；整理完對照逐字稿，檢查日期、負責人、名額有沒有被改掉。</p>
   </div>
 
   <div class="grid2">
@@ -902,7 +925,8 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
             <div class="key"><div class="k"><kbd>Alt</kbd> + <kbd>Space</kbd></div>在任何畫面叫出 Gemini</div>
             <div class="key"><div class="k">點 🎤 麥克風</div>用說的提問，不用打字</div>
           </div>
-          <p style="margin-top:10px"><b>試試看：</b>打開一份衛教 Word 檔，按 <kbd>Alt</kbd> + <kbd>Space</kbd>，貼上其中一段，說「改成長者聽得懂的三句話」。</p>
+          <p style="margin-top:10px"><b>試試看：</b>打開一份衛教 Word 檔，按 <kbd>Alt</kbd> + <kbd>Space</kbd>，貼上其中一段，說「改成長者聽得懂的三句話」。手邊沒有檔案，就複製下面這段練習用文字：</p>
+          <div class="prompt"><span class="label">練習用衛教文字（合成）</span>糖尿病病人因周邊神經病變及周邊血管病變，足部感覺較遲鈍且傷口不易癒合，應每日執行足部自我檢查，觀察有無破皮、水泡、紅腫、雞眼或趾甲異常。每日以溫水（低於 37°C）清洗足部，洗後擦乾趾縫。避免赤腳行走，穿鞋前先檢查鞋內有無異物。若傷口超過 2 天未癒合，應儘速回診。<button class="copy">複製</button></div>
 <p>快捷鍵可在 Gemini 設定中自訂。「按住聽打」與「截圖直接問」目前只有 Mac 版有，Windows 版陸續開放；Windows 使用者請用 Typeless 聽打，截圖則用 <kbd>Win</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> 截圖後貼進 Gemini 對話框。</p>
         </div>
       </div>
@@ -995,7 +1019,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <div>
         <h4>安裝步驟</h4>
         <ol class="steps">
-          <li>打開下載頁，Mac 點「Download for macOS」；Windows 會導向 Microsoft Store，按「安裝」。</li>
+          <li>打開下載頁，Mac 點「Download for macOS」；Windows 會導向 Microsoft Store，按「安裝」。（2026 年 7 月起新版桌面 App 把對話、工作、Codex 合在一起；Mac 上原本的舊版改名為 ChatGPT Classic，仍可使用。）</li>
           <li>開啟 ChatGPT，用和網頁版<b>同一個帳號</b>登入，對話紀錄、專案會同步。</li>
           <li>第一次用麥克風、截圖時依提示「允許」。</li>
         </ol>
@@ -1025,8 +1049,8 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
   </div>
 
   <div class="card">
-    <h3>「對話」和「任務」有什麼不同？</h3>
-    <p>桌面版側欄把兩種用法分開（英文介面是 Chat 與 Work／Agent；中文名稱依版本略有不同）。差別不在介面，在<b>誰動手</b>。</p>
+    <h3>「對話」和「工作」有什麼不同？</h3>
+    <p>2026 年 7 月改版後的桌面版，把 ChatGPT 分成<b>對話</b>（Chat）與<b>工作</b>（Work）兩種模式，另外還有寫程式用的 Codex。切換方式：從選單選 ChatGPT，再用上方的切換鈕選「對話」或「工作」。差別不在介面，在<b>誰動手</b>。</p>
     <div class="grid2">
       <div class="b3">
         <span class="pill">對話 Chat</span>
@@ -1038,16 +1062,16 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
         </ul>
       </div>
       <div class="b3">
-        <span class="pill o">任務 Work／Agent</span>
+        <span class="pill o">工作 Work</span>
         <h4 style="margin-top:8px">你交辦一件事，它自己做完回報</h4>
         <ul>
-          <li>它會自己開瀏覽器查資料、看你的螢幕或檔案、整理成文件，中間不用你一步步指揮</li>
-          <li>需付費方案（Plus／Pro），每月有次數上限</li>
+          <li>它會自己開瀏覽器查資料、整理成文件、試算表或簡報；桌面版經你同意後還能讀電腦裡的檔案、操作桌面軟體，中間不用你一步步指揮</li>
+          <li>桌面版各方案（含免費版）都有「工作」；網頁版與手機版要付費方案才有。用量依方案而定，額度比付費方案少</li>
           <li>衛教例：「到國健署網站找最新的糖尿病衛教手冊，整理成和我們科內單張的差異表」</li>
         </ul>
       </div>
     </div>
-    <div class="note red" style="margin:14px 0 0"><b>資安提醒：</b>「任務」模式會自己上網、看螢幕、開檔案。執行前先關掉有病人資料的視窗與系統畫面；涉及病人的內容一律用「對話」模式、先去識別化。</div>
+    <div class="note red" style="margin:14px 0 0"><b>資安提醒：</b>「工作」模式會自己上網、開檔案、操作軟體；就算在你的電腦上執行，訊息與任務內容仍可能存到雲端。執行前先關掉有病人資料的視窗與系統畫面，不要讓它讀有病歷的資料夾；涉及病人的內容一律用「對話」模式、先去識別化。</div>
   </div>
 </section>
 
@@ -1061,7 +1085,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <ol class="steps">
         <li>把 Chrome 更新到最新版（右上角「⋮ → 說明 → 關於 Google Chrome」）。</li>
         <li>用個人 Google 帳號<b>登入 Chrome</b>（需年滿 18 歲）。</li>
-        <li>點瀏覽器右上角的 <b>Gemini 圖示</b>，右側會打開側邊欄。</li>
+        <li>點瀏覽器右上角的<b>「問問 Gemini」圖示</b>，右側會打開側邊欄；第一次使用要先按同意啟用。無痕視窗不能用。</li>
         <li>沒看到圖示？在網址列輸入 <code>chrome://settings/ai</code> 檢查 AI 功能是否開啟。</li>
       </ol>
       <div class="note"><b>醫院公務電腦：</b>若是院內管理的瀏覽器或公務帳號，管理者可能關閉此功能，請依本院資訊規範使用；上課練習可用個人帳號。</div>
@@ -1071,7 +1095,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <ul>
         <li><b>摘要這一頁</b>：打開一篇衛教文章，問「用三句話說重點，給 65 歲長者聽」。</li>
         <li><b>選取就問</b>：反白一段艱深文字，選「詢問 Gemini」，請它白話解釋。</li>
-        <li><b>多分頁比較</b>：在輸入框按 <kbd>+</kbd> 加入多個分頁，請它做成比較表。</li>
+        <li><b>多分頁比較</b>：在輸入框點「新增分頁」圖示，或輸入 <kbd>@</kbd> 選分頁（最多 10 個），請它做成比較表。</li>
         <li><b>串接 Google 服務</b>：把衛教課程排進日曆、草擬 Gmail，送出前都會先請你確認。</li>
       </ul>
       <p style="color:var(--muted);font-size:.95rem">部分進階功能（例如自動代為操作網頁、Skills 指令庫）目前僅限特定地區、語言或付費方案。</p>
@@ -1079,7 +1103,8 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
   </div>
   <div class="card">
     <h3>試試看：用側邊欄讀一篇公開衛教文章</h3>
-    <p>打開一篇國民健康署或學會的公開糖尿病衛教網頁，在側邊欄貼上：</p>
+    <p>先點下面按鈕，在 Chrome 開啟國民健康署的糖尿病專區（公開網頁），挑一篇文章點進去，再打開側邊欄貼上提示語：</p>
+    <p><a class="btn" href="https://www.hpa.gov.tw/Pages/List.aspx?nodeid=359" target="_blank" rel="noopener">開啟練習網頁：國民健康署 糖尿病專區</a></p>
     <div class="prompt"><span class="label">Chrome 側邊欄提示語</span>請閱讀這一頁，整理成給第一次確診的糖尿病長者看的重點：
 1. 最多 5 點，每點不超過 20 個字
 2. 避免英文縮寫，必要時加上中文說明
@@ -1114,7 +1139,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <label><input type="checkbox" data-k="c4"><span>Gemini 桌面版已安裝，快捷鍵能叫出對話框</span></label>
       <label><input type="checkbox" data-k="c8"><span>（Mac）按住 fn 能聽打、同時按兩顆 ⌘ 能截圖詢問</span></label>
       <label><input type="checkbox" data-k="c9"><span>ChatGPT 桌面版已安裝，快捷鍵能叫出小視窗</span></label>
-      <label><input type="checkbox" data-k="c5"><span>Chrome 已登入，右上角看得到 Gemini 圖示</span></label>
+      <label><input type="checkbox" data-k="c5"><span>Chrome 已登入，右上角看得到「問問 Gemini」圖示</span></label>
       <label><input type="checkbox" data-k="c6"><span>用側邊欄成功摘要一篇衛教網頁</span></label>
     </div>
   </div>
@@ -1126,31 +1151,33 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
   <div class="sec-head"><div class="num">7</div><div><h2>AI 生簡報：Gemini、ChatGPT，再用 Canva 修</h2><p>同一份衛教主題，用的「模式」不同，做出來的簡報差很多。先選對模式，再補圖，最後用 Canva 或 DeckEdit 微調。</p></div></div>
 
   <div class="card">
-    <h3><span class="pill">Gemini</span>不要在「對話」裡做，開「任務」再做</h3>
+    <h3><span class="pill">Gemini</span>不要在「對話」裡做，開「任務」（或 Canvas）再做</h3>
     <div class="grid2">
       <div>
         <h4>為什麼要用「任務」</h4>
         <ul>
           <li>對話模式一次只回一輪，做簡報常常只給大綱或做到一半就停。</li>
           <li><b>任務</b>會把「規劃 → 寫內容 → 排版 → 配圖」拆成多步驟自己跑完，做出來的版面精緻，會自動產生示意圖。</li>
-          <li>做好後右上角可「匯出成簡報」到 Google 雲端硬碟，用 Google 簡報繼續改。</li>
+          <li>成果可以直接存成 Google 簡報，或產生 .pptx 檔，之後繼續改。</li>
         </ul>
+        <div class="note" style="margin:10px 0 0"><b>誰能用「任務」：</b>個人 Google 帳號、年滿 18 歲、Gemini 的「記錄」要開著。台灣目前需要 <b>Google AI Pro 或 Ultra</b> 方案（免費即可用的只有美、加、澳、日、韓、印度）；可在 gemini.google.com、Mac 版 App 與手機 App 使用，公司或學校帳號不支援。<b>免費帳號的替代做法：</b>在輸入框下方選 <b>Canvas</b>，一樣說「做一份 8 頁簡報」，預覽右上角可匯出到 Google 簡報。</div>
         <h4 style="margin-top:14px">操作步驟</h4>
         <ol class="steps">
-          <li>Gemini 對話框 → 工具 → 開啟<b>任務</b>（部分版本顯示為 Canvas）。</li>
-          <li>先把衛教資料整理進 <b>Gemini Notebook</b>（NotebookLM）：上傳單張 PDF、指引、科內投影片。</li>
-          <li>在任務裡輸入 <kbd>@Gemini Notebook</kbd>，選到那本筆記本，再說「根據這本筆記本做 8 頁給長者看的簡報」。這樣內容只會來自你的資料，不會亂編。</li>
+          <li>先把衛教資料整理進 <b>Gemini Notebook</b>（Gemini 筆記本，2026 年 7 月前叫 NotebookLM）：上傳單張 PDF、指引、科內投影片。沒有資料可先用本節最下方的練習單張。</li>
+          <li>打開 gemini.google.com，點輸入框下方的<b>「任務」</b>。</li>
+          <li>點「新增筆記本」選到那本筆記本，再說「根據這本筆記本做 8 頁給長者看的簡報」。（一般對話或 Canvas 則是輸入 <kbd>@Gemini Notebook</kbd> 再指定筆記本。）這樣內容以你的資料為準，比較不會亂編。</li>
           <li>看預覽，直接說「第 4 頁換成量血糖的圖」「整體改成暖色」。</li>
-          <li>滿意後「匯出成簡報」。</li>
+          <li>滿意後說「存成 Google 簡報」或「給我 .pptx 檔」。</li>
         </ol>
       </div>
       <div>
         <h4>Gemini Notebook 自己也能做簡報，但⋯</h4>
         <div class="note" style="margin-top:0">
           <ul style="margin:0">
-            <li>NotebookLM 裡按「簡報」也能直接產出，速度快、內容忠於資料。</li>
+            <li>在 Gemini Notebook 右側「工作室」按<b>「投影片簡報」</b>也能直接產出，速度快、內容忠於資料。</li>
             <li>缺點是<b>文字呈現有時不清楚</b>：字太小、一頁塞太多、標題和內文分不開。</li>
-            <li>要改只能再下提示詞請 AI 重做，一來一回很花時間；要精修版面，不如回到任務模式，或匯出後用 Canva、DeckEdit 改（見下方）。</li>
+            <li>要改字不能直接點進去打：按簡報旁的「修改」，對每張投影片下指示，再「生成修訂版簡報」，一來一回較花時間（修訂有次數額度）。</li>
+            <li>可下載 PDF 或 PowerPoint（.pptx）；要精修版面，下載後用 Canva、DeckEdit 改（見下方）。</li>
           </ul>
         </div>
         <h4 style="margin-top:14px">兩條路怎麼選</h4>
@@ -1160,7 +1187,8 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
             <tbody>
               <tr><td>版面</td><td>精緻、會配圖</td><td>陽春、文字常擠</td></tr>
               <tr><td>內容來源</td><td>筆記本資料</td><td>筆記本資料</td></tr>
-              <tr><td>修改</td><td>說一句就改</td><td>要重新下提示詞重做</td></tr>
+              <tr><td>修改</td><td>說一句就改</td><td>按「修改」逐頁下指示再重新生成</td></tr>
+              <tr><td>方案</td><td>台灣需 Google AI Pro／Ultra</td><td>額度依方案而定</td></tr>
               <tr><td>適合</td><td>團衛、對外教材</td><td>快速看資料能做成什麼</td></tr>
             </tbody>
           </table>
@@ -1173,15 +1201,16 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
     <h3><span class="pill o">ChatGPT</span>用「工作」模式，不要用一般對話；要圖就用生圖</h3>
     <div class="grid2">
       <div>
-        <h4>為什麼要用「工作」（Projects／Tasks）</h4>
+        <h4>為什麼要用「工作」（Work）</h4>
         <ul>
           <li>一般對話做簡報，流程長一點就容易中途斷掉，或只給你文字版。</li>
-          <li><b>工作</b>模式跑的流程比較長，可以多步驟進行：先大綱、再逐頁、再生圖、最後打包成 PPTX，中間比較不會中斷。</li>
-          <li>專案裡的指示會一直記得（對象、色系、字級），下次做同系列簡報不用重講。</li>
+          <li><b>工作</b>模式是 2026 年 7 月推出的代理模式，可以多步驟進行：先大綱、再逐頁、再生圖、最後打包成 PPTX，中間比較不會中斷。</li>
+          <li>搭配<b>專案</b>使用：專案裡的指示會一直記得（對象、色系、字級），下次做同系列簡報不用重講。個人帳號已不能新建自訂 GPT，固定的規則一律放專案。</li>
+          <li>依官方公告，桌面版各方案（含免費版）都有「工作」，網頁版與手機版要付費方案；額度依方案而定，以你帳號實際看到的為準。</li>
         </ul>
         <h4 style="margin-top:14px">操作步驟</h4>
         <ol class="steps">
-          <li>側欄「工作」→ 新增專案，把衛教單張、院內模板丟進去，在專案指示寫對象與版面規則。</li>
+          <li>切換到「工作」→ 開一個專案，把衛教單張、院內模板丟進去（沒有資料可先用本節最下方的練習單張），在專案指示寫對象與版面規則。</li>
           <li>說「先列 8 頁大綱表格給我確認」。</li>
           <li>確認後說「逐頁產出，並<b>每頁生成一張插圖</b>」。</li>
           <li>最後說「打包成 PPTX 給我下載」。</li>
@@ -1206,12 +1235,12 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
         <h4>Canva 魔法圖層（Magic Layers）</h4>
         <p>把一張「整片是圖」的投影片，自動拆成背景、人物、文字等圖層，每一層都能單獨搬動、刪除、改字。</p>
         <ol class="steps">
-          <li>把 AI 做好的簡報<b>匯出成圖片或 PDF</b>（PowerPoint：另存為 PNG；Gemini／NotebookLM：下載 PDF）。</li>
+          <li>把 AI 做好的簡報<b>每一頁存成一張 PNG 或 JPG 圖片</b>（PowerPoint：另存新檔選 PNG；只有 PDF 時先截圖或轉成圖片）。魔法圖層只吃 PNG／JPG，不能直接丟多頁 PDF。</li>
           <li>開 Canva → 建立簡報 → 上傳這些圖片放到各頁。</li>
           <li>選取圖片 → 編輯圖片 → <b>Magic Layers</b>，等它拆層。</li>
           <li>點錯字的那一層刪掉，用 Canva 文字方塊重打；想換的插圖直接刪層再放新的。</li>
         </ol>
-        <div class="note" style="margin:10px 0 0;font-size:.95rem">提醒：目前一次只能處理一張圖；介面是中文時若找不到按鈕，先把 Canva 語言切成英文。免費版有每月額度，大量使用需 Pro。字太小、低對比的圖拆層容易缺字。</div>
+        <div class="note" style="margin:10px 0 0;font-size:.95rem">提醒：目前一次只能處理一張圖；介面是中文時若找不到按鈕，先把 Canva 語言切成英文。魔法圖層屬於進階 AI 工具，每用一次會扣當月的 AI 額度，額度依方案而定。插畫、圖卡類拆得最乾淨；照片、字太小或低對比的圖容易缺字。</div>
       </div>
       <div class="b3">
         <h4>DeckEdit：免費、在瀏覽器裡把簡報的字變成可辨識、可編輯</h4>
@@ -1219,11 +1248,11 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
         <a class="btn" href="https://deckedit.com/zh-Hant" target="_blank" rel="noopener" style="margin:4px 0 10px">打開 DeckEdit（繁體中文）</a>
         <ol class="steps">
           <li>打開 <a href="https://deckedit.com/zh-Hant" target="_blank" rel="noopener">deckedit.com/zh-Hant</a>。</li>
-          <li>拖入簡報檔：NotebookLM／Gemini 匯出的 PDF、ChatGPT 生的整頁圖片，或 <b>Canva 做好的簡報</b>（Canva：分享 → 下載 → PDF 標準）。</li>
+          <li>拖入簡報檔：Gemini Notebook／Gemini 匯出的 PDF、ChatGPT 生的整頁圖片，或 <b>Canva 做好的簡報</b>（Canva：分享 → 下載 → PDF 標準）。</li>
           <li>等它辨識完，每頁的文字會變成可以點選的文字框；點任何一段就能改字、調大、換字體。</li>
           <li>改完匯出 PPTX，之後在 PowerPoint 或 Google 簡報繼續用。</li>
         </ol>
-        <div class="note teal" style="margin:10px 0 0;font-size:.95rem">兩個最常用的情境：① NotebookLM 做的簡報「字擠在一起」→ 匯出 PDF → DeckEdit 改字、調大 → 存成 PPTX，比重新下提示詞快很多。② Canva 的簡報要交給同事用 PowerPoint 改 → 下載 PDF → DeckEdit 辨識 → 匯出 PPTX，文字都還能編輯。</div>
+        <div class="note teal" style="margin:10px 0 0;font-size:.95rem">兩個最常用的情境：① Gemini Notebook 做的簡報「字擠在一起」→ 匯出 PDF → DeckEdit 改字、調大 → 存成 PPTX，比重新下提示詞快很多。② Canva 的簡報要交給同事用 PowerPoint 改 → 下載 PDF → DeckEdit 辨識 → 匯出 PPTX，文字都還能編輯。</div>
       </div>
     </div>
   </div>
@@ -1232,17 +1261,24 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
     <table>
       <thead><tr><th></th><th>Gemini 任務 + @Notebook</th><th>ChatGPT 工作 + 生圖</th></tr></thead>
       <tbody>
-        <tr><td>要用的模式</td><td>任務（不是對話）</td><td>工作／專案（不是對話）</td></tr>
-        <tr><td>內容來源</td><td>@Gemini Notebook 的筆記本</td><td>專案裡的檔案與指示</td></tr>
+        <tr><td>要用的模式</td><td>任務（不是對話）；免費帳號改用 Canvas</td><td>工作＋專案（不是對話）</td></tr>
+        <tr><td>內容來源</td><td>Gemini Notebook 的筆記本</td><td>專案裡的檔案與指示</td></tr>
         <tr><td>圖片</td><td>自動配示意圖，可指定換</td><td>要逐頁說「生成插圖」才有</td></tr>
-        <tr><td>輸出</td><td>匯出 Google 簡報</td><td>PPTX 下載</td></tr>
-        <tr><td>後製</td><td colspan="2">匯出圖片／PDF → Canva 魔法圖層改圖、DeckEdit 把文字辨識成可編輯再改字</td></tr>
+        <tr><td>輸出</td><td>Google 簡報或 PPTX</td><td>PPTX 下載</td></tr>
+        <tr><td>後製</td><td colspan="2">每頁存成圖片 → Canva 魔法圖層改圖；PDF 或圖片 → DeckEdit 把文字辨識成可編輯再改字</td></tr>
         <tr><td>共同原則</td><td colspan="2">內容先去識別化；醫療數值、步驟一律人工覆核；院內送審規範優先。</td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="prompt"><span class="label">範本：Gemini 任務 + @Gemini Notebook</span>@Gemini Notebook（選「糖尿病衛教資料」筆記本）
+  <div class="card" style="margin-top:18px">
+    <h3><span class="pill a">練習材料</span>沒有現成資料？用這份合成的衛教單張</h3>
+    <p>下載後上傳到 Gemini Notebook（筆記本取名「糖尿病衛教資料」）或 ChatGPT 專案，再貼下面的範本；也可以直接複製文字貼進對話框。內容為合成，不是本院正式單張。</p>
+    <p><a class="btn" href="lesson1-sample-leaflets.txt" download>⬇ 練習用衛教單張（.txt）</a></p>
+    <div class="prompt"><span class="label">練習用衛教單張文字（合成）</span>【低血糖的處理】
+低血糖係指血糖值低於 70 mg/dL，常見症狀包括冒冷汗、心悸、顫抖、飢餓感及意識改變。若出現上述症狀，應立即攝取 15 公克速效碳水化合物，如 120–150 mL 含糖飲料或 3–4 顆方糖，15 分鐘後再次監測血糖，若仍低於 70 mg/dL，重複上述步驟。症狀緩解後，若距離下一餐超過 1 小時，應補充一份含醣點心。病人意識不清時，不可經口餵食，應立即送醫。<button class="copy">複製</button></div>
+  </div>
+  <div class="prompt"><span class="label">範本：Gemini 任務（先點「新增筆記本」）或一般對話（保留第一行）</span>@Gemini Notebook（選「糖尿病衛教資料」筆記本）
 請根據這本筆記本的內容，做一份 8 頁、給 70 歲以上長者看的「低血糖怎麼辦」簡報：
 - 一頁一個重點，字大、留白多，不用英文縮寫
 - 每頁配一張扁平插畫風的示意圖，亞洲長者，圖中不要有文字
@@ -1334,7 +1370,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 
   <div class="card">
     <h3>提示語組合器</h3>
-    <p>選一個範例帶入，或自己填，按「組合」就能複製去 Gemini 使用。</p>
+    <p>選一個範例帶入，或自己填，按「組合」就能複製去 Gemini、ChatGPT 或 Claude 使用；每個範例要用的練習原文就在組合器下方。</p>
     <div class="row">
       <select id="preset" style="max-width:360px">
         <option value="">— 選擇範例帶入 —</option>
@@ -1353,6 +1389,15 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
     </div>
     <div class="row"><button class="btn" id="build">組合</button></div>
     <div class="prompt" id="builtBox" style="display:none"><span class="label">組合好的提示語（最後貼上你的衛教原文）</span><span id="built"></span><button class="copy" data-src="built">複製</button></div>
+    <h4 style="margin-top:18px">練習用原文：組合好提示語後，複製對應的一段貼在最後（皆為合成內容）</h4>
+    <div class="prompt"><span class="label">範例一「低血糖單張 → 長者大字版」用</span>低血糖係指血糖值低於 70 mg/dL，常見症狀包括冒冷汗、心悸、顫抖、飢餓感及意識改變。若出現上述症狀，應立即攝取 15 公克速效碳水化合物，如 120–150 mL 含糖飲料或 3–4 顆方糖，15 分鐘後再次監測血糖，若仍低於 70 mg/dL，重複上述步驟。<button class="copy">複製</button></div>
+    <div class="prompt"><span class="label">範例二「足部照護單張 → 民眾白話版」用</span>糖尿病病人因周邊神經病變及周邊血管病變，足部感覺較遲鈍且傷口不易癒合，應每日執行足部自我檢查，觀察有無破皮、水泡、紅腫、雞眼或趾甲異常。每日以溫水（低於 37°C）清洗足部，洗後擦乾趾縫，並於足背及足底塗抹乳液，避開趾縫。趾甲宜平剪，勿剪太深。避免赤腳行走，應穿著合腳的包鞋及吸汗棉襪，穿鞋前先檢查鞋內有無異物。勿以熱水袋、電毯直接接觸足部，勿自行處理雞眼或硬皮。若傷口超過 2 天未癒合，或出現紅、腫、熱、痛、分泌物，應儘速回診。每年至少接受 1 次足部檢查。<button class="copy">複製</button></div>
+    <div class="prompt"><span class="label">範例三「衛教重點 → 越南文版」用</span>低血糖怎麼辦？
+1. 血糖低於 70 mg/dL，或出現手抖、冒冷汗、心跳很快時，馬上處理。
+2. 立刻喝 120–150 mL 含糖飲料，或吃 3–4 顆方糖。
+3. 休息 15 分鐘後，再量一次血糖。
+4. 如果血糖還是低於 70 mg/dL，再重複一次。
+5. 不要空腹運動；意識不清時，不要餵食，請立刻送醫。<button class="copy">複製</button></div>
   </div>
   <div class="note teal"><b>語音小技巧：</b>六要素不用打字，按一下 Typeless 快捷鍵，照順序「講」出來就好：「你是資深衛教師，對象是七十歲長者，請把下面這段改寫成…」。</div>
 </section>
@@ -1407,6 +1452,8 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 
 【原文】
 （貼上衛教文字）<button class="copy">複製</button></div>
+  <div class="prompt"><span class="label">練習用原文（就是本頁上方的專業版；接在範本的【原文】後面貼上）</span>低血糖係指血糖值低於 70 mg/dL，常見症狀包括冒冷汗、心悸、顫抖、飢餓感及意識改變。若出現上述症狀，應立即攝取 15 公克速效碳水化合物，如 120–150 mL 含糖飲料或 3–4 顆方糖，15 分鐘後再次監測血糖，若仍低於 70 mg/dL，重複上述步驟。<button class="copy">複製</button></div>
+  <div class="note teal"><b>做完對答案：</b>把 AI 的結果和本頁上方的「長者大字版」比一比，再逐項核對數字（70 mg/dL、15 公克、120–150 mL、3–4 顆、15 分鐘）有沒有被改掉或漏掉。</div>
 </section>
 
 <!-- 10 multilingual -->
@@ -1455,10 +1502,22 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 
 【中文內容】
 （貼上白話版衛教文字）<button class="copy">複製</button></div>
+  <div class="prompt"><span class="label">練習用白話版中文（合成；接在翻譯範本的【中文內容】後面貼上）</span>低血糖怎麼辦？
+1. 血糖低於 70 mg/dL，或出現手抖、冒冷汗、心跳很快時，馬上處理。
+2. 立刻喝 120–150 mL 含糖飲料，或吃 3–4 顆方糖。
+3. 休息 15 分鐘後，再量一次血糖。
+4. 如果血糖還是低於 70 mg/dL，再重複一次。
+5. 不要空腹運動；意識不清時，不要餵食，請立刻送醫。<button class="copy">複製</button></div>
   <div class="prompt"><span class="label">範本：回譯（請開一個新對話）</span>請把下面的越南文逐句翻譯成繁體中文，盡量直譯，不要潤飾，也不要補充你推測的意思。
 
 【越南文】
 （貼上譯文）<button class="copy">複製</button></div>
+  <div class="prompt"><span class="label">練習用越南文譯文（刻意埋了 3 個錯，請勿拿去給病人；接在回譯範本的【越南文】後面貼上）</span>Hạ đường huyết thì phải làm sao?
+1. Khi đường huyết dưới 70, hoặc thấy run tay, đổ mồ hôi lạnh, tim đập nhanh, hãy xử lý ngay.
+2. Uống ngay một ly nước có đường, hoặc ăn 3–4 viên đường.
+3. Nghỉ 15 phút rồi đo lại đường huyết.
+4. Nếu đường huyết vẫn dưới 70 mg/dL, hãy lặp lại một lần nữa.
+5. Tập thể dục khi bụng đói; khi người bệnh lơ mơ, không cho ăn uống, hãy đưa đi bệnh viện ngay.<button class="copy">複製</button></div>
   <div class="prompt"><span class="label">範本：比對</span>下面有兩段中文，A 是原文、B 是回譯結果。請逐句比對，用表格列出：句子編號、A、B、差異說明、風險高低（數字、單位、否定、步驟順序的差異請標為「高」）。
 
 【A 原文】
@@ -1466,12 +1525,27 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 
 【B 回譯】
 （貼上）<button class="copy">複製</button></div>
+  <div class="prompt"><span class="label">練習用 A、B（合成；刪掉比對範本最後的【A 原文】【B 回譯】兩段，改貼這一段）</span>【A 原文】
+1. 血糖低於 70 mg/dL，或出現手抖、冒冷汗、心跳很快時，馬上處理。
+2. 立刻喝 120–150 mL 含糖飲料，或吃 3–4 顆方糖。
+3. 休息 15 分鐘後，再量一次血糖。
+4. 如果血糖還是低於 70 mg/dL，再重複一次。
+5. 不要空腹運動；意識不清時，不要餵食，請立刻送醫。
+
+【B 回譯】
+1. 血糖低於 70，或覺得手抖、冒冷汗、心跳快時，請馬上處理。
+2. 馬上喝一杯糖水，或吃 3–4 顆糖。
+3. 休息 15 分鐘後再量血糖。
+4. 如果血糖仍低於 70 mg/dL，請再重複一次。
+5. 空腹時運動；病人意識模糊時，不要給他吃喝，立刻送醫院。<button class="copy">複製</button></div>
+  <div class="note teal"><b>對答案：</b>練習用譯文埋的 3 個錯是 ① 第 1 句少了單位 mg/dL、② 第 2 句「120–150 mL 含糖飲料」變成「一杯糖水」、③ 第 5 句「不要」不見了，變成「空腹時運動」。AI 的比對表有沒有三個都抓到、都標成「高」？</div>
 </section>
 
 <!-- 11 templates -->
 <section class="page" id="s11" data-title="範本庫" style="--c:var(--sky)">
   <div class="eyebrow" style="--c:var(--sky)"><span class="sq"></span>轉譯<em>14 / 16</em></div>
   <div class="sec-head"><div class="num dk">13</div><div><h2>常用提示語範本庫</h2><p>帶回單位直接用，把（ ）裡的內容換掉即可。</p></div></div>
+  <div class="prompt"><span class="label">練習用原文（合成；下面「民眾白話版」「一頁式問答」的（貼上原文）都可以用這段）</span>糖尿病病人因周邊神經病變及周邊血管病變，足部感覺較遲鈍且傷口不易癒合，應每日執行足部自我檢查，觀察有無破皮、水泡、紅腫、雞眼或趾甲異常。每日以溫水（低於 37°C）清洗足部，洗後擦乾趾縫，並於足背及足底塗抹乳液，避開趾縫。趾甲宜平剪，勿剪太深。避免赤腳行走，應穿著合腳的包鞋及吸汗棉襪，穿鞋前先檢查鞋內有無異物。勿以熱水袋、電毯直接接觸足部，勿自行處理雞眼或硬皮。若傷口超過 2 天未癒合，或出現紅、腫、熱、痛、分泌物，應儘速回診。每年至少接受 1 次足部檢查。<button class="copy">複製</button></div>
   <details open>
     <summary>民眾白話版</summary>
     <div class="prompt">你是資深糖尿病衛教師。請把下面的衛教內容改寫成一般民眾看得懂的白話版。
@@ -1487,6 +1561,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 限制：只整理我說過的內容，不要推測或補充。
 
 （貼上 Typeless 輸出的文字）<button class="copy">複製</button></div>
+    <div class="prompt"><span class="label">練習用口述紀錄（合成，已去識別化；接在上面提示語後面貼上）</span>嗯今天衛教的主題是胰島素注射，個案A，六十多歲女性，剛開始打胰島素第二週。她自己會轉劑量，可是注射部位都打同一個地方，肚子左邊，摸起來有點硬塊。我有教她輪換部位，每次間隔大概兩指寬，她有回覆示教，做得出來。然後低血糖的症狀她只講得出冒冷汗，其他講不出來，所以有再講一次，也給了單張。下次回診要看硬塊有沒有改善，還有請她帶血糖紀錄本，嗯，大概這樣。<button class="copy">複製</button></div>
   </details>
   <details>
     <summary>一頁式問答（Q&amp;A）</summary>
@@ -1519,8 +1594,10 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
         <li>挑一份科內<b>已公開</b>的衛教單張，用六要素做出長者大字版。</li>
         <li>選一種語言做翻譯＋回譯，記下 AI 最常出錯的地方。</li>
         <li>把覺得好用的提示語存起來，下次上課分享。</li>
-        <li><b>下次要教 AI Agent（AI 代理）</b>：請先到 <a href="https://opencode.ai/zht" target="_blank" rel="noopener">opencode.ai</a> 下載安裝 OpenCode（見右下方說明）。</li>
+        <li><b>下次要教 AI Agent（AI 代理）</b>：請先到 <a href="https://opencode.ai/zht" target="_blank" rel="noopener">opencode.ai</a> 下載安裝 OpenCode（步驟在本頁下方的「課前準備」卡片）。</li>
       </ol>
+      <p style="margin-bottom:6px">第 2、3 項手邊沒有合適單張時，先用這份合成的練習單張（內含低血糖、足部照護專業版與白話版）；提示語範本在 <a href="#s9">第 11 節</a>、<a href="#s10">第 12 節</a>。</p>
+      <a class="btn" href="lesson1-sample-leaflets.txt" download>⬇ 練習用衛教單張（.txt）</a>
     </div>
     <div class="card">
       <h3>下一堂｜11/02</h3>
@@ -1559,21 +1636,21 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
           <li>開啟一次，看到畫面能正常打開就可以關掉；不用登入、不用設定。</li>
           <li>院內公務電腦不能裝軟體的同仁，請帶個人筆電，或上課用手機看示範。</li>
         </ol>
-        <div class="note red" style="margin:10px 0 0;font-size:.95rem"><b>提醒：</b>Agent 會讀取你指定的資料夾並自己執行動作，和今天講的「任務」模式一樣，<b>病人資料一律先去識別化</b>，不要指向有病歷的資料夾。</div>
+        <div class="note red" style="margin:10px 0 0;font-size:.95rem"><b>提醒：</b>Agent 會讀取你指定的資料夾並自己執行動作，和今天講的 Gemini「任務」、ChatGPT「工作」模式一樣，<b>病人資料一律先去識別化</b>，不要指向有病歷的資料夾。</div>
       </div>
     </div>
   </div>
   <div class="note teal">本課程全程使用合成個案資料，不涉及真實病人資料；工具以免費版本可完成為原則，實際採用範圍依本院相關規範辦理。</div>
 </section>
 
-<section class="page" id="s15" data-title="s15" style="--c:var(--lime)">
+<section class="page" id="s15" data-title="聯絡與回饋" style="--c:var(--lime)">
   <div class="eyebrow" style="--c:var(--lime)"><span class="sq"></span>課後<em>16 / 16</em></div>
   <div class="card fb">
     <div class="fb-in">
       <div class="fb-ico">?</div>
       <div style="flex:1;min-width:240px">
         <h3 style="margin:0 0 4px">課後有問題，三個地方找得到我</h3>
-        <p style="margin:0">工具怎麼裝、提示語怎麼寫、想看更多 AI 在衛教與長照的應用，都歡迎問。LINE 社群裡都是上過課的學員，可以互相討論；對 LINE 有個資或隱私顧慮，直接寫信。</p>
+        <p style="margin:0">工具怎麼裝、提示語怎麼寫、想看更多 AI 在衛教與長照的應用，都歡迎問。LINE 社群裡都是上過課的學員，可以互相討論；對 LINE 有個資或隱私顧慮，按下面的「回報錯誤或建議」留言即可。</p>
       </div>
     </div>
     <div class="contact" style="margin-top:18px">
@@ -1581,11 +1658,11 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <button class="btn mail" type="button" onclick="window.openReport&&window.openReport({type:'建議與想法'})">回報錯誤或建議</button>
       <a class="btn fbc" href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專，按讚追蹤</a>
     </div>
-    <p class="contact-hint">LINE 社群通關密語：<b>桃園醫院糖尿病中心</b>｜公務信箱：adlotmatt@gmail.com</p>
+    <p class="contact-hint">LINE 社群通關密語：<b>桃園醫院糖尿病中心</b></p>
   </div>
 <footer>
   <div>
-    <p><b style="color:#fff">糖尿病衛教團隊 AI 工具專業賦能與臨床實務應用工作坊｜第 1 堂</b><br>授課講師：鍾孟修 職能治療師｜<a href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專</a>｜<a href="https://reurl.cc/4YbrVj" target="_blank" rel="noopener">LINE 學員社群</a>｜<a href="mailto:adlotmatt@gmail.com">adlotmatt@gmail.com</a></p>
+    <p><b style="color:#fff">糖尿病衛教團隊 AI 工具專業賦能與臨床實務應用工作坊｜第 1 堂</b><br>授課講師：鍾孟修 職能治療師｜<a href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專</a>｜<a href="https://reurl.cc/4YbrVj" target="_blank" rel="noopener">LINE 學員社群</a>｜<a href="#s15" onclick="if(window.openReport){window.openReport({type:'建議與想法'});return false}">回報錯誤或建議</a></p>
     <p>工具資訊參考：<a href="https://www.typeless.com/help/installation-and-setup" target="_blank" rel="noopener">Typeless 安裝說明</a>、<a href="https://gemini.google/tw/desktop/?hl=zh-TW" target="_blank" rel="noopener">Gemini 桌面版</a>、<a href="https://chatgpt.com/download/" target="_blank" rel="noopener">ChatGPT 桌面版</a>、<a href="https://help.openai.com/en/articles/11487532-chatgpt-record" target="_blank" rel="noopener">ChatGPT Record 說明</a>、<a href="https://blog.google/intl/zh-tw/products/android-chrome-play/gemini-in-chrome/" target="_blank" rel="noopener">Google 台灣：Chrome 全新 AI 功能</a>、<a href="https://deckedit.com/zh-Hant" target="_blank" rel="noopener">DeckEdit</a>。各工具功能與方案會更新，請以官方最新說明為準。</p>
   </div>
 </footer>
@@ -1621,7 +1698,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <li><a href="#s11" style="--c:var(--sky)"><i class="dk">13</i>範本庫</a></li>
       <li class="tg" style="--c:var(--lime)"><i></i>課後</li>
       <li><a href="#s12" style="--c:var(--lime)"><i class="dk">14</i>課後任務</a></li>
-      <li><a href="#s15" style="--c:var(--lime)"><i class="dk">15</i>s15</a></li>
+      <li><a href="#s15" style="--c:var(--lime)"><i class="dk">15</i>聯絡與回饋</a></li>
   </ol>
   <p class="keys">鍵盤：<kbd>→</kbd> 下一頁　<kbd>←</kbd> 上一頁　<kbd>O</kbd> 目錄　<kbd>/</kbd> 搜尋　<kbd>Esc</kbd> 關閉</p>
 </div></nav>
