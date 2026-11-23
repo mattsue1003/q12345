@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>衛教微工具點子庫｜50 個情境與可直接複製的需求</title>
+<meta name="description" content="不知道要做什麼工具？依情境找點子：給病人的衛教、自我管理紀錄、衛教師的工作、行政與排程、團體衛教、家屬與照顧者。每個點子附可直接貼給 AI 的四段需求。">
+<style>
+:root{--ink:#18181B;--paper:#FFFDF8;--bg:#F6F2E9;--line:#DCD6C8;--muted:#5B5B66;--mag:#D6336C;--amber:#F5B700;--blue:#2F6FED;--green:#1F9D62;--lime:#B8D430;--teal:#0E8F8A}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;font-size:17px;line-height:1.7}
+header{padding:28px max(16px,4vw) 18px;border-bottom:3px solid var(--ink)}
+h1{font-size:clamp(1.6rem,3.4vw,2.4rem);line-height:1.25;margin:0 0 8px}
+header p{margin:0;color:var(--muted);max-width:70ch}
+.bar{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line);padding:12px max(16px,4vw);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#q{flex:1 1 240px;font:inherit;padding:10px 14px;border:2px solid var(--ink);border-radius:999px;min-height:46px;background:#fff;color:var(--ink)}
+button{font:inherit;font-weight:700;cursor:pointer;border:2px solid var(--ink);border-radius:999px;background:#fff;color:var(--ink);padding:8px 16px;min-height:44px}
+button[aria-pressed="true"],button.pri{background:var(--ink);color:#fff}
+button:focus-visible,#q:focus-visible,a:focus-visible{outline:4px solid var(--blue);outline-offset:2px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+main{padding:18px max(16px,4vw) 80px}
+#count{color:var(--muted);margin:0 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{border:2px solid var(--ink);border-radius:14px;background:#fff;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.card h2{font-size:1.2rem;margin:0;line-height:1.35}
+.tag{align-self:flex-start;font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px;color:#fff;background:var(--c)}
+.when{background:#FFF3C4;border-radius:8px;padding:6px 10px;font-size:.95rem}
+.card p{margin:0}.card small{color:var(--muted)}
+details{border-top:1px solid var(--line);padding-top:8px}
+summary{cursor:pointer;font-weight:700}
+pre{white-space:pre-wrap;word-break:break-word;background:#F3EFE4;border-radius:10px;padding:12px;font:inherit;font-size:.9rem;margin:8px 0 0;max-height:320px;overflow:auto}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+.how{background:var(--bg);border-radius:14px;padding:14px 18px;margin:0 0 18px}
+.how ol{margin:6px 0 0;padding-left:1.3em}
+footer{padding:18px max(16px,4vw) 60px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;opacity:0;transition:opacity .2s;pointer-events:none}
+#toast.on{opacity:1}
+@media (max-width:600px){body{font-size:16px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>衛教微工具點子庫</h1>
+  <p>不知道要做什麼？先從「遇到什麼情況」找起。每個點子都附一段可以直接貼給 AI 的四段需求，改成你們科的內容就能做出第一版。共 <b id="total"></b> 個點子。</p>
+</header>
+<div class="bar">
+  <input id="q" type="search" placeholder="搜尋情境或關鍵字，例如 外食、回診、排班、家屬" aria-label="搜尋點子">
+  <button class="pri" id="rand" type="button">隨機給我一個</button>
+  <div class="chips" id="chips" role="group" aria-label="依類別篩選"></div>
+</div>
+<main>
+  <div class="how"><b>怎麼用</b>
+    <ol><li>用搜尋或類別找到一個接近你需要的情境。</li><li>按「複製需求」，貼到 Claude、ChatGPT 或 Gemini，請它做成單一 HTML 檔。</li><li>把需求裡「由我提供」的地方換成科室核定的內容，再照第 5 堂的修改技巧改到能用。</li><li>上線前過一次法規界線與免責標示（第 5 堂 T3）。</li></ol></div>
+  <p id="count" aria-live="polite"></p>
+  <div class="grid" id="grid"></div>
+</main>
+<footer>
+  點子與需求文字為教學用途。工具只做衛教說明與自我管理提醒，不做診斷、劑量計算與個別化治療建議；要給病人使用前，內容需經科室審核並符合院內規範。｜<a href="lesson5.html#tool">回第 5 堂講義</a>
+</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+var CATS={"P": "給病人的衛教", "R": "自我管理紀錄", "W": "衛教師的工作", "A": "行政與排程", "G": "團體衛教與活動", "F": "家屬與照顧者"}, IDEAS=[{"c": "P", "n": "外食點餐小幫手", "w": "病人說「我都外食，不知道怎麼選」", "u": "第 2 型糖尿病的長者與家屬，在家或衛教室平板使用", "f": "列出便當店、麵店、早餐店三種情境，每種給 3 個「可以這樣點」和 3 個「盡量少點」，點一下看原因", "k": "三種情境都能切換，每一項點了有原因"}, {"c": "P", "n": "飲料含糖量比一比", "w": "病人以為「半糖」就沒關係", "u": "常喝手搖飲的病人，手機使用", "f": "選飲料種類與甜度，用方糖圖示顯示大約含糖量，並列出比較好的替代選擇", "k": "切換甜度時方糖數量會跟著變"}, {"c": "P", "n": "低血糖處理卡", "w": "病人記不住低血糖時要怎麼做", "u": "使用胰島素或促泌劑的病人與家屬，手機或列印", "f": "三步驟卡片加 15 分鐘倒數計時，最上面先提醒意識不清時不可餵食並撥 119", "k": "計時可以開始與重設，可以列印成一頁"}, {"c": "P", "n": "生病日守則卡", "w": "病人感冒發燒不知道藥要不要吃、血糖多久量一次", "u": "糖尿病病人與家屬，在家使用", "f": "列出生病時的一般注意事項、多久測一次血糖、哪些狀況要立刻就醫；內容由我提供，不要自己編", "k": "每一項都來自我提供的文字，頁尾有就醫警訊"}, {"c": "P", "n": "每日足部自我檢查", "w": "衛教後病人回家就忘了檢查腳", "u": "糖尿病長者，洗腳後用手機操作", "f": "六題勾選「有／沒有」，有異常就顯示請聯絡衛教師或回診；不儲存答案", "k": "六題都答完才顯示結果，選「有」會出現提醒"}, {"c": "P", "n": "胰島素注射部位輪替提醒", "w": "病人總是打同一個地方", "u": "使用胰島素的病人，手機使用", "f": "顯示腹部分區圖，點一下記錄今天打哪一區，下次提醒換到下一區；紀錄只存在自己的手機", "k": "連續點同一區會提醒換位置"}, {"c": "P", "n": "運動前後檢查清單", "w": "病人想開始運動又怕低血糖", "u": "準備開始運動的病人", "f": "運動前、運動中、運動後三段清單，逐項勾選；數值與建議由我提供的文字帶入", "k": "三段都能勾選，可重新開始"}, {"c": "P", "n": "回診前準備清單", "w": "病人回診常忘了帶紀錄、忘了要問什麼", "u": "回診前一天的病人與家屬", "f": "可勾選的準備清單（血糖紀錄、藥袋、想問的三個問題），想問的問題可以自己打字並列印", "k": "打的問題會出現在列印頁"}, {"c": "P", "n": "水果份量對照卡", "w": "病人問「水果一份到底是多少」", "u": "糖尿病病人，手機或衛教室平板", "f": "用拳頭、碗的示意圖對照常見水果一份的大小，可以用名稱搜尋", "k": "搜尋「香蕉」會找到對應的卡片"}, {"c": "P", "n": "節慶飲食提醒卡", "w": "過年、中秋、端午前病人常失控", "u": "所有病人，節慶前發送", "f": "選節日後顯示該節日常見食物的提醒與替代做法，一頁可列印", "k": "三個節日都能切換"}, {"c": "P", "n": "旅遊與出國準備清單", "w": "病人要出國不知道藥物與血糖機怎麼帶", "u": "要旅行的病人", "f": "依天數產生要帶的物品清單（藥物、血糖機、試紙、點心、診斷書），可勾選與列印", "k": "改天數後清單數量會更新"}, {"c": "P", "n": "血糖機操作步驟卡", "w": "長者學了又忘怎麼測血糖", "u": "剛開始自我監測的長者", "f": "一頁一步驟的大字圖卡，左右鍵或按鈕翻頁，最後一頁是常見錯誤", "k": "可以一頁一頁前後翻"}, {"c": "P", "n": "年度檢查提醒表", "w": "病人不清楚眼睛、腎臟、足部多久要檢查", "u": "所有糖尿病病人", "f": "列出年度檢查項目，自己填上次檢查日期，顯示距今多久；只存在自己的裝置", "k": "填日期後會顯示已過幾個月"}, {"c": "P", "n": "醣類份量翻翻卡", "w": "衛教後想讓病人回家複習", "u": "剛學醣類計算的病人", "f": "正面是食物名稱與圖示，點一下翻面顯示大約幾份醣；內容由我提供", "k": "每張卡都能翻面"}, {"c": "R", "n": "血糖紀錄本", "w": "病人用紙本記錄常遺失", "u": "自我監測血糖的病人，用自己的手機", "f": "輸入日期、時段、血糖值，列出最近紀錄，可下載 CSV 或列印帶去回診；只存在自己的裝置，不判斷用藥", "k": "新增、刪除、下載都能用"}, {"c": "R", "n": "血壓紀錄本", "w": "病人回診說不出在家血壓多少", "u": "需要在家量血壓的病人", "f": "輸入日期、早晚、收縮壓、舒張壓、心跳，顯示最近 7 筆與平均，可列印；不判斷高低", "k": "平均值會隨新增而更新"}, {"c": "R", "n": "飲食日記", "w": "營養師想看病人實際吃了什麼", "u": "願意記錄飲食的病人", "f": "每餐打字記錄吃了什麼，可加一句感想，依日期列出，可列印；不計算熱量、不評分", "k": "同一天的三餐會排在一起"}, {"c": "R", "n": "運動打卡月曆", "w": "病人運動三天就放棄", "u": "想養成運動習慣的病人", "f": "月曆上點一下當天就打卡，可記分鐘數，顯示本週累計分鐘", "k": "打卡後本週累計會更新"}, {"c": "R", "n": "體重週紀錄", "w": "需要追蹤體重變化", "u": "需要體重管理的病人", "f": "每週輸入一次體重，用簡單折線圖顯示趨勢，可列印", "k": "輸入三筆以上會出現折線"}, {"c": "R", "n": "喝水打卡", "w": "長者常忘記喝水", "u": "長者與照顧者", "f": "一天八格水杯圖示，喝一杯點一格，隔天自動歸零", "k": "隔天打開會歸零"}, {"c": "R", "n": "用藥打勾表", "w": "病人常忘記藥吃了沒", "u": "多重用藥的長者", "f": "自己輸入藥名與時段，每天打勾；只提醒打勾，不顯示任何劑量建議", "k": "每天的勾選分開記錄"}, {"c": "W", "n": "衛教流程清單產生器", "w": "新進同仁不確定一次衛教要講哪些", "u": "衛教師，在衛教室電腦使用", "f": "勾選這次的主題（飲食、運動、藥物、低血糖、足部），產生本次衛教的流程清單與時間分配", "k": "勾不同主題清單會跟著變"}, {"c": "W", "n": "回覆示教問題卡", "w": "想確認病人真的聽懂", "u": "衛教師，衛教結束前使用", "f": "依主題抽出 3 題請病人用自己的話說一遍的問題，可換一題", "k": "每個主題至少有 5 題可抽"}, {"c": "W", "n": "衛教單張可讀性檢查表", "w": "單張寫好不確定長者看不看得懂", "u": "衛教師與審稿者", "f": "逐項勾選（字級、句長、術語、對比、一頁一重點），顯示幾項未通過與修改提醒", "k": "未通過的項目會列在最下面"}, {"c": "W", "n": "個案代號產生器", "w": "要把資料交給 AI 前需要代號", "u": "衛教師，只在院內電腦使用", "f": "貼上人數後產生 S001 起的代號清單，可下載空白對照表；完全在本機運作，不上傳", "k": "輸入 20 會產生 S001 到 S020"}, {"c": "W", "n": "去識別化自查清單", "w": "貼資料給 AI 前想再確認一次", "u": "所有同仁", "f": "逐項確認姓名、病歷號、生日、電話、地址、少見特徵是否已拿掉，全部勾完才顯示「可以貼出」", "k": "少勾一項就不會顯示通過"}, {"c": "W", "n": "分段衛教計時器", "w": "一次衛教常常超時", "u": "衛教師，衛教時放在桌上", "f": "設定每一段的分鐘數，倒數時畫面顏色漸變，時間到輕聲提示", "k": "可以暫停與跳到下一段"}, {"c": "W", "n": "常用說法卡", "w": "同仁對同一件事說法不一致", "u": "衛教團隊", "f": "依主題列出科內統一的白話說法，可搜尋與複製；內容由我提供", "k": "搜尋關鍵字找得到對應說法"}, {"c": "W", "n": "新進人員練習題", "w": "新人需要練習衛教情境", "u": "新進衛教師", "f": "情境題一次一題，選答案後顯示說明與出處；題目由我提供", "k": "答完顯示答對幾題"}, {"c": "W", "n": "助手驗證紀錄表", "w": "每季要重跑知識庫助手的題庫", "u": "負責維護助手的同仁", "f": "記錄日期、題數、通過數、沒通過的題號與處理方式，自動算通過率，可下載 CSV", "k": "通過率會自動計算"}, {"c": "A", "n": "換班登記表", "w": "換班靠口頭約定常出錯", "u": "科內同仁", "f": "登記日期、原班、換班對象、狀態，依日期排序，可列印；只用代稱不放全名", "k": "新增後會依日期排好"}, {"c": "A", "n": "衛教室時段表", "w": "衛教室使用時段常撞期", "u": "衛教團隊", "f": "一週時段格子，點一下登記用途與負責人代稱，重複時段會提醒", "k": "同一格登記第二次會跳提醒"}, {"c": "A", "n": "教具與耗材盤點", "w": "試紙、食物模型常常不知道剩多少", "u": "負責物品的同仁", "f": "列出品項、現有數量、安全存量，低於安全存量的列會標示，可下載 CSV", "k": "數量低於安全存量會變色並加上文字提示"}, {"c": "A", "n": "會議待辦追蹤", "w": "會議決議常常沒人追", "u": "科內會議主持人", "f": "輸入待辦、負責人代稱、期限，逾期的自動排到最上面，可勾選完成", "k": "逾期項目會排在最上面"}, {"c": "A", "n": "活動報名統計看板", "w": "想快速知道各場次報名人數", "u": "活動負責人", "f": "貼上報名資料（場次、人數），顯示各場次合計與長條圖；不需要姓名", "k": "貼上資料後長條圖會更新"}, {"c": "A", "n": "訓練時數統計", "w": "年底要算每人教育訓練時數", "u": "負責教育訓練的同仁", "f": "輸入課程名稱、日期、時數、參加者代稱，依人合計時數，可下載 CSV", "k": "同一人多筆會加總"}, {"c": "A", "n": "重要日期倒數看板", "w": "評鑑、活動日期容易忘", "u": "科室公告用螢幕或平板", "f": "列出重要事項與日期，顯示還剩幾天，快到期的排前面", "k": "過期的事項會標示已過"}, {"c": "A", "n": "QR code 海報產生器", "w": "做好工具後要印海報", "u": "所有同仁", "f": "輸入標題、說明與網址，產生含 QR code 的 A4 海報版面，可列印", "k": "列印預覽是一頁 A4"}, {"c": "G", "n": "食物分類搶答", "w": "團體衛教氣氛冷", "u": "團體衛教帶領者，投影使用", "f": "一次出現一種食物，分成兩隊按鈕搶答屬於哪一類，自動計分；題目由我提供", "k": "答對會加分並換下一題"}, {"c": "G", "n": "份量配對遊戲", "w": "想讓學員動手記住份量", "u": "團體衛教學員，平板使用", "f": "翻牌配對：食物配上正確份量，全部配對完成顯示用了幾步", "k": "配對成功的牌會保持翻開"}, {"c": "G", "n": "迷思是非題", "w": "病人有很多聽來的說法", "u": "團體衛教，投影使用", "f": "一題一題顯示常見說法，全班舉手後點開答案與說明；題目與說明由我提供", "k": "點一下才顯示答案"}, {"c": "G", "n": "抽籤分組器", "w": "分組花太多時間", "u": "團體衛教帶領者", "f": "輸入人數與組數，隨機分組並用大字顯示；只用號碼不用姓名", "k": "每次按都會重新分組"}, {"c": "G", "n": "活動流程看板", "w": "帶活動時常忘記下一步", "u": "團體衛教帶領者", "f": "依序顯示每個段落與剩餘時間，按下一步切換，全螢幕大字", "k": "可以前後切換段落"}, {"c": "G", "n": "健康行為賓果", "w": "想讓學員回家也有任務", "u": "團體衛教學員", "f": "產生 3×3 的健康行為賓果卡（例如今天散步 15 分鐘），點一下蓋章，連線時顯示鼓勵", "k": "連成一線會顯示鼓勵文字"}, {"c": "G", "n": "不記名小調查", "w": "想當場知道大家聽懂多少", "u": "團體衛教，學員用手機", "f": "三題選擇題，作答後只在這台裝置顯示自己的答案與正確說明；不收集任何資料", "k": "作答後顯示說明"}, {"c": "F", "n": "低血糖徵兆提醒卡", "w": "家屬不知道什麼時候要幫忙", "u": "糖尿病病人的家屬與照顧者", "f": "列出常見徵兆與「看到了要做什麼」，最上面是緊急狀況請撥 119，可列印貼冰箱", "k": "列印是一頁"}, {"c": "F", "n": "一週備餐清單", "w": "照顧者不知道每天要煮什麼", "u": "負責備餐的家屬", "f": "從我提供的菜色清單中，每天排三餐，可重新排一次，並產生採買清單", "k": "重新排會換一組菜色"}, {"c": "F", "n": "緊急聯絡資訊卡", "w": "出門在外需要隨身資訊", "u": "病人與家屬", "f": "自己填寫緊急聯絡人、就醫院所、過敏史，產生名片大小的卡片供列印；資料不儲存、不上傳", "k": "關掉頁面後資料不會留下"}, {"c": "F", "n": "就醫隨身清單", "w": "家屬陪診常漏帶東西", "u": "陪病人就醫的家屬", "f": "可勾選的陪診清單與想問醫師的問題欄，可列印", "k": "問題欄的內容會出現在列印頁"}, {"c": "F", "n": "長輩今日待辦", "w": "長輩記不住今天要做的事", "u": "長者，放在平板首頁", "f": "家屬先輸入今天的事項，長輩用大字一項一項看、做完點一下打勾", "k": "打勾後該項會變淡並加上「完成」文字"}];
+var COL={P:'#D6336C',R:'#2F6FED',W:'#0E8F8A',A:'#7A5200',G:'#1F9D62',F:'#8A3FFC'};
+function mkPrompt(i){return '請幫我做一個單一 HTML 檔的小工具「'+i.n+'」，用下面四段需求：\n\n一、誰在什麼情境用\n'+i.u+'。起因是：'+i.w+'。\n\n二、要做到哪些事\n'+i.f+'。\n\n三、畫面與限制\n單一檔案、不連網也能用；字體至少 20px、按鈕夠大、顏色對比清楚，不只用顏色傳達意思；手機和平板都好讀；不要求輸入姓名、病歷號、電話等個人資料，資料不傳到外部；不做診斷、不計算或建議藥物劑量、不給個別化治療建議，只做衛教說明與自我管理提醒。頁尾要有：「本工具僅供衛教說明與自我管理提醒，不能取代醫師的診斷、處方與醫療建議。」以及「衛教單位：（請填）｜版本 v1｜最後檢視日期：（請填）」。\n\n四、怎麼算做好\n我會用手機打開檢查：'+i.k+'；頁尾有免責聲明。\n\n請直接產出完整的 HTML，並告訴我怎麼預覽和下載。需要我提供內容的地方，請先用「（請填）」標出來並列出清單。'}
+var cur='all',$=function(i){return document.getElementById(i)};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function draw(){var q=$('q').value.trim().toLowerCase(),g=$('grid');g.innerHTML='';var n=0;
+IDEAS.forEach(function(i,ix){if(cur!=='all'&&i.c!==cur)return;if(q&&(i.n+i.w+i.u+i.f+CATS[i.c]).toLowerCase().indexOf(q)<0)return;n++;
+var d=document.createElement('article');d.className='card';d.id='i'+ix;
+d.innerHTML='<span class="tag" style="--c:'+COL[i.c]+'">'+esc(CATS[i.c])+'</span><h2>'+esc(i.n)+'</h2><div class="when"><b>情境：</b>'+esc(i.w)+'</div><p><b>做什麼：</b>'+esc(i.f)+'。</p><small>使用者：'+esc(i.u)+'</small><details><summary>看完整需求</summary><pre></pre></details><div class="row"><button class="pri" type="button">複製需求</button></div>';
+d.querySelector('pre').textContent=mkPrompt(i);
+d.querySelector('button').onclick=function(){copy(mkPrompt(i))};g.appendChild(d)});
+$('count').textContent=n?('找到 '+n+' 個點子'):'沒有符合的點子，換個關鍵字，或按「隨機給我一個」。'}
+function toast(t){var x=$('toast');x.textContent=t;x.classList.add('on');setTimeout(function(){x.classList.remove('on')},1600)}
+function copy(s){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(s).then(function(){toast('已複製，貼到 AI 對話框')},function(){window.prompt('請手動複製：',s)})}else{window.prompt('請手動複製：',s)}}
+var ch=$('chips');[['all','全部']].concat(Object.keys(CATS).map(function(k){return[k,CATS[k]]})).forEach(function(p){var b=document.createElement('button');b.type='button';b.textContent=p[1];b.setAttribute('aria-pressed',String(p[0]==='all'));b.onclick=function(){cur=p[0];[].forEach.call(ch.children,function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');draw()};ch.appendChild(b)});
+$('q').addEventListener('input',draw);
+$('rand').onclick=function(){cur='all';$('q').value='';[].forEach.call(ch.children,function(x,k){x.setAttribute('aria-pressed',String(k===0))});draw();var k=Math.floor(Math.random()*IDEAS.length),el=$('i'+k);el.scrollIntoView({behavior:'smooth',block:'center'});el.style.boxShadow='0 0 0 5px #F5B700';setTimeout(function(){el.style.boxShadow=''},2200);el.querySelector('details').open=true};
+$('total').textContent=IDEAS.length;draw();
+</script>
+<script src="https://mattsue1003.github.io/oth-report-button/report.js" data-site="桃園醫院糖尿病中心 AI 工作坊｜微工具點子庫" defer></script>
+</body>
+</html>
