@@ -590,7 +590,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <figure class="shot"><a href="img/l3-form-gh-2.jpg" target="_blank" rel="noopener"><img src="img/l3-form-gh-2.jpg" alt="新增部署作業" loading="lazy"></a><figcaption><b class="n">2</b>新增部署作業：網頁應用程式、執行身分「我」、存取「所有人」。</figcaption></figure>
       <figure class="shot"><a href="img/l3-form-gh-3.jpg" target="_blank" rel="noopener"><img src="img/l3-form-gh-3.jpg" alt="部署成功" loading="lazy"></a><figcaption><b class="n">3</b>部署成功，複製結尾 /exec 的網址。</figcaption></figure>
       <figure class="shot"><a href="img/l3-form-gh-4.jpg" target="_blank" rel="noopener"><img src="img/l3-form-gh-4.jpg" alt="表單送出成功" loading="lazy"></a><figcaption><b class="n">4</b>GitHub Pages 上的表單送出：「報名成功！資料已寫入試算表」。</figcaption></figure>
-      <figure class="shot"><a href="img/l3-form-gh-5.jpg" target="_blank" rel="noopener"><img src="img/l3-form-gh-5.jpg" alt="試算表多出一列" loading="lazy"></a><figcaption><b class="n">5</b>試算表自動建立「報名資料」工作表，假資料那一列進來了。</figcaption></figure>
+      <figure class="shot"><a href="img/l3-form-gh-5.jpg" target="_blank" rel="noopener"><img src="img/l3-form-gh-5.jpg" alt="試算表多出一列" loading="lazy"></a><figcaption><b class="n">5</b>試算表自動建立「報名資料」工作表，假資料進來了（示範送了兩次，所以圖上有兩列），手機開頭的 0 有保留。</figcaption></figure>
     </div>
   </div>
 
@@ -612,7 +612,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
     <div class="grid2" style="grid-template-columns:1fr;align-content:start">
       <figure class="shot"><a href="img/l3-gpt-github-1.jpg" target="_blank" rel="noopener"><img src="img/l3-gpt-github-1.jpg" alt="ChatGPT 外掛程式設定頁" loading="lazy"></a><figcaption><b class="n">1</b>設定 → 外掛程式：GitHub 已安裝（Triage PRs, issues, CI, and publish flows），預設權限「允許唯讀工具」。</figcaption></figure>
       <figure class="shot"><a href="img/l3-gpt-github-3.jpg" target="_blank" rel="noopener"><img src="img/l3-gpt-github-3.jpg" alt="GitHub 外掛程式詳細資訊" loading="lazy"></a><figcaption><b class="n">2</b>「查看詳細資訊」：功能 Interactive、Write，表示它能寫入你的倉庫，不只讀。</figcaption></figure>
-      <figure class="shot"><a href="img/l3-gpt-github-4.jpg" target="_blank" rel="noopener"><img src="img/l3-gpt-github-4.jpg" alt="ChatGPT 詢問是否允許 Create File" loading="lazy"></a><figcaption><b class="n">3</b>寫檔前一定會問：「ChatGPT 將調用 GitHub 的 Create File 工具」→ 允許一次／一律允許／拒絕。</figcaption></figure>
+      <figure class="shot"><a href="img/l3-gpt-github-4.jpg" target="_blank" rel="noopener"><img src="img/l3-gpt-github-4.jpg" alt="ChatGPT 詢問是否允許 Create File" loading="lazy"></a><figcaption><b class="n">3</b>寫檔前一定會問：「ChatGPT 將調用 GitHub 的 Create File 工具」→ 允許一次／一律允許／拒絕。（截圖是實測當時的提示語：在既有倉庫新增 chatgpt-upload-demo.html，和左邊練習用的 slides／index.html 提示語不同，流程一樣。）</figcaption></figure>
       <figure class="shot"><a href="img/l3-gpt-github-5.jpg" target="_blank" rel="noopener"><img src="img/l3-gpt-github-5.jpg" alt="ChatGPT 回報已成功提交至 GitHub" loading="lazy"></a><figcaption><b class="n">4</b>「已成功提交至 GitHub」，處理 1 分 8 秒。</figcaption></figure>
       <figure class="shot"><a href="img/l3-gpt-github-6.jpg" target="_blank" rel="noopener"><img src="img/l3-gpt-github-6.jpg" alt="ChatGPT 回報檔案資訊與網址" loading="lazy"></a><figcaption><b class="n">5</b>回報 Repository、分支、檔名、commit 訊息與 ID、檔案網址與 Pages 預期網址，並提醒「提交成功不代表 Pages 已啟用」。</figcaption></figure>
     </div>
@@ -716,9 +716,9 @@ B. index.html（單一檔案，放 GitHub 倉庫 form）：手機好填、字大
     <div class="card"><h3 style="margin-top:0">圖片與簡報風格</h3>
       <p><b>圖片</b>：ChatGPT 當主力（上傳 2 張參考圖，「用這個風格、不要複製內容，畫 6 張一組的低血糖症狀圖卡，先畫第 1 張確認」），Gemini 備援，Canva 拆圖層改字排版。<b>簡報風格</b>：截 2～3 張你喜歡的簡報，請 AI 先用文字描述「版型、配色色碼、字級、節奏」，不描述內容，再用這個風格做你的主題；同一段風格描述存起來，科內素材就會長得像一家人。<b>怎麼拆出好風格</b>：「好風格從哪來」重點畫面把一個有設計感的網站拆成六條規則（三個顏色角色並給色碼、大標題換色強調 3～5 字、等寬字體小標、細邊深色卡片、留白、淡格線背景），附一段可直接用的風格提示語。</p>
       <p style="margin:10px 0 6px"><b>沒有參考圖？</b>先拿這兩張講師用 AI 生成的示範底圖當風格參考（卡通長者、沒有真人與商標）：<a class="btn o" style="font-size:.9rem;padding:6px 14px" href="img/l3-leaflet-gemini.jpg" download>⬇ 參考圖 1</a> <a class="btn o" style="font-size:.9rem;padding:6px 14px" href="img/l3-leaflet-canva.jpg" download>⬇ 參考圖 2</a></p>
-      <div class="prompt"><span class="label">圖卡提示語（先上傳 2 張參考圖，貼給 ChatGPT 或 Gemini）</span>請參考這兩張圖的「風格」：扁平插畫、粉藍平塗底色、飽和的橘綠藍色塊、每張只有一個主角、配色不超過 4 色，但不要複製它們的內容。
+      <div class="prompt"><span class="label">圖卡提示語（先上傳 2 張參考圖，貼給 ChatGPT 或 Gemini）</span>請參考這兩張圖的「風格」：扁平插畫、無描邊、粉藍平塗底色、飽和的橘綠藍色塊、卡通化的長者，但不要複製它們的內容（參考圖是三個場景的單張，我要的是一張一個主角的圖卡）。
 用這個風格幫我畫 6 張一組的衛教圖卡，主題「低血糖的六個常見症狀」：冒冷汗、手抖、心跳快、頭暈、肚子餓、說話不清楚。
-每張：1:1，正中央一位 70 歲左右的台灣長者（卡通化、不是真人），下方留 20% 空白給我放字。
+每張：1:1，只有一個主角、配色不超過 4 色，正中央一位 70 歲左右的台灣長者（卡通化、不是真人），下方留 20% 空白給我放字。
 先畫第 1 張給我確認風格，確認後再畫其他 5 張，並保持同一個人物、同一組配色。</div>
       <div class="prompt"><span class="label">簡報風格提示語（先上傳 2～3 張你喜歡的簡報截圖；沒有就截本頁任一張重點畫面）</span>請先用文字描述這幾張簡報的「風格」：版型（標題位置、圖文比例、留白）、配色（底色、強調色、字色，給我色碼）、字體大小與粗細、每頁資訊量與節奏。不要描述它們的內容。
 然後用這個風格，幫我做一份單一檔案的 HTML 網頁型簡報 index.html，主題「胰島素注射部位輪替」給 60 歲以上病人與家屬，共 8 頁，內容用我提供的衛教單張（稍後貼上）。
@@ -746,11 +746,11 @@ B. index.html（單一檔案，放 GitHub 倉庫 form）：手機好填、字大
 圖中不要出現任何文字、品牌或商標，文字我會自己加。</div>
       <p style="margin:10px 0 6px"><b>③ 疊字不用等生圖</b>：直接下載示範底圖放進 Canva 的 A4 頁面練排版：<a class="btn o" style="font-size:.9rem;padding:6px 14px" href="img/l3-leaflet-gemini.jpg" download>⬇ Gemini 底圖</a> <a class="btn o" style="font-size:.9rem;padding:6px 14px" href="img/l3-leaflet-chatgpt.jpg" download>⬇ ChatGPT 底圖</a> <a class="btn o" style="font-size:.9rem;padding:6px 14px" href="img/l3-leaflet-canva.jpg" download>⬇ Canva AI 底圖</a></p>
       <div class="prompt"><span class="label">③ 要疊上去的三層文字（練習用合成內容，數字請用院內衛教單核對）</span>【大標題】低血糖怎麼辦？救急三步驟
-【什麼時候要處理】血糖低於 70 mg/dL，或手抖、冒冷汗、頭暈、心跳快。
-【步驟 1】馬上吃 15 克糖：方糖 3 顆，或果汁半杯。
-【步驟 2】等 15 分鐘，再量一次血糖；還是低就再吃一次。
-【步驟 3】叫不醒、意識不清：側躺、不要餵食，立刻打 119。
-【隨身提醒】出門帶糖果，把發生的時間記下來，回診告訴衛教師。
+【什麼時候要處理】血糖低於 70 mg/dL，或出現手抖、冒冷汗、心跳快、頭暈、肚子很餓，就要馬上處理。
+【步驟 1】馬上吃 15 克糖：3 顆方糖、半杯（120 cc）果汁或含糖飲料、1 湯匙蜂蜜，擇一就好。
+【步驟 2】等 15 分鐘再測：15 分鐘後再量一次血糖。還是低於 70 mg/dL，就再吃一次 15 克糖。
+【步驟 3】沒改善就送醫：意識不清、叫不醒：家人協助側躺，不要餵食，立刻打 119。
+【隨身提醒】隨身帶糖，像帶鑰匙一樣。外出、運動、延後吃飯前，口袋先放 3 顆方糖或一小包糖。
 【免責與日期】本單張使用 AI 協助製作，內容請以醫療人員說明為準。2026 年 11 月製</div>
       <p><b>完成版單張（底圖＋三層文字）</b>：大標題與「什麼時候要處理」一句、三張步驟卡（編號、動作、怎麼做）、隨身提醒與免責日期。底圖左欄、文字卡右欄；文字是用程式疊上去的，課堂上在 Canva 做一樣的事。點圖放大可直接列印 A4。</p>
       <div class="grid3">
@@ -761,7 +761,7 @@ B. index.html（單一檔案，放 GitHub 倉庫 form）：手機好填、字大
       <p style="margin-top:14px"><b>底圖與操作畫面（2026 年 11 月實測）</b>：點圖放大。</p>
       <div class="grid3">
         <figure class="shot"><a href="img/l3-leaflet-gemini.jpg" target="_blank" rel="noopener"><img src="img/l3-leaflet-gemini.jpg" alt="Gemini 生成結果" loading="lazy"></a><figcaption><b class="n">1</b><b>Gemini</b>：最照提示語做，S 形路、三場景、右側真的留了文字區；色彩淡雅。第一次只回「提示詞」，再說「直接生成圖片」才出圖。</figcaption></figure>
-        <figure class="shot"><a href="img/l3-leaflet-chatgpt.jpg" target="_blank" rel="noopener"><img src="img/l3-leaflet-chatgpt.jpg" alt="ChatGPT 生成結果" loading="lazy"></a><figcaption><b class="n">2</b><b>ChatGPT</b>：色彩最飽和、表情最生動，但沒留白，要在 Canva 另加色塊壓字。第一次出錯，重送一次就好。</figcaption></figure>
+        <figure class="shot"><a href="img/l3-leaflet-chatgpt.jpg" target="_blank" rel="noopener"><img src="img/l3-leaflet-chatgpt.jpg" alt="ChatGPT 生成結果" loading="lazy"></a><figcaption><b class="n">2</b><b>ChatGPT</b>：色彩最飽和、表情最生動，但沒照指定留出文字區塊（左上只剩一小片天空，大片空白在右側），要在 Canva 另加色塊壓字。第一次出錯，重送一次就好。</figcaption></figure>
         <figure class="shot"><a href="img/l3-leaflet-canva.jpg" target="_blank" rel="noopener"><img src="img/l3-leaflet-canva.jpg" alt="Canva AI 生成結果" loading="lazy"></a><figcaption><b class="n">3</b><b>Canva AI</b>（canva.com/ai）：柔和乾淨、上方留白最多；生完直接在 Canva 裡按「編輯設計」疊字、加院徽、匯出 PDF。</figcaption></figure>
         <figure class="shot"><a href="img/l3-leaflet-gemini-ui.jpg" target="_blank" rel="noopener"><img src="img/l3-leaflet-gemini-ui.jpg" alt="Gemini 操作畫面" loading="lazy"></a><figcaption><b class="n">4</b>Gemini 操作畫面：在對話框直接輸入提示語；圖右上有下載鈕。</figcaption></figure>
         <figure class="shot"><a href="img/l3-leaflet-chatgpt-ui.jpg" target="_blank" rel="noopener"><img src="img/l3-leaflet-chatgpt-ui.jpg" alt="ChatGPT 操作畫面" loading="lazy"></a><figcaption><b class="n">5</b>ChatGPT 操作畫面：生成後圖左下「編輯」可圈選局部修改，右下箭頭下載。</figcaption></figure>
@@ -1160,7 +1160,7 @@ B. index.html（單一檔案，放 GitHub 倉庫 form）：手機好填、字大
       <button class="tab" data-g="gwsg1" data-t="gw2">側欄建範本</button>
     </div>
     <div class="panel on" data-g="gwsg1" id="gw1"><div class="shots">
-      <figure class="shot"><a href="img/l2-gs-ai.jpg" target="_blank" rel="noopener"><img src="img/l2-gs-ai.jpg" alt="=AI 公式與結果" loading="lazy"></a><figcaption><b class="n">1</b>C2 打 =AI("把這個症狀描述分成 低、中、高 三種風險，只回一個詞", A2)，按「生成並填入」，回「高」。往下拉整欄會自動顯示「生成中…」並逐格算出（見下方 GIF）。練習用分類，不是臨床分級：圖中三筆都被判「高」，連不痛的小水泡也是，真正的分級要由衛教師判斷。</figcaption></figure>
+      <figure class="shot"><a href="img/l2-gs-ai.jpg" target="_blank" rel="noopener"><img src="img/l2-gs-ai.jpg" alt="=AI 公式與結果" loading="lazy"></a><figcaption><b class="n">1</b>C2 打 =AI("把這個症狀描述分成 低、中、高 三種風險，只回一個詞", A2)，按「生成並填入」，回「高」。往下拉整欄會自動顯示「生成中…」並逐格算出（見下方 GIF）。練習用分類，不是臨床分級：下方 GIF 最後三筆都被判「高」，連不痛的小水泡也是，真正的分級要由衛教師判斷。</figcaption></figure>
       <figure class="shot"><a href="img/l2-gs-ai-filldown.gif" target="_blank" rel="noopener"><img src="img/l2-gs-ai-filldown.gif" alt="=AI 往下拉自動生成的動畫" loading="lazy"></a><figcaption><b class="n">2</b>動畫：在 D1 打公式 → 選 D1 → 拖曳右下角小方塊到 D3 → 三格先顯示「生成中…」再變成結果。全程約 10 秒。</figcaption></figure>
     </div></div>
     <div class="panel" data-g="gwsg1" id="gw2"><div class="shots">
@@ -1344,14 +1344,14 @@ B. index.html（單一檔案，放 GitHub 倉庫 form）：手機好填、字大
     <tr><td>怎麼用</td><td>直接問，或打「@Consensus」；第一次跳「要允許 ChatGPT 使用 Consensus 嗎？」→ 允許一次。約 3 分鐘回一張作者／年份／研究類型／結論表，附原文連結。</td><td>對話說「請用 PubMed 連接器找…」；每呼叫一個工具（搜尋、抓摘要、抓全文）都會問「允許一次／永遠允許」，示範可選永遠允許。回表格附 PMID 連結。</td><td>深入研究約 5～10 分鐘出報告，來源混網頁與論文，要自己核對是否同儕審查。</td></tr>
   </table></div>
   <div class="prompt"><span class="label">裝好後用這一題測試（ChatGPT 前面加 @Consensus；Claude 前面加「請用 PubMed 連接器」）</span>成人第 2 型糖尿病病人低血糖時「吃 15 克糖、15 分鐘後再測」這個做法，證據強度如何？請用表格列出：作者／年份／研究類型（指引、系統性回顧、RCT）／結論，每一列附原文連結或 PMID；找不到直接證據請明說，不要推測。</div>
-  <p style="margin:14px 0 6px"><b>實測畫面</b>（問題：「低血糖 15 克糖、15 分鐘再測」的證據強度）：點圖放大。</p>
+  <p style="margin:14px 0 6px"><b>實測畫面</b>（問題：「低血糖 15 克糖、15 分鐘再測」的證據強度）：點圖放大。截圖當時的問法和上面測試題字句不同（ChatGPT 那次問近 10 年的指引或系統性回顧；Claude 那次問近 5 年、列 3 篇附 PMID），主題相同。</p>
   <div class="grid3">
     <figure class="shot"><a href="img/l3-consensus-1.jpg" target="_blank" rel="noopener"><img src="img/l3-consensus-1.jpg" alt="ChatGPT Consensus 外掛頁" loading="lazy"></a><figcaption><b class="n">1</b>ChatGPT 外掛程式目錄的 Consensus 頁。</figcaption></figure>
     <figure class="shot"><a href="img/l3-consensus-2.jpg" target="_blank" rel="noopener"><img src="img/l3-consensus-2.jpg" alt="允許使用 Consensus" loading="lazy"></a><figcaption><b class="n">2</b>第一次會問「要允許 ChatGPT 使用 Consensus 嗎？」。</figcaption></figure>
     <figure class="shot"><a href="img/l3-consensus-4.jpg" target="_blank" rel="noopener"><img src="img/l3-consensus-4.jpg" alt="Consensus 結果表" loading="lazy"></a><figcaption><b class="n">3</b>結果表：ADA 指引 B 級建議、直接證據有限，附原文連結。</figcaption></figure>
     <figure class="shot"><a href="img/l3-consensus-claude-1.jpg" target="_blank" rel="noopener"><img src="img/l3-consensus-claude-1.jpg" alt="Claude 連接器搜 Consensus" loading="lazy"></a><figcaption><b class="n">4</b>Claude 連接器目錄：Consensus 按「＋」連接。</figcaption></figure>
-    <figure class="shot"><a href="img/l3-consensus-claude-4.jpg" target="_blank" rel="noopener"><img src="img/l3-consensus-claude-4.jpg" alt="Claude 逐步核准 PubMed 工具" loading="lazy"></a><figcaption><b class="n">5</b>Claude 每一步工具呼叫都問允許一次／永遠允許。</figcaption></figure>
-    <figure class="shot"><a href="img/l3-consensus-claude-6.jpg" target="_blank" rel="noopener"><img src="img/l3-consensus-claude-6.jpg" alt="Claude PubMed 結果" loading="lazy"></a><figcaption><b class="n">6</b>Claude 回 PMID 表格：ADA 2026、內分泌學會 2023、兒少學會 2024。</figcaption></figure>
+    <figure class="shot"><a href="img/l3-consensus-claude-4.jpg" target="_blank" rel="noopener"><img src="img/l3-consensus-claude-4.jpg" alt="Claude 逐步核准 PubMed 工具" loading="lazy"></a><figcaption><b class="n">5</b>Claude 一步步呼叫 PubMed 工具（Search articles、Get article metadata、Get full-text articles）；上方出現「需要您的輸入」時，就是在等你按允許一次／永遠允許（按鈕不在這張截圖裡）。</figcaption></figure>
+    <figure class="shot"><a href="img/l3-consensus-claude-6.jpg" target="_blank" rel="noopener"><img src="img/l3-consensus-claude-6.jpg" alt="Claude PubMed 結果" loading="lazy"></a><figcaption><b class="n">6</b>Claude 回 PMID 表格：ADA 2026、美國內分泌學會 2023，第三列是義大利兒童內分泌暨糖尿病學會的兒少建議（截圖只露出上半）。</figcaption></figure>
   </div>
   <div class="note red" style="margin-top:12px">兩家都提醒：「15 克、15 分鐘」是指引建議（ADA B 級），不是高確定性 RCT 證據，兒童要依體重算。知識庫要放指引原文，不是只放口訣。<a href="lesson3-slides.html#s-research" target="_blank" rel="noopener" class="btn o" style="font-size:.9rem;padding:6px 14px;margin-left:8px">簡報這兩頁 ▶</a></div>
 </section>
@@ -1861,7 +1861,7 @@ body.list .slide.cover{display:block}
       <figure><img src="https://mattsue1003.github.io/q12345/img/l2-gh-name.jpg" alt="建立倉庫，填 username.github.io"><figcaption>取名出現綠色「is available」</figcaption></figure>
       <figure><img src="https://mattsue1003.github.io/q12345/img/l2-gh-config.jpg" alt="選 Public 不勾 README"><figcaption>Public、README 關閉</figcaption></figure>
       <figure><img src="https://mattsue1003.github.io/q12345/img/l2-gh-upload.jpg" alt="拖曳上傳 index.html"><figcaption>拖進去、Commit changes</figcaption></figure>
-      <figure><img src="https://mattsue1003.github.io/q12345/img/l2-gh-pages.jpg" alt="Settings Pages 顯示 live"><figcaption>Settings → Pages 看到 live</figcaption></figure>
+      <figure><img src="https://mattsue1003.github.io/q12345/img/l2-gh-pages.jpg" alt="Settings Pages 顯示 live"><figcaption>Settings → Pages 看到 live（這張截的是另一個倉庫，所以網址後面多一段倉庫名）</figcaption></figure>
     </div>
   </div>
   <div class="foot"><span>第 3 堂｜GitHub 與個人網頁</span><span>截圖為講師帳號示範畫面；你的畫面上 username 會是自己的</span></div>
@@ -1965,7 +1965,7 @@ body.list .slide.cover{display:block}
 （接著貼上 AI 幫你做好的簡報 index.html 全部內容）</div>
       <div class="shots" style="grid-template-columns:repeat(3,1fr);margin-top:10px">
         <figure><img src="img/l3-gpt-github-1.jpg" alt="ChatGPT 外掛程式設定頁" style="aspect-ratio:16/10"><figcaption>① 設定 → 外掛程式：GitHub 已安裝，預設「允許唯讀工具」</figcaption></figure>
-        <figure><img src="img/l3-gpt-github-4.jpg" alt="ChatGPT 詢問是否允許使用 GitHub Create File 工具" style="aspect-ratio:16/10"><figcaption>② 寫檔前一定問你：Create File 工具 → 允許一次</figcaption></figure>
+        <figure><img src="img/l3-gpt-github-4.jpg" alt="ChatGPT 詢問是否允許使用 GitHub Create File 工具" style="aspect-ratio:16/10"><figcaption>② 寫檔前一定問你：Create File 工具 → 允許一次（截圖是實測時的提示語：在既有倉庫新增 chatgpt-upload-demo.html，和上面練習用的不同，流程一樣）</figcaption></figure>
         <figure><img src="img/l3-gpt-github-6.jpg" alt="ChatGPT 回報已提交至 GitHub 與網址" style="aspect-ratio:16/10"><figcaption>③ 回報 commit ID、檔案網址與 Pages 網址，1 分鐘後打得開</figcaption></figure>
       </div>
       <p style="font-size:13px;color:var(--muted);margin:6px 0 0">實測成品：mattsue1003.github.io/q12345/chatgpt-upload-demo.html（處理 1 分 8 秒，全程沒開 GitHub 網站）。</p>
@@ -2239,7 +2239,7 @@ body.list .slide.cover{display:block}
     <div>
       <div class="card t"><h3>寫好提示詞的四件事</h3><ol class="steps" style="margin-top:4px"><li style="font-size:18px">欄位與哪些必填</li><li style="font-size:18px">資料寫到哪個工作表</li><li style="font-size:18px">檔案存哪個資料夾、怎麼命名</li><li style="font-size:18px">畫面大字好按；最後一定寫「給我完整程式碼，並一步一步教我部署」</li></ol></div>
       <div class="shots" style="grid-template-columns:1fr 1fr;margin-top:10px">
-        <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/g01_prompt.jpg" alt="Gemini 輸入提示詞"><figcaption>Gemini：模型選 Pro，約 30 秒給兩個檔案</figcaption></figure>
+        <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/g01_prompt.jpg" alt="Gemini 輸入提示詞"><figcaption>Gemini：模型選 Pro，約 30 秒給兩個檔案（這幾頁截圖取自講師另一份教材，示範主題是「長照積分課程報名表」，欄位和左邊提示語不同，步驟相同）</figcaption></figure>
         <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/c02_answer.jpg" alt="ChatGPT 的回答"><figcaption>ChatGPT：想較久、程式較長、多防呆</figcaption></figure>
       </div>
     </div>
@@ -2250,7 +2250,7 @@ body.list .slide.cover{display:block}
   <span class="kicker">第四段｜AI 做報名表與上傳</span>
   <h2 style="font-size:34px">步驟 2～3：貼進試算表的 Apps Script，部署成「網頁應用程式」</h2>
   <div class="shots" style="grid-template-columns:repeat(4,1fr)">
-    <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/a01_ext_menu.jpg" alt="擴充功能選單中的 Apps Script"><figcaption><b>①</b> 網址列打 <b>sheets.new</b> 開新試算表 → 「擴充功能」→「Apps Script」</figcaption></figure>
+    <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/a01_ext_menu.jpg" alt="擴充功能選單中的 Apps Script"><figcaption><b>①</b> 網址列打 <b>sheets.new</b> 開新試算表 → 「擴充功能」→「Apps Script」（截圖的試算表是「長照積分課程報名表」示範，步驟相同）</figcaption></figure>
     <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/a04_index_html.jpg" alt="index.html 貼上後"><figcaption><b>②</b> 刪掉原本內容貼上 Code.gs；按「＋」→ HTML，名稱打 <b>index</b>，貼上 index.html，存檔</figcaption></figure>
     <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/a07_access_all.jpg" alt="執行身分與存取設定"><figcaption><b>③</b> 「部署」→「新增部署作業」→ 齒輪選「網頁應用程式」→ 執行身分「<b>我</b>」、誰可以存取「<b>所有人</b>」</figcaption></figure>
     <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/a13_deployed.jpg" alt="部署成功與網址"><figcaption><b>④</b> 第一次會跳「未驗證」警告：進階（Advanced）→ 前往…（不安全）→ 全選 → 允許（Continue）。成功後拿到結尾 <b>/exec</b> 的網址</figcaption></figure>
@@ -2266,7 +2266,7 @@ body.list .slide.cover{display:block}
   <h2 style="font-size:34px">步驟 4～5：自己先填一次，出問題就把現象告訴 AI，用「建立新版本」更新</h2>
   <div class="shots" style="grid-template-columns:repeat(4,1fr)">
     <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/f05_success.jpg" alt="報名成功"><figcaption>用假資料（王小明、0912345678）填一次，看到「報名成功」</figcaption></figure>
-    <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/s01_sheet_bug.jpg" alt="試算表第一筆資料，手機少了 0"><figcaption>試算表多了「報名資料」，但手機變成 912345678，<b>開頭的 0 不見了</b></figcaption></figure>
+    <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/s01_sheet_bug.jpg" alt="試算表第一筆資料，手機少了 0"><figcaption>試算表多了「報名資料」，但手機變成 912345678，<b>開頭的 0 不見了</b>（截圖是長照積分課程示範，所以多了服務單位、職稱兩欄）</figcaption></figure>
     <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/g05_fix_answer.jpg" alt="Gemini 的修正說明"><figcaption>把現象貼給 AI：加一個半形單引號，試算表就當成文字</figcaption></figure>
     <figure><img src="https://mattsue1003.github.io/ai-form-upload/img/a16_new_version.jpg" alt="建立新版本"><figcaption>「部署」→「管理部署作業」→ 鉛筆 → 版本選「<b>建立新版本</b>」，網址不變</figcaption></figure>
   </div>
@@ -2307,7 +2307,7 @@ B. index.html（單一檔案，放 GitHub 倉庫 form）：手機好填、字大
     <figure><img src="img/l3-form-gh-2.jpg" alt="新增部署作業對話框" style="aspect-ratio:16/10"><figcaption>② 部署 → 新增部署作業 → 網頁應用程式：執行身分「我」、存取「所有人」</figcaption></figure>
     <figure><img src="img/l3-form-gh-3.jpg" alt="部署成功顯示 exec 網址" style="aspect-ratio:16/10"><figcaption>③ 授權一次後拿到 /exec 網址，填進 form-demo.html 的 APPS_SCRIPT_URL</figcaption></figure>
     <figure><img src="img/l3-form-gh-4.jpg" alt="GitHub Pages 上的表單送出成功" style="aspect-ratio:16/10"><figcaption>④ form-demo.html 推上 GitHub，用假資料填：「報名成功！資料已寫入試算表」</figcaption></figure>
-    <figure><img src="img/l3-form-gh-5.jpg" alt="試算表多出報名資料列" style="aspect-ratio:16/10"><figcaption>⑤ 試算表自動多出「報名資料」工作表與一列，手機開頭的 0 有保留</figcaption></figure>
+    <figure><img src="img/l3-form-gh-5.jpg" alt="試算表多出報名資料列" style="aspect-ratio:16/10"><figcaption>⑤ 試算表自動多出「報名資料」工作表與假資料列（示範送了兩次，圖上有兩列），手機開頭的 0 有保留</figcaption></figure>
   </div>
   <div class="cols" style="margin-top:12px;grid-template-columns:1.1fr 1fr">
     <div class="card t" style="font-size:15px"><h3 style="font-size:17px">現場可以玩的示範</h3><p>表單：<a href="form-demo.html" target="_blank" rel="noopener"><b>mattsue1003.github.io/q12345/form-demo.html</b></a>（報名代碼 TYH2026，請填假資料）。送出後老師的試算表當場多一列。下載 <a href="form-demo.html" download>⬇ form-demo.html</a>、<a href="form-demo/Code.gs" download>⬇ Code.gs</a>，換成自己的欄位與 /exec 網址就能用。</p></div>
@@ -2444,9 +2444,9 @@ B. index.html（單一檔案，放 GitHub 倉庫 form）：手機好填、字大
   <span class="kicker o">第五段｜衛教單張：同一段提示語，三家的結果</span>
   <h2 style="font-size:32px">同一段提示語三家各生一張底圖，疊上三層文字就是<b>完整衛教單張</b>：大標題、三步驟卡、說明與免責</h2>
   <div class="cols3" style="grid-template-columns:1fr 1fr 1fr;gap:16px">
-    <figure style="margin:0"><img src="img/l3-leaflet-final-gemini.jpg" alt="完成版單張："Gemini 生成的衛教單張插畫" style="width:100%;height:300px;object-fit:contain;background:#fff;border-radius:10px;border:1px solid var(--line)"><figcaption style="font-size:14px;line-height:1.5;margin-top:6px"><b>Gemini</b>：最照提示語做。S 形路、三個場景、右側真的留了一塊文字區；色彩偏淡雅。免費帳號可用；第一次它只回了「提示詞」，再說一句「直接生成圖片」才出圖。</figcaption></figure>
-    <figure style="margin:0"><img src="img/l3-leaflet-final-chatgpt.jpg" alt="完成版單張："ChatGPT 生成的衛教單張插畫" style="width:100%;height:300px;object-fit:contain;background:#fff;border-radius:10px;border:1px solid var(--line)"><figcaption style="font-size:14px;line-height:1.5;margin-top:6px"><b>ChatGPT</b>：色彩最飽和、表情最生動，很像海報。但<b>沒留白</b>（標題區被畫滿），要在 Canva 另外加色塊壓字。第一次出錯「Something went wrong」，重送一次就好。</figcaption></figure>
-    <figure style="margin:0"><img src="img/l3-leaflet-final-canva.jpg" alt="完成版單張："Canva AI 生成的衛教單張插畫" style="width:100%;height:300px;object-fit:contain;background:#fff;border-radius:10px;border:1px solid var(--line)"><figcaption style="font-size:14px;line-height:1.5;margin-top:6px"><b>Canva AI</b>（canva.com/ai）：柔和、乾淨，上方留白最多。最大優點是<b>生完直接在 Canva 裡</b>，按「編輯設計」就能疊字、加院徽、匯出 A4 PDF，不用下載再上傳。免費方案有生圖額度。</figcaption></figure>
+    <figure style="margin:0"><img src="img/l3-leaflet-final-gemini.jpg" alt="完成版單張（左欄是 Gemini 生成的底圖）" style="width:100%;height:300px;object-fit:contain;background:#fff;border-radius:10px;border:1px solid var(--line)"><figcaption style="font-size:14px;line-height:1.5;margin-top:6px"><b>Gemini</b>：最照提示語做。S 形路、三個場景、右側真的留了一塊文字區；色彩偏淡雅。免費帳號可用；第一次它只回了「提示詞」，再說一句「直接生成圖片」才出圖。</figcaption></figure>
+    <figure style="margin:0"><img src="img/l3-leaflet-final-chatgpt.jpg" alt="完成版單張（左欄是 ChatGPT 生成的底圖）" style="width:100%;height:300px;object-fit:contain;background:#fff;border-radius:10px;border:1px solid var(--line)"><figcaption style="font-size:14px;line-height:1.5;margin-top:6px"><b>ChatGPT</b>：色彩最飽和、表情最生動，很像海報。但<b>沒照指定留出文字區塊</b>（左上只剩一小片天空，大片空白在右側），要在 Canva 另外加色塊壓字。第一次出錯「Something went wrong」，重送一次就好。</figcaption></figure>
+    <figure style="margin:0"><img src="img/l3-leaflet-final-canva.jpg" alt="完成版單張（左欄是 Canva AI 生成的底圖）" style="width:100%;height:300px;object-fit:contain;background:#fff;border-radius:10px;border:1px solid var(--line)"><figcaption style="font-size:14px;line-height:1.5;margin-top:6px"><b>Canva AI</b>（canva.com/ai）：柔和、乾淨，上方留白最多。最大優點是<b>生完直接在 Canva 裡</b>，按「編輯設計」就能疊字、加院徽、匯出 A4 PDF，不用下載再上傳。免費方案有生圖額度。</figcaption></figure>
   </div>
   <div class="note g" style="margin-top:10px;font-size:14px"><b>三層文字</b>：① 大標題＋一句什麼時候要處理 ② 三張步驟卡：編號、動作、怎麼做 ③ 隨身提醒＋免責與日期。底圖左欄、文字卡右欄，長者一眼知道先看哪裡。<b>課堂建議</b>：先用 Canva AI 生，不滿意再拿同一段提示語去 Gemini 或 ChatGPT；最後都回到 Canva 排版。三張都做到「卡通長者、不是真人、沒有文字與商標」，送審三問才過得了。</div>
   <div class="foot"><span>第 3 堂｜參考風格做素材</span><span class="pg"></span></div>
@@ -2537,7 +2537,7 @@ B. index.html（單一檔案，放 GitHub 倉庫 form）：手機好填、字大
   <div class="cols" style="grid-template-columns:1.1fr 1fr">
     <div class="shots" style="grid-template-columns:1fr 1fr">
       <figure><img src="img/l3-vids-start.jpg" alt="Vids 新影片起始選項"><figcaption><b>①</b> vids.google.com → 「＋」：先選<b>橫向／直向</b>，再選「範本」或「簡報轉影片」最快；「製作 AI 影片」是生 AI 短片。</figcaption></figure>
-      <figure><img src="img/l3-vids-ai.jpg" alt="Vids AI 短片側欄"><figcaption><b>②</b> 右側欄「AI 影片」：建立／編輯／動畫／增補；可放最多 3 張自己的圖當素材，下方選 720p、8～10 秒。</figcaption></figure>
+      <figure><img src="img/l3-vids-ai.jpg" alt="Vids AI 短片側欄"><figcaption><b>②</b> 右側欄點「AI 影片」，打開「AI 短片」面板：建立／編輯／動畫／增補；「素材」可放最多 3 張自己的圖，下方選 720p 與秒數（截圖選的是 10s，畫面提示現在最長可生成 15 秒）。</figcaption></figure>
     </div>
     <ol class="steps" style="font-size:16px">
       <li style="font-size:16px">選「範本」→ 找「教學／說明」類，橫向 16:9（投影）或直向（LINE）。</li>
@@ -2559,7 +2559,7 @@ B. index.html（單一檔案，放 GitHub 倉庫 form）：手機好填、字大
   <div class="cols3" style="gap:14px">
     <figure style="margin:0;background:#fff;border:1.5px solid var(--line);border-radius:10px;overflow:hidden"><img src="img/l3-flow-new.jpg" alt="Flow 新專案畫面" style="width:100%;display:block;aspect-ratio:2/1;object-fit:cover;object-position:top"><figcaption style="font-size:13.5px;padding:6px 10px;line-height:1.35"><b>Flow ①</b> flow.google.com → 「新增專案」。右側對話框直接用中文描述畫面；左側有角色、場景、媒體庫。</figcaption></figure>
     <figure style="margin:0;background:#fff;border:1.5px solid var(--line);border-radius:10px;overflow:hidden"><img src="img/l3-flow-settings.jpg" alt="Flow 代理設定" style="width:100%;display:block;aspect-ratio:2/1;object-fit:cover;object-position:top"><figcaption style="font-size:13.5px;padding:6px 10px;line-height:1.35"><b>Flow ②</b> 先按右下「設定」：「生成前需確認」選<b>一律</b>（才不會自動扣點數）、每次生成 ×1、影片 16:9。</figcaption></figure>
-    <figure style="margin:0;background:#fff;border:1.5px solid var(--line);border-radius:10px;overflow:hidden"><img src="img/l3-edits-site.jpg" alt="Edits 官方網站" style="width:100%;display:block;aspect-ratio:2/1;object-fit:cover;object-position:top"><figcaption style="font-size:13.5px;padding:6px 10px;line-height:1.35"><b>Edits</b> edits.instagram.com → 「Get Edits for Mac」下載（M1 以上），用 Instagram 帳號登入。</figcaption></figure>
+    <figure style="margin:0;background:#fff;border:1.5px solid var(--line);border-radius:10px;overflow:hidden"><img src="img/l3-edits-site.jpg" alt="Edits 官方網站" style="width:100%;display:block;aspect-ratio:2/1;object-fit:cover;object-position:top"><figcaption style="font-size:13.5px;padding:6px 10px;line-height:1.35"><b>Edits</b> edits.instagram.com → 右上「Download Edits」下載 Mac 版（M1 以上），用 Instagram 帳號登入。</figcaption></figure>
   </div>
   <div class="cols" style="margin-top:10px">
     <div class="prompt" style="font-size:13.5px;line-height:1.35"><button class="cp" type="button">複製</button>（Flow 提示語範例）一位 70 歲台灣阿嬤坐在客廳沙發，桌上有血糖機與一杯果汁，她手微微發抖、額頭冒汗，鏡頭緩慢推近到她的手；卡通插畫風、柔和光線、沒有文字、沒有真人臉孔特寫，8 秒，16:9。</div>
@@ -2620,7 +2620,7 @@ B. index.html（單一檔案，放 GitHub 倉庫 form）：手機好填、字大
 5. 燒入字幕（一字不改、大字、放安全區）：0-3 胰島素筆四步驟／3-10 裝針頭，排氣 2 單位／10-18 捏起皮膚，垂直刺入／18-26 按到底，數 10 秒再拔／26-30 輪替部位，針頭用一次
 6. 音量 -14 LUFS，用 reels 預設匯出到 ./成品，然後 check 規格、look 產縮圖總表</div>
     <div class="shots" style="grid-template-columns:1fr;gap:8px">
-      <figure><img src="img/l3-codex-demo.jpg" alt="交辦畫面" style="height:158px;aspect-ratio:auto;object-fit:cover;object-position:top"><figcaption style="font-size:13px">交辦一句話</figcaption></figure>
+      <figure><img src="img/l3-codex-demo.jpg" alt="交辦畫面" style="height:158px;aspect-ratio:auto;object-fit:cover;object-position:top"><figcaption style="font-size:13px">交辦一句話（示意畫面是另一支「親子公園」影片，檔名與時間點和提示語不同，寫法相同）</figcaption></figure>
       <figure><img src="img/l3-codex-demo2.jpg" alt="check 與 look" style="height:158px;aspect-ratio:auto;object-fit:cover;object-position:top"><figcaption style="font-size:13px">check 通過、look 自己看</figcaption></figure>
     </div>
   </div>
@@ -2646,9 +2646,9 @@ B. index.html（單一檔案，放 GitHub 倉庫 form）：手機好填、字大
       <div class="note r" style="margin-top:8px;font-size:13.5px;padding:8px 12px">Claude Code 需要 <b>Claude Pro 以上</b>方案；免費帳號用 Antigravity CLI 或 Copilot Free（第 4 堂教，附錄<a href="#sl-s-agents">這個重點畫面</a>），同一套七步照走。常用的角色、配色、教法可以請它存成 skill，下一支動畫直接沿用。</div>
     </div>
     <div class="shots" style="grid-template-columns:1fr;gap:6px">
-      <figure><img src="img/l3-cc-step1.jpg" alt="Code 分頁選擇本機資料夾" style="height:118px;aspect-ratio:auto;object-fit:cover;object-position:top"><figcaption style="font-size:12.5px;padding:5px 8px">② Code 分頁：Local ＋ 選資料夾</figcaption></figure>
-      <figure><img src="img/l3-cc-step2.jpg" alt="請它先檢查環境" style="height:118px;aspect-ratio:auto;object-fit:cover;object-position:top"><figcaption style="font-size:12.5px;padding:5px 8px">③ 先檢查環境，缺的它幫你裝</figcaption></figure>
-      <figure><img src="img/l3-cc-step3.jpg" alt="知識點檢核表與五個開場" style="height:118px;aspect-ratio:auto;object-fit:cover;object-position:top"><figcaption style="font-size:12.5px;padding:5px 8px">④⑤ 檢核表先交，再挑開場（示意畫面）</figcaption></figure>
+      <figure><img src="img/l3-cc-step1.jpg" alt="Code 分頁選擇本機資料夾" style="height:118px;aspect-ratio:auto;object-fit:cover;object-position:top"><figcaption style="font-size:12.5px;padding:5px 8px">步驟 2｜Code 分頁：本機 Local ＋ 選資料夾</figcaption></figure>
+      <figure><img src="img/l3-cc-step2.jpg" alt="請它先檢查環境" style="height:118px;aspect-ratio:auto;object-fit:cover;object-position:top"><figcaption style="font-size:12.5px;padding:5px 8px">步驟 3｜先檢查環境，缺的它幫你裝</figcaption></figure>
+      <figure><img src="img/l3-cc-step3.jpg" alt="知識點檢核表與五個開場" style="height:118px;aspect-ratio:auto;object-fit:cover;object-position:top"><figcaption style="font-size:12.5px;padding:5px 8px">步驟 4～5｜檢核表先交，再挑開場（三張皆示意畫面；圖上 ①②③ 是圖的順序，不是步驟編號）</figcaption></figure>
     </div>
   </div>
   <div class="foot"><span>第 3 堂｜影片工具</span><span class="pg"></span></div>
@@ -2737,8 +2737,8 @@ B. index.html（單一檔案，放 GitHub 倉庫 form）：手機好填、字大
     <figure><img src="img/l3-consensus-gemini.jpg" alt="Gemini 連接器找不到 Consensus" style="aspect-ratio:16/10"><figcaption><b>Gemini</b> 連接器目錄搜 Consensus、PubMed：找不到結果 → 用深入研究或 Notebook 替代</figcaption></figure>
     <figure><img src="img/l3-consensus-claude-1.jpg" alt="Claude 連接器目錄搜 Consensus" style="aspect-ratio:16/10"><figcaption><b>Claude ①</b> 設定 → 自訂 → 連接器 → 探索：Consensus 官方連接器按「＋」就能連</figcaption></figure>
     <figure><img src="img/l3-consensus-claude-2.jpg" alt="Claude 連接器目錄 PubMed 已連接" style="aspect-ratio:16/10"><figcaption><b>Claude ②</b> 搜 PubMed：Anthropic 官方連接器（第 2 堂已連接），下面還有 Bio Research 等</figcaption></figure>
-    <figure><img src="img/l3-consensus-claude-4.jpg" alt="Claude 逐步呼叫 PubMed 工具並要求核准" style="aspect-ratio:16/10"><figcaption><b>Claude ③</b> 搜尋 → 抓摘要 → 抓全文，每一步都問「允許一次／永遠允許」</figcaption></figure>
-    <figure><img src="img/l3-consensus-claude-6.jpg" alt="Claude PubMed 結果表格" style="aspect-ratio:16/10"><figcaption><b>Claude ④</b> 回 PMID 表格：ADA 2026 指引、內分泌學會 2023 指引、兒少學會 2024 建議，加三句白話</figcaption></figure>
+    <figure><img src="img/l3-consensus-claude-4.jpg" alt="Claude 逐步呼叫 PubMed 工具並要求核准" style="aspect-ratio:16/10"><figcaption><b>Claude ③</b> 搜尋 → 抓摘要 → 抓全文一步步跑；上方「需要您的輸入」就是在等你按「允許一次／永遠允許」（按鈕不在截圖裡）</figcaption></figure>
+    <figure><img src="img/l3-consensus-claude-6.jpg" alt="Claude PubMed 結果表格" style="aspect-ratio:16/10"><figcaption><b>Claude ④</b> 回 PMID 表格：ADA 2026 指引、美國內分泌學會 2023 指引，第三列是義大利兒童內分泌暨糖尿病學會的兒少建議（截圖只露出上半）</figcaption></figure>
   </div>
   <div class="note r" style="margin-top:10px;font-size:13.5px">兩家都提醒同一件事：「15 克、15 分鐘」是指引建議（ADA B 級），不是高確定性 RCT 證據；兒童要依體重算。這就是為什麼知識庫要放指引原文，而不是只放口訣。</div>
   <div class="foot"><span>第 3 堂｜第 4 堂前準備</span><span class="pg"></span></div>
@@ -2925,7 +2925,7 @@ agy
   <h2 style="font-size:34px;margin-bottom:12px">GitHub Copilot Free：$0、不用信用卡，在 VS Code 裡看著檔案交辦</h2>
   <div class="shots" style="grid-template-columns:1fr 1fr 1.3fr">
     <figure><img src="img/l3-copilot-plans.jpg" alt="Copilot 方案頁 Free 欄位"><figcaption><b>①</b> 到 <b>github.com/features/copilot/plans</b>：Free 欄按「Get started」或「Open in VS Code」。寫著每月 2,000 次補全、Copilot CLI、No credit card required。</figcaption></figure>
-    <figure><img src="img/l3-copilot-vscode.jpg" alt="VS Code 設定 Copilot 文件"><figcaption><b>②</b> 下載 VS Code（code.visualstudio.com）→ 開啟後在<b>狀態列的 Copilot 圖示</b>按「Use AI Features」→ 用 GitHub 帳號登入，沒方案就自動加入 Free。</figcaption></figure>
+    <figure><img src="img/l3-copilot-vscode.jpg" alt="VS Code 設定 Copilot 文件"><figcaption><b>②</b> 下載 VS Code（code.visualstudio.com）→ 開啟後在<b>狀態列的 Copilot 圖示</b>按「Use AI Features」→ 用 GitHub 帳號登入，沒方案就自動加入 Free。（截圖是 VS Code 官方說明文件「Set up GitHub Copilot in VS Code」，不是操作畫面。）</figcaption></figure>
     <div class="term"><button class="cp" type="button">複製</button><b># ③ 在 VS Code：檔案 → 開啟資料夾（練習資料夾）
 # 右側 Chat 面板切到「Agent」，貼上交辦：</b>
 請在這個資料夾建立 site、slides、mandala 三個子資料夾，各放一個 index.html（內容同左頁的交辦），全部單一檔案、字大、手機好讀。做完請在瀏覽器預覽。
