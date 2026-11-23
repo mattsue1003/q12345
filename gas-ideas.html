@@ -69,7 +69,7 @@ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;
 function draw(){var q=$('q').value.trim().toLowerCase(),g=$('grid');g.innerHTML='';var n=0;
 IDEAS.forEach(function(i,ix){if(cur!=='all'&&i.c!==cur)return;if(q&&(i.n+i.w+i.f+i.t+i.s+CATS[i.c]).toLowerCase().indexOf(q)<0)return;n++;
 var d=document.createElement('article');d.className='card';d.id='i'+ix;
-d.innerHTML='<span class="tag" style="--c:'+COL[i.c]+'">'+esc(CATS[i.c])+'</span><h2>'+esc(i.n)+'</h2><div class="when"><b>情境：</b>'+esc(i.w)+'</div><p><b>做什麼：</b>'+esc(i.f)+'。</p><small>使用者：'+esc(i.u)+'</small><details><summary>看完整提示詞</summary><pre></pre></details><div class="row"><button class="pri" type="button">複製提示詞</button></div>';
+d.innerHTML='<span class="tag" style="--c:'+COL[i.c]+'">'+esc(CATS[i.c])+'</span><h2>'+esc(i.n)+'</h2><div class="when"><b>情境：</b>'+esc(i.w)+'</div><p><b>做什麼：</b>'+esc(i.f)+'。</p><small>執行方式：'+esc(i.t)+'<br>需要的資料：'+esc(i.s)+'</small><details><summary>看完整提示詞</summary><pre></pre></details><div class="row"><button class="pri" type="button">複製提示詞</button></div>';
 d.querySelector('pre').textContent=mkPrompt(i);
 d.querySelector('button').onclick=function(){copy(mkPrompt(i))};g.appendChild(d)});
 $('count').textContent=n?('找到 '+n+' 個用途'):'沒有符合的用途，換個關鍵字，或按「隨機給我一個」。'}
