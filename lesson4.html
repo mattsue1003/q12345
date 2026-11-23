@@ -298,6 +298,8 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 .kit details{margin-top:8px}.kit summary{cursor:pointer}
 .kit.ext{background:var(--paper);border-style:dashed;margin-top:-12px}
 .kit.ext>h3::before{content:"延伸教學"}
+/* tap-fix */
+@media (max-width:900px){.prompt .copy{min-height:36px;padding:6px 16px;font-size:13px}.prompt{padding-top:52px}}
 </style><!--/MG-CSS-->
 </head>
 <body>
@@ -326,7 +328,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 <section class="page cover" id="top" data-g="cover" data-title="封面與今日目標">
   <div class="confetti" aria-hidden="true"><i style="right:6%;top:40px;width:54px;height:54px;background:var(--mag)"></i><i style="right:14%;top:118px;width:30px;height:30px;background:var(--lime);animation-delay:-2s"></i><i style="right:3%;top:150px;width:38px;height:38px;background:var(--blue);animation-delay:-4s"></i><i style="right:20%;top:34px;width:20px;height:20px;background:var(--amber);animation-delay:-1s"></i><i style="right:10%;top:214px;width:16px;height:16px;background:var(--sky);animation-delay:-3s"></i></div>
   <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>衛福部桃園醫院 糖尿病中心｜AI 賦能工作坊<em>1 / 22</em></div>
-  <h1><span class="en">LESSON <b>04</b> · 講義</span>糖尿病專科 把 AI 接進每天的 Word、Excel 與 Google 三件套，再做<span class="hl">AI 助手與知識庫</span></h1>
+  <h1><span class="en">LESSON <b>04</b> · 講義</span>把 AI 接進每天的 Word、Excel 與 Google 三件套，再做糖尿病專科<span class="hl">AI 助手與知識庫</span></h1>
   <p class="lede"><b>先：檔案 × AI。</b>Excel、Word、PPT、PDF 與 Google 三件套各自該把哪一段交給 AI，數字怎麼核對。<b>再：知識庫助手（RAG）。</b>一般 AI 對話是「憑記憶回答」，知識庫助手是「先翻你給的文件再回答，並標出處、不知道就說不知道」，建好之後用 15 題驗證。<b>最後：第二大腦與自動化。</b>用 LINE 隨手記進自己的試算表，加上 Apps Script 與終端機代理。</p>
   <div class="meta">
     <div><small>日期</small><strong>11/23　10:00–12:00</strong></div>
@@ -378,7 +380,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <div class="brk" style="--c:var(--lime)"><i></i>收尾</div>
       <a href="#hw"><span class="no dk" style="--c:var(--lime)">✓</span><span><strong>課後任務</strong><small>第 5 堂前要完成的事</small></span><em>11:58</em></a>
   </nav>
-  <div class="note" style="margin-top:22px"><b>怎麼讀這份講義：</b>電腦上一次看一節，按右下「下一頁」或鍵盤 <kbd>→</kbd> 前進、<kbd>←</kbd> 返回；右上「目錄」看全部章節，「搜尋」找關鍵字，「整頁捲動」可改成一路往下捲。手機會自動用整頁捲動。圖片點一下可以放大。真實院內文件要放進知識庫前，先完成去識別化並確認院內規範（<a href="#k2">K2 節</a>）。</div>
+  <div class="note" style="margin-top:22px"><b>怎麼讀這份講義：</b>電腦上一次看一節，按右下「下一頁」或鍵盤 <kbd>→</kbd> 前進、<kbd>←</kbd> 返回；右上「目錄」看全部章節，「搜尋」找關鍵字，「整頁捲動」可改成一路往下捲。手機會自動用整頁捲動。圖片點一下可以放大。真實院內文件要放進知識庫前，先完成去識別化並確認院內規範（<a href="#k2">R5 可放／不可放</a>）。</div>
 </section>
 
 
@@ -839,7 +841,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
         <tr><td><b>公式、合併儲存格、格式</b></td><td>公式可能讀到結果也可能讀到空值；合併儲存格會讓欄位錯位；「7.5%」可能被讀成 0.075 或 7.5</td><td>只剩純文字和數字，所見即所得</td></tr>
         <tr><td><b>檔案大小、額度</b></td><td>同樣內容比 CSV 大好幾倍，大檔容易逾時或吃掉上傳上限</td><td>最小，880 列不到 50 KB</td></tr>
         <tr><td><b>中文亂碼</b></td><td>不會</td><td>用 Excel「另存新檔 → <b>CSV UTF-8（逗號分隔）</b>」才不會；選到舊的「CSV（逗號分隔）」中文可能變亂碼</td></tr>
-        <tr><td><b>結論</b></td><td>多張工作表、有格式的原始檔：<b>先整理</b>，只留一張乾淨的資料表再上傳，或在提示詞指名工作表與範圍</td><td><b>第一次算、要出數字給主任看，用 CSV</b>。練習檔 Excel 版在第 2 節，CSV 版在第 2 堂講義的練習資料區，兩種都下載就能試一次差異</td></tr>
+        <tr><td><b>結論</b></td><td>多張工作表、有格式的原始檔：<b>先整理</b>，只留一張乾淨的資料表再上傳，或在提示詞指名工作表與範圍</td><td><b>第一次算、要出數字給主任看，用 CSV</b>。練習檔直接下載：<a href="lesson2-dm-quality.xlsx" download>⬇ Excel 版</a>、<a href="lesson2-dm-quality.csv" download>⬇ CSV 版</a>，兩種都上傳就能試一次差異</td></tr>
       </table></div>
       <div class="note" style="margin:10px 0 0"><b>多分頁 Excel 的安全做法（三步）：</b>① 在 Excel 把要分析的那張工作表右鍵「移動或複製 → 建立複本到新活頁簿」；② 新活頁簿裡刪掉標題列以上的說明、小計列、合併儲存格；③ 另存成「CSV UTF-8」再上傳。若一定要整本上傳，提示詞第一句寫：「這個檔有 N 張工作表，<b>只分析『個案資料』這張</b>，其他工作表忽略；開始前先告訴我你讀到幾列幾欄、欄名是什麼。」</div>
     </div>
