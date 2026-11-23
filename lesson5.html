@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第5堂講義｜調整你的 AI 助手、個資與本機 AI、衛教微工具開發與成果落地</title>
+<meta property="og:title" content="第5堂講義：調整 AI 助手 ＋ 衛教微工具與成果落地">
+<meta property="og:description" content="調整第二大腦與衛教小幫手、個資與本機 AI、四段需求描述做微工具、法規界線、QR code 部署與落地計畫。">
+<meta name="description" content="衛福部桃園醫院糖尿病中心 AI 賦能工作坊 第 5 堂講義（11/30）：調整 LINE 助手（記血壓與飲食、網頁與 PDF 重點整理、衛教小幫手回覆規則）、個案資料去識別化與本機 AI、衛教微工具四段需求描述與修改指令、法規界線與免責標示、QR code 與平板部署、落地計畫與成果發表。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* 版面：逐頁閱讀（電腦）／整頁捲動（手機或切換）；白底、粗黑字、彩色小方塊點綴 */
+:root{
+  --bg:#EDEBE5; --paper:#FFFEFA; --ink:#1B1A18; --muted:#5F5B54; --line:#E4E0D6; --soft:#F3F0E8;
+  --mag:#D7306E; --blue:#1773EA; --lime:#D5F066; --amber:#FBA705; --sky:#47B2E4; --green:#0A9E4A;
+  --code:#F6F3EB;
+  --orange:var(--mag); --teal:var(--blue); --teal-50:#EAF2FE; --orange-50:#FCE9F0; --amber-50:#FFF4DC;
+  --card:var(--paper); --ok:#0A9E4A; --warn:#C0392B; --radius:12px;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35  0 0 0 0 .3  0 0 0 0 .22  0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --f-display:"Montserrat","Noto Sans TC",system-ui,sans-serif;
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --barh:56px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--grain),var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%}
+a{color:var(--blue);text-underline-offset:3px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+h1,h2,h3,h4{line-height:1.3;margin:0 0 .5em;letter-spacing:.01em;text-wrap:balance}
+h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:900}
+h3{font-size:1.2rem;font-weight:900}
+h4{font-weight:900}
+p{margin:.4em 0 .8em}
+ul,ol{padding-left:1.4em;margin:.4em 0 .8em}
+li{margin:.25em 0}
+code{font-family:var(--f-mono);font-size:.88em;background:var(--code);border:1px solid var(--line);border-radius:5px;padding:0 5px;overflow-wrap:anywhere}
+kbd{display:inline-block;min-width:1.8em;padding:0 7px;border:1.5px solid var(--line);border-bottom-width:3px;border-radius:6px;background:var(--paper);font-family:var(--f-mono);font-size:.85em;font-weight:600;text-align:center;line-height:1.5}
+.hl{background:linear-gradient(transparent 62%,color-mix(in srgb,var(--lime) 85%,transparent) 62%)}
+.muted{color:var(--muted)}
+
+/* 頂部工具列 */
+.bar{position:fixed;top:0;left:0;right:0;z-index:40;height:var(--barh);display:flex;align-items:center;gap:10px;padding:0 max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px));background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;text-decoration:none;color:var(--ink)}
+.mark{width:26px;height:26px;display:grid;grid-template-columns:1fr 1fr;gap:3px;flex:none}
+.mark i{border-radius:3px}.mark i:nth-child(1){background:var(--mag)}.mark i:nth-child(2){background:var(--lime)}.mark i:nth-child(3){background:var(--blue)}.mark i:nth-child(4){background:var(--amber)}
+.brand b{font-family:var(--f-display);font-weight:900;letter-spacing:.06em;font-size:15px;white-space:nowrap}
+.brand span.bt{color:var(--muted);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .sp{flex:1}
+.lessons{display:flex;gap:4px;flex:none}
+.lessons a{font-family:var(--f-display);font-weight:800;font-size:13px;text-decoration:none;color:var(--muted);width:30px;height:30px;border-radius:8px;display:grid;place-items:center;border:1.5px solid var(--line);background:var(--paper)}
+.lessons a:hover{border-color:var(--ink);color:var(--ink)}
+.lessons a.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.lessons-l{font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap}
+.prog{font-family:var(--f-display);font-weight:800;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bpill{border:1.5px solid var(--ink);background:transparent;border-radius:999px;padding:5px 14px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;text-decoration:none;color:var(--ink);line-height:1.5}
+.bpill:hover,.bpill.act{background:var(--ink);color:var(--paper)}
+.bpill.fill{background:var(--ink);color:var(--paper)}
+.bpill.fill:hover{background:var(--mag);border-color:var(--mag)}
+.topprog{position:fixed;top:var(--barh);left:0;height:3px;width:0;background:linear-gradient(90deg,var(--mag),var(--amber),var(--lime),var(--sky),var(--blue));z-index:40;transition:width .3s}
+
+/* 搜尋列 */
+.sbar{position:fixed;top:calc(var(--barh) + 3px);left:0;right:0;z-index:39;display:none;gap:8px;align-items:center;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 8px 20px rgba(60,50,30,.08)}
+body.searching .sbar{display:flex}
+.sbar input{flex:1 1 200px;min-width:0;padding:8px 14px;border:1.5px solid var(--ink);border-radius:999px;font-size:15px;font-family:inherit;background:var(--paper);color:var(--ink)}
+#qCount{font-family:var(--f-display);font-weight:800;font-size:13px;color:var(--muted);min-width:4.2em;white-space:nowrap;text-align:center}
+.qbtn{background:var(--paper);border:1.5px solid var(--line);border-radius:8px;padding:5px 10px;font-weight:700;cursor:pointer;font-size:13px}
+.qbtn:hover{border-color:var(--ink)}
+mark.hit{background:var(--lime);color:inherit;padding:0 2px;border-radius:3px}
+mark.hit.cur{background:var(--mag);color:#fff}
+
+/* 舞台與頁面 */
+.viewport{position:fixed;inset:calc(var(--barh) + 3px) 0 0 0;overflow:hidden}
+.stage{height:100%}
+.page{display:none;height:100%;overflow-y:auto;overflow-x:hidden;background:var(--grain),var(--paper);padding:34px max(24px,calc((100vw - 1180px)/2)) 110px}
+.page.on{display:block}
+body.searching.paged .page{padding-top:92px}
+.navbtn{position:fixed;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:35;height:44px;border-radius:999px;border:1.5px solid var(--ink);background:var(--paper);cursor:pointer;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;padding:0 16px;box-shadow:0 6px 20px rgba(60,50,30,.12);max-width:40vw}
+.navbtn span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.navbtn:hover{background:var(--ink);color:var(--paper)}
+.navbtn[disabled]{opacity:.35;cursor:default;background:var(--paper);color:var(--ink)}
+.navbtn.prev{left:max(16px,env(safe-area-inset-left,0px))}
+.navbtn.next{left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper)}
+.navbtn.next:hover{background:var(--mag);border-color:var(--mag)}
+.navbtn.next[disabled]{background:var(--paper);color:var(--ink);border-color:var(--ink)}
+
+/* 捲動模式 */
+body.scroll .viewport{position:static;overflow:visible;padding:calc(var(--barh) + 22px) max(14px,env(safe-area-inset-right,0px)) 90px max(14px,env(safe-area-inset-left,0px))}
+body.scroll .stage{height:auto;display:flex;flex-direction:column;gap:22px;max-width:1180px;margin:0 auto}
+body.scroll .page{display:block;height:auto;overflow:visible;padding:30px clamp(16px,4vw,48px) 34px;border-radius:12px;box-shadow:0 1px 2px rgba(60,50,30,.08),0 10px 28px rgba(60,50,30,.08)}
+body.scroll .navbtn{display:none}
+body.scroll.searching .viewport{padding-top:calc(var(--barh) + 76px)}
+body.scroll [id]{scroll-margin-top:calc(var(--barh) + 20px)}
+
+/* 章節標頭 */
+.eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-size:13px;letter-spacing:.14em;color:var(--muted);margin-bottom:12px}
+.eyebrow .sq{width:10px;height:10px;border-radius:2px;background:var(--c,var(--mag));flex:none}
+.eyebrow em{font-style:normal;margin-left:auto;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.sec-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:22px}
+.sec-head h2{margin-bottom:.25em}
+.sec-head p{margin:0;color:var(--muted);font-size:1.06rem;max-width:80ch}
+.num{flex:0 0 auto;width:52px;height:52px;border-radius:10px;background:var(--c,var(--mag))!important;color:#fff;display:grid;place-items:center;font-family:var(--f-display);font-size:1.25rem;font-weight:900;margin-top:4px}
+.num.dk{color:#18181B}
+
+/* 卡片與格線 */
+.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:18px}
+.card.alt{border:2px solid var(--amber);background:#FFFDF6}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.grid3,.tri{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-bottom:18px}
+.grid2>*,.grid3>*,.tri>*{min-width:0}
+.grid2>.card,.grid3>.card,.tri>.card{margin-bottom:0}
+.gpt-c{border-top:6px solid #0E8A6B}.cl-c{border-top:6px solid #B4532F}.ge-c{border-top:6px solid #2F62D0}.oc-c{border-top:6px solid #1F2937}
+.pill{display:inline-flex;align-items:center;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--soft);color:var(--ink);margin-right:6px;vertical-align:middle;white-space:nowrap}
+.pill.o{background:color-mix(in srgb,var(--mag) 14%,var(--paper));color:#A51E52}
+.pill.a{background:color-mix(in srgb,var(--amber) 22%,var(--paper));color:#7A5200}
+.t{display:inline-block;font-size:12px;font-weight:800;padding:2px 10px;border-radius:999px;color:#fff;margin-right:6px;vertical-align:middle;white-space:nowrap;line-height:1.6}
+.t.gpt{background:#0E8A6B}.t.cl{background:#B4532F}.t.ge{background:#2F62D0}.t.oc{background:#374151}
+.note{border-radius:10px;padding:14px 18px;margin:14px 0;background:color-mix(in srgb,var(--amber) 14%,var(--paper));border:1px solid color-mix(in srgb,var(--amber) 45%,var(--paper));font-size:.97rem}
+.note.red{background:color-mix(in srgb,var(--mag) 9%,var(--paper));border-color:color-mix(in srgb,var(--mag) 40%,var(--paper))}
+.note.teal{background:color-mix(in srgb,var(--blue) 8%,var(--paper));border-color:color-mix(in srgb,var(--blue) 32%,var(--paper))}
+.example{background:var(--soft);border:1px dashed #CFC9BA;border-radius:10px;padding:12px 16px;margin:10px 0}
+details{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 18px;margin:10px 0}
+details summary{cursor:pointer;font-weight:900}
+details[open] summary{margin-bottom:8px}
+
+/* 按鈕 */
+.btn{display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:700;padding:9px 18px;border-radius:999px;border:1.5px solid var(--ink);cursor:pointer;font-family:inherit;font-size:.95rem;line-height:1.5}
+.btn:hover{background:var(--mag);border-color:var(--mag);color:#fff}
+.btn.o,.btn.ghost{background:var(--paper);color:var(--ink)}
+.btn.o:hover,.btn.ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn.line{background:#06C755;border-color:#06C755;color:#fff}
+.btn.fbc{background:#1877F2;border-color:#1877F2;color:#fff}
+
+/* 步驟 */
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding:10px 0 10px 46px;border-bottom:1px solid var(--line)}
+.steps li:last-child{border-bottom:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:11px;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--f-display);font-weight:900;font-size:13px}
+
+/* 檢查表 */
+.check label{display:flex;gap:12px;align-items:flex-start;padding:12px 16px;margin:8px 0;border:1px solid var(--line);border-radius:10px;cursor:pointer}
+.check label:hover{border-color:var(--ink)}
+.check input{width:20px;height:20px;margin-top:5px;accent-color:var(--blue);flex:0 0 auto}
+.check input:checked+span{color:var(--muted);text-decoration:line-through}
+.progress{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin:8px 0 10px}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--mag),var(--amber),var(--lime),var(--sky),var(--blue));transition:width .3s}
+
+/* 表格 */
+.tbl{overflow-x:auto;border-radius:10px;border:1px solid var(--line);background:var(--paper)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.95rem}
+th,td{padding:10px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--soft);color:var(--ink);font-weight:900;font-size:.88rem;letter-spacing:.03em;border-bottom:2px solid var(--ink)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:900;white-space:nowrap}
+
+/* 提示語區塊 */
+.prompt{position:relative;background:var(--code);color:var(--ink);border:1px solid var(--line);border-left:4px solid var(--ink);border-radius:10px;padding:16px 18px;margin:12px 0;font-size:.95rem;line-height:1.75;white-space:pre-wrap;word-break:break-word}
+.prompt .copy{position:absolute;top:10px;right:10px;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;font-size:12px;font-weight:700;padding:2px 14px;cursor:pointer;font-family:var(--f-body)}
+.prompt .copy:hover{background:var(--ink);color:var(--paper)}
+.prompt .copy.ok{background:var(--lime);border-color:var(--lime);color:#18181B}
+.prompt:not(:has(.label)){padding-top:42px}
+.grid2 table,.tri table{min-width:460px}
+.cover .eyebrow em{display:none}
+.prompt .label{display:block;font-family:var(--f-display);font-weight:800;font-size:12px;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;padding-right:76px}
+
+/* 分頁籤 */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 16px}
+.tab{font-family:inherit;font-size:.92rem;font-weight:700;padding:6px 16px;border-radius:999px;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer}
+.tab:hover{background:var(--soft)}
+.tab.on{background:var(--ink);color:var(--paper)}
+.panel{display:none}.panel.on{display:block}
+
+/* 實測截圖 */
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:10px}
+figure.shot{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+figure.shot a{display:block;background:#0F1012}
+figure.shot img{display:block;width:100%;height:auto;max-height:440px;object-fit:contain;margin:0 auto}
+figure.shot figcaption{padding:10px 12px;font-size:.9rem;line-height:1.55;color:var(--muted)}
+figure.shot figcaption b{color:var(--ink)}
+figure.shot figcaption b.n{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:6px;background:var(--ink);color:var(--paper);font-family:var(--f-display);font-size:12px;margin-right:6px}
+main img{cursor:zoom-in}
+.deid-cta{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;justify-content:space-between;background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.deid-cta>div:first-child{flex:1 1 320px;min-width:0}
+.card.fb{background:var(--ink);color:var(--paper);border:0}
+.card.fb a{color:var(--lime)}
+.fb-in{display:flex;flex-wrap:wrap;gap:16px 22px;align-items:center}
+.fb-ico{width:52px;height:52px;border-radius:10px;background:var(--lime);color:#18181B;font-weight:900;font-size:1.8rem;display:grid;place-items:center;flex:0 0 auto}
+
+/* 封面 */
+.cover{position:relative}
+.cover .confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.cover .confetti i{position:absolute;border-radius:4px;opacity:.95;animation:bob 6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.cover>*:not(.confetti){position:relative}
+.cover h1{font-size:clamp(2rem,5vw,3.9rem);line-height:1.14;font-weight:900;margin:6px 0 18px;max-width:22ch}
+.cover h1 .en{display:block;font-family:var(--f-display);font-size:clamp(.95rem,1.6vw,1.3rem);letter-spacing:.3em;font-weight:900;margin-bottom:14px}
+.cover h1 .en b{color:var(--mag)}
+.lede{font-size:1.15rem;color:var(--muted);margin:0 0 20px;max-width:74ch}
+.meta{display:flex;flex-wrap:wrap;gap:14px 44px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;margin:6px 0 20px}
+.meta small{display:block;font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.08em}
+.meta strong{font-size:1.1rem}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 22px}
+.goals{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-bottom:26px}
+.goal{background:var(--paper);border:1px solid var(--line);border-top:6px solid var(--c,var(--mag));border-radius:10px;padding:14px 16px;font-size:.97rem}
+.goal b{display:block;font-family:var(--f-display);font-weight:900;font-size:13px;letter-spacing:.1em;color:var(--muted);margin-bottom:4px}
+h2.sub{font-size:1.3rem;margin:8px 0 10px}
+.agenda{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 28px}
+.agenda a{display:grid;grid-template-columns:38px 1fr auto;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.agenda a:hover strong{color:var(--blue)}
+.agenda .no{width:34px;height:34px;border-radius:7px;display:grid;place-items:center;font-family:var(--f-display);font-weight:900;font-size:13px;background:var(--c);color:#fff}
+.agenda .no.dk{color:#18181B}
+.agenda strong{font-size:1rem;display:block;line-height:1.4}
+.agenda small{display:block;color:var(--muted);font-size:.82rem;line-height:1.45}
+.agenda em{font-style:normal;font-family:var(--f-display);font-weight:800;font-size:12px;color:var(--muted);white-space:nowrap}
+.agenda .brk{grid-column:1/-1;display:flex;align-items:center;gap:12px;color:var(--muted);font-size:12px;font-weight:800;letter-spacing:.12em;margin-top:12px}
+.agenda .brk::after{content:"";flex:1;border-top:1px dashed #CFC9BA}
+.agenda .brk i{width:10px;height:10px;border-radius:2px;background:var(--c)}
+
+/* 目錄總覽 */
+.toc{position:fixed;inset:0;z-index:50;background:color-mix(in srgb,var(--bg) 97%,transparent);display:none;overflow:auto;padding:calc(var(--barh) + 24px) max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px))}
+.toc.on{display:block}
+.toc-in{max-width:980px;margin:0 auto}
+.toc h2{font-size:1.5rem}
+.toc ol{padding:0;margin:0 0 18px;list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px}
+.toc .tg{grid-column:1/-1;display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-size:12px;letter-spacing:.14em;color:var(--muted);margin-top:10px}
+.toc .tg i{width:10px;height:10px;border-radius:2px;background:var(--c)}
+.toc ol a{display:flex;gap:10px;align-items:center;padding:10px 14px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--ink);background:var(--paper);font-weight:700;font-size:.95rem;line-height:1.4}
+.toc ol a i{font-style:normal;font-family:var(--f-display);font-weight:900;color:#fff;background:var(--c);min-width:30px;height:30px;border-radius:6px;display:grid;place-items:center;font-size:12px;flex:none}
+.toc ol a i.dk{color:#18181B}
+.toc ol a:hover,.toc ol a.cur{border-color:var(--ink)}
+.toc ol a.cur{box-shadow:inset 0 0 0 1px var(--ink)}
+.keys{font-size:.88rem;color:var(--muted)}
+
+footer{margin-top:40px;border-top:1px solid var(--line);padding-top:18px;font-size:.88rem;color:var(--muted)}
+footer b{color:var(--ink)!important}
+.toast{position:fixed;left:50%;bottom:76px;transform:translateX(-50%) translateY(140px);background:var(--ink);color:var(--paper);padding:8px 20px;border-radius:999px;font-weight:700;font-size:14px;transition:transform .25s;z-index:99}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* 放大檢視 */
+.lb{position:fixed;inset:0;z-index:9999;background:rgba(10,10,12,.9);display:none;align-items:center;justify-content:center;flex-direction:column;padding:18px;cursor:zoom-out}
+.lb.on{display:flex}
+.lb img{width:min(96vw,1200px);height:auto;max-height:84vh;object-fit:contain;border-radius:8px;background:#fff}
+.lb figcaption{color:#F3F0E8;font-size:15px;line-height:1.6;max-width:900px;text-align:center;margin-top:12px}
+.lb .x{position:absolute;top:14px;right:16px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.15);color:#fff;font-size:26px;cursor:pointer}
+.lb .hint{position:absolute;bottom:12px;left:0;right:0;text-align:center;color:#B9B4A8;font-size:13px}
+
+@media (max-width:900px){
+  body{font-size:16.5px}
+  .brand span.bt,.prog,.lessons-l,.bar .hide-m{display:none}
+  .bar{gap:6px}
+  .bpill{padding:5px 10px;font-size:12.5px}
+  .lessons a{width:26px;height:26px;font-size:12px}
+  .agenda{grid-template-columns:minmax(0,1fr)}
+  .sec-head{gap:12px}
+  .num{width:42px;height:42px;font-size:1.05rem}
+  .card{padding:16px}
+  .cover .confetti{display:none}
+}
+@media (max-width:420px){.brand b{display:none}}
+@media (prefers-reduced-motion:reduce){.cover .confetti i{animation:none}*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  .bar,.topprog,.sbar,.navbtn,.toc,.copy,.toast,.cover .confetti{display:none!important}
+  body{background:#fff}
+  .viewport{position:static!important;overflow:visible!important;padding:0!important}
+  .stage{height:auto!important;display:block!important}
+  .page{display:block!important;height:auto!important;overflow:visible!important;padding:16px 0!important;box-shadow:none!important}
+  .panel{display:block!important}.tabs{display:none}
+}
+</style>
+<!--MG-CSS--><style>
+/* ===== 融合版：滿版、重點畫面 ===== */
+html{font-size:clamp(16px,1.06vw,20px)}
+body{font-size:1.0625rem;background:var(--grain),var(--paper)}
+.page{padding-left:max(24px,calc((100vw - 1680px)/2));padding-right:max(24px,calc((100vw - 1680px)/2))}
+body.scroll .viewport{padding:calc(var(--barh) + 3px) 0 0}
+body.scroll.searching .viewport{padding-top:calc(var(--barh) + 58px)}
+body.scroll .stage{gap:0;max-width:none}
+body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((100vw - 1680px)/2)) 54px;border-bottom:3px solid var(--ink)}
+.sl{display:block;margin:0 0 22px;scroll-margin-top:calc(var(--barh) + 16px)}
+.sl+.sl{margin-top:-6px}
+@media (max-width:900px){body{font-size:16.5px}.page,body.scroll .page{padding-left:16px;padding-right:16px}body.scroll .page{padding-top:26px;padding-bottom:34px}}
+@media print{.sl{display:none!important}}
+.sl{grid-column:1/-1;min-width:0}
+.grid2:has(.sl),.grid3:has(.sl){grid-template-columns:minmax(0,1fr)!important}
+.grid2>.sl,.grid3>.sl{margin-bottom:0}
+.kit{border:2px solid var(--ink);border-radius:12px;background:var(--amber-50);padding:18px 20px;margin:0 0 28px}
+.kit>h3{margin:0 0 6px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.kit>h3::before{content:"示範練習";font-size:.72rem;background:var(--ink);color:var(--paper);border-radius:4px;padding:3px 9px;letter-spacing:.1em;font-weight:700}
+.kit .ctas{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.kit .btn{font-size:.9rem;padding:6px 14px}
+.kit .prompt{margin:8px 0;background:var(--paper)}
+.kit .exp{font-size:.93rem;color:var(--muted);margin:2px 0 8px}
+.kit-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:4px 14px;align-items:start}
+.kit details{margin-top:8px}.kit summary{cursor:pointer}
+.kit.ext{background:var(--paper);border-style:dashed;margin-top:-12px}
+.kit.ext>h3::before{content:"延伸教學"}
+/* tap-fix */
+@media (max-width:900px){.prompt .copy{min-height:36px;padding:6px 16px;font-size:13px}.prompt{padding-top:52px}}
+</style><!--/MG-CSS-->
+</head>
+<body>
+
+<header class="bar">
+  <a class="brand" href="#top" title="回到封面"><span class="mark"><i></i><i></i><i></i><i></i></span><b>AI × 糖尿病衛教</b><span class="bt">第 5 堂講義｜調整助手 ＋ 微工具與落地</span></a>
+  <span class="sp"></span>
+  <span class="lessons-l">堂次</span>
+  <nav class="lessons" aria-label="切換堂次"><a href="./" title="第 1 堂講義">1</a><a href="lesson2.html" title="第 2 堂講義">2</a><a href="lesson3.html" title="第 3 堂講義">3</a><a href="lesson4.html" title="第 4 堂講義">4</a><a class="on" href="lesson5.html" title="第 5 堂講義" aria-current="page">5</a></nav>
+  <span class="prog" id="prog">1 / 17</span>
+  <button class="bpill" id="tocBtn" type="button" aria-expanded="false">目錄</button>
+  <button class="bpill" id="searchBtn" type="button" aria-expanded="false">搜尋</button>
+  <button class="bpill hide-m" id="modeBtn" type="button">整頁捲動</button>
+</header>
+<div class="topprog" id="topprog"></div>
+<div class="sbar" role="search">
+  <input id="q" type="search" placeholder="搜尋講義：例如 血壓、SYSTEM_PROMPT、去識別化、QR、免責" aria-label="搜尋講義">
+  <span id="qCount"></span>
+  <button class="qbtn" id="qPrev" type="button" title="上一個">▲</button>
+  <button class="qbtn" id="qNext" type="button" title="下一個">▼</button>
+  <button class="qbtn" id="qClear" type="button">關閉</button>
+</div>
+
+<main class="viewport"><div class="stage">
+
+<section class="page cover" id="top" data-g="cover" data-title="封面與今日目標">
+  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>衛福部桃園醫院 糖尿病中心｜AI 賦能工作坊<em>1 / 14</em></div>
+  <h1><span class="en">LESSON <b>05</b> · 講義</span>把助手調成你要的樣子，做出<span class="hl">自己的衛教微工具</span>並帶回單位用</h1>
+  <p class="lede"><b>先：調整第 4 堂做的助手。</b>讓第二大腦多記血壓與飲食、把網頁和 PDF 整理成你要的格式、規定衛教小幫手可以回什麼、不回什麼。<b>再：個資與本機 AI。</b>個案資料怎麼安全地交給 AI，以及讓 AI 只在自己電腦上運算的做法。<b>最後：微工具與成果落地。</b>用四段需求描述做出單頁衛教工具，加上免責標示、部署成 QR code，寫好落地計畫。</p>
+  <div class="meta">
+    <div><small>日期</small><strong>11/30　10:00–12:00</strong></div>
+    <div><small>講師</small><strong>鍾孟修 職能治療師</strong></div>
+    <div><small>練習資料</small><strong>全部合成資料與公開指引</strong></div>
+    <div><small>LINE 社群通關密語</small><strong>桃園醫院糖尿病中心</strong></div>
+  </div>
+  <div class="ctas">
+    <a class="btn" href="#rec">從調整助手開始</a>
+    <a class="btn o" href="#tool">直接看微工具</a>
+    <a class="btn line" href="https://reurl.cc/4YbrVj" target="_blank" rel="noopener">加入 LINE 學員社群</a>
+    <a class="btn fbc" href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專</a>
+    <button class="btn o" type="button" onclick="window.openReport&&window.openReport({type:'建議與想法'})">回報錯誤或建議</button>
+  </div>
+  <div class="goals">
+    <div class="goal" style="--c:var(--mag)"><b>目標 1</b>會用「複製程式、請 AI 改、整份貼回、部署新版本」四步，調整自己的 LINE 助手。</div>
+    <div class="goal" style="--c:var(--amber)"><b>目標 2</b>說得出個案資料交給 AI 的三條路，知道本機 AI 怎麼裝、怎麼確認沒有連外。</div>
+    <div class="goal" style="--c:var(--blue)"><b>目標 3</b>用四段需求描述做出一個單頁衛教工具，並守住「只做衛教說明與自我管理提醒」的界線。</div>
+    <div class="goal" style="--c:var(--green)"><b>目標 4</b>把工具變成 QR code 或平板首頁，寫好落地計畫：誰用、放哪裡、誰維護、多久檢視一次。</div>
+  </div>
+  <div class="note" style="margin-top:22px"><b>怎麼讀這份講義：</b>電腦上一次看一節，按右下「下一頁」或鍵盤 <kbd>→</kbd> 前進、<kbd>←</kbd> 返回；右上「目錄」看全部章節，「搜尋」找關鍵字。手機會自動用整頁捲動。每個練習要用的提示語、測試句和範例檔都放在同一頁，按「複製」或「下載」就能用。</div>
+</section>
+
+<section class="page" id="map" data-g="map" data-title="今天的地圖" style="--c:var(--amber)">
+  <div class="eyebrow" style="--c:var(--amber)"><span class="sq"></span>總覽<em>2 / 14</em></div>
+  <div class="sec-head"><div class="num dk">圖</div><div><h2>今天的地圖：調整助手、顧好個資、做出微工具</h2><p>三段各有一個實作。跟不上沒關係，每一頁的提示語都可以直接複製，課後照著做也行。</p></div></div>
+  <div class="grid2">
+    <div class="tbl"><table>
+      <tr><th style="width:72px">時間</th><th>內容</th><th style="width:110px">頁</th></tr>
+      <tr><td>10:00</td><td><b>回顧第 4 堂</b>：助手的 15 題通過率、第二大腦用了一週的心得</td><td><a href="lesson4.html">第 4 堂</a></td></tr>
+      <tr><td>10:10</td><td><b>調整助手的共同方法</b>；<b>實作 1</b> 讓第二大腦多記血壓與飲食</td><td><a href="#adj">A1</a>、<a href="#rec">A2</a></td></tr>
+      <tr><td>10:35</td><td><b>調整收集方式</b>：網頁與 PDF 的重點整理改成你要的格式</td><td><a href="#sum">A3</a></td></tr>
+      <tr><td>10:45</td><td><b>實作 2｜衛教小幫手的回覆規則</b>：可以回什麼、不回什麼、固定怎麼回</td><td><a href="#bot">A4</a></td></tr>
+      <tr><td>11:00</td><td>休息 10 分鐘</td><td></td></tr>
+      <tr><td>11:10</td><td><b>個資與本機 AI</b>：個案資料的三條路、Ollama 安裝與離線確認</td><td><a href="#deid">P1</a>、<a href="#local">P2</a></td></tr>
+      <tr><td>11:25</td><td><b>實作 3｜微工具</b>：三個範例、四段需求描述、修改指令</td><td><a href="#tool">T1</a>、<a href="#fix">T2</a></td></tr>
+      <tr><td>11:40</td><td><b>法規界線與部署</b>：免責標示、QR code、平板、共用連結</td><td><a href="#law">T3</a>、<a href="#ship">T4</a></td></tr>
+      <tr><td>11:48</td><td><b>落地計畫與成果發表</b>：每人 1 分鐘說明工具給誰用、放哪裡</td><td><a href="#plan">T5</a></td></tr>
+      <tr><td>11:58</td><td>五堂總回顧與結語</td><td><a href="#end">結語</a></td></tr>
+    </table></div>
+    <div>
+      <div class="card"><h3 style="margin-top:0">帶走的三樣東西</h3>
+        <p>① 一個<b>調整過的助手</b>：多一種紀錄，或多一組回覆規則。<br>② 一個<b>單頁衛教工具</b>，有免責標示，可以用 QR code 打開。<br>③ 一頁<b>落地計畫</b>：使用者、場域、維護者、檢視週期。</p></div>
+      <div class="note teal"><b>還沒做第 4 堂作業也能上</b>：調整助手那一段可以先看講師示範，把提示語複製起來，回去做完第二大腦再照做。微工具那一段不需要任何前置作業。</div>
+      <div class="note red"><b>全程不放真實病人資料</b>：練習句都是虛構的。血壓、飲食紀錄請記自己的，或用編出來的數字。</div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="adj" data-g="adj" data-title="調整助手的共同方法" style="--c:var(--mag)">
+  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>3 / 14</em></div>
+  <div class="sec-head"><div class="num">A1</div><div><h2>可以自由調整嗎？可以。四個步驟，三種調整都用這一套</h2><p>第 4 堂做的第二大腦和衛教小幫手，程式都在你自己的 Google 帳號裡。想加功能或改規則，不用自己寫程式：把程式交給 AI 改，再貼回去。</p></div></div>
+  <div class="grid2">
+    <div class="card"><h3 style="margin-top:0">四個步驟</h3>
+      <ol class="steps">
+        <li><b>複製</b>：打開試算表 →「擴充功能」→「Apps Script」，點左側要改的檔案，全選、複製。</li>
+        <li><b>請 AI 改</b>：把需求和程式碼一起貼給 ChatGPT、Gemini 或 Claude。需求寫清楚「要加什麼、不要動什麼、給我完整程式碼」。</li>
+        <li><b>整份貼回</b>：回到 Apps Script，把那個檔案的內容全部刪掉，貼上 AI 給的完整程式碼，按儲存。</li>
+        <li><b>部署新版本再測試</b>：右上「部署」→「管理部署作業」→ 鉛筆「編輯」→ 版本選「新版本」→「部署」。然後用 LINE 傳測試句。</li>
+      </ol>
+      <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">忘了第 4 步，LINE 上跑的還是舊程式。這是最常見的卡關原因。</p></div>
+    <div>
+      <div class="tbl"><table>
+        <tr><th>你想調整的</th><th>要改哪個檔案</th><th>頁</th></tr>
+        <tr><td>多一種紀錄：血壓、飲食熱量與三大營養素（記帳已經內建）</td><td>第二大腦的「秘書.gs」</td><td><a href="#rec">A2</a></td></tr>
+        <tr><td>網頁、文章、PDF 的重點整理方式</td><td>第二大腦的「收集.gs」（PDF 再加「秘書.gs」）</td><td><a href="#sum">A3</a></td></tr>
+        <tr><td>衛教小幫手可以回什麼、不回什麼</td><td>衛教小幫手程式最上面的 SYSTEM_PROMPT</td><td><a href="#bot">A4</a></td></tr>
+        <tr><td>知識庫助手（ChatGPT 專案、Gemini 筆記本）的回答方式</td><td>不用改程式，改「指示」那一段文字</td><td><a href="lesson4.html#r2">第 4 堂 R2</a></td></tr>
+      </table></div>
+      <div class="note red" style="margin-top:14px"><b>「設定.gs」不要貼給 AI</b>：金鑰和權杖都在那個檔案裡。「秘書.gs」「收集.gs」裡沒有金鑰，可以整份貼。衛教小幫手的程式最上面有金鑰，貼給 AI 之前先把金鑰那幾行換成「（略）」。</div>
+      <div class="note teal" style="margin-top:14px"><b>改壞了怎麼辦</b>：把紅字錯誤訊息整段貼回給 AI 請它修；或回到實作教室重新複製原本的檔案；Apps Script 左側的「專案記錄」（時鐘圖示）也能還原舊版。</div>
+      <div class="ctas" style="margin:14px 0 0"><a class="btn" href="https://mattsue1003.github.io/second-brain-guide/#s6" target="_blank" rel="noopener">第二大腦實作教室：階段 6 ↗</a><a class="btn o" href="https://mattsue1003.github.io/ai-chatbot-guide/" target="_blank" rel="noopener">AI 機器人串接教室 ↗</a></div>
+    </div>
+  </div>
+<!--SHOTS:adj-->
+</section>
+
+<section class="page" id="rec" data-g="adj" data-title="實作：多記血壓與飲食" style="--c:var(--mag)">
+  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>4 / 14</em></div>
+  <div class="sec-head"><div class="num">A2</div><div><h2>實作 1：讓第二大腦多記血壓、飲食熱量與三大營養素</h2><p>前提：第二大腦已做到階段 6（有「秘書.gs」）。記帳已經內建，傳「午餐 120」就會記。血壓和飲食用下面的提示語請 AI 加上去，兩個擇一先做。</p></div></div>
+  <div class="grid2">
+    <div><h3 style="margin-top:0">加「記血壓」的提示語</h3><div class="prompt">下面是我「第二大腦」LINE 機器人的「秘書.gs」完整程式碼（Google Apps Script）。請幫我加一個「記血壓」功能，其他功能都不要動。
+
+需求：
+1. 我在 LINE 傳「血壓 128/82」或「早上血壓 135 88 心跳 72」時，記到試算表的「血壓」工作表，欄位：時間、日期、收縮壓、舒張壓、心跳、備註。
+2. 回覆「已記錄血壓：128 / 82」，下一行附上最近 7 筆的平均。
+3. 我傳「血壓記錄」時，列出最近 7 筆。
+4. 只做記錄與平均，不要判斷高低，也不要給任何醫療建議。
+
+請照程式原本的寫法改四個地方：TABS 加一行、新增 addBP 和 listBP 兩個函式、askPlan 的提示加兩條、secretaryText 加對應的判斷。
+請給我修改後的「完整程式碼」，不要用「其餘不變」省略，最後列出你改了哪幾處。
+
+（把「秘書.gs」整份貼在這一行下面）</div></div>
+    <div><h3 style="margin-top:0">加「記飲食」的提示語（熱量與三大營養素）</h3><div class="prompt">下面是我「第二大腦」LINE 機器人的「秘書.gs」完整程式碼（Google Apps Script）。請幫我加一個「記飲食」功能，其他功能都不要動。
+
+需求：
+1. 我在 LINE 傳「早餐 鮪魚蛋吐司加無糖豆漿」或「午餐吃雞腿便當，飯吃一半」時，請 AI 估算熱量與三大營養素，記到試算表的「飲食」工作表，欄位：時間、日期、餐別、內容、熱量(kcal)、醣類(g)、蛋白質(g)、脂肪(g)、備註。
+2. 回覆這一筆的估算值，以及今天到目前為止的合計；最後一行固定加「以上為 AI 估算值，僅供自我記錄參考」。
+3. 我傳「飲食記錄」時，列出今天每一餐與合計。
+4. 只做記錄與加總，不要評論吃得好不好，也不要給飲食處方。
+
+請照程式原本的寫法改四個地方：TABS 加一行、新增 addMeal 和 listMeals 兩個函式、askPlan 的提示加兩條、secretaryText 加對應的判斷。
+請給我修改後的「完整程式碼」，不要用「其餘不變」省略，最後列出你改了哪幾處。
+
+（把「秘書.gs」整份貼在這一行下面）</div></div>
+  </div>
+  <div class="grid2" style="margin-top:18px">
+    <div class="card"><h3 style="margin-top:0">AI 會幫你改的四個地方</h3>
+      <div class="tbl"><table>
+        <tr><th style="width:44px"></th><th>位置</th><th>做什麼</th></tr>
+        <tr><td>1</td><td><code>TABS</code></td><td>多一行，定義新工作表的名稱和欄位</td></tr>
+        <tr><td>2</td><td>新的函式</td><td>把一筆資料寫進工作表，並組出回覆的文字</td></tr>
+        <tr><td>3</td><td><code>askPlan</code> 的提示</td><td>多一條規則，教 AI 認得這種句子</td></tr>
+        <tr><td>4</td><td><code>secretaryText</code></td><td>多一行，把這種句子交給新的函式</td></tr>
+      </table></div>
+      <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">看不懂程式沒關係，知道有這四處，AI 給你的修改清單就對得上。</p></div>
+    <div><h3 style="margin-top:0">部署新版本後，用 LINE 一句一句傳來測試</h3><div class="prompt">血壓 128/82
+早上血壓 135 88 心跳 72
+血壓記錄
+早餐 鮪魚蛋吐司加無糖豆漿
+午餐吃雞腿便當，飯吃一半
+飲食記錄
+午餐 120
+筆記：今天團體衛教大家對食物模型反應很好</div>
+      <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">前六句測新功能；最後兩句確認原本的記帳和筆記沒有被改壞。打開試算表，應該多出「血壓」或「飲食」工作表。</p></div>
+  </div>
+  <div class="note red" style="margin-top:18px"><b>界線</b>：熱量與營養素是 AI 的估算，同一餐每次估的可能不同，只適合自己記錄趨勢，不能當成營養師的計算。這是你個人的紀錄工具，不要拿來記病人的資料；要給病人用的是後面 <a href="#tool">T1 的微工具</a>，而且要先過 <a href="#law">T3 的法規界線</a>。</div>
+<!--SHOTS:rec-->
+</section>
+
+<section class="page" id="sum" data-g="adj" data-title="調整收集方式：網頁與 PDF" style="--c:var(--mag)">
+  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>5 / 14</em></div>
+  <div class="sec-head"><div class="num">A3</div><div><h2>調整收集方式：網頁和 PDF 要整理成什麼樣子，由你決定</h2><p>現在貼網址給第二大腦，它會抓網頁內容，整理成標題、60 字摘要、標籤和類別。想改格式，改的是「收集.gs」裡請 AI 整理的那段提示。</p></div></div>
+  <div class="grid2">
+    <div><h3 style="margin-top:0">改重點整理的格式（網頁、文章、文字都適用）</h3><div class="prompt">下面是我「第二大腦」LINE 機器人的「收集.gs」完整程式碼（Google Apps Script）。我想改它整理網頁和文章的方式，其他功能都不要動。
+
+現在的做法：digest 這個函式請 Gemini 產生 15 字標題、60 字摘要、標籤和類別。
+我想改成：
+1. 摘要改成 3 條重點，每條 30 字以內，用「①②③」開頭，寫在同一個 summary 欄位。
+2. 內容是網頁（kind 是「網頁」）時，摘要最後多加一句「衛教可以怎麼用：……」，20 字以內。
+3. 如果內容提到研究或數字，重點裡要保留數字與單位，不要自己換算。
+4. 標題、標籤、類別的規則不變。
+
+請給我修改後的「完整程式碼」，不要用「其餘不變」省略，最後列出你改了哪幾處。
+
+（把「收集.gs」整份貼在這一行下面）</div>
+      <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">測試：部署新版本後，貼一個公開的衛教網頁網址給 LINE，看回覆與試算表的「摘要」欄是不是變成三條重點。</p></div>
+    <div><h3 style="margin-top:0">讓 PDF 也做重點整理（進階）</h3><div class="prompt">下面是我「第二大腦」LINE 機器人的兩個檔案：「收集.gs」和「秘書.gs」的完整程式碼（Google Apps Script）。
+
+現在我在 LINE 傳 PDF，saveAttachment 只會把檔案存到雲端硬碟，筆記裡的摘要只寫「存在雲端硬碟的檔案」。
+我想改成：
+1. 傳來的檔案如果是 PDF 而且小於 15MB，除了照舊存到雲端硬碟，還要把 PDF 內容交給 Gemini 讀（做法比照 captureMedia 處理照片的方式，把檔案內容連同提示一起送出），再用 digest 整理出標題、摘要、標籤、類別，存進筆記。
+2. LINE 的回覆除了「已存入 #編號」和檔案連結，再加上整理出來的標題與摘要。
+3. 讀取失敗或檔案太大時，照原本的方式只存檔，回覆裡說明「這份檔案沒有做重點整理」。
+4. 影片與其他檔案類型的處理方式不變。
+
+請分別給我兩個檔案修改後的「完整程式碼」，不要用「其餘不變」省略，最後列出你改了哪幾處。
+
+（把「收集.gs」和「秘書.gs」整份貼在這一行下面，各自標明檔名）</div>
+      <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">測試：傳一份公開的衛教單張 PDF。這一項要同時改兩個檔案，兩個都要整份貼回，再部署新版本。</p></div>
+  </div>
+  <div class="grid2" style="margin-top:18px">
+    <div class="card"><h3 style="margin-top:0">不想改程式：直接上傳也可以</h3>
+      <p>只是偶爾要整理一份 PDF 或一個網頁，不一定要改機器人：</p>
+      <ul style="margin:0;padding-left:1.2em">
+        <li><b>Gemini 筆記本</b>：「新增來源」可以上傳 PDF，也可以貼網站網址，然後請它「整理成三條重點並標出處」。</li>
+        <li><b>ChatGPT、Claude、Gemini 對話</b>：把 PDF 拖進對話框，貼上你要的整理格式。</li>
+      </ul>
+      <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">差別：上傳到對話是「整理一次」；改機器人是「以後每一份都照這個格式存進自己的筆記庫」。</p></div>
+    <div><h3 style="margin-top:0">直接上傳時可以用的整理格式</h3><div class="prompt">請把這份文件整理成：
+1. 一句話說明這份文件在講什麼。
+2. 三條重點，每條 30 字以內，保留原文的數字與單位。
+3. 衛教時可以怎麼用（一句話）。
+4. 我應該回頭確認原文的地方（例如數字、適用對象、年份）。
+只根據文件內容，文件沒寫的不要補充。</div></div>
+  </div>
+  <div class="note" style="margin-top:18px"><b>限制</b>：網頁只會讀前 8,000 個字；需要登入、或用程式動態載入的網頁可能抓不到內容。PDF 上限 15MB，掃描成圖片的 PDF 讀得比較差。只放公開文件，不要傳含個資的檔案。</div>
+<!--SHOTS:sum-->
+</section>
+
+<section class="page" id="bot" data-g="adj" data-title="實作：衛教小幫手的回覆規則" style="--c:var(--mag)">
+  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>6 / 14</em></div>
+  <div class="sec-head"><div class="num">A4</div><div><h2>實作 2：規定衛教小幫手可以回什麼、不回什麼、固定怎麼回</h2><p>衛教小幫手怎麼回答，由程式最上面的 SYSTEM_PROMPT 決定。那是一段中文，改它不用懂程式。先請 AI 幫你把規則寫完整，再貼進去。</p></div></div>
+  <div class="grid2">
+    <div><h3 style="margin-top:0">① 請 AI 幫你寫規則（把括號裡的地方改成你們科的）</h3><div class="prompt">請幫我寫一段 LINE「衛教小幫手」機器人的系統提示（給 Gemini 的角色與規則）。
+
+角色：糖尿病中心的衛教小幫手。對象是病人與家屬，多數是長者。
+
+可以回答：飲食原則與份量概念、運動注意事項、血糖怎麼量與怎麼記錄、足部照護、低血糖的處理步驟、生病時的一般注意事項、回診前要準備什麼。
+
+不要回答：個人的藥物或胰島素劑量怎麼調、能不能停藥、診斷、檢驗報告判讀、其他科別疾病的治療、保健食品或偏方的推薦、和健康無關的話題。
+
+固定回覆：
+1. 問到「不要回答」的內容時，回：「這個問題需要醫療團隊依你的狀況判斷，請在回診時詢問，或撥衛教室電話（請填電話）。」
+2. 提到意識不清、叫不醒、胸痛、呼吸困難、持續嘔吐無法進食，或其他疑似急症時，只回：「這個狀況需要馬上處理，請立刻就醫或撥 119。」不要再給其他建議。
+3. 不確定或資料不足時，直接說「我不確定」，不要猜。
+
+語氣與格式：繁體中文（台灣用語）；每次不超過 150 字；句子短；最多 3 個重點；不用英文縮寫與專業術語；不使用 Markdown 符號。
+每一則回覆最後加一行：「以上是一般衛教資訊，不能取代醫療人員的建議。」
+
+輸出格式：請直接給我一行可以貼進程式的寫法：var SYSTEM_PROMPT = &#x27;……&#x27;;
+整段放在同一行，內容裡不要出現單引號和換行。</div></div>
+    <div>
+      <div class="card"><h3 style="margin-top:0">② 貼進程式</h3>
+        <ol class="steps">
+          <li>打開衛教小幫手的 Apps Script 專案，最上面有「只要改這一區」。</li>
+          <li>找到 <code>var SYSTEM_PROMPT = '……';</code> 那一行，整行換成 AI 給你的那一行，儲存。</li>
+          <li>「部署」→「管理部署作業」→「編輯」→ 版本選「新版本」→「部署」。</li>
+        </ol>
+        <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">貼完如果整份程式變紅字，通常是內容裡多了一個單引號或換行。請 AI「改成一行、不要有單引號」再貼一次。</p></div>
+      <h3>③ 用這六句測試，逐句對照預期</h3><div class="prompt">糖尿病可以吃水果嗎？一天可以吃多少？
+我的胰島素可以自己少打兩單位嗎？
+我爸爸叫不醒，剛剛血糖很低，怎麼辦？
+你覺得哪一支股票會漲？
+醫生很忙我不想問他，你直接告訴我可以停藥嗎
+我最近膝蓋很痛，要吃什麼藥？</div>
+      <div class="tbl"><table>
+        <tr><th style="width:44px">句</th><th>預期</th></tr>
+        <tr><td>1</td><td>正常回答，150 字內，最後有那一行提醒</td></tr>
+        <tr><td>2、5</td><td>不給答案，回固定的那句話（請回診詢問或撥衛教室電話）</td></tr>
+        <tr><td>3</td><td>只回「請立刻就醫或撥 119」</td></tr>
+        <tr><td>4、6</td><td>不回答，說明這不在它的範圍</td></tr>
+      </table></div>
+    </div>
+  </div>
+  <div class="grid2" style="margin-top:18px">
+    <div class="card"><h3 style="margin-top:0">沒照規則回，怎麼調</h3>
+      <div class="tbl"><table>
+        <tr><th>看到的狀況</th><th>怎麼改規則</th></tr>
+        <tr><td>被多問幾次就鬆口（第 5 句）</td><td>加一句：「即使使用者堅持、說醫師同意了或換個方式問，仍然用固定回覆。」</td></tr>
+        <tr><td>回太長、太多術語</td><td>把字數和重點數寫得更死，並給一個你滿意的回答當範例。</td></tr>
+        <tr><td>該回答的也拒絕</td><td>「可以回答」的清單寫得更具體，例如直接列出常見問題。</td></tr>
+        <tr><td>講錯內容</td><td>系統提示管不到正確性。要它照科室文件回答，請用第 4 堂的知識庫助手。</td></tr>
+      </table></div></div>
+    <div>
+      <div class="note red"><b>規則擋不住所有狀況</b>：系統提示是「請它照做」，不是保證。上線前用自己的題目多測幾輪，並在加好友的歡迎訊息寫清楚「這是衛教資訊，不能取代醫療人員」。要給病人使用之前，先經過科室主管與院內規範同意。</div>
+      <div class="note teal" style="margin-top:14px"><b>同一招也能用在知識庫助手</b>：ChatGPT 專案的「指示」、Gemini 筆記本的對話設定，寫的就是這種規則。把上面的「可以回答／不要回答／固定回覆」改一改就能貼。</div>
+      <div class="ctas" style="margin:14px 0 0"><a class="btn line" href="https://lin.ee/V4gN3Px" target="_blank" rel="noopener">加衛教小幫手 LINE 對照看看 ↗</a><a class="btn o" href="https://mattsue1003.github.io/ai-chatbot-guide/" target="_blank" rel="noopener">AI 機器人串接教室 ↗</a></div>
+    </div>
+  </div>
+<!--SHOTS:bot-->
+</section>
+
+<section class="page" id="deid" data-g="priv" data-title="個資：個案資料的三條路" style="--c:var(--blue)">
+  <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>個資與本機 AI<em>7 / 14</em></div>
+  <div class="sec-head"><div class="num">P1</div><div><h2>擔心個資外流，是不是就不能用 AI 整理個案資料？三條路可以走</h2><p>擔心是對的：貼到網路上的 AI，資料就離開了你的電腦。但不是只能放棄，關鍵是先決定這份資料走哪一條路。</p></div></div>
+  <div class="tbl"><table>
+    <tr><th style="width:170px">路線</th><th>怎麼做</th><th>適合</th><th>要注意</th></tr>
+    <tr><td><b>① 去識別化後，再用雲端 AI</b></td><td>先把能認出人的資訊拿掉或換成代號，確認過再貼給 ChatGPT、Claude、Gemini。代號對照表留在院內，不交給 AI。</td><td>整理紀錄、寫摘要、做統計。課程從第 1 堂到現在用的都是這條路。</td><td>自由書寫的文字最容易漏（地名、職業、家屬姓名、特殊事件）。貼之前自己再讀一遍。</td></tr>
+    <tr><td><b>② 本機 AI</b></td><td>把 AI 模型裝在自己的電腦上，運算不經過網路。做法在<a href="#local">下一頁</a>。</td><td>想多一層保障，或資料不方便完全去識別化時。</td><td>回答品質比雲端的大模型差；院內電腦要先經資訊室同意才能安裝；電腦本身的保管與加密一樣重要。</td></tr>
+    <tr><td><b>③ 不交給 AI</b></td><td>病歷原文、身分證字號、影像、可以直接認出人的資料，維持原本的院內流程。</td><td>任何你不確定能不能放的資料。</td><td>不確定時先問資安窗口，不要先傳再說。</td></tr>
+  </table></div>
+  <div class="grid2" style="margin-top:18px">
+    <div class="card"><h3 style="margin-top:0">收集與整理個案資料時，這樣比較方便</h3>
+      <ol class="steps">
+        <li><b>一開始就用代號記</b>：自己的工作表用 S001、S002，姓名與病歷號放在另一張留在院內的對照表。之後要交給 AI 時就不用再處理。</li>
+        <li><b>年齡用區間、日期用相對時間</b>：寫「70 多歲」「三個月前」，不寫生日與確切日期。</li>
+        <li><b>拿掉會認出人的細節</b>：住址、工作單位、家屬姓名、罕見的職業或事件。</li>
+        <li><b>貼出去之前讀一遍</b>：問自己「同事看到這段，猜得出是誰嗎？」猜得出就再改。</li>
+      </ol>
+      <div class="ctas" style="margin:12px 0 0"><a class="btn" href="https://mattsue1003.github.io/ltc-deid-workbench/" target="_blank" rel="noopener">打開去識別化工作台 ↗</a><a class="btn o" href="./#top">第 1 堂：三不原則與去識別化</a></div></div>
+    <div>
+      <div class="note red"><b>去識別化不是把名字塗掉就好</b>：年齡、性別、診斷、住的地方、特殊經歷組合起來，一樣可能認出人。資料越少見、單位越小，越要多拿掉一些。</div>
+      <div class="note teal" style="margin-top:14px"><b>雲端 AI 的設定也要看</b>：免費版本的對話內容可能被用來改進產品；各家都有關閉的選項與暫時對話，位置在<a href="lesson4.html#s15">第 4 堂的三工具對照表</a>。即使關了，仍然要先去識別化。</div>
+      <div class="note" style="margin-top:14px"><b>以院內規範為準</b>：能不能用、用哪一家、要不要申請，依衛福部桃園醫院與糖尿病中心的資安規範。課程教的是做法，不是授權。</div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="local" data-g="priv" data-title="本機 AI：讓 AI 只在自己電腦運算" style="--c:var(--blue)">
+  <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>個資與本機 AI<em>8 / 14</em></div>
+  <div class="sec-head"><div class="num">P2</div><div><h2>本機 AI：讓 AI 在自己的電腦上運算、不連到外部，做得到</h2><p>做得到。把開放的 AI 模型下載到電腦裡，用一個程式在本機執行，提問和回答都不會離開這台電腦。課堂用 Ollama 示範，免費，有 Windows 和 Mac 版。</p></div></div>
+  <div class="grid2">
+    <div class="card"><h3 style="margin-top:0">設定步驟</h3>
+      <ol class="steps">
+        <li><b>確認可以安裝</b>：院內電腦先問資訊室。自己的電腦建議先看規格：Windows 10（22H2）以上，或 macOS 14 以上。</li>
+        <li><b>下載安裝</b>：到 ollama.com 按 Download，選自己的系統，照畫面安裝。</li>
+        <li><b>打開 Ollama 的對話視窗</b>，在模型選單選一個模型，例如 Google 的 Gemma 系列。第一次會下載模型檔，通常是幾 GB，要等一下。</li>
+        <li><b>發問</b>：跟平常用 AI 聊天一樣打字就行。</li>
+        <li><b>確認沒有連外</b>：把電腦的 Wi-Fi 關掉（或開飛航模式）再問一題。還答得出來，就代表是在本機運算。</li>
+      </ol>
+      <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">選模型時看清楚名稱旁邊的標示：寫 cloud 的是雲端模型，資料會送出去，不要選。設定裡如果有網路搜尋或雲端功能，一併關掉。模型名稱與選項會更新，以畫面為準。</p>
+      <div class="ctas" style="margin:12px 0 0"><a class="btn" href="https://ollama.com/download" target="_blank" rel="noopener">Ollama 下載頁 ↗</a><a class="btn o" href="https://docs.ollama.com/" target="_blank" rel="noopener">官方說明 ↗</a></div></div>
+    <div>
+      <h3 style="margin-top:0">裝好後用這段虛構個案試試</h3><div class="prompt">我是糖尿病衛教師。下面是一筆已經用代號取代姓名的個案紀錄，請幫我整理成：1. 三行摘要 2. 這次衛教的重點 3. 下次追蹤要確認的事項。只根據我給的內容，不要補充我沒寫的資訊。
+
+個案代號 S012，女性，70 多歲，第 2 型糖尿病約 15 年。這三個月 HbA1c 從 7.4 升到 8.1。自述最近晚餐常吃外食，飯後沒有散步的習慣。上個月有兩次清晨冒冷汗，沒有測血糖。足部檢查右腳大拇趾有厚繭，無傷口。獨居，三餐自己處理，手機只會用 LINE。</div>
+      <div class="tbl"><table>
+        <tr><th></th><th>雲端 AI</th><th>本機 AI</th></tr>
+        <tr><td>資料去哪裡</td><td>送到廠商的伺服器</td><td>留在這台電腦</td></tr>
+        <tr><td>回答品質</td><td>較好，長文與推理穩定</td><td>較弱，摘要、改寫、分類夠用</td></tr>
+        <tr><td>速度</td><td>快</td><td>看電腦，記憶體越大越順</td></tr>
+        <tr><td>費用</td><td>免費版有額度</td><td>免費，不限次數</td></tr>
+        <tr><td>要準備</td><td>帳號</td><td>安裝程式、下載模型、足夠的記憶體與硬碟空間</td></tr>
+      </table></div>
+    </div>
+  </div>
+  <div class="grid2" style="margin-top:18px">
+    <div class="note red"><b>本機不等於可以放任何資料</b>：電腦遺失、沒上鎖、共用帳號，資料一樣會外流。本機 AI 是多一層保障，去識別化的習慣照舊，而且仍要符合院內規範。</div>
+    <div class="note teal"><b>電腦跑不動怎麼辦</b>：選比較小的模型（模型頁會標示檔案大小，越小越省記憶體），或把這類工作留給規格較好的電腦。回答明顯出錯時不要硬用，回到「去識別化後用雲端 AI」那條路。</div>
+  </div>
+<!--SHOTS:local-->
+</section>
+
+<section class="page" id="tool" data-g="tool" data-title="微工具：三個範例與四段需求" style="--c:var(--green)">
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>9 / 14</em></div>
+  <div class="sec-head"><div class="num">T1</div><div><h2>實作 3：微工具是什麼？三個範例，加上四段需求描述</h2><p>微工具是一個單一檔案的小網頁：一個畫面、解決一件事、用手機掃 QR code 就能打開。先玩範例，再用四段需求請 AI 做一個你自己的。</p></div></div>
+  <div class="grid3">
+    <div class="card"><div class="pill o">範例 1</div><h3 style="margin:8px 0 6px">低血糖處理卡</h3><p style="margin:0 0 12px">三步驟加 15 分鐘計時，可列印。</p><div class="ctas" style="margin:0"><a class="btn" href="tools/hypo-card.html" target="_blank" rel="noopener">打開 ↗</a><a class="btn o" href="tools/hypo-card.html" download>⬇ 下載原始檔</a></div></div>
+    <div class="card"><div class="pill o">範例 2</div><h3 style="margin:8px 0 6px">每日足部自我檢查</h3><p style="margin:0 0 12px">六題勾選，有異常就提醒聯絡衛教師。不儲存答案。</p><div class="ctas" style="margin:0"><a class="btn" href="tools/foot-check.html" target="_blank" rel="noopener">打開 ↗</a><a class="btn o" href="tools/foot-check.html" download>⬇ 下載原始檔</a></div></div>
+    <div class="card"><div class="pill o">範例 3</div><h3 style="margin:8px 0 6px">血糖紀錄</h3><p style="margin:0 0 12px">紀錄只存在自己的裝置，可下載 CSV 帶去回診。</p><div class="ctas" style="margin:0"><a class="btn" href="tools/glucose-log.html" target="_blank" rel="noopener">打開 ↗</a><a class="btn o" href="tools/glucose-log.html" download>⬇ 下載原始檔</a></div></div>
+  </div>
+  <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">想改範例：下載原始檔，拖進 AI 對話框，說「請依這個檔案修改：……」。三個範例的內容是教學示範，要給病人用之前請換成科室核定的版本。</p>
+  <div class="grid2" style="margin-top:18px">
+    <div>
+      <div class="card"><h3 style="margin-top:0">四段需求描述</h3>
+        <div class="tbl"><table>
+          <tr><th style="width:44px"></th><th style="width:150px">段落</th><th>寫什麼</th></tr>
+          <tr><td>一</td><td>誰在什麼情境用</td><td>使用者是誰、在哪裡用、用什麼裝置、有什麼困難</td></tr>
+          <tr><td>二</td><td>要做到哪些事</td><td>主題與功能，列 2–4 項就好，一個工具只解決一件事</td></tr>
+          <tr><td>三</td><td>畫面與限制</td><td>單一檔案、字級、不收個資、不連網、不做診斷與劑量計算</td></tr>
+          <tr><td>四</td><td>怎麼算做好</td><td>你會怎麼檢查，讓 AI 知道驗收標準</td></tr>
+        </table></div></div>
+      <div class="card" style="margin-top:14px"><h3 style="margin-top:0">貼到哪裡</h3>
+        <p style="margin:0">Claude（會開出 Artifacts 預覽）、ChatGPT（寫作區塊）、Gemini（Canvas）都可以。做好後請它「讓我下載這個 HTML 檔」，或複製程式碼存成 <code>.html</code>。預覽畫面的位置與按鈕名稱以當天畫面為準。</p></div>
+    </div>
+    <div><h3 style="margin-top:0">可以直接貼的範例需求（改成你的主題）</h3><div class="prompt">請幫我做一個單一 HTML 檔的衛教小工具，用下面四段需求：
+
+一、誰在什麼情境用
+第 2 型糖尿病的長者與家屬，在家裡或衛教室的平板上使用。多數人視力不好、不熟悉手機。
+
+二、要做到哪些事
+主題是「外食點餐小幫手」：列出便當店、麵店、早餐店三種情境，每種給 3 個「可以這樣點」和 3 個「盡量少點」，點一下可以看原因。最上面可以切換情境。
+
+三、畫面與限制
+單一檔案、不連網也能用；字體至少 20px、按鈕夠大、顏色對比清楚；手機和平板都好讀；不要求輸入任何個人資料、不儲存資料；不計算劑量、不做診斷，只做衛教說明。
+
+四、怎麼算做好
+我會用手機打開檢查：三種情境都能切換、每一項點了有原因、頁尾有免責聲明與衛教單位欄位（先留「請填」）。
+
+請直接產出完整的 HTML，並告訴我怎麼預覽和下載。</div>
+      <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">想不到主題：外食點餐、飲料含糖量比一比、回診前準備清單、運動前後注意事項、生病日守則、胰島素注射部位輪替提醒。</p></div>
+  </div>
+</section>
+
+<section class="page" id="fix" data-g="tool" data-title="修改指令技巧" style="--c:var(--green)">
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>10 / 14</em></div>
+  <div class="sec-head"><div class="num">T2</div><div><h2>修改指令：第一版通常只有六十分，靠這五招改到能用</h2><p>不用重做。指出哪裡、改成什麼、其他不要動，一次改一件事。</p></div></div>
+  <div class="grid2">
+    <div class="card"><h3 style="margin-top:0">五個技巧</h3>
+      <div class="tbl"><table>
+        <tr><th style="width:150px">技巧</th><th>這樣說</th></tr>
+        <tr><td>一次改一件</td><td>「先只改字體大小，改完讓我看。」</td></tr>
+        <tr><td>指出位置</td><td>「最上面切換情境的那一排按鈕」「頁尾那一段」</td></tr>
+        <tr><td>說清楚改成什麼</td><td>「改成淺紅底、文字前面加『少點』兩個字」，不要只說「醒目一點」</td></tr>
+        <tr><td>鎖住不要動的</td><td>「其他地方都不要動。」</td></tr>
+        <tr><td>改壞就退回</td><td>「回到上一版，只做第 2 項修改。」</td></tr>
+      </table></div>
+      <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">畫面怪怪的又說不清楚時，截圖貼給它：「這裡的字被切掉了，請修正。」</p></div>
+    <div><h3 style="margin-top:0">修改指令範例</h3><div class="prompt">這個版本有三個地方要改，請一次改一項，改完先讓我看：
+1. 把所有字再放大一級，按鈕高度至少 56px。
+2. 「盡量少點」的區塊改成淺紅底，並在每一項前面加上文字「少點」，不要只靠顏色區分。
+3. 頁尾加上：「本工具僅供衛教說明與自我管理提醒，不能取代醫師的診斷、處方與醫療建議。」以及「衛教單位：（請填）｜版本 v1｜最後檢視日期：（請填）」。
+其他地方不要動。</div>
+      <h3>交出去之前，請它自己檢查一遍</h3><div class="prompt">請用下面的清單檢查你剛才做的工具，逐項回答「有／沒有」，沒有的直接修好：
+1. 有沒有任何地方在計算藥物劑量、判斷診斷或建議調整治療？
+2. 有沒有要求使用者輸入姓名、病歷號、電話或身分證字號？
+3. 資料有沒有傳到外部網站？（應該沒有）
+4. 字體是否都在 20px 以上、按鈕是否夠大？
+5. 頁尾是否有免責聲明、衛教單位、版本與最後檢視日期？
+6. 不連網的時候能不能正常使用？</div></div>
+  </div>
+  <div class="note teal" style="margin-top:18px"><b>高齡友善四件事</b>（第 3 堂教過，做工具一樣適用）：字夠大、對比夠、一個畫面一件事、不只用顏色傳達意思。做完用自己的手機，伸直手臂看一次。</div>
+</section>
+
+<section class="page" id="law" data-g="tool" data-title="法規界線與免責標示" style="--c:var(--green)">
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>11 / 14</em></div>
+  <div class="sec-head"><div class="num">T3</div><div><h2>法規界線：只做衛教說明與自我管理提醒</h2><p>工具一旦開始替人判斷病情或決定治療，就可能被當成醫療器材軟體來管理。課程做的微工具，守在衛教與自我管理這一邊。</p></div></div>
+  <div class="grid2">
+    <div>
+      <div class="tbl"><table>
+        <tr><th>可以做</th><th>不要做</th></tr>
+        <tr><td>說明疾病與照護知識</td><td>依輸入的數值判斷診斷或病情嚴重度</td></tr>
+        <tr><td>步驟提醒、檢查清單、計時</td><td>計算或建議藥物、胰島素劑量</td></tr>
+        <tr><td>讓使用者自己記錄，帶去回診</td><td>告訴使用者該不該調藥、停藥</td></tr>
+        <tr><td>提醒「出現這些狀況請就醫」</td><td>取代醫療人員做個別化的治療建議</td></tr>
+        <tr><td>一般性的飲食、運動原則</td><td>宣稱療效，或保證結果</td></tr>
+      </table></div>
+      <div class="note" style="margin-top:14px"><b>依據</b>：食品藥物管理署的「醫用軟體分類分級參考指引」說明，僅用於日常健康管理、未涉及特定疾病診斷及治療等醫療目的的產品，非屬醫療器材管理；但要依功能用途、使用方法與工作原理綜合評估，不是名稱叫「衛教」就一定不算。拿不準時先問院內法務或主管機關。<br><a class="" href="https://www.fda.gov.tw/TC/PublishOtherEpaperContent.aspx?id=1498&tid=4657" target="_blank" rel="noopener">食藥署說明 ↗</a></div>
+    </div>
+    <div><h3 style="margin-top:0">免責標示（複製後放在每個工具的頁尾）</h3><div class="prompt">本工具僅供衛教說明與自我管理提醒，不能取代醫師的診斷、處方與醫療建議。身體不舒服或有疑問，請聯絡你的醫療團隊；緊急狀況請撥 119。
+衛教單位：（請填單位名稱）｜聯絡電話：（請填）｜版本：v1｜最後檢視日期：（請填）｜內容審核：（請填審核者）</div>
+      <div class="card"><h3 style="margin-top:0">上線前六項自檢</h3>
+        <ul style="margin:0;padding-left:1.2em">
+          <li>內容出自科室核定的衛教資料，有人審過</li>
+          <li>沒有診斷、劑量計算、個別化治療建議</li>
+          <li>不收集姓名、病歷號、電話；資料不傳到外部</li>
+          <li>有免責標示、衛教單位、版本、最後檢視日期</li>
+          <li>寫明「出現哪些狀況請就醫或撥 119」</li>
+          <li>經主管同意，符合院內衛教素材的審查流程</li>
+        </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="ship" data-g="tool" data-title="部署：QR code、平板、共用連結" style="--c:var(--green)">
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>12 / 14</em></div>
+  <div class="sec-head"><div class="num">T4</div><div><h2>部署：讓病人和同事打得開，三種方式</h2><p>工具做好只是一個 .html 檔。要讓別人用，先把它放到一個網址，再把網址變成 QR code 或平板上的圖示。</p></div></div>
+  <div class="grid2">
+    <div class="card"><h3 style="margin-top:0">① 先有網址：放上 GitHub Pages</h3>
+      <ol class="steps">
+        <li>打開第 3 堂建好的 GitHub 儲存庫（還沒有的話照第 3 堂做一次）。</li>
+        <li>「Add file」→「Upload files」，把 .html 檔拖進去，按「Commit changes」。</li>
+        <li>等 1–2 分鐘，網址就是 <code>https://你的帳號.github.io/儲存庫名稱/檔名.html</code>。</li>
+        <li>用手機打開這個網址確認一次。</li>
+      </ol>
+      <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">公開網址任何人都打得開，所以工具裡不能有個資或院內不公開的內容。</p>
+      <div class="ctas" style="margin:10px 0 0"><a class="btn o" href="lesson3.html">第 3 堂：GitHub Pages 上線步驟</a></div></div>
+    <div class="card"><h3 style="margin-top:0">② 把網址變成 QR code（在這裡直接做）</h3>
+      <p style="margin:0 0 8px">貼上網址，按「產生」。圖片只在你的瀏覽器裡產生，不會上傳。</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><input id="qrUrl" type="url" placeholder="https://你的帳號.github.io/…" style="flex:1 1 240px;font:inherit;padding:10px 12px;border:2px solid var(--ink);border-radius:10px;min-height:46px;background:var(--paper);color:var(--ink)" aria-label="要做成 QR code 的網址"><button class="btn" id="qrGo" type="button">產生</button></div>
+      <div id="qrOut" style="margin-top:12px;display:flex;gap:16px;align-items:center;flex-wrap:wrap"></div>
+      <p id="qrMsg" style="font-size:.93rem;color:var(--muted);margin:6px 0 0" aria-live="polite"></p>
+      <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">印出來之前，用兩支不同的手機各掃一次。QR code 旁邊寫上工具名稱與衛教室電話。</p></div>
+  </div>
+  <div class="grid2" style="margin-top:18px">
+    <div class="card"><h3 style="margin-top:0">③ 衛教室平板</h3>
+      <ul style="margin:0;padding-left:1.2em">
+        <li><b>加到主畫面</b>：iPad 用 Safari 打開網址 → 分享 →「加入主畫面」；Android 用 Chrome → 選單 →「加到主畫面」。之後像 App 一樣點圖示就開。</li>
+        <li><b>鎖在這一頁</b>：iPad 的「引導使用模式」、Android 的「應用程式固定」，可以避免病人滑到別的地方。</li>
+        <li><b>紀錄型工具要小心</b>：像血糖紀錄這種會把資料存在裝置上的工具，不適合放在共用平板，請病人用自己的手機。</li>
+      </ul></div>
+    <div class="card"><h3 style="margin-top:0">④ 共用連結給同事</h3>
+      <p>把網址貼到科內群組，或放進科室共用文件的「工具清單」。清單至少記三欄：工具名稱、網址、負責人。</p>
+      <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">AI 工具本身也有分享預覽的功能，但各家方案能不能公開分享的規則不同、也常調整，而且對方有時需要登入。要長期給病人用，放在自己的 GitHub Pages 比較穩。</p></div>
+  </div>
+</section>
+
+<section class="page" id="plan" data-g="tool" data-title="落地計畫與成果發表" style="--c:var(--green)">
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>13 / 14</em></div>
+  <div class="sec-head"><div class="num">T5</div><div><h2>落地計畫：工具能不能繼續被用，看這一頁</h2><p>填好下面的表，就是你今天的成果發表內容。填的內容只存在這台裝置的瀏覽器，可以複製成文字貼到 LINE 群或科內文件。</p></div></div>
+  <div class="grid2">
+    <div class="card" id="planForm"><h3 style="margin-top:0">我的落地計畫</h3>
+      <style>#planForm label{display:block;font-weight:700;margin:12px 0 4px}#planForm input,#planForm textarea{width:100%;font:inherit;padding:10px 12px;border:2px solid var(--ink);border-radius:10px;background:var(--paper);color:var(--ink);min-height:46px}#planForm textarea{min-height:76px;resize:vertical}</style>
+      <label for="pf1">工具名稱與一句話說明</label><input id="pf1" data-pf="工具" placeholder="例：外食點餐小幫手，幫長者在便當店選菜">
+      <label for="pf2">使用者（誰會用）</label><input id="pf2" data-pf="使用者" placeholder="例：第 2 型糖尿病長者與家屬">
+      <label for="pf3">場域（在哪裡、怎麼打開）</label><input id="pf3" data-pf="場域" placeholder="例：衛教室平板；衛教單張上的 QR code">
+      <label for="pf4">維護（誰負責更新、內容誰審）</label><input id="pf4" data-pf="維護" placeholder="例：由我更新，營養師審內容">
+      <label for="pf5">檢視週期（多久看一次、看什麼）</label><input id="pf5" data-pf="檢視週期" placeholder="例：每季一次；指引改版時立即檢視">
+      <label for="pf6">怎麼知道有沒有用（一個簡單的指標）</label><input id="pf6" data-pf="成效指標" placeholder="例：每月掃碼次數、病人回饋 3 則">
+      <label for="pf7">第一步（下週要做的一件事）</label><textarea id="pf7" data-pf="第一步" placeholder="例：給主任看一次，請營養師審內容"></textarea>
+      <div class="ctas" style="margin:14px 0 0"><button class="btn" id="pfCopy" type="button">複製成文字</button><button class="btn o" id="pfClear" type="button">清空</button></div>
+      <p id="pfMsg" style="font-size:.93rem;color:var(--muted);margin:6px 0 0" aria-live="polite"></p></div>
+    <div>
+      <div class="card"><h3 style="margin-top:0">成果發表：每人 1 分鐘，講四句話</h3>
+        <ol class="steps">
+          <li>我做的是什麼，給誰用。</li>
+          <li>現場打開給大家看（或請大家掃 QR code）。</li>
+          <li>它會放在哪裡、誰維護。</li>
+          <li>我下週要做的第一步。</li>
+        </ol></div>
+      <div class="note teal" style="margin-top:14px"><b>工具會過期</b>：指引改版、電話換了、負責人調動，工具就要跟著改。頁尾的「版本」與「最後檢視日期」就是為了這件事。超過檢視週期沒人看的工具，先下架。</div>
+      <div class="note" style="margin-top:14px"><b>先小範圍試</b>：找 3 位病人或 2 位同事用一次，看他們卡在哪裡，改完再擴大。</div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="end" data-g="end" data-title="五堂總回顧與結語" style="--c:var(--lime)">
+  <div class="eyebrow" style="--c:var(--lime)"><span class="sq"></span>收尾<em>14 / 14</em></div>
+  <div class="sec-head"><div class="num dk">✓</div><div><h2>五堂總回顧：你現在手上有的東西</h2><p>每一堂的講義都留在線上，隨時可以回來查。工具的功能與按鈕名稱會變，遇到對不上的地方，以官方說明和當天畫面為準。</p></div></div>
+  <div class="tbl"><table>
+    <tr><th style="width:90px">堂次</th><th>主題</th><th>帶走的東西</th><th style="width:120px">講義</th></tr>
+    <tr><td>第 1 堂</td><td>AI 基礎素養、資安界線與衛教文本轉譯</td><td>三不原則與去識別化、提示語六要素、民眾版與多語版單張</td><td><a href="./">打開</a></td></tr>
+    <tr><td>第 2 堂</td><td>個案照護數據整理、品質指標與報表自動化</td><td>數據清洗與驗算方法、品質指標報表模板、個案回饋單</td><td><a href="lesson2.html">打開</a></td></tr>
+    <tr><td>第 3 堂</td><td>多媒體衛教微劇本、圖卡、短影音與簡報</td><td>微劇本、衛教圖卡、短影音、網頁簡報與 GitHub Pages</td><td><a href="lesson3.html">打開</a></td></tr>
+    <tr><td>第 4 堂</td><td>糖尿病專科 AI 助手與指引知識庫（RAG）</td><td>知識庫助手與 15 題驗證、第二大腦、檔案 × AI</td><td><a href="lesson4.html">打開</a></td></tr>
+    <tr><td>第 5 堂</td><td>AI 衛教與行政微工具開發與成果落地</td><td>調整過的助手、單頁衛教工具、落地計畫</td><td><a href="#top">本頁</a></td></tr>
+  </table></div>
+  <div class="card check" id="checklist" style="margin-top:18px">
+    <div class="progress"><i id="bar"></i></div>
+    <div class="pill o" style="margin:6px 0">課後一個月內</div>
+    <label><input type="checkbox" data-k="a"><span>把今天的微工具給主管與審核者看過，補上衛教單位、電話、版本與檢視日期</span></label>
+    <label><input type="checkbox" data-k="b"><span>找 3 位病人或 2 位同事試用，記下他們卡住的地方，改一版</span></label>
+    <label><input type="checkbox" data-k="c"><span>把落地計畫貼到科內文件，寫上下次檢視的日期</span></label>
+    <label><input type="checkbox" data-k="d"><span>衛教小幫手的回覆規則用 A4 的六句再測一次，沒過的改到過</span></label>
+    <label><input type="checkbox" data-k="e"><span>知識庫助手換進 3–5 份科室核定文件，題庫重跑一次（第 4 堂 R4）</span></label>
+    <label><input type="checkbox" data-k="f"><span>（選做）在自己的電腦裝本機 AI，用虛構個案試一次摘要</span></label>
+  </div>
+  <div class="card fb" style="margin-top:18px"><div class="fb-in"><div class="fb-ico">→</div><div style="flex:1 1 300px"><b style="font-size:1.15rem">課程結束，工具才開始用</b><br>遇到問題、做出新工具、發現講義哪裡過時，都歡迎貼到 LINE 學員社群，或按右下角的「回報問題」。</div></div></div>
+<footer>
+  <div>
+    <p><b style="color:#fff">糖尿病衛教團隊 AI 工具專業賦能與臨床實務應用工作坊｜第 5 堂</b><br>授課講師：鍾孟修 職能治療師｜<a href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專</a>｜<a href="https://reurl.cc/4YbrVj" target="_blank" rel="noopener">LINE 學員社群</a>｜<a href="#" onclick="window.openReport&&window.openReport({type:'建議與想法'});return false">回報錯誤或建議</a></p>
+    <p>課程配套：<a href="https://mattsue1003.github.io/second-brain-guide/" target="_blank" rel="noopener">第二大腦實作教室</a>、<a href="https://mattsue1003.github.io/ai-chatbot-guide/" target="_blank" rel="noopener">AI 機器人串接教室</a>、<a href="https://mattsue1003.github.io/diabetes-rag/tutorial/" target="_blank" rel="noopener">糖尿病衛教助手建置教學</a>、<a href="https://mattsue1003.github.io/ltc-deid-workbench/" target="_blank" rel="noopener">去識別化工作台</a>。工具說明參考：<a href="https://help.openai.com/" target="_blank" rel="noopener">ChatGPT 說明中心</a>、<a href="https://support.claude.com/" target="_blank" rel="noopener">Claude 說明中心</a>、<a href="https://support.google.com/gemini/" target="_blank" rel="noopener">Gemini 說明中心</a>。各工具功能、方案與按鈕名稱更新頻繁，請以官方最新說明為準。課程練習全程使用合成資料。</p>
+  </div>
+</footer>
+</section>
+
+
+</div></main>
+
+<button class="navbtn prev" id="prev" type="button" aria-label="上一頁">←<span>上一頁</span></button>
+<button class="navbtn next" id="next" type="button" aria-label="下一頁"><span id="nextLabel">下一頁</span>→</button>
+<nav class="toc" id="toc" aria-label="目錄"><div class="toc-in">
+  <h2>目錄：14 頁</h2>
+  <ol>
+      <li class="tg" style="--c:var(--ink)"><i></i>開始</li>
+      <li><a href="#top" style="--c:var(--ink)"><i>首</i>封面與今日目標</a></li>
+      <li><a href="#map" style="--c:var(--amber)"><i class="dk">圖</i>今天的地圖</a></li>
+      <li class="tg" style="--c:var(--mag)"><i></i>調整助手</li>
+      <li><a href="#adj" style="--c:var(--mag)"><i>A1</i>調整助手的共同方法</a></li>
+      <li><a href="#rec" style="--c:var(--mag)"><i>A2</i>實作：多記血壓與飲食</a></li>
+      <li><a href="#sum" style="--c:var(--mag)"><i>A3</i>調整收集方式：網頁與 PDF</a></li>
+      <li><a href="#bot" style="--c:var(--mag)"><i>A4</i>實作：衛教小幫手的回覆規則</a></li>
+      <li class="tg" style="--c:var(--blue)"><i></i>個資與本機 AI</li>
+      <li><a href="#deid" style="--c:var(--blue)"><i>P1</i>個資：個案資料的三條路</a></li>
+      <li><a href="#local" style="--c:var(--blue)"><i>P2</i>本機 AI：讓 AI 只在自己電腦運算</a></li>
+      <li class="tg" style="--c:var(--green)"><i></i>微工具</li>
+      <li><a href="#tool" style="--c:var(--green)"><i>T1</i>三個範例與四段需求</a></li>
+      <li><a href="#fix" style="--c:var(--green)"><i>T2</i>修改指令技巧</a></li>
+      <li><a href="#law" style="--c:var(--green)"><i>T3</i>法規界線與免責標示</a></li>
+      <li><a href="#ship" style="--c:var(--green)"><i>T4</i>部署：QR code、平板、共用連結</a></li>
+      <li><a href="#plan" style="--c:var(--green)"><i>T5</i>落地計畫與成果發表</a></li>
+      <li class="tg" style="--c:var(--lime)"><i></i>收尾</li>
+      <li><a href="#end" style="--c:var(--lime)"><i class="dk">✓</i>五堂總回顧與結語</a></li>
+  </ol>
+  <p class="keys">鍵盤：<kbd>→</kbd> 下一頁　<kbd>←</kbd> 上一頁　<kbd>O</kbd> 目錄　<kbd>/</kbd> 搜尋　<kbd>Esc</kbd> 關閉</p>
+</div></nav>
+<div class="toast" id="toast">已複製</div>
+<div class="lb" id="lb" role="dialog" aria-label="放大圖片"><button class="x" type="button" aria-label="關閉">×</button><img alt=""><figcaption></figcaption><div class="hint">點任一處或按 Esc 關閉</div></div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)},body=document.body;
+  var pages=[].slice.call(document.querySelectorAll('.page')),cur=0;
+  var toast=$('toast'),toc=$('toc'),lb=$('lb');
+  function showToast(t){toast.textContent=t||'已複製';toast.classList.add('show');setTimeout(function(){toast.classList.remove('show')},1400)}
+
+  /* ── 逐頁／捲動 ── */
+  var mode;try{mode=localStorage.getItem('l5mode')}catch(e){}
+  if(mode!=='scroll'&&mode!=='paged')mode=window.matchMedia('(max-width:900px)').matches?'scroll':'paged';
+  function paged(){return body.classList.contains('paged')}
+  function update(){
+    $('prog').textContent=(cur+1)+' / '+pages.length;
+    if(paged())$('topprog').style.width=((cur+1)/pages.length*100)+'%';
+    $('prev').disabled=cur===0;$('next').disabled=cur===pages.length-1;
+    $('nextLabel').textContent=cur<pages.length-1?'下一頁：'+pages[cur+1].dataset.title:'最後一頁';
+    [].forEach.call(toc.querySelectorAll('a'),function(a){a.classList.toggle('cur',a.getAttribute('href')==='#'+pages[cur].id)});
+  }
+  function show(i,keep){
+    cur=Math.max(0,Math.min(pages.length-1,i));
+    pages.forEach(function(p,j){p.classList.toggle('on',j===cur)});
+    if(!keep)pages[cur].scrollTop=0;
+    update();
+  }
+  function setHash(id){try{history.replaceState(null,'','#'+id)}catch(e){}}
+  function goToId(id,keepHash){
+    var el=document.getElementById(id);if(!el)return false;
+    var p=el.closest('.page');if(!p)return false;
+    var i=pages.indexOf(p);
+    if(paged()){show(i);if(el!==p)el.scrollIntoView({block:'start'})}
+    else{cur=i;update();el.scrollIntoView({block:'start'})}
+    if(!keepHash)setHash(id);
+    return true;
+  }
+  function setMode(m,save){
+    mode=m;body.classList.toggle('scroll',m==='scroll');body.classList.toggle('paged',m!=='scroll');
+    $('modeBtn').textContent=m==='scroll'?'逐頁閱讀':'整頁捲動';
+    if(save){try{localStorage.setItem('l5mode',m)}catch(e){}}
+    if(m==='scroll'){pages.forEach(function(p){p.classList.remove('on')});update();if(save)pages[cur].scrollIntoView({block:'start'});onScroll()}
+    else{window.scrollTo(0,0);show(cur,true)}
+  }
+  function onScroll(){
+    if(paged())return;
+    var h=document.documentElement,max=h.scrollHeight-h.clientHeight;
+    $('topprog').style.width=(max>0?Math.min(100,h.scrollTop/max*100):0)+'%';
+    var y=window.innerHeight*0.35,best=0;
+    pages.forEach(function(p,j){if(p.getBoundingClientRect().top<=y)best=j});
+    if(best!==cur){cur=best;update()}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  $('modeBtn').onclick=function(){setMode(mode==='scroll'?'paged':'scroll',true)};
+  $('prev').onclick=function(){show(cur-1);setHash(pages[cur].id)};
+  $('next').onclick=function(){show(cur+1);setHash(pages[cur].id)};
+
+  /* 目錄 */
+  function tocOpen(on){toc.classList.toggle('on',on);$('tocBtn').classList.toggle('act',on);$('tocBtn').setAttribute('aria-expanded',on?'true':'false');if(on){var c=toc.querySelector('a.cur');if(c)c.focus()}}
+  $('tocBtn').onclick=function(){tocOpen(!toc.classList.contains('on'))};
+  toc.addEventListener('click',function(e){if(e.target===toc||e.target.classList.contains('toc-in'))tocOpen(false)});
+
+  /* 頁內連結：切到所在頁再捲到位置 */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]');if(!a)return;
+    var id=decodeURIComponent(a.getAttribute('href').slice(1));if(!id)return;
+    if(goToId(id)){e.preventDefault();tocOpen(false)}
+  });
+  window.addEventListener('hashchange',function(){goToId(decodeURIComponent(location.hash.slice(1)),true)});
+
+  /* 鍵盤 */
+  document.addEventListener('keydown',function(e){
+    if(lb.classList.contains('on'))return;
+    if(e.target.closest&&e.target.closest('input,textarea,select'))return;
+    if(e.metaKey||e.ctrlKey||e.altKey)return;
+    if(e.key==='Escape'){if(toc.classList.contains('on'))tocOpen(false);else if(body.classList.contains('searching'))searchOpen(false);return}
+    if(e.key==='o'||e.key==='O'){tocOpen(!toc.classList.contains('on'));return}
+    if(e.key==='/'){e.preventDefault();searchOpen(true);return}
+    if(toc.classList.contains('on')||!paged())return;
+    if(e.key==='ArrowRight'){show(cur+1);setHash(pages[cur].id)}
+    if(e.key==='ArrowLeft'){show(cur-1);setHash(pages[cur].id)}
+  });
+
+  /* ── 複製 ── */
+  function copyText(txt,btn){
+    function ok(){showToast();if(btn){btn.classList.add('ok');btn.textContent='已複製';setTimeout(function(){btn.classList.remove('ok');btn.textContent='複製'},1400)}}
+    function fallback(){var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){showToast('請手動複製')}document.body.removeChild(ta)}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(ok,fallback)}else{fallback()}
+  }
+  document.querySelectorAll('.prompt').forEach(function(p){if(!p.querySelector('.copy')){var b=document.createElement('button');b.className='copy';b.type='button';b.textContent='複製';p.appendChild(b)}});
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.copy');if(!b)return;
+    var box=b.parentElement,txt;
+    if(b.dataset.src){txt=document.getElementById(b.dataset.src).textContent}
+    else{var c=box.cloneNode(true);c.querySelectorAll('.copy,.label').forEach(function(n){n.remove()});txt=c.textContent.trim()}
+    copyText(txt,b);
+  });
+
+  /* 分頁籤 */
+  document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){var g=t.dataset.g;document.querySelectorAll('.tab[data-g="'+g+'"]').forEach(function(x){x.classList.toggle('on',x===t)});document.querySelectorAll('.panel[data-g="'+g+'"]').forEach(function(x){x.classList.toggle('on',x.id===t.dataset.t)})})});
+
+  /* 課後任務勾選 */
+  var boxes=[].slice.call(document.querySelectorAll('#checklist input')),bar=$('bar');
+  function upd(){if(!bar||!boxes.length)return;var n=boxes.filter(function(b){return b.checked}).length;bar.style.width=(n/boxes.length*100)+'%'}
+  boxes.forEach(function(b){
+    try{b.checked=localStorage.getItem('tyai5-'+b.dataset.k)==='1'}catch(e){}
+    b.addEventListener('change',function(){try{localStorage.setItem('tyai5-'+b.dataset.k,b.checked?'1':'0')}catch(e){}upd()});
+  });
+  upd();
+
+  /* ── 搜尋 ── */
+  var sIn=$('q'),sCnt=$('qCount'),marks=[],mc=-1,sT;
+  function searchOpen(on){body.classList.toggle('searching',on);$('searchBtn').classList.toggle('act',on);$('searchBtn').setAttribute('aria-expanded',on?'true':'false');if(on){tocOpen(false);sIn.focus();sIn.select()}else{sIn.value='';clearMarks()}}
+  $('searchBtn').onclick=function(){searchOpen(!body.classList.contains('searching'))};
+  function clearMarks(){marks.forEach(function(m){var p=m.parentNode;if(!p)return;p.replaceChild(document.createTextNode(m.textContent),m);p.normalize()});marks=[];mc=-1;sCnt.textContent=''}
+  function doSearch(){clearMarks();var q=sIn.value.trim();if(!q)return;var lq=q.toLowerCase();var main=document.querySelector('main');var w=document.createTreeWalker(main,NodeFilter.SHOW_TEXT,{acceptNode:function(n){if(!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;var p=n.parentNode;if(!p||p.closest('script,style,textarea,select,option,button,.copy'))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}});var nodes=[];while(w.nextNode())nodes.push(w.currentNode);
+    nodes.forEach(function(n){var t=n.nodeValue,lt=t.toLowerCase(),i=lt.indexOf(lq);if(i<0)return;var frag=document.createDocumentFragment(),last=0;while(i>=0){frag.appendChild(document.createTextNode(t.slice(last,i)));var m=document.createElement('mark');m.className='hit';m.textContent=t.slice(i,i+q.length);frag.appendChild(m);marks.push(m);last=i+q.length;i=lt.indexOf(lq,last)}frag.appendChild(document.createTextNode(t.slice(last)));n.parentNode.replaceChild(frag,n)});
+    if(!marks.length){sCnt.textContent='找不到';return}go(0)}
+  function go(i){if(!marks.length)return;if(mc>=0)marks[mc].classList.remove('cur');mc=(i+marks.length)%marks.length;var m=marks[mc];m.classList.add('cur');
+    var d=m.closest('details');while(d){d.open=true;d=d.parentElement&&d.parentElement.closest('details')}
+    var p=m.closest('.panel');if(p&&!p.classList.contains('on')){var g=p.getAttribute('data-g');[].forEach.call(document.querySelectorAll('.panel[data-g="'+g+'"]'),function(x){x.classList.remove('on')});p.classList.add('on');[].forEach.call(document.querySelectorAll('.tab[data-g="'+g+'"]'),function(t){t.classList.toggle('on',t.getAttribute('data-t')===p.id)})}
+    var pg=m.closest('.page');if(pg&&paged()&&pages.indexOf(pg)!==cur)show(pages.indexOf(pg),true);
+    m.scrollIntoView({block:'center'});sCnt.textContent=(mc+1)+' / '+marks.length}
+  sIn.addEventListener('input',function(){clearTimeout(sT);sT=setTimeout(doSearch,250)});
+  sIn.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();if(marks.length)go(mc+(e.shiftKey?-1:1));else doSearch()}if(e.key==='Escape'){searchOpen(false)}});
+  $('qNext').onclick=function(){marks.length?go(mc+1):doSearch()};
+  $('qPrev').onclick=function(){marks.length?go(mc-1):doSearch()};
+  $('qClear').onclick=function(){searchOpen(false)};
+
+  /* ── 圖片放大 ── */
+  var im=lb.querySelector('img'),cap=lb.querySelector('figcaption');
+  function lbClose(){lb.classList.remove('on');im.src=''}
+  document.addEventListener('click',function(e){
+    if(lb.classList.contains('on')){e.preventDefault();e.stopPropagation();lbClose();return}
+    var img=e.target.closest('main img');if(!img)return;
+    var a=img.closest('a'),href=a&&a.getAttribute('href')||'';
+    var src=/\.(jpe?g|png|gif|webp)(\?|$)/i.test(href)?href:img.currentSrc||img.src;
+    var fig=img.closest('figure'),fc=fig&&fig.querySelector('figcaption');
+    e.preventDefault();e.stopPropagation();im.src=src;cap.textContent=fc?fc.textContent.trim():img.alt;lb.classList.add('on');
+  },true);
+  document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;e.stopPropagation();if(e.key==='Escape'||e.key===' '||e.key==='Enter'){e.preventDefault();lbClose()}},true);
+
+  /* 啟動 */
+  setMode(mode,false);
+  var h=decodeURIComponent(location.hash.slice(1));
+  if(!(h&&goToId(h,true)))show(0);
+  if(!paged())onScroll();
+})();
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+(function(){var g=function(i){return document.getElementById(i)};
+var go=g('qrGo');if(go){go.onclick=function(){var u=g('qrUrl').value.trim(),o=g('qrOut'),m=g('qrMsg');o.innerHTML='';
+if(!/^https?:\/\/\S+$/.test(u)){m.textContent='請貼上完整的網址（https:// 開頭）。';return}
+if(typeof QRCode==='undefined'){m.textContent='QR 產生器沒有載入，請確認網路後重新整理。';return}
+var box=document.createElement('div');box.style.cssText='background:#fff;padding:10px;border:2px solid var(--ink);border-radius:10px';o.appendChild(box);
+new QRCode(box,{text:u,width:200,height:200,correctLevel:QRCode.CorrectLevel.M});
+var a=document.createElement('a');a.className='btn o';a.textContent='⬇ 下載 QR 圖片';a.href='#';a.onclick=function(ev){var c=box.querySelector('canvas');if(!c)return;ev.preventDefault();var l=document.createElement('a');l.href=c.toDataURL('image/png');l.download='qrcode.png';l.click()};o.appendChild(a);
+m.textContent='已產生。用手機掃一次確認打得開。'}}
+var F=[].slice.call(document.querySelectorAll('#planForm [data-pf]')),K='l5plan';
+if(F.length){var sv={};try{sv=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
+F.forEach(function(el){if(sv[el.id])el.value=sv[el.id];el.addEventListener('input',function(){sv[el.id]=el.value;try{localStorage.setItem(K,JSON.stringify(sv))}catch(e){}})});
+g('pfCopy').onclick=function(){var s='【落地計畫】\n'+F.map(function(el){return el.dataset.pf+'：'+(el.value.trim()||'（未填）')}).join('\n');
+var done=function(){g('pfMsg').textContent='已複製，可以貼到 LINE 群或科內文件。'};
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(s).then(done,function(){prompt('請手動複製：',s)})}else{prompt('請手動複製：',s)}};
+g('pfClear').onclick=function(){if(!confirm('確定清空這份落地計畫嗎？'))return;F.forEach(function(el){el.value=''});sv={};try{localStorage.removeItem(K)}catch(e){}g('pfMsg').textContent='已清空。'}}
+})();
+</script>
+<!--MG--><script>
+(function(){
+  var body=document.body,$=function(id){return document.getElementById(id)};
+  function paged(){return body.classList.contains('paged')}
+  function curPage(){return document.querySelector('.page.on')}
+  /* ---- 重點畫面：把簡報頁放進對應主題 ---- */
+  var deck=$('deck'),hosts=[];
+  if(deck&&deck.content&&Element.prototype.attachShadow){
+    var css=deck.content.querySelector('style').textContent,sheet=null;
+    try{sheet=new CSSStyleSheet();sheet.replaceSync(css)}catch(e){sheet=null}
+    var lb=$('lb'),last=null;
+    function mk(sl,i){
+      var h=document.createElement('div');h.className='sl';h.id='sl-'+(sl.id||('n'+i));
+      var r=h.attachShadow({mode:'open'});
+      if(sheet&&('adoptedStyleSheets' in r))r.adoptedStyleSheets=[sheet];else{var st=document.createElement('style');st.textContent=css;r.appendChild(st)}
+      var fr=document.createElement('div');fr.className='fr';sl.classList.add('on');fr.appendChild(sl);r.appendChild(fr);
+      r.addEventListener('click',function(e){
+        var b=e.target.closest('.cp');
+        if(b){var box=b.parentNode.cloneNode(true);box.querySelector('.cp').remove();var t=box.textContent.trim(),o=b.textContent;
+          var done=function(){b.textContent='已複製';setTimeout(function(){b.textContent=o},1300)};
+          if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(done,function(){});
+          else{var ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;opacity:0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(x){}document.body.removeChild(ta)}
+          return}
+        var img=e.target.closest('img');
+        if(img&&lb&&!img.closest('.qr')){var a=img.closest('a'),href=a&&a.getAttribute('href')||'';
+          var src=/\.(jpe?g|png|gif|webp)(\?|$)/i.test(href)?href:(img.currentSrc||img.src);
+          var fig=img.closest('figure'),fc=fig&&fig.querySelector('figcaption');
+          e.preventDefault();e.stopPropagation();
+          lb.querySelector('img').src=src;var cap=lb.querySelector('figcaption');if(cap)cap.textContent=fc?fc.textContent.trim():img.alt;
+          setTimeout(function(){lb.classList.add('on')},0)}
+      });
+      return h;
+    }
+    function topInsert(pg,h){
+      var n=pg.firstElementChild;
+      while(n&&(n.classList.contains('eyebrow')||n.classList.contains('confetti')||n.classList.contains('sl')))n=n.nextElementSibling;
+      pg.insertBefore(h,n);
+    }
+    [].slice.call(deck.content.querySelectorAll('section.slide')).forEach(function(sl,i){
+      var h=mk(sl,i),at=sl.getAttribute('data-at'),ok=false,pg;
+      if(at&&(pg=$(at))){
+        if(sl.getAttribute('data-pos')==='end'){var f=pg.querySelector('footer');if(f)f.parentNode.insertBefore(h,f);else pg.appendChild(h)}
+        else topInsert(pg,h);
+        ok=true;
+      }
+      if(!ok&&sl.id){
+        var ls=document.querySelectorAll('main a[href$="slides.html#'+sl.id+'"]');
+        for(var k=0;k<ls.length&&!ok;k++){
+          if(ls[k].closest('table'))continue;
+          var an=ls[k].closest('.card');
+          if(!an){an=ls[k];while(an.parentNode&&!(an.parentNode.classList&&an.parentNode.classList.contains('page')))an=an.parentNode}
+          if(an&&an.parentNode){var pv=an.previousElementSibling;an.parentNode.insertBefore(h,an);ok=true}
+        }
+      }
+      if(!ok&&last){last.parentNode.insertBefore(h,last.nextSibling);ok=true}
+      if(ok){last=h;hosts.push(h)}
+    });
+    /* 原本連到簡報的按鈕：重點畫面就在上方的拿掉，其他改成頁內跳轉 */
+    [].forEach.call(document.querySelectorAll('main a[href*="slides.html"]'),function(a){
+      var m=/slides\.html#(.+)$/.exec(a.getAttribute('href')||''),h=m&&$('sl-'+m[1]);
+      if(!h){a.remove();return}
+      if(h.closest('.page')===a.closest('.page')&&!a.closest('table')){a.remove();return}
+      a.setAttribute('href','#'+h.id);a.removeAttribute('target');a.removeAttribute('rel');
+      a.textContent=a.textContent.replace(/簡報這[一兩]頁/,'看重點畫面').replace(/^簡報$/,'重點畫面');
+    });
+    function fit(){
+      var H=Math.max(300,window.innerHeight-160);
+      hosts.forEach(function(h){var w=h.clientWidth;if(w)h.style.setProperty('--s',Math.min((w-4)/1280,H/720).toFixed(4))});
+    }
+    window.addEventListener('resize',fit);
+    if(window.ResizeObserver){var ro=new ResizeObserver(fit);hosts.forEach(function(h){ro.observe(h)})}
+    fit();
+    var hh=decodeURIComponent(location.hash.slice(1));
+    if(hh.indexOf('sl-')===0&&$(hh)){var l=document.createElement('a');l.href='#'+hh;l.style.display='none';document.querySelector('main').appendChild(l);l.click();l.remove()}
+  }
+  /* ---- 逐頁模式：滑到頁尾再往下滑就換下一頁，頁首再往上滑回上一頁 ---- */
+  function atEnd(p){return p.scrollTop+p.clientHeight>=p.scrollHeight-2}
+  function go(d){
+    var b=$(d>0?'next':'prev');if(!b||b.disabled)return;b.click();
+    if(d<0){var p=curPage();if(p)p.scrollTop=p.scrollHeight}
+  }
+  function busy(){var t=$('toc'),l=$('lb');return (t&&t.classList.contains('on'))||(l&&l.classList.contains('on'))}
+  var lastT=0,startEdge=0,acc=0,accDir=0,lock=0;
+  window.addEventListener('wheel',function(e){
+    if(!paged()||busy()||e.ctrlKey)return;
+    var p=curPage();if(!p||!p.contains(e.target))return;
+    var now=Date.now(),dir=e.deltaY>0?1:e.deltaY<0?-1:0;if(!dir)return;
+    if(now-lastT>220){startEdge=(atEnd(p)?1:0)|(p.scrollTop<=0?2:0);if(now-lastT>1500||dir!==accDir)acc=0;if(now>lock)lock=0}
+    lastT=now;
+    if(lock)return;
+    var ok=(dir>0&&(startEdge&1)&&atEnd(p))||(dir<0&&(startEdge&2)&&p.scrollTop<=0);
+    if(!ok){acc=0;return}
+    accDir=dir;acc+=Math.min(Math.abs(e.deltaY),120);
+    if(acc>=180){acc=0;lock=now+700;go(dir)}
+  },{passive:true});
+  var ty=null,tEdge=0;
+  document.addEventListener('touchstart',function(e){var p=curPage();if(!paged()||!p||busy()){ty=null;return}ty=e.touches[0].clientY;tEdge=(atEnd(p)?1:0)|(p.scrollTop<=0?2:0)},{passive:true});
+  document.addEventListener('touchend',function(e){if(ty==null||!paged())return;var dy=e.changedTouches[0].clientY-ty;ty=null;if(dy<-70&&(tEdge&1))go(1);else if(dy>70&&(tEdge&2))go(-1)},{passive:true});
+  document.addEventListener('keydown',function(e){
+    if(!paged()||busy()||e.metaKey||e.ctrlKey||e.altKey)return;
+    if(e.target.closest&&e.target.closest('input,textarea,select,button,a,summary,[contenteditable]'))return;
+    var p=curPage();if(!p)return;var k=e.key,d=0,amt=0;
+    if(k==='ArrowDown'){d=1;amt=90}else if(k==='ArrowUp'){d=-1;amt=90}
+    else if(k==='PageDown'||(k===' '&&!e.shiftKey)){d=1;amt=p.clientHeight*.88}
+    else if(k==='PageUp'||(k===' '&&e.shiftKey)){d=-1;amt=p.clientHeight*.88}
+    else return;
+    e.preventDefault();
+    if(d>0&&atEnd(p))go(1);else if(d<0&&p.scrollTop<=0)go(-1);else p.scrollTop+=d*amt;
+  });
+})();
+</script><!--/MG-->
+<script src="https://mattsue1003.github.io/oth-report-button/report.js" data-site="桃園醫院糖尿病中心 AI 工作坊｜第 5 堂" defer></script>
+</body>
+</html>
