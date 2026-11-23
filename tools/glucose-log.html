@@ -39,14 +39,14 @@ table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid var(--li
 <h2>最近的紀錄</h2>
 <div class="card" style="overflow-x:auto"><table><thead><tr><th>日期</th><th>時段</th><th>血糖</th><th></th></tr></thead><tbody id="tb"></tbody></table><p id="empty" class="lead">還沒有紀錄。</p></div>
 <div class="row noprint"><button class="o" type="button" id="csv">下載 CSV</button><button class="o" type="button" onclick="print()">列印</button><button class="o" type="button" id="wipe">清除全部</button></div>
-<div class="note">回診時把這份紀錄給醫療團隊看。這個工具只幫你記錄，不會判斷用藥或劑量。</div>
+<div class="note">回診時把這份紀錄給醫療團隊看。這個工具只幫你記錄，不會判斷數值高低，也不會判斷用藥或劑量。下載 CSV 如果沒反應，請改用 Safari 或 Chrome 打開這一頁（LINE 內建的瀏覽器不支援下載）。</div>
 <script>
 (function(){var K='bg-log-demo',$=function(i){return document.getElementById(i)},rows=[];try{rows=JSON.parse(localStorage.getItem(K)||'[]')}catch(e){}
-function save(){try{localStorage.setItem(K,JSON.stringify(rows))}catch(e){}}
-function draw(){var tb=$('tb');tb.innerHTML='';$('empty').hidden=rows.length>0;rows.forEach(function(r,i){var tr=document.createElement('tr');var low=r.v<70;tr.innerHTML='<td></td><td></td><td></td><td><button class="o" type="button" style="min-height:40px;padding:4px 14px">刪除</button></td>';tr.children[0].textContent=r.d;tr.children[1].textContent=r.w;tr.children[2].textContent=r.v+(low?'（偏低）':'');if(low)tr.children[2].style.cssText='color:#B4231F;font-weight:900';tr.querySelector('button').onclick=function(){rows.splice(i,1);save();draw()};tb.appendChild(tr)})}
+function save(){try{localStorage.setItem(K,JSON.stringify(rows));return true}catch(e){return false}}
+function draw(){var tb=$('tb');tb.innerHTML='';$('empty').hidden=rows.length>0;rows.forEach(function(r,i){var tr=document.createElement('tr');tr.innerHTML='<td></td><td></td><td></td><td><button class="o" type="button" style="min-height:40px;padding:4px 14px">刪除</button></td>';tr.children[0].textContent=r.d;tr.children[1].textContent=r.w;tr.children[2].textContent=r.v;var bt=tr.querySelector('button');bt.setAttribute('aria-label','刪除 '+r.d+' '+r.w+' 的紀錄');bt.onclick=function(){if(confirm('確定刪除 '+r.d+' '+r.w+' 這一筆嗎？')){rows.splice(i,1);save();draw()}};tb.appendChild(tr)})}
 var t=new Date();$('d').value=t.getFullYear()+'-'+('0'+(t.getMonth()+1)).slice(-2)+'-'+('0'+t.getDate()).slice(-2);
 $('add').onclick=function(){var v=parseInt($('v').value,10),m=$('msg');if(!$('d').value){m.textContent='請選日期。';return}if(!(v>=20&&v<=600)){m.textContent='請輸入 20 到 600 之間的數字。';return}
-rows.unshift({d:$('d').value,w:$('w').value,v:v});save();draw();$('v').value='';m.textContent=v<70?'已記錄。這次血糖低於 70，請依醫療團隊教你的低血糖處理方式處理。':'已記錄。'};
+rows.push({d:$('d').value,w:$('w').value,v:v,t:Date.now()});rows.sort(function(a,b){return a.d<b.d?1:a.d>b.d?-1:(b.t||0)-(a.t||0)});var ok=save();draw();$('v').value='';m.textContent=(ok?'已記錄。':'已記錄，但這個瀏覽器無法儲存，關掉頁面後紀錄會消失。')+'身體不舒服時，請依醫療團隊教你的方式處理。'};
 $('csv').onclick=function(){var s='\ufeff日期,時段,血糖(mg/dL)\n'+rows.map(function(r){return r.d+','+r.w+','+r.v}).join('\n');var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([s],{type:'text/csv'}));a.download='血糖紀錄.csv';a.click()};
 $('wipe').onclick=function(){if(confirm('確定要清除這台裝置上的全部紀錄嗎？清除後無法復原。')){rows=[];save();draw()}};draw()})();
 </script>
