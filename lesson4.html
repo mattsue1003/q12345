@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>第4堂講義｜糖尿病專科 AI 助手與知識庫（RAG）＋ Word、Excel、Google 三件套 × AI、Apps Script 自動化</title>
 <meta property="og:title" content="第4堂講義：AI 知識庫助手 ＋ 檔案 × AI">
-<meta property="og:description" content="RAG 知識庫概念、文件界線、三家建置、驗證題庫；Word／Excel／Google 三件套 × AI、Apps Script、終端機代理。">
-<meta name="description" content="衛福部桃園醫院糖尿病中心 AI 賦能工作坊 第 4 堂講義（11/23）：知識庫助手（RAG）概念與界線、文件整理與版本管理、ChatGPT 專案／Claude 專案／Gemini 筆記本 建置與指示語、驗證題庫與正確率測試、使用規範；三工具對照表、品質指標報表實作、Excel／Word／PPT／PDF 與 Google 三件套 × AI、描述性統計；Apps Script 自動化；終端機代理。">
+<meta property="og:description" content="RAG 知識庫概念、文件界線、ChatGPT 專案／Gemini 筆記本建置、驗證題庫；Word／Excel／Google 三件套 × AI、Apps Script、終端機代理。">
+<meta name="description" content="衛福部桃園醫院糖尿病中心 AI 賦能工作坊 第 4 堂講義（11/23）：知識庫助手（RAG）概念與界線、文件整理與版本管理、ChatGPT 專案／Gemini 筆記本建置與指示語、15 題驗證題庫與通過率、使用規範；三工具對照表、品質指標報表實作、Excel／Word／PPT／PDF 與 Google 三件套 × AI、描述性統計；Apps Script 自動化；終端機代理。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
@@ -300,6 +300,8 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 .kit.ext>h3::before{content:"延伸教學"}
 /* tap-fix */
 @media (max-width:900px){.prompt .copy{min-height:36px;padding:6px 16px;font-size:13px}.prompt{padding-top:52px}}
+/* label-size */
+.prompt .label,.pill,span.t{font-size:13px}
 </style><!--/MG-CSS-->
 </head>
 <body>
@@ -309,7 +311,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
   <span class="sp"></span>
   <span class="lessons-l">堂次</span>
   <nav class="lessons" aria-label="切換堂次"><a href="./" title="第 1 堂講義">1</a><a href="lesson2.html" title="第 2 堂講義">2</a><a href="lesson3.html" title="第 3 堂講義">3</a><a class="on" href="lesson4.html" title="第 4 堂講義" aria-current="page">4</a><a href="lesson5.html" title="第 5 堂講義">5</a></nav>
-  <span class="prog" id="prog">1 / 17</span>
+  <span class="prog" id="prog">1 / 22</span>
   <button class="bpill" id="tocBtn" type="button" aria-expanded="false">目錄</button>
   <button class="bpill" id="searchBtn" type="button" aria-expanded="false">搜尋</button>
   <button class="bpill hide-m" id="modeBtn" type="button">整頁捲動</button>
@@ -345,10 +347,10 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
     <button class="btn o" type="button" onclick="window.openReport&&window.openReport({type:'建議與想法'})">回報錯誤或建議</button>
   </div>
   <div class="goals">
-    <div class="goal" style="--c:var(--mag)"><b>目標 1</b>說得出知識庫問答和一般 AI 對話的差別：只照文件回答、附出處、查不到會說沒有。</div>
-    <div class="goal" style="--c:var(--amber)"><b>目標 2</b>用示範文件在 ChatGPT 專案或 Gemini 筆記本建出糖尿病衛教助手，跑 15 題驗證並看懂通過率，知道答錯怎麼修。</div>
-    <div class="goal" style="--c:var(--blue)"><b>目標 3</b>做出自己的第二大腦 LINE 機器人（階段 1）：想到什麼就傳，AI 整理進自己的試算表，而且不記可辨識個案的資料。</div>
-    <div class="goal" style="--c:var(--green)"><b>目標 4</b>知道 Excel、Word、PPT、PDF、Google 三件套各自該把哪一段交給 AI，數字類輸出怎麼核對；會請 AI 寫 Apps Script 做一件自動化。</div>
+    <div class="goal" style="--c:var(--green)"><b>目標 1</b>知道 Excel、Word、PPT、PDF、Google 三件套各自該把哪一段交給 AI，數字類輸出怎麼核對；會請 AI 寫 Apps Script 做一件自動化。</div>
+    <div class="goal" style="--c:var(--mag)"><b>目標 2</b>說得出知識庫問答和一般 AI 對話的差別：只照文件回答、附出處、查不到會說沒有。</div>
+    <div class="goal" style="--c:var(--amber)"><b>目標 3</b>用示範文件在 ChatGPT 專案或 Gemini 筆記本建出糖尿病衛教助手，跑 15 題驗證並看懂通過率，知道答錯怎麼修。</div>
+    <div class="goal" style="--c:var(--blue)"><b>目標 4</b>開始做自己的第二大腦 LINE 機器人（課堂起頭、課後完成階段 1）：想到什麼就傳，AI 整理進自己的試算表，而且不記可辨識個案的資料。</div>
   </div>
   <h2 class="sub">這份講義有什麼：點任何一列直接跳過去</h2>
   <nav class="agenda" aria-label="講義地圖">
@@ -373,7 +375,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <a href="#r4"><span class="no" style="--c:var(--mag)">R8</span><span><strong>科室助手程式與個資</strong><small>示範：一鍵驗證、同事共用</small></span><em>11:25</em></a>
       <div class="brk" style="--c:var(--green)"><i></i>第二大腦</div>
       <a href="#b1"><span class="no" style="--c:var(--green)">B1</span><span><strong>第二大腦是什麼</strong><small>LINE 隨手記、每天怎麼用、隱私</small></span><em>11:30</em></a>
-      <a href="#b2"><span class="no" style="--c:var(--green)">B2</span><span><strong>實作：六個階段</strong><small>課堂做階段 1</small></span><em></em></a>
+      <a href="#b2"><span class="no" style="--c:var(--green)">B2</span><span><strong>實作：六個階段</strong><small>課堂起頭，課後完成階段 1</small></span><em></em></a>
       <div class="brk" style="--c:var(--green)"><i></i>自動化</div>
       <a href="#gas"><span class="no" style="--c:var(--green)">A</span><span><strong>Apps Script 自動化</strong><small>每週自動寄報表、報名自動回信</small></span><em>11:50</em></a>
       <a href="#agents"><span class="no" style="--c:var(--green)">T</span><span><strong>終端機代理</strong><small>一句話做出一整個資料夾</small></span><em></em></a>
@@ -424,19 +426,19 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <tr><th style="width:72px">時間</th><th>內容</th><th style="width:120px">材料</th></tr>
       <tr><td>10:00</td><td><b>破冰</b>：玩教案知識庫、簡報素材庫與網頁簡報範本庫，感受「整理好的資料庫」的好處；順便回顧第 3 堂的上線成果</td><td><a href="#ice">破冰</a></td></tr>
       <tr><td>10:10</td><td><b>檔案 × AI 濃縮版</b>：三工具對照表、數據報表示範、Excel／Word／Google 三件套各一招、描述性統計</td><td><a href="#s15">第 1 節起</a></td></tr>
-      <tr><td>10:30</td><td><b>知識庫助手是什麼</b>：先加「衛教小幫手」LINE 體驗，再看 2 分鐘動畫與對照表</td><td><a href="#r1">R1</a></td></tr>
+      <tr><td>10:30</td><td><b>知識庫助手是什麼</b>：2 分鐘動畫與對照表（衛教小幫手 LINE 請在破冰或休息時間先加好友體驗）</td><td><a href="#r1">R1</a></td></tr>
       <tr><td>10:35</td><td><b>實作 1｜建助手（20 分）</b>：下載示範包，用 ChatGPT 專案或 Gemini 筆記本上傳 5 份文件、貼指示、發問</td><td><a href="#r2">R2</a></td></tr>
       <tr><td>10:55</td><td><b>實作 2｜驗證題庫（10 分）</b>：一次問完 15 題，貼進檢核表看通過率</td><td><a href="#r3">R3</a></td></tr>
       <tr><td>11:05</td><td>休息 10 分鐘</td><td></td></tr>
-      <tr><td>11:15</td><td><b>加文件、加題目、修錯誤、分享給同事</b>；放真實文件前的三件事：可放／不可放、文件整理、使用規範</td><td><a href="#rx">R4</a>–<a href="#k6">R7</a></td></tr>
+      <tr><td>11:15</td><td><b>加文件、加題目、修錯誤、分享給同事</b>；R5–R7（可放／不可放、文件整理、使用規範）課堂只看重點畫面，放真實文件前再細讀</td><td><a href="#rx">R4</a>–<a href="#k6">R7</a></td></tr>
       <tr><td>11:25</td><td><b>科室助手程式示範</b>：雙擊啟動、一鍵驗證、同事共用；個資與限制</td><td><a href="#r4">R8</a></td></tr>
-      <tr><td>11:30</td><td><b>第二大腦</b>：LINE 隨手記進自己的試算表，示範六個階段；<b>實作 3</b> 做階段 1</td><td><a href="#b1">B1</a>、<a href="#b2">B2</a></td></tr>
+      <tr><td>11:30</td><td><b>第二大腦</b>：LINE 隨手記進自己的試算表，講師示範階段 1 全程；<b>實作 3</b> 學員先做前兩步（建試算表、拿 Gemini 金鑰），其餘課後完成（階段 1 共約 40 分鐘）</td><td><a href="#b1">B1</a>、<a href="#b2">B2</a></td></tr>
       <tr><td>11:50</td><td><b>Apps Script 自動化 ＋ 終端機代理</b>示範</td><td><a href="#gas">自動化</a></td></tr>
       <tr><td>11:58</td><td>課後任務、下堂預告（11/30 衛教與行政微工具、成果落地）</td><td><a href="#hw">課後任務</a></td></tr>
     </table></div>
     <div>
       <div class="card"><h3 style="margin-top:0">帶走的三樣東西</h3>
-        <p>① 一個<b>糖尿病衛教助手</b>（ChatGPT 專案或 Gemini 筆記本），只照文件回答、會標出處、查不到會說沒有。<br>② 一次 <b>15 題驗證</b>的通過率，以及答錯時的修正方法。<br>③ 一個<b>第二大腦 LINE 機器人</b>（至少完成階段 1），想到什麼傳給它就存好。</p></div>
+        <p>① 一個<b>糖尿病衛教助手</b>（ChatGPT 專案或 Gemini 筆記本），只照文件回答、會標出處、查不到會說沒有。<br>② 一次 <b>15 題驗證</b>的通過率，以及答錯時的修正方法。<br>③ 一個<b>第二大腦 LINE 機器人</b>（課堂起頭，課後完成階段 1），想到什麼傳給它就存好。</p></div>
       <div class="note teal">今天主要照兩份教學頁做：<a class="" href="https://mattsue1003.github.io/diabetes-rag/tutorial/" target="_blank" rel="noopener">糖尿病衛教助手建置教學 ↗</a>、<a class="" href="https://mattsue1003.github.io/second-brain-guide/" target="_blank" rel="noopener">第二大腦實作教室 ↗</a>。示範文件與題庫在 R2 下載，全部是教學用摘要、沒有個資。</div>
       <div class="note">順序：先講每天都用得到的 Excel、Word、Google 三件套，再做知識庫助手（R1–R8 一條線講完），最後是第二大腦與自動化。</div>
     </div>
@@ -563,7 +565,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 <section class="page" id="xl" data-g="file" data-title="Excel × AI" style="--c:var(--blue)">
   <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>檔案 × AI<em>6 / 22</em></div>
-<!--KIT--><div class="kit"><h3>練習檔＋接著問的一題</h3><p class="exp">上傳練習檔，直接貼下面這一題（這份檔只有一張工作表「個案資料」，不用貼本頁的「通用開場」；通用開場與下方截圖用的是第 2 節的 lesson2-template.xlsx），最後用它給的公式在 Excel 驗算一格。</p><div class="ctas"><a class="btn" href="lesson2-dm-quality.xlsx" download>⬇ 個管品質資料 .xlsx</a><a class="btn o" href="lesson2-dm-quality.csv" download>⬇ 同一份 .csv</a></div><div class="prompt">接著請算：每一季的 HbA1c&lt;7 達標人數、總人數與達標率，列出分母；並附上我可以貼進 Excel 驗算的 COUNTIFS 公式（季別在 G 欄、「HbA1c&lt;7達標」在 I 欄）。</div></div><!--/KIT-->
+<!--KIT--><div class="kit"><h3>練習檔＋接著問的一題</h3><p class="exp">上傳練習檔，直接貼下面這一題（這份檔的資料都在工作表「個案資料」（另一張「說明」可忽略），不用貼本頁的「通用開場」；通用開場與下方截圖用的是第 2 節的 lesson2-template.xlsx），最後用它給的公式在 Excel 驗算一格。</p><div class="ctas"><a class="btn" href="lesson2-dm-quality.xlsx" download>⬇ 個管品質資料 .xlsx</a><a class="btn o" href="lesson2-dm-quality.csv" download>⬇ 同一份 .csv</a></div><div class="prompt">接著請算：每一季的 HbA1c&lt;7 達標人數、總人數與達標率，列出分母；並附上我可以貼進 Excel 驗算的 COUNTIFS 公式（季別在 G 欄、「HbA1c&lt;7達標」在 I 欄）。</div><details><summary><b>參考答案</b></summary><p>2026Q2：140／440＝31.8%；2026Q3：168／440＝38.2%。驗算公式：<code>=COUNTIFS(G:G,"2026Q2",I:I,"是")</code></p></details></div><!--/KIT-->
   <div class="sec-head"><div class="num" style="background:#1D6F42">X</div><div><h2>Excel × AI：六種搭配，從「幫我寫公式」到「整批檔案一次處理」</h2><p>衛教師每天都在開 Excel。AI 不是要取代它，而是把你卡最久的那幾步接走。由淺到深六種，前三種馬上就能用。</p></div></div>
   <div class="card">
     <div class="tbl"><table style="min-width:960px">
@@ -572,7 +574,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <tr><td><b>② 清理與整理資料</b></td><td>上傳檔案，請它統一格式、拆欄、找重複、標異常</td><td>「把『年齡組』統一成 &lt;65／65–74／≥75」「日期有 2026/3/1 和 3-1-26 兩種，統一成 YYYY-MM-DD」「找出同一個案同季重複列」</td><td>ChatGPT 工作模式、Claude（會跑程式）</td><td>要它<b>輸出改了哪些格</b>的清單，不要只給新檔；原檔留著</td></tr>
       <tr><td><b>③ 描述統計與樞紐</b></td><td>S 節的兩段提示詞</td><td>分性別、年齡層的達標率；每位衛教師的個案數</td><td>ChatGPT 工作、Claude 程式碼執行、Gemini</td><td>十條檢查；數字自己用 =COUNTIFS 抽查</td></tr>
       <tr><td><b>④ 畫圖表</b></td><td>請它用程式畫，或產出可編輯的 Excel 圖表</td><td>HbA1c 季趨勢折線圖、達標率長條圖，給它院內配色</td><td>ChatGPT 工作（可回傳 xlsx）、Claude（產 HTML 互動圖）</td><td>先指定圖型與分母；第 2 節 Ⓒ 有提示詞</td></tr>
-      <tr><td><b>⑤ 產出整份 Excel</b></td><td>給規格，它直接建檔：多工作表、公式、下拉選單、條件格式</td><td>「做一個個案追蹤表：原始資料、每月統計（公式自動算）、異常值用紅底」</td><td>ChatGPT 工作、Claude、Gemini Notebook（匯出 .docx／.pptx）</td><td>打開檢查公式是「活的」還是寫死的數字；課程模板就是這樣做出來的</td></tr>
+      <tr><td><b>⑤ 產出整份 Excel</b></td><td>給規格，它直接建檔：多工作表、公式、下拉選單、條件格式</td><td>「做一個個案追蹤表：原始資料、每月統計（公式自動算）、異常值用紅底」</td><td>ChatGPT 工作、Claude、Gemini（匯出到 Google 試算表）</td><td>打開檢查公式是「活的」還是寫死的數字；課程模板就是這樣做出來的</td></tr>
       <tr><td><b>⑥ 批次處理很多檔</b></td><td>把 30 個檔放進練習資料夾，交給資料夾代理</td><td>「把每個衛教師的月報合併成一張總表，欄位對齊，來源檔名放最後一欄」</td><td>Claude Code、Cowork</td><td>只指向去識別化的練習資料夾；先跑 2 個檔確認再跑全部</td></tr>
     </table></div>
   </div>
@@ -613,7 +615,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
     </div></div>
   </div>
   <div class="card">
-    <h3>課堂體驗（10 分鐘）：三個小任務，用課程模板</h3>
+    <h3>課後練習（約 10 分鐘）：三個小任務，用課程模板</h3>
     <ol class="steps">
       <li><b>寫公式：</b>「在『原始資料』工作表，幫我寫一個公式算 HbA1c&lt;7 的比例，分母排除空白。」把公式貼進 Excel，和它說的數字對一次。</li>
       <li><b>解釋公式：</b>打開模板「指標報表」工作表，複製任一格公式貼給 AI：「這在算什麼？哪裡可能算錯？」</li>
@@ -696,7 +698,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
   </div>
   <div class="grid2">
     <div class="card">
-      <h3>課堂體驗（10 分鐘）：同一份衛教文走三種檔</h3>
+      <h3>課後練習（約 10 分鐘）：同一份衛教文走三種檔</h3>
       <ol class="steps">
         <li><b>Word：</b>上傳一份已公開的衛教單張 .docx，「改成長者版，列出改動句子」。下載新檔，檢查標題樣式。</li>
         <li><b>PPT：</b>接著說「把長者版做成 6 頁簡報，每頁一個重點＋講者備忘稿」。ChatGPT 工作模式或 Claude 直接產 .pptx；開起來點文字框驗收。</li>
@@ -729,7 +731,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <tr><th></th><th>Google 試算表（＝Excel）</th><th>Google 文件（＝Word）</th><th>Google 簡報（＝PowerPoint）</th></tr>
       <tr><td><b>入口</b></td><td>右上 ✦ 開 Gemini 側欄；儲存格裡直接打 <code>=AI(...)</code></td><td>右上 ✦ 側欄；空白頁底部的「使用 Gemini 撰寫內容」</td><td>新檔案一開就跳出 Gemini 起始畫面（簡報／投影片／圖片／資訊圖表）；右上 ✦ 側欄</td></tr>
       <tr><td><b>最有感的功能</b></td><td><code>=AI("把這個症狀描述分成 低、中、高 風險", A2)</code> 往下拉整欄會自動逐格生成、批次分類；側欄「建一個季報範本」會自己建工作表、填範例、寫達標率公式、上格式</td><td>側欄一句話直接寫進文件，含標題樣式與大綱；選取文字後「幫我改寫」</td><td>「簡報」模式先問你風格與核心內容（勾選），列出大綱讓你核准，再生成整份；「圖片」用 Nano Banana Pro 生插圖</td></tr>
-      <tr><td><b>和 Excel／Word／PPT 路線的差別</b></td><td>不用上傳；公式直接寫進格子；但 =AI() 每格都算一次額度，量大時慢</td><td>不用下載 .docx 再開；產出就是可編輯文件；要給別人 Word 檔再「下載為 .docx」</td><td>產出直接可編輯、每個文字框獨立；版型比 Gemini 任務模式樸素，比 ChatGPT 產 .pptx 快很多（約 2 分鐘 vs 10 分鐘）</td></tr>
+      <tr><td><b>和 Excel／Word／PPT 路線的差別</b></td><td>不用上傳；公式直接寫進格子；但 =AI() 每格都算一次額度，量大時慢；一次最多生成 350 格</td><td>不用下載 .docx 再開；產出就是可編輯文件；要給別人 Word 檔再「下載為 .docx」</td><td>產出直接可編輯、每個文字框獨立；版型比 Gemini 任務模式樸素，比 ChatGPT 產 .pptx 快很多（約 2 分鐘 vs 10 分鐘）</td></tr>
       <tr><td><b>實測踩到的坑（2026/11）</b></td><td>=AI() 要按「生成並填入」才會跑；參照錯欄會回「請提供症狀描述」而不是報錯</td><td><b>側欄與「幫我寫」目前不支援中文提示詞</b>（回「目前不支援你輸入的語言」）。解法：用英文下指令、在指令裡寫 in Traditional Chinese，它就會用繁體中文寫進文件</td><td>側欄中文提示詞可以用，但它自己的步驟文字偶爾跳出簡體字（「审核并优化演示文稿」）；生成前的問卷是中英夾雜</td></tr>
       <tr><td><b>資料去哪裡</b></td><td colspan="3">檔案本來就在 Google 雲端硬碟；Gemini 讀的是這個檔和你勾選的來源（雲端硬碟／Gmail／Chat／網頁）。院內資料依資安規定；練習用合成資料。</td></tr>
     </table></div>
@@ -798,7 +800,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
   </div>
   <div class="grid2">
     <div class="card">
-      <h3>課堂體驗（10 分鐘）</h3>
+      <h3>課後練習（約 10 分鐘）</h3>
       <ol class="steps">
         <li><b>試算表：</b>sheets.new → 點 A1 貼上方練習內容第一段（標題＋5 句）→ B2 貼 <code>=AI("把這個症狀描述分成 低、中、高 三種風險，只回一個詞", A2)</code> → 生成並填入 → 往下拉整欄，看它逐格顯示「生成中…」。</li>
         <li><b>文件：</b>docs.new → 右上 ✦ → 用<b>英文</b>說 Write … in Traditional Chinese → 看它直接寫進文件 → 選一段試「幫我改寫」（若回不支援語言，改用英文 Rewrite in Traditional Chinese）。</li>
@@ -909,10 +911,10 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 <section class="page" id="r1" data-g="kb" data-title="知識庫助手是什麼" style="--c:var(--mag)">
   <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>知識庫助手<em>10 / 22</em></div>
-  <div class="sec-head"><div class="num">R1</div><div><h2>知識庫助手是什麼：只照科室文件回答，並附出處</h2><p>先加「衛教小幫手」LINE 體驗一下成品，再照著「糖尿病衛教助手建置教學」動手做。看 2 分鐘動畫，掌握「放文件、建索引、發問、驗證、修正」五個動作，再動手。</p></div></div>
+  <div class="sec-head"><div class="num">R1</div><div><h2>知識庫助手是什麼：只照科室文件回答，並附出處</h2><p>先加「衛教小幫手」LINE 體驗一下成品，再照著「糖尿病衛教助手建置教學」動手做。看 2 分鐘動畫，掌握「放文件、發問、驗證、修正」四個動作（動畫封面多列的「建索引」是助手程式自動做的），再動手。</p></div></div>
   <div class="card" style="margin-bottom:18px;display:flex;gap:22px;align-items:center;flex-wrap:wrap">
     <a href="https://lin.ee/V4gN3Px" target="_blank" rel="noopener" style="flex:none"><img src="img/l4-line-helper-qr.png" alt="衛教小幫手 LINE 加好友 QR code" width="150" height="150" style="display:block;border:2px solid var(--ink);border-radius:10px"></a>
-    <div style="flex:1 1 320px"><div class="pill o">動手做之前，先體驗 3 分鐘</div>
+    <div style="flex:1 1 320px"><div class="pill o">破冰或休息時間先加好友，體驗 3 分鐘</div>
       <h3 style="margin:8px 0 6px">加「衛教小幫手」LINE，先當一次使用者</h3>
       <p style="margin:0 0 10px">用手機掃 QR code，或按下面的按鈕加好友，問它一兩個糖尿病衛教問題。邊問邊觀察三件事：<b>回答有沒有根據？查不到的時候怎麼說？換個問法答案會不會變？</b>等一下你要做的，就是這樣的助手。</p>
       <div class="ctas" style="margin:0"><a class="btn line" href="https://lin.ee/V4gN3Px" target="_blank" rel="noopener">加入衛教小幫手 LINE ↗</a></div>
@@ -938,7 +940,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 
 <section class="page" id="r2" data-g="kb" data-title="實作：建立助手（免安裝）" style="--c:var(--mag)">
   <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>知識庫助手<em>11 / 22</em></div>
-  <div class="sec-head"><div class="num">R2</div><div><h2>實作 1：用 ChatGPT 專案或 Gemini 筆記本建一個助手（約 10 分鐘）</h2><p>路線一不用安裝任何東西。選你平常用的那一家，四個步驟：下載示範包 → 上傳 5 份文件 → 貼指示 → 發問。</p></div></div>
+  <div class="sec-head"><div class="num">R2</div><div><h2>實作 1：用 ChatGPT 專案或 Gemini 筆記本建一個助手（課堂 20 分鐘）</h2><p>路線一（免安裝）不用裝任何東西；路線二是 R8 的科室助手程式，課堂只示範。選你平常用的那一家，四個步驟：下載示範包 → 上傳 5 份文件 → 貼指示 → 發問。</p></div></div>
   <div class="card"><h3 style="margin-top:0">第 0 步：下載示範文件與題庫</h3>
     <p>下載後解壓縮，會得到 <code>diabetes-rag-main</code> 資料夾：<code>docs</code> 裡有 5 份示範衛教文件，<code>題庫.csv</code> 是 15 題驗證題。全部是教學用摘要，沒有個資。</p>
     <div class="ctas" style="margin:0"><a class="btn" href="https://github.com/mattsue1003/diabetes-rag/archive/refs/heads/main.zip">⬇ 下載示範包 ZIP</a><a class="btn o" href="https://github.com/mattsue1003/diabetes-rag" target="_blank" rel="noopener">GitHub 專案頁 ↗</a></div></div>
@@ -953,7 +955,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <p style="margin-bottom:0"><b>看到這樣就成功</b>：回答是條列的中文，句子後面有 [檔名]；問知識庫沒有的事，會回答「知識庫中沒有相關資料」。</p></div>
     <div class="card"><h3 style="margin-top:0">Gemini 筆記本（Gemini Notebook，原 NotebookLM）</h3>
       <ol class="steps">
-        <li>到 notebooklm.google.com 用 Google 帳號登入，按「新增筆記本」。</li>
+        <li>到 notebook.google.com（舊網址 notebooklm.google.com 會自動轉過去）用 Google 帳號登入，按「新增筆記本」。</li>
         <li>選「上傳檔案」，把 <code>docs</code> 裡的 5 個檔案加為來源。.md 傳不上去時，把副檔名改成 .txt 再傳。</li>
         <li>對話區的「設定對話」或齒輪 →「自訂」，貼上下面的指示，儲存。（按鈕名稱可能因版本略有不同）</li>
         <li>發問。</li>
@@ -968,7 +970,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 3. 使用繁體中文（台灣用語），條列、簡潔；數字與單位照文件原文，不自行換算。
 4. 不針對個別病人做診斷或處方決定；涉及個案時提醒以醫師判斷為準。</div></div>
     <div><h3 style="margin-top:0">建好先問這兩題</h3><div class="prompt">病人血糖 60，意識清楚，要怎麼處理？</div><p style="font-size:.93rem;color:var(--muted);margin:4px 0 12px">預期：15 公克速效糖、15 分鐘後再測，並標出處。</p><div class="prompt">糖尿病病人可以打胰島素治療肺炎嗎？</div><p style="font-size:.93rem;color:var(--muted);margin:4px 0 12px">預期：老實回答知識庫中沒有相關資料，不會自己編。</p>
-      <div class="note"><b>為什麼不用「自訂 GPT」或「Gem」</b>：個人帳號已經不能新建自訂 GPT；個人 Google 帳號的 Gem 自 2026/11/17 起改成唯讀、12/17 移除。所以改用還能用的「專案」與「筆記本」。</div>
+      <div class="note"><b>為什麼不用「自訂 GPT」或「Gem」</b>：個人帳號已經不能新建自訂 GPT，既有的自訂 GPT 也預定 2026/12/11 停用（以 OpenAI 公告為準）；個人 Google 帳號的 Gem 自 2026/11/17 起改成唯讀、12/17 移除。所以改用還能用的「專案」與「筆記本」。</div>
       <div class="ctas" style="margin:12px 0 0"><a class="btn o" href="https://mattsue1003.github.io/diabetes-rag/tutorial/#r1" target="_blank" rel="noopener">教學頁的這一段（可切換 ChatGPT／Gemini） ↗</a></div></div>
   </div>
 </section>
@@ -999,7 +1001,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <div class="card"><h3 style="margin-top:0">② 把 AI 的整段回答貼進檢核表</h3>
         <p>打開檢核表，貼上回答，按「開始檢核」。它依每一題的「必含關鍵字」判斷通過與否，只在你的瀏覽器裡計算，不會上傳。想先看結果長什麼樣，按「先用示範回答試試」。</p>
         <div class="ctas" style="margin:0"><a class="btn" href="https://mattsue1003.github.io/diabetes-rag/tutorial/#r1-check" target="_blank" rel="noopener">打開驗證檢核表 ↗</a></div>
-        <p style="margin:12px 0 0;font-size:.93rem;color:var(--muted)">第 15 題（肺炎）是故意放的：知識庫沒有這個主題，答「沒有相關資料」才算通過。要換成自己科室的題目，用 Excel 改 <code>題庫.csv</code>，另存「CSV UTF-8」後貼進檢核表下方的「貼上自己的題庫」。</p></div>
+        <p style="margin:12px 0 0;font-size:.93rem;color:var(--muted)">回答被截斷時：分兩次問（第 1–8 題、第 9–15 題），再把兩段回答接在一起貼進檢核表。</p><p style="margin:12px 0 0;font-size:.93rem;color:var(--muted)">第 15 題（肺炎）是故意放的：知識庫沒有這個主題，答「沒有相關資料」才算通過。要換成自己科室的題目，用 Excel 改 <code>題庫.csv</code>，另存「CSV UTF-8」後貼進檢核表下方的「貼上自己的題庫」。</p></div>
       <div class="note teal" style="margin-top:14px"><b>修正的迴圈</b>：看沒通過的題目 → 文件有寫到嗎？ → 補或改文件 → 重新上傳（重建知識庫） → 再驗證。</div>
     </div>
   </div>
@@ -1017,8 +1019,8 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
         <tr><td>Gemini 筆記本</td><td>打開筆記本，按「新增來源」→「上傳檔案」。</td><td>免費版 50 個來源</td></tr>
         <tr><td>科室助手程式（R8）</td><td>「設定與管理」第 3 區把檔案拖進虛線框，按「重建知識庫」。</td><td>沒有固定份數上限</td></tr>
       </table></div>
-      <p><b>ChatGPT 免費版放不下 10 份時，三個做法擇一</b>：<br>(a) 把同主題的文件合併成 5 份以內，例如「低血糖」和「生病日」併成一份；每一段開頭保留原本的標題，AI 才找得到。<br>(b) 改用 Gemini 筆記本，免費就能放 50 份。<br>(c) 改用科室助手程式。</p>
-      <p style="margin-bottom:0"><b>加完一定要做兩件事</b>：開一個<b>新對話</b>，問一題「只有新文件才有答案」的問題，確認它真的讀到了；再照 ② 補題目，把整份題庫重跑一次。</p></div>
+      <p><b>ChatGPT 免費版放不下 10 份時，三個做法擇一</b>：<br>(a) 把同主題的文件合併成 5 份以內，例如把 02 低血糖和 04 足部與生病日併成一份；每一段開頭保留原本的標題，AI 才找得到。<br>(b) 改用 Gemini 筆記本，免費就能放 50 份。<br>(c) 改用科室助手程式。</p>
+      <p><b>沒有自己的文件可以加？</b>先用 R6 的練習檔當第 6 份：<a href="kit/練習_未整理_運動與血糖.txt" download>⬇ 運動與血糖（未整理）.txt</a>，照 R6 整理好再加進來。</p><p style="margin-bottom:0"><b>加完一定要做兩件事</b>：開一個<b>新對話</b>，問一題「只有新文件才有答案」的問題，確認它真的讀到了；再照 ② 補題目，把整份題庫重跑一次。</p></div>
     <div class="card"><h3 style="margin-top:0">② 內容變多，題目要跟著加</h3>
       <p><b>原則</b>：每加一份文件，至少補 3 題，並且<b>舊題目全部留著一起重跑</b>。新文件有時會讓原本答對的題目變成答錯，只考新題看不出來。</p>
       <ol class="steps">
@@ -1041,7 +1043,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 意識清楚的低血糖要怎麼處理？,15|葡萄糖/果汁/方糖,吃 15 公克速效糖，15 分鐘後再測。
 病人低血糖已經意識不清，可以餵果汁嗎？,不可/不要/絕對|升糖素|119,不可餵食；給升糖素並撥打 119。
 糖尿病病人可以打胰島素治療肺炎嗎？,沒有相關資料,（知識庫沒有這個主題，測它會不會老實說）</div>
-      <p style="font-size:.95rem;margin:8px 0 0"><code>|</code> 分開的每一組<b>都要出現</b>才算通過；<code>/</code> 分開的是同義詞，<b>出現一個就算</b>。檢核只看「回答裡有沒有這些字」，所以：<br>數字不要太短，寫 <code>7</code> 的話回答出現 70、17 也會過，寫成 <code>7.0</code> 或 <code>37</code> 這種比較不會誤判。<br>每 5 題放 1 題「知識庫沒有」的題目，關鍵字寫 <code>沒有相關資料</code>，用來抓它亂編。</p></div>
+      <p style="font-size:.95rem;margin:8px 0 0"><code>|</code> 分開的每一組<b>都要出現</b>才算通過；<code>/</code> 分開的是同義詞，<b>出現一個就算</b>。檢核只看「回答裡有沒有這些字」，所以：<br>數字不要太短，寫 <code>7</code> 的話回答出現 70、17 也會過，寫成 <code>7.0</code> 或 <code>37</code> 這種比較不會誤判。<br>每 5 題放 1 題「知識庫沒有」的題目，關鍵字寫 <code>沒有相關資料</code>，用來抓它亂編。<br>示範題庫的第 4、5、10、13 題就是比較寬鬆的寫法，換成自己的題庫時改嚴一點。</p></div>
   </div>
   <div class="card" style="margin-top:18px"><h3 style="margin-top:0">③ 檢核出「未通過」，怎麼調整</h3>
     <p>檢核表的「說明」欄會寫缺少哪個關鍵字。先回去看助手那一題的原始回答，依下面的順序判斷是哪一種：</p>
@@ -1058,8 +1060,8 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
   <div class="card" style="margin-top:18px"><h3 style="margin-top:0">④ 怎麼分享給同事用</h3>
     <div class="tbl"><table>
       <tr><th style="width:170px">做法</th><th>怎麼做</th><th>注意</th></tr>
-      <tr><td>Gemini 筆記本</td><td>在完整版 Gemini Notebook（notebooklm.google.com）打開筆記本，按右上「分享」，輸入同事的 Google 帳號，權限選「檢視者」。</td><td>同事要有 Google 帳號。給「檢視者」就能發問；給「編輯者」對方可以增刪來源。</td></tr>
-      <tr><td>ChatGPT 專案</td><td>在專案裡用分享功能邀請同事的 ChatGPT 帳號。</td><td>可邀請的人數依方案而定；Business 方案可用工作區連結。看不到分享選項時改用下面兩種。</td></tr>
+      <tr><td>Gemini 筆記本</td><td>在完整版 Gemini Notebook（notebook.google.com）打開筆記本，按右上「分享」，輸入同事的 Google 帳號，權限選「檢視者」。</td><td>同事要有 Google 帳號。給「檢視者」就能發問；給「編輯者」對方可以增刪來源。</td></tr>
+      <tr><td>ChatGPT 專案</td><td>在專案右上按「分享」，輸入同事的 ChatGPT 帳號 Email，權限選「Chat（對話）」。</td><td>免費版最多 5 位協作者、Plus 10 位、Pro 100 位。給「Edit」對方可以改指示、增刪檔案。看不到分享選項時改用下面兩種。</td></tr>
       <tr><td>科室助手程式（R8）</td><td>在一台固定的科室電腦上用「科室共用」方式啟動，把畫面顯示的 <code>http://192.168.…:8877</code> 網址給同事。</td><td>同事要在同一個院內網路，不用帳號、不用安裝。那台電腦要開著；設定頁只有那台電腦能開。</td></tr>
       <tr><td>最簡單：各建一份</td><td>把文件資料夾、指示文字、題庫 CSV 放到科室共用資料夾，同事照 R2 自己建，約 10 分鐘。</td><td>每個人的版本可能不同步；文件更新時要通知大家重新上傳。</td></tr>
     </table></div>
@@ -1132,7 +1134,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
         <li><b>檔名規則</b>：主題_對象_版本_日期_來源，例如「低血糖處理_病人版_v3_2026-09_院內核定.pdf」。助手引用時會念出檔名，檔名就是出處的一半。</li>
         <li><b>文件卡</b>：每份文件第一頁（或第一段）加五行：標題、來源與核定單位、版本與日期、適用對象、下次檢視日期。AI 讀到會跟著標。</li>
         <li><b>轉成純文字</b>：掃描 PDF（圖片型）用「上傳雲端硬碟 → 以 Google 文件開啟」OCR 成文字；有文字層的 PDF 才用 MarkItDown 轉；表格多的文件轉成 Markdown 或 .docx，別留圖片型 PDF。</li>
-        <li><b>文件清單</b>：一份 Excel（<a href="kit/文件清單.xlsx" download>⬇ 下載範本</a>）：檔名、主題、版本、日期、核定者、放進了哪一家助手、下次檢視。這張表就是版本管理。（範本裡預填的是示範用檔名，請換成你自己的文件。）</li>
+        <li><b>文件清單</b>：一份 Excel（<a href="kit/文件清單.xlsx" download>⬇ 下載範本</a>）：檔名、主題、版本、日期、核定者、放進了哪一家助手、下次檢視。這張表就是版本管理。（範本裡預填的是示範包的 5 個檔名，請換成你自己的文件。）</li>
       </ol></div>
     <div>
       <div class="prompt">請幫我為下面這份衛教文件寫一張「文件卡」放在開頭，格式固定五行：
@@ -1215,7 +1217,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       </table></div></div>
     <div>
       <div class="card"><h3 style="margin-top:0">開始前準備</h3>
-        <ul style="margin:0;padding-left:1.2em"><li>一個 Google 帳號</li><li>LINE 帳號（手機）</li><li>電腦＋Chrome 瀏覽器</li><li>六個階段共約 110 分鐘；只做階段 1 也能用</li></ul></div>
+        <ul style="margin:0;padding-left:1.2em"><li>一個個人 Google 帳號（機關帳號可能不能用 Apps Script）</li><li>LINE 帳號（手機）</li><li>電腦＋Chrome 瀏覽器</li><li>六個階段共約 110 分鐘；只做階段 1 也能用</li></ul></div>
       <div class="note red" style="margin-top:14px"><b>先講清楚隱私</b>：筆記存在你自己的 Google 試算表，但內容會送到 Gemini 整理。Gemini 免費方案的內容可能被 Google 用來改善產品，所以<b>不要記錄姓名、病歷號、電話等可以辨識個案的資料</b>，寫「78 歲女性、第 2 型糖尿病 15 年」這種去識別化的描述就好。</div>
       <div class="note teal" style="margin-top:14px"><b>和科室助手的差別</b>：科室助手放的是核定文件，答案要能驗證；第二大腦放的是你自己的想法與學習筆記，重點是存得快、找得到。</div>
       <div class="ctas" style="margin:14px 0 0"><a class="btn" href="https://mattsue1003.github.io/second-brain-guide/" target="_blank" rel="noopener">打開第二大腦實作教室 ↗</a></div>
@@ -1225,14 +1227,14 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 
 <section class="page" id="b2" data-g="sb" data-title="實作：六個階段" style="--c:var(--green)">
   <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>第二大腦<em>19 / 22</em></div>
-  <div class="sec-head"><div class="num">B2</div><div><h2>實作 3：六個階段，做完一個就能用一個（課堂做階段 1）</h2><p>每個階段都是在同一個 Google 試算表裡多加一個檔案，從頭到尾用同一個 LINE 官方帳號、同一個網址。步驟和程式碼都在實作教室頁面，照著勾選就好。</p></div></div>
-  <div class="grid3"><div class="card"><div class="pill o">階段 1</div><h3 style="margin:8px 0 6px">隨手記</h3><p style="margin:0 0 12px">傳給 LINE 就存好，AI 自動下標題、摘要、標籤</p><a class="btn" href="https://mattsue1003.github.io/second-brain-guide/#s1" target="_blank" rel="noopener">課堂做這一段 ↗</a></div><div class="card"><div class="pill a">階段 2</div><h3 style="margin:8px 0 6px">知識總站</h3><p style="margin:0 0 12px">一個網頁搜尋全部筆記，匯入舊資料</p><a class="btn o" href="https://mattsue1003.github.io/second-brain-guide/#s2" target="_blank" rel="noopener">打開階段 2 ↗</a></div><div class="card"><div class="pill a">階段 3</div><h3 style="margin:8px 0 6px">問自己的 AI</h3><p style="margin:0 0 12px">用自己的筆記回答問題，附來源</p><a class="btn o" href="https://mattsue1003.github.io/second-brain-guide/#s3" target="_blank" rel="noopener">打開階段 3 ↗</a></div><div class="card"><div class="pill a">階段 4</div><h3 style="margin:8px 0 6px">每週回顧信</h3><p style="margin:0 0 12px">每週日自動寄出回顧與可以再用的舊筆記</p><a class="btn o" href="https://mattsue1003.github.io/second-brain-guide/#s4" target="_blank" rel="noopener">打開階段 4 ↗</a></div><div class="card"><div class="pill a">階段 5</div><h3 style="margin:8px 0 6px">變成成品</h3><p style="margin:0 0 12px">勾選筆記，產出貼文、教案、簡報初稿</p><a class="btn o" href="https://mattsue1003.github.io/second-brain-guide/#s5" target="_blank" rel="noopener">打開階段 5 ↗</a></div><div class="card"><div class="pill a">階段 6</div><h3 style="margin:8px 0 6px">AI 秘書</h3><p style="margin:0 0 12px">同一個機器人記行事曆、待辦、記帳</p><a class="btn o" href="https://mattsue1003.github.io/second-brain-guide/#s6" target="_blank" rel="noopener">打開階段 6 ↗</a></div></div>
+  <div class="sec-head"><div class="num">B2</div><div><h2>實作 3：六個階段，做完一個就能用一個（課堂起頭，階段 1 約 40 分鐘，課後完成）</h2><p>每個階段都是在同一個 Google 試算表裡多加一個檔案，從頭到尾用同一個 LINE 官方帳號、同一個網址。步驟和程式碼都在實作教室頁面，照著勾選就好。</p></div></div>
+  <div class="grid3"><div class="card"><div class="pill o">階段 1</div><h3 style="margin:8px 0 6px">隨手記</h3><p style="margin:0 0 12px">傳給 LINE 就存好，AI 自動下標題、摘要、標籤</p><a class="btn" href="https://mattsue1003.github.io/second-brain-guide/#s1" target="_blank" rel="noopener">從這一段開始 ↗</a></div><div class="card"><div class="pill a">階段 2</div><h3 style="margin:8px 0 6px">知識總站</h3><p style="margin:0 0 12px">一個網頁搜尋全部筆記，匯入舊資料</p><a class="btn o" href="https://mattsue1003.github.io/second-brain-guide/#s2" target="_blank" rel="noopener">打開階段 2 ↗</a></div><div class="card"><div class="pill a">階段 3</div><h3 style="margin:8px 0 6px">問自己的 AI</h3><p style="margin:0 0 12px">用自己的筆記回答問題，附來源</p><a class="btn o" href="https://mattsue1003.github.io/second-brain-guide/#s3" target="_blank" rel="noopener">打開階段 3 ↗</a></div><div class="card"><div class="pill a">階段 4</div><h3 style="margin:8px 0 6px">每週回顧信</h3><p style="margin:0 0 12px">每週日自動寄出回顧與可以再用的舊筆記</p><a class="btn o" href="https://mattsue1003.github.io/second-brain-guide/#s4" target="_blank" rel="noopener">打開階段 4 ↗</a></div><div class="card"><div class="pill a">階段 5</div><h3 style="margin:8px 0 6px">變成成品</h3><p style="margin:0 0 12px">勾選筆記，產出貼文、教案、簡報初稿</p><a class="btn o" href="https://mattsue1003.github.io/second-brain-guide/#s5" target="_blank" rel="noopener">打開階段 5 ↗</a></div><div class="card"><div class="pill a">階段 6</div><h3 style="margin:8px 0 6px">AI 秘書</h3><p style="margin:0 0 12px">同一個機器人記行事曆、待辦、記帳</p><a class="btn o" href="https://mattsue1003.github.io/second-brain-guide/#s6" target="_blank" rel="noopener">打開階段 6 ↗</a></div></div>
   <div class="grid2" style="margin-top:18px">
     <div class="card"><h3 style="margin-top:0">階段 1 會做的事</h3>
       <ol class="steps">
         <li>開一個新的 Google 試算表，打開「擴充功能 → Apps Script」。</li>
         <li>到 Google AI Studio 取得 Gemini 金鑰；畫面要你綁帳單或填信用卡時略過。</li>
-        <li>建一個新的 LINE 官方帳號，打開 Messaging API，取得存取權杖。</li>
+        <li>建一個新的 LINE 官方帳號，打開 Messaging API，取得通行權杖（Channel access token）。</li>
         <li>把教室頁面的程式碼貼進 Apps Script，填好「設定」檔，部署成網頁應用程式（存取權選「所有人」）。</li>
         <li>把結尾是 <code>/exec</code> 的網址填進 LINE 的 Webhook，打開 Use webhook，用手機傳第一則筆記。</li>
       </ol>
@@ -1313,7 +1315,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
     <div class="pill o" style="margin:14px 0 6px">檔案 × AI 與自動化</div>
     <label><input type="checkbox" data-k="e"><span>完成數據報表實作 Ⓐ～Ⓓ，手動驗算其中一組數字，用模板印一張個案回饋單</span></label>
     <label><input type="checkbox" data-k="f"><span>用 Excel × AI 前三種解決一個本週真的卡住的試算表問題；用十條檢查核對一份 AI 算出來的百分比</span></label>
-    <label><input type="checkbox" data-k="g"><span>在第 3 堂的報名表試算表加上 Apps Script 範例 ①（每週寄報名人數），設好觸發條件並收到第一封信</span></label>
+    <label><input type="checkbox" data-k="g"><span>在第 3 堂的報名表試算表（或 A 頁那份 6 筆練習資料的試算表）加上 Apps Script 範例 ①（每週寄報名人數），設好觸發條件並收到第一封信</span></label>
     <label><input type="checkbox" data-k="h"><span>（選做）裝 Antigravity CLI 或 Copilot Free，交辦一次「做三個資料夾」</span></label>
   </div>
   <div class="card fb" style="margin-top:18px"><div class="fb-in"><div class="fb-ico">→</div><div style="flex:1 1 300px"><b style="font-size:1.15rem">下一堂（11/30）第 5 堂：AI 衛教與行政微工具開發與成果落地</b>　<a href="lesson5.html">打開第 5 堂講義 →</a><br>用自然語言描述需求做出可實際使用的單頁衛教工具（血糖紀錄、足部自我檢查、低血糖處理卡），法規界線與免責標示，部署方式（QR code、衛教室平板、共用連結），以及成果發表與落地計畫。請先想好：<b>你想做的一個小工具是什麼、給誰用、放在哪裡</b>。</div></div></div>
@@ -1807,7 +1809,7 @@ body.list .slide.cover{display:block}
   <div class="foot"><span>第 4 堂｜知識庫助手｜講義 R7</span><span class="pg"></span></div>
 </section>
 <section data-at="s15" class="slide" id="s-line2">
-  <span class="kicker a">檔案 × AI｜把 AI 接進每天的檔案（第 2、3 堂延後的部分）</span>
+  <span class="kicker a">檔案 × AI｜把 AI 接進每天的檔案</span>
   <h2>Excel、Word、PPT、PDF、Google 三件套與數據報表：AI 該接哪一段</h2>
   <div class="cols" style="grid-template-columns:1.15fr 1fr">
     <div class="card t"><h3>這段 20 分鐘的順序</h3>
@@ -2007,7 +2009,7 @@ copilot
 <b># 第一次輸入 /login 依畫面登入</b></div>
   </div>
   <div class="cols" style="margin-top:10px">
-    <div class="card"><h3>和 GitHub 上架最順</h3><p style="font-size:16px">VS Code 左側「原始檔控制」按一下就能把資料夾發布成 GitHub 倉庫；今天先用第 2 堂教的網頁拖曳上傳，不用急著學。</p></div>
+    <div class="card"><h3>和 GitHub 上架最順</h3><p style="font-size:16px">VS Code 左側「原始檔控制」按一下就能把資料夾發布成 GitHub 倉庫；今天先用第 3 堂教的「一個作品一個倉庫」網頁上傳，不用急著學。</p></div>
     <div class="note" style="margin-top:0;font-size:15px">Free 的聊天與代理額度用「AI 點數」計算、數字不公開；用完會提示下個月再來或升級，不會自動扣款。補全建議預設會比對公開程式碼並回傳遙測，可在設定關閉。</div>
   </div>
   <div class="foot"><span>第 4 堂｜終端機代理</span><span class="pg"></span></div>
