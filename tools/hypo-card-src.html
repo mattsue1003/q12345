@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>低血糖處理卡（範例）</title>
+<style>
+:root{--ink:#18181B;--paper:#FFFDF8;--line:#D9D4C7;--muted:#5B5B66;--ok:#1F7A4D;--warn:#B4231F;--amber:#FFE9A8;--soft:#F3EFE4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;font-size:20px;line-height:1.7}
+main{max-width:720px;margin:0 auto;padding:20px 16px 90px}
+h1{font-size:1.7rem;line-height:1.3;margin:.2em 0 .3em}
+h2{font-size:1.25rem;margin:1.2em 0 .4em}
+p{margin:.4em 0}
+.lead{color:var(--muted)}
+.card{border:2px solid var(--ink);border-radius:14px;padding:16px 18px;margin:14px 0;background:#fff}
+.step{display:flex;gap:14px;align-items:flex-start}
+.step b.n{flex:none;width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:1.2rem}
+button,.btn{font:inherit;font-weight:700;border:2px solid var(--ink);border-radius:999px;background:var(--ink);color:#fff;padding:12px 22px;min-height:52px;cursor:pointer}
+button.o{background:#fff;color:var(--ink)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:4px solid #2F6FED;outline-offset:2px}
+input,select{font:inherit;border:2px solid var(--ink);border-radius:10px;padding:10px 12px;min-height:52px;background:#fff;color:var(--ink);max-width:100%}
+.warn{border-color:var(--warn);background:#FDECEA}
+.okb{border-color:var(--ok);background:#E8F5EE}
+.note{background:var(--amber);border-radius:12px;padding:12px 16px;margin:14px 0}
+.disc{border-top:2px solid var(--line);margin-top:28px;padding-top:14px;font-size:.85rem;color:var(--muted)}
+table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+@media print{button,.noprint{display:none!important}body{font-size:16px}}
+</style>
+</head>
+<body>
+<main>
+<h1>低血糖處理卡</h1>
+<p class="lead">血糖低於 70 mg/dL，或出現發抖、冒冷汗、心悸、飢餓、頭暈時，照下面三步做。</p>
+<div class="card warn"><b>先確認：人清醒嗎？</b><br>叫不醒、意識不清或無法吞嚥：<b>不要餵任何東西</b>，讓他側躺，立刻撥 <b>119</b>。</div>
+<div class="card"><div class="step"><b class="n">1</b><div><b>吃 15 公克糖</b>（擇一）<br>葡萄糖錠 15 公克（顆數看包裝標示）<br>果汁或含糖飲料約 120–150 毫升（半杯）<br>方糖 3–4 顆，或砂糖 1 湯匙<p style="margin:.5em 0 0;font-size:.9em"><b>有吃阿卡波糖（Acarbose）這類藥的人</b>：低血糖時要用葡萄糖錠或葡萄糖粉，方糖和果汁效果比較慢。不確定自己的藥是哪一種，請問醫療團隊。</p></div></div></div>
+<div class="card"><div class="step"><b class="n">2</b><div><b>等 15 分鐘</b>，坐著休息，不要再多吃。<div class="row" style="margin-top:10px"><button id="go" type="button">開始計時 15 分鐘</button><button id="rs" class="o" type="button">重設</button></div><p id="t" style="font-size:2.2rem;font-weight:900;margin:.3em 0 0">15:00</p><p id="tm" aria-live="polite" style="margin:0;font-weight:700"></p></div></div></div>
+<div class="card"><div class="step"><b class="n">3</b><div><b>再測一次血糖</b><br>還是低於 70：回到第 1 步再做一次。<br>已經回到 70 以上：下一餐如果還要等超過 1 小時，先吃一份點心（例如一片吐司或幾片蘇打餅）。</div></div></div>
+<div class="note">做了兩次還是沒有回升，或症狀越來越嚴重，請立刻就醫。事後記下發生的時間與可能原因，下次回診告訴醫療團隊。</div>
+<div class="row noprint"><button class="o" type="button" onclick="print()">列印這張卡</button></div>
+<script>
+(function(){var end=0,id=null,t=document.getElementById('t'),tm=document.getElementById('tm');
+function show(s){var m=Math.floor(s/60),x=s%60;t.textContent=(m<10?'0':'')+m+':'+(x<10?'0':'')+x}
+function tick(){var s=Math.max(0,Math.round((end-Date.now())/1000));show(s);if(s<=0){clearInterval(id);id=null;tm.textContent='時間到，請再測一次血糖。';if(navigator.vibrate)navigator.vibrate([300,150,300])}}
+document.getElementById('go').onclick=function(){if(id)return;end=Date.now()+900000;tm.textContent='開始計時 15 分鐘，請坐著休息。';tick();id=setInterval(tick,1000)};
+document.getElementById('rs').onclick=function(){clearInterval(id);id=null;show(900);tm.textContent=''};
+document.addEventListener('visibilitychange',function(){if(id&&!document.hidden)tick()});})();
+</script>
+<div class="disc"><b>使用說明與免責</b><br>本工具僅供衛教說明與自我管理提醒，不能取代醫師的診斷、處方與醫療建議。每個人的處理方式可能依醫囑不同，請以你的醫療團隊給的指示為準。身體不舒服或有疑問，請聯絡你的醫療團隊；緊急狀況請撥 119。<br>衛教單位：（請填單位名稱）｜聯絡電話：（請填）｜版本：v1｜最後檢視日期：（請填）｜內容審核：（請填審核者）</div>
+</main>
+</body>
+</html>
