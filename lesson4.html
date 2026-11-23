@@ -570,7 +570,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <tr><th>用法</th><th>怎麼做</th><th>衛教師例子</th><th>適合工具</th><th>風險與對策</th></tr>
       <tr><td><b>① 寫公式、解釋公式</b><br><small>最安全、最常用</small></td><td>把需求用中文講，或把看不懂的公式貼給它</td><td>「A 欄是 HbA1c，B 欄是日期，幫我寫一個公式：近 90 天內 HbA1c&lt;7 的人數」「這段 VLOOKUP 在做什麼？」</td><td>三家都行；Gemini 對 Google 試算表函數最熟</td><td>公式貼回去前，拿 3 筆已知答案的列驗算</td></tr>
       <tr><td><b>② 清理與整理資料</b></td><td>上傳檔案，請它統一格式、拆欄、找重複、標異常</td><td>「把『年齡組』統一成 &lt;65／65–74／≥75」「日期有 2026/3/1 和 3-1-26 兩種，統一成 YYYY-MM-DD」「找出同一個案同季重複列」</td><td>ChatGPT 工作模式、Claude（會跑程式）</td><td>要它<b>輸出改了哪些格</b>的清單，不要只給新檔；原檔留著</td></tr>
-      <tr><td><b>③ 描述統計與樞紐</b></td><td>S 節的兩段提示詞</td><td>分性別、年齡層的達標率；每位衛教師的個案數</td><td>ChatGPT 工作、Claude 分析工具、Gemini</td><td>十條檢查；數字自己用 =COUNTIFS 抽查</td></tr>
+      <tr><td><b>③ 描述統計與樞紐</b></td><td>S 節的兩段提示詞</td><td>分性別、年齡層的達標率；每位衛教師的個案數</td><td>ChatGPT 工作、Claude 程式碼執行、Gemini</td><td>十條檢查；數字自己用 =COUNTIFS 抽查</td></tr>
       <tr><td><b>④ 畫圖表</b></td><td>請它用程式畫，或產出可編輯的 Excel 圖表</td><td>HbA1c 季趨勢折線圖、達標率長條圖，給它院內配色</td><td>ChatGPT 工作（可回傳 xlsx）、Claude（產 HTML 互動圖）</td><td>先指定圖型與分母；第 2 節 Ⓒ 有提示詞</td></tr>
       <tr><td><b>⑤ 產出整份 Excel</b></td><td>給規格，它直接建檔：多工作表、公式、下拉選單、條件格式</td><td>「做一個個案追蹤表：原始資料、每月統計（公式自動算）、異常值用紅底」</td><td>ChatGPT 工作、Claude、Gemini Notebook（匯出 .docx／.pptx）</td><td>打開檢查公式是「活的」還是寫死的數字；課程模板就是這樣做出來的</td></tr>
       <tr><td><b>⑥ 批次處理很多檔</b></td><td>把 30 個檔放進練習資料夾，交給資料夾代理</td><td>「把每個衛教師的月報合併成一張總表，欄位對齊，來源檔名放最後一欄」</td><td>Claude Code、Cowork</td><td>只指向去識別化的練習資料夾；先跑 2 個檔確認再跑全部</td></tr>
@@ -826,7 +826,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <ul>
         <li><b>用看的算（心算）：</b>模型把表格當文字讀，直接「想」出一個平均。小表可能對，列數一多就會漏列、看錯欄、把 7.5 讀成 75。這是幻覺的來源。</li>
         <li><b>寫程式算：</b>模型寫一段 Python，由程式真的去加總。數字由程式產生，模型只負責寫程式和解讀。<b>這條路才可靠。</b></li>
-        <li>三家在哪一條路：ChatGPT 工作模式與「進階資料分析」會跑程式；Claude 開「分析工具」（設定 → 功能）；Gemini 會自動執行程式碼。<b>看到它顯示程式碼或「正在分析」，才代表它真的算了。</b></li>
+        <li>三家在哪一條路：ChatGPT 工作模式與「進階資料分析」會跑程式；Claude 開「程式碼執行與檔案建立」（設定 → 功能，預設開啟）；Gemini 會自動執行程式碼。<b>看到它顯示程式碼或「正在分析」，才代表它真的算了。</b></li>
       </ul>
     </div>
     <div class="card">
@@ -1916,7 +1916,7 @@ body.list .slide.cover{display:block}
   <h2 style="font-size:34px">AI 有兩種「算」：用看的會錯，寫程式算才可靠。每次請它算數字，十條照做</h2>
   <div class="cols" style="grid-template-columns:1fr 1.3fr">
     <div>
-      <div class="card" style="font-size:15px"><h3 style="font-size:17px">兩種算法</h3><p><b>心算</b>：把表格當文字讀、直接「想」出平均，列數一多就漏列、把 7.5 讀成 75。這是幻覺的來源。<br><b>程式算</b>：寫 Python 真的加總，模型只負責寫程式和解讀。看到程式碼或「正在分析」才是這條路：ChatGPT 工作模式、Claude 分析工具、Gemini 自動執行程式碼。</p></div>
+      <div class="card" style="font-size:15px"><h3 style="font-size:17px">兩種算法</h3><p><b>心算</b>：把表格當文字讀、直接「想」出平均，列數一多就漏列、把 7.5 讀成 75。這是幻覺的來源。<br><b>程式算</b>：寫 Python 真的加總，模型只負責寫程式和解讀。看到程式碼或「正在分析」才是這條路：ChatGPT 工作模式、Claude 程式碼執行、Gemini 自動執行程式碼。</p></div>
       <div class="card t" style="font-size:15px;margin-top:10px"><h3 style="font-size:17px">Excel 還是 CSV？差別在「乾不乾淨」</h3><p>第一次算、要給主任看的數字：另存「<b>CSV UTF-8</b>」再上傳。多工作表的 Excel：把要算的那張「移動或複製 → 新活頁簿」，刪掉說明列、小計、合併儲存格；非用 Excel 不可就指名「只讀『資料』工作表 A1:H301，先印前 5 列給我看」。</p></div>
     </div>
     <ol class="steps" style="font-size:14px">
