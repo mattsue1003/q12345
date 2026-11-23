@@ -316,7 +316,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </header>
 <div class="topprog" id="topprog"></div>
 <div class="sbar" role="search">
-  <input id="q" type="search" placeholder="搜尋講義：例如 血壓、SYSTEM_PROMPT、去識別化、QR、免責" aria-label="搜尋講義">
+  <input id="q" type="search" placeholder="搜尋講義：例如 血壓、去識別化、PubMed、圖表、QR、Hermes" aria-label="搜尋講義">
   <span id="qCount"></span>
   <button class="qbtn" id="qPrev" type="button" title="上一個">▲</button>
   <button class="qbtn" id="qNext" type="button" title="下一個">▼</button>
@@ -326,9 +326,9 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 <main class="viewport"><div class="stage">
 
 <section class="page cover" id="top" data-g="cover" data-title="封面與今日目標">
-  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>衛福部桃園醫院 糖尿病中心｜AI 賦能工作坊<em>1 / 14</em></div>
+  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>衛福部桃園醫院 糖尿病中心｜AI 賦能工作坊<em>1 / 17</em></div>
   <h1><span class="en">LESSON <b>05</b> · 講義</span>把助手調成你要的樣子，做出<span class="hl">自己的衛教微工具</span>並帶回單位用</h1>
-  <p class="lede"><b>先：調整第 4 堂做的助手。</b>讓第二大腦多記血壓與飲食、把網頁和 PDF 整理成你要的格式、規定衛教小幫手可以回什麼、不回什麼。<b>再：個資與本機 AI。</b>個案資料怎麼安全地交給 AI，以及讓 AI 只在自己電腦上運算的做法。<b>最後：微工具與成果落地。</b>用四段需求描述做出單頁衛教工具，加上免責標示、部署成 QR code，寫好落地計畫。</p>
+  <p class="lede"><b>先：調整第 4 堂做的助手。</b>讓第二大腦多記血壓與飲食、把網頁和 PDF 整理成你要的格式、規定衛教小幫手可以回什麼、不回什麼。<b>再：個資與本機 AI。</b>個案資料怎麼安全地交給 AI，以及讓 AI 只在自己電腦上運算的做法。<b>接著：文獻。</b>怎麼找高品質論文、分析單篇與判讀圖表時避免 AI 出錯。<b>最後：微工具與成果落地。</b>用四段需求描述做出單頁衛教工具，加上免責標示、部署成 QR code，寫好落地計畫。</p>
   <div class="meta">
     <div><small>日期</small><strong>11/30　10:00–12:00</strong></div>
     <div><small>講師</small><strong>鍾孟修 職能治療師</strong></div>
@@ -352,7 +352,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="map" data-g="map" data-title="今天的地圖" style="--c:var(--amber)">
-  <div class="eyebrow" style="--c:var(--amber)"><span class="sq"></span>總覽<em>2 / 14</em></div>
+  <div class="eyebrow" style="--c:var(--amber)"><span class="sq"></span>總覽<em>2 / 17</em></div>
   <div class="sec-head"><div class="num dk">圖</div><div><h2>今天的地圖：調整助手、顧好個資、做出微工具</h2><p>三段各有一個實作。跟不上沒關係，每一頁的提示語都可以直接複製，課後照著做也行。</p></div></div>
   <div class="grid2">
     <div class="tbl"><table>
@@ -363,9 +363,10 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <tr><td>10:45</td><td><b>實作 2｜衛教小幫手的回覆規則</b>：可以回什麼、不回什麼、固定怎麼回</td><td><a href="#bot">A4</a></td></tr>
       <tr><td>11:00</td><td>休息 10 分鐘</td><td></td></tr>
       <tr><td>11:10</td><td><b>個資與本機 AI</b>：個案資料的三條路、Ollama 安裝與離線確認</td><td><a href="#deid">P1</a>、<a href="#local">P2</a></td></tr>
-      <tr><td>11:25</td><td><b>實作 3｜微工具</b>：三個範例、四段需求描述、修改指令</td><td><a href="#tool">T1</a>、<a href="#fix">T2</a></td></tr>
-      <tr><td>11:40</td><td><b>法規界線與部署</b>：免責標示、QR code、平板、共用連結</td><td><a href="#law">T3</a>、<a href="#ship">T4</a></td></tr>
-      <tr><td>11:48</td><td><b>落地計畫與成果發表</b>：每人 1 分鐘說明工具給誰用、放哪裡</td><td><a href="#plan">T5</a></td></tr>
+      <tr><td>11:20</td><td><b>文獻</b>：找高品質論文、整理成證據表、單篇分析與圖表判讀（重點示範，提示語課後照做）</td><td><a href="#lit">L1</a>、<a href="#lit2">L2</a></td></tr>
+      <tr><td>11:30</td><td><b>實作 3｜微工具</b>：點子庫找主題、三個範例、四段需求描述、修改指令</td><td><a href="#tool">T1</a>、<a href="#fix">T2</a></td></tr>
+      <tr><td>11:45</td><td><b>法規界線與部署</b>：免責標示、QR code、平板、共用連結</td><td><a href="#law">T3</a>、<a href="#ship">T4</a></td></tr>
+      <tr><td>11:50</td><td><b>落地計畫與成果發表</b>；<b>Hermes Agent</b> 示範（進階選修）</td><td><a href="#plan">T5</a>、<a href="#hermes">H1</a></td></tr>
       <tr><td>11:58</td><td>五堂總回顧與結語</td><td><a href="#end">結語</a></td></tr>
     </table></div>
     <div>
@@ -378,7 +379,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="adj" data-g="adj" data-title="調整助手的共同方法" style="--c:var(--mag)">
-  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>3 / 14</em></div>
+  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>3 / 17</em></div>
   <div class="sec-head"><div class="num">A1</div><div><h2>可以自由調整嗎？可以。四個步驟，三種調整都用這一套</h2><p>第 4 堂做的第二大腦和衛教小幫手，程式都在你自己的 Google 帳號裡。想加功能或改規則，不用自己寫程式：把程式交給 AI 改，再貼回去。</p></div></div>
   <div class="grid2">
     <div class="card"><h3 style="margin-top:0">四個步驟</h3>
@@ -406,7 +407,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="rec" data-g="adj" data-title="實作：多記血壓與飲食" style="--c:var(--mag)">
-  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>4 / 14</em></div>
+  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>4 / 17</em></div>
   <div class="sec-head"><div class="num">A2</div><div><h2>實作 1：讓第二大腦多記血壓、飲食熱量與三大營養素</h2><p>前提：第二大腦已做到階段 6（有「秘書.gs」）。記帳已經內建，傳「午餐 120」就會記。血壓和飲食用下面的提示語請 AI 加上去，兩個擇一先做。</p></div></div>
   <div class="grid2">
     <div><h3 style="margin-top:0">加「記血壓」的提示語</h3><div class="prompt">下面是我「第二大腦」LINE 機器人的「秘書.gs」完整程式碼（Google Apps Script）。請幫我加一個「記血壓」功能，其他功能都不要動。
@@ -459,7 +460,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="sum" data-g="adj" data-title="調整收集方式：網頁與 PDF" style="--c:var(--mag)">
-  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>5 / 14</em></div>
+  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>5 / 17</em></div>
   <div class="sec-head"><div class="num">A3</div><div><h2>調整收集方式：網頁和 PDF 要整理成什麼樣子，由你決定</h2><p>現在貼網址給第二大腦，它會抓網頁內容，整理成標題、60 字摘要、標籤和類別。想改格式，改的是「收集.gs」裡請 AI 整理的那段提示。</p></div></div>
   <div class="grid2">
     <div><h3 style="margin-top:0">改重點整理的格式（網頁、文章、文字都適用）</h3><div class="prompt">下面是我「第二大腦」LINE 機器人的「收集.gs」完整程式碼（Google Apps Script）。我想改它整理網頁和文章的方式，其他功能都不要動。
@@ -509,7 +510,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="bot" data-g="adj" data-title="實作：衛教小幫手的回覆規則" style="--c:var(--mag)">
-  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>6 / 14</em></div>
+  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>6 / 17</em></div>
   <div class="sec-head"><div class="num">A4</div><div><h2>實作 2：規定衛教小幫手可以回什麼、不回什麼、固定怎麼回</h2><p>衛教小幫手怎麼回答，由程式最上面的 SYSTEM_PROMPT 決定。那是一段中文，改它不用懂程式。先請 AI 幫你把規則寫完整，再貼進去。</p></div></div>
   <div class="grid2">
     <div><h3 style="margin-top:0">① 請 AI 幫你寫規則（把括號裡的地方改成你們科的）</h3><div class="prompt">請幫我寫一段 LINE「衛教小幫手」機器人的系統提示（給 Gemini 的角色與規則）。
@@ -572,7 +573,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="deid" data-g="priv" data-title="個資：個案資料的三條路" style="--c:var(--blue)">
-  <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>個資與本機 AI<em>7 / 14</em></div>
+  <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>個資與本機 AI<em>7 / 17</em></div>
   <div class="sec-head"><div class="num">P1</div><div><h2>擔心個資外流，是不是就不能用 AI 整理個案資料？三條路可以走</h2><p>擔心是對的：貼到網路上的 AI，資料就離開了你的電腦。但不是只能放棄，關鍵是先決定這份資料走哪一條路。</p></div></div>
   <div class="tbl"><table>
     <tr><th style="width:170px">路線</th><th>怎麼做</th><th>適合</th><th>要注意</th></tr>
@@ -598,7 +599,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="local" data-g="priv" data-title="本機 AI：讓 AI 只在自己電腦運算" style="--c:var(--blue)">
-  <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>個資與本機 AI<em>8 / 14</em></div>
+  <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>個資與本機 AI<em>8 / 17</em></div>
   <div class="sec-head"><div class="num">P2</div><div><h2>本機 AI：讓 AI 在自己的電腦上運算、不連到外部，做得到</h2><p>做得到。把開放的 AI 模型下載到電腦裡，用一個程式在本機執行，提問和回答都不會離開這台電腦。課堂用 Ollama 示範，免費，有 Windows 和 Mac 版。</p></div></div>
   <div class="grid2">
     <div class="card"><h3 style="margin-top:0">設定步驟</h3>
@@ -632,14 +633,94 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 
 </section>
 
+<section class="page" id="lit" data-g="lit" data-title="找高品質論文與整理" style="--c:var(--blue)">
+  <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>文獻<em>9 / 17</em></div>
+  <div class="sec-head"><div class="num">L1</div><div><h2>找論文：讓 AI 幫你想檢索式，論文本身到資料庫找</h2><p>請 AI 直接「列出幾篇論文」是最容易出錯的用法，它可能給你不存在的文章。比較可靠的做法是分工：AI 負責把問題變成檢索式，資料庫負責找真的論文。</p></div></div>
+  <div class="grid2">
+    <div class="card"><h3 style="margin-top:0">四個步驟</h3>
+      <ol class="steps">
+        <li><b>把問題寫成 PICO</b>：對象、介入、比較、結果。問題越具體，找到的越準。</li>
+        <li><b>請 AI 產生檢索式</b>（右邊的提示語），貼到 PubMed 搜尋。</li>
+        <li><b>在 PubMed 用篩選器</b>：左側的文章類型勾 Systematic Review、Meta-Analysis、Randomized Controlled Trial，年份選近 5 年。先看有沒有系統性回顧或指引，再看單篇試驗。</li>
+        <li><b>逐篇確認是真的</b>：每一篇都要有 PMID 或 DOI，點進去看得到摘要，標題、作者、年份都對得上，才下載全文。</li>
+      </ol>
+      <div class="ctas" style="margin:12px 0 0"><a class="btn" href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">PubMed ↗</a><a class="btn o" href="https://www.cochranelibrary.com/" target="_blank" rel="noopener">Cochrane Library ↗</a><a class="btn o" href="https://professional.diabetes.org/standards-of-care" target="_blank" rel="noopener">ADA 照護標準 ↗</a></div></div>
+    <div><h3 style="margin-top:0">請 AI 幫忙想檢索式（把主題換成你的）</h3><div class="prompt">我要找「第 2 型糖尿病成人，使用連續血糖監測（CGM）和傳統指尖血糖監測相比，對 HbA1c 的影響」的研究。請幫我：
+1. 把這個問題拆成 PICO（對象、介入、比較、結果）。
+2. 給我一組可以貼到 PubMed 的英文檢索式，用 MeSH 詞加上自由詞，並說明每一段在找什麼。
+3. 建議我要勾選哪些文章類型（例如系統性回顧、統合分析、隨機對照試驗）和年份範圍。
+你不要直接列論文給我，我會自己到 PubMed 搜尋。</div>
+      <div class="tbl"><table>
+        <tr><th>先找這些</th><th>為什麼</th></tr>
+        <tr><td>臨床指引、系統性回顧、統合分析</td><td>已經有人把多篇研究整理並評讀過</td></tr>
+        <tr><td>隨機對照試驗</td><td>單篇研究裡，推論因果最可靠的設計</td></tr>
+        <tr><td>觀察性研究、個案報告</td><td>可以提供線索，但不適合直接當成衛教依據</td></tr>
+      </table></div>
+    </div>
+  </div>
+  <div class="grid2" style="margin-top:18px">
+    <div><h3 style="margin-top:0">整理多篇：做成一張證據整理表</h3><div class="prompt">附件是我從 PubMed 找到並下載全文的 5 篇論文。請幫我做一張證據整理表，一篇一列，欄位：
+第一作者與年份｜研究設計｜對象與人數｜介入與比較｜主要結果（含數值、單位、信賴區間或 p 值）｜追蹤多久｜主要限制｜數值出自哪一頁或哪個表格
+規則：
+1. 每一格只填論文裡寫的內容；論文沒寫的填「未報告」，不要推測。
+2. 數值照原文抄，不要換算單位，也不要自己計算。
+3. 最後列出你不確定、需要我回頭核對原文的格子。</div>
+      <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">把全文 PDF 上傳到 Gemini 筆記本、ChatGPT 專案或 Claude 專案再貼這段。只給摘要的話，表格會缺很多格，AI 也比較容易自己補。</p></div>
+    <div>
+      <div class="note red"><b>看到這些就要懷疑</b>：AI 給的論文沒有 PMID 或 DOI；連結點不開；作者、期刊、年份在 PubMed 查不到；數字很漂亮卻說不出在哪一頁。任何一項成立，這一筆就先不用。</div>
+      <div class="note teal" style="margin-top:14px"><b>用有附來源的工具</b>：Gemini 筆記本只根據你上傳的 PDF 回答，每一句會標出處，點得回原文；這比在一般對話裡問「這篇論文說什麼」可靠。第 4 堂的知識庫助手就是同一個原理。</div>
+      <div class="note" style="margin-top:14px"><b>品質高不高，看的是研究本身</b>：期刊有名不代表這一篇適用你的病人。回頭看對象是誰、人數多少、追蹤多久、結果指標是不是病人在意的。</div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="lit2" data-g="lit" data-title="單篇分析與圖表判讀" style="--c:var(--blue)">
+  <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>文獻<em>10 / 17</em></div>
+  <div class="sec-head"><div class="num">L2</div><div><h2>分析單篇論文與圖表：先擷取、後解讀，數字都要有出處</h2><p>AI 讀論文最常出的錯有三種：把沒寫的補上去、把數字抄錯或換算錯、把圖上的值「看」成一個精確數字。下面的做法就是針對這三種。</p></div></div>
+  <div class="grid2">
+    <div><h3 style="margin-top:0">① 單篇分析：分兩步，第一步只擷取</h3><div class="prompt">附件是一篇研究論文的全文 PDF。請分兩步驟做，第一步做完先停下來等我。
+
+第一步（只擷取，不解讀）：
+請列出下面各項，每一項後面都要附上「原文句子」和「頁碼或表格／圖片編號」：
+研究設計、收案條件、樣本數（各組人數）、介入與對照、主要結果指標、主要結果的數值（含單位、信賴區間、p 值）、追蹤時間、退出或失聯人數、作者自己寫的限制。
+論文裡找不到的項目，直接寫「論文未報告」，不要用常識補。
+
+第二步（我說「繼續」之後才做）：
+用白話說明這個結果的意義、可以用在什麼對象、不能推論到哪裡，並分開標示「論文的結論」和「你的解讀」。</div>
+      <h3>② 做完再請它自己檢查一次</h3><div class="prompt">請回頭檢查你剛才的整理。逐一列出每一個數字，後面附上它在論文裡的原文句子與位置。原文裡找不到對應句子的數字，請標示「找不到出處」並從整理中移除。不要為了讓內容完整而保留沒有出處的數字。</div></div>
+    <div><h3 style="margin-top:0">③ 圖片與圖表：截圖後用這段問</h3><div class="prompt">這是論文裡的一張圖（或表）的截圖。請照順序回答，不要跳步驟：
+1. 這是哪一種圖表？橫軸、縱軸各代表什麼，單位是什麼？圖例裡每一種顏色或線條代表哪一組？
+2. 圖上有沒有直接印出來的數字？有的話，把印出來的數字照抄，並說明每個數字在圖上的位置。
+3. 哪些數值是圖上沒有印、只能用看的估計？這些請標示「目測估計」，並給一個範圍，不要給單一精確數字。
+4. 誤差線、信賴區間、星號或 p 值各代表什麼？圖說（caption）怎麼寫？
+5. 這張圖最多可以支持哪一句結論？哪些說法是這張圖不能支持的？
+看不清楚的地方直接說看不清楚，不要猜。</div>
+      <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">把那一張圖單獨截下來、放大到看得清楚再上傳，比叫它「看 PDF 第 5 頁的圖」準。圖說和圖例要一起截進去。</p></div>
+  </div>
+  <div class="card" style="margin-top:18px"><h3 style="margin-top:0">想拿到最正確的數據，照這個順序找</h3>
+    <div class="tbl"><table>
+      <tr><th style="width:44px"></th><th>數字的來源</th><th>可靠程度</th><th>怎麼用</th></tr>
+      <tr><td>1</td><td>正文的結果段落、表格裡印出來的數字</td><td>最可靠</td><td>優先用。請 AI 照抄並標頁碼或表格編號，自己核對一次。</td></tr>
+      <tr><td>2</td><td>補充資料（Supplementary）裡的表格</td><td>可靠</td><td>正文的圖常常在補充資料裡有對應的數字表，先去那裡找。</td></tr>
+      <tr><td>3</td><td>圖上直接印出來的數字（例如森林圖右側的效果量與信賴區間）</td><td>可靠</td><td>請 AI 讀「印出來的那一欄」，不要讀圖形的位置。</td></tr>
+      <tr><td>4</td><td>從曲線、長條的高度目測出來的值</td><td>不可靠</td><td>只能當成大約的範圍，標示「目測估計」。不要寫進衛教單張或報告。</td></tr>
+    </table></div>
+    <p style="margin:12px 0 0"><b>幾種圖特別容易讀錯</b>：存活曲線要用論文寫的風險比，不要從曲線上讀某個時間點的百分比；縱軸不是從 0 開始的長條圖會把差距放大；雙縱軸的圖要先確認每條線對哪一邊；相對風險下降 30% 和絕對風險下降 3% 是兩回事，兩個都要找出來。</p></div>
+  <div class="grid2" style="margin-top:18px">
+    <div class="note red"><b>掃描成圖片的 PDF</b>：文字是用辨識的，小數點、上下標、負號最容易錯（7.5 變成 75、10⁻³ 變成 10-3）。看到數字不合理，先懷疑辨識錯，回原檔放大看。</div>
+    <div class="note teal"><b>最後一關是你</b>：要寫進衛教單張、簡報或報告的每一個數字，都自己打開原文對一次。AI 的工作是幫你更快找到那一句在哪裡，不是替你保證它對。</div>
+  </div>
+</section>
+
 <section class="page" id="tool" data-g="tool" data-title="微工具：三個範例與四段需求" style="--c:var(--green)">
-  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>9 / 14</em></div>
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>11 / 17</em></div>
   <div class="sec-head"><div class="num">T1</div><div><h2>實作 3：微工具是什麼？三個範例，加上四段需求描述</h2><p>微工具是一個單一檔案的小網頁：一個畫面、解決一件事、用手機掃 QR code 就能打開。先玩範例，再用四段需求請 AI 做一個你自己的。</p></div></div>
   <div class="grid3">
     <div class="card"><div class="pill o">範例 1</div><h3 style="margin:8px 0 6px">低血糖處理卡</h3><p style="margin:0 0 12px">三步驟加 15 分鐘計時，可列印。</p><div class="ctas" style="margin:0"><a class="btn" href="tools/hypo-card.html" target="_blank" rel="noopener">打開 ↗</a><a class="btn o" href="tools/hypo-card.html" download>⬇ 下載原始檔</a></div></div>
     <div class="card"><div class="pill o">範例 2</div><h3 style="margin:8px 0 6px">每日足部自我檢查</h3><p style="margin:0 0 12px">六題勾選，有異常就提醒聯絡衛教師。不儲存答案。</p><div class="ctas" style="margin:0"><a class="btn" href="tools/foot-check.html" target="_blank" rel="noopener">打開 ↗</a><a class="btn o" href="tools/foot-check.html" download>⬇ 下載原始檔</a></div></div>
     <div class="card"><div class="pill o">範例 3</div><h3 style="margin:8px 0 6px">血糖紀錄</h3><p style="margin:0 0 12px">紀錄只存在自己的裝置，可下載 CSV 帶去回診。</p><div class="ctas" style="margin:0"><a class="btn" href="tools/glucose-log.html" target="_blank" rel="noopener">打開 ↗</a><a class="btn o" href="tools/glucose-log.html" download>⬇ 下載原始檔</a></div></div>
   </div>
+  <div class="card" style="margin:14px 0;display:flex;gap:16px;align-items:center;flex-wrap:wrap;background:var(--amber-50)"><div style="flex:1 1 320px"><div class="pill a">不知道要做什麼？</div><h3 style="margin:8px 0 4px">衛教微工具點子庫：50 個情境，每個都附可以直接貼的需求</h3><p style="margin:0">依「遇到什麼情況」找點子：給病人的衛教、自我管理紀錄、衛教師的工作、行政與排程、團體衛教、家屬與照顧者。可以搜尋，也可以按「隨機給我一個」。</p></div><a class="btn" href="tool-ideas.html" target="_blank" rel="noopener">打開點子庫 ↗</a></div>
   <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">想改範例：下載原始檔，拖進 AI 對話框，說「請依這個檔案修改：……」。三個範例的內容是教學示範，要給病人用之前請換成科室核定的版本。</p>
   <div class="grid2" style="margin-top:18px">
     <div>
@@ -674,7 +755,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="fix" data-g="tool" data-title="修改指令技巧" style="--c:var(--green)">
-  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>10 / 14</em></div>
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>12 / 17</em></div>
   <div class="sec-head"><div class="num">T2</div><div><h2>修改指令：第一版通常只有六十分，靠這五招改到能用</h2><p>不用重做。指出哪裡、改成什麼、其他不要動，一次改一件事。</p></div></div>
   <div class="grid2">
     <div class="card"><h3 style="margin-top:0">五個技巧</h3>
@@ -704,7 +785,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="law" data-g="tool" data-title="法規界線與免責標示" style="--c:var(--green)">
-  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>11 / 14</em></div>
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>13 / 17</em></div>
   <div class="sec-head"><div class="num">T3</div><div><h2>法規界線：只做衛教說明與自我管理提醒</h2><p>工具一旦開始替人判斷病情或決定治療，就可能被當成醫療器材軟體來管理。課程做的微工具，守在衛教與自我管理這一邊。</p></div></div>
   <div class="grid2">
     <div>
@@ -734,7 +815,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="ship" data-g="tool" data-title="部署：QR code、平板、共用連結" style="--c:var(--green)">
-  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>12 / 14</em></div>
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>14 / 17</em></div>
   <div class="sec-head"><div class="num">T4</div><div><h2>部署：讓病人和同事打得開，三種方式</h2><p>工具做好只是一個 .html 檔。要讓別人用，先把它放到一個網址，再把網址變成 QR code 或平板上的圖示。</p></div></div>
   <div class="grid2">
     <div class="card"><h3 style="margin-top:0">① 先有網址：放上 GitHub Pages</h3>
@@ -767,7 +848,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="plan" data-g="tool" data-title="落地計畫與成果發表" style="--c:var(--green)">
-  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>13 / 14</em></div>
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>15 / 17</em></div>
   <div class="sec-head"><div class="num">T5</div><div><h2>落地計畫：工具能不能繼續被用，看這一頁</h2><p>填好下面的表，就是你今天的成果發表內容。填的內容只存在這台裝置的瀏覽器，可以複製成文字貼到 LINE 群或科內文件。</p></div></div>
   <div class="grid2">
     <div class="card" id="planForm"><h3 style="margin-top:0">我的落地計畫</h3>
@@ -795,8 +876,50 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
   </div>
 </section>
 
+<section class="page" id="hermes" data-g="her" data-title="Hermes Agent：自己電腦上的 AI 代理" style="--c:var(--amber)">
+  <div class="eyebrow" style="--c:var(--amber)"><span class="sq"></span>進階<em>16 / 17</em></div>
+  <div class="sec-head"><div class="num dk">H1</div><div><h2>Hermes Agent：裝在自己電腦上、會記住你、會自己排程的 AI 代理</h2><p>進階選修，課堂由講師示範。Hermes Agent（常簡稱 Hermes AI）是 Nous Research 做的開放原始碼 AI 代理，MIT 授權。它在你的電腦上執行，可以操作檔案、記住你的偏好、把做過的事存成技能，也能接上 LINE 等通訊軟體和排定每天自動做的事。</p></div></div>
+  <div class="grid2">
+    <div>
+      <div class="tbl"><table>
+        <tr><th style="width:130px">它有的能力</th><th>白話</th></tr>
+        <tr><td>記憶</td><td>把你的偏好和它學到的事寫成兩個檔案（MEMORY.md、USER.md），下次對話還記得。檔案在你的電腦裡，可以打開看。</td></tr>
+        <tr><td>技能</td><td>把做過的流程存成技能，下次用一個指令就能重做；也可以從技能庫安裝別人寫好的。</td></tr>
+        <tr><td>排程</td><td>用一句話交代「每天早上九點做什麼」，它會照時間執行。</td></tr>
+        <tr><td>通訊軟體</td><td>可以接上 LINE、Telegram、Slack、電子郵件等，在手機上交辦。預設只回應你核准過的使用者。</td></tr>
+        <tr><td>模型自己選</td><td>可以接 Anthropic、OpenAI、Google AI Studio、OpenRouter 等，也能接自己電腦上的本機模型（需要至少 64K 的上下文長度）。</td></tr>
+      </table></div>
+      <div class="card" style="margin-top:14px"><h3 style="margin-top:0">衛教團隊可以怎麼用（都不放病人資料）</h3>
+        <ul style="margin:0;padding-left:1.2em">
+          <li><b>每週文獻摘要</b>：每週一早上用固定的檢索式找糖尿病照護的新論文，整理成三條重點傳給自己，再由你決定要不要細讀。</li>
+          <li><b>把固定流程變成技能</b>：例如「把這份衛教單張改成長者大字版並列出改了哪些句子」，做一次、存起來，之後一個指令重做。</li>
+          <li><b>整理資料夾</b>：把一整個資料夾的公開衛教文件改檔名、轉成文字、做出文件清單（第 4 堂 R6 的工作）。</li>
+          <li><b>定期提醒</b>：每季提醒重跑知識庫助手的驗證題庫、檢視微工具的內容。</li>
+        </ul></div>
+    </div>
+    <div>
+      <div class="card"><h3 style="margin-top:0">安裝與第一次使用</h3>
+        <ol class="steps">
+          <li><b>安裝</b>。Mac 打開「終端機」貼上第一段；Windows 打開 PowerShell 貼上第二段。也有桌面版 Hermes Desktop 可以從官網下載（Mac 版只支援 Apple 晶片）。</li>
+        </ol><div class="prompt">curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash</div><div class="prompt">iex (irm https://hermes-agent.nousresearch.com/install.ps1)</div>
+        <ol class="steps" start="2" style="counter-reset:s 1">
+          <li><b>設定</b>：輸入 <code>hermes setup</code>，照畫面選要用哪一家的模型。畫面有「Free, start now」時可以先免費試（不一定每次都會出現）。</li>
+          <li><b>開始對話</b>：輸入 <code>hermes</code>，就可以用中文交辦。出問題時輸入 <code>hermes doctor</code> 檢查。</li>
+          <li><b>接上通訊軟體</b>（選做）：<code>hermes gateway setup</code> 選平台並照步驟設定，再 <code>hermes gateway start</code>。</li>
+          <li><b>排程</b>（選做）：直接跟它說「每週一早上九點，幫我……」。排程要在 gateway 執行中才會跑；用 <code>/cron list</code> 看目前排了哪些。</li>
+        </ol>
+        <div class="ctas" style="margin:12px 0 0"><a class="btn" href="https://hermes-agent.nousresearch.com/docs/getting-started/quickstart" target="_blank" rel="noopener">官方快速開始 ↗</a><a class="btn o" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">GitHub ↗</a></div></div>
+      <h3>裝好後先試這一句</h3><div class="prompt">請在桌面建立一個叫 hermes-practice 的資料夾，裡面放一個「糖尿病足部照護五步驟.md」，用長者看得懂的白話寫，每個步驟一句話。做完告訴我檔案放在哪裡。之後我請你寫衛教內容時，都用繁體中文、台灣用語、句子短，請把這個偏好記起來。</div>
+    </div>
+  </div>
+  <div class="grid2" style="margin-top:18px">
+    <div class="note red"><b>安全界線</b>：它能在你的電腦上執行指令、讀寫檔案，預設沒有隔離。要執行有風險的指令時會先問你，請看清楚再同意，不要開啟略過確認的模式。只在練習資料夾裡用；院內電腦要先經資訊室同意才能安裝；不要讓它碰到放病人資料的資料夾。除非接的是本機模型，你交辦的內容會送到你選的模型廠商。</div>
+    <div class="note teal"><b>和課程其他工具怎麼分</b>：知識庫助手負責「照科室文件回答」；第二大腦是功能固定的個人筆記機器人；微工具是給病人用的單頁網頁；Hermes Agent 是通用的代理，適合自己的行政與整理工作。先把前三樣用熟，再考慮它。<br><br>這一頁的指令與功能依官方文件整理（2026 年 11 月），講師沒有在課程電腦上逐項實測，版本更新後以官方文件為準。</div>
+  </div>
+</section>
+
 <section class="page" id="end" data-g="end" data-title="五堂總回顧與結語" style="--c:var(--lime)">
-  <div class="eyebrow" style="--c:var(--lime)"><span class="sq"></span>收尾<em>14 / 14</em></div>
+  <div class="eyebrow" style="--c:var(--lime)"><span class="sq"></span>收尾<em>17 / 17</em></div>
   <div class="sec-head"><div class="num dk">✓</div><div><h2>五堂總回顧：你現在手上有的東西</h2><p>每一堂的講義都留在線上，隨時可以回來查。工具的功能與按鈕名稱會變，遇到對不上的地方，以官方說明和當天畫面為準。</p></div></div>
   <div class="tbl"><table>
     <tr><th style="width:90px">堂次</th><th>主題</th><th>帶走的東西</th><th style="width:120px">講義</th></tr>
@@ -831,7 +954,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 <button class="navbtn prev" id="prev" type="button" aria-label="上一頁">←<span>上一頁</span></button>
 <button class="navbtn next" id="next" type="button" aria-label="下一頁"><span id="nextLabel">下一頁</span>→</button>
 <nav class="toc" id="toc" aria-label="目錄"><div class="toc-in">
-  <h2>目錄：14 頁</h2>
+  <h2>目錄：17 頁</h2>
   <ol>
       <li class="tg" style="--c:var(--ink)"><i></i>開始</li>
       <li><a href="#top" style="--c:var(--ink)"><i>首</i>封面與今日目標</a></li>
@@ -844,12 +967,17 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <li class="tg" style="--c:var(--blue)"><i></i>個資與本機 AI</li>
       <li><a href="#deid" style="--c:var(--blue)"><i>P1</i>個資：個案資料的三條路</a></li>
       <li><a href="#local" style="--c:var(--blue)"><i>P2</i>本機 AI：讓 AI 只在自己電腦運算</a></li>
+      <li class="tg" style="--c:var(--blue)"><i></i>文獻</li>
+      <li><a href="#lit" style="--c:var(--blue)"><i>L1</i>找高品質論文與整理</a></li>
+      <li><a href="#lit2" style="--c:var(--blue)"><i>L2</i>單篇分析與圖表判讀</a></li>
       <li class="tg" style="--c:var(--green)"><i></i>微工具</li>
       <li><a href="#tool" style="--c:var(--green)"><i>T1</i>三個範例與四段需求</a></li>
       <li><a href="#fix" style="--c:var(--green)"><i>T2</i>修改指令技巧</a></li>
       <li><a href="#law" style="--c:var(--green)"><i>T3</i>法規界線與免責標示</a></li>
       <li><a href="#ship" style="--c:var(--green)"><i>T4</i>部署：QR code、平板、共用連結</a></li>
       <li><a href="#plan" style="--c:var(--green)"><i>T5</i>落地計畫與成果發表</a></li>
+      <li class="tg" style="--c:var(--amber)"><i></i>進階</li>
+      <li><a href="#hermes" style="--c:var(--amber)"><i class="dk">H1</i>Hermes Agent：自己電腦上的 AI 代理</a></li>
       <li class="tg" style="--c:var(--lime)"><i></i>收尾</li>
       <li><a href="#end" style="--c:var(--lime)"><i class="dk">✓</i>五堂總回顧與結語</a></li>
   </ol>
