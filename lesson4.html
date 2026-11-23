@@ -6,7 +6,7 @@
 <title>第4堂講義｜糖尿病專科 AI 助手與知識庫（RAG）＋ Word、Excel、Google 三件套 × AI、Apps Script 自動化</title>
 <meta property="og:title" content="第4堂講義：AI 知識庫助手 ＋ 檔案 × AI">
 <meta property="og:description" content="RAG 知識庫概念、文件界線、三家建置、驗證題庫；Word／Excel／Google 三件套 × AI、Apps Script、終端機代理。">
-<meta name="description" content="衛福部桃園醫院糖尿病中心 AI 賦能工作坊 第 4 堂講義（11/23）：知識庫助手（RAG）概念與界線、文件整理與版本管理、ChatGPT 專案／Claude 專案／Gemini 筆記本 建置與指示語、驗證題庫與正確率測試、使用規範；四工具對照表、品質指標報表實作、Excel／Word／PPT／PDF 與 Google 三件套 × AI、描述性統計；Apps Script 自動化；終端機代理。">
+<meta name="description" content="衛福部桃園醫院糖尿病中心 AI 賦能工作坊 第 4 堂講義（11/23）：知識庫助手（RAG）概念與界線、文件整理與版本管理、ChatGPT 專案／Claude 專案／Gemini 筆記本 建置與指示語、驗證題庫與正確率測試、使用規範；三工具對照表、品質指標報表實作、Excel／Word／PPT／PDF 與 Google 三件套 × AI、描述性統計；Apps Script 自動化；終端機代理。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
@@ -362,7 +362,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <a href="#b1"><span class="no" style="--c:var(--green)">B1</span><span><strong>第二大腦是什麼</strong><small>LINE 隨手記、每天怎麼用、隱私</small></span><em>11:15</em></a>
       <a href="#b2"><span class="no" style="--c:var(--green)">B2</span><span><strong>實作：六個階段</strong><small>課堂做階段 1</small></span><em></em></a>
       <div class="brk" style="--c:var(--blue)"><i></i>檔案 × AI</div>
-      <a href="#s15"><span class="no" style="--c:var(--blue)">1</span><span><strong>四工具對照表</strong><small>同一招，在哪裡按</small></span><em>11:40</em></a>
+      <a href="#s15"><span class="no" style="--c:var(--blue)">1</span><span><strong>三工具對照表</strong><small>同一招，在哪裡按</small></span><em>11:40</em></a>
       <a href="#s16"><span class="no" style="--c:var(--blue)">2</span><span><strong>實作：數據與報表</strong><small>合成資料算品質指標、做報表</small></span><em></em></a>
       <a href="#xl"><span class="no" style="--c:var(--blue)">X</span><span><strong>Excel × AI</strong><small>六種搭配：公式、清理、整批處理</small></span><em></em></a>
       <a href="#docs"><span class="no" style="--c:var(--blue)">D</span><span><strong>Word／PPT／PDF × AI</strong><small>三種檔案各自的搭配法</small></span><em></em></a>
@@ -399,7 +399,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <tr><td>11:00</td><td><b>科室助手程式示範</b>：雙擊啟動、一鍵驗證、同事共用；個資與限制</td><td><a href="#r4">R5</a></td></tr>
       <tr><td>11:05</td><td>休息 10 分鐘</td><td></td></tr>
       <tr><td>11:15</td><td><b>第二大腦</b>：LINE 隨手記進自己的試算表，示範六個階段；<b>實作 3</b> 做階段 1</td><td><a href="#b1">B1</a>、<a href="#b2">B2</a></td></tr>
-      <tr><td>11:40</td><td><b>檔案 × AI 濃縮版</b>：四工具對照表、數據報表示範、Excel／Word／Google 三件套各一招、描述性統計</td><td><a href="#s15">第 1 節起</a></td></tr>
+      <tr><td>11:40</td><td><b>檔案 × AI 濃縮版</b>：三工具對照表、數據報表示範、Excel／Word／Google 三件套各一招、描述性統計</td><td><a href="#s15">第 1 節起</a></td></tr>
       <tr><td>11:52</td><td><b>Apps Script 自動化 ＋ 終端機代理</b>示範</td><td><a href="#gas">自動化</a></td></tr>
       <tr><td>11:58</td><td>課後任務、下堂預告（11/30 衛教與行政微工具、成果落地）</td><td><a href="#hw">課後任務</a></td></tr>
     </table></div>
@@ -642,32 +642,31 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
   </div>
 </section>
 
-<section class="page" id="s15" data-g="file" data-title="四工具對照表" style="--c:var(--blue)">
+<section class="page" id="s15" data-g="file" data-title="三工具對照表" style="--c:var(--blue)">
   <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>檔案 × AI<em>10 / 24</em></div>
-  <div class="sec-head"><div class="num">1</div><div><h2>四工具對照表：同一招，在哪裡按？</h2><p>印這一頁就夠了。名稱若改版，記住「功能」比記住按鈕重要。</p></div></div>
+  <div class="sec-head"><div class="num">1</div><div><h2>三工具對照表：同一招，在哪裡按？</h2><p>印這一頁就夠了。名稱若改版，記住「功能」比記住按鈕重要。</p></div></div>
   <div class="tbl">
     <table>
-      <tr><th>步驟</th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th><th><span class="t oc">OpenCode</span></th></tr>
-      <tr><td>讓 AI 懂你</td><td>個人化 → 自訂指示／記憶（快速回答關閉）</td><td>設定 → 帳戶 → 給 Claude 的指示；記憶</td><td>個人化智慧服務 → 給 Gemini 的指令</td><td>資料夾裡的 AGENTS.md</td></tr>
-      <tr><td>想久一點</td><td>推理強度</td><td>投入程度（舊稱延伸思考）</td><td>Pro 模型／思考程度</td><td>換成較強的模型</td></tr>
-      <tr><td>不留記錄</td><td>暫時對話</td><td>無痕聊天</td><td>臨時對話</td><td>開新 session；資料留在本機</td></tr>
-      <tr><td>製圖</td><td>建立圖像＋編輯圈選</td><td>Artifacts 圖卡（HTML／SVG）、Canva 連接器</td><td>建立圖像（Nano Banana）</td><td>用程式畫數據圖表，存成 PNG</td></tr>
-      <tr><td>寫作區塊</td><td>寫作區塊（舊稱 Canvas）</td><td>Artifacts／Claude Docs</td><td>Canvas（匯出 .md 或雲端硬碟）</td><td>直接改資料夾裡的檔案</td></tr>
-      <tr><td>學習模式</td><td>打「/」→ 學習</td><td>學習樣式</td><td>引導式學習</td><td>—（用對話工具）</td></tr>
-      <tr><td>排程</td><td>左側「已排程」</td><td>排程任務（Pro 以上）</td><td>排定動作（付費）</td><td>—（第 5 堂再談）</td></tr>
-      <tr><td>外掛</td><td>外掛程式</td><td>連接器</td><td>應用程式（Google 全家桶）</td><td>內建讀寫檔案、執行；可接 MCP</td></tr>
-      <tr><td>深度工作</td><td>Work</td><td>研究、Cowork</td><td>深入研究</td><td>主場：交辦整件事</td></tr>
-      <tr><td>專案</td><td>專案</td><td>專案</td><td>筆記本、技能</td><td>一個資料夾</td></tr>
-      <tr><td>大份 PDF</td><td>讀文字為主，圖表另截圖</td><td>先用 MarkItDown 轉 .md 再上傳</td><td>直接上傳；大量指引轉文字進 Gemini Notebook</td><td>叫它整個資料夾轉檔</td></tr>
+      <tr><th>步驟</th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th></tr>
+      <tr><td>讓 AI 懂你</td><td>個人化 → 自訂指示／記憶（快速回答關閉）</td><td>設定 → 帳戶 → 給 Claude 的指示；記憶</td><td>個人化智慧服務 → 給 Gemini 的指令</td></tr>
+      <tr><td>想久一點</td><td>推理強度</td><td>投入程度（舊稱延伸思考）</td><td>Pro 模型／思考程度</td></tr>
+      <tr><td>不留記錄</td><td>暫時對話</td><td>無痕聊天</td><td>臨時對話</td></tr>
+      <tr><td>製圖</td><td>建立圖像＋編輯圈選</td><td>Artifacts 圖卡（HTML／SVG）、Canva 連接器</td><td>建立圖像（Nano Banana）</td></tr>
+      <tr><td>寫作區塊</td><td>寫作區塊（舊稱 Canvas）</td><td>Artifacts／Claude Docs</td><td>Canvas（匯出 .md 或雲端硬碟）</td></tr>
+      <tr><td>學習模式</td><td>打「/」→ 學習</td><td>學習樣式</td><td>引導式學習</td></tr>
+      <tr><td>排程</td><td>左側「已排程」</td><td>排程任務（Pro 以上）</td><td>排定動作（付費）</td></tr>
+      <tr><td>外掛</td><td>外掛程式</td><td>連接器</td><td>應用程式（Google 全家桶）</td></tr>
+      <tr><td>深度工作</td><td>Work</td><td>研究、Cowork</td><td>深入研究</td></tr>
+      <tr><td>專案</td><td>專案</td><td>專案</td><td>筆記本、技能</td></tr>
+      <tr><td>大份 PDF</td><td>讀文字為主，圖表另截圖</td><td>先用 MarkItDown 轉 .md 再上傳</td><td>直接上傳；大量指引轉文字進 Gemini Notebook</td></tr>
     </table>
   </div>
   <div class="grid3" style="margin-top:18px">
     <div class="card gpt-c"><h3><span class="t gpt">ChatGPT</span>什麼時候用</h3><p style="margin:0">中文語音對話最自然；生圖後局部修改最順手；要一口氣做出整份檔案時用 Work。</p></div>
     <div class="card cl-c"><h3><span class="t cl">Claude</span>什麼時候用</h3><p style="margin:0">長文寫作、改稿語氣、分析 Excel 與報表、做互動小工具（第 5 堂）。</p></div>
     <div class="card ge-c"><h3><span class="t ge">Gemini</span>什麼時候用</h3><p style="margin:0">已在用 Google 帳號、Chrome、雲端硬碟；衛教圖卡初稿；深入研究後一鍵轉成資訊圖表。</p></div>
-    <div class="card oc-c"><h3><span class="t oc">OpenCode</span>什麼時候用</h3><p style="margin:0">一次要處理很多檔案、要產出檔案、同一套流程每季都要跑一次。前提永遠是：資料夾裡只有去識別化的資料。</p></div>
   </div>
-  <div class="note"><b>提醒：</b>三個對話工具的差距大概是 95 分和 98 分。與其糾結哪個最強，不如挑一個每天用；OpenCode 則是另一種用法，不是第四個聊天視窗。提示詞基本功在四個裡都一樣。</div>
+  <div class="note"><b>提醒：</b>三個對話工具的差距大概是 95 分和 98 分。與其糾結哪個最強，不如挑一個每天用。提示詞基本功在三個裡都一樣。</div>
 </section>
 <section class="page" id="s16" data-g="file" data-title="實作：數據與報表" style="--c:var(--blue)">
   <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>檔案 × AI<em>11 / 24</em></div>
@@ -688,7 +687,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <tr><td>② 數據清洗、欄位確認、異常值</td><td>AMA 反問法：先問、不算</td><td>「資料檢查」工作表會亮燈</td><td>Ⓐ</td></tr>
       <tr><td>③ 分組平均、達標率、前後期比較</td><td>人事時地物＋Why</td><td>「指標報表」選季別自動更新</td><td>Ⓑ</td></tr>
       <tr><td>④ 圖表選擇原則與驗算</td><td>要它說明選圖理由＋列分子分母</td><td>「指標報表」趨勢圖</td><td>Ⓒ</td></tr>
-      <tr><td>⑤ 報表模板與個案趨勢回饋單</td><td>專案／筆記本；OpenCode 整件交辦</td><td>「個案回饋單」選代號印 A4</td><td>Ⓓ</td></tr>
+      <tr><td>⑤ 報表模板與個案趨勢回饋單</td><td>專案／筆記本</td><td>「個案回饋單」選代號印 A4</td><td>Ⓓ</td></tr>
     </table></div>
   </div>
 
@@ -722,12 +721,10 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
     <button class="tab on" data-g="hw" data-t="hw-cl">Claude</button>
     <button class="tab" data-g="hw" data-t="hw-ge">Gemini</button>
     <button class="tab" data-g="hw" data-t="hw-gpt">ChatGPT</button>
-    <button class="tab" data-g="hw" data-t="hw-oc">OpenCode</button>
   </div>
   <div class="panel on" id="hw-cl" data-g="hw"><div class="card"><ol class="steps"><li>開一個新專案「品質指標」，專案指示貼上自訂指示，知識區放「指標設定」表的截圖或文字</li><li>拖入 Excel 檔，依序貼 Ⓐ→Ⓑ→Ⓒ→Ⓓ</li><li>它會實際跑計算；要圖時說「做成圖表 Artifact」</li></ol></div></div>
   <div class="panel" id="hw-ge" data-g="hw"><div class="card"><ol class="steps"><li>對話框「＋」上傳 Excel（或從雲端硬碟選）</li><li>依序貼 Ⓐ→Ⓑ→Ⓒ→Ⓓ，結果可要求「匯出到 Google 試算表」</li><li>也可以在 Google 試算表裡直接開右側 Gemini 面板提問</li></ol></div></div>
   <div class="panel" id="hw-gpt" data-g="hw"><div class="card"><ol class="steps"><li>對話框「＋」上傳 Excel</li><li>依序貼 Ⓐ→Ⓑ→Ⓒ→Ⓓ，它會用內建分析工具計算</li><li>要正式報表時改用 Work，指定輸出成簡報</li></ol></div></div>
-  <div class="panel" id="hw-oc" data-g="hw"><div class="card"><ol class="steps"><li>把 Excel 放進練習資料夾，在 OpenCode 打開該資料夾</li><li>把 Ⓐ～Ⓓ <b>一次</b>貼上，並加一句「每一步做完先回報，等我確認再往下」</li><li>它會把比較表、圖檔、摘要與回饋單存在資料夾裡；打開檔案核對，再叫它修</li></ol></div></div>
 
   <div class="prompt"><span class="label">Ⓐ 資料清洗與異常值（AMA：先問、不算）</span>這是去識別化的合成資料，一位個案一季一列。請先不要計算，先告訴我：
 1. 每個欄位的意思與資料型態；
@@ -774,8 +771,8 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <tr><td><b>② 清理與整理資料</b></td><td>上傳檔案，請它統一格式、拆欄、找重複、標異常</td><td>「把『年齡組』統一成 &lt;65／65–74／≥75」「日期有 2026/3/1 和 3-1-26 兩種，統一成 YYYY-MM-DD」「找出同一個案同季重複列」</td><td>ChatGPT 工作模式、Claude（會跑程式）</td><td>要它<b>輸出改了哪些格</b>的清單，不要只給新檔；原檔留著</td></tr>
       <tr><td><b>③ 描述統計與樞紐</b></td><td>S 節的兩段提示詞</td><td>分性別、年齡層的達標率；每位衛教師的個案數</td><td>ChatGPT 工作、Claude 分析工具、Gemini</td><td>十條檢查；數字自己用 =COUNTIFS 抽查</td></tr>
       <tr><td><b>④ 畫圖表</b></td><td>請它用程式畫，或產出可編輯的 Excel 圖表</td><td>HbA1c 季趨勢折線圖、達標率長條圖，給它院內配色</td><td>ChatGPT 工作（可回傳 xlsx）、Claude（產 HTML 互動圖）</td><td>先指定圖型與分母；第 2 節 Ⓒ 有提示詞</td></tr>
-      <tr><td><b>⑤ 產出整份 Excel</b></td><td>給規格，它直接建檔：多工作表、公式、下拉選單、條件格式</td><td>「做一個個案追蹤表：原始資料、每月統計（公式自動算）、異常值用紅底」</td><td>ChatGPT 工作、Claude、Gemini Notebook（匯出 .docx／.pptx）、OpenCode</td><td>打開檢查公式是「活的」還是寫死的數字；課程模板就是這樣做出來的</td></tr>
-      <tr><td><b>⑥ 批次處理很多檔</b></td><td>把 30 個檔放進練習資料夾，交給資料夾代理</td><td>「把每個衛教師的月報合併成一張總表，欄位對齊，來源檔名放最後一欄」</td><td>OpenCode、Claude Code、Cowork</td><td>只指向去識別化的練習資料夾；先跑 2 個檔確認再跑全部</td></tr>
+      <tr><td><b>⑤ 產出整份 Excel</b></td><td>給規格，它直接建檔：多工作表、公式、下拉選單、條件格式</td><td>「做一個個案追蹤表：原始資料、每月統計（公式自動算）、異常值用紅底」</td><td>ChatGPT 工作、Claude、Gemini Notebook（匯出 .docx／.pptx）</td><td>打開檢查公式是「活的」還是寫死的數字；課程模板就是這樣做出來的</td></tr>
+      <tr><td><b>⑥ 批次處理很多檔</b></td><td>把 30 個檔放進練習資料夾，交給資料夾代理</td><td>「把每個衛教師的月報合併成一張總表，欄位對齊，來源檔名放最後一欄」</td><td>Claude Code、Cowork</td><td>只指向去識別化的練習資料夾；先跑 2 個檔確認再跑全部</td></tr>
     </table></div>
   </div>
   <div class="grid2">
@@ -831,10 +828,10 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
   <div class="card">
     <h3>先看支援表：三家讀得到、做得出哪些檔（2026 年 11 月，以當天畫面為準）</h3>
     <div class="tbl"><table style="min-width:900px">
-      <tr><th></th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th><th><span class="t oc">OpenCode</span></th></tr>
-      <tr><td><b>上傳讀取</b></td><td>.docx／.pptx／.pdf 都收</td><td>.docx／.pdf 收；<b>.pptx 不收</b>，先用 MarkItDown 轉（第 2 堂 B 節）</td><td>.docx／.pdf 收；.pptx 經雲端硬碟最穩</td><td>資料夾裡任何檔；PDF／PPTX 先轉 .md</td></tr>
-      <tr><td><b>直接產出檔案</b></td><td>工作模式可產 .docx／.pptx／.pdf 下載</td><td>設定 → 功能 → 開「程式碼執行與檔案建立」後可產 .docx／.pptx／.xlsx／.pdf</td><td>產到 Google 文件／簡報再匯出；Gemini Notebook 可直接匯出 .docx／.pptx／.pdf</td><td>直接寫進資料夾</td></tr>
-      <tr><td><b>在原程式裡用</b></td><td colspan="2">Microsoft 365 Copilot（Word／PowerPoint 內建側欄；個人版已內含，院內帳號需機構授權）</td><td>Google 文件／簡報右上「Gemini」側欄</td><td>—</td></tr>
+      <tr><th></th><th><span class="t gpt">ChatGPT</span></th><th><span class="t cl">Claude</span></th><th><span class="t ge">Gemini</span></th></tr>
+      <tr><td><b>上傳讀取</b></td><td>.docx／.pptx／.pdf 都收</td><td>.docx／.pdf 收；<b>.pptx 不收</b>，先用 MarkItDown 轉（第 2 堂 B 節）</td><td>.docx／.pdf 收；.pptx 經雲端硬碟最穩</td></tr>
+      <tr><td><b>直接產出檔案</b></td><td>工作模式可產 .docx／.pptx／.pdf 下載</td><td>設定 → 功能 → 開「程式碼執行與檔案建立」後可產 .docx／.pptx／.xlsx／.pdf</td><td>產到 Google 文件／簡報再匯出；Gemini Notebook 可直接匯出 .docx／.pptx／.pdf</td></tr>
+      <tr><td><b>在原程式裡用</b></td><td colspan="2">Microsoft 365 Copilot（Word／PowerPoint 內建側欄；個人版已內含，院內帳號需機構授權）</td><td>Google 文件／簡報右上「Gemini」側欄</td></tr>
     </table></div>
   </div>
   <div class="tri">
@@ -866,7 +863,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
         <li><b>讀與問：</b>短文件直接上傳；指引、評鑑條文這類要反覆用的，先 MarkItDown 轉文字（第 2 堂 B 節）再丟進專案或 Gemini Notebook。防幻覺七步在第 2 堂 R 節。</li>
         <li><b>掃描檔（圖片型 PDF）：</b>MarkItDown 轉出來多半是空的。做法：上傳 Google 雲端硬碟 → 右鍵「以 Google 文件開啟」會自動 OCR；或直接把頁面截圖給 ChatGPT／Gemini 看圖讀字，再人工核對數字。</li>
         <li><b>填表：</b>PDF 表單（如轉介單、報名表）給 AI 看欄位，「列出每個欄位要填什麼、哪些我還缺資料」；實際填寫自己來，避免填錯格。</li>
-        <li><b>合併、拆分、加浮水印：</b>這些是「操作」不是「理解」，交給 OpenCode／Claude Code 一句話做完（「把資料夾裡 12 份單張合併成一個 PDF，每份加頁碼」），比對話工具穩。</li>
+        <li><b>合併、拆分、加浮水印：</b>這些是「操作」不是「理解」，交給 Claude Code 這類資料夾代理一句話做完（「把資料夾裡 12 份單張合併成一個 PDF，每份加頁碼」），比對話工具穩。</li>
         <li><b>產出 PDF：</b>一律先產 Word 或簡報再另存 PDF，才有可編輯的原稿。</li>
       </ul>
       <div class="note" style="margin-bottom:0;font-size:.95rem"><b>坑：</b>PDF 裡的表格最常被讀歪（欄位錯位）。數字類的表格，轉文字後自己開起來對一次，或請它「把表格原樣重現一次給我確認」。</div>
@@ -1028,7 +1025,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <ul>
         <li><b>用看的算（心算）：</b>模型把表格當文字讀，直接「想」出一個平均。小表可能對，列數一多就會漏列、看錯欄、把 7.5 讀成 75。這是幻覺的來源。</li>
         <li><b>寫程式算：</b>模型寫一段 Python，由程式真的去加總。數字由程式產生，模型只負責寫程式和解讀。<b>這條路才可靠。</b></li>
-        <li>三家在哪一條路：ChatGPT 工作模式與「進階資料分析」會跑程式；Claude 開「分析工具」（設定 → 功能）；Gemini 會自動執行程式碼；OpenCode 本來就在跑程式。<b>看到它顯示程式碼或「正在分析」，才代表它真的算了。</b></li>
+        <li>三家在哪一條路：ChatGPT 工作模式與「進階資料分析」會跑程式；Claude 開「分析工具」（設定 → 功能）；Gemini 會自動執行程式碼。<b>看到它顯示程式碼或「正在分析」，才代表它真的算了。</b></li>
       </ul>
     </div>
     <div class="card">
@@ -1141,18 +1138,18 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 
 <section class="page" id="agents" data-g="auto" data-title="終端機代理" style="--c:var(--green)">
   <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>自動化<em>17 / 24</em></div>
-  <div class="sec-head"><div class="num">T</div><div><h2>終端機代理：一句話做出一整個資料夾</h2><p>第 2 堂的 OpenCode 是「在資料夾裡幫你做事的代理」。Google 與 GitHub 各有一個免費版本，流程一樣：開練習資料夾 → 登入 → 用中文交辦 → 檔案直接出現。Claude 桌面版的 Code 分頁也是同一類（需 Pro）。</p></div></div>
+  <div class="sec-head"><div class="num">T</div><div><h2>終端機代理：一句話做出一整個資料夾</h2><p>終端機代理是「在資料夾裡幫你做事的代理」。Google 與 GitHub 各有一個免費版本，流程一樣：開練習資料夾 → 登入 → 用中文交辦 → 檔案直接出現。Claude 桌面版的 Code 分頁也是同一類（需 Pro）。</p></div></div>
   <div class="tbl"><table>
-    <tr><th style="width:110px"></th><th>Antigravity CLI（Google）</th><th>GitHub Copilot Free（VS Code ＋ Copilot CLI）</th><th>OpenCode（第 2 堂）</th></tr>
-    <tr><td>這是什麼</td><td>Google 的終端機代理，指令叫 <b>agy</b>。2026/6/18 起取代 Gemini CLI，給個人與免費帳號使用。</td><td>GitHub 的 AI 助手：在 VS Code 編輯器裡用，也有終端機版 Copilot CLI。</td><td>開源終端機代理，可自行選擇要接的模型（課堂只示範指定模型）。</td></tr>
-    <tr><td>免費額度</td><td>個人 Google 帳號免費，每週額度未公布；需年滿 18 歲。</td><td>$0、不用信用卡；每月 2,000 次補全、含 Copilot CLI。</td><td>免費模型有速率限制。</td></tr>
-    <tr><td>安裝</td><td>Mac 終端機：<code>curl -fsSL https://antigravity.google/cli/install.sh | bash</code>，然後 <code>cd ~/Desktop/ai-practice</code>、<code>agy</code>，第一次會開瀏覽器登入 Google。Windows 用 PowerShell 照官網指令。</td><td>github.com/features/copilot/plans 選 Free → 裝 VS Code → 狀態列 Copilot 圖示「Use AI Features」→ GitHub 帳號登入。終端機版：<code>npm install -g @github/copilot</code>、<code>copilot</code>、<code>/login</code>。</td><td>依官網。</td></tr>
-    <tr><td>適合</td><td>已經習慣 Gemini；想在終端機一次生成多個檔案。</td><td>想要看得到檔案、點得到按鈕的圖形介面；順便推上 GitHub。</td><td>想切換不同免費模型。</td></tr>
+    <tr><th style="width:110px"></th><th>Antigravity CLI（Google）</th><th>GitHub Copilot Free（VS Code ＋ Copilot CLI）</th></tr>
+    <tr><td>這是什麼</td><td>Google 的終端機代理，指令叫 <b>agy</b>。2026/6/18 起取代 Gemini CLI，給個人與免費帳號使用。</td><td>GitHub 的 AI 助手：在 VS Code 編輯器裡用，也有終端機版 Copilot CLI。</td></tr>
+    <tr><td>免費額度</td><td>個人 Google 帳號免費，每週額度未公布；需年滿 18 歲。</td><td>$0、不用信用卡；每月 2,000 次補全、含 Copilot CLI。</td></tr>
+    <tr><td>安裝</td><td>Mac 終端機：<code>curl -fsSL https://antigravity.google/cli/install.sh | bash</code>，然後 <code>cd ~/Desktop/ai-practice</code>、<code>agy</code>，第一次會開瀏覽器登入 Google。Windows 用 PowerShell 照官網指令。</td><td>github.com/features/copilot/plans 選 Free → 裝 VS Code → 狀態列 Copilot 圖示「Use AI Features」→ GitHub 帳號登入。終端機版：<code>npm install -g @github/copilot</code>、<code>copilot</code>、<code>/login</code>。</td></tr>
+    <tr><td>適合</td><td>已經習慣 Gemini；想在終端機一次生成多個檔案。</td><td>想要看得到檔案、點得到按鈕的圖形介面；順便推上 GitHub。</td></tr>
   </table></div>
   <div class="grid2" style="margin-top:18px">
     <div class="prompt">請在這個資料夾建立三個子資料夾 site、slides、mandala，每個裡面各一個 index.html：site 是自我介紹首頁，slides 是低血糖處理 8 頁網頁型簡報，mandala 是可填寫、自動存檔、可列印的目標九宮格。全部單一檔案、手機好讀、字大。每做完一個先回報，等我確認再做下一個。</div>
     <div>
-      <div class="note red"><b>安全界線</b>：三個都會安裝到電腦裡、能讀寫你指定的資料夾。只在<b>練習資料夾</b>裡用，不要在放病人資料的資料夾開啟；它問「可以建立／刪除檔案嗎？」看不懂就按拒絕。額度與介面常變動，以官網當下說明為準。</div>
+      <div class="note red"><b>安全界線</b>：兩個都會安裝到電腦裡、能讀寫你指定的資料夾。只在<b>練習資料夾</b>裡用，不要在放病人資料的資料夾開啟；它問「可以建立／刪除檔案嗎？」看不懂就按拒絕。額度與介面常變動，以官網當下說明為準。</div>
       <div class="note teal">做好的三個資料夾各自建一個 GitHub 倉庫上傳（第 3 堂的「一個作品一個倉庫」），或請代理直接用 VS Code 的原始檔控制發布。</div>
     </div>
   </div>
@@ -1395,7 +1392,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 <footer>
   <div>
     <p><b style="color:#fff">糖尿病衛教團隊 AI 工具專業賦能與臨床實務應用工作坊｜第 4 堂</b><br>授課講師：鍾孟修 職能治療師｜<a href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉專</a>｜<a href="https://reurl.cc/4YbrVj" target="_blank" rel="noopener">LINE 學員社群</a>｜<a href="#" onclick="window.openReport&&window.openReport({type:'建議與想法'});return false">回報錯誤或建議</a></p>
-    <p>課程配套工具：<a href="https://mattsue1003.github.io/ltc-deid-workbench/" target="_blank" rel="noopener">去識別化工作台</a>、<a href="https://www.napkin.ai/" target="_blank" rel="noopener">Napkin AI</a>、<a href="https://opencode.ai/zht" target="_blank" rel="noopener">OpenCode</a>、<a href="https://github.com/microsoft/markitdown" target="_blank" rel="noopener">MarkItDown</a>。工具說明參考：<a href="https://help.openai.com/" target="_blank" rel="noopener">ChatGPT 說明中心</a>、<a href="https://support.claude.com/" target="_blank" rel="noopener">Claude 說明中心</a>、<a href="https://support.google.com/gemini/" target="_blank" rel="noopener">Gemini 說明中心</a>。各工具功能、方案與按鈕名稱更新頻繁，請以官方最新說明為準。課程練習全程使用合成資料。</p>
+    <p>課程配套工具：<a href="https://mattsue1003.github.io/ltc-deid-workbench/" target="_blank" rel="noopener">去識別化工作台</a>、<a href="https://www.napkin.ai/" target="_blank" rel="noopener">Napkin AI</a>、<a href="https://github.com/microsoft/markitdown" target="_blank" rel="noopener">MarkItDown</a>。工具說明參考：<a href="https://help.openai.com/" target="_blank" rel="noopener">ChatGPT 說明中心</a>、<a href="https://support.claude.com/" target="_blank" rel="noopener">Claude 說明中心</a>、<a href="https://support.google.com/gemini/" target="_blank" rel="noopener">Gemini 說明中心</a>。各工具功能、方案與按鈕名稱更新頻繁，請以官方最新說明為準。課程練習全程使用合成資料。</p>
   </div>
 </footer>
 </section>
@@ -1422,7 +1419,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <li><a href="#b1" style="--c:var(--green)"><i>B1</i>第二大腦是什麼</a></li>
       <li><a href="#b2" style="--c:var(--green)"><i>B2</i>實作：六個階段</a></li>
       <li class="tg" style="--c:var(--blue)"><i></i>檔案 × AI</li>
-      <li><a href="#s15" style="--c:var(--blue)"><i>1</i>四工具對照表</a></li>
+      <li><a href="#s15" style="--c:var(--blue)"><i>1</i>三工具對照表</a></li>
       <li><a href="#s16" style="--c:var(--blue)"><i>2</i>實作：數據與報表</a></li>
       <li><a href="#xl" style="--c:var(--blue)"><i>X</i>Excel × AI</a></li>
       <li><a href="#docs" style="--c:var(--blue)"><i>D</i>Word／PPT／PDF × AI</a></li>
@@ -1976,7 +1973,7 @@ body.list .slide.cover{display:block}
   <div class="cols" style="grid-template-columns:1.15fr 1fr">
     <div class="card t"><h3>這段 15 分鐘的順序</h3>
       <ol class="steps" style="font-size:18px">
-        <li><b>四工具對照表</b>：同一招在 ChatGPT、Claude、Gemini、OpenCode 各在哪裡按（講義第 1 節）。</li>
+        <li><b>三工具對照表</b>：同一招在 ChatGPT、Claude、Gemini 各在哪裡按（講義第 1 節）。</li>
         <li><b>數據報表實作 Ⓐ～Ⓓ</b>：一份合成資料 Excel，從檢查、達標率、圖表做到個案回饋單；講師示範 Ⓐ（講義第 2 節）。</li>
         <li><b>Excel × AI 六種搭配</b>，前三種馬上就能用（講義 X 節）。</li>
         <li><b>Word／PPT／PDF 與 Google 三件套</b>：各一個示範（講義 D、W 節）。</li>
@@ -1991,25 +1988,25 @@ body.list .slide.cover{display:block}
   <div class="foot"><span>第 4 堂｜檔案 × AI</span><span class="pg"></span></div>
 </section>
 <section data-at="s15" class="slide" id="s-tools">
-  <span class="kicker a">第二段｜四工具對照表</span>
+  <span class="kicker a">第二段｜三工具對照表</span>
   <h2 style="font-size:34px">同一招，在哪裡按？記「功能」不要記按鈕名，改版也不怕</h2>
   <table style="font-size:15px">
-    <tr><th style="width:96px">功能</th><th>ChatGPT</th><th>Claude</th><th>Gemini</th><th>OpenCode</th></tr>
-    <tr><td><b>讓 AI 懂你</b></td><td>個人化 → 自訂指示／記憶</td><td>設定 → 帳戶 → 給 Claude 的指示；記憶</td><td>個人化智慧服務 → 給 Gemini 的指令</td><td>資料夾裡的 AGENTS.md</td></tr>
-    <tr><td><b>想久一點</b></td><td>推理強度</td><td>投入程度（舊稱延伸思考）</td><td>Pro 模型／思考程度</td><td>換成較強的模型</td></tr>
-    <tr><td><b>不留記錄</b></td><td>暫時對話</td><td>無痕聊天</td><td>臨時對話</td><td>開新 session；資料留在本機</td></tr>
-    <tr><td><b>製圖</b></td><td>建立圖像＋編輯圈選</td><td>Artifacts 圖卡（HTML／SVG）</td><td>建立圖像（Nano Banana）</td><td>用程式畫數據圖表存 PNG</td></tr>
-    <tr><td><b>寫作區塊</b></td><td>寫作區塊（舊稱 Canvas）</td><td>Artifacts／Claude Docs</td><td>Canvas（匯出 .md 或雲端硬碟）</td><td>直接改資料夾裡的檔案</td></tr>
-    <tr><td><b>深度工作</b></td><td>Work</td><td>研究、Cowork</td><td>深入研究</td><td>主場：交辦整件事</td></tr>
-    <tr><td><b>專案</b></td><td>專案</td><td>專案</td><td>筆記本、技能</td><td>一個資料夾</td></tr>
-    <tr><td><b>大份 PDF</b></td><td>讀文字為主，圖表另截圖</td><td>先用 MarkItDown 轉 .md 再上傳</td><td>直接上傳；大量指引進 Notebook</td><td>叫它整個資料夾轉檔</td></tr>
+    <tr><th style="width:96px">功能</th><th>ChatGPT</th><th>Claude</th><th>Gemini</th></tr>
+    <tr><td><b>讓 AI 懂你</b></td><td>個人化 → 自訂指示／記憶</td><td>設定 → 帳戶 → 給 Claude 的指示；記憶</td><td>個人化智慧服務 → 給 Gemini 的指令</td></tr>
+    <tr><td><b>想久一點</b></td><td>推理強度</td><td>投入程度（舊稱延伸思考）</td><td>Pro 模型／思考程度</td></tr>
+    <tr><td><b>不留記錄</b></td><td>暫時對話</td><td>無痕聊天</td><td>臨時對話</td></tr>
+    <tr><td><b>製圖</b></td><td>建立圖像＋編輯圈選</td><td>Artifacts 圖卡（HTML／SVG）</td><td>建立圖像（Nano Banana）</td></tr>
+    <tr><td><b>寫作區塊</b></td><td>寫作區塊（舊稱 Canvas）</td><td>Artifacts／Claude Docs</td><td>Canvas（匯出 .md 或雲端硬碟）</td></tr>
+    <tr><td><b>深度工作</b></td><td>Work</td><td>研究、Cowork</td><td>深入研究</td></tr>
+    <tr><td><b>專案</b></td><td>專案</td><td>專案</td><td>筆記本、技能</td></tr>
+    <tr><td><b>大份 PDF</b></td><td>讀文字為主，圖表另截圖</td><td>先用 MarkItDown 轉 .md 再上傳</td><td>直接上傳；大量指引進 Notebook</td></tr>
   </table>
   <div class="cols3" style="margin-top:12px">
     <div class="card" style="font-size:15px"><h3 style="font-size:17px">ChatGPT 什麼時候用</h3><p>中文語音最自然；生圖後局部修改最順；要一口氣做出整份檔案時用 Work。</p></div>
     <div class="card" style="font-size:15px"><h3 style="font-size:17px">Claude 什麼時候用</h3><p>長文寫作、改稿語氣、分析 Excel 與報表、做互動小工具（第 5 堂）。</p></div>
-    <div class="card" style="font-size:15px"><h3 style="font-size:17px">Gemini／OpenCode</h3><p>Gemini：已在用 Google 帳號與雲端硬碟。OpenCode：一次處理很多檔、每季重跑同一套流程。</p></div>
+    <div class="card" style="font-size:15px"><h3 style="font-size:17px">Gemini 什麼時候用</h3><p>已在用 Google 帳號、Chrome、雲端硬碟；衛教圖卡初稿；深入研究後轉成資訊圖表。</p></div>
   </div>
-  <div class="note g" style="margin-top:12px;font-size:15px">三個對話工具的差距大概是 95 分和 98 分：挑一個每天用。OpenCode 是另一種用法（交辦整個資料夾），不是第四個聊天視窗。完整 11 列表格與「排程、外掛、學習模式」：<b>講義第 1 節</b>。</div>
+  <div class="note g" style="margin-top:12px;font-size:15px">三個對話工具的差距大概是 95 分和 98 分：挑一個每天用。完整 11 列表格與「排程、外掛、學習模式」：<b>講義第 1 節</b>。</div>
   <div class="foot"><span>第 4 堂｜檔案 × AI｜講義第 1 節</span><span class="pg"></span></div>
 </section>
 <section data-at="s16" class="slide" id="s-report">
@@ -2080,7 +2077,7 @@ body.list .slide.cover{display:block}
   <h2 style="font-size:34px">AI 有兩種「算」：用看的會錯，寫程式算才可靠。每次請它算數字，十條照做</h2>
   <div class="cols" style="grid-template-columns:1fr 1.3fr">
     <div>
-      <div class="card" style="font-size:15px"><h3 style="font-size:17px">兩種算法</h3><p><b>心算</b>：把表格當文字讀、直接「想」出平均，列數一多就漏列、把 7.5 讀成 75。這是幻覺的來源。<br><b>程式算</b>：寫 Python 真的加總，模型只負責寫程式和解讀。看到程式碼或「正在分析」才是這條路：ChatGPT 工作模式、Claude 分析工具、Gemini 自動執行程式碼、OpenCode 本來就在跑。</p></div>
+      <div class="card" style="font-size:15px"><h3 style="font-size:17px">兩種算法</h3><p><b>心算</b>：把表格當文字讀、直接「想」出平均，列數一多就漏列、把 7.5 讀成 75。這是幻覺的來源。<br><b>程式算</b>：寫 Python 真的加總，模型只負責寫程式和解讀。看到程式碼或「正在分析」才是這條路：ChatGPT 工作模式、Claude 分析工具、Gemini 自動執行程式碼。</p></div>
       <div class="card t" style="font-size:15px;margin-top:10px"><h3 style="font-size:17px">Excel 還是 CSV？差別在「乾不乾淨」</h3><p>第一次算、要給主任看的數字：另存「<b>CSV UTF-8</b>」再上傳。多工作表的 Excel：把要算的那張「移動或複製 → 新活頁簿」，刪掉說明列、小計、合併儲存格；非用 Excel 不可就指名「只讀『資料』工作表 A1:H301，先印前 5 列給我看」。</p></div>
     </div>
     <ol class="steps" style="font-size:14px">
@@ -2118,16 +2115,16 @@ body.list .slide.cover{display:block}
 </section>
 <section data-at="agents" class="slide" id="s-agents">
   <span class="kicker a">第三段｜終端機代理：Antigravity CLI 與 GitHub Copilot Free</span>
-  <h2 style="font-size:34px">除了 OpenCode，還有兩個免費的「交辦型」工具：一句話做出一整個資料夾</h2>
-  <p style="margin-top:-6px">第 2 堂的 OpenCode 是「在資料夾裡幫你做事的代理」。Google 與 GitHub 各有一個免費版本，流程一樣：<b>開資料夾 → 登入 → 用中文交辦 → 檔案直接出現 → 拖上 GitHub</b>。</p>
+  <h2 style="font-size:34px">兩個免費的「交辦型」工具：一句話做出一整個資料夾</h2>
+  <p style="margin-top:-6px">終端機代理是「在資料夾裡幫你做事的代理」。Google 與 GitHub 各有一個免費版本，流程一樣：<b>開資料夾 → 登入 → 用中文交辦 → 檔案直接出現 → 拖上 GitHub</b>。</p>
   <table style="font-size:16px">
-    <tr><th style="width:140px"></th><th>Antigravity CLI（Google）</th><th>GitHub Copilot Free（VS Code ＋ Copilot CLI）</th><th>OpenCode（第 2 堂）</th></tr>
-    <tr><td>這是什麼</td><td>Google 的終端機代理，指令叫 <b>agy</b>。<b>2026/6/18 起取代 Gemini CLI</b>，給個人與免費帳號使用。</td><td>GitHub 的 AI 助手：在 VS Code 編輯器裡用，也有終端機版 Copilot CLI。</td><td>開源終端機代理，可自行選擇要接的模型。</td></tr>
-    <tr><td>免費額度</td><td>個人 Google 帳號免費，<b>每週額度</b>、Google 未公布數字；需年滿 18 歲。</td><td>$0、<b>不用信用卡</b>；每月 2,000 次補全；含 Copilot CLI。</td><td>免費模型有速率限制，額度依模型。</td></tr>
-    <tr><td>登入</td><td>第一次執行會開瀏覽器用 Google 帳號登入。</td><td>GitHub 帳號（第 2 堂註冊的那個）。</td><td>依模型供應商。</td></tr>
-    <tr><td>適合</td><td>已經習慣 Gemini 的人；想在終端機裡一次生成多個檔案。</td><td>想要「看得到檔案、點得到按鈕」的圖形介面；順便直接推上 GitHub。</td><td>想切換不同免費模型。</td></tr>
+    <tr><th style="width:140px"></th><th>Antigravity CLI（Google）</th><th>GitHub Copilot Free（VS Code ＋ Copilot CLI）</th></tr>
+    <tr><td>這是什麼</td><td>Google 的終端機代理，指令叫 <b>agy</b>。<b>2026/6/18 起取代 Gemini CLI</b>，給個人與免費帳號使用。</td><td>GitHub 的 AI 助手：在 VS Code 編輯器裡用，也有終端機版 Copilot CLI。</td></tr>
+    <tr><td>免費額度</td><td>個人 Google 帳號免費，<b>每週額度</b>、Google 未公布數字；需年滿 18 歲。</td><td>$0、<b>不用信用卡</b>；每月 2,000 次補全；含 Copilot CLI。</td></tr>
+    <tr><td>登入</td><td>第一次執行會開瀏覽器用 Google 帳號登入。</td><td>GitHub 帳號（第 2 堂註冊的那個）。</td></tr>
+    <tr><td>適合</td><td>已經習慣 Gemini 的人；想在終端機裡一次生成多個檔案。</td><td>想要「看得到檔案、點得到按鈕」的圖形介面；順便直接推上 GitHub。</td></tr>
   </table>
-  <div class="note" style="margin-top:10px;font-size:16px;padding:8px 14px">三個都會安裝到電腦裡、能讀寫你指定的資料夾：<b>只在練習資料夾裡用</b>，不要在放病人資料的資料夾開啟。額度與介面常變動，以官網當下說明為準。</div>
+  <div class="note" style="margin-top:10px;font-size:16px;padding:8px 14px">兩個都會安裝到電腦裡、能讀寫你指定的資料夾：<b>只在練習資料夾裡用</b>，不要在放病人資料的資料夾開啟。額度與介面常變動，以官網當下說明為準。</div>
   <div class="foot"><span>第 4 堂｜終端機代理</span><span class="pg"></span></div>
 </section>
 <section data-at="agents" class="slide">
