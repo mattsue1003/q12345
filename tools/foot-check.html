@@ -38,12 +38,12 @@ table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid var(--li
 <div id="out" aria-live="polite"></div>
 <div class="note">平常保養：溫水洗腳（水溫低於 37°C，先用手肘試溫）、擦乾趾縫、穿合腳的鞋襪、不要赤腳走路、不要自己剪雞眼或厚繭。</div>
 <script>
-(function(){var Q=['腳底、腳背或趾縫有沒有傷口、破皮或水泡？','有沒有紅、腫、發熱，或顏色變深、變紫的地方？','有沒有新的雞眼、厚繭或裂開？','趾甲有沒有嵌進肉裡、變厚或變色？','有沒有麻、刺痛，或摸起來沒感覺的地方？','鞋子裡面有沒有小石頭、縫線凸起或磨腳的地方？'];
+(function(){var Q=['腳底、腳背或趾縫有沒有傷口、破皮或水泡？','有沒有紅、腫、發熱，或顏色變深、變紫的地方？','有沒有新的雞眼、厚繭或裂開？','趾甲有沒有嵌進肉裡、變厚或變色？','有沒有新出現、或比平常更明顯的麻、刺痛，或摸起來沒感覺的地方？','鞋子裡面有沒有小石頭、縫線凸起或磨腳的地方？'];
 var L=document.getElementById('list');
-Q.forEach(function(q,i){var d=document.createElement('div');d.className='card';d.innerHTML='<b>'+(i+1)+'. '+q+'</b><div class="row" style="margin-top:10px"><label class="row"><input type="radio" name="q'+i+'" value="n" style="min-height:28px;width:28px"> 沒有</label><label class="row"><input type="radio" name="q'+i+'" value="y" style="min-height:28px;width:28px"> 有</label></div>';L.appendChild(d)});
+Q.forEach(function(q,i){var d=document.createElement('div');d.className='card';d.innerHTML='<fieldset style="border:0;padding:0;margin:0"><legend style="font-weight:700;padding:0">'+(i+1)+'. '+q+'</legend><div class="row" style="margin-top:10px"><label class="row" style="min-height:52px;padding:6px 18px 6px 10px;border:2px solid var(--line);border-radius:12px"><input type="radio" name="q'+i+'" value="n" style="min-height:28px;width:28px"> 沒有</label><label class="row" style="min-height:52px;padding:6px 18px 6px 10px;border:2px solid var(--line);border-radius:12px"><input type="radio" name="q'+i+'" value="y" style="min-height:28px;width:28px"> 有</label></div></fieldset>';L.appendChild(d)});
 document.getElementById('done').onclick=function(){var y=[],miss=0;Q.forEach(function(q,i){var c=document.querySelector('input[name=q'+i+']:checked');if(!c)miss++;else if(c.value==='y')y.push(i+1)});var o=document.getElementById('out');
 if(miss){o.innerHTML='<div class="card">還有 '+miss+' 題沒有選，請每一題都選一個。</div>';return}
-o.innerHTML=y.length?'<div class="card warn"><b>第 '+y.join('、')+' 題選了「有」。</b><br>請不要自己處理傷口或厚繭，盡快聯絡衛教師或回診檢查。傷口有流膿、發臭、範圍變大或發燒，請當天就醫。</div>':'<div class="card okb"><b>今天沒有發現異常。</b><br>明天同一個時間再檢查一次。</div>';o.scrollIntoView({behavior:'smooth',block:'center'})};
+var shoe=y.indexOf(6)>=0,foot=y.filter(function(n){return n!==6});var h='';if(foot.length)h+='<div class="card warn"><b>第 '+foot.join('、')+' 題選了「有」。</b><br>請不要自己處理傷口或厚繭，盡快聯絡衛教師或回診檢查。傷口有流膿、發臭、範圍變大或發燒，請當天就醫。</div>';if(shoe)h+='<div class="card"><b>鞋子裡有東西或會磨腳。</b><br>把異物清掉；鞋子會磨腳請換一雙，並看一下腳上對應的位置有沒有紅或破皮。</div>';if(!y.length)h='<div class="card okb"><b>今天沒有發現異常。</b><br>明天同一個時間再檢查一次。</div>';o.innerHTML=h;o.scrollIntoView({behavior:'smooth',block:'center'})};
 document.getElementById('clr').onclick=function(){[].forEach.call(document.querySelectorAll('input[type=radio]'),function(r){r.checked=false});document.getElementById('out').innerHTML=''};})();
 </script>
 <div class="disc"><b>使用說明與免責</b><br>本工具僅供衛教說明與自我管理提醒，不能取代醫師的診斷、處方與醫療建議。這份檢查表不會儲存或傳送你的答案。身體不舒服或有疑問，請聯絡你的醫療團隊；緊急狀況請撥 119。<br>衛教單位：（請填單位名稱）｜聯絡電話：（請填）｜版本：v1｜最後檢視日期：（請填）｜內容審核：（請填審核者）</div>
