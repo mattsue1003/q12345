@@ -316,7 +316,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </header>
 <div class="topprog" id="topprog"></div>
 <div class="sbar" role="search">
-  <input id="q" type="search" placeholder="搜尋講義：例如 血壓、去識別化、PubMed、圖表、QR、Hermes" aria-label="搜尋講義">
+  <input id="q" type="search" placeholder="搜尋講義：例如 血壓、去識別化、PubMed、QR、Apps Script、Antigravity" aria-label="搜尋講義">
   <span id="qCount"></span>
   <button class="qbtn" id="qPrev" type="button" title="上一個">▲</button>
   <button class="qbtn" id="qNext" type="button" title="下一個">▼</button>
@@ -326,7 +326,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 <main class="viewport"><div class="stage">
 
 <section class="page cover" id="top" data-g="cover" data-title="封面與今日目標">
-  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>衛福部桃園醫院 糖尿病中心｜AI 賦能工作坊<em>1 / 17</em></div>
+  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>衛福部桃園醫院 糖尿病中心｜AI 賦能工作坊<em>1 / 20</em></div>
   <h1><span class="en">LESSON <b>05</b> · 講義</span>把助手調成你要的樣子，做出<span class="hl">自己的衛教微工具</span>並帶回單位用</h1>
   <p class="lede"><b>先：調整第 4 堂做的助手。</b>讓第二大腦多記血壓與飲食、把網頁和 PDF 整理成你要的格式、規定衛教小幫手可以回什麼、不回什麼。<b>再：個資與本機 AI。</b>個案資料怎麼安全地交給 AI，以及讓 AI 只在自己電腦上運算的做法。<b>接著：文獻。</b>怎麼找高品質論文、分析單篇與判讀圖表時避免 AI 出錯。<b>最後：微工具與成果落地。</b>用四段需求描述做出單頁衛教工具，加上免責標示、部署成 QR code，寫好落地計畫。</p>
   <div class="meta">
@@ -352,7 +352,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="map" data-g="map" data-title="今天的地圖" style="--c:var(--amber)">
-  <div class="eyebrow" style="--c:var(--amber)"><span class="sq"></span>總覽<em>2 / 17</em></div>
+  <div class="eyebrow" style="--c:var(--amber)"><span class="sq"></span>總覽<em>2 / 20</em></div>
   <div class="sec-head"><div class="num dk">圖</div><div><h2>今天的地圖：調整助手、顧好個資、做出微工具</h2><p>三段各有一個實作。跟不上沒關係，每一頁的提示語都可以直接複製，課後照著做也行。</p></div></div>
   <div class="grid2">
     <div class="tbl"><table>
@@ -360,13 +360,13 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <tr><td>10:00</td><td><b>回顧第 4 堂</b>：助手的 15 題通過率、第二大腦用了一週的心得</td><td><a href="lesson4.html">第 4 堂</a></td></tr>
       <tr><td>10:10</td><td><b>調整助手的共同方法</b>；<b>實作 1</b> 讓第二大腦多記血壓與飲食</td><td><a href="#adj">A1</a>、<a href="#rec">A2</a></td></tr>
       <tr><td>10:35</td><td><b>調整收集方式</b>：網頁與 PDF 的重點整理改成你要的格式</td><td><a href="#sum">A3</a></td></tr>
-      <tr><td>10:45</td><td><b>實作 2｜衛教小幫手的回覆規則</b>：可以回什麼、不回什麼、固定怎麼回</td><td><a href="#bot">A4</a></td></tr>
+      <tr><td>10:45</td><td><b>實作 2｜衛教小幫手的回覆規則</b>：可以回什麼、不回什麼、固定怎麼回；課後可用的 Apps Script 用途資料庫</td><td><a href="#bot">A4</a>、<a href="#gas">A5</a></td></tr>
       <tr><td>11:00</td><td>休息 10 分鐘</td><td></td></tr>
       <tr><td>11:10</td><td><b>個資與本機 AI</b>：個案資料的三條路、Ollama 安裝與離線確認</td><td><a href="#deid">P1</a>、<a href="#local">P2</a></td></tr>
       <tr><td>11:20</td><td><b>文獻</b>：找高品質論文、整理成證據表、單篇分析與圖表判讀（重點示範，提示語課後照做）</td><td><a href="#lit">L1</a>、<a href="#lit2">L2</a></td></tr>
       <tr><td>11:30</td><td><b>實作 3｜微工具</b>：點子庫找主題、三個範例、四段需求描述、修改指令</td><td><a href="#tool">T1</a>、<a href="#fix">T2</a></td></tr>
       <tr><td>11:45</td><td><b>法規界線與部署</b>：免責標示、QR code、平板、共用連結</td><td><a href="#law">T3</a>、<a href="#ship">T4</a></td></tr>
-      <tr><td>11:50</td><td><b>落地計畫與成果發表</b>；<b>Hermes Agent</b> 示範（進階選修）</td><td><a href="#plan">T5</a>、<a href="#hermes">H1</a></td></tr>
+      <tr><td>11:50</td><td><b>落地計畫與成果發表</b>；<b>Hermes Agent</b>、<b>模型排名與 Antigravity</b>（進階，示範與課後自學）</td><td><a href="#plan">T5</a>、<a href="#hermes">H1</a>、<a href="#rank">M1</a>、<a href="#agy">M2</a></td></tr>
       <tr><td>11:58</td><td>五堂總回顧與結語</td><td><a href="#end">結語</a></td></tr>
     </table></div>
     <div>
@@ -379,7 +379,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="adj" data-g="adj" data-title="調整助手的共同方法" style="--c:var(--mag)">
-  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>3 / 17</em></div>
+  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>3 / 20</em></div>
   <div class="sec-head"><div class="num">A1</div><div><h2>可以自由調整嗎？可以。四個步驟，三種調整都用這一套</h2><p>第 4 堂做的第二大腦和衛教小幫手，程式都在你自己的 Google 帳號裡。想加功能或改規則，不用自己寫程式：把程式交給 AI 改，再貼回去。</p></div></div>
   <div class="grid2">
     <div class="card"><h3 style="margin-top:0">四個步驟</h3>
@@ -407,7 +407,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="rec" data-g="adj" data-title="實作：多記血壓與飲食" style="--c:var(--mag)">
-  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>4 / 17</em></div>
+  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>4 / 20</em></div>
   <div class="sec-head"><div class="num">A2</div><div><h2>實作 1：讓第二大腦多記血壓、飲食熱量與三大營養素</h2><p>前提：第二大腦已做到階段 6（有「秘書.gs」）。記帳已經內建，傳「午餐 120」就會記。血壓和飲食用下面的提示語請 AI 加上去，兩個擇一先做。</p></div></div>
   <div class="grid2">
     <div><h3 style="margin-top:0">加「記血壓」的提示語</h3><div class="prompt">下面是我「第二大腦」LINE 機器人的「秘書.gs」完整程式碼（Google Apps Script）。請幫我加一個「記血壓」功能，其他功能都不要動。
@@ -460,7 +460,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="sum" data-g="adj" data-title="調整收集方式：網頁與 PDF" style="--c:var(--mag)">
-  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>5 / 17</em></div>
+  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>5 / 20</em></div>
   <div class="sec-head"><div class="num">A3</div><div><h2>調整收集方式：網頁和 PDF 要整理成什麼樣子，由你決定</h2><p>現在貼網址給第二大腦，它會抓網頁內容，整理成標題、60 字摘要、標籤和類別。想改格式，改的是「收集.gs」裡請 AI 整理的那段提示。</p></div></div>
   <div class="grid2">
     <div><h3 style="margin-top:0">改重點整理的格式（網頁、文章、文字都適用）</h3><div class="prompt">下面是我「第二大腦」LINE 機器人的「收集.gs」完整程式碼（Google Apps Script）。我想改它整理網頁和文章的方式，其他功能都不要動。
@@ -510,7 +510,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="bot" data-g="adj" data-title="實作：衛教小幫手的回覆規則" style="--c:var(--mag)">
-  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>6 / 17</em></div>
+  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>6 / 20</em></div>
   <div class="sec-head"><div class="num">A4</div><div><h2>實作 2：規定衛教小幫手可以回什麼、不回什麼、固定怎麼回</h2><p>衛教小幫手怎麼回答，由程式最上面的 SYSTEM_PROMPT 決定。那是一段中文，改它不用懂程式。先請 AI 幫你把規則寫完整，再貼進去。</p></div></div>
   <div class="grid2">
     <div><h3 style="margin-top:0">① 請 AI 幫你寫規則（把括號裡的地方改成你們科的）</h3><div class="prompt">請幫我寫一段 LINE「衛教小幫手」機器人的系統提示（給 Gemini 的角色與規則）。
@@ -572,8 +572,37 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
   <div class="card" style="margin-top:18px"><h3 style="margin-top:0">實際畫面：請 Gemini 寫回覆規則（2026/11/23 實測，使用臨時對話）</h3><div class="shots"><figure class="shot"><a href="img/l5-bot-1-prompt.jpg" target="_blank" rel="noopener"><img src="img/l5-bot-1-prompt.jpg" alt="把 ① 的提示語整段貼進 Gemini 的輸入框（圖上是貼好、還沒送出的樣子），" loading="lazy"></a><figcaption><b class="n">1</b>把 ① 的提示語整段貼進 Gemini 的輸入框（圖上是貼好、還沒送出的樣子），按右下角的箭頭送出。回覆會是一行 <code>var SYSTEM_PROMPT = …;</code>，按程式碼區塊的複製鈕，貼到程式裡取代原本那一行。</figcaption></figure></div><p style="font-size:.93rem;color:var(--muted);margin:8px 0 0">這次實測的結果：Gemini 回了一行約 530 字的規則，沒有換行、沒有多餘的單引號，貼進程式不會出錯。規則裡「（請填電話）」要自己換成衛教室的電話。沒有驗證的部分：這段規則沒有放進實際的 LINE 機器人測過，上線前請用 ③ 的六句測試。</p></div>
 </section>
 
+<section class="page" id="gas" data-g="adj" data-title="Apps Script 用途資料庫" style="--c:var(--mag)">
+  <div class="eyebrow" style="--c:var(--mag)"><span class="sq"></span>調整助手<em>7 / 20</em></div>
+  <div class="sec-head"><div class="num">A5</div><div><h2>Apps Script 用途資料庫：42 個自動化情境，附可以直接貼的提示詞</h2><p>第二大腦和衛教小幫手都是用 Google Apps Script 做的。同一套工具還能做很多事：自動寄信、整理試算表、表單回覆、日曆提醒、批次產生文件。不知道能做什麼，就從資料庫找。</p></div></div>
+  <div class="card" style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;background:var(--amber-50)"><div style="flex:1 1 320px"><div class="pill a">課後想繼續做的時候用</div><h3 style="margin:8px 0 4px">依「遇到什麼情況」找用途，複製提示詞給 AI，就會拿到做法</h3><p style="margin:0">八個類別：試算表整理、Gmail 與通知、表單與報名、日曆與提醒、文件與簡報、雲端硬碟、LINE 與機器人，以及不寫程式的 AppSheet。可以搜尋，也可以按「隨機給我一個」。</p></div><a class="btn" href="gas-ideas.html" target="_blank" rel="noopener">打開用途資料庫 ↗</a></div>
+  <div class="grid2" style="margin-top:18px">
+    <div class="card"><h3 style="margin-top:0">每一段提示詞都會請 AI 給你六樣東西</h3>
+      <ol class="steps">
+        <li>完整程式碼，要改的設定集中在最上面。</li>
+        <li>貼到哪裡：從試算表的「擴充功能 → Apps Script」開始。</li>
+        <li>怎麼設定觸發條件，或怎麼部署。</li>
+        <li>第一次執行的授權畫面會看到什麼、按哪裡。</li>
+        <li>怎麼先安全地測試一次。</li>
+        <li>最常見的三個錯誤與解法。</li>
+      </ol></div>
+    <div>
+      <div class="tbl"><table>
+        <tr><th>遇到的情況</th><th>資料庫裡的用途</th></tr>
+        <tr><td>每週都要手動數報名人數寄給主任</td><td>每週報名人數報表</td></tr>
+        <tr><td>報名的人常問有沒有報名成功</td><td>報名後自動回信</td></tr>
+        <tr><td>設備校正、證照效期常常過期才發現</td><td>到期日提醒</td></tr>
+        <tr><td>每個場次都要做一份通知單</td><td>用範本批次產生文件</td></tr>
+        <tr><td>教具誰借走了查不到</td><td>教具與設備借用 App（AppSheet）</td></tr>
+      </table></div>
+      <div class="note red" style="margin-top:14px"><b>先用測試模式</b>：會寄信或推播的程式，第一次一定只寄給自己。程式是用你的 Google 帳號在執行，能讀寫你的試算表、信件和檔案；不處理病人個資，院內帳號先確認資訊規範。</div>
+      <div class="note teal" style="margin-top:14px"><b>Apps Script 和 AppSheet 差在哪</b>：Apps Script 是寫程式讓 Google 的服務自動做事，程式可以請 AI 寫。AppSheet 是不寫程式，把試算表變成手機上可以填寫的 App。要「自動執行」選前者，要「讓同事用手機填資料」選後者。</div>
+    </div>
+  </div>
+</section>
+
 <section class="page" id="deid" data-g="priv" data-title="個資：個案資料的三條路" style="--c:var(--blue)">
-  <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>個資與本機 AI<em>7 / 17</em></div>
+  <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>個資與本機 AI<em>8 / 20</em></div>
   <div class="sec-head"><div class="num">P1</div><div><h2>擔心個資外流，是不是就不能用 AI 整理個案資料？三條路可以走</h2><p>擔心是對的：貼到網路上的 AI，資料就離開了你的電腦。但不是只能放棄，關鍵是先決定這份資料走哪一條路。</p></div></div>
   <div class="tbl"><table>
     <tr><th style="width:170px">路線</th><th>怎麼做</th><th>適合</th><th>要注意</th></tr>
@@ -599,7 +628,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="local" data-g="priv" data-title="本機 AI：讓 AI 只在自己電腦運算" style="--c:var(--blue)">
-  <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>個資與本機 AI<em>8 / 17</em></div>
+  <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>個資與本機 AI<em>9 / 20</em></div>
   <div class="sec-head"><div class="num">P2</div><div><h2>本機 AI：讓 AI 在自己的電腦上運算、不連到外部，做得到</h2><p>做得到。把開放的 AI 模型下載到電腦裡，用一個程式在本機執行，提問和回答都不會離開這台電腦。課堂用 Ollama 示範，免費，有 Windows 和 Mac 版。</p></div></div>
   <div class="grid2">
     <div class="card"><h3 style="margin-top:0">設定步驟</h3>
@@ -634,7 +663,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="lit" data-g="lit" data-title="找高品質論文與整理" style="--c:var(--blue)">
-  <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>文獻<em>9 / 17</em></div>
+  <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>文獻<em>10 / 20</em></div>
   <div class="sec-head"><div class="num">L1</div><div><h2>找論文：讓 AI 幫你想檢索式，論文本身到資料庫找</h2><p>請 AI 直接「列出幾篇論文」是最容易出錯的用法，它可能給你不存在的文章。比較可靠的做法是分工：AI 負責把問題變成檢索式，資料庫負責找真的論文。</p></div></div>
   <div class="grid2">
     <div class="card"><h3 style="margin-top:0">四個步驟</h3>
@@ -675,7 +704,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="lit2" data-g="lit" data-title="單篇分析與圖表判讀" style="--c:var(--blue)">
-  <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>文獻<em>10 / 17</em></div>
+  <div class="eyebrow" style="--c:var(--blue)"><span class="sq"></span>文獻<em>11 / 20</em></div>
   <div class="sec-head"><div class="num">L2</div><div><h2>分析單篇論文與圖表：先擷取、後解讀，數字都要有出處</h2><p>AI 讀論文最常出的錯有三種：把沒寫的補上去、把數字抄錯或換算錯、把圖上的值「看」成一個精確數字。下面的做法就是針對這三種。</p></div></div>
   <div class="grid2">
     <div><h3 style="margin-top:0">① 單篇分析：分兩步，第一步只擷取</h3><div class="prompt">附件是一篇研究論文的全文 PDF。請分兩步驟做，第一步做完先停下來等我。
@@ -713,7 +742,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="tool" data-g="tool" data-title="微工具：三個範例與四段需求" style="--c:var(--green)">
-  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>11 / 17</em></div>
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>12 / 20</em></div>
   <div class="sec-head"><div class="num">T1</div><div><h2>實作 3：微工具是什麼？三個範例，加上四段需求描述</h2><p>微工具是一個單一檔案的小網頁：一個畫面、解決一件事、用手機掃 QR code 就能打開。先玩範例，再用四段需求請 AI 做一個你自己的。</p></div></div>
   <div class="grid3">
     <div class="card"><div class="pill o">範例 1</div><h3 style="margin:8px 0 6px">低血糖處理卡</h3><p style="margin:0 0 12px">三步驟加 15 分鐘計時，可列印。</p><div class="ctas" style="margin:0"><a class="btn" href="tools/hypo-card.html" target="_blank" rel="noopener">打開 ↗</a><a class="btn o" href="tools/hypo-card.html" download>⬇ 下載原始檔</a></div></div>
@@ -755,7 +784,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="fix" data-g="tool" data-title="修改指令技巧" style="--c:var(--green)">
-  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>12 / 17</em></div>
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>13 / 20</em></div>
   <div class="sec-head"><div class="num">T2</div><div><h2>修改指令：第一版通常只有六十分，靠這五招改到能用</h2><p>不用重做。指出哪裡、改成什麼、其他不要動，一次改一件事。</p></div></div>
   <div class="grid2">
     <div class="card"><h3 style="margin-top:0">五個技巧</h3>
@@ -785,7 +814,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="law" data-g="tool" data-title="法規界線與免責標示" style="--c:var(--green)">
-  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>13 / 17</em></div>
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>14 / 20</em></div>
   <div class="sec-head"><div class="num">T3</div><div><h2>法規界線：只做衛教說明與自我管理提醒</h2><p>工具一旦開始替人判斷病情或決定治療，就可能被當成醫療器材軟體來管理。課程做的微工具，守在衛教與自我管理這一邊。</p></div></div>
   <div class="grid2">
     <div>
@@ -815,7 +844,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="ship" data-g="tool" data-title="部署：QR code、平板、共用連結" style="--c:var(--green)">
-  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>14 / 17</em></div>
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>15 / 20</em></div>
   <div class="sec-head"><div class="num">T4</div><div><h2>部署：讓病人和同事打得開，三種方式</h2><p>工具做好只是一個 .html 檔。要讓別人用，先把它放到一個網址，再把網址變成 QR code 或平板上的圖示。</p></div></div>
   <div class="grid2">
     <div class="card"><h3 style="margin-top:0">① 先有網址：放上 GitHub Pages</h3>
@@ -848,7 +877,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="plan" data-g="tool" data-title="落地計畫與成果發表" style="--c:var(--green)">
-  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>15 / 17</em></div>
+  <div class="eyebrow" style="--c:var(--green)"><span class="sq"></span>微工具<em>16 / 20</em></div>
   <div class="sec-head"><div class="num">T5</div><div><h2>落地計畫：工具能不能繼續被用，看這一頁</h2><p>填好下面的表，就是你今天的成果發表內容。填的內容只存在這台裝置的瀏覽器，可以複製成文字貼到 LINE 群或科內文件。</p></div></div>
   <div class="grid2">
     <div class="card" id="planForm"><h3 style="margin-top:0">我的落地計畫</h3>
@@ -877,7 +906,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 </section>
 
 <section class="page" id="hermes" data-g="her" data-title="Hermes Agent：自己電腦上的 AI 代理" style="--c:var(--amber)">
-  <div class="eyebrow" style="--c:var(--amber)"><span class="sq"></span>進階<em>16 / 17</em></div>
+  <div class="eyebrow" style="--c:var(--amber)"><span class="sq"></span>進階<em>17 / 20</em></div>
   <div class="sec-head"><div class="num dk">H1</div><div><h2>Hermes Agent：裝在自己電腦上、會記住你、會自己排程的 AI 代理</h2><p>進階選修，課堂由講師示範。Hermes Agent（常簡稱 Hermes AI）是 Nous Research 做的開放原始碼 AI 代理，MIT 授權。它在你的電腦上執行，可以操作檔案、記住你的偏好、把做過的事存成技能，也能接上 LINE 等通訊軟體和排定每天自動做的事。</p></div></div>
   <div class="grid2">
     <div>
@@ -918,8 +947,136 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
   </div>
 </section>
 
+<section class="page" id="rank" data-g="mdl" data-title="模型排名怎麼看" style="--c:var(--amber)">
+  <div class="eyebrow" style="--c:var(--amber)"><span class="sq"></span>模型與 Antigravity<em>18 / 20</em></div>
+  <div class="sec-head"><div class="num dk">M1</div><div><h2>模型排名：現在誰比較強？先看是比什麼</h2><p>排名每週都在變，下面是 2026/11/22 的快照。記數字沒有用，要記的是：不同用途排名不同、前幾名差距很小、最強的模型不一定在你的方案裡。</p></div></div>
+  <div class="grid3">
+    <div class="card"><h3 style="margin-top:0">一般對話（Arena 文字榜）</h3>
+      <div class="tbl"><table>
+        <tr><th style="width:36px"></th><th>模型</th><th style="width:64px">分數</th></tr>
+        <tr><td>1</td><td>Gemini 4 Carbon</td><td>1527</td></tr>
+        <tr><td>2</td><td>Gemini 4 Argon</td><td>1520</td></tr>
+        <tr><td>3</td><td>Gemini 4 Neon</td><td>1512</td></tr>
+        <tr><td>4</td><td>Muse Wonder（Meta）</td><td>1512</td></tr>
+        <tr><td>5</td><td>Claude Opus 5.5</td><td>1507</td></tr>
+        <tr><td>6</td><td>Claude Fable 5</td><td>1504</td></tr>
+      </table></div>
+      <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">真人盲測投票。第 1 名到第 10 名只差 26 分，日常使用感覺不太出來。</p></div>
+    <div class="card"><h3 style="margin-top:0">做網頁與小工具（Arena WebDev 榜）</h3>
+      <div class="tbl"><table>
+        <tr><th style="width:36px"></th><th>模型</th><th style="width:64px">分數</th></tr>
+        <tr><td>1</td><td>Claude Fable 5.2</td><td>1822</td></tr>
+        <tr><td>2</td><td>Claude Opus 5.5</td><td>1820</td></tr>
+        <tr><td>3</td><td>Claude Sonnet 5.5</td><td>1772</td></tr>
+        <tr><td>4</td><td>Gemini 4 Carbon</td><td>1769</td></tr>
+        <tr><td>5</td><td>Gemini 4 Neon</td><td>1766</td></tr>
+        <tr><td>6</td><td>GPT-6 Astra</td><td>1764</td></tr>
+      </table></div>
+      <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">比的是做出來的網頁好不好用。今天做微工具，看這一張比較準。</p></div>
+    <div class="card"><h3 style="margin-top:0">綜合能力（Artificial Analysis 指數）</h3>
+      <div class="tbl"><table>
+        <tr><th style="width:36px"></th><th>模型</th><th style="width:64px">指數</th></tr>
+        <tr><td>1</td><td>Claude Fable 5.2</td><td>65</td></tr>
+        <tr><td>2</td><td>GPT-6.2 Astra</td><td>62</td></tr>
+        <tr><td>3</td><td>Gemini 4 Neon</td><td>61</td></tr>
+        <tr><td>4</td><td>Gemini 4 Carbon</td><td>60</td></tr>
+        <tr><td>5</td><td>Claude Opus 5.5</td><td>59</td></tr>
+        <tr><td>6</td><td>GPT-6.2 Sol</td><td>57</td></tr>
+      </table></div>
+      <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">用多種測驗題算出來的綜合分數，不是真人投票。</p></div>
+  </div>
+  <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">資料來源：Arena（原 LMArena）文字榜與 WebDev 榜，頁面日期 2026/11/22；Artificial Analysis 模型排行榜，2026/11/24 讀取。表格只列課程會用到的 Google、Anthropic、OpenAI、Meta 四家，各取前六名，其他廠商的模型沒有列入。</p>
+  <div class="grid2" style="margin-top:18px">
+    <div class="card"><h3 style="margin-top:0">排名要這樣讀</h3>
+      <ul style="margin:0;padding-left:1.2em">
+        <li><b>先問是比什麼</b>：對話、寫程式、做網頁、看圖，各有各的榜。同一個模型在不同榜可能差很多名。</li>
+        <li><b>看差距，不只看名次</b>：差幾分的模型實際用起來差不多，介面順不順手、有沒有額度反而比較有感。</li>
+        <li><b>確認自己用不用得到</b>：榜首常常只在最貴的方案。例如 Gemini 4 Carbon 目前在 Antigravity 只有 Ultra 方案有。</li>
+        <li><b>括號裡的 High、Max 是「想多久」</b>：同一個模型開到最高的思考強度才是榜上的成績，平常預設的設定會低一些。</li>
+        <li><b>數字會過期</b>：要用的時候打開下面的連結看最新的。</li>
+      </ul>
+      <div class="ctas" style="margin:12px 0 0"><a class="btn" href="https://arena.ai/leaderboard/text" target="_blank" rel="noopener">Arena 文字榜 ↗</a><a class="btn o" href="https://arena.ai/leaderboard/code/webdev" target="_blank" rel="noopener">Arena WebDev 榜 ↗</a><a class="btn o" href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis ↗</a></div></div>
+    <div>
+      <div class="tbl"><table>
+        <tr><th>你要做的事</th><th>怎麼選</th></tr>
+        <tr><td>日常問答、改寫、翻譯</td><td>三家都夠用，挑你已經有帳號、最順手的那一家</td></tr>
+        <tr><td>做微工具、寫 Apps Script</td><td>看 WebDev 榜；手上有 Google AI Pro 的話，在 Antigravity 裡可以同時選 Gemini 4 和 Claude 的模型（下一頁）</td></tr>
+        <tr><td>讀論文、整理多份文件</td><td>重點不是哪個模型最強，是用有附來源的工具（Gemini 筆記本、專案）</td></tr>
+        <tr><td>含個資、不能上傳</td><td>不看排名，走去識別化或本機 AI（P1、P2）</td></tr>
+      </table></div>
+      <div class="note teal" style="margin-top:14px"><b>給已經訂閱 Gemini 的同學</b>：你付的 Google AI Pro 不只能在 Gemini 對話裡用，也包含 Antigravity 的額度，而且可以用到榜上前幾名的模型。下一頁教怎麼用。</div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="agy" data-g="mdl" data-title="Antigravity：訂了 Gemini 就能用的代理工具" style="--c:var(--amber)">
+  <div class="eyebrow" style="--c:var(--amber)"><span class="sq"></span>模型與 Antigravity<em>19 / 20</em></div>
+  <div class="sec-head"><div class="num dk">M2</div><div><h2>Antigravity：有訂 Gemini 的人，手上已經有一個很強的代理工具</h2><p>Antigravity 是 Google 的代理式開發平台：你用中文交辦，它在你指定的資料夾裡規劃、寫檔案、開瀏覽器測試，做完給你看成果。有桌面 App、終端機版（指令 agy）和網頁版，用個人 Google 帳號登入。</p></div></div>
+  <div class="grid2">
+    <div>
+      <div class="tbl"><table>
+        <tr><th style="width:130px">方案</th><th>可以用的模型</th><th>額度</th></tr>
+        <tr><td>沒有訂閱</td><td>Gemini 3.8 Flash（目前另外附的幾個模型到 2026/11/30 為止）</td><td>每週更新一次</td></tr>
+        <tr><td>Google AI Pro</td><td>Gemini 4 Neon、Argon、Hydrogen、Orchestrator、Gemini 3.8 Flash、Claude Sonnet 5.5、Claude Opus 5.5</td><td>每 5 小時更新，直到達到每週上限</td></tr>
+        <tr><td>Google AI Ultra</td><td>以上全部，再加 Gemini 4 Carbon</td><td>最高</td></tr>
+      </table></div>
+      <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">Google AI Plus 不包含需要付費方案的模型，要 Pro 以上。試用期的 Pro 能用的模型比較少。公司或學校的 Workspace 帳號只有少量起始額度，請用個人 Google 帳號。需年滿 18 歲；台灣在支援地區內。方案內容會調整，以官方頁面為準。</p>
+      <div class="card" style="margin-top:14px"><h3 style="margin-top:0">安裝與登入</h3>
+        <ol class="steps">
+          <li>到 antigravity.google/download 下載桌面 App。Mac 需要 macOS 13 以上，把 Antigravity 拖進「應用程式」；Windows 需要 64 位元的 Windows 10 以上，執行安裝檔照畫面做。</li>
+          <li>打開 App，用個人 Google 帳號登入。</li>
+          <li>先到設定確認權限（見下方安全設定），再開一個練習用的資料夾。</li>
+        </ol>
+        <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">習慣終端機的人可以裝 CLI，裝好後輸入 <code>agy</code> 啟動。Mac 的 Gemini App 上方也有 Antigravity 入口，但目前只支援英文。</p><div class="prompt">curl -fsSL https://antigravity.google/cli/install.sh | bash</div><div class="prompt">irm https://antigravity.google/cli/install.ps1 | iex</div>
+        <p style="font-size:.93rem;color:var(--muted);margin:6px 0 0">上面第一段是 Mac 與 Linux 的終端機指令，第二段是 Windows PowerShell 的指令。</p>
+        <div class="ctas" style="margin:12px 0 0"><a class="btn" href="https://antigravity.google/download" target="_blank" rel="noopener">下載頁 ↗</a><a class="btn o" href="https://antigravity.google/docs/getting-started" target="_blank" rel="noopener">官方入門 ↗</a><a class="btn o" href="https://antigravity.google/pricing" target="_blank" rel="noopener">方案與模型 ↗</a></div></div>
+    </div>
+    <div>
+      <div class="card"><h3 style="margin-top:0">用它做一個微工具：五個步驟</h3>
+        <ol class="steps">
+          <li><b>開資料夾</b>：在桌面建一個 <code>ai-practice</code> 資料夾，在 Antigravity 裡打開它。只在這個資料夾裡工作。</li>
+          <li><b>選模型</b>：在輸入框的模型選單選一個。做網頁小工具可以先試 Gemini 4 Neon 或 Claude Opus 5.5，兩個都在 Pro 方案裡。</li>
+          <li><b>先要計畫</b>：貼上需求，並請它先給計畫（也可以輸入 <code>/plan</code>）。它會產生一份實作計畫，看過沒問題再按「Proceed」。</li>
+          <li><b>看成果</b>：做完它會列出產生的檔案與說明（Artifacts），也可以請它用內建瀏覽器打開檢查。</li>
+          <li><b>修改與上線</b>：照 T2 的修改技巧一次改一件；滿意後把 index.html 上傳到 GitHub Pages（T4）。</li>
+        </ol></div>
+      <h3>可以直接貼的第一個交辦</h3><div class="prompt">請在這個資料夾做一個單一 HTML 檔的衛教小工具，檔名 index.html，需求如下：
+
+一、誰在什麼情境用
+第 2 型糖尿病的長者與家屬，在家或衛教室平板使用。
+
+二、要做到哪些事
+「回診前準備清單」：可勾選的準備項目（血糖紀錄、藥袋、健保卡），以及三格「想問醫師的問題」可以自己打字，按一下可以列印成一頁。
+
+三、畫面與限制
+單一檔案、不連網也能用；字體至少 20px、按鈕夠大；不收集任何個人資料；不做診斷與劑量建議；頁尾放免責聲明與「衛教單位：（請填）｜版本 v1」。
+
+四、怎麼算做好
+我會打開檢查：項目可以勾選、問題打得進去、列印預覽是一頁。
+
+請先給我實作計畫，我確認後再開始做。做完用內建瀏覽器打開檢查一次，並告訴我檔案在哪裡。</div>
+    </div>
+  </div>
+  <div class="grid2" style="margin-top:18px">
+    <div class="card"><h3 style="margin-top:0">衛教團隊可以拿它做什麼</h3>
+      <div class="tbl"><table>
+        <tr><th>用途</th><th>怎麼交辦</th></tr>
+        <tr><td>做衛教微工具</td><td>從<a href="tool-ideas.html" target="_blank" rel="noopener">微工具點子庫</a>複製一段需求貼進去</td></tr>
+        <tr><td>寫 Apps Script</td><td>從 <a href="gas-ideas.html" target="_blank" rel="noopener">Apps Script 用途資料庫</a>複製提示詞，請它把程式存成 .gs 檔並附上貼上步驟</td></tr>
+        <tr><td>一次做多個檔案</td><td>「在這個資料夾建立三個子資料夾，各放一個工具」；它可以同時跑幾個代理</td></tr>
+        <tr><td>整理一批公開文件</td><td>「把這個資料夾裡的衛教單張依主題改檔名，並做一份文件清單」</td></tr>
+        <tr><td>改別人給的工具</td><td>把 .html 檔放進資料夾，說「依這個檔案修改：……，其他不要動」</td></tr>
+      </table></div></div>
+    <div>
+      <div class="note red"><b>安全設定，第一次用先看</b>：設定 → General → Global Permissions → Permission Preset。選「Request Review」（每個終端機指令都先問你）或預設的「Default」（指令在沙盒裡執行）。不要選「Turbo」，那會讓它不經確認執行任何指令。只在練習資料夾裡用，不要打開放病人資料的資料夾；院內電腦要先經資訊室同意才能安裝。</div>
+      <div class="note" style="margin-top:14px"><b>資料會送到雲端</b>：你交辦的內容和資料夾裡被讀到的檔案會送到模型那一端。設定面板裡可以關閉資料收集，但這不等於可以放個資。含個資的工作走 P1、P2 的做法。</div>
+      <div class="note teal" style="margin-top:14px"><b>和其他工具怎麼分</b>：在對話視窗裡做微工具（T1）最簡單，適合第一次做。Antigravity 適合要做好幾個檔案、要反覆修改、或想讓它自己測試的時候。第 4 堂介紹過的終端機代理是同一類工具。<br><br>這一頁依官方文件整理（2026/11/24 讀取），講師沒有在課程電腦上逐項實測，介面與方案以官方頁面為準。</div>
+    </div>
+  </div>
+</section>
+
 <section class="page" id="end" data-g="end" data-title="五堂總回顧與結語" style="--c:var(--lime)">
-  <div class="eyebrow" style="--c:var(--lime)"><span class="sq"></span>收尾<em>17 / 17</em></div>
+  <div class="eyebrow" style="--c:var(--lime)"><span class="sq"></span>收尾<em>20 / 20</em></div>
   <div class="sec-head"><div class="num dk">✓</div><div><h2>五堂總回顧：你現在手上有的東西</h2><p>每一堂的講義都留在線上，隨時可以回來查。工具的功能與按鈕名稱會變，遇到對不上的地方，以官方說明和當天畫面為準。</p></div></div>
   <div class="tbl"><table>
     <tr><th style="width:90px">堂次</th><th>主題</th><th>帶走的東西</th><th style="width:120px">講義</th></tr>
@@ -954,7 +1111,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
 <button class="navbtn prev" id="prev" type="button" aria-label="上一頁">←<span>上一頁</span></button>
 <button class="navbtn next" id="next" type="button" aria-label="下一頁"><span id="nextLabel">下一頁</span>→</button>
 <nav class="toc" id="toc" aria-label="目錄"><div class="toc-in">
-  <h2>目錄：17 頁</h2>
+  <h2>目錄：20 頁</h2>
   <ol>
       <li class="tg" style="--c:var(--ink)"><i></i>開始</li>
       <li><a href="#top" style="--c:var(--ink)"><i>首</i>封面與今日目標</a></li>
@@ -964,6 +1121,7 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <li><a href="#rec" style="--c:var(--mag)"><i>A2</i>實作：多記血壓與飲食</a></li>
       <li><a href="#sum" style="--c:var(--mag)"><i>A3</i>調整收集方式：網頁與 PDF</a></li>
       <li><a href="#bot" style="--c:var(--mag)"><i>A4</i>實作：衛教小幫手的回覆規則</a></li>
+      <li><a href="#gas" style="--c:var(--mag)"><i>A5</i>Apps Script 用途資料庫</a></li>
       <li class="tg" style="--c:var(--blue)"><i></i>個資與本機 AI</li>
       <li><a href="#deid" style="--c:var(--blue)"><i>P1</i>個資：個案資料的三條路</a></li>
       <li><a href="#local" style="--c:var(--blue)"><i>P2</i>本機 AI：讓 AI 只在自己電腦運算</a></li>
@@ -978,6 +1136,8 @@ body.scroll .page{border-radius:0;box-shadow:none;padding:38px max(24px,calc((10
       <li><a href="#plan" style="--c:var(--green)"><i>T5</i>落地計畫與成果發表</a></li>
       <li class="tg" style="--c:var(--amber)"><i></i>進階</li>
       <li><a href="#hermes" style="--c:var(--amber)"><i class="dk">H1</i>Hermes Agent：自己電腦上的 AI 代理</a></li>
+      <li><a href="#rank" style="--c:var(--amber)"><i class="dk">M1</i>模型排名怎麼看</a></li>
+      <li><a href="#agy" style="--c:var(--amber)"><i class="dk">M2</i>Antigravity：訂了 Gemini 就能用的代理工具</a></li>
       <li class="tg" style="--c:var(--lime)"><i></i>收尾</li>
       <li><a href="#end" style="--c:var(--lime)"><i class="dk">✓</i>五堂總回顧與結語</a></li>
   </ol>
